@@ -83,7 +83,7 @@ class PageGtk(PageBase):
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
             builder.connect_signals(self)
 
-            self.page = builder.get_object('stepPartAsk')
+            self.page_ask = builder.get_object('stepPartAsk')
             self.page_auto = builder.get_object('stepPartAuto')
             self.page_advanced = builder.get_object('stepPartAdvanced')
 
@@ -158,7 +158,7 @@ class PageGtk(PageBase):
             self.partition_edit_mount_combo.child.set_activates_default(True)
 
             self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
-            self.current_page = self.page
+            self.current_page = self.page_ask
 
             # Set some parameters that do not change between runs of the plugin
             release = misc.get_release()
@@ -167,15 +167,29 @@ class PageGtk(PageBase):
             self.resizewidget.get_child2().child.set_property('title', release.name)
         except Exception, e:
             self.debug('Could not create partman page: %s', e)
-            self.page = None
-        self.plugin_widgets = self.page
+            self.page_ask = None
+        self.plugin_widgets = self.page_ask
 
-    def plugin_get_current_page(self):
-        if self.current_page == self.page:
-            self.plugin_is_install = False
-        else:
-            self.plugin_is_install = True
-        return self.current_page
+    #def plugin_get_current_page(self):
+    #    if self.current_page == self.page_ask:
+    #        self.plugin_is_install = False
+    #    else:
+    #        self.plugin_is_install = True
+    #    return self.current_page
+    
+    # TODO: add back handler as well so we can finally return to the ask page
+    # on back press. Will require extensive testing.
+    def plugin_on_next_clicked(self):
+        if self.plugin_is_install:
+            return False
+
+        if self.current_page == self.page_ask:
+            if not self.custom_partitioning.get_active():
+                self.current_page = self.page_auto
+                self.controller.go_to_page(self.current_page)
+                self.controller.toggle_install_button(True)
+                self.plugin_is_install = True
+        return True
 
     def set_disk_layout(self, layout):
         self.disk_layout = layout
@@ -248,9 +262,29 @@ class PageGtk(PageBase):
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
     def part_ask_option_changed (self, unused_widget):
-        '''The use has selected either the resize or use entire disk option on
-        the ask page.'''
-        self.part_auto_select_drive_changed(None)
+        '''The use has selected one of the automatic partitioning options.'''
+
+        # TODO: fix the size of the buttons changing by doing a size request of
+        # both Next and Install Now when the language changes and do a
+        # size_request on whichever is biggest.
+        about_to_install = False
+        if self.resize_use_free.get_active():
+            if 'biggest_free' in self.extra_options:
+                # NOTE: biggest_free only offers the largest unpartitioned
+                # space across all disks.
+                about_to_install = True
+        elif self.reuse_partition.get_active():
+            pass
+        elif self.use_device.get_active():
+            if len(self.extra_options['use_device']) == 1:
+                about_to_install = True
+        elif self.custom_partitioning.get_active():
+            pass
+
+        self.controller.toggle_install_button(about_to_install)
+        self.plugin_is_install = about_to_install
+        if not about_to_install:
+            self.part_auto_select_drive_changed(None)
 
     def initialize_resize_mode(self):
         self.use_entire_disk = False
@@ -449,10 +483,14 @@ class PageGtk(PageBase):
             # No resizeable disks.  Select the first one.
             self.part_auto_select_drive.set_active(0)
 
+        # Process the default selection
+        self.part_ask_option_changed(None)
+
         # Make sure we're on the autopartitioning page.
-        self.current_page = self.page
+        self.current_page = self.page_ask
 
     def get_autopartition_choice (self):
+        # TODO fix resizing not showing the progress_section
         # TODO somehow remember previous choice on back press.
         if self.custom_partitioning.get_active():
             return self.extra_options['manual'], None
@@ -1694,9 +1732,13 @@ class Page(plugin.Plugin):
                 for disk in resize:
                     if resize[disk][5] - resize[disk][1] > biggest_free:
                         resize_or_free = 'resize'
+                        self.debug('Partman: dropping biggest_free option.')
+                        del self.extra_options['biggest_free']
                         break
                 if resize_or_free is None:
                     resize_or_free = 'biggest_free'
+                    self.debug('Partman: dropping resize option.')
+                    del self.extra_options['resize']
             else:
                 resize_or_free = 'resize'
         elif 'biggest_free' in self.extra_options:

@@ -171,6 +171,9 @@ class Controller(ubiquity.frontend.base.Controller):
             self._wizard.navigation_control.hide()
         self._wizard.refresh()
 
+    def toggle_install_button(self, set_to_install=True):
+        self._wizard.toggle_install_button(set_to_install)
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
@@ -1048,6 +1051,13 @@ class Wizard(BaseFrontend):
         self.history.pop()
         return self.pages.index(self.history[-1][0])
 
+    def toggle_install_button(self, set_to_install=True):
+        if set_to_install:
+            self.next.set_label(self.get_string('install_button'))
+        else:
+            self.next.set_label('gtk-go-forward')
+            self.translate_widget(self.next)
+
     def set_page(self, n):
         self.run_automation_error_cmd()
         # We only stop the backup process when we're on a page where questions
@@ -1088,11 +1098,7 @@ class Wizard(BaseFrontend):
         if not cur:
             return False
 
-        if is_install and not self.oem_user_config:
-            self.next.set_label(self.get_string('install_button'))
-        else:
-            self.next.set_label("gtk-go-forward")
-            self.translate_widget(self.next)
+        self.toggle_install_button(is_install and not self.oem_user_config)
 
         num = self.steps.page_num(cur)
         if num < 0:
@@ -1233,6 +1239,12 @@ class Wizard(BaseFrontend):
             return
 
         self.allow_change_step(False)
+        ui = self.pages[self.pagesindex].ui
+        if hasattr(ui, 'plugin_on_next_clicked'):
+            if ui.plugin_on_next_clicked():
+                # Stop processing and return to the page.
+                self.allow_change_step(True)
+                return
 
         step = self.page_name(self.steps.get_current_page())
 
@@ -1240,21 +1252,6 @@ class Wizard(BaseFrontend):
         # entering. At present it's a little awkward to define actions that
         # occur upon entering a page without unwanted side-effects when the
         # user tries to go forward but fails due to validation.
-
-        # FIXME UGH.  I don't want this outside of the plugin.
-        if step == 'stepPartAsk':
-            self.next.set_label(self.get_string('install_button'))
-            if not self.custom_partitioning.get_active():
-                self.set_current_page(self.steps.page_num(self.stepPartAuto))
-                self.allow_change_step(True)
-                return
-        if step in ("stepPartAuto", "stepPartAdvanced"):
-            # TODO Ideally this should be done in the base frontend or the
-            # partitioning component itself.
-            options = misc.grub_options()
-            self.grub_options.clear()
-            for opt in options:
-                self.grub_options.append(opt)
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()
@@ -1397,6 +1394,10 @@ class Wizard(BaseFrontend):
                 dbfilter.start(auto_process=True)
 
         elif finished_step == 'ubi-partman':
+            options = misc.grub_options()
+            self.grub_options.clear()
+            for opt in options:
+                self.grub_options.append(opt)
             self.installing = True
             self.lockdown_environment()
             self.progress_section.show()
