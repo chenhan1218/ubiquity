@@ -275,9 +275,6 @@ class PageGtk(PageBase):
     def part_ask_option_changed (self, unused_widget):
         '''The use has selected one of the automatic partitioning options.'''
 
-        # TODO: fix the size of the buttons changing by doing a size request of
-        # both Next and Install Now when the language changes and do a
-        # size_request on whichever is biggest.
         about_to_install = False
         if self.resize_use_free.get_active():
             if 'biggest_free' in self.extra_options:

@@ -327,6 +327,18 @@ class PageGtk(PageBase):
             self.try_ubuntu.set_size_request(install_w, -1)
             self.install_ubuntu.set_size_request(install_w, -1)
 
+        # Make the forward button a consistent size, regardless of its text.
+        install_label = i18n.get_string('install_button', lang)
+        next_button = self.controller._wizard.next
+        next_label = next_button.get_label()
+        next_w = next_button.size_request()[0]
+        next_button.set_label(install_label)
+        install_w = next_button.size_request()[0]
+        if next_w > install_w:
+            next_button.set_size_request(next_w, -1)
+        else:
+            next_button.set_size_request(install_w, -1)
+
         self.update_release_notes_label()
         for w in self.page.get_children():
             w.show()
