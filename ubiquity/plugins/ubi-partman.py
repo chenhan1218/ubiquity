@@ -1807,10 +1807,6 @@ class Page(plugin.Plugin):
                     desc = self.extended_description(q)
                     opt = PartitioningOption(title, desc)
                     options[resize_or_free] = opt
-                    # TODO: or biggest_free, choose one of the two here,
-                    # presumably whichever is bigger. Calculated at number
-                    # crunching above, of course, as it could be used in other
-                    # branches.
 
         elif os_count == 2 and len(ubuntu_systems) == 1:
             # TODO: verify that ubuntu_systems[0] is the same partition as one
@@ -1846,7 +1842,6 @@ class Page(plugin.Plugin):
                 title = self.description(q)
                 desc = self.extended_description(q)
                 opt = PartitioningOption(title, desc)
-                # TODO: or biggest_free.  See above note.
                 options[resize_or_free] = opt
 
         print options
