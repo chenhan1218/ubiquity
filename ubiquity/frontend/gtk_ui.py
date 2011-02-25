@@ -1275,6 +1275,12 @@ class Wizard(BaseFrontend):
             return
 
         self.allow_change_step(False)
+        ui = self.pages[self.pagesindex].ui
+        if hasattr(ui, 'plugin_on_back_clicked'):
+            if ui.plugin_on_back_clicked():
+                # Stop processing and return to the page.
+                self.allow_change_step(True)
+                return
 
         self.backup = True
         self.stay_on_page = False

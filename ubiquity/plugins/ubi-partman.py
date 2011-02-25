@@ -177,8 +177,6 @@ class PageGtk(PageBase):
     #        self.plugin_is_install = True
     #    return self.current_page
     
-    # TODO: add back handler as well so we can finally return to the ask page
-    # on back press. Will require extensive testing.
     def plugin_on_next_clicked(self):
         if self.plugin_is_install:
             return False
@@ -190,6 +188,19 @@ class PageGtk(PageBase):
                 self.controller.toggle_install_button(True)
                 self.plugin_is_install = True
         return True
+
+    def plugin_on_back_clicked(self):
+        if self.current_page in self.plugin_optional_widgets:
+            self.current_page = self.page_ask
+            self.controller.go_to_page(self.current_page)
+            # If we arrived at a second partitioning page, then the option
+            # selected on the first page would not cause the forward button to
+            # be marked as Install Now.
+            self.controller.toggle_install_button(False)
+            self.plugin_is_install = False
+            return True
+        else:
+            return False
 
     def set_disk_layout(self, layout):
         self.disk_layout = layout
