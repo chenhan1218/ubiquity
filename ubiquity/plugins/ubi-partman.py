@@ -1899,15 +1899,16 @@ class Page(plugin.Plugin):
                     key = biggest_free[0][2]
                     self.extra_options['biggest_free'] = (key, size)
 
+                # TODO: Add misc.find_in_os_prober(info[5]) ...and size?
                 reuse = self.find_script(menu_options, 'reuse')
                 if reuse:
-                    self.extra_options['reuse'] = {}
+                    self.extra_options['reuse'] = []
                     r = self.extra_options['reuse']
                     for option in reuse:
                         dev, p_id = self.split_devpart(option[1])
                         parted.select_disk(dev)
                         info = parted.partition_info(p_id)
-                        r[option[2]] = (info[5])
+                        r.append((option[2], info[5]))
 
 
             self.ui.set_disk_layout(layout)
