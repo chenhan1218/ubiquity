@@ -115,7 +115,7 @@
                     <property name="pixbuf">../pixmaps/partitioner/reinstall.png</property>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
@@ -193,7 +193,7 @@
                     <property name="pixbuf">../pixmaps/partitioner/install.png</property>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
@@ -290,7 +290,7 @@
                     <property name="pixbuf">../pixmaps/partitioner/manual.png</property>
                   </object>
                   <packing>
-                    <property name="expand">True</property>
+                    <property name="expand">False</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
