@@ -2563,6 +2563,8 @@ class Page(plugin.Plugin):
                 autopartition_choice = self.reuse_desc
             elif autopartition_choice == 'use_device':
                 autopartition_choice = self.some_device_desc
+            elif autopartition_choice == 'manual':
+                autopartition_choice = self.manual_desc
             self.preseed_as_c(self.current_question, autopartition_choice,
                               seen=False)
             # Don't exit partman yet.
