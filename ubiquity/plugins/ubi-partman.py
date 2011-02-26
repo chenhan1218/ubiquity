@@ -176,6 +176,17 @@ class PageGtk(PageBase):
     
     def plugin_on_next_clicked(self):
         if self.current_page == self.page_ask:
+            if self.reuse_partition.get_active():
+                title = self.reuse_partition_title.get_text()
+            elif self.custom_partitioning.get_active():
+                title = self.custom_partitioning_title.get_text()
+            elif self.resize_use_free.get_active():
+                title = self.resize_use_free_title.get_text()
+            elif self.use_device.get_active():
+                title = self.use_device_title.get_text()
+            self.controller._wizard.page_title.set_markup(
+                '<span size="xx-large">%s</span>' % title)
+
             if not self.custom_partitioning.get_active():
                 self.current_page = self.page_auto
                 self.controller.go_to_page(self.current_page)
@@ -193,6 +204,9 @@ class PageGtk(PageBase):
 
     def plugin_on_back_clicked(self):
         if self.current_page in self.plugin_optional_widgets:
+            title = self.controller.get_string(self.plugin_title)
+            self.controller._wizard.page_title.set_markup(
+                '<span size="xx-large">%s</span>' % title)
             self.current_page = self.page_ask
             self.controller.go_to_page(self.current_page)
             # If we arrived at a second partitioning page, then the option
