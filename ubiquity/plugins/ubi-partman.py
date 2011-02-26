@@ -186,6 +186,11 @@ class PageGtk(PageBase):
                 title = self.use_device_title.get_text()
             self.controller._wizard.page_title.set_markup(
                 '<span size="xx-large">%s</span>' % title)
+            
+            if self.resize_use_free.get_active():
+                self.initialize_resize_mode()
+            elif self.use_device.get_active():
+                self.initialize_use_disk_mode()
 
             if not self.custom_partitioning.get_active():
                 self.current_page = self.page_auto
@@ -230,7 +235,7 @@ class PageGtk(PageBase):
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
 
-        partman_id = self.extra_options['use_device'][val][0]
+        partman_id = self.extra_options['use_device'][1][val][0]
         disk_id = partman_id.rsplit('/', 1)[1]
         return disk_id
 
@@ -336,7 +341,7 @@ class PageGtk(PageBase):
             return
         m = self.part_auto_select_drive.get_model()
         val = m.get_value(i, 0)
-        size = self.extra_options['use_device'][val][1]
+        size = self.extra_options['use_device'][1][val][1]
         self.partitionbox.set_size(size)
 
     def part_auto_select_drive_changed (self, unused_widget):
@@ -389,6 +394,7 @@ class PageGtk(PageBase):
             return misc.grub_default()
 
     def set_autopartition_options(self, options, extra_options):
+        # TODO Need to select a radio button when resize isn't around.
         self.extra_options = extra_options
         self.options = options
 
@@ -427,7 +433,7 @@ class PageGtk(PageBase):
         m = self.part_auto_select_drive.get_model()
         m.clear()
         selected = False
-        for disk in extra_options['use_device']:
+        for disk in extra_options['use_device'][1]:
             i = m.append([disk])
             # TODO move to ask page choice processing, so we don't set the
             # combobox to sdb when we're formatting?
@@ -437,7 +443,7 @@ class PageGtk(PageBase):
             # proceeding defaults to a resizable disk.
             if 'resize' in extra_options:
                 disk_id = \
-                    self.extra_options['use_device'][disk][0].rsplit('/', 1)[1]
+                    self.extra_options['use_device'][1][disk][0].rsplit('/', 1)[1]
                 if disk_id in extra_options['resize'] and not selected:
                     selected = True
                 self.part_auto_select_drive.set_active_iter(i)
@@ -454,26 +460,27 @@ class PageGtk(PageBase):
     def get_autopartition_choice (self):
         # TODO fix resizing not showing the progress_section
         if self.reuse_partition.get_active():
-            return 'reuse', None # FIXME
+            return None, None # FIXME
 
         elif self.custom_partitioning.get_active():
-            return 'manual', None
+            return self.extra_options['manual'], None
 
         elif self.resize_use_free.get_active():
             if 'biggest_free' in self.extra_options:
                 choice = self.extra_options['biggest_free'][0]
-                return 'biggest_free', choice
+                return choice, None
             else:
                 disk_id = self.get_current_disk_partman_id()
                 choice = self.extra_options['resize'][disk_id][0]
-                return 'resize', '%s B' % self.resizewidget.get_size()
+                return choice, '%s B' % self.resizewidget.get_size()
 
         elif self.use_device.get_active():
             i = self.part_auto_select_drive.get_active_iter()
             m = self.part_auto_select_drive.get_model()
             disk = m.get_value(i, 0)
+            choice = self.extra_options['use_device'][0]
             # Is the encoding necessary?
-            return 'use_device', unicode(disk, 'utf-8', 'replace')
+            return choice, unicode(disk, 'utf-8', 'replace')
         
         else:
             raise AssertionError("Couldn't get autopartition choice")
@@ -1863,11 +1870,6 @@ class Page(plugin.Plugin):
             else:
                 self.auto_state = None
 
-            biggest_free = self.find_script(menu_options, 'biggest_free')
-            biggest_free_size = None
-            if biggest_free:
-                biggest_free = biggest_free[0][1]
-                biggest_free = self.split_devpart(biggest_free)[1]
 
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
@@ -1887,15 +1889,29 @@ class Page(plugin.Plugin):
                         ret.append(Partition(dev, size,
                                              partition[1],
                                              partition[4]))
-                    if (biggest_free and partition[1] == biggest_free):
-                        biggest_free_size = size
                     layout[disk] = ret
+
+                biggest_free = self.find_script(menu_options, 'biggest_free')
+                if biggest_free:
+                    dev, p_id = self.split_devpart(biggest_free[0][1])
+                    parted.select_disk(dev)
+                    size = int(parted.partition_info(p_id)[2])
+                    key = biggest_free[0][2]
+                    self.extra_options['biggest_free'] = (key, size)
+
+                reuse = self.find_script(menu_options, 'reuse')
+                if reuse:
+                    self.extra_options['reuse'] = {}
+                    r = self.extra_options['reuse']
+                    for option in reuse:
+                        dev, p_id = self.split_devpart(option[1])
+                        parted.select_disk(dev)
+                        info = parted.partition_info(p_id)
+                        r[option[2]] = (info[5])
+
 
             self.ui.set_disk_layout(layout)
             self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
-            if biggest_free and biggest_free_size is not None:
-                self.extra_options['biggest_free'] = (biggest_free,
-                                                      biggest_free_size)
 
             options = self.calculate_autopartitioning_options(layout)
             print 'extra_ops', self.extra_options
@@ -1916,7 +1932,7 @@ class Page(plugin.Plugin):
                             size = fp.readline()
                         size = int(size)
                         disks[choices[i]] = (choices_c[i], size)
-                self.extra_options['use_device'] = disks
+                self.extra_options['use_device'] = (self.some_device_desc, disks)
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False
@@ -2551,20 +2567,9 @@ class Page(plugin.Plugin):
         return plugin.Plugin.run(self, priority, question)
 
     def ok_handler(self):
-        # TODO how do we ask this question again (for the resize page)?
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.ui.get_autopartition_choice()
-            if autopartition_choice == 'resize':
-                autopartition_choice = self.resize_desc
-            elif autopartition_choice == 'biggest_free':
-                autopartition_choice = self.biggest_free_desc
-            elif autopartition_choice == 'reuse':
-                autopartition_choice = self.reuse_desc
-            elif autopartition_choice == 'use_device':
-                autopartition_choice = self.some_device_desc
-            elif autopartition_choice == 'manual':
-                autopartition_choice = self.manual_desc
             self.preseed_as_c(self.current_question, autopartition_choice,
                               seen=False)
             # Don't exit partman yet.
