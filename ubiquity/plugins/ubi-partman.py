@@ -467,6 +467,9 @@ class PageGtk(PageBase):
         if self.reuse_partition.get_active():
             return self.extra_options['reuse'][0][0], None
 
+        if self.replace_partition.get_active():
+            return self.extra_options['replace'][0], None
+
         elif self.custom_partitioning.get_active():
             return self.extra_options['manual'], None
 
