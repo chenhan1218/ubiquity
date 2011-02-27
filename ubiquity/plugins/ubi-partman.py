@@ -107,6 +107,9 @@ class PageGtk(PageBase):
             # Ask page
             self.use_device_title = builder.get_object('use_device_title')
             self.use_device_desc = builder.get_object('use_device_desc')
+            self.replace_partition = builder.get_object('replace_partition')
+            self.replace_partition_title = builder.get_object('replace_partition_title')
+            self.replace_partition_desc = builder.get_object('replace_partition_desc')
             self.reuse_partition_title = builder.get_object('reuse_partition_title')
             self.reuse_partition_desc = builder.get_object('reuse_partition_desc')
             self.resize_use_free_title = builder.get_object('resize_use_free_title')
@@ -408,6 +411,14 @@ class PageGtk(PageBase):
         self.custom_partitioning_desc.set_markup(fmt % options['manual'].desc)
         self.custom_partitioning_desc.set_sensitive(False)
 
+        if 'replace' in options:
+            self.replace_partition.show()
+            self.replace_partition_title.set_label(options['replace'].title)
+            self.replace_partition_desc.set_markup(fmt % options['replace'].desc)
+            self.replace_partition_desc.set_sensitive(False)
+        else:
+            self.replace_partition.hide()
+
         if 'reuse' in options:
             self.reuse_partition.show()
             self.reuse_partition_title.set_label(options['reuse'].title)
@@ -460,7 +471,7 @@ class PageGtk(PageBase):
     def get_autopartition_choice (self):
         # TODO fix resizing not showing the progress_section
         if self.reuse_partition.get_active():
-            return None, None # FIXME
+            return self.extra_options['reuse'][0][0], None
 
         elif self.custom_partitioning.get_active():
             return self.extra_options['manual'], None
@@ -1237,8 +1248,6 @@ class Page(plugin.Plugin):
     def prepare(self):
         self.some_device_desc = ''
         self.resize_desc = ''
-        self.manual_desc = ''
-        self.reuse_desc = ''
         with misc.raised_privileges():
             # If an old parted_server is still running, clean it up.
             if os.path.exists('/var/run/parted_server.pid'):
@@ -1635,30 +1644,38 @@ class Page(plugin.Plugin):
             if not self.update_partitions:
                 self.thaw_choices('choose_partition')
 
-    def calculate_reuse_option(self, ubuntu, release):
+    def calculate_reuse_option(self):
         '''Takes the current Ubuntu version on disk and the release we're about
         to install as parameters.'''
         # TODO: verify that ubuntu is the same partition as one of the ones
         #       offered in the reuse options.
-        # TODO: come up with a better version check than this.
-        if '(%s)' % release.version in ubuntu:
-            # "Windows (or Mac, ...) and the current version of Ubuntu are
-            # present" case
-            q = 'ubiquity/partitioner/ubuntu_reinstall'
-            self.db.subst(q, 'CURDISTRO', ubuntu)
-            title = self.description(q)
-            desc = self.extended_description(q)
-            return PartitioningOption(title, desc)
-        else:
-            # "Windows (or Mac, ...) and an older version of Ubuntu are
-            # present" case
-            # TODO: Verify that the version is in fact older.
-            q = 'ubiquity/partitioner/ubuntu_upgrade'
-            self.db.subst(q, 'CURDISTRO', ubuntu)
-            self.db.subst(q, 'VER', release.version)
-            title = self.description(q)
-            desc = self.extended_description(q)
-            return PartitioningOption(title, desc)
+        release = misc.get_release()
+        if 'reuse' in self.extra_options:
+            reuse = self.extra_options['reuse']
+            if len(reuse) == 1:
+                ubuntu = misc.find_in_os_prober(reuse[0][1])
+                # TODO: come up with a better version check than this by using
+                # SUBST with DISTRIB_ID and DISTRIB_RELEASE in partman-auto.
+                # FIXME: this currently breaks as we now strip out "(11.04)".
+                if '(%s)' % release.version in ubuntu:
+                    # "Windows (or Mac, ...) and the current version of Ubuntu
+                    # are present" case
+                    q = 'ubiquity/partitioner/ubuntu_reinstall'
+                    self.db.subst(q, 'CURDISTRO', ubuntu)
+                    title = self.description(q)
+                    desc = self.extended_description(q)
+                    return PartitioningOption(title, desc)
+                else:
+                    # "Windows (or Mac, ...) and an older version of Ubuntu are
+                    # present" case
+                    # TODO: Verify that the version is in fact older.
+                    q = 'ubiquity/partitioner/ubuntu_upgrade'
+                    self.db.subst(q, 'CURDISTRO', ubuntu)
+                    self.db.subst(q, 'VER', release.version)
+                    title = self.description(q)
+                    desc = self.extended_description(q)
+                    return PartitioningOption(title, desc)
+        return None
 
     # TODO this function should be easily testable by constructing a fake
     # layout and Mock db.
@@ -1750,7 +1767,9 @@ class Page(plugin.Plugin):
                     opt = PartitioningOption(title, desc)
                     options[resize_or_free] = opt
 
-                options['reuse'] = self.calculate_reuse_option(system, release)
+                reuse = self.calculate_reuse_option()
+                if reuse is not None:
+                    options['reuse'] = reuse
             else:
                 # "Just Windows (or Mac, ...) is present" case
                 q = 'ubiquity/partitioner/single_os_replace'
@@ -1772,13 +1791,14 @@ class Page(plugin.Plugin):
         elif os_count == 2 and len(ubuntu_systems) == 1:
             # TODO: verify that ubuntu_systems[0] is the same partition as one
             # of the ones offered in the replace options.
-            ubuntu = ubuntu_systems[0]
-            q = 'ubiquity/partitioner/ubuntu_format'
-            self.db.subst(q, 'CURDISTRO', ubuntu)
-            title = self.description(q)
-            desc = self.extended_description(q)
-            opt = PartitioningOption(title, desc)
-            options['replace'] = opt
+            if 'replace' in self.extra_options:
+                ubuntu = ubuntu_systems[0]
+                q = 'ubiquity/partitioner/ubuntu_format'
+                self.db.subst(q, 'CURDISTRO', ubuntu)
+                title = self.description(q)
+                desc = self.extended_description(q)
+                opt = PartitioningOption(title, desc)
+                options['replace'] = opt
 
             q = 'ubiquity/partitioner/ubuntu_and_os_format'
             self.db.subst(q, 'CURDISTRO', ubuntu)
@@ -1787,7 +1807,9 @@ class Page(plugin.Plugin):
             opt = PartitioningOption(title, desc)
             options['use_device'] = opt
 
-            options['reuse'] = self.calculate_reuse_option(ubuntu, release)
+            reuse = self.calculate_reuse_option()
+            if reuse is not None:
+                options['reuse'] = reuse
         else:
             # "There are multiple operating systems present" case
             q = 'ubiquity/partitioner/multiple_os_format'
@@ -1829,12 +1851,6 @@ class Page(plugin.Plugin):
                     self.description('partman-auto/text/use_device')
                 self.resize_desc = \
                     self.description('partman-auto/text/resize_use_free')
-                self.manual_desc = \
-                    self.description('partman-auto/text/custom_partitioning')
-                self.biggest_free_desc = \
-                    self.description('partman-auto/text/use_biggest_free')
-                self.reuse_desc = \
-                    self.description('partman-auto/text/reuse')
                 self.extra_options = {}
                 if choices:
                     self.auto_state = [0, None]
@@ -1846,21 +1862,6 @@ class Page(plugin.Plugin):
                 if (self.auto_state[1] == self.some_device_desc or
                     self.auto_state[1] == self.resize_desc):
                     break
-                elif description_c[2:].startswith('resize_use_free'):
-                    replace = description_c.split('__________', 1)[1]
-                    replace = replace.startswith('replace=')
-                    if not replace:
-                        break
-                    else:
-                        if 'some_partition' not in self.extra_options:
-                            self.extra_options['some_partition'] = {}
-                        disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
-                        disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
-                        self.extra_options['some_partition'][disk] = self.auto_state[1]
-                        # We assume that the partition being replaced is the
-                        # same as the partition being resized for the disk in
-                        # question.
-                        self.auto_state[0] += 1
                 else:
                     self.auto_state[0] += 1
             if self.auto_state[0] < len(choices):
@@ -1909,6 +1910,12 @@ class Page(plugin.Plugin):
                         parted.select_disk(dev)
                         info = parted.partition_info(p_id)
                         r.append((option[2], info[5]))
+
+                replace = self.find_script(menu_options, 'replace')
+                if replace:
+                    self.extra_options['replace'] = []
+                    for option in replace:
+                        self.extra_options['replace'].append(option[2])
 
 
             self.ui.set_disk_layout(layout)
