@@ -102,6 +102,8 @@
             <property name="xalign">0</property>
             <property name="active">True</property>
             <property name="draw_indicator">True</property>
+            <property name="group">resize_use_free</property>
+            <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
             <child>
               <object class="GtkHBox" id="hbox5">
                 <property name="visible">True</property>
