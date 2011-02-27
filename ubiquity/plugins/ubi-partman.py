@@ -178,10 +178,10 @@ class PageGtk(PageBase):
         return self.current_page
     
     def plugin_on_next_clicked(self):
-        if self.current_page == self.page_ask:
-            if self.reuse_partition.get_active():
-                title = self.reuse_partition_title.get_text()
-            elif self.custom_partitioning.get_active():
+        reuse = self.reuse_partition.get_active()
+        replace = self.replace_partition.get_active()
+        if self.current_page == self.page_ask and not (reuse or replace):
+            if self.custom_partitioning.get_active():
                 title = self.custom_partitioning_title.get_text()
             elif self.resize_use_free.get_active():
                 title = self.resize_use_free_title.get_text()
@@ -223,6 +223,8 @@ class PageGtk(PageBase):
                 self.plugin_is_install = True
                 return False
         else:
+            # Return control to partman, which will call
+            # get_autopartition_choice and start partitioninging the device.
             return False
 
     def plugin_on_back_clicked(self):
@@ -277,7 +279,14 @@ class PageGtk(PageBase):
 
     def part_ask_option_changed (self, unused_widget):
         '''The use has selected one of the automatic partitioning options.'''
-        pass
+        about_to_install = False
+
+        if (self.reuse_partition.get_active() or
+            self.replace_partition.get_active()):
+            about_to_install = True
+
+        self.controller.toggle_install_button(about_to_install)
+        self.plugin_is_install = about_to_install
 
     def initialize_resize_mode(self):
         disk_id = self.get_current_disk_partman_id()
