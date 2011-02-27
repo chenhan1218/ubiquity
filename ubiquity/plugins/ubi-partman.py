@@ -191,8 +191,23 @@ class PageGtk(PageBase):
                 '<span size="xx-large">%s</span>' % title)
             
             if self.resize_use_free.get_active():
+                m = self.part_auto_select_drive.get_model()
+                m.clear()
+                disk_ids = self.extra_options['resize'].keys()
+                disks = self.extra_options['use_device'][1]
+                # FIXME: perhaps it makes more sense to store the disk
+                # description.
+                for disk in disks:
+                    if disks[disk][0].rsplit('/', 1)[1] in disk_ids:
+                        m.append([disk])
+                self.part_auto_select_drive.set_active(0)
                 self.initialize_resize_mode()
             elif self.use_device.get_active():
+                m = self.part_auto_select_drive.get_model()
+                m.clear()
+                for disk in self.extra_options['use_device'][1]:
+                    m.append([disk])
+                self.part_auto_select_drive.set_active(0)
                 self.initialize_use_disk_mode()
 
             if not self.custom_partitioning.get_active():
@@ -348,22 +363,14 @@ class PageGtk(PageBase):
         self.partitionbox.set_size(size)
 
     def part_auto_select_drive_changed (self, unused_widget):
-        '''The user has selected a different disk drive from the drop down.
-        Update the resize widget and the "use entire disk" widget to reflect
-        this.
-        This is initially called in set_autopartition_choices.'''
-
         self.set_part_auto_hidden_label()
-        #disk_id = self.get_current_disk_partman_id()
-        #if not disk_id:
-        #    return
-        #if ('resize' in self.extra_options and
-        #   self.resize_use_free.get_active() and
-        #   disk_id in self.extra_options['resize']):
-        #    # Resize.
-        #    self.initialize_resize_mode()
-        #else:
-        #    self.initialize_use_disk_mode()
+        disk_id = self.get_current_disk_partman_id()
+        if not disk_id:
+            return
+        if self.resize_use_free.get_active():
+            self.initialize_resize_mode()
+        else:
+            self.initialize_use_disk_mode()
 
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
@@ -439,28 +446,6 @@ class PageGtk(PageBase):
             self.resize_use_free_desc.set_sensitive(False)
         else:
             self.resize_use_free.hide()
-
-        # Set up the second page.
-        m = self.part_auto_select_drive.get_model()
-        m.clear()
-        selected = False
-        for disk in extra_options['use_device'][1]:
-            i = m.append([disk])
-            # TODO move to ask page choice processing, so we don't set the
-            # combobox to sdb when we're formatting?
-
-            # Make sure that we're setting the disk combo box to a disk that
-            # can be resized, should one exist, so that selecting resize and
-            # proceeding defaults to a resizable disk.
-            if 'resize' in extra_options:
-                disk_id = \
-                    self.extra_options['use_device'][1][disk][0].rsplit('/', 1)[1]
-                if disk_id in extra_options['resize'] and not selected:
-                    selected = True
-                self.part_auto_select_drive.set_active_iter(i)
-        if not selected:
-            # No resizeable disks.  Select the first one.
-            self.part_auto_select_drive.set_active(0)
 
         # Process the default selection
         self.part_ask_option_changed(None)
