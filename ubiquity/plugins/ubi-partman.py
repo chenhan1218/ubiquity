@@ -1201,18 +1201,14 @@ class PageKde(PageBase):
         else:
             return misc.grub_default()
 
-    def set_autopartition_choices (self, choices, extra_options,
-                                   resize_choice, manual_choice,
-                                   biggest_free_choice, use_device_choice, reuse_choice):
-        PageBase.set_autopartition_choices(self, choices, extra_options,
-                                               resize_choice, manual_choice,
-                                               biggest_free_choice,
-                                               use_device_choice, reuse_choice)
+    def set_autopartition_options(self, options, extra_options):
+        use_device = self.controller.dbfilter.some_device_desc
+        resize_choice = self.controller.dbfilter.resize_desc
+        manual_choice = extra_options['manual']
 
-        self.partAuto.setupChoices(choices, extra_options,
+        self.partAuto.setupChoices(None, extra_options,
                                    resize_choice, manual_choice,
-                                   biggest_free_choice, use_device_choice,
-                                   reuse_choice)
+                                   None, use_device)
 
         self.current_page = self.page
 
