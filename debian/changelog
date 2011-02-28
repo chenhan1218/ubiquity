@@ -11,6 +11,9 @@ ubiquity (2.5.19) UNRELEASED; urgency=low
     eventual crash of Xserver.  (Possible fix for LP: #714829, would reopen
     693300)
 
+  [ Mario Limonciello ]
+  * Fix reference leak in panel set_background function.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 Feb 2011 19:30:37 +0000
 
 ubiquity (2.5.18) natty; urgency=low
