@@ -1,3 +1,11 @@
+ubiquity (2.5.19) UNRELEASED; urgency=low
+
+  * Automatic update of included source packages: base-installer
+    1.116ubuntu1, console-setup 1.57ubuntu8, flash-kernel 2.28ubuntu15,
+    partman-auto 93ubuntu8, partman-target 71ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 Feb 2011 19:30:37 +0000
+
 ubiquity (2.5.18) natty; urgency=low
 
   * Automatic update of included source packages: partman-auto
