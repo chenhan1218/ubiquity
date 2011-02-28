@@ -235,7 +235,8 @@ set_background(GtkWidget *win) {
 	} else {
 		g_warning("Could not find background image.");
 	}
-	gtk_widget_queue_draw(win);
+	/* Implicated in major memory leak - See LP: #714829 */
+	/* gtk_widget_queue_draw(win); */
 }
 
 static gint
