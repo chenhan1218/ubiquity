@@ -415,7 +415,6 @@ class PageGtk(PageBase):
     def set_autopartition_options(self, options, extra_options):
         # TODO Need to select a radio button when resize isn't around.
         self.extra_options = extra_options
-        self.options = options
 
         fmt = '<span size="small">%s</span>'
         # TODO need an option for replace in glade.
@@ -1245,6 +1244,7 @@ class Page(plugin.Plugin):
     def prepare(self):
         self.some_device_desc = ''
         self.resize_desc = ''
+        self.manual_desc = ''
         with misc.raised_privileges():
             # If an old parted_server is still running, clean it up.
             if os.path.exists('/var/run/parted_server.pid'):
@@ -1848,6 +1848,8 @@ class Page(plugin.Plugin):
                     self.description('partman-auto/text/use_device')
                 self.resize_desc = \
                     self.description('partman-auto/text/resize_use_free')
+                self.manual_desc = \
+                    self.description('partman-auto/text/custom_partitioning')
                 self.extra_options = {}
                 if choices:
                     self.auto_state = [0, None]
@@ -1915,6 +1917,8 @@ class Page(plugin.Plugin):
                         self.extra_options['replace'].append(option[2])
 
 
+            # We always have the manual option.
+            self.extra_options['manual'] = self.manual_desc
             self.ui.set_disk_layout(layout)
             self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
 
