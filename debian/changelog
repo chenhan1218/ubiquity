@@ -1,4 +1,4 @@
-ubiquity (2.5.19) UNRELEASED; urgency=low
+ubiquity (2.5.19) natty; urgency=low
 
   [ Colin Watson ]
   * Automatic update of included source packages: base-installer
@@ -14,7 +14,7 @@ ubiquity (2.5.19) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Fix reference leak in panel set_background function.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 Feb 2011 19:30:37 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 Feb 2011 19:54:45 +0000
 
 ubiquity (2.5.18) natty; urgency=low
 
