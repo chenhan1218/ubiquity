@@ -10,21 +10,15 @@ Type: boolean
 Default: true
 Description: enable frame buffer console on boot
 
-Template: ubiquity/text/biggest_free
+Template: ubiquity/text/custom_partitioning_title
 Type: text
-_Description: Use the largest continuous free space
+_Description: Manual configuration (advanced)
 
-Template: ubiquity/text/use_device
+Template: ubiquity/text/custom_partitioning_desc
 Type: text
-_Description: Erase and use the entire disk
-
-Template: ubiquity/text/resize_use_free
-Type: text
-_Description: Install alongside other operating systems
-
-Template: ubiquity/text/custom_partitioning
-Type: text
-_Description: Specify partitions manually (advanced)
+_Description:
+ Too smart for us? Get your hands dirty with some advanced partitioning
+ options.
 
 Template: ubiquity/text/live_installer
 Type: text
@@ -234,6 +228,10 @@ _Description:
 Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Allocate drive space
+
+Template: ubiquity/text/part_auto_files
+Type: text
+_Description: Files (${SIZE})
 
 Template: ubiquity/text/part_auto_comment_label
 Type: text
@@ -665,6 +663,14 @@ _Description: Setting computer name...
 Template: ubiquity/install/bootloader
 Type: text
 _Description: Configuring boot loader...
+
+Template: ubiquity/install/apt_clone_save
+Type: text
+_Description: Saving installed packages...
+
+Template: ubiquity/install/apt_clone_restore
+Type: text
+_Description: Restoring previously installed packages...
 
 Template: ubiquity/install/installing
 Type: text
@@ -1202,3 +1208,73 @@ _Description: [type here to change]
 Template: ubiquity/text/welcome_heading_label
 Type: text
 _Description: Welcome
+
+# Automatic partitioning options.
+# Refer to the installer design document for the rationale behind each of
+# these.
+
+Template: ubiquity/partitioner/single_os_replace
+Type: text
+_Description: Replace ${OS} with ${DISTRO}
+ This will <b>erase</b> all of your ${OS} programs, documents, photos, music,
+ and any other files.
+
+Template: ubiquity/partitioner/single_os_resize
+Type: text
+_Description: Install ${DISTRO} alongside it
+ No files will be deleted. You can choose which operating system you want each
+ time the computer starts up.
+
+Template: ubiquity/partitioner/advanced
+Type: text
+_Description: Manual configuration (advanced)
+ Too smart for us? Get your hands dirty with some advanced partitioning
+ options.
+
+Template: ubiquity/partitioner/ubuntu_format
+Type: text
+_Description: Erase ${CURDISTRO} and reinstall
+ This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos,
+ music, and any other files.
+
+Template: ubiquity/partitioner/ubuntu_upgrade
+Type: text
+_Description: Upgrade ${CURDISTRO} to ${VER}
+ You can upgrade ${CURDISTRO} without losing any of your important documents or
+ applications.
+
+Template: ubiquity/partitioner/ubuntu_resize
+Type: text
+_Description: Install ${DISTRO} ${VER} alongside
+ Still on the fence? You can install ${DISTRO} ${VER} alongside your existing
+ copy of ${CURDISTRO}.
+
+Template: ubiquity/partitioner/no_systems_format
+Type: text
+_Description: Erase disk and install ${DISTRO}
+ Ready to take the plunge? A clean install erases your entire hard disk and
+ installs ${DISTRO}.
+
+Template: ubiquity/partitioner/ubuntu_and_os_format
+Type: text
+_Description: Erase everything and reinstall
+ This will <b>erase</b> all your programs, documents, photos, music, and other
+ files in both ${OS} and ${CURDISTRO}.
+
+Template: ubiquity/partitioner/ubuntu_reinstall
+Type: text
+_Description: Reinstall ${CURDISTRO}
+ You can reinstall ${CURDISTRO} without losing any of your important documents
+ or applications.
+
+Template: ubiquity/partitioner/multiple_os_format
+Type: text
+_Description: Erase disk and install ${DISTRO}
+ This will <b>erase</b> all your programs, documents, photos, music, and any
+ other files in all operating systems. 
+
+Template: ubiquity/partitioner/multiple_os_resize
+Type: text
+_Description: Install ${DISTRO} alongside them
+ No files will be deleted. You can choose which operating system you want each
+ time the computer starts up.

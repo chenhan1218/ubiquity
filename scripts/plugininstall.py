@@ -188,6 +188,15 @@ class Install(install_misc.InstallBase):
         else:
             self.remove_extras()
 
+        self.next_region()
+        self.db.progress('INFO', 'ubiquity/install/apt_clone_restore')
+        try:
+            self.apt_clone_restore()
+        except:
+            syslog.syslog(syslog.LOG_WARNING,
+                'Could not restore packages from the previous install:')
+            for line in traceback.format_exc().split('\n'):
+                syslog.syslog(syslog.LOG_WARNING, line)
         try:
             self.copy_network_config()
         except:
@@ -1257,6 +1266,25 @@ class Install(install_misc.InstallBase):
             with open(p, 'w') as fp:
                 for line in installed:
                     print >>fp, line
+
+    def apt_clone_restore(self):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+        import lsb_release
+        working = os.path.join(self.target, 'ubiquity-apt-clone')
+        codename = lsb_release.get_distro_information()['CODENAME']
+        if not os.path.exists(working):
+            return
+        try:
+            subprocess.check_call(['/usr/share/ubiquity/apt-clone',
+                                   'restore-new-distro', os.path.join(working,
+                                   'apt-state.tar.gz'), codename, self.target])
+        except subprocess.CalledProcessError:
+            # TODO input an error question.
+            syslog.syslog(syslog.LOG_WARNING,
+                'Could not restore packages from the previous install:')
+            for line in traceback.format_exc().split('\n'):
+                syslog.syslog(syslog.LOG_WARNING, line)
 
     def copy_network_config(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:

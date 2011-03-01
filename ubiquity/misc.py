@@ -345,7 +345,12 @@ def find_in_os_prober(device):
             result = subp.communicate()[0].splitlines()
             for res in result:
                 res = res.split(':')
-                find_in_os_prober.oslist[res[0]] = res[1]
+                if res[2] == 'Ubuntu':
+                    # Get rid of the superfluous (development version) (11.04)
+                    text = re.sub('\s*\(.*\).*', '', res[1])
+                    find_in_os_prober.oslist[res[0]] = text
+                else:
+                    find_in_os_prober.oslist[res[0]] = res[1]
         if device in find_in_os_prober.oslist:
             ret = find_in_os_prober.oslist[device]
         elif is_swap(device):
@@ -372,6 +377,7 @@ def remove_os_prober_cache():
                   ignore_errors=True)
 
 from collections import namedtuple
+
 def get_release():
     ReleaseInfo = namedtuple('ReleaseInfo', 'name, version')
     if get_release.release_info is None:

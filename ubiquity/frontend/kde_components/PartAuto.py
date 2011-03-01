@@ -81,8 +81,8 @@ class PartAuto(QtGui.QWidget):
         release_name = misc.get_release().name
 
         bId = 0
-        if resize_choice in extra_options:
-            button = QtGui.QRadioButton(resize_choice, self.autopart_selection_frame)
+        if 'resize' in extra_options:
+            button = QtGui.QRadioButton(self.resizeChoice, self.autopart_selection_frame)
             self.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, bId)
             self.autopartitionTexts.append(resize_choice)
@@ -90,12 +90,13 @@ class PartAuto(QtGui.QWidget):
             bId += 1
 
             disks = []
-            for disk_id in extra_options[resize_choice]:
+            for disk_id in extra_options['resize']:
                 # information about what can be resized
-                unused, min_size, max_size, pref_size, resize_path = \
-                    extra_options[resize_choice][disk_id]
+                unused, min_size, max_size, pref_size, \
+                resize_path, unused, unused = \
+                    extra_options['resize'][disk_id]
 
-                for text, path in extra_options[use_device_choice].items():
+                for text, path in extra_options['use_device'][1].items():
                     path = path[0]
                     if path.rsplit('/', 1)[1] == disk_id:
                         bar_frame = QtGui.QFrame()
@@ -124,15 +125,15 @@ class PartAuto(QtGui.QWidget):
         # TODO biggest_free_choice
 
         # Use entire disk.
-        button = QtGui.QRadioButton(use_device_choice, self.autopart_selection_frame)
-        self.autopartitionTexts.append(use_device_choice)
+        button = QtGui.QRadioButton(self.useDeviceChoice, self.autopart_selection_frame)
+        self.autopartitionTexts.append(self.useDeviceChoice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)
         button.clicked.connect(self.controller.setNextButtonTextInstallNow)
         bId += 1
 
         disks = []
-        for text, path in extra_options[use_device_choice].items():
+        for text, path in extra_options['use_device'][1].items():
             path = path[0]
             bar_frame = QtGui.QFrame()
             bar_frame.setLayout(QtGui.QVBoxLayout())
@@ -148,7 +149,7 @@ class PartAuto(QtGui.QWidget):
             after_bar = PartitionsBar()
 
             for p in dev:
-                before_bar.addPartition(p[0], int(p[1]), p[3])
+                before_bar.addPartition(p.device, int(p.size), p.filesystem)
             if before_bar.diskSize > 0:
                 after_bar.addPartition(release_name, before_bar.diskSize, 'auto')
             else:
@@ -185,12 +186,13 @@ class PartAuto(QtGui.QWidget):
             # resize choice should have been hidden otherwise
             assert self.resizeSize is not None
             comboText = unicode(self.part_auto_disk_box.currentText())
-            disk_id = self.extra_options[self.useDeviceChoice][comboText][0]
+            disk_id = self.extra_options['use_device'][1][comboText][0]
             disk_id = disk_id.rsplit('/', 1)[1]
-            option = self.extra_options[choice][disk_id][0]
+            option = self.extra_options['resize'][disk_id][0]
             return option, '%d B' % self.resizeSize
         elif choice == self.useDeviceChoice:
-            return choice, unicode(self.part_auto_disk_box.currentText())
+            return (self.extra_options['use_device'][0],
+                    unicode(self.part_auto_disk_box.currentText()))
         else:
             return choice, None
 
