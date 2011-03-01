@@ -417,7 +417,6 @@ class PageGtk(PageBase):
         self.extra_options = extra_options
 
         fmt = '<span size="small">%s</span>'
-        # TODO need an option for replace in glade.
         self.use_device_title.set_label(options['use_device'].title)
         self.use_device_desc.set_markup(fmt % options['use_device'].desc)
         # To give a nice text effect.

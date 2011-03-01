@@ -20,7 +20,9 @@ fail () {
 	exit 1
 }
 
-# TODO progress message.
+db_progress START 0 2 ubiquity/install/title
+db_progress INFO ubiquity/install/apt_clone_save
+
 for dev in $DEVICES/*; do
 	[ -d "$dev" ] || continue
 	cd $dev
@@ -41,6 +43,8 @@ for dev in $DEVICES/*; do
 	close_dialog
 done
 
+db_progress STEP 1
+
 if [ -z "$root" ]; then
 	# The partition is going to be formatted; there's nothing to preserve.
 	exit 0
@@ -56,12 +60,16 @@ if ! /usr/share/ubiquity/apt-clone clone "$mountpoint" "$working"; then
 	fail
 fi
 
+db_progress STEP 1
+
 if [ -n "$var" ] && [ -e "$mountpoint/var" ]; then
 	umount "$mountpoint/var" || true
 fi
 if [ -e "$mountpoint" ]; then
 	umount "$mountpoint" && rmdir "$mountpoint" || true
 fi
+
+db_progress STOP
 
 # TODO: finish-install.d script.
 

@@ -656,6 +656,14 @@ Template: ubiquity/install/bootloader
 Type: text
 _Description: Configuring boot loader...
 
+Template: ubiquity/install/apt_clone_save
+Type: text
+_Description: Saving installed packages...
+
+Template: ubiquity/install/apt_clone_restore
+Type: text
+_Description: Restoring previously installed packages...
+
 Template: ubiquity/install/installing
 Type: text
 _Description: Installing additional packages...

@@ -1372,6 +1372,7 @@ class Wizard(BaseFrontend):
     def debconffilter_done (self, dbfilter):
         if not dbfilter.status:
             self.find_next_step(dbfilter.__module__)
+        # TODO: This doesn't handle partman-commit failures.
         elif dbfilter.__module__ in ('ubiquity.components.install',
                                      'ubiquity.components.plugininstall'):
             # We don't want to try to retry a failing step here, because it
