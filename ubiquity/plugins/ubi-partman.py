@@ -1141,8 +1141,7 @@ class PageGtk(PageBase):
                 path = partition_cache[item]['parted']['path'].replace('/dev/','')
                 if fs == 'free':
                     c = partition_bar.remainder_color
-                    # TODO evand 2008-07-27: i18n
-                    txt = 'Free space'
+                    txt = self.controller.get_string('partition_free_space')
                 else:
                     i = (i + 1) % len(self.auto_colors)
                     c = self.auto_colors[i]
