@@ -245,7 +245,8 @@ class PageGtk(PageBase):
         else:
             # Return control to partman, which will call
             # get_autopartition_choice and start partitioninging the device.
-            self.controller.switch_to_install_interface()
+            if not self.custom_partitioning.get_active():
+                self.controller.switch_to_install_interface()
             return False
 
     def plugin_on_back_clicked(self):

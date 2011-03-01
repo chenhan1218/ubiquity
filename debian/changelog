@@ -3,6 +3,8 @@ ubiquity (2.5.22) UNRELEASED; urgency=low
   * Make apt-clone executable. D'oh.
   * Show the amount of space available for Ubuntu after resizing for
     each disk in the combo box.
+  * Don't show the progress section when advancing to the manual
+    partitioning page from the hyperlink for it.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 15:35:35 +0000
 
