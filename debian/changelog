@@ -5,6 +5,8 @@ ubiquity (2.5.21) UNRELEASED; urgency=low
     ultimately going to be skipped.
   * Show the progress bar as soon as we have a final autopartitioning
     option.
+  * Automatic update of included source packages: partman-auto
+    93ubuntu9.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 05:34:21 +0000
 
