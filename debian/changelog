@@ -1,8 +1,8 @@
-ubiquity (2.5.20) UNRELEASED; urgency=low
+ubiquity (2.5.20) natty; urgency=low
 
   * Merge the automatic partitioner redesign branch (LP: #723849).
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 04:32:02 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 04:48:11 +0000
 
 ubiquity (2.5.19) natty; urgency=low
 
