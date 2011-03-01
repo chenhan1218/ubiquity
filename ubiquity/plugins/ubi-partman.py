@@ -1690,10 +1690,6 @@ class Page(plugin.Plugin):
         since each option falls under a specific partman-auto operation of a
         finite set.
         '''
-        # NOTE to self: wont need to make partman-auto show all resizable
-        # partitions because the wording is the same even though we're always
-        # opting for the biggest one.
-
         options = {}
 
         # Get your #2 pencil ready, it's time to crunch some numbers.
@@ -1824,7 +1820,6 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options[resize_or_free] = opt
 
-        print options
         return options
 
     def run(self, priority, question):
@@ -1923,7 +1918,16 @@ class Page(plugin.Plugin):
             self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
 
             options = self.calculate_autopartitioning_options(layout)
-            print 'extra_ops', self.extra_options
+            if self.debug_enabled():
+                import pprint
+                self.debug('options:')
+                printer = pprint.PrettyPrinter()
+                for line in printer.pformat(options).split('\n'):
+                    self.debug('%s', line)
+                self.debug('extra_options:')
+                printer = pprint.PrettyPrinter()
+                for line in printer.pformat(self.extra_options).split('\n'):
+                    self.debug('%s', line)
             self.ui.set_autopartition_options(options, self.extra_options)
 
         elif question == 'partman-auto/select_disk':
