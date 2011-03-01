@@ -471,7 +471,6 @@ class PageGtk(PageBase):
         self.current_page = self.page_ask
 
     def get_autopartition_choice (self):
-        # TODO fix resizing not showing the progress_section
         if self.reuse_partition.get_active():
             return self.extra_options['reuse'][0][0], None
 
