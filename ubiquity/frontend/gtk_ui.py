@@ -174,6 +174,9 @@ class Controller(ubiquity.frontend.base.Controller):
     def toggle_install_button(self, set_to_install=True):
         self._wizard.toggle_install_button(set_to_install)
 
+    def switch_to_install_interface(self):
+        self._wizard.switch_to_install_interface()
+
 class Wizard(BaseFrontend):
 
     def __init__(self, distro):
@@ -1389,6 +1392,12 @@ class Wizard(BaseFrontend):
         else:
             return False
 
+
+    def switch_to_install_interface(self):
+        self.installing = True
+        self.lockdown_environment()
+        self.progress_section.show()
+
     def find_next_step(self, finished_step):
         # TODO need to handle the case where debconffilters launched from
         # here crash.  Factor code out of dbfilter_handle_status.
@@ -1405,9 +1414,7 @@ class Wizard(BaseFrontend):
             self.grub_options.clear()
             for opt in options:
                 self.grub_options.append(opt)
-            self.installing = True
-            self.lockdown_environment()
-            self.progress_section.show()
+            self.switch_to_install_interface()
             from ubiquity.debconfcommunicator import DebconfCommunicator
             if self.parallel_db is not None:
                 # Partitioning failed and we're coming back through again.
