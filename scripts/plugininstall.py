@@ -1034,8 +1034,26 @@ class Install(install_misc.InstallBase):
             os.rename("%s.apt-setup" % sources_list, sources_list)
 
         if self.db.get('ubiquity/use_nonfree') == 'true':
+            self.db.progress('INFO', 'ubiquity/install/nonfree')
             package = self.db.get('ubiquity/nonfree_package')
             self.do_install([package])
+            try:
+                misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+                misc.execute('mount', '--bind', '/sys', self.target + '/sys')
+                misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+                inst_composite = ['chroot', self.target, 'jockey-text',
+                                  '-C', '--no-dbus']
+                p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE)
+                p.communicate('y\n')
+            except OSError:
+                syslog.syslog(syslog.LOG_WARNING,
+                    'Could not install a composited driver:')
+                for line in traceback.format_exc().split('\n'):
+                    syslog.syslog(syslog.LOG_WARNING, line)
+            finally:
+                misc.execute('umount', '-f', self.target + '/proc')
+                misc.execute('umount', '-f', self.target + '/sys')
+                misc.execute('umount', '-f', self.target + '/dev')
 
         # TODO cjwatson 2007-08-09: python reimplementation of
         # oem-config/finish-install.d/07oem-config-user. This really needs

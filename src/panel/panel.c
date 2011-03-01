@@ -232,10 +232,12 @@ set_background(GtkWidget *win) {
 		if (pixmap)
 			gdk_window_set_back_pixmap(win->window, pixmap, FALSE);
 		gdk_pixbuf_unref(pixbuf);
+		g_object_unref(pixmap);
 	} else {
 		g_warning("Could not find background image.");
 	}
-	gtk_widget_queue_draw(win);
+	/* Implicated in major memory leak - See LP: #714829 */
+	/* gtk_widget_queue_draw(win); */
 }
 
 static gint

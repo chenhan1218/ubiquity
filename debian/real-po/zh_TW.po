@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-02-20 02:57+0000\n"
+"POT-Creation-Date: 2011-02-24 16:57+0000\n"
 "PO-Revision-Date: 2011-01-16 04:53+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -47,7 +47,7 @@ msgstr "手動指定分割區 (進階)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:184001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "安裝"
 
@@ -930,84 +930,92 @@ msgstr "正在設定硬體..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
+#, fuzzy
+#| msgid "Install this third-party software"
+msgid "Installing third-party software..."
+msgstr "安裝此第三方軟體"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:134001
 msgid "Configuring network..."
 msgstr "正在設定網路..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:135001
 msgid "Setting computer name..."
 msgstr "正在設定電腦名稱..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
 msgstr "正在設定開機管理程式..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:137001
 msgid "Installing additional packages..."
 msgstr "正在安裝附加套件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:138001
 msgid "Checking for packages to install..."
 msgstr "正在檢查要安裝的套件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:139001
 msgid "Removing extra packages..."
 msgstr "正在移除額外的套件..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001
 msgid "Checking for packages to remove..."
 msgstr "正在檢查是否有套件要移除..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:141001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "正在下載套件 (剩餘時間 ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:142001
 msgid "Downloading package lists..."
 msgstr "正在下載套件清單..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:143001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "正在下載套件清單 (剩餘時間 ${TIME} )..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:145001
 msgid "Error installing ${PACKAGE}"
 msgstr "安裝 ${PACKAGE} 時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:146001
 msgid "Error removing ${PACKAGE}"
 msgstr "移除 ${PACKAGE} 時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:147001
 msgid "Error while installing packages"
 msgstr "安裝套件時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:147001
 msgid "An error occurred while installing packages:"
 msgstr "安裝套件時發生錯誤："
 
@@ -1015,7 +1023,7 @@ msgstr "安裝套件時發生錯誤："
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001 ../ubiquity.templates:147001
+#: ../ubiquity.templates:147001 ../ubiquity.templates:148001
 msgid "The following packages are in a broken state:"
 msgstr "下列套件處於損毀狀態："
 
@@ -1023,7 +1031,7 @@ msgstr "下列套件處於損毀狀態："
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001 ../ubiquity.templates:147001
+#: ../ubiquity.templates:147001 ../ubiquity.templates:148001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1040,25 +1048,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:148001
 msgid "Error while removing packages"
 msgstr "當移除套件時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:148001
 msgid "An error occurred while removing packages:"
 msgstr "移除套件時發生錯誤："
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:149001
 msgid "Error migrating documents and settings"
 msgstr "轉移檔案和設定值時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:149001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1070,13 +1078,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid "Error copying network configuration"
 msgstr "複製網路設定時發生錯誤"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1087,37 +1095,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid "Calculating files to skip copying..."
 msgstr "正在計算略過不複製的檔案..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:155001
 msgid "Ready when you are..."
 msgstr "等您準備就緒..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:156001
 msgid "Installing language packs"
 msgstr "正在安裝語言套件"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:157001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "正在下載語言套件 (剩餘 ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid "Failed to unmount partitions"
 msgstr "無法卸載分割區"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1125,25 +1133,25 @@ msgstr "安裝程式需要對分割區進行修改但不成功，因為以下分
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid "Please close any applications using these mount points."
 msgstr "請關閉所有使用這些掛載點的程式。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "您想要讓安裝程式再次嘗試卸載這些分割區嗎？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid "Do you want to return to the partitioner?"
 msgstr "您想回到磁碟分割程式嗎?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1151,7 +1159,7 @@ msgstr "一些您建立的分割區太小。請確認下列的分割區至少要
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1159,7 +1167,7 @@ msgstr "如果您不回到磁碟分割程式並增加這些分割區的大小，
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:174001
 msgid "System Configuration"
 msgstr "系統設定"
 
@@ -1167,135 +1175,135 @@ msgstr "系統設定"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001 ../ubiquity.templates:237001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:238001
 msgid "Welcome"
 msgstr "歡迎"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid "Network configuration"
 msgstr "網路設定"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:177001
 msgid "Software selection"
 msgstr "軟體選擇"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "Applying configuration"
 msgstr "正在套用設定"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:179001
 msgid "Language"
 msgstr "語言"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "Prepare"
 msgstr "準備"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "時區"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "Keyboard"
 msgstr "鍵盤"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Disk Setup"
 msgstr "磁碟設定"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "User Info"
 msgstr "使用者資訊"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "安裝進度"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "正在檢查是否有安裝程式更新"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "正在讀取套件資訊"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "正在更新套件資訊"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "檔案 ${INDEX} (總共 ${TOTAL} 個) 速度 ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "檔案 ${INDEX} ( 總共 ${TOTAL} 個)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "正在安裝更新"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "更新安裝程式發生錯誤"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "安裝程式嘗試更新自身的時候發生錯誤："
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
 msgstr "USB 磁碟"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1303,7 +1311,7 @@ msgstr "請選擇安裝過程中要使用的語言。該語言將設為本電腦
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1311,7 +1319,7 @@ msgstr "請選擇在設定程序中要使用的語言。這個語言將成為這
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "繼續安裝。"
 
@@ -1319,13 +1327,13 @@ msgstr "繼續安裝。"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001 ../ubiquity.templates:200001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "安裝程序失敗"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1335,49 +1343,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "安裝程式遭遇到無法補救的錯誤，現在將重新開機。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
 msgstr "正在準備安裝 ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:204001
 msgid "Wireless"
 msgstr "無線"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Please select your wireless network from this list"
 msgstr "請從此清單內選取您的無線網路"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid "Select drive:"
 msgstr "選取磁碟機："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "藉由拖曳下方的分隔棒來分配磁碟機空間："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "The entire disk will be used:"
 msgstr "整部磁碟將會被使用："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 #, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
@@ -1387,7 +1395,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1396,7 +1404,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1405,7 +1413,7 @@ msgstr "%d 分割區將被刪除，使用<a href=\"\">進階分割工具</a>來�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1413,49 +1421,49 @@ msgstr "1 個分割區將被刪除，使用<a href=\"\">進階分割工具</a>�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid "Use Entire Partition"
 msgstr "使用整個分割區"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 msgid "Use Entire Disk"
 msgstr "使用整顆磁碟"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 msgid "Split Largest Partition"
 msgstr "切割最大的分割區"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:220001
 msgid "For best results, please ensure that this computer:"
 msgstr "為了取得最佳的結果，請確認此電腦："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid "has at least ${SIZE} available drive space"
 msgstr "有至少 ${SIZE} 的可用磁碟空間"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "is plugged in to a power source"
 msgstr "有接上電源"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:223001
 msgid "is connected to the Internet"
 msgstr "有連接至網際網路"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1468,7 +1476,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1478,37 +1486,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "Install this third-party software"
 msgstr "安裝此第三方軟體"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid "Download updates while installing"
 msgstr "當安裝時下載更新"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:231001
 msgid "Layout:"
 msgstr "視窗配置:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:232001
 msgid "Variant:"
 msgstr "變異："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:233001
 msgid "Below is an image of your current layout:"
 msgstr "以下是您目前排列方式的影像："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:234001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1519,19 +1527,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:235001
 msgid "Time Zone:"
 msgstr "時區："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:236001
 msgid "Region:"
 msgstr "地區："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:237001
 msgid "[type here to change]"
 msgstr "[在這裡輸入以更改]"
 
