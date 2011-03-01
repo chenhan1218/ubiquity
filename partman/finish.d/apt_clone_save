@@ -20,9 +20,6 @@ fail () {
 	exit 1
 }
 
-db_progress START 0 2 ubiquity/install/title
-db_progress INFO ubiquity/install/apt_clone_save
-
 for dev in $DEVICES/*; do
 	[ -d "$dev" ] || continue
 	cd $dev
@@ -43,12 +40,14 @@ for dev in $DEVICES/*; do
 	close_dialog
 done
 
-db_progress STEP 1
-
 if [ -z "$root" ]; then
 	# The partition is going to be formatted; there's nothing to preserve.
 	exit 0
 fi
+
+db_progress START 0 1 ubiquity/install/title
+db_progress INFO ubiquity/install/apt_clone_save
+
 mount "$root" "$mountpoint"
 [ -n "$var" ] && mount "$var" "$mountpoint/var"
 
