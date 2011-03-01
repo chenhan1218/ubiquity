@@ -251,6 +251,9 @@ def install(frontend=None, query=False):
     unmount_target()
     if ret == 10:
         wizard.do_reboot()
+    if ret == 11:
+        wizard.do_shutdown()
+
 
 @misc.raise_privileges
 def apply_keyboard():

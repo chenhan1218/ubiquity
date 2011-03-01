@@ -385,13 +385,24 @@ class Page(plugin.Plugin):
                 {'OVERRIDE_ALLOW_PRESEEDING': '1',
                  'LC_ALL': di_locale})
 
+    # keyboard-configuration has a complex model of whether to store defaults
+    # in debconf, induced by its need to run well both in an installer context
+    # and as a package.  We need to adjust this while we're running in order
+    # that we can go back and forward without keyboard-configuration
+    # overwriting our answers with default values.
+    def store_defaults(self, store):
+        self.preseed_bool(
+            'keyboard-configuration/store_defaults_in_debconf_db', store,
+            seen=False)
+
     def run(self, priority, question):
         if self.done:
             return self.succeeded
 
         if question == 'keyboard-configuration/layout':
-            # Reset this in case we just backed up from the variant
+            # Reset these in case we just backed up from the variant
             # question.
+            self.store_defaults(True)
             self.succeeded = True
             # TODO cjwatson 2006-09-07: no keyboard-configuration support
             # for layout choice translation yet
@@ -434,6 +445,7 @@ class Page(plugin.Plugin):
 
     def change_layout(self, layout):
         self.preseed('keyboard-configuration/layout', layout)
+        self.store_defaults(False)
         # Back up in order to get keyboard-configuration to recalculate the
         # list of possible variants.
         self.succeeded = False

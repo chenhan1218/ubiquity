@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-12-17 14:54+0000\n"
+"POT-Creation-Date: 2011-02-24 16:57+0000\n"
 "PO-Revision-Date: 2010-10-02 15:39+0000\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "手動でパーティションを設定する（高度な知識が必要
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:181001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "インストール"
 
@@ -193,8 +193,10 @@ msgstr "キーボードレイアウトを検出"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "キーボードレイアウトの検出"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "キーボードレイアウトを検出"
 
 #. Type: text
 #. Description
@@ -546,15 +548,21 @@ msgstr "今すぐ再起動する"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:79001
+msgid "Shutdown Now"
+msgstr ""
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
 msgid "Installer crashed"
 msgstr "インストーラがクラッシュしました"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -572,48 +580,48 @@ msgstr ""
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "New Partition Table..."
 msgstr "新しいパーティションテーブル..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid "Add..."
 msgstr "追加..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Change..."
 msgstr "変更..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:87001
 msgid "Delete"
 msgstr "削除"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:88001
 msgid "Revert"
 msgstr "元に戻す"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Recalculating partitions..."
 msgstr "パーティションを再計算しています..."
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Device"
 msgstr "デバイス"
 
@@ -621,28 +629,28 @@ msgstr "デバイス"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid "Type"
 msgstr "タイプ"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:92001
 msgid "Mount point"
 msgstr "マウントポイント"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Format?"
 msgstr "フォーマット"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "Size"
 msgstr "サイズ"
 
@@ -650,27 +658,27 @@ msgstr "サイズ"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:95001
 msgid "Used"
 msgstr "使用済み"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:96001
 msgid "free space"
 msgstr "空き領域"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:97001
 msgid "unknown"
 msgstr "不明"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:98001
 msgid "Create partition"
 msgstr "パーティションを作成"
 
@@ -678,56 +686,56 @@ msgstr "パーティションを作成"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001 ../ubiquity.templates:104001
+#: ../ubiquity.templates:99001 ../ubiquity.templates:106001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr ""
 "新しいパーティションのサイズをメガバイト(1000000バイト)単位で指定する："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:100001
 msgid "Beginning"
 msgstr "先頭"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:101001
 msgid "End"
 msgstr "末尾"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:102001
 msgid "Primary"
 msgstr "基本パーティション"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:103001
 msgid "Logical"
 msgstr "論理パーティション"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 msgid "Edit partition"
 msgstr "パーティションを編集"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Edit a partition"
 msgstr "パーティションを編集"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:107001
 msgid "Boot loader"
 msgstr "ブートローダ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:108001
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
@@ -740,20 +748,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:109001
 msgid "Go Back"
 msgstr "戻る"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Continue"
 msgstr "続ける"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -763,37 +771,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:112001
 msgid "Verifying the installation configuration..."
 msgstr "インストールの設定を検証しています"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:113001
 msgid "Installing system"
 msgstr "システムをインストールしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:114001
 msgid "Finding the distribution to copy..."
 msgstr "コピーするディストリビューションを探しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid "Scanning files..."
 msgstr "ファイルを検査しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:117001
 msgid "Copying files..."
 msgstr "ファイルをコピーしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:118001
 msgid "Almost finished copying files..."
 msgstr "ファイルのコピーはまもなく完了します..."
 
@@ -807,9 +815,9 @@ msgstr "ファイルのコピーはまもなく完了します..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "Installation Failed"
 msgstr "インストールが失敗しました"
 
@@ -821,14 +829,14 @@ msgstr "インストールが失敗しました"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "ハードディスクにファイルをコピーする際にエラーが発生しました:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:119001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -839,7 +847,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:120001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -851,7 +859,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:121001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -869,7 +877,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -885,145 +893,153 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:123001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "次のファイルはCDまたはDVDのソースコピーと一致しませんでした:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Copying installation logs..."
 msgstr "インストールログをコピーしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:125001
 msgid "Configuring target system..."
 msgstr "ターゲットシステムを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:126001
 msgid "Configuring system locales..."
 msgstr "システムの言語と地域を設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:127001
 msgid "Configuring apt..."
 msgstr "APTを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:128001
 msgid "Configuring time zone..."
 msgstr "タイムゾーンを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:129001
 msgid "Configuring keyboard..."
 msgstr "キーボードを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Creating user..."
 msgstr "クリーニング中です..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:131001
 msgid "Importing documents and settings..."
 msgstr "Documents and Settingsをインポートしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:132001
 msgid "Configuring hardware..."
 msgstr "ハードウェアを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:133001
+#, fuzzy
+#| msgid "Install this third-party software"
+msgid "Installing third-party software..."
+msgstr "サードパーティー・ソフトウェアをインストールする"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:134001
 msgid "Configuring network..."
 msgstr "ネットワークを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:135001
 msgid "Setting computer name..."
 msgstr "コンピュータの名前を設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
 msgstr "ブートローダを設定しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid "Installing additional packages..."
 msgstr "追加パッケージをインストールしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:138001
 msgid "Checking for packages to install..."
 msgstr "インストールするパッケージのチェック中..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:139001
 msgid "Removing extra packages..."
 msgstr "余分なパッケージを削除しています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:140001
 msgid "Checking for packages to remove..."
 msgstr "削除するパッケージをチェックしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:141001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "パッケージをダウンロードしています (残り ${TIME})..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:142001
 msgid "Downloading package lists..."
 msgstr "パッケージリストをダウンロードしています..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:143001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "パッケージリストをダウンロードしています (残り ${TIME})..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:145001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} をインストールできません"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:146001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} を削除できません"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:147001
 msgid "Error while installing packages"
 msgstr "パッケージのインストール中にエラーが発生しました"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:147001
 msgid "An error occurred while installing packages:"
 msgstr "パッケージのインストール中にエラーが１件発生しました"
 
@@ -1031,7 +1047,7 @@ msgstr "パッケージのインストール中にエラーが１件発生しま
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001 ../ubiquity.templates:145001
+#: ../ubiquity.templates:147001 ../ubiquity.templates:148001
 msgid "The following packages are in a broken state:"
 msgstr "次のパッケージは壊れています："
 
@@ -1039,7 +1055,7 @@ msgstr "次のパッケージは壊れています："
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001 ../ubiquity.templates:145001
+#: ../ubiquity.templates:147001 ../ubiquity.templates:148001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1060,25 +1076,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:148001
 msgid "Error while removing packages"
 msgstr "パッケージの削除中にエラーが起きました"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:148001
 msgid "An error occurred while removing packages:"
 msgstr "パッケージの削除中に1件のエラーが発生しました"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:149001
 msgid "Error migrating documents and settings"
 msgstr "documents and settings の移行エラー"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:149001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1092,13 +1108,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:150001
 msgid "Error copying network configuration"
 msgstr "ネットワーク設定のコピーエラー"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:150001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1109,37 +1125,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:154001
 msgid "Calculating files to skip copying..."
 msgstr "コピーをスキップするファイルを算出中……"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:155001
 msgid "Ready when you are..."
 msgstr "あなたの操作を待っています..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:156001
 msgid "Installing language packs"
 msgstr "言語パッケージをインストールしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:157001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "言語パッケージをダウンロードしています (残り ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid "Failed to unmount partitions"
 msgstr "パーティションのアンマウントに失敗しました"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1150,14 +1166,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "これらのマウントポイントを使用しているアプリケーションを終了して下さい。"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "再度、インストーラによるこれらのパーティションのアンマウントを実行してよいで"
@@ -1165,13 +1181,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:173001
 msgid "Do you want to return to the partitioner?"
 msgstr "partitionerに戻りますか？"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:173001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1181,7 +1197,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:173001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1191,7 +1207,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:174001
 msgid "System Configuration"
 msgstr "システム設定"
 
@@ -1199,135 +1215,135 @@ msgstr "システム設定"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:171001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:238001
 msgid "Welcome"
 msgstr "ようこそ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:176001
 msgid "Network configuration"
 msgstr "ネットワーク設定"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:177001
 msgid "Software selection"
 msgstr "ソフトウェアセレクション"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:178001
 msgid "Applying configuration"
 msgstr "設定の適用"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:179001
 msgid "Language"
 msgstr "言語"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:180001
 msgid "Prepare"
 msgstr "準備"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "タイムゾーン"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:182001
 msgid "Keyboard"
 msgstr "キーボード"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:183001
 msgid "Disk Setup"
 msgstr "ディスクのセットアップ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:184001
 msgid "User Info"
 msgstr "ユーザ情報"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "インストール処理"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "インストーラのアップデートを確認しています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "パッケージ情報を取得しています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "パッケージ情報をアップデートしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "ファイル ${INDEX} / ${TOTAL}  速度 ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "ファイル ${INDEX} / ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "アップデートをインストールしています"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "アップデートインストーラのエラー"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "インストーラのアップデートを行う間にエラーが発生しました:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
 msgstr "USB ディスク"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1337,7 +1353,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1347,7 +1363,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "インストールを続けます。"
 
@@ -1355,13 +1371,13 @@ msgstr "インストールを続けます。"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001 ../ubiquity.templates:197001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "インストールに失敗しました"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1371,49 +1387,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "インストーラに回復不能なエラーが発生しました。再起動します。"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
 msgstr "${RELEASE} のインストール準備"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:204001
 msgid "Wireless"
 msgstr "無線"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:205001
 msgid "Please select your wireless network from this list"
 msgstr "このリストから無線ネットワークを選択してください"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:209001
 msgid "Select drive:"
 msgstr "ドライブの選択:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:210001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "境界をドラッグしてディスク領域を割り当てます:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:211001
 msgid "The entire disk will be used:"
 msgstr "ディスク全体を使用する:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:212001
 #, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
@@ -1424,7 +1440,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:213001
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1434,7 +1450,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:214001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1445,7 +1461,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:215001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1455,49 +1471,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:216001
 msgid "Use Entire Partition"
 msgstr "パーティション全体を使用"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:217001
 msgid "Use Entire Disk"
 msgstr "ディスク全体を使用"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:218001
 msgid "Split Largest Partition"
 msgstr "最大パーティションを分割"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:220001
 msgid "For best results, please ensure that this computer:"
 msgstr "正常にインストールするためコンピュータを確認してください:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:221001
 msgid "has at least ${SIZE} available drive space"
 msgstr "最低 ${SIZE} のディスクの空き容量があること"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:222001
 msgid "is plugged in to a power source"
 msgstr "電源に接続されていること"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:223001
 msgid "is connected to the Internet"
 msgstr "インターネットに接続されていること"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:224001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1511,7 +1527,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:225001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1521,37 +1537,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:226001
 msgid "Install this third-party software"
 msgstr "サードパーティー・ソフトウェアをインストールする"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:227001
 msgid "Download updates while installing"
 msgstr "インストール中にアップデートをダウンロードする"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:231001
 msgid "Layout:"
 msgstr "レイアウト:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:232001
 msgid "Variant:"
 msgstr "変種:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:233001
 msgid "Below is an image of your current layout:"
 msgstr "以下は現在のレイアウトの画像です:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:234001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1563,19 +1579,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:235001
 msgid "Time Zone:"
 msgstr "タイムゾーン:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:236001
 msgid "Region:"
 msgstr "地域："
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:237001
 msgid "[type here to change]"
 msgstr "[変更するにはここに入力]"
 
@@ -1642,6 +1658,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "キーボードレイアウトの検出"
 
 #~ msgid "Advanced Options"
 #~ msgstr "詳細オプション"

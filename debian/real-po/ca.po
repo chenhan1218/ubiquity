@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2010-12-17 14:54+0000\n"
-"PO-Revision-Date: 2011-01-19 15:17+0000\n"
-"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
+"POT-Creation-Date: 2011-02-24 16:57+0000\n"
+"PO-Revision-Date: 2011-01-24 09:51+0000\n"
+"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-20 11:52+0000\n"
-"X-Generator: Launchpad (build 12214)\n"
+"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
+"X-Generator: Launchpad (build 12274)\n"
 
 #. Type: text
 #. Description
@@ -46,7 +46,7 @@ msgstr "Especificació manual de les particions (avançat)"
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:181001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "Instal·lació"
 
@@ -65,8 +65,8 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Esteu instal·lant en mode fabricant del sistema. Introduïu un nom únic per a "
-"aquest lot de sistemes. Aquest nom es desarà al sistema instal·lat i pot ser "
-"usat per a ajudar amb informes d'error."
+"este lot de sistemes. Este nom s'alçarà al sistema instal·lat i pot ser usat "
+"per a ajudar amb informes d'error."
 
 #. Type: text
 #. Description
@@ -76,7 +76,7 @@ msgid ""
 "from this ${MEDIUM}."
 msgstr ""
 "Podeu provar ${RELEASE} sense fer cap canvi al vostre ordinador, directament "
-"des d'aquest ${MEDIUM}."
+"des d'este ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -115,7 +115,7 @@ msgid ""
 "href=\"update\">update this installer</a>."
 msgstr ""
 "Podeu llegir les <a href=\"release-notes\">notes de la versió</a> o bé <a "
-"href=\"update\">actualitzar aquest instal·lador</a>."
+"href=\"update\">actualitzar este instal·lador</a>."
 
 #. Type: text
 #. Description
@@ -127,7 +127,7 @@ msgstr "Podeu llegir les <a href=\"release-notes\">notes de la versió</a>."
 #. Description
 #: ../ubiquity.templates:16001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "Podeu <a href=\"update\">actualitzar aquest instal·lador</a>."
+msgstr "Podeu <a href=\"update\">actualitzar este instal·lador</a>."
 
 #. Type: text
 #. Description
@@ -137,6 +137,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"Aquesta és una versió en desenvolupament de l'instal·lador ${MEDIUM} autònom "
+"en ${RELEASE}. No és una versió final, la qual estarà disponible amb "
+"l'alliberament de ${RELEASE} a l'abril de 2011."
 
 #. Type: text
 #. Description
@@ -148,7 +151,7 @@ msgid ""
 msgstr ""
 "El procés d'instal·lació pot canviar la mida o esborrar particions del disc "
 "dur. Assegureu-vos de fer <b>una còpia de seguretat completa de les dades "
-"importants</b> abans d'executar aquest programa."
+"importants</b> abans d'executar este programa."
 
 #. Type: text
 #. Description
@@ -178,7 +181,7 @@ msgstr "Trieu la vostra distribució de teclat:"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Type here to test your keyboard"
-msgstr "Escriviu aquí per provar el vostre teclat"
+msgstr "Escriviu ací per provar el vostre teclat"
 
 #. Type: text
 #. Description
@@ -189,8 +192,10 @@ msgstr "Endevina la disposició del teclat"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
-msgid "Figure out keyboard layout"
-msgstr "Esbrina la disposició del teclat"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout..."
+msgstr "Endevina la disposició del teclat"
 
 #. Type: text
 #. Description
@@ -256,7 +261,7 @@ msgstr "Confirmeu la contrasenya"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Confirmeu la contrasenya:"
 
 #. Type: text
 #. Description
@@ -322,13 +327,13 @@ msgstr "Entra de manera automàtica"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Require my password to log in"
-msgstr "Fes que calgui una contrasenya per a entrar"
+msgstr "Fes que calga una contrasenya per a entrar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Encrypt my home folder"
-msgstr "Encripta la meva carpeta personal"
+msgstr "Encripta la meua carpeta personal"
 
 #. Type: text
 #. Description
@@ -344,8 +349,7 @@ msgid ""
 "for these accounts will be available after the install completes."
 msgstr ""
 "Seleccioneu qualsevol compte que vulgueu importar. Els documents i la "
-"configuració d'aquests estaran disponibles un cop finalitzada la "
-"instal·lació."
+"configuració d'estos estaran disponibles un cop finalitzada la instal·lació."
 
 #. Type: text
 #. Description
@@ -373,19 +377,19 @@ msgstr "Com voleu partir el disc?"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "This computer has no operating systems on it."
-msgstr "Aquest ordinador no té instal·lat cap sistema operatiu."
+msgstr "Este ordinador no té instal·lat cap sistema operatiu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "This computer has ${OS} on it."
-msgstr "Aquest ordinador té instal·lat el ${OS}."
+msgstr "Este ordinador té instal·lat el ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "This computer has several operating systems on it."
-msgstr "Aquest ordinador té diversos sistemes operatius instal·lats."
+msgstr "Este ordinador té diversos sistemes operatius instal·lats."
 
 #. Type: text
 #. Description
@@ -449,13 +453,13 @@ msgstr "Pas ${INDEX}/${TOTAL}"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Quit the installation?"
-msgstr "Voleu sortir de la instal·lació?"
+msgstr "Voleu eixir de la instal·lació?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Do you really want to quit the installation now?"
-msgstr "Realment voleu sortir de la instal·lació?"
+msgstr "Realment voleu eixir de la instal·lació?"
 
 #. Type: text
 #. Description
@@ -505,7 +509,7 @@ msgstr "Cancel·la la instal·lació."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "This may leave your computer unable to boot."
-msgstr "Pot ser que això faci que l'ordinador no pugui d'arrencar."
+msgstr "Pot ser que això faça que l'ordinador no puga d'arrencar."
 
 #. Type: text
 #. Description
@@ -539,15 +543,21 @@ msgstr "Reinicia ara"
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:79001
+msgid "Shutdown Now"
+msgstr ""
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:79001 ../ubiquity.templates:80001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
 msgid "Installer crashed"
 msgstr "L'instal·lador ha fallat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:81001
+#: ../ubiquity.templates:83001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -557,57 +567,57 @@ msgid ""
 "and /var/log/partman:"
 msgstr ""
 "Ho sentim: l'instal·lador ha fallat. Seria recomanable que informéssiu "
-"d'aquest error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
-"(sense adjuntar els detalls a cap informe ja existent), de manera que els "
-"desenvolupadors se'n puguin ocupar el més aviat possible. Hauríeu d'incloure "
-"els detalls següents a l'informe perquè pugui ser útil, així com adjuntar-hi "
-"els fitxers /var/log/syslog i /var/log/partman:"
+"d'este error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug (sense "
+"adjuntar els detalls a cap informe ja existent), de manera que els "
+"desenvolupadors se'n puguen ocupar el més prompte possible. Hauríeu "
+"d'incloure els detalls següents a l'informe perquè puga ser útil, així com "
+"adjuntar-hi els fitxers /var/log/syslog i /var/log/partman:"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:84001
 msgid "New Partition Table..."
 msgstr "Taula de particions nova..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:85001
 msgid "Add..."
-msgstr "Afegeix..."
+msgstr "Afig..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:86001
 msgid "Change..."
 msgstr "Canvia..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:87001
 msgid "Delete"
 msgstr "Suprimeix"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:88001
 msgid "Revert"
 msgstr "Reverteix"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:89001
 msgid "Recalculating partitions..."
 msgstr "S'estan tornant a calcular les particions..."
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:90001
 msgid "Device"
 msgstr "Dispositiu"
 
@@ -615,28 +625,28 @@ msgstr "Dispositiu"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:91001
 msgid "Type"
 msgstr "Tipus"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:92001
 msgid "Mount point"
 msgstr "Punt de muntatge"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:93001
 msgid "Format?"
 msgstr "A formatar?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:94001
 msgid "Size"
 msgstr "Mida"
 
@@ -644,27 +654,27 @@ msgstr "Mida"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:95001
 msgid "Used"
 msgstr "En ús"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:96001
 msgid "free space"
 msgstr "espai lliure"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:97001
 msgid "unknown"
 msgstr "desconegut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:98001
 msgid "Create partition"
 msgstr "Crea una partició"
 
@@ -672,81 +682,81 @@ msgstr "Crea una partició"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001 ../ubiquity.templates:104001
+#: ../ubiquity.templates:99001 ../ubiquity.templates:106001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Mida de la partició nova en megues (1000000 octets):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001
+#: ../ubiquity.templates:100001
 msgid "Beginning"
 msgstr "Principi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:101001
 msgid "End"
 msgstr "Final"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:102001
 msgid "Primary"
 msgstr "Primària"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:103001
 msgid "Logical"
 msgstr "Lògica"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:104001
 msgid "Edit partition"
 msgstr "Edita la partició"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:105001
 msgid "Edit a partition"
 msgstr "Edita una partició"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:105001
+#: ../ubiquity.templates:107001
 msgid "Boot loader"
 msgstr "Carregador"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:108001
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
 "Ha finalitzat la instal·lació. Podeu continuar provant ${RELEASE}, però fins "
-"que no reinicieu l'ordinador no es desarà cap canvi que feu ni tampoc cap "
+"que no reinicieu l'ordinador no s'alçarà cap canvi que feu ni tampoc cap "
 "document."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:109001
 msgid "Go Back"
-msgstr "Vés enrere"
+msgstr "Vés arrere"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:110001
 msgid "Continue"
 msgstr "Continua"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:111001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -756,37 +766,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:112001
 msgid "Verifying the installation configuration..."
 msgstr "S'està verificant la configuració de la instal·lació..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:113001
 msgid "Installing system"
 msgstr "S'està instal·lant el sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:114001
 msgid "Finding the distribution to copy..."
 msgstr "S'està cercant la distribució a copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:114001
+#: ../ubiquity.templates:116001
 msgid "Scanning files..."
 msgstr "S'estan analitzant els fitxers..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:117001
 msgid "Copying files..."
 msgstr "S'estan copiant els fitxers..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:118001
 msgid "Almost finished copying files..."
 msgstr "S'està a punt de finalitzar la còpia de fitxers..."
 
@@ -800,9 +810,9 @@ msgstr "S'està a punt de finalitzar la còpia de fitxers..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "Installation Failed"
 msgstr "Ha fallat la instal·lació"
 
@@ -814,15 +824,15 @@ msgstr "Ha fallat la instal·lació"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001 ../ubiquity.templates:118001
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "L'instal·lador ha trobat un error mentre copiava els arxius al disc dur:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:119001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -835,7 +845,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:120001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -848,15 +858,15 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:121001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Aquest error acostuma ser causat per un problema amb el disc dur. Comproveu "
-"si el disc dur és massa vell i necessita ser reemplaçat, o bé traslladeu el "
-"sistema a una ubicació on hi hagi una temperatura més baixa."
+"Este error acostuma ser causat per un problema amb el disc dur. Comproveu si "
+"el disc dur és massa vell i necessita ser reemplaçat, o bé traslladeu el "
+"sistema a una ubicació on hi haja una temperatura més baixa."
 
 #. Type: error
 #. Description
@@ -866,7 +876,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -880,149 +890,157 @@ msgstr ""
 "lector de CD/DVD (les botigues d'informàtica especialitzades solen vendre "
 "jocs de neteja). Alternativament, comproveu si el disc dur és massa vell i "
 "necessita ser reemplaçat, o bé traslladeu el sistema a una ubicació on hi "
-"hagi una temperatura més baixa."
+"haja una temperatura més baixa."
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:121001
+#: ../ubiquity.templates:123001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "El fitxer següent no coincideix amb el seu original en el CD/DVD:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:124001
 msgid "Copying installation logs..."
 msgstr "S'estan copiant els registres de la instal·lació..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:125001
 msgid "Configuring target system..."
 msgstr "S'està configurant el sistema instal·lat..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:126001
 msgid "Configuring system locales..."
 msgstr "S'estan configurant els locales del sistema"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:127001
 msgid "Configuring apt..."
 msgstr "S'està configurant l'apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:128001
 msgid "Configuring time zone..."
 msgstr "S'està configurant el fus horari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:129001
 msgid "Configuring keyboard..."
 msgstr "S'està configurant el teclat..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:130001
 msgid "Creating user..."
 msgstr "S'està creant un usuari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:131001
 msgid "Importing documents and settings..."
 msgstr "S'estan important els documents i paràmetres..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:132001
 msgid "Configuring hardware..."
 msgstr "S'està configurant el maquinari..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:133001
+#, fuzzy
+#| msgid "Install this third-party software"
+msgid "Installing third-party software..."
+msgstr "Instal·la el programari de terceres parts"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:134001
 msgid "Configuring network..."
 msgstr "S'està configurant la xarxa..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:135001
 msgid "Setting computer name..."
 msgstr "S'està establint el nom de l'ordinador..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
 msgstr "S'està configurant el carregador..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:137001
 msgid "Installing additional packages..."
 msgstr "S'estan instal·lant els paquets addicionals"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:138001
 msgid "Checking for packages to install..."
 msgstr "S'estan comprovant els paquets que s'han d'instal·lar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:139001
 msgid "Removing extra packages..."
 msgstr "S'estan suprimint els paquets extra..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:140001
 msgid "Checking for packages to remove..."
 msgstr "S'està comprovant quins paquets s'han de suprimir..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:141001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets (${TIME} per a acabar)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:142001
 msgid "Downloading package lists..."
 msgstr "S'estan baixant les llistes de paquets..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:143001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "S'estan baixant les llistes de paquets (${TIME} per a acabar)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:145001
 msgid "Error installing ${PACKAGE}"
 msgstr "S'ha produït un error en instal·lar ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:146001
 msgid "Error removing ${PACKAGE}"
 msgstr "S'ha produït un error en suprimir ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:147001
 msgid "Error while installing packages"
 msgstr "S'ha produït un error en instal·lar els paquets"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:147001
 msgid "An error occurred while installing packages:"
 msgstr "S'ha produït un error en instal·lar els paquets:"
 
@@ -1030,7 +1048,7 @@ msgstr "S'ha produït un error en instal·lar els paquets:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001 ../ubiquity.templates:145001
+#: ../ubiquity.templates:147001 ../ubiquity.templates:148001
 msgid "The following packages are in a broken state:"
 msgstr "Els paquets següents estan en un estat trencat:"
 
@@ -1038,7 +1056,7 @@ msgstr "Els paquets següents estan en un estat trencat:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:144001 ../ubiquity.templates:145001
+#: ../ubiquity.templates:147001 ../ubiquity.templates:148001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1048,56 +1066,56 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Això pot ser degut al fet que s'estigui utilitzant una imatge d'instal·lació "
-"vella, o bé a un error en algun dels paquets llistats aquí sobre. Podeu "
+"Això pot ser degut al fet que s'estiga utilitzant una imatge d'instal·lació "
+"vella, o bé a un error en algun dels paquets llistats ací sobre. Podeu "
 "trobar més detalls a /var/log/syslog. De totes maneres, l'instal·lador "
 "intentarà continuar, però pot ser que falli en algun punt determinat i no "
-"pugui instal·lar o suprimir altres paquets (fins i tot el seu mateix) del "
+"puga instal·lar o suprimir altres paquets (fins i tot el seu mateix) del "
 "sistema. Abans de res, hauríeu de comprovar si hi ha versions noves de la "
-"imatge d'instal·lació. En cas contrari, hauríeu d'informar d'aquest error a "
-"la vostra distribució."
+"imatge d'instal·lació. En cas contrari, hauríeu d'informar d'este error a la "
+"vostra distribució."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:148001
 msgid "Error while removing packages"
 msgstr "S'ha produït un error en suprimir paquets"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:148001
 msgid "An error occurred while removing packages:"
 msgstr "S'ha produit un error mentre es suprimien paquets:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:149001
 msgid "Error migrating documents and settings"
 msgstr "S'ha produït un error en migrar els documents i els paràmetres"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:149001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"S'ha produït un error durant la migració de les dades. Podeu obtenir més "
+"S'ha produït un error durant la migració de les dades. Podeu obtindre més "
 "detalls a /var/log/syslog. La instal·lació continuarà, però alguns o tots "
 "els documents i els paràmetres que heu sol·licitat no s'hauran transferit al "
 "sistema instal·lat."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:150001
 msgid "Error copying network configuration"
 msgstr "S'ha produït un error en copiar la configuració de la xarxa."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:150001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1109,37 +1127,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:154001
 msgid "Calculating files to skip copying..."
 msgstr "S'estan calculant els fitxers per a ometre en copiar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:155001
 msgid "Ready when you are..."
 msgstr "Tot a punt..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:156001
 msgid "Installing language packs"
 msgstr "S'estan instal·lant els paquets de llengua"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:157001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "S'estan baixant els paquets de llengua (${TIME} per a acabar)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid "Failed to unmount partitions"
 msgstr "No s'han pogut desmuntar les particions"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1149,47 +1167,47 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid "Please close any applications using these mount points."
-msgstr "Tanqueu les aplicacions que emprin aquests punts de muntatge:"
+msgstr "Tanqueu les aplicacions que emprin estos punts de muntatge:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:166001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Voleu que l'instal·lador provi de desmuntar aquestes particions una altra "
+"Voleu que l'instal·lador prove de desmuntar estes particions una altra "
 "vegada?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:173001
 msgid "Do you want to return to the partitioner?"
 msgstr "Voleu tornar cap al partidor?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:173001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
 "Algunes de les particions que heu creat són massa petites. Feu que les "
-"particions següents tinguin com a mínim aquesta capacitat:"
+"particions següents tinguen com a mínim esta capacitat:"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:173001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Si no torneu al partidor i incrementeu la mida d'aquestes particions, pot "
-"ser que falli la instal·lació."
+"Si no torneu al partidor i incrementeu la mida d'estes particions, pot ser "
+"que falli la instal·lació."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:174001
 msgid "System Configuration"
 msgstr "Configuració del sistema"
 
@@ -1197,145 +1215,145 @@ msgstr "Configuració del sistema"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:171001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:175001 ../ubiquity.templates:238001
 msgid "Welcome"
 msgstr "Benvingut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:176001
 msgid "Network configuration"
 msgstr "Configuració de xarxa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:177001
 msgid "Software selection"
 msgstr "Selecció de programari"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:178001
 msgid "Applying configuration"
 msgstr "Aplicació de la configuració"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:179001
 msgid "Language"
 msgstr "Llengua"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:180001
 msgid "Prepare"
 msgstr "Prepara"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "Fus horari"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:182001
 msgid "Keyboard"
 msgstr "Teclat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:183001
 msgid "Disk Setup"
 msgstr "Configuració dels discos"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:184001
 msgid "User Info"
 msgstr "Informació d'usuari"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "procés d'instal·lació"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "S'està comprovant si hi ha actualitzacions de l'instal·lador"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "S'està llegint la informació del paquet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "S'està actualitzant la informació del paquet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Fitxer ${INDEX} de ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Fitxer ${INDEX} de ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "S'està instal·lant l'actualització"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "S'ha produït un error en actualitzar l'instal·lador"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "L'instal·lador ha trobat un error quan intentava actualitzar-se:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
 msgstr "Disc USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Trieu la llengua que s'utilitzarà en el procés d'instal·lació. Aquesta serà "
-"la predeterminada per a aquest ordinador."
+"Trieu la llengua que s'utilitzarà en el procés d'instal·lació. Esta serà la "
+"predeterminada per a este ordinador."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1345,7 +1363,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:199001
 msgid "Continue with installation."
 msgstr "Continueu amb l'instal·lació."
 
@@ -1353,13 +1371,13 @@ msgstr "Continueu amb l'instal·lació."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001 ../ubiquity.templates:197001
+#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
 msgid "Installation failed"
 msgstr "Ha fallat la instal·lació"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:200001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1370,134 +1388,134 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:201001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "L'instal·lador ha trobat un error del qual no es pot recuperar i reiniciarà."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:203001
 msgid "Preparing to install ${RELEASE}"
 msgstr "Preparació de la instal·lació del sistema operatiu ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:204001
 msgid "Wireless"
 msgstr "Xarxa sense fils"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:205001
 msgid "Please select your wireless network from this list"
-msgstr "Seleccioneu la xarxa sense fils d'aquesta llista"
+msgstr "Seleccioneu la xarxa sense fils d'esta llista"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:209001
 msgid "Select drive:"
 msgstr "Seleccioneu la unitat:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:210001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "Reserveu espai de disc arrossegant el divisor de més avall:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:211001
 msgid "The entire disk will be used:"
 msgstr "S'utilitzarà el disc sencer:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:212001
 #, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
 "Hi ha %d particions menors ocultes. Utilitzeu l'<a href=\"\">eina de "
-"partiment avançat</a> per tenir-ne més control"
+"partiment avançat</a> per tindre'n més control"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:213001
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
 "Hi ha una partició menor oculta. Utilitzeu l'<a href=\"\">eina de partiment "
-"avançat</a> per tenir-ne més control"
+"avançat</a> per tindre'n més control"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:214001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
 "Se suprimiran %d particions. Utilitzeu l'<a href=\"\">eina de partiment "
-"avançat</a> per tenir-ne més control"
+"avançat</a> per tindre'n més control"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:215001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
 "Se suprimirà una partició. Utilitzeu l'<a href=\"\">eina de partiment "
-"avançat</a> per tenir-ne més control"
+"avançat</a> per tindre'n més control"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:216001
 msgid "Use Entire Partition"
 msgstr "Utilitza tota la partició"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:217001
 msgid "Use Entire Disk"
 msgstr "Utilitza el disc sencer"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:218001
 msgid "Split Largest Partition"
 msgstr "Parteix la partició més gran"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
-msgid "For best results, please ensure that this computer:"
-msgstr "Per obtenir els millors resultats, assegureu-vos que aquest ordinador:"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:217001
-msgid "has at least ${SIZE} available drive space"
-msgstr "Tingui com a mínim ${SIZE} d'espai de disc disponible"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:218001
-msgid "is plugged in to a power source"
-msgstr "Estigui connectat a la xarxa elèctrica"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:219001
-msgid "is connected to the Internet"
-msgstr "Estigui connectat a Internet"
-
-#. Type: text
-#. Description
 #: ../ubiquity.templates:220001
+msgid "For best results, please ensure that this computer:"
+msgstr "Per obtindre els millors resultats, assegureu-vos que este ordinador:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:221001
+msgid "has at least ${SIZE} available drive space"
+msgstr "Tinga com a mínim ${SIZE} d'espai de disc disponible"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:222001
+msgid "is plugged in to a power source"
+msgstr "Estiga connectat a la xarxa elèctrica"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:223001
+msgid "is connected to the Internet"
+msgstr "Estiga connectat a Internet"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:224001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1506,13 +1524,13 @@ msgid ""
 msgstr ""
 "${RELEASE} utilitza programari de terceres parts per permetre la reproducció "
 "dels formats Flash, MP3 i d'altres, així com per permetre el funcionament de "
-"cert maquinari de xarxa sense fil. Algunes d'aquestes aplicacions no són "
+"cert maquinari de xarxa sense fil. Algunes d'estes aplicacions no són "
 "programari lliure, i estan sotmeses a les condicions de llicència incloses "
-"en la seva documentació."
+"en la seua documentació."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:225001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1523,63 +1541,63 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:226001
 msgid "Install this third-party software"
 msgstr "Instal·la el programari de terceres parts"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:227001
 msgid "Download updates while installing"
 msgstr "Baixa actualitzacions durant la instaŀlació"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:231001
 msgid "Layout:"
 msgstr "Disposició:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:232001
 msgid "Variant:"
 msgstr "Variant:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:233001
 msgid "Below is an image of your current layout:"
 msgstr "A sota es mostra una imatge de la vostra distribució actual:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:234001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Seleccioneu la vostra ubicació, de manera que el sistema pugui mostrar les "
+"Seleccioneu la vostra ubicació, de manera que el sistema puga mostrar les "
 "convencions apropiades per al vostre país, recollir les actualitzacions de "
 "llocs web prop vostre, i establir el rellotge a l'hora local correcta."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:235001
 msgid "Time Zone:"
 msgstr "Fus horari:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:236001
 msgid "Region:"
 msgstr "Regió:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:237001
 msgid "[type here to change]"
-msgstr "[escriviu aquí per canviar-ho]"
+msgstr "[escriviu ací per canviar-ho]"
 
 #. Type: title
 #. Description
@@ -1622,9 +1640,9 @@ msgid ""
 "additional modifications you require to the system."
 msgstr ""
 "Quan arrenqueu el nou sistema, podreu entrar amb l'usuari «oem» amb la "
-"contrasenya que heu seleccionat anteriorment; aquest usuari té privilegis "
+"contrasenya que heu seleccionat anteriorment; este usuari té privilegis "
 "d'administrador utilitzant «sudo». Llavors, podreu fer qualsevol modificació "
-"que us calgui al sistema."
+"que vos calga al sistema."
 
 #. Type: text
 #. Description
@@ -1634,16 +1652,19 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Un cop s'hagi configurat el sistema amb els paràmetres desitjats, haureu "
-"d'executar l'ordre «oem-config-prepare». Això farà que el sistema suprimeixi "
-"l'usuari «oem» i pregunti sobre diversos paràmetres de configuració a "
-"l'usuari final la propera vegada que es torni a iniciar."
+"Un cop s'haja configurat el sistema amb els paràmetres desitjats, haureu "
+"d'executar l'orde «oem-config-prepare». Això farà que el sistema suprimisca "
+"l'usuari «oem» i pregunte sobre diversos paràmetres de configuració a "
+"l'usuari final la propera vegada que es torne a iniciar."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Esbrina la disposició del teclat"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opcions avançades"

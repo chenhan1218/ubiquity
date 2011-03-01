@@ -134,6 +134,12 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
 
+        try:
+            self.show_shutdown_button = \
+                self.db.get('ubiquity/show_shutdown_button') == 'true'
+        except debconf.DebconfError:
+            self.show_shutdown_button = False
+
         # Load plugins
         plugins = plugin_manager.load_plugins()
         modules = plugin_manager.order_plugins(plugins)
@@ -325,6 +331,25 @@ class BaseFrontend:
         except debconf.DebconfError:
             pass
         if reboot_seen == 'false':
+            return False
+        else:
+            return True
+
+    def set_shutdown(self, shutdown):
+        """Set whether to shutdown automatically when the install completes."""
+        self.shutdown_after_install = shutdown
+
+    def get_shutdown(self):
+        return self.shutdown_after_install
+
+    def get_shutdown_seen(self):
+        shutdown_seen = 'false'
+        try:
+            shutdown_seen = self.debconf_operation('fget', 'ubiquity/poweroff',
+                'seen')
+        except debconf.DebconfError:
+            pass
+        if shutdown_seen == 'false':
             return False
         else:
             return True

@@ -123,7 +123,7 @@ _Description: Figure Out Keyboard Layout
 
 Template: ubiquity/text/keyboard_query_title
 Type: text
-_Description: Figure out keyboard layout
+_Description: Detect Keyboard Layout...
 
 Template: ubiquity/text/keyboard_query_press
 Type: text
@@ -348,6 +348,16 @@ _Description: Continue Testing
 Template: ubiquity/text/reboot_button
 Type: text
 _Description: Restart Now
+
+Template: ubiquity/text/shutdown_button
+Type: text
+_Description: Shutdown Now
+
+Template: ubiquity/show_shutdown_button
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ Show the Shutdown Now button at the end of installation
 
 Template: ubiquity/text/crash_dialog
 Type: text
@@ -640,6 +650,10 @@ Template: ubiquity/install/hardware
 Type: text
 _Description: Configuring hardware...
 
+Template: ubiquity/install/nonfree
+Type: text
+_Description: Installing third-party software...
+
 Template: ubiquity/install/network
 Type: text
 _Description: Configuring network...
@@ -860,6 +874,11 @@ Template: ubiquity/reboot
 Type: boolean
 Default: false
 Description: for internal use; automatically reboot when the install completes.
+
+Template: ubiquity/poweroff
+Type: boolean
+Default: false
+Description: for internal use; automatically shutdown when the install completes.
 
 Template: ubiquity/success_command
 Type: string
