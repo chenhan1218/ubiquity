@@ -1,4 +1,4 @@
-ubiquity (2.5.22) UNRELEASED; urgency=low
+ubiquity (2.5.22) natty; urgency=low
 
   [ Evan Dandrea ]
   * Make apt-clone executable. D'oh.
@@ -11,7 +11,7 @@ ubiquity (2.5.22) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Deny requests from hw-detect to load firmware (LP: #727288).
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 15:35:35 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 01 Mar 2011 23:28:42 +0000
 
 ubiquity (2.5.21) natty; urgency=low
 
