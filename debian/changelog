@@ -5,6 +5,7 @@ ubiquity (2.5.22) UNRELEASED; urgency=low
     each disk in the combo box.
   * Don't show the progress section when advancing to the manual
     partitioning page from the hyperlink for it.
+  * Change 'Figure Out' to 'Detect' for reals (LP: #717500).
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 15:35:35 +0000
 

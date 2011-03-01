@@ -113,7 +113,7 @@ _Description: Type here to test your keyboard
 
 Template: ubiquity/text/deduce_layout
 Type: text
-_Description: Figure Out Keyboard Layout
+_Description: Detect Keyboard Layout
 
 Template: ubiquity/text/keyboard_query_title
 Type: text
