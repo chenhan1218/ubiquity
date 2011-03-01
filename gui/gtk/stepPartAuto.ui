@@ -7,6 +7,8 @@
     <columns>
       <!-- column-name gchararray1 -->
       <column type="gchararray"/>
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
     </columns>
   </object>
   <object class="GtkAlignment" id="stepPartAuto">
@@ -44,12 +46,6 @@
                 <property name="can_focus">False</property>
                 <property name="model">liststore1</property>
                 <signal name="changed" handler="part_auto_select_drive_changed" swapped="no"/>
-                <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                  <attributes>
-                    <attribute name="text">0</attribute>
-                  </attributes>
-                </child>
               </object>
               <packing>
                 <property name="expand">True</property>

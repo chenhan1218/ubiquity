@@ -166,8 +166,20 @@ class PageGtk(PageBase):
             # Set some parameters that do not change between runs of the plugin
             release = misc.get_release()
             self.partitionbox.set_property('title', release.name)
+
             # New partition
             self.resizewidget.get_child2().child.set_property('title', release.name)
+
+            # Annoyingly, you can't set packing properties for cell renderers
+            # in Glade.
+            cell = gtk.CellRendererText()
+            self.part_auto_select_drive.pack_start(cell, False)
+            self.part_auto_select_drive.add_attribute(cell, 'text', 0)
+            cell = gtk.CellRendererText()
+            cell.set_property('xalign', 1.0)
+            cell.set_property('sensitive', False)
+            self.part_auto_select_drive.pack_start(cell, True)
+            self.part_auto_select_drive.add_attribute(cell, 'markup', 1)
         except Exception, e:
             self.debug('Could not create partman page: %s', e)
             self.page_ask = None
@@ -196,20 +208,25 @@ class PageGtk(PageBase):
             if self.resize_use_free.get_active():
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
-                disk_ids = self.extra_options['resize'].keys()
+                extra_resize = self.extra_options['resize']
+                disk_ids = extra_resize.keys()
                 disks = self.extra_options['use_device'][1]
                 # FIXME: perhaps it makes more sense to store the disk
                 # description.
                 for disk in disks:
-                    if disks[disk][0].rsplit('/', 1)[1] in disk_ids:
-                        m.append([disk])
+                    key = disks[disk][0].rsplit('/', 1)[1]
+                    if key in disk_ids:
+                        min_size  = extra_resize[key][1]
+                        part_size = extra_resize[key][5]
+                        m.append([disk, '<small>%s</small>' %
+                                  misc.format_size(part_size - min_size)])
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_resize_mode()
             elif self.use_device.get_active():
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
                 for disk in self.extra_options['use_device'][1]:
-                    m.append([disk])
+                    m.append([disk, ''])
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_use_disk_mode()
 
