@@ -54,6 +54,9 @@ class PageBase(plugin.PluginUI):
         '''The default filesystem used when creating partitions.'''
         self.default_filesystem = fs
 
+    def set_autopartition_options(self, options, extra_options):
+        pass
+
     def get_autopartition_choice(self):
         """Get the selected autopartitioning choice."""
         pass
