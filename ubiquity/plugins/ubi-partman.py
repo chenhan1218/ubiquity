@@ -435,8 +435,14 @@ class PageGtk(PageBase):
 
         if 'reuse' in options:
             self.reuse_partition.show()
-            self.reuse_partition_title.set_label(options['reuse'].title)
-            self.reuse_partition_desc.set_markup(fmt % options['reuse'].desc)
+            alpha_title = '<small><b>(alpha)</b></small>'
+            self.reuse_partition_title.set_markup(
+                '%s %s' % (options['reuse'].title, alpha_title))
+            alpha_desc = ('<small><span foreground="firebrick"><b>'
+                          'Make a full backup of your files before '
+                          'selecting this option.</b></span></small>')
+            self.reuse_partition_desc.set_markup(
+                '%s\n%s' % (fmt % options['reuse'].desc, alpha_desc))
             self.reuse_partition_desc.set_sensitive(False)
         else:
             self.reuse_partition.hide()
