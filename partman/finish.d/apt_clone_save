@@ -70,10 +70,3 @@ if [ -e "$mountpoint" ]; then
 fi
 
 db_progress STOP
-
-# TODO: finish-install.d script.
-
-# TODO: oh bother. clear_partitions grabs passwd/username, which wont even
-# exist at that point, let alone the fact that it's in a different copy of the
-# database.  Check in user-setup to see if /home/$user already exists and set
-# passwd/user-uid just as we do in clear_partitions.
