@@ -1,6 +1,6 @@
 ubiquity (2.5.20) UNRELEASED; urgency=low
 
-  * Merge the automatic partitioner redesign branch.
+  * Merge the automatic partitioner redesign branch (LP: #723849).
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 01 Mar 2011 04:32:02 +0000
 
