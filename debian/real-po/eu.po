@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-02-01 08:38+0000\n"
 "Last-Translator: Oier Mees <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -178,7 +178,9 @@ msgstr "Idatzi hemen zure teklatua probatzeko"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Detektatu teklatuaren diseinua"
 
 #. Type: text
@@ -1805,6 +1807,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Detektatu teklatuaren diseinua"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Leku libre jarrai handiena erabili"

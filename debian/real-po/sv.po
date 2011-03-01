@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-16 22:33+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -181,7 +181,9 @@ msgstr "Skriv här för att testa ditt tangentbord"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Ta reda på tangentbordslayout"
 
 #. Type: text
@@ -1814,6 +1816,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Tar bort paket"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Ta reda på tangentbordslayout"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Använd största oavbrutna lediga utrymmet"

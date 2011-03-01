@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-07 16:50+0000\n"
 "Last-Translator: ubuntuki <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -181,7 +181,9 @@ msgstr "Klavyenizi denemek için buraya yazın"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Klavye Düzenini Denetleyin"
 
 #. Type: text
@@ -1804,6 +1806,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Klavye Düzenini Denetleyin"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "En büyük kesintisiz boş alanı kullan"

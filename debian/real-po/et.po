@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-29 23:22+0000\n"
 "Last-Translator: BloodDw <Unknown>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
@@ -177,7 +177,9 @@ msgstr "Klaviatuuri proovimiseks sisesta siia"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Klaviatuuripaigutuse tuvastamine"
 
 #. Type: text
@@ -1791,6 +1793,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Klaviatuuripaigutuse tuvastamine"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Kasutatakse suurimat järjestikust vaba ruumi"

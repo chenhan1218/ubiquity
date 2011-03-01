@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-12-16 06:57+0000\n"
 "Last-Translator: David Jones <bikerboi87v2@gmail.com>\n"
 "Language-Team: Welsh <>\n"
@@ -168,8 +168,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
-msgstr ""
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Detect Keyboard Layout"
+msgstr "Cynllun bysellfwrdd"
 
 #. Type: text
 #. Description

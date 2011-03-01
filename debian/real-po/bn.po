@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-12-07 08:37+0000\n"
 "Last-Translator: Aniruddha Adhikary <Unknown>\n"
 "Language-Team: Bangla <core@BengaLinux.Org>\n"
@@ -169,7 +169,9 @@ msgstr "আপনার কীবোর্ড পরীক্ষা করার
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "কীবোর্ড লেআউট বুঝে নাও"
 
 #. Type: text
@@ -1758,6 +1760,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "কীবোর্ড লেআউট বুঝে নাও"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "বৃহত্তম ধারাবাহিক মুক্ত স্থান ব্যবহার করুন"

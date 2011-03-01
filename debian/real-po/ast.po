@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-19 17:08+0000\n"
 "Last-Translator: Xandru Martino <Unknown>\n"
 "Language-Team: Asturian <ast@li.org>\n"
@@ -181,7 +181,9 @@ msgstr "Escribi equí pa comprobar el tecláu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Afitar la distribución del tecláu"
 
 #. Type: text
@@ -1809,6 +1811,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desaniciando paquetes"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Afitar la distribución del tecláu"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Usar el mayor espaciu contínuu llibre"

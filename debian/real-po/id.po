@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-09-23 09:23+0000\n"
 "Last-Translator: Bagus Herlambang <bagus@vfemail.net>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
@@ -178,7 +178,9 @@ msgstr "Ketik disini untuk mencoba keyboard Anda."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Tentukan Tampilan Keyboard"
 
 #. Type: text
@@ -1805,6 +1807,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Menghapus paket-paket"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Tentukan Tampilan Keyboard"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Gunakan ruang kosong yang terbesar"

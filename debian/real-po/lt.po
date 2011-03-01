@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-10-02 15:37+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -179,8 +179,10 @@ msgstr "Rašykite čia savo klaviatūrai išbandyti"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
-msgstr ""
+#, fuzzy
+#| msgid "Keyboard layout"
+msgid "Detect Keyboard Layout"
+msgstr "Klaviatūros išdėstymas"
 
 #. Type: text
 #. Description

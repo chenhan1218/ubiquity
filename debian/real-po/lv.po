@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-04-29 04:17+0000\n"
 "Last-Translator: Pēteris Krišjānis <pecisk@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -177,7 +177,9 @@ msgstr "Rakstiet šeit, lai pārbaudītu savu tastatūru"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Uzminēt tastatūras izkārtojumu"
 
 #. Type: text
@@ -1797,6 +1799,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Noņem pakotnes"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Uzminēt tastatūras izkārtojumu"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Izmantot lielāko nepārtraukto brīvo vietu"

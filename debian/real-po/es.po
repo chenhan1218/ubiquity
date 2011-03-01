@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-03 16:30+0000\n"
 "Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -182,7 +182,9 @@ msgstr "Escriba aquí para comprobar el teclado"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Determinar la distribución de teclado"
 
 #. Type: text
@@ -1811,6 +1813,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Determinar la distribución de teclado"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Usar el mayor espacio continuo libre"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-26 14:25+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -182,7 +182,9 @@ msgstr "Shtypni këtu për të testuar tastierën tuaj"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Gjej Daljen e Tastirës"
 
 #. Type: text
@@ -1807,6 +1809,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Gjej Daljen e Tastirës"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Përdor hapësirën e lirë të vazhdueshme më të madhe"

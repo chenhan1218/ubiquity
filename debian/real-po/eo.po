@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-20 13:41+0000\n"
 "Last-Translator: Serge Leblanc <serge.leblanc@nerim.fr>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -179,7 +179,9 @@ msgstr "Tajpu tie ĉi por testi vian klavaron"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Eltrovi klavarfasonon"
 
 #. Type: text
@@ -1791,6 +1793,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Eltrovi klavarfasonon"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Uzi la plej grandan seninterrompan spacon"

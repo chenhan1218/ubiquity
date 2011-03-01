@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-10-02 15:36+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -176,7 +176,9 @@ msgstr "Písaním sem môžete otestovať svoju klávesnicu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Zistiť rozloženie klávesnice"
 
 #. Type: text
@@ -1796,6 +1798,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňujú sa balíky"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Zistiť rozloženie klávesnice"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Použiť najväčšie súvislé voľné miesto"

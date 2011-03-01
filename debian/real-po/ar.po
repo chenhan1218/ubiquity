@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-10-02 15:38+0000\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -172,7 +172,9 @@ msgstr "اكتب هنا لتجربة لوحة المفاتيح"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "حدد تخطيط لوحة المفاتيح"
 
 #. Type: text
@@ -1767,6 +1769,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "يحذف الحزم"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "حدد تخطيط لوحة المفاتيح"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "استخدم أكبر مساحة متاحة متصلة"

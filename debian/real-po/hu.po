@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-27 16:59+0000\n"
 "Last-Translator: Kárász Gábor <fendrus@t-online.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
@@ -180,7 +180,9 @@ msgstr "Írjon ide a billentyűzet kipróbálásához"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Billentyűzetkiosztás felismerése"
 
 #. Type: text
@@ -1806,6 +1808,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Billentyűzetkiosztás felismerése"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "A legnagyobb összefüggő szabad hely használata"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2010-09-23 09:17+0000\n"
 "Last-Translator: Iryna Nikanchuk <defragbrain@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -177,7 +177,9 @@ msgstr "Напішыце тут што-небудзь, каб праверыць
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Вызначце раскладку клявіятуры"
 
 #. Type: text
@@ -1804,6 +1806,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Выдаленьне пакетаў"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Вызначце раскладку клявіятуры"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Ужыць"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 04:46+0000\n"
+"POT-Creation-Date: 2011-03-01 23:24+0000\n"
 "PO-Revision-Date: 2011-01-09 10:30+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -181,7 +181,9 @@ msgstr "Kirjoita tähän koettaaksesi näppäimistön asetuksia"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
-msgid "Figure Out Keyboard Layout"
+#, fuzzy
+#| msgid "Figure Out Keyboard Layout"
+msgid "Detect Keyboard Layout"
 msgstr "Päättele näppäimistön asettelu"
 
 #. Type: text
@@ -1805,6 +1807,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Päättele näppäimistön asettelu"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Käytä suurinta yhtenäistä vapaata tilaa"
