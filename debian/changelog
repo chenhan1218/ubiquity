@@ -120,7 +120,6 @@ ubiquity (2.5.12) natty; urgency=low
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Jan 2011 15:06:19 +0000
 
->>>>>>> MERGE-SOURCE
 ubiquity (2.5.11) natty; urgency=low
 
   * Automatic update of included source packages: partman-partitioning
