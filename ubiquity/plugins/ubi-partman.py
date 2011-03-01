@@ -302,8 +302,8 @@ class PageGtk(PageBase):
         icon = self.resizewidget.get_child1().child
         if not title:
             # This is most likely a partition with some files on it.
-            # TODO i18n
-            title = 'Files (%s)' % misc.format_size(resize_min_size)
+            title = self.controller.get_string('ubiquity/text/part_auto_files')
+            title = title.replace('${SIZE}', misc.format_size(resize_min_size))
             icon.set_property('icon-name', 'folder')
         else:
             if 'windows' in title.lower():

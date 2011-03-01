@@ -229,6 +229,10 @@ Template: ubiquity/text/part_auto_heading_label
 Type: text
 _Description: Allocate drive space
 
+Template: ubiquity/text/part_auto_files
+Type: text
+_Description: Files (${SIZE})
+
 Template: ubiquity/text/part_auto_comment_label
 Type: text
 _Description: How do you want to partition the disk?
