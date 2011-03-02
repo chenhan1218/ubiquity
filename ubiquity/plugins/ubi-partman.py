@@ -1864,7 +1864,6 @@ class Page(plugin.Plugin):
             self.autopartition_question = question
             choices = self.choices(question)
 
-            mapping = self.choices_display_map(question)
             if self.auto_state is None:
                 self.some_device_desc = \
                     self.description('partman-auto/text/use_device')
@@ -1879,7 +1878,6 @@ class Page(plugin.Plugin):
                 self.auto_state[0] += 1
             while self.auto_state[0] < len(choices):
                 self.auto_state[1] = choices[self.auto_state[0]]
-                description_c = mapping[self.auto_state[1]]
                 if (self.auto_state[1] == self.some_device_desc or
                     self.auto_state[1] == self.resize_desc):
                     break
