@@ -482,6 +482,12 @@ class PageGtk(PageBase):
         else:
             self.resize_use_free.hide()
 
+        for opt in (self.resize_use_free, self.reuse_partition,
+                    self.replace_partition, self.use_device):
+            if opt.get_property('visible'):
+                opt.set_active(True)
+                break
+
         # Process the default selection
         self.part_ask_option_changed(None)
 
