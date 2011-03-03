@@ -94,8 +94,26 @@ class Install(install_misc.InstallBase):
                            os.path.join(self.target, 'var/lib/dpkg/status'))
         apt_pkg.Config.set("APT::GPGV::TrustedKeyring",
                            os.path.join(self.target, 'etc/apt/trusted.gpg'))
+
+        # Keep this in sync with configure_apt.
+        # TODO cjwatson 2011-03-03: consolidate this.
+        apt_pkg.Config.set("APT::Authentication::TrustCDROM", "true")
         apt_pkg.Config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
+        try:
+            if self.db.get('debian-installer/allow_unauthenticated') == 'true':
+                apt_pkg.Config.set("APT::Get::AllowUnauthenticated", "true")
+                apt_pkg.Config.set(
+                    "Aptitude::CmdLine::Ignore-Trust-Violations", "true")
+        except debconf.DebconfError:
+            pass
+        apt_pkg.Config.set("APT::CDROM::NoMount", "true")
+        apt_pkg.Config.set("Acquire::cdrom::mount", "/cdrom")
+        apt_pkg.Config.set("Acquire::cdrom::/cdrom/::Mount", "true")
+        apt_pkg.Config.set("Acquire::cdrom::/cdrom/::UMount", "true")
+        apt_pkg.Config.set("Acquire::cdrom::AutoDetect", "false")
+        apt_pkg.Config.set("Dir::Media::MountPath", "/cdrom")
+
         apt_pkg.Config.set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
@@ -382,6 +400,8 @@ class Install(install_misc.InstallBase):
         # cloned-and-hacked from base-installer/debian/postinst. Perhaps we
         # should come up with a way to avoid this.
 
+        # Keep this in sync with __init__.
+
         # Make apt trust CDs. This is not on by default (we think).
         # This will be left in place on the installed system.
         apt_conf_tc = open(os.path.join(
@@ -433,7 +453,8 @@ class Install(install_misc.InstallBase):
                 UMount "true";
               };
               AutoDetect "false";
-            }""")
+            };
+            Dir::Media::MountPath "/cdrom";""")
         apt_conf_nmc.close()
 
         # This will be reindexed after installation based on the full

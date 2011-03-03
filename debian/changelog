@@ -1,6 +1,13 @@
 ubiquity (2.5.23) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Ensure we always have an automatic partitioning option selected.
+
+  [ Colin Watson ]
+  * Set Dir::Media::MountPath as well as Acquire::cdrom::mount (in line with
+    base-installer), and pass all the options set by configure_apt to
+    python-apt as well so that attempts to install packages from python-apt
+    will behave consistently (LP: #727783).
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 02 Mar 2011 00:42:08 +0000
 
