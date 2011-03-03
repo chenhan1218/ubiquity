@@ -195,17 +195,25 @@ class PageGtk(PageBase):
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
         replace = self.replace_partition.get_active()
-        if self.current_page == self.page_ask and not (reuse or replace):
-            if self.custom_partitioning.get_active():
+        resize = self.resize_use_free.get_active()
+        custom = self.custom_partitioning.get_active()
+        use_device = self.use_device.get_active()
+        biggest_free = 'biggest_free' in self.extra_options
+
+        # We already have all that we need from the user.
+        done_partitioning = (resize and biggest_free) or reuse or replace
+
+        if self.current_page == self.page_ask and not done_partitioning:
+            if custom:
                 title = self.custom_partitioning_title.get_text()
-            elif self.resize_use_free.get_active():
+            elif resize:
                 title = self.resize_use_free_title.get_text()
-            elif self.use_device.get_active():
+            elif use_device:
                 title = self.use_device_title.get_text()
             self.controller._wizard.page_title.set_markup(
                 '<span size="xx-large">%s</span>' % title)
             
-            if self.resize_use_free.get_active():
+            if resize:
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
                 extra_resize = self.extra_options['resize']
@@ -222,7 +230,7 @@ class PageGtk(PageBase):
                                   misc.format_size(part_size - min_size)])
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_resize_mode()
-            elif self.use_device.get_active():
+            elif use_device:
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
                 for disk in self.extra_options['use_device'][1]:
@@ -230,7 +238,7 @@ class PageGtk(PageBase):
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_use_disk_mode()
 
-            if not self.custom_partitioning.get_active():
+            if not custom:
                 self.current_page = self.page_auto
                 self.controller.go_to_page(self.current_page)
                 self.controller.toggle_install_button(True)
@@ -245,7 +253,7 @@ class PageGtk(PageBase):
         else:
             # Return control to partman, which will call
             # get_autopartition_choice and start partitioninging the device.
-            if not self.custom_partitioning.get_active():
+            if not custom:
                 self.controller.switch_to_install_interface()
             return False
 
@@ -305,6 +313,9 @@ class PageGtk(PageBase):
 
         if (self.reuse_partition.get_active() or
             self.replace_partition.get_active()):
+            about_to_install = True
+        elif (self.resize_use_free.get_active() and
+            'biggest_free' in self.extra_options):
             about_to_install = True
 
         self.controller.toggle_install_button(about_to_install)

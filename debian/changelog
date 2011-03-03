@@ -5,6 +5,9 @@ ubiquity (2.5.23) UNRELEASED; urgency=low
   * Merge in latest change to apt-clone from Michael Vogt:
     - Current apt_pkg API methods.
     - Better command line argument parsing.
+  * Do not attempt to proceed to a second page with the biggest_free
+    option (LP: #727842).  This will change once we have an interface for
+    the biggest_free option.
 
   [ Colin Watson ]
   * Set Dir::Media::MountPath as well as Acquire::cdrom::mount (in line with
