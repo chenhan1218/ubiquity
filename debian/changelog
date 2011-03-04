@@ -15,6 +15,13 @@ ubiquity (2.5.23) UNRELEASED; urgency=low
     python-apt as well so that attempts to install packages from python-apt
     will behave consistently (LP: #727783).
 
+  [ Julien Lavergne ]
+  * bin/ubiquity-dm:
+   - Wait lxsession before launching the panel, to have theming support.
+     (LP: #684802)
+  * src/panel/panel.c
+   - Load lxpanel background for the panel when it's available.
+
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 02 Mar 2011 00:42:08 +0000
 
 ubiquity (2.5.22) natty; urgency=low

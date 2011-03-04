@@ -227,6 +227,9 @@ set_background(GtkWidget *win) {
 	GdkPixbuf *pixbuf;
 	GtkPixmap *pixmap;
 	pixbuf = gdk_pixbuf_new_from_file("/usr/share/themes/Ambiance/gtk-2.0/apps/img/panel.png", NULL);
+	if (!pixbuf) {
+		pixbuf = gdk_pixbuf_new_from_file("/usr/share/lxpanel/images/lubuntu-background.png", NULL);
+	}
 	if (pixbuf) {
 		gdk_pixbuf_render_pixmap_and_mask(pixbuf, &pixmap, NULL, 0);
 		if (pixmap)

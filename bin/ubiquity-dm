@@ -379,10 +379,13 @@ EndSection
                     preexec_fn=self.drop_privileges))
 
             if osextras.find_on_path('lxsession'):
-                extras.append(subprocess.Popen(
+                proc = subprocess.Popen(
                     ['lxsession','-s','Lubuntu', '-e', 'LXDE', '-a'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
+                #Wait until xsettings handler is launched, to have theme for the panel. 
+                proc.wait()
+                extras.append(proc)
 
             if os.path.exists('/usr/lib/ubiquity/panel') and "xfwm4" not in wm_cmd:
                 extras.append(subprocess.Popen(
