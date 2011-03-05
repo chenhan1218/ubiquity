@@ -10,6 +10,10 @@ Type: boolean
 Default: true
 Description: enable frame buffer console on boot
 
+Template: ubiquity/text/restart_to_continue
+Type: text
+_Description: Restart to Continue
+
 Template: ubiquity/text/custom_partitioning_title
 Type: text
 _Description: Manual configuration (advanced)

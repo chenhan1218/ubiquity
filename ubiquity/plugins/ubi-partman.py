@@ -192,6 +192,26 @@ class PageGtk(PageBase):
             self.plugin_is_install = True
         return self.current_page
     
+    def configure_wubi_and_reboot():
+        self.controller.allow_change_step(False)
+        device = self.extra_options['wubi']
+        import tempfile
+        import subprocess
+        import shutil
+        mount_path = tempfile.mkdtemp()
+        try:
+            subprocess.check_call(['mount', device, mount_path])
+            startup = misc.windows_startup_folder(mount_path)
+            shutil.copy('/cdrom/wubi.exe', startup)
+        except subprocess.CalledProcessError:
+            pass
+        finally:
+            subprocess.call(['umount', mount_path])
+            os.rmdir(mount_path)
+            
+        # FIXME: ick.  Hardly clean.
+        self.controller._wizard.do_reboot()
+
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
         replace = self.replace_partition.get_active()
@@ -213,7 +233,9 @@ class PageGtk(PageBase):
             self.controller._wizard.page_title.set_markup(
                 '<span size="xx-large">%s</span>' % title)
             
-            if resize:
+            if resize and 'wubi' in self.extra_options:
+                self.configure_wubi_and_reboot()
+            elif resize:
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
                 extra_resize = self.extra_options['resize']
@@ -241,13 +263,13 @@ class PageGtk(PageBase):
             if not custom:
                 self.current_page = self.page_auto
                 self.controller.go_to_page(self.current_page)
-                self.controller.toggle_install_button(True)
+                self.controller.toggle_next_button('install_button')
                 self.plugin_is_install = True
                 return True
             else:
                 self.current_page = self.page_advanced
                 self.controller.go_to_page(self.current_page)
-                self.controller.toggle_install_button(True)
+                self.controller.toggle_next_button('install_button')
                 self.plugin_is_install = True
                 return False
         else:
@@ -267,7 +289,7 @@ class PageGtk(PageBase):
             # If we arrived at a second partitioning page, then the option
             # selected on the first page would not cause the forward button to
             # be marked as Install Now.
-            self.controller.toggle_install_button(False)
+            self.controller.toggle_next_button()
             self.plugin_is_install = False
             return True
         else:
@@ -318,8 +340,14 @@ class PageGtk(PageBase):
             'biggest_free' in self.extra_options):
             about_to_install = True
 
-        self.controller.toggle_install_button(about_to_install)
-        self.plugin_is_install = about_to_install
+        if 'wubi' in self.extra_options and self.resize_use_free.get_active():
+            self.controller.toggle_next_button('restart_to_continue')
+        else:
+            if about_to_install:
+                self.controller.toggle_next_button('install_button')
+            else:
+                self.controller.toggle_next_button()
+            self.plugin_is_install = about_to_install
 
     def initialize_resize_mode(self):
         disk_id = self.get_current_disk_partman_id()
@@ -1743,7 +1771,9 @@ class Page(plugin.Plugin):
                                 operating_systems)
 
         resize_or_free = None
-        if 'resize' in self.extra_options:
+        if 'wubi' in extra_options:
+            pass
+        elif 'resize' in self.extra_options:
             if 'biggest_free' in self.extra_options:
                 biggest_free = self.extra_options['biggest_free'][1]
                 resize = self.extra_options['resize']
@@ -1769,6 +1799,8 @@ class Page(plugin.Plugin):
         desc = self.extended_description(q)
         options['manual'] = PartitioningOption(title, desc)
 
+        wubi_option = 'wubi' in self.extra_options
+
         if os_count == 0:
             # "There are no operating systems present" case
             q = 'ubiquity/partitioner/no_systems_format'
@@ -1788,7 +1820,11 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
-                if resize_or_free is not None:
+                if wubi_option:
+                    # We don't have a Wubi-like solution for Ubuntu yet (though
+                    # wubi_option is also a check for ntfs).
+                    pass
+                elif resize_or_free is not None:
                     q = 'ubiquity/partitioner/ubuntu_resize'
                     self.db.subst(q, 'DISTRO', release.name)
                     self.db.subst(q, 'VER', release.version)
@@ -1811,7 +1847,7 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
-                if resize_or_free is not None:
+                if wubi_option or resize_or_free is not None:
                     q = 'ubiquity/partitioner/single_os_resize'
                     self.db.subst(q, 'DISTRO', release.name)
                     title = self.description(q)
@@ -1850,7 +1886,9 @@ class Page(plugin.Plugin):
             opt = PartitioningOption(title, desc)
             options['use_device'] = opt
 
-            if resize_or_free is not None:
+            if wubi_option:
+                pass
+            elif resize_or_free is not None:
                 q = 'ubiquity/partitioner/multiple_os_resize'
                 self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
@@ -1902,6 +1940,14 @@ class Page(plugin.Plugin):
                 self.auto_state = None
 
 
+            # You know what they say about assumptions.
+            has_wubi = os.path.exists('/cdrom/wubi.exe')
+            has_resize = 'resize' in self.extra_options
+            try_for_wubi = has_wubi and not has_resize
+            # Lets assume all disks are full unless we find a disk with space
+            # for another partition.
+            partition_table_full = True
+
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
                 Partition = namedtuple('Partition',
@@ -1910,18 +1956,57 @@ class Page(plugin.Plugin):
                 layout = {}
                 for disk in parted.disks():
                     parted.select_disk(disk)
+                    if try_for_wubi and partition_table_full:
+                        primary_count = 0
+                        ntfs_count = 0
+                        parted.open_dialog('GET_MAX_PRIMARY')
+                        max_primary = int(parted.read_line())
+                        parted.close_dialog()
+
                     ret = []
                     for partition in parted.partitions():
+                        if try_for_wubi and partition_table_full:
+                            if partition[3] == 'primary':
+                                primary_count += 1
+                                if partition[4] == 'ntfs':
+                                    ntfs_count += 1
+
                         size = int(partition[2])
                         if partition[4] == 'free':
                             dev = 'free'
                         else:
                             dev = partition[5]
+
+                        if try_for_wubi and partition_table_full:
+                            if primary_count >= max_primary and ntfs_count > 0:
+                                pass
+                            else:
+                                partition_table_full = False
                         ret.append(Partition(dev, size,
                                              partition[1],
                                              partition[4]))
                     layout[disk] = ret
 
+                # TODO try the wubi check as a partman-auto choice.
+                if try_for_wubi and partition_table_full:
+                    import tempfile
+                    import subprocess
+                    mount_path = tempfile.mkdtemp()
+                    for device, name in misc.os_prober().iteritems():
+                        if name.find('indows') == -1:
+                            continue
+                        try:
+                            subprocess.check_call(['mount', device, mount_path])
+                            if misc.windows_startup_folder(mount_path):
+                                self.extra_options['wubi'] = device
+                                break
+                        except subprocess.CalledProcessError:
+                            pass
+                        finally:
+                            subprocess.call(['umount', mount_path])
+                            os.rmdir(mount_path)
+
+                # FIXME doesn't need root.
                 biggest_free = self.find_script(menu_options, 'biggest_free')
                 if biggest_free:
                     dev, p_id = self.split_devpart(biggest_free[0][1])
