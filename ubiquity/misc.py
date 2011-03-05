@@ -340,9 +340,9 @@ def find_in_os_prober(device):
     '''Look for the device name in the output of os-prober.
        Returns the friendly name of the device, or the empty string on error.'''
     try:
-        os_prober()
-        if device in _os_prober_oslist:
-            ret = _os_prober_oslist[device]
+        oslist = os_prober()
+        if device in oslist:
+            ret = oslist[device]
         elif is_swap(device):
             ret = 'swap'
         else:
@@ -360,6 +360,9 @@ def find_in_os_prober(device):
 
 @raise_privileges
 def os_prober():
+    global _os_prober_oslist
+    global _os_prober_called
+    
     if not _os_prober_called:
         _os_prober_called = True
         subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,

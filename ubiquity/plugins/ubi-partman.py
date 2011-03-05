@@ -192,7 +192,7 @@ class PageGtk(PageBase):
             self.plugin_is_install = True
         return self.current_page
     
-    def configure_wubi_and_reboot():
+    def configure_wubi_and_reboot(self):
         self.controller.allow_change_step(False)
         device = self.extra_options['wubi']
         import tempfile
@@ -512,11 +512,6 @@ class PageGtk(PageBase):
             self.resize_use_free.show()
             self.resize_use_free_title.set_label(options['resize'].title)
             self.resize_use_free_desc.set_markup(fmt % options['resize'].desc)
-            self.resize_use_free_desc.set_sensitive(False)
-        elif 'biggest_free' in options:
-            self.resize_use_free.show()
-            self.resize_use_free_title.set_label(options['biggest_free'].title)
-            self.resize_use_free_desc.set_markup(fmt % options['biggest_free'].desc)
             self.resize_use_free_desc.set_sensitive(False)
         else:
             self.resize_use_free.hide()
@@ -1757,6 +1752,7 @@ class Page(plugin.Plugin):
         finite set.
         '''
         options = {}
+        wubi_option = 'wubi' in self.extra_options
 
         # Get your #2 pencil ready, it's time to crunch some numbers.
         operating_systems = []
@@ -1770,8 +1766,7 @@ class Page(plugin.Plugin):
         ubuntu_systems = filter(lambda x: x.lower().find('buntu') != -1,
                                 operating_systems)
 
-        resize_or_free = None
-        if 'wubi' in extra_options:
+        if wubi_option:
             pass
         elif 'resize' in self.extra_options:
             if 'biggest_free' in self.extra_options:
@@ -1779,18 +1774,15 @@ class Page(plugin.Plugin):
                 resize = self.extra_options['resize']
                 for disk in resize:
                     if resize[disk][5] - resize[disk][1] > biggest_free:
-                        resize_or_free = 'resize'
                         self.debug('Partman: dropping biggest_free option.')
                         del self.extra_options['biggest_free']
                         break
-                if resize_or_free is None:
-                    resize_or_free = 'biggest_free'
+                if 'biggest_free' in self.extra_options:
                     self.debug('Partman: dropping resize option.')
                     del self.extra_options['resize']
-            else:
-                resize_or_free = 'resize'
-        elif 'biggest_free' in self.extra_options:
-            resize_or_free = 'biggest_free'
+
+        resize_option = ('resize' in self.extra_options or
+                         'biggest_free' in self.extra_options)
 
         # We always have the manual partitioner, and it always has the same
         # title and description.
@@ -1798,8 +1790,6 @@ class Page(plugin.Plugin):
         title = self.description(q)
         desc = self.extended_description(q)
         options['manual'] = PartitioningOption(title, desc)
-
-        wubi_option = 'wubi' in self.extra_options
 
         if os_count == 0:
             # "There are no operating systems present" case
@@ -1824,7 +1814,7 @@ class Page(plugin.Plugin):
                     # We don't have a Wubi-like solution for Ubuntu yet (though
                     # wubi_option is also a check for ntfs).
                     pass
-                elif resize_or_free is not None:
+                elif resize_option:
                     q = 'ubiquity/partitioner/ubuntu_resize'
                     self.db.subst(q, 'DISTRO', release.name)
                     self.db.subst(q, 'VER', release.version)
@@ -1832,7 +1822,7 @@ class Page(plugin.Plugin):
                     title = self.description(q)
                     desc = self.extended_description(q)
                     opt = PartitioningOption(title, desc)
-                    options[resize_or_free] = opt
+                    options['resize'] = opt
 
                 reuse = self.calculate_reuse_option()
                 if reuse is not None:
@@ -1847,13 +1837,13 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options['use_device'] = opt
 
-                if wubi_option or resize_or_free is not None:
+                if wubi_option or resize_option:
                     q = 'ubiquity/partitioner/single_os_resize'
                     self.db.subst(q, 'DISTRO', release.name)
                     title = self.description(q)
                     desc = self.extended_description(q)
                     opt = PartitioningOption(title, desc)
-                    options[resize_or_free] = opt
+                    options['resize'] = opt
 
         elif os_count == 2 and len(ubuntu_systems) == 1:
             # TODO: verify that ubuntu_systems[0] is the same partition as one
@@ -1888,13 +1878,13 @@ class Page(plugin.Plugin):
 
             if wubi_option:
                 pass
-            elif resize_or_free is not None:
+            elif resize_option:
                 q = 'ubiquity/partitioner/multiple_os_resize'
                 self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
                 desc = self.extended_description(q)
                 opt = PartitioningOption(title, desc)
-                options[resize_or_free] = opt
+                options['resize'] = opt
 
         return options
 
@@ -1960,7 +1950,7 @@ class Page(plugin.Plugin):
                         primary_count = 0
                         ntfs_count = 0
                         parted.open_dialog('GET_MAX_PRIMARY')
-                        max_primary = int(parted.read_line())
+                        max_primary = int(parted.read_line()[0])
                         parted.close_dialog()
 
                     ret = []
@@ -1977,15 +1967,15 @@ class Page(plugin.Plugin):
                         else:
                             dev = partition[5]
 
-                        if try_for_wubi and partition_table_full:
-                            if primary_count >= max_primary and ntfs_count > 0:
-                                pass
-                            else:
-                                partition_table_full = False
                         ret.append(Partition(dev, size,
                                              partition[1],
                                              partition[4]))
                     layout[disk] = ret
+                    if try_for_wubi and partition_table_full:
+                        if primary_count >= max_primary and ntfs_count > 0:
+                            pass
+                        else:
+                            partition_table_full = False
 
                 # TODO try the wubi check as a partman-auto choice.
                 if try_for_wubi and partition_table_full:
