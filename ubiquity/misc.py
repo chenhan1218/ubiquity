@@ -390,6 +390,8 @@ def windows_startup_folder(mount_path):
     locations = [
         # Windows 7
         'ProgramData/Microsoft/Windows/Start Menu/Programs/Startup'
+        # Windows XP
+        'Documents and Settings/All Users/Start Menu/Programs/Startup'
                 ]
     for location in locations:
         path = os.path.join(mount_path, location)

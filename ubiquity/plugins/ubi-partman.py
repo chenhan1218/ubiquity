@@ -203,14 +203,12 @@ class PageGtk(PageBase):
             subprocess.check_call(['mount', device, mount_path])
             startup = misc.windows_startup_folder(mount_path)
             shutil.copy('/cdrom/wubi.exe', startup)
+            self.controller._wizard.reboot()
         except subprocess.CalledProcessError:
             pass
         finally:
             subprocess.call(['umount', mount_path])
             os.rmdir(mount_path)
-            
-        # FIXME: ick.  Hardly clean.
-        self.controller._wizard.do_reboot()
 
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
@@ -235,6 +233,7 @@ class PageGtk(PageBase):
             
             if resize and 'wubi' in self.extra_options:
                 self.configure_wubi_and_reboot()
+                return True
             elif resize:
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
