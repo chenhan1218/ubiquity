@@ -8,6 +8,9 @@ ubiquity (2.5.23) UNRELEASED; urgency=low
   * Do not attempt to proceed to a second page with the biggest_free
     option (LP: #727842).  This will change once we have an interface for
     the biggest_free option.
+  * If the partition table is full and a copy of Windows exists, replace the
+    resize option with a copy of wubi.exe to the Windows startup folder,
+    followed by a reboot.
 
   [ Colin Watson ]
   * Set Dir::Media::MountPath as well as Acquire::cdrom::mount (in line with

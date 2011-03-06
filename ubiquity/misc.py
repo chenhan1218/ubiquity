@@ -333,26 +333,16 @@ def grub_default():
 
     return target
 
-@raise_privileges
+_os_prober_oslist = {}
+_os_prober_called = False
+
 def find_in_os_prober(device):
     '''Look for the device name in the output of os-prober.
        Returns the friendly name of the device, or the empty string on error.'''
     try:
-        if not find_in_os_prober.called:
-            find_in_os_prober.called = True
-            subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE)
-            result = subp.communicate()[0].splitlines()
-            for res in result:
-                res = res.split(':')
-                if res[2] == 'Ubuntu':
-                    # Get rid of the superfluous (development version) (11.04)
-                    text = re.sub('\s*\(.*\).*', '', res[1])
-                    find_in_os_prober.oslist[res[0]] = text
-                else:
-                    find_in_os_prober.oslist[res[0]] = res[1]
-        if device in find_in_os_prober.oslist:
-            ret = find_in_os_prober.oslist[device]
+        oslist = os_prober()
+        if device in oslist:
+            ret = oslist[device]
         elif is_swap(device):
             ret = 'swap'
         else:
@@ -367,8 +357,26 @@ def find_in_os_prober(device):
         for line in traceback.format_exc().split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
     return unicode('')
-find_in_os_prober.oslist = {}
-find_in_os_prober.called = False
+
+@raise_privileges
+def os_prober():
+    global _os_prober_oslist
+    global _os_prober_called
+    
+    if not _os_prober_called:
+        _os_prober_called = True
+        subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE)
+        result = subp.communicate()[0].splitlines()
+        for res in result:
+            res = res.split(':')
+            if res[2] == 'Ubuntu':
+                # Get rid of the superfluous (development version) (11.04)
+                text = re.sub('\s*\(.*\).*', '', res[1])
+                _os_prober_oslist[res[0]] = text
+            else:
+                _os_prober_oslist[res[0]] = res[1]
+    return _os_prober_oslist
 
 @raise_privileges
 def remove_os_prober_cache():
@@ -377,6 +385,21 @@ def remove_os_prober_cache():
                   ignore_errors=True)
 
 from collections import namedtuple
+
+def windows_startup_folder(mount_path):
+    locations = [
+        # Windows 7
+        'ProgramData/Microsoft/Windows/Start Menu/Programs/Startup',
+        # Windows XP
+        'Documents and Settings/All Users/Start Menu/Programs/Startup',
+        # Windows NT
+        'Winnt/Profiles/All Users/Start Menu/Programs/Startup',
+                ]
+    for location in locations:
+        path = os.path.join(mount_path, location)
+        if os.path.exists(path):
+            return path
+    return ''
 
 def get_release():
     ReleaseInfo = namedtuple('ReleaseInfo', 'name, version')

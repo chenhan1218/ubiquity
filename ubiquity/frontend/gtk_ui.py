@@ -171,8 +171,8 @@ class Controller(ubiquity.frontend.base.Controller):
             self._wizard.navigation_control.hide()
         self._wizard.refresh()
 
-    def toggle_install_button(self, set_to_install=True):
-        self._wizard.toggle_install_button(set_to_install)
+    def toggle_next_button(self, label='gtk-go-forward'):
+        self._wizard.toggle_next_button(label)
 
     def switch_to_install_interface(self):
         self._wizard.switch_to_install_interface()
@@ -1054,11 +1054,11 @@ class Wizard(BaseFrontend):
         self.history.pop()
         return self.pages.index(self.history[-1][0])
 
-    def toggle_install_button(self, set_to_install=True):
-        if set_to_install:
-            self.next.set_label(self.get_string('install_button'))
+    def toggle_next_button(self, label='gtk-go-forward'):
+        if label != 'gtk-go-forward':
+            self.next.set_label(self.get_string(label))
         else:
-            self.next.set_label('gtk-go-forward')
+            self.next.set_label(label)
             self.translate_widget(self.next)
 
     def set_page(self, n):
@@ -1101,7 +1101,10 @@ class Wizard(BaseFrontend):
         if not cur:
             return False
 
-        self.toggle_install_button(is_install and not self.oem_user_config)
+        if is_install and not self.oem_user_config:
+            self.toggle_next_button('install_button')
+        else:
+            self.toggle_next_button()
 
         num = self.steps.page_num(cur)
         if num < 0:
@@ -1474,7 +1477,7 @@ class Wizard(BaseFrontend):
             self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
             self.allow_change_step(False)
             self.dbfilter.start(auto_process=True)
-            self.next.set_label("gtk-go-forward")
+            self.toggle_next_button()
             self.translate_widget(self.next)
             self.installing = False
             self.progress_section.hide()
