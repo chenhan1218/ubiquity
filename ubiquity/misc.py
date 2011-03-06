@@ -389,9 +389,11 @@ from collections import namedtuple
 def windows_startup_folder(mount_path):
     locations = [
         # Windows 7
-        'ProgramData/Microsoft/Windows/Start Menu/Programs/Startup'
+        'ProgramData/Microsoft/Windows/Start Menu/Programs/Startup',
         # Windows XP
-        'Documents and Settings/All Users/Start Menu/Programs/Startup'
+        'Documents and Settings/All Users/Start Menu/Programs/Startup',
+        # Windows NT
+        'Winnt/Profiles/All Users/Start Menu/Programs/Startup',
                 ]
     for location in locations:
         path = os.path.join(mount_path, location)
