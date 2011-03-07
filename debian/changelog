@@ -5,6 +5,7 @@ ubiquity (2.5.23) UNRELEASED; urgency=low
   * Merge in latest change to apt-clone from Michael Vogt:
     - Current apt_pkg API methods.
     - Better command line argument parsing.
+    - Set DPkg::Chroot-Directory (LP 727758).
   * Do not attempt to proceed to a second page with the biggest_free
     option (LP: #727842, LP: #652852).  This will change once we have an
     interface for the biggest_free option.
