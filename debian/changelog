@@ -1,6 +1,7 @@
 ubiquity (2.5.24) UNRELEASED; urgency=low
 
   * Drop privileges earlier in ubi-partman.
+  * Remove unused templates.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 07 Mar 2011 10:46:26 +0000
 

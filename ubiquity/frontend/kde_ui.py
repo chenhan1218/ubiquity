@@ -264,7 +264,6 @@ class Wizard(BaseFrontend):
         # declare attributes
         self.language_questions = (
             'live_installer',
-            'step_label',
             'quit',
             'back',
             'next',
@@ -670,10 +669,7 @@ class Wizard(BaseFrontend):
             return
 
         if isinstance(widget, QtGui.QLabel):
-            if name == 'step_label':
-                text = text.replace('${INDEX}', str(self.pagesindex+1))
-                text = text.replace('${TOTAL}', str(self.user_pageslen))
-            elif name == 'select_language_label' and self.oem_user_config:
+            if name == 'select_language_label' and self.oem_user_config:
                 text = self.get_string('select_language_oem_user_label', lang, prefix)
 
             if 'heading_label' in name:
@@ -1021,7 +1017,6 @@ class Wizard(BaseFrontend):
         self.ui.content_widget.show()
         self.current_page = newPageID
         name = self.step_name(newPageID)
-        #self.translate_widget(self.ui.step_label)
         syslog.syslog('switched to page %s' % name)
         if 'UBIQUITY_GREETER' in os.environ:
             if name == 'language':

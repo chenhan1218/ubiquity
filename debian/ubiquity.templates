@@ -57,10 +57,6 @@ Template: ubiquity/text/install_ubuntu
 Type: text
 _Description: Install ${RELEASE}
 
-Template: ubiquity/text/duration_text_label
-Type: text
-_Description: Answering the questions should only take a few minutes.
-
 Template: ubiquity/text/release_notes_label
 Type: text
 _Description:
@@ -216,10 +212,6 @@ Template: ubiquity/text/login_encrypt
 Type: text
 _Description: Encrypt my home folder
 
-Template: ubiquity/text/ma_heading_label
-Type: text
-_Description: Migrate documents and settings
-
 Template: ubiquity/text/ma_text_label
 Type: text
 _Description:
@@ -253,44 +245,15 @@ Template: ubiquity/text/part_auto_comment_many
 Type: text
 _Description: This computer has several operating systems on it.
 
-Template: ubiquity/text/part_auto_choices_label
-Type: text
-_Description: Where do you want to put ${RELEASE}?
-
 Template: ubiquity/text/part_advanced_heading_label
 Type: text
 _Description: Prepare partitions
-
-Template: ubiquity/text/part_format_warning
-Type: text
-# SYSTEMS is a comma-separated list of operating systems present on the disk.
-_Description: This will delete ${SYSTEMS} and install ${RELEASE}.
-
-Template: ubiquity/text/ready_heading_label
-Type: text
-_Description: Ready to install
-
-Template: ubiquity/text/ready_details_label
-Type: text
-_Description: Details
-
-Template: ubiquity/text/ready_description_label
-Type: text
-_Description: Your new operating system will now be installed with the following settings:
-
-Template: ubiquity/text/advanced_button
-Type: text
-_Description: Advanced...
 
 Template: ubiquity/text/install_button
 Type: text
 # This is used as a button label, and should be translated as an action.
 # Omit the [ ... ] from the translation.
 _Description: _Install Now[ action ]
-
-Template: ubiquity/text/step_label
-Type: text
-_Description: Step ${INDEX}/${TOTAL}
 
 Template: ubiquity/text/warning_dialog
 Type: title
@@ -533,10 +496,6 @@ Description: Only for preseeding; not translated.
  /cdrom.) If more than one filesystem image is given, they will be overlaid
  using unionfs.
 
-Template: ubiquity/install/scanning
-Type: text
-_Description: Scanning files...
-
 Template: ubiquity/install/copying
 Type: text
 _Description: Copying files...
@@ -659,10 +618,6 @@ _Description: Installing third-party software...
 Template: ubiquity/install/network
 Type: text
 _Description: Configuring network...
-
-Template: ubiquity/install/hostname
-Type: text
-_Description: Setting computer name...
 
 Template: ubiquity/install/bootloader
 Type: text
@@ -930,10 +885,6 @@ Template: ubiquity/text/tasks_heading_label
 Type: text
 _Description: Software selection
 
-Template: ubiquity/text/applying
-Type: text
-_Description: Applying configuration
-
 Template: ubiquity/text/breadcrumb_language
 Type: text
 _Description: Language
@@ -1024,11 +975,6 @@ _Description:
  Please choose the language used for the configuration process. This
  language will be the default language for this computer.
 
-Template: ubiquity/text/begin_install_button
-Type: text
-_Description:
- Continue with installation.
-
 Template: ubiquity/install_failed
 Type: text
 _Description: Installation failed
@@ -1109,14 +1055,6 @@ Type: text
 _Description:
  1 partition will be deleted, use the <a href="">advanced
  partitioning tool</a> for more control
-
-Template: ubiquity/text/part_auto_use_entire_partition
-Type: text
-_Description: Use Entire Partition
-
-Template: ubiquity/text/part_auto_use_entire_disk
-Type: text
-_Description: Use Entire Disk
 
 Template: ubiquity/text/part_auto_split_largest_partition
 Type: text
