@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-01 23:24+0000\n"
+"POT-Creation-Date: 2011-03-07 08:38+0000\n"
 "PO-Revision-Date: 2010-09-23 09:23+0000\n"
 "Last-Translator: Bagus Herlambang <bagus@vfemail.net>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
@@ -19,9 +19,17 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:3001
+#, fuzzy
+#| msgid "Restart Now"
+msgid "Restart to Continue"
+msgstr "Restart Sekarang"
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:3001 ../ubiquity.templates:243001
+#. Type: text
+#. Description
+#: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
 msgstr ""
 
@@ -29,7 +37,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:4001 ../ubiquity.templates:243001
+#: ../ubiquity.templates:5001 ../ubiquity.templates:244001
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
@@ -40,19 +48,19 @@ msgstr ""
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:5001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:6001 ../ubiquity.templates:187001
 msgid "Install"
 msgstr "Pasang"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:6001
+#: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
 msgstr "Pasang (Mode OEM, hanya untuk pemanufaktur)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001
+#: ../ubiquity.templates:8001
 msgid ""
 "You are installing in system manufacturer mode. Please enter a unique name "
 "for this batch of systems. This name will be saved on the installed system "
@@ -64,7 +72,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:8001
+#: ../ubiquity.templates:9001
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
@@ -74,7 +82,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:8001
+#: ../ubiquity.templates:9001
 msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
@@ -84,25 +92,25 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:9001
+#: ../ubiquity.templates:10001
 msgid "Try ${RELEASE}"
 msgstr "Mencoba ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:10001
+#: ../ubiquity.templates:11001
 msgid "Install ${RELEASE}"
 msgstr "Pasang ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:11001
+#: ../ubiquity.templates:12001
 msgid "Answering the questions should only take a few minutes."
 msgstr "Proses menjawab pertanyaan hanya memerlukan waktu beberapa menit."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:12001
+#: ../ubiquity.templates:13001
 msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
@@ -112,21 +120,21 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:13001
+#: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
 "Anda diharapakan untuk membaca <a href=\"release-notes\">catatan rilis</a>."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:14001
+#: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
 "Anda diharapkan untuk  <a href=\"update\">memperbaharui pemasangan ini</a>."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:16001
+#: ../ubiquity.templates:17001
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
@@ -135,7 +143,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:16001
+#: ../ubiquity.templates:17001
 msgid ""
 "The installation process may resize or erase partitions on your hard disk. "
 "Be sure to <b>take a full backup of any valuable data</b> before running "
@@ -147,37 +155,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:17001
+#: ../ubiquity.templates:18001
 msgid "Warning"
 msgstr "Peringatan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:18001
+#: ../ubiquity.templates:19001
 msgid "Where are you?"
 msgstr "Di mana lokasi anda"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:19001
+#: ../ubiquity.templates:20001
 msgid "Keyboard layout"
 msgstr "Susunan papan ketik"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:20001
+#: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
 msgstr "Pilih tampilan keyboard Anda:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:21001
+#: ../ubiquity.templates:22001
 msgid "Type here to test your keyboard"
 msgstr "Ketik disini untuk mencoba keyboard Anda."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:22001
+#: ../ubiquity.templates:23001
 #, fuzzy
 #| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
@@ -185,7 +193,7 @@ msgstr "Tentukan Tampilan Keyboard"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:23001
+#: ../ubiquity.templates:24001
 #, fuzzy
 #| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
@@ -193,85 +201,85 @@ msgstr "Tentukan Tampilan Keyboard"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:24001
+#: ../ubiquity.templates:25001
 msgid "Please press one of the following keys:"
 msgstr "Tolong tekan salah satu tombol berikut ini:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:25001
+#: ../ubiquity.templates:26001
 msgid "Is the following key present on your keyboard?"
 msgstr "Apakah tombol berikut ini ada pada papan ketik anda?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:26001
+#: ../ubiquity.templates:27001
 msgid "Who are you?"
 msgstr "Siapakan anda?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:27001
+#: ../ubiquity.templates:28001
 msgid "Your name:"
 msgstr "Nama anda:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:28001
+#: ../ubiquity.templates:29001
 msgid "Your name"
 msgstr "Nama Anda"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:29001
+#: ../ubiquity.templates:30001
 msgid "Pick a username:"
 msgstr "Tentukan nama pengguna:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:30001
+#: ../ubiquity.templates:31001
 msgid "Username"
 msgstr "Nama Pengguna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:31001
+#: ../ubiquity.templates:32001
 msgid "Choose a password:"
 msgstr "Pilih kata sandi:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:32001
+#: ../ubiquity.templates:33001
 msgid "Password"
 msgstr "Kata sandi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:33001
+#: ../ubiquity.templates:34001
 msgid "Confirm password"
 msgstr "Ulangi kata sandi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:34001
+#: ../ubiquity.templates:35001
 msgid "Confirm your password:"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:35001
+#: ../ubiquity.templates:36001
 msgid "Your computer's name:"
 msgstr "Nama komputer anda"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:36001
+#: ../ubiquity.templates:37001
 msgid "The name it uses when it talks to other computers."
 msgstr "Nama tersebut digunakan sewaktu berkomunikasi dengan komputer lain."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:37001
+#: ../ubiquity.templates:38001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
 "Anda sedang berjalan dalam mode debugging. Jangan menggunakan kata sandi "
@@ -279,67 +287,67 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:38001
+#: ../ubiquity.templates:39001
 msgid "Passwords do not match"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:39001
+#: ../ubiquity.templates:40001
 msgid "Short password"
 msgstr "Sandi terlalu pendek"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:40001
+#: ../ubiquity.templates:41001
 msgid "Weak password"
 msgstr "Sandi lemah"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:41001
+#: ../ubiquity.templates:42001
 msgid "Fair password"
 msgstr "Sandi cukup aman."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:42001
+#: ../ubiquity.templates:43001
 msgid "Good password"
 msgstr "Sandi bagus"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:43001
+#: ../ubiquity.templates:44001
 msgid "Strong password"
 msgstr "Sandi kuat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:44001
+#: ../ubiquity.templates:45001
 msgid "Log in automatically"
 msgstr "Masuk secara otomatis"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:45001
+#: ../ubiquity.templates:46001
 msgid "Require my password to log in"
 msgstr "Memerlukan kata sandi saya untuk masuk."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:46001
+#: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
 msgstr "Enkripsi berkas home saya"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:47001
+#: ../ubiquity.templates:48001
 msgid "Migrate documents and settings"
 msgstr "Migrasi dokumen dan pengaturan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:49001
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
@@ -349,7 +357,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:48001
+#: ../ubiquity.templates:49001
 msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
@@ -359,74 +367,74 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:49001
+#: ../ubiquity.templates:50001
 msgid "Allocate drive space"
 msgstr "Alokasikan ruang harddisk"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:50001
+#: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:51001
+#: ../ubiquity.templates:52001
 msgid "How do you want to partition the disk?"
 msgstr "Bagaimana anda ingin membuat partisi disk?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:52001
+#: ../ubiquity.templates:53001
 msgid "This computer has no operating systems on it."
 msgstr "Komputer ini tidak memiliki sistem operasi.."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:53001
+#: ../ubiquity.templates:54001
 msgid "This computer has ${OS} on it."
 msgstr "Komputer ini memiliki ${OS} di dalamnya"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:54001
+#: ../ubiquity.templates:55001
 msgid "This computer has several operating systems on it."
 msgstr "Komputer ini memiliki beberapa sistem operasi di dalamnya."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:55001
+#: ../ubiquity.templates:56001
 msgid "Where do you want to put ${RELEASE}?"
 msgstr "Dimanakah anda ingin meletakkan ${RELEASE}?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:56001
+#: ../ubiquity.templates:57001
 msgid "Prepare partitions"
 msgstr "Mempersiapkan partisi"
 
 #. Type: text
 #. Description
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
-#: ../ubiquity.templates:57001
+#: ../ubiquity.templates:58001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
 msgstr "Ini akan menghapus ${SYSTEMS} dan menginstal ${RELEASE}."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:58001
+#: ../ubiquity.templates:59001
 msgid "Ready to install"
 msgstr "Siap untuk dipasang"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:59001
+#: ../ubiquity.templates:60001
 msgid "Details"
 msgstr "Rincian"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:60001
+#: ../ubiquity.templates:61001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
 msgstr ""
@@ -434,7 +442,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:61001
+#: ../ubiquity.templates:62001
 msgid "Advanced..."
 msgstr "Lanjut..."
 
@@ -442,37 +450,37 @@ msgstr "Lanjut..."
 #. Description
 #. This is used as a button label, and should be translated as an action.
 #. Omit the [ ... ] from the translation.
-#: ../ubiquity.templates:62001
+#: ../ubiquity.templates:63001
 msgid "_Install Now[ action ]"
 msgstr "_Pasang Sekarang[ action ]"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:63001
+#: ../ubiquity.templates:64001
 msgid "Step ${INDEX}/${TOTAL}"
 msgstr "Langkah ${INDEX}/${TOTAL}"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:64001
+#: ../ubiquity.templates:65001
 msgid "Quit the installation?"
 msgstr "Keluar dari instalasi?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:65001
+#: ../ubiquity.templates:66001
 msgid "Do you really want to quit the installation now?"
 msgstr "Apakah Anda ingin keluar dari instalasi sekarang?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:66001
+#: ../ubiquity.templates:67001
 msgid "Bootloader install failed"
 msgstr "Pemasangan bootloader gagal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:67001
+#: ../ubiquity.templates:68001
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
@@ -482,19 +490,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:68001
+#: ../ubiquity.templates:69001
 msgid "Choose a different device to install the bootloader on:"
 msgstr "Pilih perangkat lain untuk dipasangi bootloader:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:69001
+#: ../ubiquity.templates:70001
 msgid "Continue without a bootloader."
 msgstr "Lanjutkan tanpa bootloader."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:70001
+#: ../ubiquity.templates:71001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
@@ -502,49 +510,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:71001
+#: ../ubiquity.templates:72001
 msgid "Cancel the installation."
 msgstr "Batalkan pemasangan."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:72001
+#: ../ubiquity.templates:73001
 msgid "This may leave your computer unable to boot."
 msgstr "Ini dapat menyebabkan komputer Anda tak dapat di-boot."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:73001
+#: ../ubiquity.templates:74001
 msgid "How would you like to proceed?"
 msgstr "Bagaimana Anda ingin melanjutkan?"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:74001
+#: ../ubiquity.templates:75001
 msgid "Skip"
 msgstr "Lewati"
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:75001
+#: ../ubiquity.templates:76001
 msgid "Installation Complete"
 msgstr "Instalasi Selesai"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:76001
+#: ../ubiquity.templates:77001
 msgid "Continue Testing"
 msgstr "Lanjutkan Pengecekan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:77001
+#: ../ubiquity.templates:78001
 msgid "Restart Now"
 msgstr "Restart Sekarang"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:78001
+#: ../ubiquity.templates:79001
 msgid "Shutdown Now"
 msgstr ""
 
@@ -552,13 +560,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:80001 ../ubiquity.templates:81001
+#: ../ubiquity.templates:81001 ../ubiquity.templates:82001
 msgid "Installer crashed"
 msgstr "Pemasang gagal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:82001
+#: ../ubiquity.templates:83001
 msgid ""
 "We're sorry; the installer crashed. Please file a new bug report at https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your details "
@@ -577,48 +585,48 @@ msgstr ""
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:83001
+#: ../ubiquity.templates:84001
 msgid "New Partition Table..."
 msgstr "Tabel Partisi Baru..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:84001
+#: ../ubiquity.templates:85001
 msgid "Add..."
 msgstr "Tambah..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:85001
+#: ../ubiquity.templates:86001
 msgid "Change..."
 msgstr "Ubah..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:86001
+#: ../ubiquity.templates:87001
 msgid "Delete"
 msgstr "Hapus"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
-#: ../ubiquity.templates:87001
+#: ../ubiquity.templates:88001
 msgid "Revert"
 msgstr "Kembalikan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:88001
+#: ../ubiquity.templates:89001
 msgid "Recalculating partitions..."
 msgstr "Menghitung ulang partisi..."
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:89001
+#: ../ubiquity.templates:90001
 msgid "Device"
 msgstr "Perangkat"
 
@@ -626,28 +634,28 @@ msgstr "Perangkat"
 #. Description
 #. A column heading in the partitioner. Indicates how the partition is to be
 #. used (ext2, swap, etc.).
-#: ../ubiquity.templates:90001
+#: ../ubiquity.templates:91001
 msgid "Type"
 msgstr "Jenis"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:91001
+#: ../ubiquity.templates:92001
 msgid "Mount point"
 msgstr "Titik kait"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:92001
+#: ../ubiquity.templates:93001
 msgid "Format?"
 msgstr "Format?"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
-#: ../ubiquity.templates:93001
+#: ../ubiquity.templates:94001
 msgid "Size"
 msgstr "Ukuran"
 
@@ -655,27 +663,27 @@ msgstr "Ukuran"
 #. Description
 #. A column heading in the partitioner. Indicates how much of the space on
 #. this partition is used by data.
-#: ../ubiquity.templates:94001
+#: ../ubiquity.templates:95001
 msgid "Used"
 msgstr "Terpakai"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
-#: ../ubiquity.templates:95001
+#: ../ubiquity.templates:96001
 msgid "free space"
 msgstr "ruang bebas"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
-#: ../ubiquity.templates:96001
+#: ../ubiquity.templates:97001
 msgid "unknown"
 msgstr "Tidak Diketahui"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:97001
+#: ../ubiquity.templates:98001
 msgid "Create partition"
 msgstr "Buat partisi"
 
@@ -683,55 +691,55 @@ msgstr "Buat partisi"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:98001 ../ubiquity.templates:105001
+#: ../ubiquity.templates:99001 ../ubiquity.templates:106001
 msgid "New partition size in megabytes (1000000 bytes):"
 msgstr "Ukuran partisi baru dalam megabyte (1000000 byte):"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:99001
+#: ../ubiquity.templates:100001
 msgid "Beginning"
 msgstr "Awal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:100001
+#: ../ubiquity.templates:101001
 msgid "End"
 msgstr "Akhir"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:101001
+#: ../ubiquity.templates:102001
 msgid "Primary"
 msgstr "Primer"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:102001
+#: ../ubiquity.templates:103001
 msgid "Logical"
 msgstr "Logikal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:103001
+#: ../ubiquity.templates:104001
 msgid "Edit partition"
 msgstr "Sunting partisi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:104001
+#: ../ubiquity.templates:105001
 msgid "Edit a partition"
 msgstr "Sunting sebuah partisi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:106001
+#: ../ubiquity.templates:107001
 msgid "Boot loader"
 msgstr "Boot loader"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:107001
+#: ../ubiquity.templates:108001
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
 "until you restart the computer, any changes you make or documents you save "
@@ -744,20 +752,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:108001
+#: ../ubiquity.templates:109001
 msgid "Go Back"
 msgstr "Kembali"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
-#: ../ubiquity.templates:109001
+#: ../ubiquity.templates:110001
 msgid "Continue"
 msgstr "Teruskan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:110001
+#: ../ubiquity.templates:111001
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
@@ -767,37 +775,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:111001
+#: ../ubiquity.templates:112001
 msgid "Verifying the installation configuration..."
 msgstr "Memeriksa konfigurasi instalasi..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:112001
+#: ../ubiquity.templates:113001
 msgid "Installing system"
 msgstr "Meng-install sistem"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:113001
+#: ../ubiquity.templates:114001
 msgid "Finding the distribution to copy..."
 msgstr "Mencari distribusi ini untuk disalin..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:115001
+#: ../ubiquity.templates:116001
 msgid "Scanning files..."
 msgstr "Memindai berkas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:116001
+#: ../ubiquity.templates:117001
 msgid "Copying files..."
 msgstr "Sedang menyalin berkas..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:117001
+#: ../ubiquity.templates:118001
 msgid "Almost finished copying files..."
 msgstr "Hampir selesai menyalin berkas..."
 
@@ -811,9 +819,9 @@ msgstr "Hampir selesai menyalin berkas..."
 #. Description
 #. Type: select
 #. Description
-#: ../ubiquity.templates:118001 ../ubiquity.templates:119001
-#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:119001 ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "Installation Failed"
 msgstr "Instalasi Gagal"
 
@@ -825,14 +833,14 @@ msgstr "Instalasi Gagal"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001 ../ubiquity.templates:119001
-#: ../ubiquity.templates:120001 ../ubiquity.templates:121001
+#: ../ubiquity.templates:119001 ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr "Penginstal menemukan error saat menyalin berkas ke hard disk:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:118001
+#: ../ubiquity.templates:119001
 msgid ""
 "This is due to there being insufficient disk space for the install to "
 "complete on the target partition.  Please run the installer again and select "
@@ -844,7 +852,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:119001
+#: ../ubiquity.templates:120001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive. It may help to clean the "
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
@@ -857,7 +865,7 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:120001
+#: ../ubiquity.templates:121001
 msgid ""
 "This is often due to a faulty hard disk. It may help to check whether the "
 "hard disk is old and in need of replacement, or to move the system to a "
@@ -875,7 +883,7 @@ msgstr ""
 #. Description
 #. This is used when there was an md5 mismatch during copying, meaning that
 #. the source file and destination file are not equal.
-#: ../ubiquity.templates:121001 ../ubiquity.templates:122001
+#: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid ""
 "This is often due to a faulty CD/DVD disk or drive, or a faulty hard disk. "
 "It may help to clean the CD/DVD, to burn the CD/DVD at a lower speed, to "
@@ -892,67 +900,67 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../ubiquity.templates:122001
+#: ../ubiquity.templates:123001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr "Berkas berikut tidak cocok dengan sumbernya di CD/DVD."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:123001
+#: ../ubiquity.templates:124001
 msgid "Copying installation logs..."
 msgstr "Sedang menyalin catatan instalasi..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:124001
+#: ../ubiquity.templates:125001
 msgid "Configuring target system..."
 msgstr "Mengkonfigurasi sistem tujuan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:125001
+#: ../ubiquity.templates:126001
 msgid "Configuring system locales..."
 msgstr "Sedang mengkonfigurasi system locales..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:126001
+#: ../ubiquity.templates:127001
 msgid "Configuring apt..."
 msgstr "Mengkonfigurasi apt..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:127001
+#: ../ubiquity.templates:128001
 msgid "Configuring time zone..."
 msgstr "Sedang mengkonfigurasi zona waktu..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:128001
+#: ../ubiquity.templates:129001
 msgid "Configuring keyboard..."
 msgstr "Mengkonfigurasi papan ketik..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:129001
+#: ../ubiquity.templates:130001
 msgid "Creating user..."
 msgstr "Sedang mendaftarkan pengguna..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:130001
+#: ../ubiquity.templates:131001
 msgid "Importing documents and settings..."
 msgstr "Sedang melakukan import dokumen dan setting..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:131001
+#: ../ubiquity.templates:132001
 msgid "Configuring hardware..."
 msgstr "Sedang mengonfigurasi perangkat keras..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:132001
+#: ../ubiquity.templates:133001
 #, fuzzy
 #| msgid "Install this third-party software"
 msgid "Installing third-party software..."
@@ -960,25 +968,25 @@ msgstr "Instal program buatan perusahaan lain"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:133001
+#: ../ubiquity.templates:134001
 msgid "Configuring network..."
 msgstr "Sedang mengonfigurasi jaringan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:135001
 msgid "Setting computer name..."
 msgstr "Sedang mengatur nama komputer..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
 msgstr "Sedang mengonfigurasi boot loader..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:137001
 #, fuzzy
 #| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
@@ -986,7 +994,7 @@ msgstr "Sedang menghapus paket-paket tambahan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:138001
 #, fuzzy
 #| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
@@ -994,67 +1002,67 @@ msgstr "Sedang menghapus paket-paket tambahan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:139001
 msgid "Installing additional packages..."
 msgstr "Sedang memasang paket-paket tambahan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:140001
 msgid "Checking for packages to install..."
 msgstr "Sedang memeriksa paket-paket untuk dipasang..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:141001
 msgid "Removing extra packages..."
 msgstr "Sedang menghapus paket-paket tambahan..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:142001
 msgid "Checking for packages to remove..."
 msgstr "Memeriksa paket yang dihapus..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:143001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "Sedang mengunduh paket (${TIME} lagi)..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Downloading package lists..."
 msgstr "Mengunduh senarai paket..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:145001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "Sedang mengunduh senarai paket (${TIME} lagi)..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:146001
+#: ../ubiquity.templates:147001
 msgid "Error installing ${PACKAGE}"
 msgstr "Kesalahan saat menginstal ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:148001
 msgid "Error removing ${PACKAGE}"
 msgstr "Kesalahan saat menghapus ${PACKAGE}"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:149001
 msgid "Error while installing packages"
 msgstr "Kesalahan ketika memasang paket"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:149001
 msgid "An error occurred while installing packages:"
 msgstr "Sebuah kesalahan terjadi ketika sedang memasang paket:"
 
@@ -1062,7 +1070,7 @@ msgstr "Sebuah kesalahan terjadi ketika sedang memasang paket:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001 ../ubiquity.templates:149001
+#: ../ubiquity.templates:149001 ../ubiquity.templates:150001
 msgid "The following packages are in a broken state:"
 msgstr "Paket-paket berikut berada dalam kondisi rusak:"
 
@@ -1070,7 +1078,7 @@ msgstr "Paket-paket berikut berada dalam kondisi rusak:"
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001 ../ubiquity.templates:149001
+#: ../ubiquity.templates:149001 ../ubiquity.templates:150001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1091,25 +1099,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid "Error while removing packages"
 msgstr "Kesalahan ketika menghapus paket"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:150001
 msgid "An error occurred while removing packages:"
 msgstr "Sebuah kesalahan terjadi ketika sedang menghapus paket:"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:151001
 msgid "Error migrating documents and settings"
 msgstr "Galat memigrasi dokumen dan tatanan"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:151001
 msgid ""
 "An error occurred while migrating data.  More details may be found in /var/"
 "log/syslog.  The installation will continue, but some or all of the "
@@ -1122,13 +1130,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:152001
 msgid "Error copying network configuration"
 msgstr "Galat menyalin konfigurasi jaringan"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:152001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1139,37 +1147,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:155001
+#: ../ubiquity.templates:156001
 msgid "Calculating files to skip copying..."
 msgstr "Menghitung berkas untuk melewati penyalinan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:156001
+#: ../ubiquity.templates:157001
 msgid "Ready when you are..."
 msgstr "Siap....."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:158001
 msgid "Installing language packs"
 msgstr "Sedang meng-install paket bahasa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:159001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Sedang mengunduh paket bahasa (${TIME} lagi)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "Failed to unmount partitions"
 msgstr "Gagal melepas partisi"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1180,14 +1188,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "Mohon tutup semua aplikasi yang menggunakan titik-titik mount tersebut."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Apakah anda ingin agar proses instalasi mencoba melakukan umount lagi "
@@ -1195,13 +1203,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid "Do you want to return to the partitioner?"
 msgstr "Apakah anda ingin kembali ke pemartisi?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1211,7 +1219,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1221,7 +1229,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid "System Configuration"
 msgstr "Konfigurasi Sistem"
 
@@ -1229,135 +1237,135 @@ msgstr "Konfigurasi Sistem"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001 ../ubiquity.templates:239001
+#: ../ubiquity.templates:177001 ../ubiquity.templates:240001
 msgid "Welcome"
 msgstr "Selamat Datang"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "Network configuration"
 msgstr "Konfigurasi jaringan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:179001
 msgid "Software selection"
 msgstr "Pilihan perangkat lunak"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "Applying configuration"
 msgstr "Menerapkan konfigurasi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "Language"
 msgstr "Bahasa"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "Prepare"
 msgstr "Persiapan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Timezone"
 msgstr "Zona Waktu"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Keyboard"
 msgstr "Keyboard"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 msgid "Disk Setup"
 msgstr "Penyiapan Cakram"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 msgid "User Info"
 msgstr "Info Pengguna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 msgid "installation process"
 msgstr "proses instalasi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid "Checking for installer updates"
 msgstr "Memeriksa pembaruan pemasang"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "Reading package information"
 msgstr "Sedang membaca informasi paket"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "Updating package information"
 msgstr "Memperbarui informasi paket"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Berkas ${INDEX} dari ${TOTAL} pada ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Berkas ${INDEX} dari ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "Installing update"
 msgstr "Memasang pembaruan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "Error updating installer"
 msgstr "Galat memperbarui pemasang"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "Pemasang menemui galat ketika mencoba memperbarui dirinya sendiri:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "USB disk"
 msgstr "USB disk"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1367,7 +1375,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1377,7 +1385,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid "Continue with installation."
 msgstr "Lanjutkan dengan instalasi."
 
@@ -1385,13 +1393,13 @@ msgstr "Lanjutkan dengan instalasi."
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:202001 ../ubiquity.templates:203001
 msgid "Installation failed"
 msgstr "Instalasi gagal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:202001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1401,49 +1409,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:203001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "Installer menemukan error yang tak terbaiki dan sekarang akan reboot."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Preparing to install ${RELEASE}"
 msgstr "Persiapan untuk meng-install ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid "Wireless"
 msgstr "Nirkabel"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:207001
 msgid "Please select your wireless network from this list"
 msgstr "Silahkan pilih jaringan nirkabel anda dari daftar berikut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "Select drive:"
 msgstr "Pilih drive:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "Sediakan ruang drive dengan menarik pembagi dibawah:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 msgid "The entire disk will be used:"
 msgstr "Semua yang ada di disk akan dipakai:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 #, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
@@ -1454,7 +1462,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1464,7 +1472,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1475,7 +1483,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1485,49 +1493,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 msgid "Use Entire Partition"
 msgstr "Gunakan semua partisi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 msgid "Use Entire Disk"
 msgstr "Gunakan semua disk"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:220001
 msgid "Split Largest Partition"
 msgstr "Bagi partisi yang terbesar"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "For best results, please ensure that this computer:"
 msgstr "Untuk hasil yang terbaik, tolong pastikan dalam komputer ini:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:223001
 msgid "has at least ${SIZE} available drive space"
 msgstr "Harus ada sedikitnya ${SIZE} tersedia dalam ruang drive"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "is plugged in to a power source"
 msgstr "apakah sudah menancap di sumber listrik"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "is connected to the Internet"
 msgstr "apakah sudah terhubung ke internet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1541,7 +1549,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1551,37 +1559,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:228001
 msgid "Install this third-party software"
 msgstr "Instal program buatan perusahaan lain"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:229001
 msgid "Download updates while installing"
 msgstr "Unduh update ketika sedang menginstal"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:233001
 msgid "Layout:"
 msgstr "Tata letak:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:234001
 msgid "Variant:"
 msgstr "Varian:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:235001
 msgid "Below is an image of your current layout:"
 msgstr "Citra di bawah adalah hasil tata letak Anda kini:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:236001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1593,31 +1601,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:237001
 msgid "Time Zone:"
 msgstr "Zona Waktu:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:238001
 msgid "Region:"
 msgstr "Daerah:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:239001
 msgid "[type here to change]"
 msgstr "[ketik disini untuk mengganti]"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:242001
 msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
@@ -1625,7 +1633,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
 msgstr ""
 
@@ -1633,7 +1641,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001 ../ubiquity.templates:251001
+#: ../ubiquity.templates:243001 ../ubiquity.templates:252001
 msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
@@ -1641,13 +1649,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:245001
 msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
@@ -1655,13 +1663,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:246001
 msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
@@ -1669,13 +1677,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
@@ -1685,13 +1693,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:247001 ../ubiquity.templates:250001
+#: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:248001
 msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
@@ -1699,13 +1707,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:249001
 msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
@@ -1713,7 +1721,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:250001
 #, fuzzy
 #| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
@@ -1721,7 +1729,7 @@ msgstr "Pasang ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:250001
 msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
@@ -1729,7 +1737,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:251001
 msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
@@ -1737,7 +1745,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:252001
 #, fuzzy
 #| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
