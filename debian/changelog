@@ -1,4 +1,4 @@
-ubiquity (2.5.23) UNRELEASED; urgency=low
+ubiquity (2.5.23) natty; urgency=low
 
   [ Evan Dandrea ]
   * Ensure we always have an automatic partitioning option selected.
@@ -30,7 +30,7 @@ ubiquity (2.5.23) UNRELEASED; urgency=low
   * src/panel/panel.c
    - Load lxpanel background for the panel when it's available.
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 02 Mar 2011 00:42:08 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 07 Mar 2011 09:16:26 +0000
 
 ubiquity (2.5.22) natty; urgency=low
 
