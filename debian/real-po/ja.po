@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -189,18 +189,14 @@ msgstr "キーボード入力をここで試してください"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "キーボードレイアウトを検出"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "キーボードレイアウトを検出"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -964,10 +960,8 @@ msgstr "ハードウェアを設定しています..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "サードパーティー・ソフトウェアをインストールする"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -990,18 +984,14 @@ msgstr "ブートローダを設定しています..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "余分なパッケージを削除しています..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "余分なパッケージを削除しています..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1726,10 +1716,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "${RELEASE} をインストール"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1750,10 +1738,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "他の OS と共存させてインストールする"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1819,20 +1805,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "キーボードレイアウトを検出"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "連続する最大の空き領域を使用する"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "ディスク全体を削除してから使用する"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "手動でパーティションを設定する（高度な知識が必要です）"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "キーボードレイアウトの検出"
 
 #~ msgid "Advanced Options"
 #~ msgstr "詳細オプション"
@@ -1872,6 +1849,9 @@ msgstr "パッケージを削除しています"
 #~ " 移行アシスタント:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "ディスク全体を削除してから使用する"
+
 #~ msgid "Summary"
 #~ msgstr "要約"
 
@@ -1897,3 +1877,12 @@ msgstr "パッケージを削除しています"
 #~ "このインストーラは ${RELEASE} ライブ ${MEDIUM} インストーラのプレリリース"
 #~ "版です。最終リリースではありません。${RELEASE} の最終リリースは2010年10月"
 #~ "になります。"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "キーボードレイアウトの検出"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "キーボードレイアウトを検出"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "他の OS と共存させてインストールする"

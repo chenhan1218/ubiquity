@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -175,18 +175,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout"
-msgstr "Rengê klavyeyê"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Rengê klavyeyê"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -964,18 +960,14 @@ msgstr "Boot loader tê sazkirin..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Paketên zêdebar tên derxistin..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Paketên zêdebar tên derxistin..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1665,10 +1657,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "${RELEASE}'yê saz bike"
+msgstr ""
 
 #. Type: text
 #. Description

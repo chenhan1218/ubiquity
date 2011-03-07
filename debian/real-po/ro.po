@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -187,18 +187,14 @@ msgstr "Tastați aici pentru a testa tastatura"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Detectează aranjamentul de tastatură"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Detectează aranjamentul de tastatură"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -964,10 +960,8 @@ msgstr "Se configurează suportul hardware..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Instalează aceste componente software de la părți terțe"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -990,18 +984,14 @@ msgstr "Se configurează încărcătorul de sistem..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Se elimină pachetele suplimentare..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Se elimină pachetele suplimentare..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1729,10 +1719,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Instalați ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1753,10 +1741,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Instalează lângă alte sisteme de operare"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1822,21 +1808,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Se elimină pachetele"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Detectează aranjamentul de tastatură"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Folosește cel mai mare spațiu liber continuu"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Șterge și folosește întreg discul"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifică partițiile manual (avansat)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Determinare aranjament de tastatură"
-
 #~ msgid "Popularity contest"
 #~ msgstr "Concurs de popularitate"
 
@@ -1849,14 +1820,23 @@ msgstr "Se elimină pachetele"
 #~ msgid "Port:"
 #~ msgstr "Port:"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Șterge și folosește întreg discul"
+
 #~ msgid "Summary"
 #~ msgstr "Rezumat"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Folosește cel mai mare spațiu liber continuu"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opțiuni avansate"
 
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "Participați la sondajul privind utilizarea pachetelor"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Specifică partițiile manual (avansat)"
 
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
@@ -1882,6 +1862,9 @@ msgstr "Se elimină pachetele"
 #~ "pentru ${RELEASE}. Nu este versiunea finală, care va veni cu ultima "
 #~ "lansare a ${RELEASE} în octombrie 2010."
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Determinare aranjament de tastatură"
+
 #~ msgid "Install boot loader"
 #~ msgstr "Instalează programul de încărcare a sistemului"
 
@@ -1901,3 +1884,9 @@ msgstr "Se elimină pachetele"
 #~ " Locația: ${LOCATION}\n"
 #~ " Asistare migrare:\n"
 #~ " ${MIGRATE}"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Detectează aranjamentul de tastatură"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instalează lângă alte sisteme de operare"

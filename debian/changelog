@@ -13,6 +13,7 @@ ubiquity (2.5.23) UNRELEASED; urgency=low
     resize option with a copy of wubi.exe to the Windows startup folder,
     followed by a reboot.
   * Temporary fix for translations with carriage returns (LP: #730498).
+  * Update translations from Launchpad.
   * Automatic update of included source packages: console-setup
     1.57ubuntu10.
 

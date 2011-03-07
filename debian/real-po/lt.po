@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -187,18 +187,14 @@ msgstr "Rašykite čia savo klaviatūrai išbandyti"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout"
-msgstr "Klaviatūros išdėstymas"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Klaviatūros išdėstymas"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -989,18 +985,14 @@ msgstr "Konfigūruojama sistemos įkėlimo programa..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Pašalinami papildomi (nereikalingi) paketai..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Pašalinami papildomi (nereikalingi) paketai..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1717,10 +1709,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Įdiegti ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1741,10 +1731,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Įdiegti šalia kitų operacinių sistemų"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1809,18 +1797,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Šalinami paketai"
 
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Ištrinti viską diske - naudoti visą diską"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Nustatyti klaviatūros klavišų išdėstymą"
-
 #~ msgid "Advanced Options"
 #~ msgstr "Sudėtingesnės parinktys"
 
@@ -1856,6 +1832,12 @@ msgstr "Šalinami paketai"
 #~ " Duomenų bei nustatymų importavimas:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
 
@@ -1864,6 +1846,9 @@ msgstr "Šalinami paketai"
 
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "Dalyvauti paketų naudojimo apžvalgoje"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Ištrinti viską diske - naudoti visą diską"
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
@@ -1881,3 +1866,9 @@ msgstr "Šalinami paketai"
 #~ msgstr ""
 #~ "Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra "
 #~ "galutinė laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Nustatyti klaviatūros klavišų išdėstymą"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Įdiegti šalia kitų operacinių sistemų"

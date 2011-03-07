@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -170,18 +170,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout"
-msgstr "விசைப்பலகை அமைப்பு"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout..."
-msgstr "விசைப்பலகை அமைப்பு"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -932,18 +928,14 @@ msgstr "துவக்கி வடிவமைக்கப்படுகி�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "கூடுதல் பொதிகள் நீக்கப் படுகின்றன..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "கூடுதல் பொதிகள் நீக்கப் படுகின்றன..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1621,10 +1613,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "நிறுவு ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1704,18 +1694,18 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
+#~ msgid "Advanced Options"
+#~ msgstr "கூடுதல் விருப்பங்கள்"
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "மிகப்பெரிய தொடர்ந்த  உபயோகம் இல்லாத இடத்தை உபயோகப்படுத்து."
 
 #~ msgid "Erase and use the entire disk"
 #~ msgstr "முழு  வட்டையும் அழித்து உபயோகபடுத்து."
 
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "நீங்களாக வகிர்வை குறிப்பிடுங்கள்.(மேம்பட்ட விருப்பம்)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "கூடுதல் விருப்பங்கள்"
-
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
 #~ "சில கேள்விகளுக்கு ஒருமுறை பதிலளித்தால்,இந்த கணினியானது உபயோகபடுத்த தாயாரகிவிடும்."
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "நீங்களாக வகிர்வை குறிப்பிடுங்கள்.(மேம்பட்ட விருப்பம்)"

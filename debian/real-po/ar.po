@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -180,18 +180,14 @@ msgstr "اكتب هنا لتجربة لوحة المفاتيح"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "حدد تخطيط لوحة المفاتيح"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "حدد تخطيط لوحة المفاتيح"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -941,10 +937,8 @@ msgstr "يضبط العتاد..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "ثبت هذه البرامج الخارجية"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -967,18 +961,14 @@ msgstr "يضبط محمل الإقلاع..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "يزيل الحزم الزائدة..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "يزيل الحزم الزائدة..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1687,10 +1677,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "ثبّت ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1711,10 +1699,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "ثبّت بجوار أنظمة تشغيل أخرى"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1778,20 +1764,8 @@ msgstr ""
 msgid "Removing packages"
 msgstr "يحذف الحزم"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "حدد تخطيط لوحة المفاتيح"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "استخدم أكبر مساحة متاحة متصلة"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "امسح القرص واستخدمه كاملا"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "حدد الأقسام يدويا (متقدم)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "حدد تخطيط لوحة المفاتيح"
 
 #~ msgid "Advanced Options"
 #~ msgstr "الخيارات المتقدّمة"
@@ -1817,6 +1791,9 @@ msgstr "يحذف الحزم"
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "بمجرد إجابتك لبعض الأسئلة سيكون هذا الحاسوب جاهزا للاستخدام."
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "امسح القرص واستخدمه كاملا"
+
 #~ msgid "Summary"
 #~ msgstr "ملخّص"
 
@@ -1837,6 +1814,15 @@ msgstr "يحذف الحزم"
 #~ " مساعد الانتقال:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "استخدم أكبر مساحة متاحة متصلة"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "ثبّت بجوار أنظمة تشغيل أخرى"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "حدد تخطيط لوحة المفاتيح"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1845,6 +1831,9 @@ msgstr "يحذف الحزم"
 #~ "جاهز للتثبيت؟ بعد إجابتك عن بضعة أسئلة، ستتمكن من تثبيت محتوى ${MEDIUM} "
 #~ "الحي على هذا الحاسوب حيث سيمكنك تشغيل ${RELEASE} بالسرعة الكاملة دون أن "
 #~ "تحتاج ${MEDIUM}."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "حدد تخطيط لوحة المفاتيح"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

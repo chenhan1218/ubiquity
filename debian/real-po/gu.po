@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -174,18 +174,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout"
-msgstr "કીબોર્ડ લેઆઉટ:"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout..."
-msgstr "કીબોર્ડ લેઆઉટ:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1712,9 +1708,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "સૌથી મ્હોટી સતત મુક્ત જગ્યા વાપરો"
-
 #~ msgid "Advanced Options"
 #~ msgstr "અદ્યતન વિકલ્પો"
 
@@ -1752,3 +1745,6 @@ msgstr ""
 #~ " સ્થાન: ${LOCATION}\n"
 #~ " સ્થાનાન્તરણ સહાયક:\n"
 #~ " ${MIGRATE}"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "સૌથી મ્હોટી સતત મુક્ત જગ્યા વાપરો"

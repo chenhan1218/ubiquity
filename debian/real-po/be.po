@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -185,18 +185,14 @@ msgstr "Напішыце тут што-небудзь, каб праверыць
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Вызначце раскладку клявіятуры"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Вызначце раскладку клявіятуры"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -958,10 +954,8 @@ msgstr "Канфігураваньне абсталяваньня..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Усталяваць гэта іншае праграмнае забеспячэнне."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -984,18 +978,14 @@ msgstr "Канфігураваньне стартавай праграмы..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Выдаленьне дадатковых пакетаў..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Выдаленьне дадатковых пакетаў..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1724,10 +1714,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Усталяваць ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1748,10 +1736,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Усталяваць побач зь іншымі апэрацыйнымі сыстэмамі"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1815,20 +1801,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Выдаленьне пакетаў"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Вызначце раскладку клявіятуры"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Ужыць"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Сьцерці ўсё і выкарыстаць дыск цалкам"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Самастойна задаць падзелы"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Вызначце раскладку клявіятуры"
 
 #~ msgid ""
 #~ " Language: ${LANGUAGE}\n"
@@ -1876,6 +1853,9 @@ msgstr "Выдаленьне пакетаў"
 #~ "Пасьля таго, як вы адкажаце на некалькі пытаньняў, гэты кампутар будзе "
 #~ "гатовы да выкарыстаньня."
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Сьцерці ўсё і выкарыстаць дыск цалкам"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1885,6 +1865,12 @@ msgstr "Выдаленьне пакетаў"
 #~ "зьмесьціва live ${MEDIUM} будзе ўсталявана на гэты кампутар і ${RELEASE} "
 #~ "будзе працаваць на поўную магутнасьць і бяз патрэбы ў ${MEDIUM}."
 
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Вызначце раскладку клявіятуры"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Усталяваць побач зь іншымі апэрацыйнымі сыстэмамі"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1892,3 +1878,6 @@ msgstr "Выдаленьне пакетаў"
 #~ msgstr ""
 #~ "Гэта папярэдні выпуск устаноўшчыка ${RELEASE} з ${MEDIUM}. Гэта не "
 #~ "фінальны выпуск; фінальны выпуск ${RELEASE} выйдзе ў кастрычніку 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Вызначце раскладку клявіятуры"

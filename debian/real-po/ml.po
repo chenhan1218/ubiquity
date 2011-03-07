@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -177,18 +177,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout"
-msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout..."
-msgstr "കീബോര്‍ഡ് ലേയൌട്ട്"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -940,18 +936,14 @@ msgstr "ഭൂട്ട് ലോഡര്‍ ക്രമീകരിക്ക�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "അധിക പാക്കേജുകള്‍ നീക്കം ചെയ്തു കൊണ്ടിരിക്കുന്നു..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "അധിക പാക്കേജുകള്‍ നീക്കം ചെയ്തു കൊണ്ടിരിക്കുന്നു..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1631,10 +1623,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "ഇന്‍സ്റ്റാള്‍ ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1714,17 +1704,17 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "ഏറ്റവും  വലിയ, തുടര്‍ച്ചയായി ഒഴിഞ്ഞുകിടക്കുന്ന ഭാഗം  ഉപയോഗിക്കുക"
-
 #~ msgid "Erase and use the entire disk"
 #~ msgstr "മുഴുവന്‍ ഡിസ്കും  മായ്ചതിനു ശേഷം  ഉപയോഗിക്കുക"
 
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "ഡിസ്ക് വിഭജനം സ്വയം നിര്‍വ്വഹിക്കുക (പരിചയ സമ്പന്നരായ ആളുകള്‍ക്ക്)"
-
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "ഏതാനും ചോദ്യങ്ങള്‍ക്ക് ഉത്തരം നല്‍കുന്നതോടെ, ഈ കംപ്യൂട്ടര്‍ ഉപയോഗക്ഷമമാവുന്നതാണ്."
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "ഏറ്റവും  വലിയ, തുടര്‍ച്ചയായി ഒഴിഞ്ഞുകിടക്കുന്ന ഭാഗം  ഉപയോഗിക്കുക"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "ഡിസ്ക് വിഭജനം സ്വയം നിര്‍വ്വഹിക്കുക (പരിചയ സമ്പന്നരായ ആളുകള്‍ക്ക്)"
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "

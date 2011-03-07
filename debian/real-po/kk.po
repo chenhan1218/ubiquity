@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -189,18 +189,14 @@ msgstr "Пернетақтаны тексеру үшін, осы жерге те
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Пернетақта тілін таңдау"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Пернетақта тілін таңдау"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -956,10 +952,8 @@ msgstr "Жабдықты баптау..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Осы үшінші жақты (third-party) бағдарламаны орнату"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -982,18 +976,14 @@ msgstr "Жүктеушіні баптау..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Қосымша пакеттер жойылуда..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Қосымша пакеттер жойылуда..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1718,10 +1708,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "${RELEASE} орнату"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1742,10 +1730,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Басқа операциялық жүйелер қасында орнату"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1811,21 +1797,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Пакеттер жойылуда"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Пернетақта тілін таңдау"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Ең үлкен үзіліссіз бос орынды қолдану"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Дискті толығымен тазартып, қолдану"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Диск бөлімдерін өзінше көрсету (кеңейтілген)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Пернетақта тілін анықтау"
-
 #~ msgid "Advanced Options"
 #~ msgstr "Қосымша параметрлер"
 
@@ -1876,6 +1847,15 @@ msgstr "Пакеттер жойылуда"
 #~ "арқылы, ${MEDIUM} құрамы компьютерге орнатылып, ${RELEASE} толық қуатымен "
 #~ "${MEDIUM} дискісіз-ақ жұмыс істейтін болады."
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Пернетақта тілін анықтау"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Пернетақта тілін таңдау"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Басқа операциялық жүйелер қасында орнату"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1885,7 +1865,16 @@ msgstr "Пакеттер жойылуда"
 #~ "табылады. Бұл финальный релиз емес; ресми ${RELEASE} нұсқасы 2010 жылының "
 #~ "10 айының 10 жұлдызында шығады."
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Дискті толығымен тазартып, қолдану"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Ең үлкен үзіліссіз бос орынды қолдану"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
 #~ "Бірнеше сұрақтарға жауап бергеніңізден кейін, бұл дербес компьютер "
 #~ "жұмысқа дайын болады."
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Диск бөлімдерін өзінше көрсету (кеңейтілген)"

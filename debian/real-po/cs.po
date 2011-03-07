@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-21 21:12+0000\n"
+"PO-Revision-Date: 2011-02-22 19:08+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -190,18 +190,14 @@ msgstr "Zde můžete vyzkoušet nastavení klávesnice"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Odhadnout rozložení klávesnice"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Odhadnout rozložení klávesnice"
+msgstr "Rozpoznat rozložení klávesnice..."
 
 #. Type: text
 #. Description
@@ -555,7 +551,7 @@ msgstr "Restartovat nyní"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Vypnout nyní"
 
 #. Type: text
 #. Description
@@ -959,10 +955,8 @@ msgstr "Nastavuje se hardware..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Nainstalovat software třetích stran"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -985,18 +979,14 @@ msgstr "Nastavuje se zavaděč..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Odstraňují se extra balíky..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Odstraňují se extra balíky..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1715,10 +1705,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Nainstalovat ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1739,10 +1727,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Nainstalovat vedle ostatních operačních systémů"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1807,20 +1793,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Odstraňování balíků"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Odhadnout rozložení klávesnice"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Použít největší souvislé volné místo"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Smazat a použít celý disk"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Upřesnit oddíly ručně (pro pokročilé)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Odhadnout rozložení klávesnice"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Pokročilé volby"
@@ -1860,6 +1837,9 @@ msgstr "Odstraňování balíků"
 #~ " Pomocník migrace:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Smazat a použít celý disk"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
 #~ "Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
@@ -1885,3 +1865,12 @@ msgstr "Odstraňování balíků"
 #~ "Toto je předběžné vydání instalátoru spustitelného ${MEDIUM} pro "
 #~ "${RELEASE}. Nejedná se o konečné vydání, které přijde s ${RELEASE} v "
 #~ "říjnu 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Odhadnout rozložení klávesnice"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Nainstalovat vedle ostatních operačních systémů"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Odhadnout rozložení klávesnice"

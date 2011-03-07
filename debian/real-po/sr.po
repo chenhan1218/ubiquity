@@ -1,21 +1,21 @@
 # Serbian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 16.12.2010.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 16.12.2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-04 08:19+0000\n"
+"PO-Revision-Date: 2011-03-03 03:12+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Ubuntu Serbian Translators\n"
 "Language: Serbian (sr)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "Поново покрени"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Ручно подешавање (напредно)"
 
 #. Type: text
 #. Description
@@ -42,6 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Превише знања за нас? Засуците рукаве и испрљајте руке напредним опцијама "
+"партиционисања."
 
 #. Type: text
 #. Description
@@ -187,18 +189,14 @@ msgstr "Упишите овде да испробате Вашу тастату�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Пронађи распоред тастатуре"
+msgstr "Откриј распоред тастатуре"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Пронађи распоред тастатуре"
+msgstr "Откриј распоред тастатуре..."
 
 #. Type: text
 #. Description
@@ -375,7 +373,7 @@ msgstr "Распоређивање простора на диску"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Датотеке (${SIZE})"
 
 #. Type: text
 #. Description
@@ -553,7 +551,7 @@ msgstr "Поново покрени"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Угаси сада"
 
 #. Type: text
 #. Description
@@ -960,10 +958,8 @@ msgstr "Подешавам физичке компоненте..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Инсталирај овај софтвер трећих лица"
+msgstr "Инсталирам софтвер трећих лица..."
 
 #. Type: text
 #. Description
@@ -986,18 +982,14 @@ msgstr "Подешавам подизач система..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Уклањам додатне пакете..."
+msgstr "Чувам инсталиране пакете..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Уклањам додатне пакете..."
+msgstr "Враћам претходно инсталиране пакете..."
 
 #. Type: text
 #. Description
@@ -1620,7 +1612,7 @@ msgstr "[куцајте овде да промените]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Мењам „${OS}“ са „${DISTRO}“"
 
 #. Type: text
 #. Description
@@ -1629,12 +1621,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"Ово ће <b>избрисати</b> све програме, документа, фотографије, музику и било "
+"које друге датотеке вашег оперативног система „${OS}“"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "Инсталирај „${DISTRO}“ поред њега"
 
 #. Type: text
 #. Description
@@ -1645,12 +1639,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Ниједна датотека неће бити избрисана. Приликом сваког покретања рачунара "
+"моћи ћете да изаберете оперативни систем који желите."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Избриши „${CURDISTRO}“ и поново инсталирај"
 
 #. Type: text
 #. Description
@@ -1659,12 +1655,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"Ово ће <b>избрисати</b> све програме, документа, фотографије, музику и било "
+"коју другу датотеку ваше дистрибуције „${CURDISTRO}“"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Надогради „${CURDISTRO}“ на ${VER}"
 
 #. Type: text
 #. Description
@@ -1673,12 +1671,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"Можете да надоградите „${CURDISTRO}“ на новију верзију а да не изгубите "
+"ниједан од ваших важних докумената или програма."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Инсталирај „${DISTRO}“ ${VER} поред овог"
 
 #. Type: text
 #. Description
@@ -1687,6 +1687,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Још увек се двоумите? Можете да инсталирате „${DISTRO} ${VER}“ поред вашег "
+"већ постојећег примерка дистрибуције „${CURDISTRO}“."
 
 #. Type: text
 #. Description
@@ -1694,7 +1696,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Обриши диск и инсталирај „${DISTRO}“"
 
 #. Type: text
 #. Description
@@ -1703,12 +1705,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Да ли сте спремни за скок? Чиста инсталација брише читав чврсти диск и "
+"инсталира „${DISTRO}“."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Обриши све и поново инсталирај"
 
 #. Type: text
 #. Description
@@ -1717,14 +1721,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"Ово ће <b>избрисати</b> све ваше програме, документа, фотографије, музику и "
+"остале датотеке како у „${OS}“ тако и у „${CURDISTRO}“."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Инсталирајте ${RELEASE}"
+msgstr "Поново инсталирај „${CURDISTRO}“"
 
 #. Type: text
 #. Description
@@ -1733,6 +1737,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"Можете поново да инсталирате „${CURDISTRO}“ а да не изгубите ниједан од "
+"ваших важних докумената или програма."
 
 #. Type: text
 #. Description
@@ -1741,14 +1747,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"Ово ће <b>избрисати</b> све ваше програме, документа, фотографије, музику и "
+"било коју другу датотеку на свим оперативним системима."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Инсталирај поред других оперативних система"
+msgstr "Инсталирај „${DISTRO}“ поред њих"
 
 #. Type: title
 #. Description
@@ -1813,21 +1819,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Уклањам пакете"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Пронађи распоред тастатуре"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Искористи највећи непрекидан слободан простор"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Обриши и искористи цео диск"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ручно подешавање партиција (напредно)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Пронађите распоред тастатуре"
-
 #~ msgid "Popularity contest"
 #~ msgstr "Такмичење у популарности"
 
@@ -1851,6 +1842,9 @@ msgstr "Уклањам пакете"
 #~ " Миграциони асистент:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Ручно подешавање партиција (напредно)"
+
 #~ msgid "Port:"
 #~ msgstr "Порт:"
 
@@ -1870,6 +1864,9 @@ msgstr "Уклањам пакете"
 #~ msgid "Network proxy"
 #~ msgstr "Посредник мреже"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Обриши и искористи цео диск"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1877,6 +1874,12 @@ msgstr "Уклањам пакете"
 #~ msgstr ""
 #~ "Ово је пред-издање пробног ${MEDIUM} ${RELEASE} инсталера. То није "
 #~ "коначно издање; оно ће доћи са коначним ${RELEASE} издањем у Октобру 2010."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Пронађи распоред тастатуре"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Пронађите распоред тастатуре"
 
 #~ msgid "HTTP proxy:"
 #~ msgstr "ХТТП посредник:"
@@ -1890,3 +1893,9 @@ msgstr "Уклањам пакете"
 #~ "питања, садржај са пробног ${MEDIUM}-а може бити инсталиран на овом "
 #~ "рачунару тако да ћете моћи да користите ${RELEASE} пуном брзином без "
 #~ "употребе ${MEDIUM}-а."
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Искористи највећи непрекидан слободан простор"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Инсталирај поред других оперативних система"

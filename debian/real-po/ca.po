@@ -1,21 +1,21 @@
 # Catalan messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-#
+# Pau Iranzo <paugnu@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-24 09:51+0000\n"
-"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
-"Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
+"PO-Revision-Date: 2011-02-24 08:52+0000\n"
+"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
+"Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -67,8 +67,8 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Esteu instal·lant en mode fabricant del sistema. Introduïu un nom únic per a "
-"este lot de sistemes. Este nom s'alçarà al sistema instal·lat i pot ser usat "
-"per a ajudar amb informes d'error."
+"aquest lot de sistemes. Aquest nom es desarà al sistema instal·lat i pot ser "
+"usat per a ajudar amb informes d'error."
 
 #. Type: text
 #. Description
@@ -78,7 +78,7 @@ msgid ""
 "from this ${MEDIUM}."
 msgstr ""
 "Podeu provar ${RELEASE} sense fer cap canvi al vostre ordinador, directament "
-"des d'este ${MEDIUM}."
+"des d'aquest ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -117,7 +117,7 @@ msgid ""
 "href=\"update\">update this installer</a>."
 msgstr ""
 "Podeu llegir les <a href=\"release-notes\">notes de la versió</a> o bé <a "
-"href=\"update\">actualitzar este instal·lador</a>."
+"href=\"update\">actualitzar aquest instal·lador</a>."
 
 #. Type: text
 #. Description
@@ -129,7 +129,7 @@ msgstr "Podeu llegir les <a href=\"release-notes\">notes de la versió</a>."
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "Podeu <a href=\"update\">actualitzar este instal·lador</a>."
+msgstr "Podeu <a href=\"update\">actualitzar aquest instal·lador</a>."
 
 #. Type: text
 #. Description
@@ -153,7 +153,7 @@ msgid ""
 msgstr ""
 "El procés d'instal·lació pot canviar la mida o esborrar particions del disc "
 "dur. Assegureu-vos de fer <b>una còpia de seguretat completa de les dades "
-"importants</b> abans d'executar este programa."
+"importants</b> abans d'executar aquest programa."
 
 #. Type: text
 #. Description
@@ -183,23 +183,19 @@ msgstr "Trieu la vostra distribució de teclat:"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Type here to test your keyboard"
-msgstr "Escriviu ací per provar el vostre teclat"
+msgstr "Escriviu aquí per provar el vostre teclat"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Endevina la disposició del teclat"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Endevina la disposició del teclat"
+msgstr "Detecta la disposició del teclat..."
 
 #. Type: text
 #. Description
@@ -331,13 +327,13 @@ msgstr "Entra de manera automàtica"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Require my password to log in"
-msgstr "Fes que calga una contrasenya per a entrar"
+msgstr "Fes que calgui una contrasenya per a entrar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr "Encripta la meua carpeta personal"
+msgstr "Encripta la meva carpeta personal"
 
 #. Type: text
 #. Description
@@ -353,7 +349,8 @@ msgid ""
 "for these accounts will be available after the install completes."
 msgstr ""
 "Seleccioneu qualsevol compte que vulgueu importar. Els documents i la "
-"configuració d'estos estaran disponibles un cop finalitzada la instal·lació."
+"configuració d'aquests estaran disponibles un cop finalitzada la "
+"instal·lació."
 
 #. Type: text
 #. Description
@@ -387,19 +384,19 @@ msgstr "Com voleu partir el disc?"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "This computer has no operating systems on it."
-msgstr "Este ordinador no té instal·lat cap sistema operatiu."
+msgstr "Aquest ordinador no té instal·lat cap sistema operatiu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "This computer has ${OS} on it."
-msgstr "Este ordinador té instal·lat el ${OS}."
+msgstr "Aquest ordinador té instal·lat el sitstema operatiu ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "This computer has several operating systems on it."
-msgstr "Este ordinador té diversos sistemes operatius instal·lats."
+msgstr "Aquest ordinador té diversos sistemes operatius instal·lats."
 
 #. Type: text
 #. Description
@@ -437,7 +434,7 @@ msgstr "Detalls"
 #: ../ubiquity.templates:61001
 msgid ""
 "Your new operating system will now be installed with the following settings:"
-msgstr "El nou sistema operatiu s'instal·larà ara amb els següents paràmetres:"
+msgstr "El sistema operatiu nou s'instal·larà ara amb els paràmetres següents:"
 
 #. Type: text
 #. Description
@@ -463,13 +460,13 @@ msgstr "Pas ${INDEX}/${TOTAL}"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Quit the installation?"
-msgstr "Voleu eixir de la instal·lació?"
+msgstr "Voleu sortir de la instal·lació?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Do you really want to quit the installation now?"
-msgstr "Realment voleu eixir de la instal·lació?"
+msgstr "Realment voleu sortir de la instal·lació?"
 
 #. Type: text
 #. Description
@@ -519,7 +516,7 @@ msgstr "Cancel·la la instal·lació."
 #. Description
 #: ../ubiquity.templates:73001
 msgid "This may leave your computer unable to boot."
-msgstr "Pot ser que això faça que l'ordinador no puga d'arrencar."
+msgstr "Pot ser que això faci que l'ordinador no pugui arrencar."
 
 #. Type: text
 #. Description
@@ -555,7 +552,7 @@ msgstr "Reinicia ara"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Atura ara"
 
 #. Type: text
 #. Description
@@ -577,11 +574,11 @@ msgid ""
 "and /var/log/partman:"
 msgstr ""
 "Ho sentim: l'instal·lador ha fallat. Seria recomanable que informéssiu "
-"d'este error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug (sense "
-"adjuntar els detalls a cap informe ja existent), de manera que els "
-"desenvolupadors se'n puguen ocupar el més prompte possible. Hauríeu "
-"d'incloure els detalls següents a l'informe perquè puga ser útil, així com "
-"adjuntar-hi els fitxers /var/log/syslog i /var/log/partman:"
+"d'aquest error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
+"(sense adjuntar els detalls a cap informe ja existent), de manera que els "
+"desenvolupadors se'n puguin ocupar el més aviat possible. Hauríeu d'incloure "
+"els detalls següents a l'informe perquè pugui ser útil, així com adjuntar-hi "
+"els fitxers /var/log/syslog i /var/log/partman:"
 
 #. Type: text
 #. Description
@@ -595,7 +592,7 @@ msgstr "Taula de particions nova..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afegeix..."
 
 #. Type: text
 #. Description
@@ -747,7 +744,7 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "Ha finalitzat la instal·lació. Podeu continuar provant ${RELEASE}, però fins "
-"que no reinicieu l'ordinador no s'alçarà cap canvi que feu ni tampoc cap "
+"que no reinicieu l'ordinador no es desarà cap canvi que feu ni tampoc cap "
 "document."
 
 #. Type: text
@@ -755,7 +752,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:109001
 msgid "Go Back"
-msgstr "Vés arrere"
+msgstr "Vés enrere"
 
 #. Type: text
 #. Description
@@ -790,7 +787,7 @@ msgstr "S'està instal·lant el sistema"
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Finding the distribution to copy..."
-msgstr "S'està cercant la distribució a copiar..."
+msgstr "S'està cercant la distribució que s'ha de copiar..."
 
 #. Type: text
 #. Description
@@ -838,7 +835,7 @@ msgstr "Ha fallat la instal·lació"
 #: ../ubiquity.templates:121001 ../ubiquity.templates:122001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"L'instal·lador ha trobat un error mentre copiava els arxius al disc dur:"
+"L'instal·lador ha trobat un error mentre copiava els fitxers al disc dur:"
 
 #. Type: error
 #. Description
@@ -850,8 +847,8 @@ msgid ""
 msgstr ""
 "Això és degut al fet que no hi ha prou espai de disc a la partició de "
 "destinació, amb la qual cosa la instal·lació no es pot completar. Hauríeu "
-"d'executar l'instal·lador de nou i seleccionar una partició més grossa on "
-"dur a terme la instal·lació."
+"d'executar l'instal·lador de nou i seleccionar una partició més gran on dur "
+"a terme la instal·lació."
 
 #. Type: error
 #. Description
@@ -874,9 +871,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Este error acostuma ser causat per un problema amb el disc dur. Comproveu si "
-"el disc dur és massa vell i necessita ser reemplaçat, o bé traslladeu el "
-"sistema a una ubicació on hi haja una temperatura més baixa."
+"Aquest error acostuma ser causat per un problema amb el disc dur. Comproveu "
+"si el disc dur és massa vell i necessita ser reemplaçat, o bé traslladeu el "
+"sistema a una ubicació on hi hagi una temperatura més baixa."
 
 #. Type: error
 #. Description
@@ -965,10 +962,8 @@ msgstr "S'està configurant el maquinari..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Instal·la el programari de terceres parts"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -991,18 +986,14 @@ msgstr "S'està configurant el carregador..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "S'estan suprimint els paquets extra..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "S'estan suprimint els paquets extra..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1092,14 +1083,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Això pot ser degut al fet que s'estiga utilitzant una imatge d'instal·lació "
-"vella, o bé a un error en algun dels paquets llistats ací sobre. Podeu "
-"trobar més detalls a /var/log/syslog. De totes maneres, l'instal·lador "
+"Això pot ser degut al fet que s'estigui utilitzant una imatge d'instal·lació "
+"vella, o bé a un error en algun dels paquets llistats aquí sobre. Podeu "
+"trobar més detalls a /var/log/syslog. De tota manera, l'instal·lador "
 "intentarà continuar, però pot ser que falli en algun punt determinat i no "
-"puga instal·lar o suprimir altres paquets (fins i tot el seu mateix) del "
+"pugui instal·lar o suprimir altres paquets (fins i tot el seu mateix) del "
 "sistema. Abans de res, hauríeu de comprovar si hi ha versions noves de la "
-"imatge d'instal·lació. En cas contrari, hauríeu d'informar d'este error a la "
-"vostra distribució."
+"imatge d'instal·lació. En cas contrari, hauríeu d'informar d'aquest error a "
+"la vostra distribució."
 
 #. Type: error
 #. Description
@@ -1111,7 +1102,7 @@ msgstr "S'ha produït un error en suprimir paquets"
 #. Description
 #: ../ubiquity.templates:150001
 msgid "An error occurred while removing packages:"
-msgstr "S'ha produit un error mentre es suprimien paquets:"
+msgstr "S'ha produït un error mentre es suprimien paquets:"
 
 #. Type: error
 #. Description
@@ -1128,7 +1119,7 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"S'ha produït un error durant la migració de les dades. Podeu obtindre més "
+"S'ha produït un error durant la migració de les dades. Podeu obtenir més "
 "detalls a /var/log/syslog. La instal·lació continuarà, però alguns o tots "
 "els documents i els paràmetres que heu sol·licitat no s'hauran transferit al "
 "sistema instal·lat."
@@ -1195,14 +1186,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Please close any applications using these mount points."
-msgstr "Tanqueu les aplicacions que emprin estos punts de muntatge:"
+msgstr "Tanqueu les aplicacions que emprin aquests punts de muntatge:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Voleu que l'instal·lador prove de desmuntar estes particions una altra "
+"Voleu que l'instal·lador provi de desmuntar aquestes particions una altra "
 "vegada?"
 
 #. Type: boolean
@@ -1219,7 +1210,7 @@ msgid ""
 "partitions at least this large:"
 msgstr ""
 "Algunes de les particions que heu creat són massa petites. Feu que les "
-"particions següents tinguen com a mínim esta capacitat:"
+"particions següents tinguin com a mínim aquesta capacitat:"
 
 #. Type: boolean
 #. Description
@@ -1228,8 +1219,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Si no torneu al partidor i incrementeu la mida d'estes particions, pot ser "
-"que falli la instal·lació."
+"Si no torneu al partidor i incrementeu la mida d'aquestes particions, pot "
+"ser que falli la instal·lació."
 
 #. Type: text
 #. Description
@@ -1374,8 +1365,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Trieu la llengua que s'utilitzarà en el procés d'instal·lació. Esta serà la "
-"predeterminada per a este ordinador."
+"Trieu la llengua a utilitzar per al procés d'instaŀlació, la qual "
+"s'utilitzarà de manera predeterminada per a l'ordinador."
 
 #. Type: text
 #. Description
@@ -1391,7 +1382,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Continue with installation."
-msgstr "Continueu amb l'instal·lació."
+msgstr "Continueu amb la instal·lació."
 
 #. Type: text
 #. Description
@@ -1435,7 +1426,7 @@ msgstr "Xarxa sense fils"
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Please select your wireless network from this list"
-msgstr "Seleccioneu la xarxa sense fils d'esta llista"
+msgstr "Seleccioneu la xarxa sense fils d'aquesta llista"
 
 #. Type: text
 #. Description
@@ -1464,7 +1455,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Hi ha %d particions menors ocultes. Utilitzeu l'<a href=\"\">eina de "
-"partiment avançat</a> per tindre'n més control"
+"partiment avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1474,7 +1465,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Hi ha una partició menor oculta. Utilitzeu l'<a href=\"\">eina de partiment "
-"avançat</a> per tindre'n més control"
+"avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1485,7 +1476,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Se suprimiran %d particions. Utilitzeu l'<a href=\"\">eina de partiment "
-"avançat</a> per tindre'n més control"
+"avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1495,7 +1486,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Se suprimirà una partició. Utilitzeu l'<a href=\"\">eina de partiment "
-"avançat</a> per tindre'n més control"
+"avançat</a> per tenir-ne més control"
 
 #. Type: text
 #. Description
@@ -1519,25 +1510,25 @@ msgstr "Parteix la partició més gran"
 #. Description
 #: ../ubiquity.templates:222001
 msgid "For best results, please ensure that this computer:"
-msgstr "Per obtindre els millors resultats, assegureu-vos que este ordinador:"
+msgstr "Per obtenir els millors resultats, assegureu-vos que aquest ordinador:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "has at least ${SIZE} available drive space"
-msgstr "Tinga com a mínim ${SIZE} d'espai de disc disponible"
+msgstr "Tingui com a mínim ${SIZE} d'espai de disc disponible"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "is plugged in to a power source"
-msgstr "Estiga connectat a la xarxa elèctrica"
+msgstr "Estigui connectat a la xarxa elèctrica"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "is connected to the Internet"
-msgstr "Estiga connectat a Internet"
+msgstr "Estigui connectat a Internet"
 
 #. Type: text
 #. Description
@@ -1548,11 +1539,11 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} utilitza programari de terceres parts per permetre la reproducció "
-"dels formats Flash, MP3 i d'altres, així com per permetre el funcionament de "
-"cert maquinari de xarxa sense fil. Algunes d'estes aplicacions no són "
+"${RELEASE} utilitza programari de tercers per permetre la reproducció dels "
+"formats Flash, MP3 i d'altres, així com per permetre el funcionament de cert "
+"maquinari de xarxa sense fil. Algunes d'aquestes aplicacions no són "
 "programari lliure, i estan sotmeses a les condicions de llicència incloses "
-"en la seua documentació."
+"en la seva documentació."
 
 #. Type: text
 #. Description
@@ -1603,7 +1594,7 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Seleccioneu la vostra ubicació, de manera que el sistema puga mostrar les "
+"Seleccioneu la vostra ubicació, de manera que el sistema pugui mostrar les "
 "convencions apropiades per al vostre país, recollir les actualitzacions de "
 "llocs web prop vostre, i establir el rellotge a l'hora local correcta."
 
@@ -1623,7 +1614,7 @@ msgstr "Regió:"
 #. Description
 #: ../ubiquity.templates:239001
 msgid "[type here to change]"
-msgstr "[escriviu ací per canviar-ho]"
+msgstr "[escriviu aquí per canviar-ho]"
 
 #. Type: text
 #. Description
@@ -1730,10 +1721,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Instal·la ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1754,10 +1743,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Instal·la'l juntament amb els altres sistemes operatius"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1800,9 +1787,9 @@ msgid ""
 "additional modifications you require to the system."
 msgstr ""
 "Quan arrenqueu el nou sistema, podreu entrar amb l'usuari «oem» amb la "
-"contrasenya que heu seleccionat anteriorment; este usuari té privilegis "
+"contrasenya que heu seleccionat anteriorment; aquest usuari té privilegis "
 "d'administrador utilitzant «sudo». Llavors, podreu fer qualsevol modificació "
-"que vos calga al sistema."
+"que us calgui al sistema."
 
 #. Type: text
 #. Description
@@ -1812,10 +1799,10 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Un cop s'haja configurat el sistema amb els paràmetres desitjats, haureu "
-"d'executar l'orde «oem-config-prepare». Això farà que el sistema suprimisca "
-"l'usuari «oem» i pregunte sobre diversos paràmetres de configuració a "
-"l'usuari final la propera vegada que es torne a iniciar."
+"Un cop s'hagi configurat el sistema amb els paràmetres desitjats, haureu "
+"d'executar l'ordre «oem-config-prepare». Això farà que el sistema suprimeixi "
+"l'usuari «oem» i demani diversos paràmetres de configuració a l'usuari final "
+"la propera vegada que es torni a iniciar."
 
 #. Type: text
 #. Description
@@ -1823,20 +1810,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Endevina la disposició del teclat"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Utilitza l'espai lliure continu més gran"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Esborra el disc i utilitza'l per complet"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Especificació manual de les particions (avançat)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Esbrina la disposició del teclat"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opcions avançades"
@@ -1879,6 +1857,9 @@ msgstr "S'estan suprimint els paquets"
 #~ msgid "Summary"
 #~ msgstr "Resum"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Esborra el disc i utilitza'l per complet"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
 #~ "L'ordinador estarà a punt per a fer-lo servir un cop hàgiu respost unes "
@@ -1893,6 +1874,15 @@ msgstr "S'estan suprimint els paquets"
 #~ "preguntes, el contingut del ${MEDIUM} autònom es podrà instal·lar en "
 #~ "aquest ordinador de manera que podreu executar ${RELEASE} a velocitat "
 #~ "màxima sense fer servir el ${MEDIUM}."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Esbrina la disposició del teclat"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Endevina la disposició del teclat"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instal·la'l juntament amb els altres sistemes operatius"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

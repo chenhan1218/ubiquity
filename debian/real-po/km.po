@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -184,18 +184,14 @@ msgstr "វាយ​ទីនេះ ដើម្បី​សាក​ល្ប�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារចុច"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារចុច"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -945,10 +941,8 @@ msgstr "កំពុង​កំណត់​រចនាសម្ព័ន្ធ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "ដំឡើង​កម្មវិធី​ភាគី​ទីបី​នេះ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -971,18 +965,14 @@ msgstr "កំពុង​កំណត់​រចនាស​ម្ព័ន្
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "កំពុង​យក​កញ្ចប់​បន្ថែម​ចេញ​..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "កំពុង​យក​កញ្ចប់​បន្ថែម​ចេញ​..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1695,10 +1685,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "ដំឡើង​ ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1719,10 +1707,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "ដំឡើង​រួម​ជា​មួយ​នឹង​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1786,21 +1772,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "យក​កញ្ចប់​ចេញ"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារចុច"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "ប្រើ​ទំហំ​ថាស​ដែល​នៅ​សល់ច្រើន​បំផុត"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "លុប​ និង​ប្រើ​ថាស​ទាំង​មូល"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "បញ្ជាក់​ភាគ​ថាស​ដោយ​ដៃ​ (កម្រិត​ខ្ពស់​)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "ស្វែង​យល់​អំពី​ប្លង់​ក្តារ​ចុច"
-
 #~ msgid "Advanced Options"
 #~ msgstr "ជម្រើស​កម្រិត​ខ្ពស់"
 
@@ -1813,6 +1784,15 @@ msgstr "យក​កញ្ចប់​ចេញ"
 #~ msgid "Summary"
 #~ msgstr "សង្ខេប"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "ប្រើ​ទំហំ​ថាស​ដែល​នៅ​សល់ច្រើន​បំផុត"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "លុប​ និង​ប្រើ​ថាស​ទាំង​មូល"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "បញ្ជាក់​ភាគ​ថាស​ដោយ​ដៃ​ (កម្រិត​ខ្ពស់​)"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "នៅ​ពេល​ដែល​អ្នក​ឆ្លើយ​ពីរបី​សំណួរ​ហើយ កុំព្យូទ័រ​នេះ​នឹង​អាច​ប្រើ​បាន ។"
 
@@ -1824,6 +1804,9 @@ msgstr "យក​កញ្ចប់​ចេញ"
 #~ "នេះ​ជា​ការ​ចេញ​ផ្សាយ​មុន​នៃ​​កម្មវិធីដំឡើង​ ${MEDIUM} បន្ត​ផ្ទាល់របស់ ${RELEASE} ។ វា​មិន​មែន​ជា​"
 #~ "ការ​ចេញ​ផ្សាយ​លើក​ចុង​ក្រោយទេ​ វា​​នឹង​ភ្ជាប់​មក​ជា​មួយ​នូវ​ការចេញ​ផ្សាយ​ចុង​ក្រោយ​របស់​ ${RELEASE} នៅ​ខែ​"
 #~ "តុលា ឆ្នាំ ២០១០ ។"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "ស្វែង​យល់​អំពី​ប្លង់​ក្តារ​ចុច"
 
 #~ msgid "Install boot loader"
 #~ msgstr "ដំឡើង​កម្មវិធី​ចាប់​ផ្តើម​ប្រព័ន្ធ"
@@ -1862,3 +1845,9 @@ msgstr "យក​កញ្ចប់​ចេញ"
 #~ "ត្រៀម​ដំឡើង​ ?  នៅ​ពេល​ដែល​អ្នក​ឆ្លើយ​ពីរ​បី​សំណួរ​រួច មាតិកា​នៃ​ ${MEDIUM} បន្ត​ផ្ទាល់​អាច​នឹង​ត្រូវ​បាន​"
 #~ "ដំឡើង​នៅ​លើ​កុំព្យូទ័រ​នេះ ដូច្នេះ​អ្នក​អាច​ដំណើរ​ការ​ ${RELEASE} នៅ​ល្បឿន​មួយ​ដែល​ពេញ​លេញ​ដោយ​គ្មាន "
 #~ "${MEDIUM} ។"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "ស្វែងយល់​អំពីប្លង់​ក្ដារចុច"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "ដំឡើង​រួម​ជា​មួយ​នឹង​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង"

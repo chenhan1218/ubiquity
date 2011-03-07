@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -182,18 +182,14 @@ msgstr "在这里输入以测试您的键盘"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "查看键盘布局"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "查看键盘布局"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -936,10 +932,8 @@ msgstr "正在配置硬件..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "安装这个第三方软件"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -962,18 +956,14 @@ msgstr "正在配置引导程序..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "正在删除额外的软件包..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "正在删除额外的软件包..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1669,10 +1659,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "安装 ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1693,10 +1681,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "与其他操作系统共存"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1758,20 +1744,8 @@ msgstr ""
 msgid "Removing packages"
 msgstr "正在删除软件包"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "查看键盘布局"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "使用最大的连续空闲空间"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "清空并使用整个硬盘"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "手动指定分区(高级)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "决定键盘布局"
 
 #~ msgid "Advanced Options"
 #~ msgstr "高级选项"
@@ -1793,6 +1767,12 @@ msgstr "正在删除软件包"
 
 #~ msgid "Summary"
 #~ msgstr "概要"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "清空并使用整个硬盘"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "使用最大的连续空闲空间"
 
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "在回答一些问题以后，这台电脑就可以使用了。"
@@ -1826,6 +1806,9 @@ msgstr "正在删除软件包"
 #~ "被安装到这台计算机上。这样您便可以不再需要这张 ${MEDIUM}，并且以全速来运"
 #~ "行 ${RELEASE}。"
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "决定键盘布局"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1833,3 +1816,9 @@ msgstr "正在删除软件包"
 #~ msgstr ""
 #~ "这是${RELEASE} 的 Live ${MEDIUM} 的预览版安装程序，它还不是最终版本， 最终"
 #~ "版会在2010年十月 ${RELEASE} 发布时一并推出。"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "查看键盘布局"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "与其他操作系统共存"

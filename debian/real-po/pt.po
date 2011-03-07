@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-22 09:54+0000\n"
-"Last-Translator: Almufadado <Unknown>\n"
+"PO-Revision-Date: 2011-02-25 14:09+0000\n"
+"Last-Translator: Carlos Manuel <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -193,18 +193,14 @@ msgstr "Escreva aqui para testar o seu teclado"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Descobrir a Disposição do Teclado"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Descobrir a Disposição do Teclado"
+msgstr "Detectar Disposição de Teclado..."
 
 #. Type: text
 #. Description
@@ -563,7 +559,7 @@ msgstr "Reiniciar agora"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Encerrar Agora"
 
 #. Type: text
 #. Description
@@ -973,10 +969,8 @@ msgstr "A configurar o hardware..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Instalar este software de terceiros"
+msgstr "A instalar software de terceiros..."
 
 #. Type: text
 #. Description
@@ -999,18 +993,14 @@ msgstr "A configurar a Rotina de Arranque..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "A remover pacotes extra..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "A remover pacotes extra..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1733,10 +1723,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Instalar o ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1757,10 +1745,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Instalar lado a lado com outros sistemas operativos"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1827,21 +1813,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "A remover pacotes"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Descobrir a Disposição do Teclado"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Utilizar o maior espaço contínuo livre"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Apagar e utilizar o disco rígido inteiro"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificar as partições manualmente (avançado)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Descobrir a disposição do Teclado"
-
 #~ msgid "Advanced Options"
 #~ msgstr "Opções Avançadas"
 
@@ -1884,6 +1855,9 @@ msgstr "A remover pacotes"
 #~ msgid "Summary"
 #~ msgstr "Sumário"
 
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Especificar as partições manualmente (avançado)"
+
 #~ msgid "Install boot loader"
 #~ msgstr "Instalar a Rotina de Arranque (bootloader)"
 
@@ -1904,3 +1878,18 @@ msgstr "A remover pacotes"
 #~ "Esta é uma versão prévia do instalador dp ${RELEASE} live ${MEDIUM}. Não "
 #~ "se trata da versão final; a qual virá com a versão final do ${RELEASE} em "
 #~ "Outubro de 2010."
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Utilizar o maior espaço contínuo livre"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instalar lado a lado com outros sistemas operativos"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Apagar e utilizar o disco rígido inteiro"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Descobrir a Disposição do Teclado"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Descobrir a disposição do Teclado"

@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-27 16:59+0000\n"
-"Last-Translator: Kárász Gábor <fendrus@t-online.hu>\n"
+"PO-Revision-Date: 2011-02-28 09:30+0000\n"
+"Last-Translator: Richard Somlói <level@somloirichard.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -188,18 +188,14 @@ msgstr "Írjon ide a billentyűzet kipróbálásához"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Billentyűzetkiosztás felismerése"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Billentyűzetkiosztás felismerése"
+msgstr "Billentyűzet-kiosztás felderítése…"
 
 #. Type: text
 #. Description
@@ -557,7 +553,7 @@ msgstr "Újraindítás most"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Azonnali leállítás"
 
 #. Type: text
 #. Description
@@ -964,10 +960,8 @@ msgstr "A hardver konfigurálása…"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Ezen harmadik féltől származó szoftver telepítése"
+msgstr "Harmadik féltől származó szoftverek telepítése…"
 
 #. Type: text
 #. Description
@@ -990,18 +984,14 @@ msgstr "A rendszerbetöltő konfigurálása…"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Extra csomagok eltávolítása…"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Extra csomagok eltávolítása…"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1724,10 +1714,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "A(z) ${RELEASE} telepítése"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1748,10 +1736,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Telepítés más operációs rendszerek mellé"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1817,20 +1803,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Billentyűzetkiosztás felismerése"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "A legnagyobb összefüggő szabad hely használata"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Törlés és a teljes lemez felhasználása"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Partíciók saját kezű megadása (haladóknak)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Billentyűkiosztás felismerése"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Speciális beállítások"
@@ -1875,6 +1852,9 @@ msgstr "Csomagok eltávolítása"
 #~ msgid "Summary"
 #~ msgstr "Összegzés"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Törlés és a teljes lemez felhasználása"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1895,3 +1875,12 @@ msgstr "Csomagok eltávolítása"
 
 #~ msgid "Install boot loader"
 #~ msgstr "Rendszerbetöltő telepítése"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Billentyűkiosztás felismerése"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Billentyűzetkiosztás felismerése"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Telepítés más operációs rendszerek mellé"

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -187,18 +187,14 @@ msgstr "Tajpu tie ĉi por testi vian klavaron"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Eltrovi klavarfasonon"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Eltrovi klavarfasonon"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -955,10 +951,8 @@ msgstr "Akomodi aparataĵon..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Instali tiun programaron de ekstera liveranto"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -981,18 +975,14 @@ msgstr "Akomodanta iniciatan ŝargilon..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Foriganta ekstrajn pakojn..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Foriganta ekstrajn pakojn..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1710,10 +1700,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Instali ${RELEASE}-n"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1734,10 +1722,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Instali apud aliaj operaciumoj"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1802,21 +1788,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Eltrovi klavarfasonon"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Uzi la plej grandan seninterrompan spacon"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Viŝi kaj uzi la tutan diskon"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifi diskpartojn mane (progresinte)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Eltrovi klavarfasonon"
-
 #~ msgid "Advanced Options"
 #~ msgstr "Altnivelaj Opcioj"
 
@@ -1859,6 +1830,9 @@ msgstr "Forigas pakaĵojn"
 #~ msgstr ""
 #~ "Respondinte kelkajn demandojn, ĉi tiu komputilo estos preta por uzo."
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Viŝi kaj uzi la tutan diskon"
+
 #~ msgid "Summary"
 #~ msgstr "Resumo"
 
@@ -1871,6 +1845,12 @@ msgstr "Forigas pakaĵojn"
 #~ "${MEDIUM} povas esti instalata al tiu ĉi komputilo por ke vi povu ruli "
 #~ "${RELEASE}-n plenrapide sen la ${MEDIUM}."
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Uzi la plej grandan seninterrompan spacon"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Specifi diskpartojn mane (progresinte)"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1879,3 +1859,12 @@ msgstr "Forigas pakaĵojn"
 #~ "Tio ĉi estas antaŭ-eldono de la viva ${MEDIUM}-instalilo de ${RELEASE}. "
 #~ "Ĝi ne estas definitiva eldono; tiu venos kun la fina eldono de ${RELEASE} "
 #~ "en oktobro 2010"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Eltrovi klavarfasonon"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Eltrovi klavarfasonon"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instali apud aliaj operaciumoj"

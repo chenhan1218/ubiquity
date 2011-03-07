@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-16 22:33+0000\n"
+"PO-Revision-Date: 2011-03-03 17:29+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "Starta om nu"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Manuell konfiguration (avancerat)"
 
 #. Type: text
 #. Description
@@ -42,6 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"För smart för oss? Kavla upp ärmarna och använd de avancerade "
+"partitioneringsalternativen."
 
 #. Type: text
 #. Description
@@ -189,18 +191,14 @@ msgstr "Skriv här för att testa ditt tangentbord"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Ta reda på tangentbordslayout"
+msgstr "Identifiera tangentbordslayout"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Ta reda på tangentbordslayout"
+msgstr "Identifiera tangentbordslayout..."
 
 #. Type: text
 #. Description
@@ -377,7 +375,7 @@ msgstr "Allokera enhetsutrymme"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Filer (${SIZE})"
 
 #. Type: text
 #. Description
@@ -557,7 +555,7 @@ msgstr "Starta om nu"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Stäng av nu"
 
 #. Type: text
 #. Description
@@ -966,10 +964,8 @@ msgstr "Konfigurerar maskinvara..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Installera detta tredjepartsprogram"
+msgstr "Installerar tredjepartsprogram..."
 
 #. Type: text
 #. Description
@@ -992,18 +988,14 @@ msgstr "Konfigurerar starthanterare..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Ta bort extrapaket..."
+msgstr "Sparar installerade paket..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Ta bort extrapaket..."
+msgstr "Återställer tidigare installerade paket..."
 
 #. Type: text
 #. Description
@@ -1631,7 +1623,7 @@ msgstr "[skriv här för att ändra]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Ersätt ${OS} med ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1640,12 +1632,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
+"andra filer i ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "Installera ${DISTRO} vid sidan om det"
 
 #. Type: text
 #. Description
@@ -1656,12 +1650,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Inga filer kommer att tas bort. Du kan välja vilket operativsystem som du "
+"vill använda varje gång som datorn startar upp."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Radera ${CURDISTRO} och installera om"
 
 #. Type: text
 #. Description
@@ -1670,12 +1666,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
+"andra filer i ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Uppgradera ${CURDISTRO} till ${VER}"
 
 #. Type: text
 #. Description
@@ -1684,12 +1682,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"Du kan uppgradera ${CURDISTRO} utan att förlora några av dina viktiga "
+"dokument eller program."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Installera ${DISTRO} ${VER} vid sidan om"
 
 #. Type: text
 #. Description
@@ -1698,6 +1698,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Tvekar du fortfarande? Du kan installera ${DISTRO} ${VER} vid sidan om din "
+"befintliga kopia av ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1705,7 +1707,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Radera disken och installera ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1714,12 +1716,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Redo att ta språnget? En ren installation raderar hela din hårddisk och "
+"installerar ${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Radera allting och installera om"
 
 #. Type: text
 #. Description
@@ -1728,14 +1732,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
+"andra filer i både ${OS} och ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Installera ${RELEASE}"
+msgstr "Installera om ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1744,6 +1748,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"Du kan installera om ${CURDISTRO} utan att förlora några av dina viktiga "
+"dokument eller program."
 
 #. Type: text
 #. Description
@@ -1752,14 +1758,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
+"andra filer i alla operativsystem."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Installera vid sidan om andra operativsystem"
+msgstr "Installera ${DISTRO} vid sidan om dem"
 
 #. Type: title
 #. Description
@@ -1825,20 +1831,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Tar bort paket"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Ta reda på tangentbordslayout"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Använd största oavbrutna lediga utrymmet"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Radera och använd hela disken"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Ange partitioner manuellt (avancerat)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Ta reda på tangentbordslayout"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Avancerade alternativ"
@@ -1878,6 +1875,9 @@ msgstr "Tar bort paket"
 #~ " Migrationsguide:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Radera och använd hela disken"
+
 #~ msgid "Summary"
 #~ msgstr "Sammanfattning"
 
@@ -1903,3 +1903,12 @@ msgstr "Tar bort paket"
 #~ "Detta är en förutgåva av installationsprogrammet för ${RELEASE} för "
 #~ "${MEDIUM} (live). Det är inte en slutgiltig utgåva, den kommer att "
 #~ "levereras med den slutgiltiga utgåvan av ${RELEASE} i oktober 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Ta reda på tangentbordslayout"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Ta reda på tangentbordslayout"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Installera vid sidan om andra operativsystem"

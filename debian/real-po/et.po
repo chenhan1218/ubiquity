@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-29 23:22+0000\n"
-"Last-Translator: BloodDw <Unknown>\n"
+"PO-Revision-Date: 2011-03-04 10:41+0000\n"
+"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "Taaskäivita kohe"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Käsitsi seadistamine (keeruline)"
 
 #. Type: text
 #. Description
@@ -42,6 +42,7 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Liiga nutikas Ubuntu jaoks? Kääri käised üles ja seadista partitsioonid ise."
 
 #. Type: text
 #. Description
@@ -139,6 +140,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"See on  ${RELEASE} live-${MEDIUM} paigaldaja eelväljalse. See ei ole lõplik "
+"väljalase; lõplik paigaldaja tuleb koos ${RELEASE} väljalaskega aprillis "
+"2011."
 
 #. Type: text
 #. Description
@@ -168,7 +172,7 @@ msgstr "Kus sa asud?"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Keyboard layout"
-msgstr "Klahvistiku asetus"
+msgstr "Klaviatuuripaigutus"
 
 #. Type: text
 #. Description
@@ -185,18 +189,14 @@ msgstr "Klaviatuuri proovimiseks sisesta siia"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
 msgstr "Klaviatuuripaigutuse tuvastamine"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Klaviatuuripaigutuse tuvastamine"
+msgstr "Klaviatuuripaigutuse tuvastamine..."
 
 #. Type: text
 #. Description
@@ -274,7 +274,7 @@ msgstr "Sinu arvuti nimi:"
 #. Description
 #: ../ubiquity.templates:37001
 msgid "The name it uses when it talks to other computers."
-msgstr "Selle arvuti nimi, kui see räägib teiste arvutitega."
+msgstr "Selle arvuti nimi teiste arvutitega suhtlemisel."
 
 #. Type: text
 #. Description
@@ -372,7 +372,7 @@ msgstr "Kettaruumi määramine"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Failid (${SIZE})"
 
 #. Type: text
 #. Description
@@ -549,7 +549,7 @@ msgstr "Taaskäivita kohe"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Arvuti väljalülitamine"
 
 #. Type: text
 #. Description
@@ -954,10 +954,8 @@ msgstr "Riistvara seadistamine..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Paigalda see kolmanda osapoole tarkvara"
+msgstr "Kolmanda osapoole tarkvara paigaldamine..."
 
 #. Type: text
 #. Description
@@ -980,18 +978,14 @@ msgstr "Alglaaduri seadistamine..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Lisapakettide eemaldamine..."
+msgstr "Paigaldatud pakkide salvestamine..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Lisapakettide eemaldamine..."
+msgstr "Eelnevalt paigaldatud pakkide taastamine..."
 
 #. Type: text
 #. Description
@@ -1533,8 +1527,8 @@ msgid ""
 msgstr ""
 "${RELEASE} kasutab kolmanda osapoole tarkvara Flashi, MP3 ja muu meedia "
 "kuvamiseks ning mõnede juhtmevabade seadmete kasutamiseks. Osa sellest "
-"tarkvarast on kinnise lähtekoodiga. Tarkvara kohta kehtivad litsentsi "
-"tingimused, mis on kaasa pandud tarkvara dokumentatsioonis."
+"tarkvarast on kinnise lähtekoodiga. Tarkvara kohta kehtiva litsentsi "
+"tingimused on kaasa pandud tarkvara dokumentatsioonis."
 
 #. Type: text
 #. Description
@@ -1550,7 +1544,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid "Install this third-party software"
-msgstr "Paigalda see kolmanda osapoole tarkvara"
+msgstr "Kolmanda osapoole tarkvara paigaldamine"
 
 #. Type: text
 #. Description
@@ -1574,7 +1568,7 @@ msgstr "Variant:"
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Below is an image of your current layout:"
-msgstr "Allpool on sinu praeguse klahvistikuasetuse kujutis"
+msgstr "Allpool on sinu praeguse klaviatuuripaigutuse kujutis:"
 
 #. Type: text
 #. Description
@@ -1604,13 +1598,13 @@ msgstr "Regioon:"
 #. Description
 #: ../ubiquity.templates:239001
 msgid "[type here to change]"
-msgstr "[muutmiseks sisesta siia]"
+msgstr "[muutmiseks klõpsa siia]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "${OS} süsteemi asendamine süsteemiga ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1619,12 +1613,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"See <b>kustutab</b> kõik ${OS} süsteemi programmid, sinu dokumendid, fotod, "
+"muusika ja ka kõik muud failid."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "Paigalda ${DISTRO} selle kõrvale"
 
 #. Type: text
 #. Description
@@ -1635,12 +1631,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Ühtegi faili ei kustutata. Arvuti käivitumisel saad valida, millist "
+"operatsioonisüsteemi kasutada."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Kustuta ${CURDISTRO} ja paigalda uuesti"
 
 #. Type: text
 #. Description
@@ -1649,12 +1647,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"See <b>kustutab</b> kõik ${CURDISTRO} süsteemi programmid, sinu dokumendid, "
+"fotod, muusika ja ka kõik muud failid."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Uuenda ${CURDISTRO} versioonile ${VER}"
 
 #. Type: text
 #. Description
@@ -1663,12 +1663,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"Sa võid uuendada ${CURDISTRO} ilma oma olulisi dokumente ja rakendusi "
+"kaotamata."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Paigalda ${DISTRO} ${VER} kõrvale"
 
 #. Type: text
 #. Description
@@ -1677,6 +1679,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Ikka kahevahel? Sa võid paigaldada ${DISTRO} ${VER} oma praeguse "
+"${CURDISTRO} kõrvale."
 
 #. Type: text
 #. Description
@@ -1684,7 +1688,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Kustuta ketas ja paigalda ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1693,12 +1697,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Valmis üleni sukelduma? Puhas paigaldus kustutab kogu su kõvaketta ja "
+"paigaldab ${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Kustuta kõik ja paigalda uuesti"
 
 #. Type: text
 #. Description
@@ -1707,14 +1713,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"See <b>kustutab</b> kõik programmid, kõik su dokumendid, fotod, muusika ja "
+"ka muud failid nii süsteemis ${OS} kui ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Paigalda ${RELEASE}"
+msgstr "Paigalda ${CURDISTRO} uuesti"
 
 #. Type: text
 #. Description
@@ -1723,6 +1729,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"Sa võid ${CURDISTRO} uuesti paigaldada ilma olulisi dokumente ja rakendusi "
+"kaotamata."
 
 #. Type: text
 #. Description
@@ -1731,14 +1739,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"See <b>kustutab</b> kõik programmid, kõik su dokumendid, fotod, muusika ja "
+"muud failid kõigis operatsioonisüsteemides."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Paigaldatakse teiste operatsioonisüsteemide kõrvale"
+msgstr "Paigalda ${DISTRO} nende kõrvale"
 
 #. Type: title
 #. Description
@@ -1802,21 +1810,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Klaviatuuripaigutuse tuvastamine"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Kasutatakse suurimat järjestikust vaba ruumi"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Kõik andmed kustutatakse kettalt ja kasutatakse vabanenud ruumi"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Partitsioonide käsitsi määramine (keeruline)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Tuvasta klaviatuuripaigutus"
-
 #~ msgid "Install boot loader"
 #~ msgstr "Paigalda alglaadur"
 
@@ -1862,6 +1855,12 @@ msgstr "Pakettide eemaldamine"
 #~ " Ülekandeabiline:\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Kasutatakse suurimat järjestikust vaba ruumi"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Partitsioonide käsitsi määramine (keeruline)"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1872,6 +1871,12 @@ msgstr "Pakettide eemaldamine"
 #~ "küsimusele. Kui ${RELEASE} on paigaldatud, siis saad seda kasutada "
 #~ "täiskiirusel ja ${MEDIUM}'d pole enam käivitamiseks vaja."
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Tuvasta klaviatuuripaigutus"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Klaviatuuripaigutuse tuvastamine"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1879,3 +1884,9 @@ msgstr "Pakettide eemaldamine"
 #~ msgstr ""
 #~ "See on ${RELEASE} eelväljalaske paigaldaja live-${MEDIUM}. See ei ole "
 #~ "lõplik väljalase. Lõplik väljalase ${RELEASE} on oktoobris 2010."
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Paigaldatakse teiste operatsioonisüsteemide kõrvale"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Kõik andmed kustutatakse kettalt ja kasutatakse vabanenud ruumi"

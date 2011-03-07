@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -191,18 +191,14 @@ msgstr "Skriv her for at teste dit tastatur"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Gæt tastaturlayout"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Gæt tastaturlayout"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -967,10 +963,8 @@ msgstr "Indstiller hardware..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Installér tredjepartsprogrammerne"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -993,18 +987,14 @@ msgstr "Indstiller opstartsindlæser..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Fjerner ekstrapakker..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Fjerner ekstrapakker..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1733,10 +1723,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Installér ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1757,10 +1745,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Installér side om side med andre styresystemer"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1825,20 +1811,8 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Fjerner pakker"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Gæt tastaturlayout"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Brug det største sammenhængende ledige område på disken"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Slet og brug hele disken"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Angiv partitioner manuelt (avanceret)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Gæt tastaturlayout"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Avancerede indstillinger"
@@ -1878,10 +1852,16 @@ msgstr "Fjerner pakker"
 #~ " Overførselshjælper:\\n\n"
 #~ " ${MIGRATE}"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Brug det største sammenhængende ledige område på disken"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
 #~ "Når du har besvaret et par spørgsmål, vil denne computer være klar til "
 #~ "brug."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Slet og brug hele disken"
 
 #~ msgid "Summary"
 #~ msgstr "Oversigt"
@@ -1903,3 +1883,12 @@ msgstr "Fjerner pakker"
 #~ "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-"
 #~ "installationsprogram. Det er ikke en endelig udgave; den kommer med den "
 #~ "endelige udgivelse af ${RELEASE} i oktober 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Gæt tastaturlayout"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Installér side om side med andre styresystemer"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Gæt tastaturlayout"

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-05 10:22+0000\n"
+"PO-Revision-Date: 2011-03-03 09:56+0000\n"
 "Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -32,7 +32,7 @@ msgstr "Ponovno zaženi sedaj"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Ročna nastavitev (napredno)"
 
 #. Type: text
 #. Description
@@ -43,6 +43,7 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Prepametni za nas? Uporabite napredne možnosti razdeljevanja razdelkov."
 
 #. Type: text
 #. Description
@@ -79,7 +80,7 @@ msgid ""
 "from this ${MEDIUM}."
 msgstr ""
 "${RELEASE} lahko preizkusite brez sprememb na računalniku, neposredno s tega "
-"${MEDIUM}."
+"medija (${MEDIUM})."
 
 #. Type: text
 #. Description
@@ -188,18 +189,14 @@ msgstr "Ze preizkus svoje tipkovnice lahko tukaj vnesete besedilo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Ugotovi razpored tipkovnice"
+msgstr "Zaznaj razporeditev tipkovnice"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Ugotovi razpored tipkovnice"
+msgstr "Zaznaj razporeditev tipkovnice ..."
 
 #. Type: text
 #. Description
@@ -377,7 +374,7 @@ msgstr "Dodeli prostor na disku"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Datoteke (${SIZE})"
 
 #. Type: text
 #. Description
@@ -554,7 +551,7 @@ msgstr "Ponovno zaženi sedaj"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Izklopi zdaj"
 
 #. Type: text
 #. Description
@@ -961,10 +958,8 @@ msgstr "Nastavljanje strojne opreme ..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Namesti te programe tretjih oseb"
+msgstr "Nameščanje programov tretjih oseb ..."
 
 #. Type: text
 #. Description
@@ -987,18 +982,14 @@ msgstr "Nastavljanje zagonskega nalagalnika ..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Odstranjevanje odvečnih paketov ..."
+msgstr "Shranjevanje nameščenih paketov ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Odstranjevanje odvečnih paketov ..."
+msgstr "Obnavljanje predhodno nameščenih paketov ..."
 
 #. Type: text
 #. Description
@@ -1619,7 +1610,7 @@ msgstr "[tipkajte tukaj za spremembo]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Zamenjaj ${OS} z ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1628,12 +1619,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"To bo <b>izbrisalo</b> vse programe, dokumente, fotografije, glasbo in druge "
+"datoteke s sistema ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "Namesti ${DISTRO} poleg njega"
 
 #. Type: text
 #. Description
@@ -1644,12 +1637,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Nobena datoteka ne bo izbrisana. Izbrali boste lahko kateri operacijski "
+"sistem želite uporabiti ob vsakem zagonu računalnika."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Izbriši ${CURDISTRO} in znova namesti"
 
 #. Type: text
 #. Description
@@ -1658,12 +1653,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"To bo <b>izbrisalo</b> vse vaše programe, dokumente, fotografije, glasbo in "
+"vse druge datoteke na sistemu ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Nadgradi ${CURDISTRO} na ${VER}"
 
 #. Type: text
 #. Description
@@ -1672,12 +1669,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"${CURDISTRO} lahko nadgradite brez izgube svojih pomembnih dokumentov ali "
+"programov."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Namesti ${DISTRO} ${VER} poleg"
 
 #. Type: text
 #. Description
@@ -1686,6 +1685,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Ne veste kaj stortiti? ${DISTRO} ${VER} lahko namestite poleg svoje "
+"obstoječe kopije ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1693,7 +1694,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Izbriši disk in namesti ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1702,12 +1703,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Ste pripravljeni? Čista namestitev izbriše vaš celoten trdi disk in namesti "
+"${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Izbriši vse in znova namesti"
 
 #. Type: text
 #. Description
@@ -1716,14 +1719,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"To bo <b>izbrisalo</b> vse vaše programe, dokumente, fotografije, glasbo in "
+"druge datoteke tako s sistema ${OS} in ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Namesti ${RELEASE}"
+msgstr "Znova namesti ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1732,6 +1735,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"${CURDISTRO} lahko znova namestite brez izgube svojih dokumentov ali "
+"programov."
 
 #. Type: text
 #. Description
@@ -1740,14 +1745,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"To bo <b>izbrisalo</b> vse vaše programe, dokumente, fotografijo, glasbo in "
+"katerekoli druge datoteke na vseh operacijskih sistemih."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Namesti poleg drugih operacijskih sistemov"
+msgstr "Namesti ${DISTRO} poleg obstoječih sistemov"
 
 #. Type: title
 #. Description
@@ -1812,21 +1817,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Ugotovi razpored tipkovnice"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Uporabi največji neprekinjen nezaseden prostor"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Izbriši in uporabi celoten disk"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ročno določi razdelke (napredno)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Ugotovite razporeditev tipkovnice"
-
 #~ msgid "Install boot loader"
 #~ msgstr "Namesti zagonski nalagalnik"
 
@@ -1835,6 +1825,15 @@ msgstr "Odstranjevanje paketov"
 
 #~ msgid "Port:"
 #~ msgstr "Vrata:"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Uporabi največji neprekinjen nezaseden prostor"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Ročno določi razdelke (napredno)"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Izbriši in uporabi celoten disk"
 
 #~ msgid "Summary"
 #~ msgstr "Povzetek"
@@ -1876,6 +1875,9 @@ msgstr "Odstranjevanje paketov"
 #~ "To je predizdaja namestilnika živega ${MEDIUM}-ja ${RELEASE}. To ni "
 #~ "dokončna izdaja; ta bo izdana oktobra 2010."
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Ugotovite razporeditev tipkovnice"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1889,3 +1891,9 @@ msgstr "Odstranjevanje paketov"
 #~ msgstr ""
 #~ "Ko boste odgovorili na nekaj vprašanj, bo vaš računalnik pripravljen za "
 #~ "uporabo."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Ugotovi razpored tipkovnice"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Namesti poleg drugih operacijskih sistemov"

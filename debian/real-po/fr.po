@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-11 14:55+0000\n"
-"Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
+"PO-Revision-Date: 2011-02-25 20:20+0000\n"
+"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -194,18 +194,14 @@ msgstr "Saisissez du texte ici pour tester votre clavier"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Détecter la disposition du clavier"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Détecter la disposition du clavier"
+msgstr "Détecter l'agencement du clavier..."
 
 #. Type: text
 #. Description
@@ -565,7 +561,7 @@ msgstr "Redémarrer maintenant"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Éteindre Maintenant"
 
 #. Type: text
 #. Description
@@ -978,10 +974,8 @@ msgstr "Configuration du matériel..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Installer ce logiciel tiers"
+msgstr "Installation de logiciels tiers en cours..."
 
 #. Type: text
 #. Description
@@ -1004,18 +998,14 @@ msgstr "Configuration du chargeur de d'amorçage..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Suppression des paquets supplémentaires..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Suppression des paquets supplémentaires..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1745,10 +1735,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Installer ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1769,10 +1757,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Installer à côté d'autres systèmes d'exploitation"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1838,20 +1824,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Suppression des paquets"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Détecter la disposition du clavier"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Utiliser le plus grand espace libre disponible"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Tout effacer et utiliser le disque entier"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Définir les partitions manuellement (avancé)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Trouver la disposition du clavier"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Options avancées"
@@ -1869,6 +1846,9 @@ msgstr "Suppression des paquets"
 #~ msgstr ""
 #~ "Après avoir répondu à quelques questions, votre ordinateur sera prêt à "
 #~ "être utilisé."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Tout effacer et utiliser le disque entier"
 
 #~ msgid "Summary"
 #~ msgstr "Récapitulatif"
@@ -1911,8 +1891,17 @@ msgstr "Suppression des paquets"
 #~ "${RELEASE}. Il ne s'agit pas d'une version définitive, qui arrivera lors "
 #~ "de la sortie définitive de ${RELEASE} en octobre 2010."
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Trouver la disposition du clavier"
+
 #~ msgid "Install boot loader"
 #~ msgstr "Installer le chargeur de d'amorçage"
 
 #~ msgid "Popularity contest"
 #~ msgstr "Statistiques de popularité"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Détecter la disposition du clavier"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Installer à côté d'autres systèmes d'exploitation"

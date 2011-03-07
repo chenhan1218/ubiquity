@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-30 16:10+0000\n"
-"Last-Translator: Hannie Dumoleyn <Unknown>\n"
+"PO-Revision-Date: 2011-02-26 12:36+0000\n"
+"Last-Translator: Rachid <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -188,18 +188,14 @@ msgstr "Typ hier om uw toetsenbord te testen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Toetsenbordindeling bepalen"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Toetsenbordindeling bepalen"
+msgstr "Toetsenbordindeling detecteren"
 
 #. Type: text
 #. Description
@@ -560,7 +556,7 @@ msgstr "Nu herstarten"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Nu afsluiten"
 
 #. Type: text
 #. Description
@@ -972,10 +968,8 @@ msgstr "Hardware instellen…"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Deze software van derden installeren"
+msgstr "Software van derden aan het installeren..."
 
 #. Type: text
 #. Description
@@ -998,18 +992,14 @@ msgstr "Opstartlader instellen…"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Extra pakketten verwijderen…"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Extra pakketten verwijderen…"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1739,10 +1729,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "${RELEASE} installeren"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1763,10 +1751,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Naast bestaande besturingssystemen installeren"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1832,21 +1818,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakketten verwijderen"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Toetsenbordindeling bepalen"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Grootste aaneengesloten vrije ruimte gebruiken"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "De gehele schijf wissen en gebruiken"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Partities handmatig specificeren (geavanceerd)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Toetsenbordindeling bepalen"
-
 #~ msgid "Advanced Options"
 #~ msgstr "Geavanceerde instellingen"
 
@@ -1882,6 +1853,12 @@ msgstr "Pakketten verwijderen"
 #~ "Migratieassistent:\n"
 #~ "${MIGRATE}"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Grootste aaneengesloten vrije ruimte gebruiken"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Partities handmatig specificeren (geavanceerd)"
+
 #~ msgid "Summary"
 #~ msgstr "Samenvatting"
 
@@ -1909,3 +1886,15 @@ msgstr "Pakketten verwijderen"
 #~ "Dit is een pre-uitgave van het live-${MEDIUM}-installatieprogramma van "
 #~ "${RELEASE}. Dit is geen definitieve uitgave; de uiteindelijke uitgave zal "
 #~ "beschikbaar zijn bij de uitgave van ${RELEASE} in oktober 2010."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "De gehele schijf wissen en gebruiken"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Toetsenbordindeling bepalen"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Toetsenbordindeling bepalen"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Naast bestaande besturingssystemen installeren"

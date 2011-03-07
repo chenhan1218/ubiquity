@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-16 04:53+0000\n"
+"PO-Revision-Date: 2011-03-06 17:49+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -32,7 +32,7 @@ msgstr "現在就重新啟動電腦"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "手動設定 (進階)"
 
 #. Type: text
 #. Description
@@ -42,7 +42,7 @@ msgstr ""
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "我們太過自動了嗎？調整一些進階分割選項來活動您的雙手。"
 
 #. Type: text
 #. Description
@@ -161,7 +161,7 @@ msgstr "警告"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "您位於哪裡?"
+msgstr "您在哪裡?"
 
 #. Type: text
 #. Description
@@ -184,30 +184,26 @@ msgstr "在這裡輸入以測試您的鍵盤"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "推測鍵盤配置"
+msgstr "偵測鍵盤配置"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "推測鍵盤配置"
+msgstr "偵測鍵盤配置..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Please press one of the following keys:"
-msgstr "請按下以下按鍵的其中一個："
+msgstr "請按以下其中一個鍵："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Is the following key present on your keyboard?"
-msgstr "以下按鍵有出現在您的鍵盤上嗎？"
+msgstr "以下按鍵有出現在您的鍵盤嗎？"
 
 #. Type: text
 #. Description
@@ -339,7 +335,7 @@ msgstr "將我的家資料夾加密"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Migrate documents and settings"
-msgstr "轉移文件及設定值"
+msgstr "轉移文件及設定"
 
 #. Type: text
 #. Description
@@ -347,7 +343,7 @@ msgstr "轉移文件及設定值"
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
-msgstr "選擇您想要匯入的帳號。這些帳號的文件和設定值在安裝完成後便可以使用。"
+msgstr "選擇您想要匯入的帳號。這些帳號的文件和設定在安裝完成後便可以使用。"
 
 #. Type: text
 #. Description
@@ -367,7 +363,7 @@ msgstr "分配磁碟機空間"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "檔案 (${SIZE})"
 
 #. Type: text
 #. Description
@@ -542,7 +538,7 @@ msgstr "現在就重新啟動電腦"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "立刻關機"
 
 #. Type: text
 #. Description
@@ -575,7 +571,7 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:84001
 msgid "New Partition Table..."
-msgstr "新增分割表..."
+msgstr "新分割表..."
 
 #. Type: text
 #. Description
@@ -681,7 +677,7 @@ msgstr "建立分割區"
 #. Description
 #: ../ubiquity.templates:99001 ../ubiquity.templates:106001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "新分割區大小，以 MB (1000000 bytes) 為單位"
+msgstr "新分割區大小，以 MB (1000000 bytes) 為單位："
 
 #. Type: text
 #. Description
@@ -756,7 +752,7 @@ msgstr "繼續"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr "安裝完成。您需要重新啟動電腦才能使用新的安裝。"
+msgstr "安裝完成。您要重新啟動電腦才能使用新安裝的系統。"
 
 #. Type: text
 #. Description
@@ -821,7 +817,7 @@ msgstr "安裝失敗"
 #: ../ubiquity.templates:119001 ../ubiquity.templates:120001
 #: ../ubiquity.templates:121001 ../ubiquity.templates:122001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "安裝程式在複製檔案到硬碟時遇到一個錯誤："
+msgstr "安裝程式將檔案複製到硬碟時發生錯誤："
 
 #. Type: error
 #. Description
@@ -831,8 +827,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"這是因為硬碟空間不足以完成到目標硬碟分區的安裝。請重新啟動安裝程式並選擇更大"
-"的硬碟分區安裝。"
+"由於硬碟空間不足，無法完成安裝至目標硬碟分區。請重新執行安裝程式並選擇較大的"
+"硬碟分區進行安裝。"
 
 #. Type: error
 #. Description
@@ -842,9 +838,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"這是多數因為 CD/DVD 光碟或光碟機有問題。清理 CD/DVD、以低速度燒錄 CD/DVD，或"
-"是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商會提供清潔組）可能解決此問"
-"題。"
+"多數是因為 CD/DVD 光碟或光碟機有問題。清潔一下 CD/DVD、以低速燒錄 CD/DVD，或"
+"是清潔一下 CD/DVD 光碟機的雷射針頭 (清潔用品於電器店有售) 可能解決此問題。"
 
 #. Type: error
 #. Description
@@ -854,8 +849,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"這多數是因為硬碟有問題。檢查硬碟是否太舊而需要更換，或是將系統移至更涼快的環"
-"境可能解決此問題。"
+"多數是因為硬碟有問題。檢查一下硬碟是否太舊是時候更換，或是將系統移至更涼快的"
+"環境可能解決此問題。"
 
 #. Type: error
 #. Description
@@ -873,9 +868,9 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"這是多數因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清理 CD/DVD、以低速度燒錄 "
-"CD/DVD、是清理 CD/DVD 光碟機的雷射針頭（通常電子產品供應商會提供清潔組）、檢"
-"查硬碟是否太舊而需要更換，或是將系統移動到更涼快的環境可能解決此問題。"
+"多數是因為 CD/DVD 光碟、光碟機，或是硬碟有問題。清潔一下 CD/DVD、以低速燒錄 "
+"CD/DVD、是清潔一下 CD/DVD 光碟機的雷射針頭（清潔用品於電器店有售）、檢查一下"
+"硬碟是否太舊是時候更換，或是將系統移動到更涼快的環境可能解決此問題。"
 
 #. Type: select
 #. Description
@@ -929,7 +924,7 @@ msgstr "正在建立使用者..."
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Importing documents and settings..."
-msgstr "正在匯入文件與設定值..."
+msgstr "正在匯入文件與設定..."
 
 #. Type: text
 #. Description
@@ -940,10 +935,8 @@ msgstr "正在設定硬體..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "安裝此第三方軟體"
+msgstr "正在安裝第三方軟體..."
 
 #. Type: text
 #. Description
@@ -966,18 +959,14 @@ msgstr "正在設定開機管理程式..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "正在移除額外的套件..."
+msgstr "正在儲存已安裝的套件..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "正在移除額外的套件..."
+msgstr "正在還原先前安裝的套件..."
 
 #. Type: text
 #. Description
@@ -1069,14 +1058,14 @@ msgid ""
 msgstr ""
 "這問題可能由於使用了舊的安裝程式映像檔，或者是因為上列部份軟體有臭蟲，更多的"
 "細節可以在 /var/log/syslog 中找到。安裝程式將會試著繼續執行，但是安裝有可能會"
-"再次失敗，而且可能會無法在系統中安裝或移除其他的套件（可能包含安裝程式本"
-"身）。您必須找尋較新版本的安裝程式映像檔，或者回報問題給您的發行版提供者。"
+"再次失敗，而且可能會無法在系統中安裝或移除其他的套件 (可能包含安裝程式本身)。"
+"您必須找尋較新版本的安裝程式映像檔，或者回報問題給您的發行版提供者。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Error while removing packages"
-msgstr "當移除套件時發生錯誤"
+msgstr "移除套件時發生錯誤"
 
 #. Type: error
 #. Description
@@ -1088,7 +1077,7 @@ msgstr "移除套件時發生錯誤："
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error migrating documents and settings"
-msgstr "轉移檔案和設定值時發生錯誤"
+msgstr "轉移文件和設定時發生錯誤"
 
 #. Type: error
 #. Description
@@ -1099,8 +1088,8 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"轉移資料時發生錯誤。您可以在 /var/log/syslog 找到更多詳細資訊。安裝將會繼續，"
-"但是一些或所有您請求的文件與設定值可能不會被轉移到安裝的系統內。"
+"轉移資料時發生錯誤。詳情見 /var/log/syslog。安裝會繼續，但某些或全部您要的文"
+"件和設定可能未有轉移至新安裝的系統。"
 
 #. Type: error
 #. Description
@@ -1115,9 +1104,7 @@ msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
-msgstr ""
-"在複製網路設定的時候發生錯誤。安裝將會繼續，但是網路設定必須要在安裝好的系統"
-"內再次設定。"
+msgstr "複製網路設定時發生錯誤。安裝會繼續，但網路須於安裝好的新系統再次設定。"
 
 #. Type: text
 #. Description
@@ -1129,7 +1116,7 @@ msgstr "正在計算略過不複製的檔案..."
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Ready when you are..."
-msgstr "等您準備就緒..."
+msgstr "等候您準備就緒..."
 
 #. Type: title
 #. Description
@@ -1141,13 +1128,13 @@ msgstr "正在安裝語言套件"
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "正在下載語言套件 (剩餘 ${TIME})..."
+msgstr "正在下載語言套件 (還有 ${TIME})..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Failed to unmount partitions"
-msgstr "無法卸載分割區"
+msgstr "未能卸載分割區"
 
 #. Type: boolean
 #. Description
@@ -1155,25 +1142,25 @@ msgstr "無法卸載分割區"
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
-msgstr "安裝程式需要對分割區進行修改但不成功，因為以下分割區無法被卸載："
+msgstr "安裝程式要對分割區進行修改但不成功，因無法卸載以下分割區："
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Please close any applications using these mount points."
-msgstr "請關閉所有使用這些掛載點的程式。"
+msgstr "請關閉所有正使用這些掛載點的程式。"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "您想要讓安裝程式再次嘗試卸載這些分割區嗎？"
+msgstr "是否讓安裝程式再嘗試卸載這些分割區？"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Do you want to return to the partitioner?"
-msgstr "您想回到磁碟分割程式嗎?"
+msgstr "是否回到磁碟分割程式？"
 
 #. Type: boolean
 #. Description
@@ -1181,7 +1168,7 @@ msgstr "您想回到磁碟分割程式嗎?"
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
-msgstr "一些您建立的分割區太小。請確認下列的分割區至少要比這還大："
+msgstr "您建立的某些分割區太小。請確保下列分割區至少要比這還大："
 
 #. Type: boolean
 #. Description
@@ -1293,7 +1280,7 @@ msgstr "檔案 ${INDEX} (總共 ${TOTAL} 個) 速度 ${SPEED}/s"
 #. Description
 #: ../ubiquity.templates:194001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "檔案 ${INDEX} ( 總共 ${TOTAL} 個)"
+msgstr "檔案 ${INDEX} (總共 ${TOTAL} 個)"
 
 #. Type: text
 #. Description
@@ -1311,7 +1298,7 @@ msgstr "更新安裝程式發生錯誤"
 #. Description
 #: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "安裝程式嘗試更新自身的時候發生錯誤："
+msgstr "安裝程式嘗試更新自身時發生錯誤："
 
 #. Type: text
 #. Description
@@ -1341,7 +1328,7 @@ msgstr "請選擇安裝過程中要使用的語言。該語言將設為本電腦
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr "請選擇在設定程序中要使用的語言。這個語言將成為這台電腦的預設語言。"
+msgstr "請選擇設定程序要使用的語言。此語言會成為此電腦的預設語言。"
 
 #. Type: text
 #. Description
@@ -1496,7 +1483,7 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} 使用第三方軟體以播放 Flash、MP3 與其它媒體，也用於某些無線硬體裝置"
+"${RELEASE} 使用第三方軟體以播放 Flash、MP3 與其他媒體，也用於某些無線硬體裝置"
 "上。此類軟體中某些為封閉源碼軟體。該軟體的授權必須遵循其文件內所包含的許可證"
 "條款。"
 
@@ -1526,7 +1513,7 @@ msgstr "當安裝時下載更新"
 #. Description
 #: ../ubiquity.templates:233001
 msgid "Layout:"
-msgstr "視窗配置:"
+msgstr "配置："
 
 #. Type: text
 #. Description
@@ -1573,7 +1560,7 @@ msgstr "[在這裡輸入以更改]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "將 ${OS} 替換為 ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1581,13 +1568,13 @@ msgstr ""
 msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
-msgstr ""
+msgstr "這會<b>清除</b>您所有的 ${OS} 程式、文件、相片、音樂、任何其他檔案等。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "將 ${DISTRO} 與它安裝在一起"
 
 #. Type: text
 #. Description
@@ -1597,13 +1584,13 @@ msgstr ""
 msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
-msgstr ""
+msgstr "不會刪除任何檔案。每當電腦啟動時，您可以選擇您想要使用的作業系統。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "清除 ${CURDISTRO} 並重新安裝"
 
 #. Type: text
 #. Description
@@ -1612,12 +1599,13 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"這會<b>清除</b>您的所有 ${CURDISTRO} 程式、文件、相片、音樂、任何其他檔案等。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "將 ${CURDISTRO} 升級為 {VER}"
 
 #. Type: text
 #. Description
@@ -1625,13 +1613,13 @@ msgstr ""
 msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
-msgstr ""
+msgstr "您可以升級 ${CURDISTRO} 而不會喪失任何您的重要文件或應用程式。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "一同安裝 ${DISTRO} ${VER}"
 
 #. Type: text
 #. Description
@@ -1640,6 +1628,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"還在觀望嗎？您可以將 ${DISTRO} ${VER} 與您現有的 ${CURDISTRO} 版本安裝在一"
+"起。"
 
 #. Type: text
 #. Description
@@ -1647,7 +1637,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "清除磁碟並安裝 ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1655,13 +1645,13 @@ msgstr ""
 msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
-msgstr ""
+msgstr "準備要衝了嗎？乾淨的安裝會清除您整個硬碟並安裝 ${DISTRO}。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "清除任何資料並重新安裝"
 
 #. Type: text
 #. Description
@@ -1670,14 +1660,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"這會<b>清除</b> ${OS} 與 ${CURDISTRO} 的所有程式、文件、相片、檔案、任何其他"
+"檔案。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "安裝 ${RELEASE}"
+msgstr "重新安裝 ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1685,7 +1675,7 @@ msgstr "安裝 ${RELEASE}"
 msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
-msgstr ""
+msgstr "您可以重新安裝 ${CURDISTRO} 而不會喪失您的任何重要文件或應用程式。"
 
 #. Type: text
 #. Description
@@ -1694,14 +1684,13 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"這會<b>清除</b>您所有作業系統中的全部的程式、文件、相片、音樂、任何其他檔案。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "安裝且與其它作業系統並存"
+msgstr "將 ${DISTRO} 與它們安裝在一起"
 
 #. Type: title
 #. Description
@@ -1762,22 +1751,7 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr "移除套件中"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "推測鍵盤配置"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "使用最大的連續可用空間"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "消除並使用整顆磁碟"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "手動指定分割區 (進階)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "推測鍵盤配置"
+msgstr "正在移除套件"
 
 #~ msgid "Advanced Options"
 #~ msgstr "進階選項"
@@ -1817,6 +1791,9 @@ msgstr "移除套件中"
 #~ msgid "Install boot loader"
 #~ msgstr "安裝開機載入程式"
 
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "使用最大的連續可用空間"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1833,8 +1810,23 @@ msgstr "移除套件中"
 #~ "這是 ${RELEASE} 的 live ${MEDIUM} 安裝程式。它並非最終發行版本；"
 #~ "${RELEASE} 最終發行版本的安裝程式將於 2010 年 10 月釋出。"
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "推測鍵盤配置"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "推測鍵盤配置"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "手動指定分割區 (進階)"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "安裝且與其它作業系統並存"
+
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "參與套件使用普查"
 
 #~ msgid "Popularity contest"
 #~ msgstr "普及程度統計"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "消除並使用整顆磁碟"

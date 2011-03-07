@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -176,18 +176,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout"
-msgstr "Cynllun bysellfwrdd"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Keyboard layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Cynllun bysellfwrdd"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -967,18 +963,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Yn dileu pecynnau ychwanegol..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Yn dileu pecynnau ychwanegol..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1746,16 +1738,16 @@ msgstr ""
 msgid "Removing packages"
 msgstr ""
 
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Ar ol i chi ateb rhai cwestiynau, bydd yr cyfrifiadur yma yn barod i "
+#~ "defnyddio."
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Defnyddio'r  bwlch rhydd parhaol mwyaf"
 
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Enwi ymraniadau yn llawlyfr (uwch)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Ar ol i chi ateb rhai cwestiynau, bydd yr cyfrifiadur yma yn barod i "
-#~ "defnyddio."
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opsiynau Uwch"

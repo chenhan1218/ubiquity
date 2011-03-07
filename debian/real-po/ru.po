@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-03 13:53+0000\n"
-"Last-Translator: Anton Polukhin <Unknown>\n"
+"PO-Revision-Date: 2011-03-04 18:30+0000\n"
+"Last-Translator: Dmitriy \"~SH~ [ms]\" Fedorov <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "Перезагрузить"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Ручная настройка (дополнительно)"
 
 #. Type: text
 #. Description
@@ -42,6 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Вы достаточно опытны? Испытайте свои навыки в дополнительных параметрах "
+"разметки."
 
 #. Type: text
 #. Description
@@ -88,7 +90,7 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Или если вы готовы, можете установить ${RELEASE} рядом (или вместо) вашей "
+"Или, если Вы готовы, можете установить ${RELEASE} рядом (или вместо) вашей "
 "текущей операционной системы. Это не займёт много времени."
 
 #. Type: text
@@ -165,7 +167,7 @@ msgstr "Внимание"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "Где вы находитесь?"
+msgstr "Где Вы находитесь?"
 
 #. Type: text
 #. Description
@@ -188,18 +190,14 @@ msgstr "Проверьте выбранную раскладку здесь"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Выбрать раскладки клавиатуры"
+msgstr "Определить раскладку клавиатуры"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Выбрать раскладки клавиатуры"
+msgstr "Определить раскладку клавиатуры..."
 
 #. Type: text
 #. Description
@@ -217,7 +215,7 @@ msgstr "Присутствует ли эта клавиша на клавиат�
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Who are you?"
-msgstr "Кто вы?"
+msgstr "Кто Вы?"
 
 #. Type: text
 #. Description
@@ -375,7 +373,7 @@ msgstr "Распределить место на жёстком диске"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Файлы (${SIZE})"
 
 #. Type: text
 #. Description
@@ -552,7 +550,7 @@ msgstr "Перезагрузить"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Выключить"
 
 #. Type: text
 #. Description
@@ -960,10 +958,8 @@ msgstr "Настройка оборудования..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Установить это стороннее программное обеспечение."
+msgstr "Установка стороннего программного обеспечения..."
 
 #. Type: text
 #. Description
@@ -986,18 +982,14 @@ msgstr "Настройка загрузчика..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Удаление дополнительных пакетов..."
+msgstr "Сохранение установленных пакетов..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Удаление дополнительных пакетов..."
+msgstr "Восстановление ранее установленных пакетов..."
 
 #. Type: text
 #. Description
@@ -1621,7 +1613,7 @@ msgstr "[ввод текста]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Заменить ${OS} на ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1630,12 +1622,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"Это действие <b>удалит</b> все Ваши ${OS} программы, документы, фотографии, "
+"музыку и другие файлы."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "Установить ${DISTRO} рядом"
 
 #. Type: text
 #. Description
@@ -1646,12 +1640,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Никакие файлы не будут удалены. Вы можете выбрать операционную систему, "
+"которая будет загружаться при включении компьютера."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Удалить ${CURDISTRO} и совершить переустановку"
 
 #. Type: text
 #. Description
@@ -1660,12 +1656,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"Это действие <b>удалит</b> все Ваши ${CURDISTRO} программы, документы, "
+"фотографии, музыку и все остальные файлы."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Обновить ${CURDISTRO} до ${VER}"
 
 #. Type: text
 #. Description
@@ -1674,12 +1672,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"Вы можете обновить ${CURDISTRO} без потери Ваших важных документов и "
+"программ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Установить ${DISTRO} ${VER} рядом"
 
 #. Type: text
 #. Description
@@ -1688,6 +1688,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Не можете определиться? У Вас есть возможность установить ${DISTRO} ${VER} "
+"рядом с Вашей существующей копией ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1695,7 +1697,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Стереть диск и установить ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1704,12 +1706,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Готовы сделать решительный шаг? Чистая установка очистит весь Ваш жёсткий "
+"диск и установит ${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Удалить все и запустить переустановку"
 
 #. Type: text
 #. Description
@@ -1718,14 +1722,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"Это действие <b>удалит</b> все Ваши программы, документы, фотографии, музыку "
+"и все остальные файлы в ${OS} и ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Установить ${RELEASE}"
+msgstr "Переустановить ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1734,6 +1738,7 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"Вы можете переустановить ${CURDISTRO} без потери Ваших документов и программ."
 
 #. Type: text
 #. Description
@@ -1742,14 +1747,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"Это действие <b>удалит</b> все Ваши программы, документы, фотографии, музыку "
+"и все остальные файлы во всех операционных системах."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Установить рядом с другими операционными системами"
+msgstr "Установить ${DISTRO} рядом с ними"
 
 #. Type: title
 #. Description
@@ -1815,21 +1820,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Удаление пакетов"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Выбрать раскладки клавиатуры"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Использовать наибольшее свободное пространство на диске"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Удалить все данные и использовать весь диск"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Указать разделы вручную (для опытных пользователей)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Догадаться о раскладке клавиатуры"
-
 #~ msgid "Advanced Options"
 #~ msgstr "Расширенные настройки"
 
@@ -1848,10 +1838,22 @@ msgstr "Удаление пакетов"
 #~ msgid "Summary"
 #~ msgstr "Сводная информация"
 
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Указать разделы вручную (для опытных пользователей)"
+
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr ""
 #~ "После того, как вы ответите на несколько вопросов, этот компьютер будет "
 #~ "готов к работе."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Удалить все данные и использовать весь диск"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Использовать наибольшее свободное пространство на диске"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Догадаться о раскладке клавиатуры"
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
@@ -1892,3 +1894,9 @@ msgstr "Удаление пакетов"
 #~ msgstr ""
 #~ "Это предрелиз ${RELEASE} установщика ${MEDIUM}. Это не финальный выпуск; "
 #~ "версия ${RELEASE} выйдет официально в октябре 2010 года."
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Установить рядом с другими операционными системами"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Выбрать раскладки клавиатуры"

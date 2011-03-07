@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -190,18 +190,14 @@ msgstr "Shtypni këtu për të testuar tastierën tuaj"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Gjej Daljen e Tastirës"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Gjej Daljen e Tastirës"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -963,10 +959,8 @@ msgstr "Duke konfiguruar Hardware..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Instalo programe të palëve të treta"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -989,18 +983,14 @@ msgstr "Duke konfiguruar Boot loader..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Duke hequr paketat shtesë..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Duke hequr paketat shtesë..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1726,10 +1716,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Instalo ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1750,10 +1738,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Instaloje përkrah sistemeve t; tjera të operimit"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1818,20 +1804,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Gjej Daljen e Tastirës"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Përdor hapësirën e lirë të vazhdueshme më të madhe"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Fshije dhe përdor të gjithë diskun"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Specifiko particionet në mënyrë manuale (e avancuar)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Gjeni daljen e tastierës"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Mundësi të avansuara"
@@ -1876,6 +1853,9 @@ msgstr "Duke hequr paketat"
 #~ "Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
 #~ "përdorim."
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Fshije dhe përdor të gjithë diskun"
+
 #~ msgid "Summary"
 #~ msgstr "Përmbledhja"
 
@@ -1896,3 +1876,12 @@ msgstr "Duke hequr paketat"
 #~ "Ky është një version paraprak i ${RELEASE} me ${MEDIUM} instalues të "
 #~ "drejtpërdrejtë. Nuk është një version final; ky do të vijë me versionin "
 #~ "final të ${RELEASE} në Tetor 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Gjeni daljen e tastierës"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instaloje përkrah sistemeve t; tjera të operimit"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Gjej Daljen e Tastirës"

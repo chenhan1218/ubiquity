@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-09 20:17+0000\n"
+"PO-Revision-Date: 2011-03-06 16:30+0000\n"
 "Last-Translator: GTriderXC <gtriderxc@yahoo.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "Uruchom ponownie teraz"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Ręczna konfiguracja (zaawansowane)"
 
 #. Type: text
 #. Description
@@ -42,6 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Instalacja jest zbyt zautomatyzowana? Tutaj znajdziesz zaawansowane opcje "
+"partycjonowania dysków."
 
 #. Type: text
 #. Description
@@ -187,16 +189,12 @@ msgstr "Tutaj można wprowadzać znaki, aby przetestować klawiaturę"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
 msgstr "Wykrywanie układu klawiatury"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
 msgstr "Wykrywanie układu klawiatury"
 
@@ -375,7 +373,7 @@ msgstr "Przydzielenie miejsca na dysku"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Pliki (${SIZE})"
 
 #. Type: text
 #. Description
@@ -558,7 +556,7 @@ msgstr "Uruchom ponownie teraz"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Wyłącz teraz"
 
 #. Type: text
 #. Description
@@ -961,10 +959,8 @@ msgstr "Konfigurowanie sprzętu..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Instalacja oprogramowania osób trzecich"
+msgstr "Instalacja oprogramowania dostawców pośrednich..."
 
 #. Type: text
 #. Description
@@ -987,18 +983,14 @@ msgstr "Konfigurowanie programu uruchomieniowego..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Usuwanie pakietów dodatkowych..."
+msgstr "Zapisywanie zainstalowanych pakietów"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Usuwanie pakietów dodatkowych..."
+msgstr "Przywracanie poprzednio zainstalowanych pakietów"
 
 #. Type: text
 #. Description
@@ -1521,7 +1513,7 @@ msgstr "Najlepsze rezultaty instalacji zostaną uzyskane, gdy ten komputer:"
 #. Description
 #: ../ubiquity.templates:223001
 msgid "has at least ${SIZE} available drive space"
-msgstr "dysponuje przynajmniej ${SIZE} wolnej powierzchni na dysku"
+msgstr "dysponuje przynajmniej ${SIZE} wolnej przestrzeni na dysku"
 
 #. Type: text
 #. Description
@@ -1623,7 +1615,7 @@ msgstr "[pisz tutaj, aby zmienić]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Zamień ${OS} na ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1632,12 +1624,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"Ta operacja <b>usunie</b> z ${OS} wszystkie programy, dokumenty, obrazy, "
+"pliki muzyczne oraz inne pliki."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "Instalacja ${DISTRO} jako kolejnego systemu operacyjnego"
 
 #. Type: text
 #. Description
@@ -1648,12 +1642,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Żadne pliki nie zostaną skasowane. Za każdym razem, przy włączaniu "
+"komputera, wyświetlona zostanie lista wyboru systemów operacyjnych."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Usuń ${CURDISTRO} i zainstaluj ponownie"
 
 #. Type: text
 #. Description
@@ -1662,12 +1658,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"Ta operacja <b>usunie</b> ${CURDISTRO} wraz ze wszystkimi programami, "
+"dokumentami, obrazami, muzyką oraz innymi plikami."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Zaktualizuj ${CURDISTRO} do wersji ${VER}"
 
 #. Type: text
 #. Description
@@ -1676,12 +1674,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"Możliwa jest aktualizacja ${CURDISTRO} z zachowaniem wszystkich dokumentów "
+"oraz zainstalowanych programów."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Instalacja ${DISTRO} ${VER} sąsiadująca"
 
 #. Type: text
 #. Description
@@ -1690,6 +1690,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Wciąż niezdecydowany? Możliwa jest instalacja ${DISTRO} ${VER} sąsiadująca z "
+"obecną wersją ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1697,7 +1699,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Czyszczenie dysku oraz instalacja ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1706,12 +1708,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Gotowy do podjęcia stanowczej decyzji? Ta opcja czyści zawartość dysku oraz "
+"instaluje świeżą wersję ${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Wyczyść wszystko i zainstaluj od nowa"
 
 #. Type: text
 #. Description
@@ -1720,14 +1724,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"Ta opcja <b>wymaże</b> wszystkie programy, dokumenty, obrazy, muzykę, oraz "
+"inne pliki w obu ${OS} oraz ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Zainstaluj ${RELEASE}"
+msgstr "Ponowna instalacja ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1736,6 +1740,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"Możliwa jest ponowna instalacja ${CURDISTRO} bez utraty dokumentów oraz "
+"programów."
 
 #. Type: text
 #. Description
@@ -1744,14 +1750,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"Ta opcja <b>wymaże</b> wszystkie dokumenty, obrazy, muzykę oraz inne pliki, "
+"we wszystkich systemach operacyjnych."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Instalacja sąsiadująca z innym systemem operacyjnym"
+msgstr "Instalacja ${DISTRO} obok innych"
 
 #. Type: title
 #. Description
@@ -1817,20 +1823,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Usuwanie pakietów"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Wykrywanie układu klawiatury"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Użycie największej ciągłej wolnej przestrzeni"
 
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Usunięcie zawartości i użycie całej powierzchni dysku"
-
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Ręczne określanie partycji (zaawansowane)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Określ układ klawiatury ręcznie"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Opcje zaawansowane"
@@ -1894,3 +1891,15 @@ msgstr "Usuwanie pakietów"
 #~ msgstr ""
 #~ "To jest wydanie testowe ${RELEASE} instalatora live ${MEDIUM}. Nie jest "
 #~ "to wydanie ostateczne ${RELEASE}, zostanie ogłoszone w październiku 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Określ układ klawiatury ręcznie"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instalacja sąsiadująca z innym systemem operacyjnym"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Wykrywanie układu klawiatury"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Usunięcie zawartości i użycie całej powierzchni dysku"

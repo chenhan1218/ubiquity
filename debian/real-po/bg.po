@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-09 17:09+0000\n"
-"Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
+"PO-Revision-Date: 2011-02-10 16:07+0000\n"
+"Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: American English <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -139,6 +139,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"Това е предварителна версия на живия инсталатор  ${MEDIUM} на ${RELEASE}. "
+"Това не е финална версия; финалната версия на ${RELEASE} ще е готова през "
+"Април 2011."
 
 #. Type: text
 #. Description
@@ -185,18 +188,14 @@ msgstr "Пишете тук, за да изпробвате вашата кла�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "Отгатване на клавиатурната подредба"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "Отгатване на клавиатурната подредба"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -262,7 +261,7 @@ msgstr "Потвърдете паролата"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Повторете вашата парола:"
 
 #. Type: text
 #. Description
@@ -960,10 +959,8 @@ msgstr "Настройване на хардуера..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "Инсталирай този софтуер от трета страна"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -986,18 +983,14 @@ msgstr "Настройване на приложението за начално
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "Премахване на допълнителните пакети..."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "Премахване на допълнителните пакети..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1725,10 +1718,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Инсталиране на ${RELEASE}"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1749,10 +1740,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "Инсталиране, запазвайки другите операционни системи"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1818,20 +1807,8 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Премахване на пакети"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Отгатване на клавиатурната подредба"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Използване на най-голямото свободно място"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Изтриване и използване на целия диск"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ръчно задаване на дялове (за напреднали)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Отгатване на клавиатурната подредба"
 
 #~ msgid "Advanced Options"
 #~ msgstr "Допълнителни опции"
@@ -1875,6 +1852,9 @@ msgstr "Премахване на пакети"
 #~ msgstr ""
 #~ "След като отговорите на няколко въпроса, компютърът ще е готов за работа."
 
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Изтриване и използване на целия диск"
+
 #~ msgid "Summary"
 #~ msgstr "Резюме"
 
@@ -1887,6 +1867,12 @@ msgstr "Премахване на пакети"
 #~ "съдържанието на ${MEDIUM} ще може да се инсталира на този компютър, така "
 #~ "че да работите с ${RELEASE} с пълните му възможности без ${MEDIUM}."
 
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Ръчно задаване на дялове (за напреднали)"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Инсталиране, запазвайки другите операционни системи"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1895,3 +1881,9 @@ msgstr "Премахване на пакети"
 #~ "Това е предварително издание на ${RELEASE} live ${MEDIUM} инсталатор. "
 #~ "Това не е окончателното издание; то ще дойде с окончателното издание на "
 #~ "${RELEASE} през октомври 2010."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Отгатване на клавиатурната подредба"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Отгатване на клавиатурната подредба"

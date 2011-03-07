@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-30 01:57+0000\n"
+"PO-Revision-Date: 2011-03-03 17:37+0000\n"
 "Last-Translator: Manish Kumar <manishku86@yahoo.co.in>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "पुनःशुरु करें"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "हस्तगत विन्यास (उन्नत)"
 
 #. Type: text
 #. Description
@@ -41,7 +41,7 @@ msgstr ""
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "हमारे लिए पर्याप्त स्मार्ट है? तो कुछ उन्नत विभाजन विकल्प में आपना हाथ डालें."
 
 #. Type: text
 #. Description
@@ -184,18 +184,14 @@ msgstr "अपने कुंजीपटल को जाँचने के �
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "कुंजीपटल विन्यास को समझे"
+msgstr "कुंजीपटल विन्यास का पता लगाएँ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "कुंजीपटल विन्यास को समझे"
+msgstr "कुंजीपटल विन्यास का पता कर रहा है..."
 
 #. Type: text
 #. Description
@@ -370,7 +366,7 @@ msgstr "ड्राइव पर जगह आवंटित करें"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "फ़ाइल (${SIZE})"
 
 #. Type: text
 #. Description
@@ -546,7 +542,7 @@ msgstr "पुनःशुरु करें"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "अभी बंद करें"
 
 #. Type: text
 #. Description
@@ -948,10 +944,8 @@ msgstr "हार्डवेयर विन्यास कर रहा ह�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "इस तृतीय-पार्टी सॉफ्टवेयर को संस्थापित करें"
+msgstr "तृतीय पक्ष सॉफ्टवेयर संस्थापित कर रहा है..."
 
 #. Type: text
 #. Description
@@ -974,18 +968,14 @@ msgstr "बूट लोडर विन्यास कर रहा है..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "अतिरिक्त पैकेजों को हटा रहा है..."
+msgstr "संस्थापित पैकेज को सहेज रहा है..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "अतिरिक्त पैकेजों को हटा रहा है..."
+msgstr "पूर्ववर्ति संस्थापित पैकेज को बहाल कर रहा है..."
 
 #. Type: text
 #. Description
@@ -1600,7 +1590,7 @@ msgstr "[परिवर्तन हेतु यहाँ टंकण कर�
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "${OS} को ${DISTRO} से प्रतिस्थापित करे"
 
 #. Type: text
 #. Description
@@ -1609,12 +1599,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"यह आपके ${OS} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को <b>मिटा</"
+"b> देगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "${DISTRO} को इसके पार्श्व में संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1625,12 +1617,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"कोई फ़ाइल नहीं मिटेगा. आप चाहे तो चुन सकते है कि प्रत्येक बार कंप्यूटर को आरंभ करते समय कौन "
+"सा ऑपरेटिंग तंत्र चालू होगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "${CURDISTRO} को मिटाएँ तथा पुनःसंस्थापित करें."
 
 #. Type: text
 #. Description
@@ -1639,12 +1633,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"यह आपके ${CURDISTRO} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को  "
+"<b>मिटा</b> देगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Upgrade ${CURDISTRO} का उन्नयन ${VER} में करें"
 
 #. Type: text
 #. Description
@@ -1653,12 +1649,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"आप You can upgrade ${CURDISTRO} का उन्नयन अपने महत्वपूर्ण दस्तावेज या अनुप्रयोग को "
+"खोये बिना कर सकते हैं."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "${DISTRO} ${VER} को पार्श्व में संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1667,6 +1665,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"अभी तक दुविधा में है? आप चाहे तो ${DISTRO} ${VER} का संस्थापना अपने वर्तमान "
+"${CURDISTRO} के प्रति के साथ पार्श्व में संस्थापित कर सकते हैं."
 
 #. Type: text
 #. Description
@@ -1674,7 +1674,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "डिस्क को मिटा तथा ${DISTRO} को संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1683,12 +1683,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"गोता लगाने के लिए तैयार हैं? के साफसुथरा संस्थापना आपके संपूर्ण हार्ड डिस्क को मिटा देगा तथा "
+"${DISTRO} को संस्थापित करेगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "सबकुछ को मिटा कर पुनःसंस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1697,14 +1699,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"यह आपके ${CURDISTRO} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को "
+"दोनो ${OS} तथा ${CURDISTRO} से <b>मिटा</b> देगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "${RELEASE} को संस्थापित करें."
+msgstr "${CURDISTRO} पुनःसंस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1713,6 +1715,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"आप ${CURDISTRO} का पुनःसंस्थापना किसी महत्वपूर्ण दस्तावेज या अनुप्रयोग को बिना खोये कर "
+"सकते हैं"
 
 #. Type: text
 #. Description
@@ -1721,14 +1725,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"यह आपके सभी ऑपरेटिंग तंत्र के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा अन्य कोई फ़ाइल "
+"<b>मिटा</b> देगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "अन्य ऑपरेटिंग तंत्र के अनुपार्श्व संस्थापित करें"
+msgstr "${DISTRO} का संस्थापना उनके पार्श्व में करें"
 
 #. Type: title
 #. Description
@@ -1792,20 +1796,11 @@ msgstr ""
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "कुंजीपटल विन्यास को समझे"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "सबसे बड़े सतत रिक्त स्थान का उपयोग करें"
-
 #~ msgid "Erase and use the entire disk"
 #~ msgstr "पूरे डिस्क को मिटाकर कर उपयोग करें"
 
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "हस्त विभाजन का उल्लेख करें (उन्नत)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "सबसे बड़े सतत रिक्त स्थान का उपयोग करें"
 
 #~ msgid "Install boot loader"
 #~ msgstr "बूटलोडर संस्थापन"
@@ -1860,6 +1855,9 @@ msgstr "पैकेज हटा रहा है"
 #~ msgid "Network proxy"
 #~ msgstr "संजाल प्रोक्सी"
 
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "हस्त विभाजन का उल्लेख करें (उन्नत)"
+
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1867,3 +1865,12 @@ msgstr "पैकेज हटा रहा है"
 #~ msgstr ""
 #~ "यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का "
 #~ "एक अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "अन्य ऑपरेटिंग तंत्र के अनुपार्श्व संस्थापित करें"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "कुंजीपटल विन्यास को समझे"

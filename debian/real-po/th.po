@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2010-10-02 15:36+0000\n"
+"PO-Revision-Date: 2011-03-03 10:00+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-02 10:12+0000\n"
-"X-Generator: Launchpad (build 12274)\n"
+"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
+"X-Generator: Launchpad (build 12515)\n"
 
 #. Type: text
 #. Description
@@ -31,7 +31,7 @@ msgstr "เริ่มระบบใหม่เดี๋ยวนี้"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "กำหนดเอง (ขั้นสูง)"
 
 #. Type: text
 #. Description
@@ -182,18 +182,14 @@ msgstr "พิมพ์ที่นี่ เพื่อทดสอบแป�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout"
-msgstr "ตรวจหาผังแป้มพิมพ์"
+msgstr "ตรวจหาผังแป้นพิมพ์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
-#, fuzzy
-#| msgid "Figure Out Keyboard Layout"
 msgid "Detect Keyboard Layout..."
-msgstr "ตรวจหาผังแป้มพิมพ์"
+msgstr "ตรวจหาผังแป้นพิมพ์..."
 
 #. Type: text
 #. Description
@@ -259,7 +255,7 @@ msgstr "ยืนยันรหัสผ่าน"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "ยืนยันรหัสผ่านของคุณ:"
 
 #. Type: text
 #. Description
@@ -283,7 +279,7 @@ msgstr "คุณกำลังอยู่ในโหมดดีบัก �
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "รหัสผ่านไม่ตรงกัน"
 
 #. Type: text
 #. Description
@@ -542,7 +538,7 @@ msgstr "เริ่มระบบใหม่เดี๋ยวนี้"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "ปิดเครื่องเดี๋ยวนี้"
 
 #. Type: text
 #. Description
@@ -939,10 +935,8 @@ msgstr "กำลังตั้งค่าฮาร์ดแวร์..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
-#, fuzzy
-#| msgid "Install this third-party software"
 msgid "Installing third-party software..."
-msgstr "ติดตั้งซอฟต์แวร์นี้"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -965,18 +959,14 @@ msgstr "กำลังตั้งค่าบูตโหลดเดอร์
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Saving installed packages..."
-msgstr "กำลังถอดถอนแพกเกจเสริม..."
+msgstr "กำลังบันทึกแพกเกจที่ติดตั้งแล้ว..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Removing extra packages..."
 msgid "Restoring previously installed packages..."
-msgstr "กำลังถอดถอนแพกเกจเสริม..."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1576,7 +1566,7 @@ msgstr "[พิมพ์ที่นี่เพื่อเปลี่ยน]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "แทนที่ ${OS} ด้วย ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1584,13 +1574,13 @@ msgstr ""
 msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
-msgstr ""
+msgstr "นี่จะ<b>ลบ</b> ${OS}, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ทั้งหมดของคุณ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} ไว้คู่กัน"
 
 #. Type: text
 #. Description
@@ -1606,7 +1596,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "ลบ ${CURDISTRO} และติดตั้งใหม่"
 
 #. Type: text
 #. Description
@@ -1614,13 +1604,13 @@ msgstr ""
 msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
-msgstr ""
+msgstr "นี่จะ<b>ลบ</b> ${CURDISTRO}, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ทั้งหมด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "ปรับปรุง ${CURDISTRO} เป็น ${VER}"
 
 #. Type: text
 #. Description
@@ -1634,7 +1624,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} ${VER} ไว้คู่กัน"
 
 #. Type: text
 #. Description
@@ -1650,7 +1640,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "ลบดิสก์และติดตั้ง ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1664,7 +1654,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "ลบทุกอย่างและติดตั้งใหม่"
 
 #. Type: text
 #. Description
@@ -1673,14 +1663,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"นี่จะ<b>ลบ</b> โปรแกรม, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ใน ${OS} และ "
+"${CURDISTRO}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
-#, fuzzy
-#| msgid "Install ${RELEASE}"
 msgid "Reinstall ${CURDISTRO}"
-msgstr "ติดตั้ง ${RELEASE}"
+msgstr "ติดตั้ง ${CURDISTRO} ใหม่"
 
 #. Type: text
 #. Description
@@ -1697,14 +1687,13 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"นี่จะ<b>ลบ</b> โปรแกรม, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ในระบบปฏิบัติการทั้งหมด"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
-#, fuzzy
-#| msgid "Install alongside other operating systems"
 msgid "Install ${DISTRO} alongside them"
-msgstr "ติดตั้งคู่กับระบบปฏิบัติการอื่น"
+msgstr "ติดตั้ง ${DISTRO} ไว้คู่กับมัน"
 
 #. Type: title
 #. Description
@@ -1767,20 +1756,8 @@ msgstr ""
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
 
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "ตรวจหาผังแป้มพิมพ์"
-
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "ใช้พื้นที่ว่างต่อเนื่องที่ใหญ่ที่สุด"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "ลบและใช้พื้นที่ดิสก์ทั้งหมด"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "กำหนดพาร์ทิชันเอง (ขั้นสูง)"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "ตรวจหาผังแป้นพิมพ์"
 
 #~ msgid "Advanced Options"
 #~ msgstr "ตัวเลือกขั้นสูง"
@@ -1793,6 +1770,12 @@ msgstr "กำลังถอดถอนแพกเกจ"
 
 #~ msgid "Summary"
 #~ msgstr "ภาพรวม"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "ลบและใช้พื้นที่ดิสก์ทั้งหมด"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "กำหนดพาร์ทิชันเอง (ขั้นสูง)"
 
 #~ msgid "Participate in the package usage survey"
 #~ msgstr "เข้าร่วมในการสำรวจการใช้งานแพกเกจ"
@@ -1834,6 +1817,9 @@ msgstr "กำลังถอดถอนแพกเกจ"
 #~ "นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
 #~ "ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
 
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "ตรวจหาผังแป้นพิมพ์"
+
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "
 #~ "live ${MEDIUM} can be installed on this computer so you can run "
@@ -1842,3 +1828,9 @@ msgstr "กำลังถอดถอนแพกเกจ"
 #~ "พร้อมที่จะติดตั้งแล้วหรือไม่? เพียงคุณตอบคำถามไม่กี่คำถาม ข้อมูลของ ${MEDIUM} "
 #~ "จะถูกติดตั้งลงบนคอมพิวเตอร์ คุณสามารถเรียกใช้ ${RELEASE} "
 #~ "ได้อย่างเต็มความสามารถโดยไม่ต้องใช้ ${MEDIUM} อีกต่อไป"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "ตรวจหาผังแป้มพิมพ์"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "ติดตั้งคู่กับระบบปฏิบัติการอื่น"
