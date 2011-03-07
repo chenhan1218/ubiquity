@@ -1126,7 +1126,7 @@ msgid ""
 "installed system."
 msgstr ""
 "Az adatok költöztetése meghiúsult. További információt a /var/log/syslog "
-"rendszernaplóban talál. \r\n"
+"rendszernaplóban talál. "
 "A telepítés folytatódik, azonban elképzelhető, hogy néhány dokumentum és "
 "beállítás áthelyezése nem történt meg."
 
