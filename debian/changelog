@@ -6,6 +6,8 @@ ubiquity (2.5.24) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Fix oem-config-remove-gtk for changes in multiarch.
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu17.
 
   [ Loïc Minier ]
   * bin/ubiquity-dm: fix superfluous closing parenthesis left behind in last
