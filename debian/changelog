@@ -7,6 +7,10 @@ ubiquity (2.5.24) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Fix oem-config-remove-gtk for changes in multiarch.
 
+  [ Loïc Minier ]
+  * bin/ubiquity-dm: fix superfluous closing parenthesis left behind in last
+    ubiquity-dm changes; thanks Tobin Davis; LP: #731536.
+
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 07 Mar 2011 10:46:26 +0000
 
 ubiquity (2.5.23) natty; urgency=low
