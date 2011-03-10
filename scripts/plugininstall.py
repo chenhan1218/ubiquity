@@ -637,7 +637,10 @@ class Install(install_misc.InstallBase):
     def get_resume_partition(self):
         biggest_size = 0
         biggest_partition = None
-        swaps = open('/proc/swaps')
+        try:
+            swaps = open('/proc/swaps')
+        except:
+            return None
         for line in swaps:
             words = line.split()
             if words[1] != 'partition':

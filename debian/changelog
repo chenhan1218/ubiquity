@@ -1,9 +1,14 @@
 ubiquity (2.5.25) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Install oem-config-debconf properly. (LP: #732576)
   * Don't trigger oem-config-debconf on dbus.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Mar 2011 09:04:37 -0600
+  [ Kees Cook ]
+  * scripts/plugininstall.py: do not explode if /proc/swaps is missing,
+    thanks to Oliver Grawert (LP: #651886).
+
+ -- Kees Cook <kees@ubuntu.com>  Thu, 10 Mar 2011 14:37:48 -0800
 
 ubiquity (2.5.24) natty; urgency=low
 
