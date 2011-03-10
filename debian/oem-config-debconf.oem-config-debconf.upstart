@@ -7,7 +7,6 @@ description	"End-user configuration after initial OEM installation (debconf)"
 author		"Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>"
 
 start on (filesystem
-          and started dbus
           and stopped udevtrigger)
 stop on runlevel [016]
 
