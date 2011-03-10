@@ -223,6 +223,7 @@ binary-indep: install
 	dh_installdebconf
 	# oem-config
 	dh_installinit -n --name=oem-config
+	dh_installinit -n --name=oem-config-debconf
 	dh_installman
 	dh_lintian
 	dh_link
