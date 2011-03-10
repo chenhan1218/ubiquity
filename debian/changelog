@@ -6,7 +6,7 @@ ubiquity (2.5.25) UNRELEASED; urgency=low
 
   [ Kees Cook ]
   * scripts/plugininstall.py: do not explode if /proc/swaps is missing,
-    thanks to Oliver Grawert (LP: #651886).
+    thanks to Gilles Grandou (LP: #651886).
 
  -- Kees Cook <kees@ubuntu.com>  Thu, 10 Mar 2011 14:37:48 -0800
 
