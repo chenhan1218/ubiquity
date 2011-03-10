@@ -1,4 +1,4 @@
-ubiquity (2.5.25) UNRELEASED; urgency=low
+ubiquity (2.5.25) natty; urgency=low
 
   [ Mario Limonciello ]
   * Install oem-config-debconf properly. (LP: #732576)
