@@ -9,7 +9,7 @@ flash-kernel 2.28ubuntu17
 grub-installer 1.60ubuntu1
 hw-detect 1.81ubuntu2
 kboot-installer 0.0.1ubuntu9
-localechooser 2.34ubuntu1
+localechooser 2.34ubuntu2
 migration-assistant 0.6.8
 netcfg 1.60ubuntu2
 partconf 1.36
