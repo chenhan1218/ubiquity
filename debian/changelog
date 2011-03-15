@@ -6,6 +6,8 @@ ubiquity (2.5.25) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update for changes in localechooser up to 2.34ubuntu1.
+  * Automatic update of included source packages: localechooser 2.34ubuntu1,
+    partman-auto 93ubuntu10.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Mar 2011 09:04:37 -0600
 
