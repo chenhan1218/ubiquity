@@ -1,4 +1,4 @@
-ubiquity (2.5.26) UNRELEASED; urgency=low
+ubiquity (2.5.26) natty; urgency=low
 
   [ Evan Dandrea ]
   * Revert dropping privileges earlier (LP: #730209).
@@ -16,7 +16,7 @@ ubiquity (2.5.26) UNRELEASED; urgency=low
   * Allow preseeding only ubiquity/reboot to suppress the reboot dialog,
     without needing to preseed ubiquity/poweroff as well (LP: #727416).
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Mar 2011 09:04:37 -0600
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 Mar 2011 17:34:27 +0000
 
 ubiquity (2.5.25) natty; urgency=low
 
