@@ -4,6 +4,9 @@ ubiquity (2.5.25) UNRELEASED; urgency=low
   * Install oem-config-debconf properly. (LP: #732576)
   * Don't trigger oem-config-debconf on dbus.
 
+  [ Evan Dandrea ]
+  * Revert dropping privileges earlier.
+
   [ Colin Watson ]
   * Update for changes in localechooser up to 2.34ubuntu1.
   * Automatic update of included source packages: localechooser 2.34ubuntu2,

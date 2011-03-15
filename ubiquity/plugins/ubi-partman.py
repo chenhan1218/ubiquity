@@ -1995,30 +1995,30 @@ class Page(plugin.Plugin):
                             subprocess.call(['umount', mount_path])
                             os.rmdir(mount_path)
 
-            biggest_free = self.find_script(menu_options, 'biggest_free')
-            if biggest_free:
-                dev, p_id = self.split_devpart(biggest_free[0][1])
-                parted.select_disk(dev)
-                size = int(parted.partition_info(p_id)[2])
-                key = biggest_free[0][2]
-                self.extra_options['biggest_free'] = (key, size)
-
-            # TODO: Add misc.find_in_os_prober(info[5]) ...and size?
-            reuse = self.find_script(menu_options, 'reuse')
-            if reuse:
-                self.extra_options['reuse'] = []
-                r = self.extra_options['reuse']
-                for option in reuse:
-                    dev, p_id = self.split_devpart(option[1])
+                biggest_free = self.find_script(menu_options, 'biggest_free')
+                if biggest_free:
+                    dev, p_id = self.split_devpart(biggest_free[0][1])
                     parted.select_disk(dev)
-                    info = parted.partition_info(p_id)
-                    r.append((option[2], info[5]))
+                    size = int(parted.partition_info(p_id)[2])
+                    key = biggest_free[0][2]
+                    self.extra_options['biggest_free'] = (key, size)
 
-            replace = self.find_script(menu_options, 'replace')
-            if replace:
-                self.extra_options['replace'] = []
-                for option in replace:
-                    self.extra_options['replace'].append(option[2])
+                # TODO: Add misc.find_in_os_prober(info[5]) ...and size?
+                reuse = self.find_script(menu_options, 'reuse')
+                if reuse:
+                    self.extra_options['reuse'] = []
+                    r = self.extra_options['reuse']
+                    for option in reuse:
+                        dev, p_id = self.split_devpart(option[1])
+                        parted.select_disk(dev)
+                        info = parted.partition_info(p_id)
+                        r.append((option[2], info[5]))
+
+                replace = self.find_script(menu_options, 'replace')
+                if replace:
+                    self.extra_options['replace'] = []
+                    for option in replace:
+                        self.extra_options['replace'].append(option[2])
 
             # We always have the manual option.
             self.extra_options['manual'] = self.manual_desc
