@@ -222,7 +222,8 @@ class Wizard(BaseFrontend):
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'quit', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
-                                   'cancelbutton', 'exitbutton')
+                                   'cancelbutton', 'exitbutton',
+                                   'install_button', 'restart_to_continue')
         self.current_page = None
         self.backup = None
         self.allowed_change_step = True

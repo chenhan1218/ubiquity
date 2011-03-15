@@ -12,6 +12,9 @@ ubiquity (2.5.25) UNRELEASED; urgency=low
   * Automatic update of included source packages: localechooser 2.34ubuntu2,
     partman-auto 93ubuntu10.
   * Update translations from Launchpad.
+  * GTK frontend:
+    - Translate some other possible versions of the next button when
+      changing language (LP: #730208).
 
   [ Daniel Manrique ]
   * Allow preseeding only ubiquity/reboot to suppress the reboot dialog,
