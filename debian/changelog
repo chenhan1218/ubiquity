@@ -1,7 +1,7 @@
 ubiquity (2.5.26) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
-  * Revert dropping privileges earlier.
+  * Revert dropping privileges earlier (LP: #730209).
 
   [ Colin Watson ]
   * Update for changes in localechooser up to 2.34ubuntu1.
