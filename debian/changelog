@@ -1,8 +1,4 @@
-ubiquity (2.5.25) UNRELEASED; urgency=low
-
-  [ Mario Limonciello ]
-  * Install oem-config-debconf properly. (LP: #732576)
-  * Don't trigger oem-config-debconf on dbus.
+ubiquity (2.5.26) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Revert dropping privileges earlier.
@@ -21,6 +17,18 @@ ubiquity (2.5.25) UNRELEASED; urgency=low
     without needing to preseed ubiquity/poweroff as well (LP: #727416).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Mar 2011 09:04:37 -0600
+
+ubiquity (2.5.25) natty; urgency=low
+
+  [ Mario Limonciello ]
+  * Install oem-config-debconf properly. (LP: #732576)
+  * Don't trigger oem-config-debconf on dbus.
+
+  [ Kees Cook ]
+  * scripts/plugininstall.py: do not explode if /proc/swaps is missing,
+    thanks to Gilles Grandou (LP: #651886).
+
+ -- Kees Cook <kees@ubuntu.com>  Thu, 10 Mar 2011 14:37:48 -0800
 
 ubiquity (2.5.24) natty; urgency=low
 
