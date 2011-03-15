@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "მყისვე გადატვირთვა"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1733,58 +1731,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "ყველაზე დიდი უწყვეტი თავისუფალი ადგილის გამოყენება"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "დანაყოფების მანუალური მითითება (ექსპერტებისთვის)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "დამატებითი პარამეტრები"
-
-#~ msgid "Install boot loader"
-#~ msgstr "მტვირთავი პროგრამის დაყენება"
-
-#~ msgid "Popularity contest"
-#~ msgstr "პოპულარიზაცია"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "პაკეტის პოპულარიზაციაში მონაწილეობა"
-
-#~ msgid "Network proxy"
-#~ msgstr "ქსელის პროქსი"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP პროქსი:"
-
-#~ msgid "Port:"
-#~ msgstr "პორტი:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " ენა: ${LANGUAGE}\n"
-#~ " კლავიატურის განლაგება: ${KEYMAP}\n"
-#~ " სრული სახელი: ${FULLNAME}\n"
-#~ " სისტემური სახელი: ${USERNAME}\n"
-#~ " მდებარეობა: ${LOCATION}\n"
-#~ " მიგრაციის ასისტენტი:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "გაეცით პასუხი რამდენიმე კითხვას და თქვენი კომპიუტერი მზად იქნება "
-#~ "გამოყენებისთვის."
-
-#~ msgid "Summary"
-#~ msgstr "შეჯამება"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "წაშლა და სრულიად მთელი დისკის გამოყენება"

@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-02-26 12:36+0000\n"
-"Last-Translator: Rachid <Unknown>\n"
+"PO-Revision-Date: 2011-03-15 14:56+0000\n"
+"Last-Translator: Gerhard Burger <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Nu herstarten"
+msgstr "Herstart om door te gaan"
 
 #. Type: text
 #. Description
@@ -31,7 +29,7 @@ msgstr "Nu herstarten"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Handmatige configuratie (geavanceerd)"
 
 #. Type: text
 #. Description
@@ -42,6 +40,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Bent u slimmer dan wij dachten? Ga dan aan de slag met de geavanceerde "
+"schijfindelingsopties."
 
 #. Type: text
 #. Description
@@ -189,7 +189,7 @@ msgstr "Typ hier om uw toetsenbord te testen"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Toetsenbordindeling detecteren"
 
 #. Type: text
 #. Description
@@ -375,7 +375,7 @@ msgstr "Schijfruimte toewijzen"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Bestanden (${SIZE})"
 
 #. Type: text
 #. Description
@@ -993,13 +993,13 @@ msgstr "Opstartlader instellen…"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Geïnstalleerde pakketten opslaan..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "Voorheen geïnstalleerde pakketten terugzetten..."
 
 #. Type: text
 #. Description
@@ -1628,7 +1628,7 @@ msgstr "[type hier om te veranderen]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Vervang ${OS} door ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1637,12 +1637,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"Dit zal al uw programma's, documenten, foto's, muziek en andere bestanden op "
+"${OS} <b>verwijderen</b>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "${DISTRO} ernaast installeren"
 
 #. Type: text
 #. Description
@@ -1653,12 +1655,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Er zullen geen bestanden worden verwijderd. Elke keer als u de computer "
+"opstart kunt u kiezen welk besturingssysteem u wilt gebruiken."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Verwijder ${CURDISTRO} en opnieuw installeren"
 
 #. Type: text
 #. Description
@@ -1667,12 +1671,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"Dit zal al uw programma's, documenten, foto's, muziek en andere bestanden op "
+"${CURDISTRO} <b>verwijderen</b>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Werk ${CURDISTRO} bij naar ${VER}"
 
 #. Type: text
 #. Description
@@ -1681,12 +1687,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"U kunt ${CURDISTRO} bijwerken zonder enig verlies van uw belangrijke "
+"documenten en toepassingen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "Installeer ${DISTRO} ${VER} ernaast"
 
 #. Type: text
 #. Description
@@ -1695,6 +1703,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"Bent u er nog niet uit? U kunt ${DISTRO} ${VER} naast uw bestaande versie "
+"van ${CURDISTRO} installeren."
 
 #. Type: text
 #. Description
@@ -1702,7 +1712,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Schijf wissen en ${DISTRO} installeren"
 
 #. Type: text
 #. Description
@@ -1711,12 +1721,14 @@ msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
 msgstr ""
+"Wilt u de stap wagen? Een schone installatie wist uw gehele harde schijf en "
+"installeert ${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Alles wissen en opnieuw installeren"
 
 #. Type: text
 #. Description
@@ -1730,7 +1742,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:250001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "${CURDISTRO} opnieuw installeren"
 
 #. Type: text
 #. Description
@@ -1739,6 +1751,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"U kunt ${CURDISTRO} opnieuw installeren zonder enig verlies van uw "
+"belangrijke documenten en toepassingen."
 
 #. Type: text
 #. Description
@@ -1747,12 +1761,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"Hierdoor zullen al uw programma's, documenten, foto's, muziek en andere "
+"bestanden van alle besturingssystemen worden <b>gewist</b>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "${DISTRO} ernaast installeren"
 
 #. Type: title
 #. Description
@@ -1817,84 +1833,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakketten verwijderen"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Geavanceerde instellingen"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Opstartlader installeren"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Populariteitswedstrijd"
-
-#~ msgid "Network proxy"
-#~ msgstr "Netwerkproxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Poort:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Taal: ${LANGUAGE}\n"
-#~ " Toetsenbordindeling: ${KEYMAP}\n"
-#~ " Naam: ${FULLNAME}\n"
-#~ " Gebruikersnaam: ${USERNAME}\n"
-#~ " Locatie: ${LOCATION}\n"
-#~ "Migratieassistent:\n"
-#~ "${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Grootste aaneengesloten vrije ruimte gebruiken"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Partities handmatig specificeren (geavanceerd)"
-
-#~ msgid "Summary"
-#~ msgstr "Samenvatting"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Na het beantwoorden van enkele vragen is deze computer klaar voor gebruik."
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Deelnemen aan het onderzoek naar pakketgebruik"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Klaar om te installeren? Zodra u een aantal vragen heeft beantwoord, kan "
-#~ "de inhoud van de live-${MEDIUM} op deze computer geïnstalleerd worden, "
-#~ "zodat u ${RELEASE} op volle snelheid zonder ${MEDIUM} kunt gebruiken."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Dit is een pre-uitgave van het live-${MEDIUM}-installatieprogramma van "
-#~ "${RELEASE}. Dit is geen definitieve uitgave; de uiteindelijke uitgave zal "
-#~ "beschikbaar zijn bij de uitgave van ${RELEASE} in oktober 2010."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "De gehele schijf wissen en gebruiken"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Toetsenbordindeling bepalen"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Toetsenbordindeling bepalen"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Naast bestaande besturingssystemen installeren"

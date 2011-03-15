@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Redémarrer maintenant"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1823,85 +1821,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Suppression des paquets"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Utiliser le plus grand espace libre disponible"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Définir les partitions manuellement (avancé)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Options avancées"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participez aux statistiques d'utilisation des paquets"
-
-#~ msgid "Network proxy"
-#~ msgstr "Serveur mandataire (proxy)"
-
-#~ msgid "Port:"
-#~ msgstr "Port :"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Après avoir répondu à quelques questions, votre ordinateur sera prêt à "
-#~ "être utilisé."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Tout effacer et utiliser le disque entier"
-
-#~ msgid "Summary"
-#~ msgstr "Récapitulatif"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Langue : ${LANGUAGE}\n"
-#~ " Disposition du clavier : ${KEYMAP}\n"
-#~ " Nom : ${FULLNAME}\n"
-#~ " Nom d'utilisateur : ${USERNAME}\n"
-#~ " Fuseau horaire : ${LOCATION}\n"
-#~ " Assistant de migration :\n"
-#~ " ${MIGRATE}"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Prêt pour l'installation ? Après avoir répondu à quelques questions, le "
-#~ "contenu de ${MEDIUM} sera installé sur votre disque dur. ${RELEASE}  "
-#~ "s'exécutera alors de manière optimale sans avoir besoin de ${MEDIUM}."
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Serveur mandataire (proxy) HTTP :"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ceci est une pré-version du programme d'installation live ${MEDIUM} de "
-#~ "${RELEASE}. Il ne s'agit pas d'une version définitive, qui arrivera lors "
-#~ "de la sortie définitive de ${RELEASE} en octobre 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Trouver la disposition du clavier"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Installer le chargeur de d'amorçage"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Statistiques de popularité"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Détecter la disposition du clavier"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Installer à côté d'autres systèmes d'exploitation"

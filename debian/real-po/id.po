@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Restart Sekarang"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1801,84 +1799,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Menghapus paket-paket"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Tentukan partisi secara manual (advanced)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Pilihan Tingkat Lanjut"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Pasang pemuat boot"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Kontes popularitas"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Berpartisipasi dalam survey penggunaan paket"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy jaringan"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Bahasa: ${LANGUAGE}\n"
-#~ " Susunan keyboard: ${KEYMAP}\n"
-#~ " Nama: ${FULLNAME}\n"
-#~ " Nama login: ${USERNAME}\n"
-#~ " Lokasi: ${LOCATION}\n"
-#~ " Asisten migrasi:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Setelah anda menjawab beberapa pertanyaan, komputer ini siap digunakan."
-
-#~ msgid "Summary"
-#~ msgstr "Ringkasan"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Hapus dan gunakan seluruh cakram"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Gunakan ruang kosong yang terbesar"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Siap memasang? Setelah anda menjawab beberapa pertanyaan, isi dari "
-#~ "${MEDIUM} live dapat dipasang pada komputer sehingga anda dapat "
-#~ "menjalankan ${RELEASE} dengan kecepatan penuh tanpa ${MEDIUM}nya."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Tentukan Tampilan Keyboard"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Tentukan tampilan keyboard"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Install bersamaan dengan sistem operasi lain."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ini adalah versi awal dari ${RELEASE} live ${MEDIUM} instalasi. Ini "
-#~ "bukanlah versi akhir; yang akan digabungkan dengan versi akhir dari "
-#~ "${RELEASE} pada Oktober 2010."

@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:00+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Рестартиране"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1806,84 +1804,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Премахване на пакети"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Използване на най-голямото свободно място"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Допълнителни опции"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Инсталиране на зареждащата програма"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Състезание по известност"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Участвайте в проучването за употреба на пакетите"
-
-#~ msgid "Network proxy"
-#~ msgstr "Мрежов сървър-посредник"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP посредник:"
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Език: ${LANGUAGE}\n"
-#~ " Клавиатурна подредба: ${KEYMAP}\n"
-#~ " Пълно име: ${FULLNAME}\n"
-#~ " Потребителско име: ${USERNAME}\n"
-#~ " Местоположение: ${LOCATION}\n"
-#~ " Асистент за мигрирането:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "След като отговорите на няколко въпроса, компютърът ще е готов за работа."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Изтриване и използване на целия диск"
-
-#~ msgid "Summary"
-#~ msgstr "Резюме"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Готови за инсталиране?  След като отговорите на няколко въпроса, "
-#~ "съдържанието на ${MEDIUM} ще може да се инсталира на този компютър, така "
-#~ "че да работите с ${RELEASE} с пълните му възможности без ${MEDIUM}."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ръчно задаване на дялове (за напреднали)"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Инсталиране, запазвайки другите операционни системи"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Това е предварително издание на ${RELEASE} live ${MEDIUM} инсталатор. "
-#~ "Това не е окончателното издание; то ще дойде с окончателното издание на "
-#~ "${RELEASE} през октомври 2010."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Отгатване на клавиатурната подредба"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Отгатване на клавиатурната подредба"

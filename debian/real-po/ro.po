@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Repornește acum"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1807,86 +1805,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Se elimină pachetele"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurs de popularitate"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy rețea"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Șterge și folosește întreg discul"
-
-#~ msgid "Summary"
-#~ msgstr "Rezumat"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Folosește cel mai mare spațiu liber continuu"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opțiuni avansate"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participați la sondajul privind utilizarea pachetelor"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifică partițiile manual (avansat)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "După ce veți răspunde la câteva întrebări, calculatorul va fi pregătit de "
-#~ "utilizare."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Gata de instalare? Odată ce ați răspuns la câteva întrebări, conținutul "
-#~ "acestui ${MEDIUM} live poate fi instalat pe calculator, astfel încât veți "
-#~ "putea folosi ${RELEASE} la viteză întreagă, fără a mai fi nevoie de "
-#~ "${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Aceasta este o versiune de dezvoltare a acestui ${MEDIUM} de instalare "
-#~ "pentru ${RELEASE}. Nu este versiunea finală, care va veni cu ultima "
-#~ "lansare a ${RELEASE} în octombrie 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Determinare aranjament de tastatură"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalează programul de încărcare a sistemului"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Limba: ${LANGUAGE}\n"
-#~ " Aranjamentul tastaturii: ${KEYMAP}\n"
-#~ " Numele: ${FULLNAME}\n"
-#~ " Numele de utilizator: ${USERNAME}\n"
-#~ " Locația: ${LOCATION}\n"
-#~ " Asistare migrare:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Detectează aranjamentul de tastatură"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalează lângă alte sisteme de operare"

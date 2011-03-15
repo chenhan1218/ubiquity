@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Rindize Tani"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1803,85 +1801,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Përdor hapësirën e lirë të vazhdueshme më të madhe"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifiko particionet në mënyrë manuale (e avancuar)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Mundësi të avansuara"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalo boot ngarkuesin"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Gara e popullaritetit"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Merr pjesë në vëzhgimin mbi përdorimin e pakove"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proksi rrjeti"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proksi HTTP"
-
-#~ msgid "Port:"
-#~ msgstr "Porti:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Gjuha: ${LANGUAGE}\n"
-#~ " Dalja e tastierës: ${KEYMAP}\n"
-#~ " Emri: ${FULLNAME}\n"
-#~ " Emri në hyrje: ${USERNAME}\n"
-#~ " Vendndodhja: ${LOCATION}\n"
-#~ " Asistent Migrimi\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
-#~ "përdorim."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Fshije dhe përdor të gjithë diskun"
-
-#~ msgid "Summary"
-#~ msgstr "Përmbledhja"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Gati për instalim? Pasi ju t'i përgjigjeni disa pyetjeve, përmbajtja e "
-#~ "live ${MEDIUM} mund të instalohet në këtë kompjuter kështu që ju mund të "
-#~ "nisni ${RELEASE} me shpejtësi të plotë pa ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ky është një version paraprak i ${RELEASE} me ${MEDIUM} instalues të "
-#~ "drejtpërdrejtë. Nuk është një version final; ky do të vijë me versionin "
-#~ "final të ${RELEASE} në Tetor 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Gjeni daljen e tastierës"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instaloje përkrah sistemeve t; tjera të operimit"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Gjej Daljen e Tastirës"

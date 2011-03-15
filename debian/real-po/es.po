@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-03-04 07:04+0000\n"
-"Last-Translator: Javier Martínez Arrieta <Unknown>\n"
+"PO-Revision-Date: 2011-03-11 16:51+0000\n"
+"Last-Translator: Monkey <monkey.libre@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Reiniciar ahora"
+msgstr "Reinicie para continuar"
 
 #. Type: text
 #. Description
@@ -1827,86 +1825,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opciones avanzadas"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalar cargador de arranque"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurso de popularidad"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participar en la encuesta de uso de paquetes"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy de la red"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Puerto:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Idioma: ${LANGUAGE}\n"
-#~ " Distribución del teclado: ${KEYMAP}\n"
-#~ " Nombre completo: ${FULLNAME}\n"
-#~ " Nombre de usuario: ${USERNAME}\n"
-#~ " Localización: ${LOCATION}\n"
-#~ " Asistente de migración:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Una vez haya respondido unas preguntas, este equipo estará listo para "
-#~ "usarse."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Borrar y usar el disco entero"
-
-#~ msgid "Summary"
-#~ msgstr "Sumario"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Usar el mayor espacio continuo libre"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "¿Está listo para instalar? Una vez que haya contestado a algunas "
-#~ "preguntas, podrá instalar en este equipo el contenido de este live "
-#~ "${MEDIUM} para que pueda usar ${RELEASE} a la máxima velocidad sin "
-#~ "necesitar el ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Esto es una predistribución del instalador ${RELEASE} live ${MEDIUM}. No "
-#~ "es una versión final, que vendrá con la distribución de ${RELEASE} en "
-#~ "Octubre de 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Determinar el tipo de teclado"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalar junto a otros sistemas operativos"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Determinar la distribución de teclado"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificar las particiones manualmente (avanzado)"

@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-02-04 14:01+0000\n"
-"Last-Translator: Taras Martyniuk <Unknown>\n"
+"PO-Revision-Date: 2011-03-11 15:14+0000\n"
+"Last-Translator: Nizzzia <Unknown>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Перезавантажити"
+msgstr "Щоб продовжити, перезавантажте комп'ютер"
 
 #. Type: text
 #. Description
@@ -186,13 +184,13 @@ msgstr "Введіть тут текст щоб перевірити клаві�
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Визначити розкладку клавіатури"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "Визначити розкладку клавіатури..."
 
 #. Type: text
 #. Description
@@ -547,7 +545,7 @@ msgstr "Перезавантажити"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Вимкнути зараз"
 
 #. Type: text
 #. Description
@@ -954,7 +952,7 @@ msgstr "Налаштування обладнання..."
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "Встановлення стороннього програмного забезпечення..."
 
 #. Type: text
 #. Description
@@ -1634,6 +1632,8 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Файли будуть збережені. Ви можете обирати операційну систему кожного разу "
+"при увімкненні комп'ютера."
 
 #. Type: text
 #. Description
@@ -1683,7 +1683,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Стерти диск і встановити ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1697,7 +1697,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Стерти все й перевстановити"
 
 #. Type: text
 #. Description
@@ -1711,7 +1711,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:250001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Перевстановити ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1798,84 +1798,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Вказати розділи вручну (розширено)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Розширені налаштування"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP проксі:"
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Стерти все і використати весь диск"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Використати найбільший безперервний вільний простір"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Встановити початковий завантажувач"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Брати участь в досліджені рейтингу пакунків"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Рейтинг популярності"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Мова: ${LANGUAGE}\n"
-#~ " Розкладка клавіатури: ${KEYMAP}\n"
-#~ " Повне ім'я: ${FULLNAME}\n"
-#~ " Ім'я користувача: ${USERNAME}\n"
-#~ " Місце розташування: ${LOCATION}\n"
-#~ " Допомога з міграції:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Network proxy"
-#~ msgstr "Проксі сервер"
-
-#~ msgid "Summary"
-#~ msgstr "Зведення"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Готові розпочати процес встановлення? Дайте відповідь на кілька запитань, "
-#~ "після чого вміст ${MEDIUM} буде встановлено на цей комп'ютер та "
-#~ "${RELEASE} буде працювати на повну потужність, без потреби в ${MEDIUM}."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Дайте відповідь на кілька запитань і цей комп'ютер буде готовий до "
-#~ "використання."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Це предреліз  ${RELEASE} установщика ${MEDIUM}. Це не фінальний реліз; "
-#~ "версія ${RELEASE} вийде офіційно в Жовтні 2010 року."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "З’ясувати розкладку клавіатури"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Встановити поряд з іншими операційними системами"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Визначаю розкладку клавіатури"

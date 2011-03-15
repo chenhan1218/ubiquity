@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:00+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Reiniciar agora"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1812,84 +1810,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A remover pacotes"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opções Avançadas"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurso de popularidade"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participe na estatística de utilização de pacotes"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy de rede"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Porta:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Idioma: ${LANGUAGE}\n"
-#~ " Configuração de teclado: ${KEYMAP}\n"
-#~ " Nome: ${FULLNAME}\n"
-#~ " Nome de Login: ${USERNAME}\n"
-#~ " Localização: ${LOCATION}\n"
-#~ " Assistente de Migração:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Após responder a algumas perguntas, este computador estará pronto a usar."
-
-#~ msgid "Summary"
-#~ msgstr "Sumário"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificar as partições manualmente (avançado)"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalar a Rotina de Arranque (bootloader)"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Pronto para instalar? Depois de responder a algumas questões, os "
-#~ "conteúdos do live ${MEDIUM} podem ser instalados neste computador para "
-#~ "que possa correr o ${RELEASE} à velocidade máxima sem o ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Esta é uma versão prévia do instalador dp ${RELEASE} live ${MEDIUM}. Não "
-#~ "se trata da versão final; a qual virá com a versão final do ${RELEASE} em "
-#~ "Outubro de 2010."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Utilizar o maior espaço contínuo livre"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalar lado a lado com outros sistemas operativos"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Apagar e utilizar o disco rígido inteiro"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Descobrir a Disposição do Teclado"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Descobrir a disposição do Teclado"

@@ -7,24 +7,22 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-02-28 09:30+0000\n"
-"Last-Translator: Richard Somlói <level@somloirichard.hu>\n"
+"PO-Revision-Date: 2011-03-12 22:05+0000\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Újraindítás most"
+msgstr "Újraindítás a folytatáshoz"
 
 #. Type: text
 #. Description
@@ -32,7 +30,7 @@ msgstr "Újraindítás most"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Kézi beállítás (speciális)"
 
 #. Type: text
 #. Description
@@ -189,7 +187,7 @@ msgstr "Írjon ide a billentyűzet kipróbálásához"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Billentyűzetkiosztás felismerése"
 
 #. Type: text
 #. Description
@@ -371,7 +369,7 @@ msgstr "Lemezterület foglalása"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Fájlok (${SIZE})"
 
 #. Type: text
 #. Description
@@ -985,13 +983,13 @@ msgstr "A rendszerbetöltő konfigurálása…"
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Telepített csomagok mentése…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "A korábban telepített csomagok helyreállítása…"
 
 #. Type: text
 #. Description
@@ -1116,9 +1114,8 @@ msgid ""
 "installed system."
 msgstr ""
 "Az adatok költöztetése meghiúsult. További információt a /var/log/syslog "
-"rendszernaplóban talál. "
-"A telepítés folytatódik, azonban elképzelhető, hogy néhány dokumentum és "
-"beállítás áthelyezése nem történt meg."
+"rendszernaplóban talál. A telepítés folytatódik, azonban elképzelhető, hogy "
+"néhány dokumentum és beállítás áthelyezése nem történt meg."
 
 #. Type: error
 #. Description
@@ -1613,7 +1610,7 @@ msgstr "[gépeljen a módosításhoz]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "${OS} cseréje ezzel: ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1622,12 +1619,14 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"Ez <b>törli</b> az összes programját, dokumentumát, fényképét, zenéjét és "
+"minden más fájlját a(z) ${OS} alatt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "${DISTRO} telepítése mellé"
 
 #. Type: text
 #. Description
@@ -1638,12 +1637,14 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"A fájlok nem lesznek törölve. A számítógép minden bekapcsolásakor "
+"kiválaszthatja, melyik operációs rendszert szeretné használni."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "${CURDISTRO} törlése és újratelepítés"
 
 #. Type: text
 #. Description
@@ -1652,12 +1653,14 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"Ez <b>törli</b> az összes programját, dokumentumát, fényképét, zenéjét és "
+"minden más fájlját a(z) ${CURDISTRO} alatt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "${CURDISTRO} frissítése erre a verzióra: ${VER}"
 
 #. Type: text
 #. Description
@@ -1666,12 +1669,14 @@ msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
 msgstr ""
+"A(z) ${CURDISTRO} frissíthető a fontos dokumentumai vagy alkalmazásai "
+"elvesztése nélkül."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "${DISTRO} ${VER} telepítése mellé"
 
 #. Type: text
 #. Description
@@ -1687,7 +1692,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Merevlemez törlése, és ${DISTRO} telepítése"
 
 #. Type: text
 #. Description
@@ -1701,7 +1706,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Minden törlése, és újratelepítés"
 
 #. Type: text
 #. Description
@@ -1710,12 +1715,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"Ez egyaránt <b>törli</b> az összes programját, dokumentumát, fényképét, "
+"zenéjét és minden más fájlját a(z) ${OS} és ${CURDISTRO} alatt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "${CURDISTRO} újratelepítése"
 
 #. Type: text
 #. Description
@@ -1724,6 +1731,8 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"A(z) ${CURDISTRO} újratelepíthető a fontos dokumentumai vagy alkalmazásai "
+"elvesztése nélkül."
 
 #. Type: text
 #. Description
@@ -1732,12 +1741,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
 msgstr ""
+"Ez egyaránt <b>törli</b> az összes programját, dokumentumát, fényképét, "
+"zenéjét és minden más fájlját minden operációs rendszere alatt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "${DISTRO} telepítése melléjük"
 
 #. Type: title
 #. Description
@@ -1802,85 +1813,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "A legnagyobb összefüggő szabad hely használata"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Partíciók saját kezű megadása (haladóknak)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Speciális beállítások"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Népszerűségi verseny"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Részvétel a csomaghasználat felmérésében"
-
-#~ msgid "Network proxy"
-#~ msgstr "Hálózati proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Nyelv: ${LANGUAGE}\n"
-#~ " Billentyűzetkiosztás: ${KEYMAP}\n"
-#~ " Név: ${FULLNAME}\n"
-#~ " Bejelentkezési név: ${USERNAME}\n"
-#~ " Hely: ${LOCATION}\n"
-#~ " Átviteli segéd:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Néhány kérdés megválaszolása után a számítógép készen fog állni a "
-#~ "használatra."
-
-#~ msgid "Summary"
-#~ msgstr "Összegzés"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Törlés és a teljes lemez felhasználása"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Készen áll a telepítésre? Pár kérdés megválaszolása után telepítheti "
-#~ "számítógépére a live ${MEDIUM} tartalmát, ezután a számítógép teljes "
-#~ "kapacitását kihasználva futtatható a(z) ${RELEASE}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ez a(z) ${RELEASE} live ${MEDIUM} telepítő előzetes kiadása. Még nem a "
-#~ "végleges kiadás, az a(z) ${RELEASE} végleges kiadásával fog érkezni 2010 "
-#~ "októberében."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Rendszerbetöltő telepítése"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Billentyűkiosztás felismerése"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Billentyűzetkiosztás felismerése"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Telepítés más operációs rendszerek mellé"

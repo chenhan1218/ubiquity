@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:00+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Ponovno pokreni sada"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1825,85 +1823,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Natjecanje u popularnosti"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Sudjelujte u anketi korištenja paketa"
-
-#~ msgid "Network proxy"
-#~ msgstr "Mrežni proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Nakon što odgovorite na nekoliko pitanja, ovo će računalo biti spremno za "
-#~ "rad."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Obriši i iskoristi cijeli disk"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Iskoristi najveći cjeloviti slobodni prostor"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ručno odredi particije (napredno)"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Spremni za instalaciju? Nakon što odgovorite na nekoliko pitanja, sadržaj "
-#~ "s live ${MEDIUM}-a će biti instaliran na ovo računalo, te ćete moći "
-#~ "pokrenuti ${RELEASE} pri punoj brzini bez ${MEDIUM}-a."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instaliraj boot učitavač"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Napredne mogućnosti"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Jezik: ${LANGUAGE}\n"
-#~ " Raspored tipkovnice: ${KEYMAP}\n"
-#~ " Ime: ${FULLNAME}\n"
-#~ " Korisničko ime: ${USERNAME}\n"
-#~ " Lokacija: ${LOCATION}\n"
-#~ " Pomoćnik pri migraciji:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Summary"
-#~ msgstr "Sažetak"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Saznaj raspored tipkovnice"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ovo je razvojna inačica ${RELEASE} ${MEDIUM} instalacijskog programa. Ovo "
-#~ "nije stabilna inačica; Ona će biti objavljena sa konačnim ${RELEASE} "
-#~ "izdanjem u listopadu 2010."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Saznaj raspored tipkovnice"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instaliraj uz ostale operativne sustave"

@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-02-22 09:12+0000\n"
-"Last-Translator: jincreator <Unknown>\n"
+"PO-Revision-Date: 2011-03-13 08:55+0000\n"
+"Last-Translator: sangho <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "지금 다시 시작"
+msgstr "계속 하기 위해 재시작"
 
 #. Type: text
 #. Description
@@ -31,7 +29,7 @@ msgstr "지금 다시 시작"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "수동 설정 (고급)"
 
 #. Type: text
 #. Description
@@ -186,7 +184,7 @@ msgstr "키보드를 시험하기 위해서 여기에 입력해 보십시오"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "키보드 레이아웃 찾기"
 
 #. Type: text
 #. Description
@@ -949,7 +947,7 @@ msgstr "하드웨어 구성 중..."
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "서드-파티(third-party) 프로그램 설치 중..."
 
 #. Type: text
 #. Description
@@ -973,13 +971,13 @@ msgstr "부트 로더 구성 중..."
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "설치된 패키지 저장 중..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "이전에 설치된 패키지 복구 중..."
 
 #. Type: text
 #. Description
@@ -1603,6 +1601,8 @@ msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
 msgstr ""
+"${OS}의 모든 프로그램, 문서, 사진, 음악 그리고 다른 것들을 <b>삭제</b>할 것입"
+"니다."
 
 #. Type: text
 #. Description
@@ -1638,7 +1638,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "${CURDISTRO}를 ${VER}로 업그레이드"
 
 #. Type: text
 #. Description
@@ -1668,7 +1668,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "디스크를 삭제하고 ${DISTRO} 설치"
 
 #. Type: text
 #. Description
@@ -1682,7 +1682,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "모두 삭제하고 재설치"
 
 #. Type: text
 #. Description
@@ -1696,7 +1696,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:250001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "${CURDISTRO} 재설치"
 
 #. Type: text
 #. Description
@@ -1705,6 +1705,7 @@ msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
 msgstr ""
+"모든 문서와 프로그램 등을 유지하고 ${CURDISTRO}를 재설치할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -1781,81 +1782,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "패키지를 제거합니다"
-
-#~ msgid "Advanced Options"
-#~ msgstr "고급 옵션"
-
-#~ msgid "Install boot loader"
-#~ msgstr "부트 로더 설치"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "패키지 사용에 관한 설문 참여"
-
-#~ msgid "Network proxy"
-#~ msgstr "네트워크 프록시"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP 프록시:"
-
-#~ msgid "Port:"
-#~ msgstr "포트:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " 언어: ${LANGUAGE}\n"
-#~ " 키보드 배치: ${KEYMAP}\n"
-#~ " 이름: ${FULLNAME}\n"
-#~ " 로그인 이름: ${USERNAME}\n"
-#~ " 위치: ${LOCATION}\n"
-#~ " 이전 도우미: ${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "가장 큰 연속된 공간 사용"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "수동으로 파티션 조정(고급)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "몇가지 질문에만 답해주시면, 곧바로 컴퓨터를 사용하실 수 있습니다."
-
-#~ msgid "Popularity contest"
-#~ msgstr "인기도 설문"
-
-#~ msgid "Summary"
-#~ msgstr "요약"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "설치할 준비가 되셨습니까? 몇가지 질문에 대답하시면, 라이브 ${MEDIUM}의 내"
-#~ "용들이 컴퓨터에 설치되어서 ${MEDIUM}없이도 ${RELEASE}를 최고 속도로 실행"
-#~ "할 수 있습니다."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "이것은 ${RELEASE} 라이브 ${MEDIUM}설치 시험 배포판입니다. ${RELEASE}의 최"
-#~ "종 배포판은 2010년 10월에 발표됩니다."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "키보드 배열 파악"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "키보드 구성 알아내기"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "다른 운영체제에 더불어 설치하기"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "이전 파티션을 삭제하고 디스크 전체를 사용"

@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Paleisti naują sistemą"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1796,79 +1794,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Sudėtingesnės parinktys"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Įdiegti sistemos paleidimo programą"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Populiarumo varžybos"
-
-#~ msgid "Network proxy"
-#~ msgstr "Tinklo proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Prievadas:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Kalba: ${LANGUAGE}\n"
-#~ " Klaviatūros išdėstymas: ${KEYMAP}\n"
-#~ " Vardas, pavardė: ${FULLNAME}\n"
-#~ " Prisijungimo vardas: ${USERNAME}\n"
-#~ " Vieta: ${LOCATION}\n"
-#~ " Duomenų bei nustatymų importavimas:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
-
-#~ msgid "Summary"
-#~ msgstr "Santrauka"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Dalyvauti paketų naudojimo apžvalgoje"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Ištrinti viską diske - naudoti visą diską"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Pasiruošę įdiegimui? Atsakykite į kelis klausimus ir ${MEDIUM} turinys "
-#~ "bus įdiegtas į šį kompiuterį, kad galėtumėte naudoti ${RELEASE} visu "
-#~ "greičiu be ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra "
-#~ "galutinė laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Nustatyti klaviatūros klavišų išdėstymą"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Įdiegti šalia kitų operacinių sistemų"

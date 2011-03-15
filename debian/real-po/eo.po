@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Rekomencu nun"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1787,84 +1785,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Altnivelaj Opcioj"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instali praŝargilon"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Konkurso pri populareco"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Partoprenu pritaksadon de uzo de pakoj"
-
-#~ msgid "Network proxy"
-#~ msgstr "Reta prokurilo"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-prokurilo"
-
-#~ msgid "Port:"
-#~ msgstr "Pordo:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Lingvo: ${LANGUAGE}\n"
-#~ " Klavara aranĝo: ${KEYMAP}\n"
-#~ " Nomo: ${FULLNAME}\n"
-#~ " Salutnomo: ${USERNAME}\n"
-#~ " Loko: ${LOCATION}\n"
-#~ " Migra Asistilo:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Respondinte kelkajn demandojn, ĉi tiu komputilo estos preta por uzo."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Viŝi kaj uzi la tutan diskon"
-
-#~ msgid "Summary"
-#~ msgstr "Resumo"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Ĉu preta por instali? Respondinte kelkajn demandojn, la enhavo de la viva "
-#~ "${MEDIUM} povas esti instalata al tiu ĉi komputilo por ke vi povu ruli "
-#~ "${RELEASE}-n plenrapide sen la ${MEDIUM}."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Uzi la plej grandan seninterrompan spacon"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifi diskpartojn mane (progresinte)"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tio ĉi estas antaŭ-eldono de la viva ${MEDIUM}-instalilo de ${RELEASE}. "
-#~ "Ĝi ne estas definitiva eldono; tiu venos kun la fina eldono de ${RELEASE} "
-#~ "en oktobro 2010"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Eltrovi klavarfasonon"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Eltrovi klavarfasonon"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instali apud aliaj operaciumoj"

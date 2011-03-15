@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-03-04 13:43+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
+"PO-Revision-Date: 2011-03-10 10:49+0000\n"
+"Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Käynnistä uudelleen nyt"
+msgstr "Käynnistä uudelleen jatkaaksesi"
 
 #. Type: text
 #. Description
@@ -1822,84 +1820,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Käytä suurinta yhtenäistä vapaata tilaa"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Lisäasetukset"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Asenna alkulatausohjelma"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Suosiokilpailu"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Osallistu pakettien käyttömäärien tutkimukseen"
-
-#~ msgid "Network proxy"
-#~ msgstr "Verkon välipalvelin"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-välipalvelin:"
-
-#~ msgid "Port:"
-#~ msgstr "Portti:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Kieli: ${LANGUAGE}\n"
-#~ " Näppäimistön asettelu: ${KEYMAP}\n"
-#~ " Nimi: ${FULLNAME}\n"
-#~ " Kirjautumisnimi: ${USERNAME}\n"
-#~ " Sijainti: ${LOCATION}\n"
-#~ " Siirtoapulainen:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Tyhjennä ja käytä koko levyä"
-
-#~ msgid "Summary"
-#~ msgstr "Yhteenveto"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Määritä osiot itse (edistyneille)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Vastattuasi muutamaan kysymykseen tietokone on valmis käytettäväksi."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tämä on ${RELEASE} -esijulkaisun (${MEDIUM}) asennusohjelma. Se ei ole "
-#~ "asennusohjelman lopullinen versio. Lopullinen ${RELEASE} -julkaisu "
-#~ "ilmestyy lokakuussa 2010."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Valmiina asennukseen? Vastaa muutamaan kysymykseen, niin ${MEDIUM}:n "
-#~ "sisältö asennetaan koneellesi. Asennuksen jälkeen ${RELEASE} toimii "
-#~ "nopeasti ilman ${MEDIUM}:n tarvetta."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Selvitä näppäimistön asettelu"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Päättele näppäimistön asettelu"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Asenna muiden käyttöjärjestelmien rinnalle"

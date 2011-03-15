@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-03-04 10:41+0000\n"
+"PO-Revision-Date: 2011-03-15 06:51+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Taaskäivita kohe"
+msgstr "Jätkamiseks taaskäivita"
 
 #. Type: text
 #. Description
@@ -1809,84 +1807,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Paigalda alglaadur"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Populaarsusvõistlus"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Osale pakettide kasutamise uuringus"
-
-#~ msgid "Network proxy"
-#~ msgstr "Võrgu puhverserver (proxy)"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP puhverserver (proxy)"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Summary"
-#~ msgstr "Kokkuvõte"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Üksikasjalikumad valikud"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "See arvuti on kasutusvalmis niipea, kui oled vastanud mõnele küsimusele."
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Keel: ${LANGUAGE}\n"
-#~ " Klahvistiku asetus: ${KEYMAP}\n"
-#~ " Nimi: ${FULLNAME}\n"
-#~ " Kasutajanimi: ${USERNAME}\n"
-#~ " Asukoht: ${LOCATION}\n"
-#~ " Ülekandeabiline:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Kasutatakse suurimat järjestikust vaba ruumi"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Partitsioonide käsitsi määramine (keeruline)"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Kas oled valmis paigaldama? Selleks, et paigaldada hetkel ${MEDIUM}'lt "
-#~ "käivitatud operatsioonisüsteem sellesse arvutisse, tuleb vastata mõnele "
-#~ "küsimusele. Kui ${RELEASE} on paigaldatud, siis saad seda kasutada "
-#~ "täiskiirusel ja ${MEDIUM}'d pole enam käivitamiseks vaja."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Tuvasta klaviatuuripaigutus"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Klaviatuuripaigutuse tuvastamine"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "See on ${RELEASE} eelväljalaske paigaldaja live-${MEDIUM}. See ei ole "
-#~ "lõplik väljalase. Lõplik väljalase ${RELEASE} on oktoobris 2010."
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Paigaldatakse teiste operatsioonisüsteemide kõrvale"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Kõik andmed kustutatakse kettalt ja kasutatakse vabanenud ruumi"

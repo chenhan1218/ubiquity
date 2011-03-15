@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-01-21 14:45+0000\n"
-"Last-Translator: Qiu Haoyu <Unknown>\n"
+"PO-Revision-Date: 2011-03-12 02:58+0000\n"
+"Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "现在重启"
+msgstr "重新启动后继续"
 
 #. Type: text
 #. Description
@@ -31,7 +29,7 @@ msgstr "现在重启"
 #. Description
 #: ../ubiquity.templates:4001 ../ubiquity.templates:244001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "手动设置 (高级)"
 
 #. Type: text
 #. Description
@@ -41,7 +39,7 @@ msgstr ""
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "程序自作聪明？自己动手更改高级分区选项。"
 
 #. Type: text
 #. Description
@@ -56,7 +54,7 @@ msgstr "安装"
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "安装(OEM 模式，仅供制造商使用)"
+msgstr "安装 (OEM 模式，仅供制造商使用)"
 
 #. Type: text
 #. Description
@@ -84,8 +82,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"如果您已经准备完毕，您可以与现有系统并存(或者替代)方式将${RELEASE} 安装到您的"
-"电脑上。此过程无需耗时太久。"
+"如果您已经准备完毕，您可以与现有系统并存 (或者替代) 方式将 ${RELEASE} 安装到"
+"您的电脑上。此过程无需耗时太久。"
 
 #. Type: text
 #. Description
@@ -146,7 +144,7 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"安装进程中可能会在您的硬盘上改变分区大小或者擦除分区。请确保在开始运行这个程"
+"安装进程中可能会在您的硬盘上改变分区大小或者清除分区。请确保在开始运行这个程"
 "序之前 <b>备份所有重要数据</b>。"
 
 #. Type: text
@@ -171,7 +169,7 @@ msgstr "键盘布局"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
-msgstr "选择您的键盘布局"
+msgstr "选择您的键盘布局："
 
 #. Type: text
 #. Description
@@ -183,19 +181,19 @@ msgstr "在这里输入以测试您的键盘"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "探测键盘布局"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "探测键盘布局..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Please press one of the following keys:"
-msgstr "请按如下按键："
+msgstr "请按以下按键："
 
 #. Type: text
 #. Description
@@ -291,7 +289,7 @@ msgstr "密码强度：过短"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Weak password"
-msgstr "密码强度：过弱"
+msgstr "密码强度：较弱"
 
 #. Type: text
 #. Description
@@ -303,7 +301,7 @@ msgstr "密码强度：合理"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Good password"
-msgstr "密码强度：良好"
+msgstr "密码强度：较好"
 
 #. Type: text
 #. Description
@@ -361,7 +359,7 @@ msgstr "分配磁盘空间"
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "文件 (${SIZE})"
 
 #. Type: text
 #. Description
@@ -385,7 +383,7 @@ msgstr "这台计算机已安装了 ${OS} 操作系统。"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "This computer has several operating systems on it."
-msgstr "这台计算机安装了数个操作系统。"
+msgstr "这台计算机安装了多个操作系统。"
 
 #. Type: text
 #. Description
@@ -404,7 +402,7 @@ msgstr "准备分区"
 #. SYSTEMS is a comma-separated list of operating systems present on the disk.
 #: ../ubiquity.templates:58001
 msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-msgstr "这将会删除 ${SYSTEMS} 然后安装 ${RELEASE}。"
+msgstr "这将会删除 ${SYSTEMS} 并安装 ${RELEASE}。"
 
 #. Type: text
 #. Description
@@ -429,7 +427,7 @@ msgstr "您的新操作系统将采用以下设置进行安装："
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Advanced..."
-msgstr "高级的..."
+msgstr "高级..."
 
 #. Type: text
 #. Description
@@ -455,13 +453,13 @@ msgstr "退出安装？"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Do you really want to quit the installation now?"
-msgstr "您确定现在要退出安装吗？"
+msgstr "您确定要退出安装吗？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Bootloader install failed"
-msgstr "启动引导程序安装失败"
+msgstr "安装启动引导程序失败"
 
 #. Type: text
 #. Description
@@ -488,7 +486,7 @@ msgstr "继续，不安装启动引导程序。"
 #: ../ubiquity.templates:71001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "您将必须手动安装一个启动引导程序来启动 &{RELEASE}。"
+msgstr "您必须手动安装一个启动引导程序来启动 &{RELEASE}。"
 
 #. Type: text
 #. Description
@@ -536,7 +534,7 @@ msgstr "现在重启"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "现在关机"
 
 #. Type: text
 #. Description
@@ -558,9 +556,9 @@ msgid ""
 "and /var/log/partman:"
 msgstr ""
 "对不起，安装程序已崩溃。请前往 https://launchpad.net/ubuntu/+source/ubiquity/"
-"+filebug?no-redirect 提交一个新的错误报告(请不要附加到已有的 bug 上)，开发者"
-"会尽快处理这个问题。为了让开发者更好的明白问题所在，请将下列信息包含在报告"
-"中，并且将 /var/log/syslog 和 /var/log/partman 作为附件上传："
+"+filebug?no-redirect 提交一个新的错误报告 (不要附加到已有的 bug 上)，开发者会"
+"尽快处理这个问题。为了让开发者更好地明白问题所在，请将下列信息包含在报告中，"
+"并且将 /var/log/syslog 和 /var/log/partman 作为附件上传："
 
 #. Type: text
 #. Description
@@ -834,8 +832,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"这通常是由 CD/DVD碟片或驱动器错误造成的。清洁光盘、低速刻录光盘， 或者清洁光"
-"驱激光头可能会解决问题(清洁套装通常可在电子设备供应商处买到)。"
+"这通常是由 CD/DVD 碟片或驱动器错误造成的。清洁光盘、使用低速刻录光盘或者清洁"
+"光驱激光头可能会解决问题 (清洁套装通常可在电子设备供应商处买到)。"
 
 #. Type: error
 #. Description
@@ -865,9 +863,9 @@ msgid ""
 "replacement, or to move the system to a cooler environment."
 msgstr ""
 "这通常是由于 CD/DVD 盘片或驱动器有问题，或是硬盘错误造成的。以下措施可能有助"
-"于解决问题：清洁盘片、低速刻录或者清洁 CD/DVD 驱动器镜头(清洁工具通常可在电子"
-"设备供应商处获得)、检查硬盘是否太旧而需要更换或者把硬盘放置到散热良好的环境"
-"中。"
+"于解决问题：清洁盘片、低速刻录或者清洁 CD/DVD 驱动器激光头 (清洁工具通常可在"
+"电子设备供应商处获得)、检查硬盘是否太旧而需要更换或者把硬盘放置到散热良好的环"
+"境中。"
 
 #. Type: select
 #. Description
@@ -933,7 +931,7 @@ msgstr "正在配置硬件..."
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "正在安装第三方软件..."
 
 #. Type: text
 #. Description
@@ -957,13 +955,13 @@ msgstr "正在配置引导程序..."
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "正在保存安装的软件包..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "正在恢复刚刚安装的软件包..."
 
 #. Type: text
 #. Description
@@ -993,7 +991,7 @@ msgstr "正在检查要删除的软件包…"
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "正在下载软件包(剩余时间 ${TIME})..."
+msgstr "正在下载软件包 (剩余时间 ${TIME})..."
 
 #. Type: text
 #. Description
@@ -1005,7 +1003,7 @@ msgstr "正在下载软件包列表..."
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "正在下载软件包列表(剩余时间 ${TIME})..."
+msgstr "正在下载软件包列表 (剩余时间 ${TIME})..."
 
 #. Type: error
 #. Description
@@ -1055,7 +1053,7 @@ msgid ""
 msgstr ""
 "这个错误可能是由于您使用了一个旧的安装镜像所造成，也可能是由上面所列出的某些"
 "包中的错误所造成。您可以在“/var/log/syslog”中找到更多细节。安装程序将继续运"
-"行，但有可能会安装失败，而且会造成您无法在已经安装的系统中安装或删除其他的包"
+"行，但有可能会安装失败，而且会造成您无法在已经安装的系统中安装或删除其他的包 "
 "(可能包括这个程序自身)。建议使用一个新版本的安装镜像，或把这个问题报告给程序"
 "的发布者。"
 
@@ -1086,14 +1084,14 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"在迁移数据时发生了一个错误。更多细节请参阅 /var/log/syslog。安装程序将会继"
-"续，但是您请求的部分或者全部文档或者设置可能不会迁移到新安装的系统上。"
+"在迁移数据时发生错误。更多细节请参阅 /var/log/syslog。安装程序将会继续，但是"
+"您请求的一些文档或设置可能不会迁移到新安装的系统上。"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Error copying network configuration"
-msgstr "复制网络配置错误"
+msgstr "复制网络设置错误"
 
 #. Type: error
 #. Description
@@ -1103,8 +1101,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"在复制网络设置时发生一个错误。安装程序将会继续，但是您必须在新安装的系统上再"
-"次设置网络配置。"
+"在复制网络设置时发生错误。安装程序将会继续，但是您必须在新安装的系统上再次配"
+"置网络设置。"
 
 #. Type: text
 #. Description
@@ -1128,7 +1126,7 @@ msgstr "正在安装语言包"
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "正在下载语言包(剩余 ${TIME})..."
+msgstr "正在下载语言包 (剩余 ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1298,14 +1296,14 @@ msgstr "升级安装程序时发生错误"
 #. Description
 #: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "安装程序在尝试自我更新时发生一个错误："
+msgstr "安装程序在自我更新时发生一个错误："
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:197001
 msgid "USB disk"
-msgstr "USB 磁盘"
+msgstr "USB 盘"
 
 #. Type: text
 #. Description
@@ -1328,7 +1326,7 @@ msgstr "请选择安装过程中使用的语言。这个语言将成为这个计
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr "请选择配置阶段中所使用的语言，该语言将会成为这台计算机的默认语言。"
+msgstr "请选择配置阶段中要使用的语言，该语言将会成为这台计算机的默认语言。"
 
 #. Type: text
 #. Description
@@ -1351,14 +1349,14 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"安装程序遇到了不可修复的错误。现在将会运行一个桌面会话以便您可以探究问题所在"
+"安装程序遇到了一个不可修复的错误。现在将会运行一个桌面会话以便您探究问题所在"
 "或尝试再次安装。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
 msgid "The installer encountered an unrecoverable error and will now reboot."
-msgstr "安装程序遇到了一个不可修复的错误，且现在需要重新引导。"
+msgstr "安装程序遇到了一个不可修复的错误，现在将会重新启动。"
 
 #. Type: text
 #. Description
@@ -1558,7 +1556,7 @@ msgstr "[在此输入以更改]"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "将 ${OS} 替换为 ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1566,13 +1564,13 @@ msgstr ""
 msgid ""
 "This will <b>erase</b> all of your ${OS} programs, documents, photos, music, "
 "and any other files."
-msgstr ""
+msgstr "这将会<b>删除</b> ${OS} 中的全部程序、文档、图片、音乐等等所有文件。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} alongside it"
-msgstr ""
+msgstr "并存安装 ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1582,13 +1580,13 @@ msgstr ""
 msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
-msgstr ""
+msgstr "不会删除文件。您可以在每次电脑启动的时候选择操作系统。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "删除 ${CURDISTRO} 并重新安装"
 
 #. Type: text
 #. Description
@@ -1597,12 +1595,13 @@ msgid ""
 "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
 "music, and any other files."
 msgstr ""
+"将会<b>删除</b> ${CURDISTRO} 中的全部程序、文档、图片、音乐等等所有文件。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "升级 ${CURDISTRO} 到 ${VER}"
 
 #. Type: text
 #. Description
@@ -1610,13 +1609,13 @@ msgstr ""
 msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
-msgstr ""
+msgstr "您可以升级 ${CURDISTRO} 且不丢失任何重要的文档和程序。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside"
-msgstr ""
+msgstr "并存安装 ${DISTRO} ${VER}"
 
 #. Type: text
 #. Description
@@ -1624,7 +1623,7 @@ msgstr ""
 msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
-msgstr ""
+msgstr "还在牢笼里？您可以并存安装 ${DISTRO} ${VER} 且不影响 ${CURDISTRO}。"
 
 #. Type: text
 #. Description
@@ -1632,7 +1631,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "清除整个磁盘并安装 ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1640,13 +1639,13 @@ msgstr ""
 msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
-msgstr ""
+msgstr "要来个大冒险？这会清除您的整个硬盘并安装 ${DISTRO}。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "删除全部并重新安装"
 
 #. Type: text
 #. Description
@@ -1655,12 +1654,14 @@ msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and "
 "other files in both ${OS} and ${CURDISTRO}."
 msgstr ""
+"这将会<b>删除</b> ${OS} 和 ${CURDISTRO} 中的全部程序、文档、图片、音乐等等所"
+"有文件。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:250001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "重新安装 ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1668,7 +1669,7 @@ msgstr ""
 msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
-msgstr ""
+msgstr "您可以重新安装 ${CURDISTRO} 且不丢失任何重要文档和程序。"
 
 #. Type: text
 #. Description
@@ -1676,13 +1677,13 @@ msgstr ""
 msgid ""
 "This will <b>erase</b> all your programs, documents, photos, music, and any "
 "other files in all operating systems."
-msgstr ""
+msgstr "这将会<b>删除</b>所有系统中的全部程序、文档、图片、音乐等等所有文件。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "并存安装 ${DISTRO}"
 
 #. Type: title
 #. Description
@@ -1724,8 +1725,8 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"重启进入新的系统之后，您将能够以'oem'用户的身份，用刚才所选定的密码登录；此用"
-"户也有运行 'sudo' 的管理权限。您将可以根据需要对系统作任何进一步的修改。"
+"重启进入新的系统之后，您能够以“oem”用户的身份用刚才选定的密码登录；此用户也"
+"有“sudo”管理权限。您将可以根据需要对系统作进一步的修改。"
 
 #. Type: text
 #. Description
@@ -1735,90 +1736,11 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"一旦按您的需要配置好系统，请执行 ‘oem-config-prepare' 。这将导致系统删除临时"
-"用户 'oem' ，并在下一次启动时询问最终用户各种配置问题。"
+"一旦按您的需要配置好系统，请执行“oem-config-prepare” 。系统将会删除临时用"
+"户“oem”并在下次启动时询问用户各种配置问题。"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在删除软件包"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "手动指定分区(高级)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "高级选项"
-
-#~ msgid "Popularity contest"
-#~ msgstr "流行度对比"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "参加软件包使用调查"
-
-#~ msgid "Network proxy"
-#~ msgstr "网络代理"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP 代理："
-
-#~ msgid "Port:"
-#~ msgstr "端口："
-
-#~ msgid "Summary"
-#~ msgstr "概要"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "清空并使用整个硬盘"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "使用最大的连续空闲空间"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "在回答一些问题以后，这台电脑就可以使用了。"
-
-#~ msgid "Install boot loader"
-#~ msgstr "安装引导程序"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " 语言：${LANGUAGE}\n"
-#~ " 键盘布局：${KEYMAP}\n"
-#~ " 全名：${FULLNAME}\n"
-#~ " 登录名：${USERNAME}\n"
-#~ " 位置：${LOCATION}\n"
-#~ " 迁移助手：\n"
-#~ " ${MIGRATE}"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "准备好安装了吗？一旦您完成回答几个问题，这张 Live ${MEDIUM} 上的内容就可以"
-#~ "被安装到这台计算机上。这样您便可以不再需要这张 ${MEDIUM}，并且以全速来运"
-#~ "行 ${RELEASE}。"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "决定键盘布局"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "这是${RELEASE} 的 Live ${MEDIUM} 的预览版安装程序，它还不是最终版本， 最终"
-#~ "版会在2010年十月 ${RELEASE} 发布时一并推出。"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "查看键盘布局"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "与其他操作系统共存"

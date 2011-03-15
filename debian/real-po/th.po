@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-03-03 10:00+0000\n"
+"PO-Revision-Date: 2011-03-09 01:24+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "เริ่มระบบใหม่เดี๋ยวนี้"
+msgstr "เริ่มเครื่องใหม่เพื่อทำต่อ"
 
 #. Type: text
 #. Description
@@ -41,7 +39,7 @@ msgstr "กำหนดเอง (ขั้นสูง)"
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "ปรับแต่งพาร์ทิชั่นด้วยตัวเลือกขั้นสูง"
 
 #. Type: text
 #. Description
@@ -137,6 +135,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"นี่เป็นรุ่นก่อนรุ่นจริงของ ${RELEASE} live ${MEDIUM} ติดตั้ง ยังไม่ใช่รุ่นสุดท้ายซึ่งจะมาใน "
+"${RELEASE} ในเมษายน 2554"
 
 #. Type: text
 #. Description
@@ -363,7 +363,7 @@ msgstr "จัดสรรพื้นที่ว่างบนไดรว์
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "แฟ้ม (${SIZE})"
 
 #. Type: text
 #. Description
@@ -936,7 +936,7 @@ msgstr "กำลังตั้งค่าฮาร์ดแวร์..."
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "กำลังติดตั้งซอฟต์แวร์จากบุคคลที่สาม..."
 
 #. Type: text
 #. Description
@@ -966,7 +966,7 @@ msgstr "กำลังบันทึกแพกเกจที่ติดต
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "กำลังกู้คืนแพกเกจที่ติดตั้งเมื่อครั้งที่แล้ว..."
 
 #. Type: text
 #. Description
@@ -1590,7 +1590,7 @@ msgstr "ติดตั้ง ${DISTRO} ไว้คู่กัน"
 msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
-msgstr ""
+msgstr "ไม่มีแฟ้มที่จะลบ คุณสามารถเลือกระบบปฏิบัติการที่คุณต้องการในแต่ละครั้งที่เริ่มคอมพิวเตอร์ได้"
 
 #. Type: text
 #. Description
@@ -1618,7 +1618,7 @@ msgstr "ปรับปรุง ${CURDISTRO} เป็น ${VER}"
 msgid ""
 "You can upgrade ${CURDISTRO} without losing any of your important documents "
 "or applications."
-msgstr ""
+msgstr "คุณสามารถปรับรุ่น ${CURDISTRO} โดยไม่สูญเสียเอกสารที่สำคัญหรือโปรแกรมใด ๆ"
 
 #. Type: text
 #. Description
@@ -1633,6 +1633,8 @@ msgid ""
 "Still on the fence? You can install ${DISTRO} ${VER} alongside your existing "
 "copy of ${CURDISTRO}."
 msgstr ""
+"ยังติดอยู่ในหน้าต่างอย่างนั้นหรือ? คุณสามารถติดตั้ง ${DISTRO} ${VER} คู่ไปกับสำเนาของ "
+"${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1648,7 +1650,7 @@ msgstr "ลบดิสก์และติดตั้ง ${DISTRO}"
 msgid ""
 "Ready to take the plunge? A clean install erases your entire hard disk and "
 "installs ${DISTRO}."
-msgstr ""
+msgstr "พร้อมที่จะกระโดดแล้วหรือ? ติดตั้งแบบสะอาดโดยลบฮาร์ดดิสก์ทั้งหมดและติดตั้ง ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1678,7 +1680,7 @@ msgstr "ติดตั้ง ${CURDISTRO} ใหม่"
 msgid ""
 "You can reinstall ${CURDISTRO} without losing any of your important "
 "documents or applications."
-msgstr ""
+msgstr "คุณสามารถติดตั้ง ${CURDISTRO} ใหม่ โดยไม่สูญเสียเอกสารที่สำคัญหรือโปรแกรมใด ๆ"
 
 #. Type: text
 #. Description
@@ -1755,82 +1757,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "ใช้พื้นที่ว่างต่อเนื่องที่ใหญ่ที่สุด"
-
-#~ msgid "Advanced Options"
-#~ msgstr "ตัวเลือกขั้นสูง"
-
-#~ msgid "Install boot loader"
-#~ msgstr "ติดตั้งบูตโหลดเดอร์"
-
-#~ msgid "Port:"
-#~ msgstr "พอร์ต:"
-
-#~ msgid "Summary"
-#~ msgstr "ภาพรวม"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "ลบและใช้พื้นที่ดิสก์ทั้งหมด"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "กำหนดพาร์ทิชันเอง (ขั้นสูง)"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "เข้าร่วมในการสำรวจการใช้งานแพกเกจ"
-
-#~ msgid "Network proxy"
-#~ msgstr "พร็อกซีเครือข่าย"
-
-#~ msgid "Popularity contest"
-#~ msgstr "ประกวดความนิยม"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "พร็อกซี HTTP:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " ภาษา: ${LANGUAGE}\n"
-#~ " แป้นพิมพ์: ${KEYMAP}\n"
-#~ " ชื่อ: ${FULLNAME}\n"
-#~ " ชื่อในการเข้าระบบ: ${USERNAME}\n"
-#~ " ตำแหน่ง: ${LOCATION}\n"
-#~ " ผู้ช่วยเหลือในการโอนย้าย:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "เพียงคุณตอบคำถามไม่กี่ข้อ คอมพิวเตอร์เครื่องนี้ก็จะพร้อมใช้งาน"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
-#~ "ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "ตรวจหาผังแป้นพิมพ์"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "พร้อมที่จะติดตั้งแล้วหรือไม่? เพียงคุณตอบคำถามไม่กี่คำถาม ข้อมูลของ ${MEDIUM} "
-#~ "จะถูกติดตั้งลงบนคอมพิวเตอร์ คุณสามารถเรียกใช้ ${RELEASE} "
-#~ "ได้อย่างเต็มความสามารถโดยไม่ต้องใช้ ${MEDIUM} อีกต่อไป"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "ตรวจหาผังแป้มพิมพ์"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "ติดตั้งคู่กับระบบปฏิบัติการอื่น"

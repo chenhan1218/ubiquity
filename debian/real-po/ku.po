@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Niha ji nûve bide destpêkirin"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1737,48 +1735,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Qada vala ya heri fireh û biberdewamî bi karbîne"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Patîsyona bidestan nîşanbide(Pêşketî)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Vebijêrkên pêşkeftî"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Barkera boot saz bike"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Bertekên naskirî"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Tev li lêkolîna bikaranîna pakêtê bibe"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proksiya Torê"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proksiya HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Ziman: ${LANGUAGE}\n"
-#~ " Rengê klavyeyê: ${KEYMAP}\n"
-#~ " Nav: ${FULLNAME}\n"
-#~ " Navê têketinê: ${USERNAME}\n"
-#~ " Cî: ${LOCATION}"
-
-#~ msgid "Summary"
-#~ msgstr "Kurte"

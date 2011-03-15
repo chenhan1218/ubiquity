@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Reinicia ara"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1809,87 +1807,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Utilitza l'espai lliure continu més gran"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificació manual de les particions (avançat)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opcions avançades"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instal·la el carregador"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurs de popularitat"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participeu a l'enquesta d'utilització de paquets"
-
-#~ msgid "Network proxy"
-#~ msgstr "Servidor intermediari de xarxa"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Servidor intermediari HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Llengua:${LANGUAGE}\n"
-#~ " Disposició del teclat: ${KEYMAP}\n"
-#~ " Nom: ${FULLNAME}\n"
-#~ " Nom d'entrada: ${USERNAME}\n"
-#~ " Ubicació: ${LOCATION}\n"
-#~ " Assistent de migració:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Summary"
-#~ msgstr "Resum"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Esborra el disc i utilitza'l per complet"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "L'ordinador estarà a punt per a fer-lo servir un cop hàgiu respost unes "
-#~ "quantes preguntes."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Esteu a punt per instal·lar? Un cop hàgiu respost a unes poques "
-#~ "preguntes, el contingut del ${MEDIUM} autònom es podrà instal·lar en "
-#~ "aquest ordinador de manera que podreu executar ${RELEASE} a velocitat "
-#~ "màxima sense fer servir el ${MEDIUM}."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Esbrina la disposició del teclat"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Endevina la disposició del teclat"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instal·la'l juntament amb els altres sistemes operatius"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Aquesta es una versió prèvia de l'instal·lador del sistema operatiu "
-#~ "${RELEASE} mitjançant un ${MEDIUM} autònom. No és una versió definitiva; "
-#~ "aquesta arribarà quan s'alliberi la versió final de la distribució "
-#~ "${RELEASE} a l'Octubre de 2010."

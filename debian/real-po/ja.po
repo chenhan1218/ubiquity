@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2010-10-02 15:39+0000\n"
+"PO-Revision-Date: 2011-03-08 07:11+0000\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:00+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "今すぐ再起動する"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -66,10 +64,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"PC製造業者用のOEMモードでインストールします。"
-"このPCのシリーズ (または製造ロット) を示す固有の名前を入力してください。"
-"この名前はインストールされたシステムに保存され、バグレポート時の情報として使"
-"用できます。"
+"PC製造業者用のOEMモードでインストールします。このPCのシリーズ (または製造ロッ"
+"ト) を示す固有の名前を入力してください。この名前はインストールされたシステム"
+"に保存され、バグレポート時の情報として使用できます。"
 
 #. Type: text
 #. Description
@@ -1082,13 +1079,12 @@ msgid ""
 "distributor."
 msgstr ""
 "このエラーは、古いインストールイメージを使用したか、上記のパッケージのバグに"
-"よって発生した可能性があります。"
-"より詳細な情報は、/var/log/syslog を確認してください。"
-"インストーラはインストールを続行しますが、この先で失敗する可能性があり、イン"
-"ストール済みのPCから他のパッケージ（上記のパッケージもおそらく含まれます）の"
-"インストールや削除ができなくなる可能性があります。"
-"まず最新のインストールイメージを探した上で、それでも失敗するなら問題点を製造"
-"元に報告してください。"
+"よって発生した可能性があります。より詳細な情報は、/var/log/syslog を確認して"
+"ください。インストーラはインストールを続行しますが、この先で失敗する可能性が"
+"あり、インストール済みのPCから他のパッケージ（上記のパッケージもおそらく含ま"
+"れます）のインストールや削除ができなくなる可能性があります。まず最新のインス"
+"トールイメージを探した上で、それでも失敗するなら問題点を製造元に報告してくだ"
+"さい。"
 
 #. Type: error
 #. Description
@@ -1781,10 +1777,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"新しいシステムで起動した時、'oem'ユーザとして最初に選択したパスワードでログイ"
-"ンすることができます。このユーザは'sudo'を使うことで管理に必要な特権を扱うこ"
-"とができます。"
-"これにより、必要な追加や変更をシステムに加えることができます。"
+"新しいシステムで起動した時に、'oem'ユーザとして最初に選択したパスワードでログ"
+"インすることができます。このユーザは'sudo'を使うことで管理に必要な特権を扱う"
+"ことができます。これにより、必要な追加や変更をシステムに加えることができま"
+"す。"
 
 #. Type: text
 #. Description
@@ -1795,94 +1791,11 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "システムを満足のいく状態に設定したら、'oem-config-prepare' を実行してくださ"
-"い。"
-"この操作により一時的に作成した 'oem' ユーザが削除され、"
-"次にPCが起動する際にエンドユーザにいくつかの設定に関する質問を行います。"
+"い。この操作により一時的に作成した 'oem' ユーザが削除され、次にPCが起動する際"
+"にエンドユーザにいくつかの設定に関する質問を行います。"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "連続する最大の空き領域を使用する"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "手動でパーティションを設定する（高度な知識が必要です）"
-
-#~ msgid "Advanced Options"
-#~ msgstr "詳細オプション"
-
-#~ msgid "Install boot loader"
-#~ msgstr "ブートローダーをインストール"
-
-#~ msgid "Popularity contest"
-#~ msgstr "人気投票"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "パッケージの使用調査に参加してください"
-
-#~ msgid "Network proxy"
-#~ msgstr "ネットワークのプロキシ"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP プロキシ:"
-
-#~ msgid "Port:"
-#~ msgstr "ポート番号:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " 言語: ${LANGUAGE}\n"
-#~ " キーボードレイアウト: ${KEYMAP}\n"
-#~ " フルネーム: ${FULLNAME}\n"
-#~ " ログイン名: ${USERNAME}\n"
-#~ " 地域: ${LOCATION}\n"
-#~ " 移行アシスタント:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "ディスク全体を削除してから使用する"
-
-#~ msgid "Summary"
-#~ msgstr "要約"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "いくつかの質問に答えるだけで、このコンピュータをすぐに利用することができま"
-#~ "す。"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "インストールしてもいいですか？いくつかの質問に回答すると live ${MEDIUM} の"
-#~ "内容はこのコンピュータにインストールされ ${MEDIUM} を使わずに本来の速度で "
-#~ "${RELEASE} を動かすことができます。"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "このインストーラは ${RELEASE} ライブ ${MEDIUM} インストーラのプレリリース"
-#~ "版です。最終リリースではありません。${RELEASE} の最終リリースは2010年10月"
-#~ "になります。"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "キーボードレイアウトの検出"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "キーボードレイアウトを検出"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "他の OS と共存させてインストールする"

@@ -7,23 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-07 08:38+0000\n"
-"PO-Revision-Date: 2011-03-04 18:30+0000\n"
+"PO-Revision-Date: 2011-03-10 20:18+0000\n"
 "Last-Translator: Dmitriy \"~SH~ [ms]\" Fedorov <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:00+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:01+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "Перезагрузить"
+msgstr "Перезагрузите для продолжения"
 
 #. Type: text
 #. Description
@@ -1819,84 +1817,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Удаление пакетов"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Расширенные настройки"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Рейтинг популярности"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Участвовать в составлении рейтинга пакетов"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-прокси:"
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid "Summary"
-#~ msgstr "Сводная информация"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Указать разделы вручную (для опытных пользователей)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "После того, как вы ответите на несколько вопросов, этот компьютер будет "
-#~ "готов к работе."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Удалить все данные и использовать весь диск"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Использовать наибольшее свободное пространство на диске"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Догадаться о раскладке клавиатуры"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Готовы к установке? Когда вы ответите на несколько вопросов, содержимое "
-#~ "${MEDIUM} будет установлено на ваш компьютер и ${RELEASE} будет работать "
-#~ "на полную мощность, без необходимости в ${MEDIUM}."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Установить загрузчик ОС"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Язык: ${LANGUAGE}\n"
-#~ "Раскладка клавиатуры: ${KEYMAP}\n"
-#~ "Пользователь: ${FULLNAME}\n"
-#~ "Учётная запись: ${USERNAME}\n"
-#~ "Расположение: ${LOCATION}\n"
-#~ "Помощь в миграции:\n"
-#~ "${MIGRATE}"
-
-#~ msgid "Network proxy"
-#~ msgstr "Прокси-сервер"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Это предрелиз ${RELEASE} установщика ${MEDIUM}. Это не финальный выпуск; "
-#~ "версия ${RELEASE} выйдет официально в октябре 2010 года."
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Установить рядом с другими операционными системами"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Выбрать раскладки клавиатуры"

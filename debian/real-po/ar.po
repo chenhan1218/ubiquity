@@ -14,16 +14,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-07 09:01+0000\n"
-"X-Generator: Launchpad (build 12515)\n"
+"X-Launchpad-Export-Date: 2011-03-15 16:00+0000\n"
+"X-Generator: Launchpad (build 12589)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
-#, fuzzy
-#| msgid "Restart Now"
 msgid "Restart to Continue"
-msgstr "أعد التشغيل الآن"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1763,82 +1761,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "يحذف الحزم"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "حدد الأقسام يدويا (متقدم)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "الخيارات المتقدّمة"
-
-#~ msgid "Install boot loader"
-#~ msgstr "ثبّت محمّل الإقلاع"
-
-#~ msgid "Popularity contest"
-#~ msgstr "مسابقة الشعبية"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "شارك في استبيان استخدام الحزم"
-
-#~ msgid "Network proxy"
-#~ msgstr "وسيط الشبكة"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "وسيط HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "المنفذ:"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "بمجرد إجابتك لبعض الأسئلة سيكون هذا الحاسوب جاهزا للاستخدام."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "امسح القرص واستخدمه كاملا"
-
-#~ msgid "Summary"
-#~ msgstr "ملخّص"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " اللغه: ${LANGUAGE}\n"
-#~ " تخطيط لوحة المفاتيح: ${KEYMAP}\n"
-#~ " الاسم الكامل: ${FULLNAME}\n"
-#~ " اسم الولوج: ${USERNAME}\n"
-#~ " المكان: ${LOCATION}\n"
-#~ " مساعد الانتقال:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "استخدم أكبر مساحة متاحة متصلة"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "ثبّت بجوار أنظمة تشغيل أخرى"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "حدد تخطيط لوحة المفاتيح"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "جاهز للتثبيت؟ بعد إجابتك عن بضعة أسئلة، ستتمكن من تثبيت محتوى ${MEDIUM} "
-#~ "الحي على هذا الحاسوب حيث سيمكنك تشغيل ${RELEASE} بالسرعة الكاملة دون أن "
-#~ "تحتاج ${MEDIUM}."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "حدد تخطيط لوحة المفاتيح"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "هذه إصدارة أولية من مثبت${MEDIUM}  ${RELEASE} الحي. ليست الإصدارة "
-#~ "النهائية التي ستأتي مع إصدارة ${RELEASE} النهائية في أكتوبر 2010."
