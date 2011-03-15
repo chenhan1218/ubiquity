@@ -607,7 +607,7 @@ class Wizard(BaseFrontend):
 
         if self.oem_user_config:
             self.quit_installer()
-        elif not self.get_reboot_seen() or not self.get_shutdown_seen():
+        elif not (self.get_reboot_seen() or self.get_shutdown_seen()):
             self.live_installer.hide()
             if ('UBIQUITY_ONLY' in os.environ or
                 'UBIQUITY_GREETER' in os.environ):

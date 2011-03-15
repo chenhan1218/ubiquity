@@ -10,6 +10,10 @@ ubiquity (2.5.25) UNRELEASED; urgency=low
     partman-auto 93ubuntu10.
   * Update translations from Launchpad.
 
+  [ Daniel Manrique ]
+  * Allow preseeding only ubiquity/reboot to suppress the reboot dialog,
+    without needing to preseed ubiquity/poweroff as well (LP: #727416).
+
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Mar 2011 09:04:37 -0600
 
 ubiquity (2.5.24) natty; urgency=low
