@@ -4,6 +4,8 @@ ubiquity (2.5.27) UNRELEASED; urgency=low
     template no longer exists (LP: #736060).
   * Update imported translations from gtk+2.0 2.24.3-0ubuntu2 and
     gnome-panel 1:2.32.1-0ubuntu6.
+  * Ensure that PartedServer dialogs are always properly closed on
+    exceptional paths.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Mar 2011 12:26:24 +0000
 

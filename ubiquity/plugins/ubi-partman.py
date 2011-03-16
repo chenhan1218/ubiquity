@@ -1949,8 +1949,10 @@ class Page(plugin.Plugin):
                         primary_count = 0
                         ntfs_count = 0
                         parted.open_dialog('GET_MAX_PRIMARY')
-                        max_primary = int(parted.read_line()[0])
-                        parted.close_dialog()
+                        try:
+                            max_primary = int(parted.read_line()[0])
+                        finally:
+                            parted.close_dialog()
 
                     ret = []
                     for partition in parted.partitions():
@@ -2148,8 +2150,10 @@ class Page(plugin.Plugin):
                             if rebuild_all or arg not in self.disk_cache:
                                 device = parted.readline_device_entry('device')
                                 parted.open_dialog('GET_LABEL_TYPE')
-                                label = parted.read_line()
-                                parted.close_dialog()
+                                try:
+                                    label = parted.read_line()
+                                finally:
+                                    parted.close_dialog()
                                 self.disk_cache[arg] = {
                                     'dev': dev,
                                     'device': device,
