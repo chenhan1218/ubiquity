@@ -11,7 +11,6 @@ import shutil
 import contextlib
 
 from ubiquity import osextras
-from ubiquity.parted_server import PartedServer
 
 def is_swap(device):
     swap = False
@@ -129,6 +128,8 @@ def raise_privileges(func):
 def grub_options():
     """ Generates a list of suitable targets for grub-installer
         @return empty list or a list of ['/dev/sda1','Ubuntu Hardy 8.04'] """
+    from ubiquity.parted_server import PartedServer
+
     l = []
     try:
         oslist = {}
@@ -182,6 +183,8 @@ def grub_options():
     return l
 
 def boot_device():
+    from ubiquity.parted_server import PartedServer
+
     boot = None
     root = None
     try:
