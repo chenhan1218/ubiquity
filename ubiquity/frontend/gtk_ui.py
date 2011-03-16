@@ -599,7 +599,7 @@ class Wizard(BaseFrontend):
             while gtk.events_pending():
                 gtk.main_iteration()
 
-        # There's still work to do (postinstall).  Lets keep the user
+        # There's still work to do (postinstall).  Let's keep the user
         # entertained.
         self.start_slideshow()
         gtk.main()

@@ -1933,8 +1933,8 @@ class Page(plugin.Plugin):
             has_wubi = os.path.exists('/cdrom/wubi.exe')
             has_resize = 'resize' in self.extra_options
             try_for_wubi = has_wubi and not has_resize
-            # Lets assume all disks are full unless we find a disk with space
-            # for another partition.
+            # Let's assume all disks are full unless we find a disk with
+            # space for another partition.
             partition_table_full = True
 
             with misc.raised_privileges():

@@ -410,7 +410,7 @@ class PageGtk(PageBase):
     def on_hostname_changed(self, widget):
         self.hostname_edited = (widget.get_text() != '')
 
-        # Lets not call this every time the user presses a key.
+        # Let's not call this every time the user presses a key.
         import gobject
         if self.hostname_timeout_id:
             gobject.source_remove(self.hostname_timeout_id)

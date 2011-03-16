@@ -1134,7 +1134,7 @@ class Install(install_misc.InstallBase):
             for line in manifest_file:
                 if line.strip() != '' and not line.startswith('#'):
                     keep.add(line.split()[0])
-        # Lets not rip out the ground beneath our feet.
+        # Let's not rip out the ground beneath our feet.
         keep.add('ubiquity')
         keep.add('oem-config')
 
