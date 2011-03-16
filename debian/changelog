@@ -1,3 +1,10 @@
+ubiquity (2.5.27) UNRELEASED; urgency=low
+
+  * Drop code related to debian-installer/fallbacklocale, since that
+    template no longer exists (LP: #736060).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Mar 2011 12:26:24 +0000
+
 ubiquity (2.5.26) natty; urgency=low
 
   [ Evan Dandrea ]
