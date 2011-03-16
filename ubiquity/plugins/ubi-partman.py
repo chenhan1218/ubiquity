@@ -1951,6 +1951,8 @@ class Page(plugin.Plugin):
                         parted.open_dialog('GET_MAX_PRIMARY')
                         try:
                             max_primary = int(parted.read_line()[0])
+                        except ValueError:
+                            max_primary = None
                         finally:
                             parted.close_dialog()
 
@@ -1973,7 +1975,8 @@ class Page(plugin.Plugin):
                                              partition[4]))
                     layout[disk] = ret
                     if try_for_wubi and partition_table_full:
-                        if primary_count >= max_primary and ntfs_count > 0:
+                        if (max_primary is not None and
+                            primary_count >= max_primary and ntfs_count > 0):
                             pass
                         else:
                             partition_table_full = False
