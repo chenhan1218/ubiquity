@@ -31,14 +31,15 @@ from ubiquity import osextras
 from ubiquity.install_misc import archdetect
 from collections import namedtuple
 
-PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
-
-
 NAME = 'partman'
 AFTER = 'prepare'
 WEIGHT = 11
 # Not useful in oem-config.
 OEM = False
+
+PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
+Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
+
 
 class PageBase(plugin.PluginUI):
     def __init__(self, *args, **kwargs):
@@ -1734,8 +1735,6 @@ class Page(plugin.Plugin):
                     return PartitioningOption(title, desc)
         return None
 
-    # TODO this function should be easily testable by constructing a fake
-    # layout and Mock db.
     def calculate_autopartitioning_options(self, layout):
         '''
         There are six possibilities we have to consider:
@@ -1939,8 +1938,6 @@ class Page(plugin.Plugin):
 
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
-                Partition = namedtuple('Partition',
-                                       ['device', 'size', 'id', 'filesystem'])
                 parted = parted_server.PartedServer()
                 layout = {}
                 for disk in parted.disks():
