@@ -4,6 +4,7 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
     changes to the specification.
   * Mount /proc and friends for apt-clone.
   * Use the noninteractive debconf frontend when calling apt-clone.
+  * apt-clone is now a separate package.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 21 Mar 2011 12:34:41 +0000
 

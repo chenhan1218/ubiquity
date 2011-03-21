@@ -1296,6 +1296,8 @@ class Install(install_misc.InstallBase):
             return
         import lsb_release
         working = os.path.join(self.target, 'ubiquity-apt-clone')
+        working = os.path.join(working,
+                               'apt-clone-state-%s.tar.gz' % os.uname()[1])
         codename = lsb_release.get_distro_information()['CODENAME']
         if not os.path.exists(working):
             return
@@ -1303,10 +1305,9 @@ class Install(install_misc.InstallBase):
             misc.execute('mount', '--bind', '/proc', self.target + '/proc')
             misc.execute('mount', '--bind', '/sys', self.target + '/sys')
             misc.execute('mount', '--bind', '/dev', self.target + '/dev')
-            subprocess.check_call(['/usr/share/ubiquity/apt-clone',
-                                   'restore-new-distro', os.path.join(working,
-                                   'apt-state.tar.gz'), codename, self.target],
-                                   preexec_fn=install_misc.debconf_disconnect)
+            subprocess.check_call(['apt-clone', 'restore-new-distro',
+                working, codename, '--destination', self.target],
+                preexec_fn=install_misc.debconf_disconnect)
         except subprocess.CalledProcessError:
             # TODO input an error question.
             syslog.syslog(syslog.LOG_WARNING,

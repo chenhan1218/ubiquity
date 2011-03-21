@@ -54,7 +54,7 @@ mount "$root" "$mountpoint"
 working="$mountpoint/ubiquity-apt-clone"
 
 mkdir -p "$working"
-if ! /usr/share/ubiquity/apt-clone clone "$mountpoint" "$working"; then
+if ! apt-clone clone --source "$mountpoint" "$working"; then
 	# TODO: if the above fails, ask a debconf error question.
 	fail
 fi
