@@ -1296,13 +1296,14 @@ class Install(install_misc.InstallBase):
             return
         import lsb_release
         working = os.path.join(self.target, 'ubiquity-apt-clone')
+        working = os.path.join(working,
+                               'apt-clone-state-%s.tar.gz' % os.uname()[1])
         codename = lsb_release.get_distro_information()['CODENAME']
         if not os.path.exists(working):
             return
         try:
-            subprocess.check_call(['/usr/share/ubiquity/apt-clone',
-                                   'restore-new-distro', os.path.join(working,
-                                   'apt-state.tar.gz'), codename, self.target])
+            subprocess.check_call(['apt-clone', 'restore-new-distro',
+            working, codename, '--destination', self.target])
         except subprocess.CalledProcessError:
             # TODO input an error question.
             syslog.syslog(syslog.LOG_WARNING,
