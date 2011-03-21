@@ -1305,7 +1305,8 @@ class Install(install_misc.InstallBase):
             misc.execute('mount', '--bind', '/dev', self.target + '/dev')
             subprocess.check_call(['/usr/share/ubiquity/apt-clone',
                                    'restore-new-distro', os.path.join(working,
-                                   'apt-state.tar.gz'), codename, self.target])
+                                   'apt-state.tar.gz'), codename, self.target],
+                                   preexec_fn=install_misc.debconf_disconnect)
         except subprocess.CalledProcessError:
             # TODO input an error question.
             syslog.syslog(syslog.LOG_WARNING,
