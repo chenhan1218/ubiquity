@@ -1,3 +1,10 @@
+ubiquity (2.5.28) UNRELEASED; urgency=low
+
+  * Update the descriptions for the automatic partitioning options to match
+    changes to the specification.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 21 Mar 2011 12:34:41 +0000
+
 ubiquity (2.5.27) natty; urgency=low
 
   * Drop code related to debian-installer/fallbacklocale, since that

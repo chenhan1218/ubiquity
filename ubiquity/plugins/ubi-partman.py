@@ -1786,6 +1786,7 @@ class Page(plugin.Plugin):
         # We always have the manual partitioner, and it always has the same
         # title and description.
         q = 'ubiquity/partitioner/advanced'
+        self.db.subst(q, 'DISTRO', release.name)
         title = self.description(q)
         desc = self.extended_description(q)
         options['manual'] = PartitioningOption(title, desc)
@@ -1837,7 +1838,11 @@ class Page(plugin.Plugin):
                 options['use_device'] = opt
 
                 if wubi_option or resize_option:
-                    q = 'ubiquity/partitioner/single_os_resize'
+                    if resize_option:
+                        q = 'ubiquity/partitioner/single_os_resize'
+                    else:
+                        q = 'ubiquity/partitioner/ubuntu_inside'
+                    self.db.subst(q, 'OS', system)
                     self.db.subst(q, 'DISTRO', release.name)
                     title = self.description(q)
                     desc = self.extended_description(q)
