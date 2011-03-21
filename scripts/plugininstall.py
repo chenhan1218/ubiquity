@@ -1300,6 +1300,9 @@ class Install(install_misc.InstallBase):
         if not os.path.exists(working):
             return
         try:
+            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
+            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
             subprocess.check_call(['/usr/share/ubiquity/apt-clone',
                                    'restore-new-distro', os.path.join(working,
                                    'apt-state.tar.gz'), codename, self.target])
@@ -1309,6 +1312,10 @@ class Install(install_misc.InstallBase):
                 'Could not restore packages from the previous install:')
             for line in traceback.format_exc().split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
+        finally:
+            misc.execute('umount', '-f', self.target + '/proc')
+            misc.execute('umount', '-f', self.target + '/sys')
+            misc.execute('umount', '-f', self.target + '/dev')
 
     def copy_network_config(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:

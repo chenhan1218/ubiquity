@@ -2,6 +2,7 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
 
   * Update the descriptions for the automatic partitioning options to match
     changes to the specification.
+  * Mount /proc and friends for apt-clone.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 21 Mar 2011 12:34:41 +0000
 
