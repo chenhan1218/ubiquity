@@ -15,6 +15,7 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
     end up without a controlling terminal because tty1 has already started.
   * Don't run the oem-config job in recovery mode (thanks, Shih-Yuan Lee;
     LP: #734695).
+  * Run plugininstall in debconf frontend (LP: #740183).
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 21 Mar 2011 12:34:41 +0000
 
