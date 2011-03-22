@@ -1177,7 +1177,7 @@ Template: ubiquity/partitioner/advanced
 Type: text
 _Description: Something else
  You can create or resize partitions yourself, or choose multiple partitions
- for ${DISTRO}
+ for ${DISTRO}.
 
 Template: ubiquity/partitioner/ubuntu_format
 Type: text
