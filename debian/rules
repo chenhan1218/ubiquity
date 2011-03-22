@@ -139,6 +139,8 @@ endif
 	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/keyboard-configuration.postinst \
 		> debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
+	(cd d-i/source/console-setup && \
+	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst)
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
 	sed 's,\(finish-install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \

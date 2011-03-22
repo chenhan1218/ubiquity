@@ -1,10 +1,15 @@
 ubiquity (2.5.28) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Update the descriptions for the automatic partitioning options to match
     changes to the specification.
   * Mount /proc and friends for apt-clone.
   * Use the noninteractive debconf frontend when calling apt-clone.
   * apt-clone is now a separate package.
+
+  [ Colin Watson ]
+  * Preprocess our variant of keyboard-configuration.postinst, so that it
+    includes the keyboard_present function.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 21 Mar 2011 12:34:41 +0000
 
