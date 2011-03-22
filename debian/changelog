@@ -2,7 +2,7 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Update the descriptions for the automatic partitioning options to match
-    changes to the specification.
+    changes to the specification (LP: #736959).
   * Mount /proc and friends for apt-clone.
   * Use the noninteractive debconf frontend when calling apt-clone.
   * apt-clone is now a separate package.
