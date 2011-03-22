@@ -29,9 +29,6 @@ console output
 script
     [ -f /var/lib/oem-config/run ]
     type oem-config-firstboot >/dev/null 2>&1 || exit 0
-    # We never want to run the oem-config job in the live environment (as is
-    # the case in some custom configurations).
-    grep -qs boot=casper /proc/cmdline && exit 0
 
     >/var/run/oem-config.upstarted
 
@@ -40,6 +37,12 @@ script
 	case $x in
 	    debug-oem-config)
 		debug=--debug
+		;;
+	    # We never want to run the oem-config job in the live environment
+	    # (as is the case in some custom configurations) or in recovery
+	    # mode.
+	    boot=casper|single)
+		exit 0
 		;;
 	esac
     done
