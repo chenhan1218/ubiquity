@@ -11,6 +11,100 @@ sys.path.insert(0, 'ubiquity/plugins')
 ubi_partman = __import__('ubi-partman')
 sys.path.pop()
 from ubiquity import misc
+import debconf
+
+# These tests skip when their dependencies are not met and tests/run takes
+# arguments to generate said dependencies, so neither need to know about the
+# inner workings of each other.
+
+@unittest.skipUnless(os.path.exists('tests/partman-tree'), 'Need /lib/partman.')
+class PartmanPageDirectoryTests(unittest.TestCase):
+    def setUp(self):
+        # We could mock out the db for this, but we ultimately want to make
+        # sure that the debconf questions its getting exist.
+        self.page = ubi_partman.Page(None)
+        self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
+        self.addCleanup(self.page.db.shutdown)
+
+        prefix = 'tests/partman-tree'
+        def side_effect_factory(real_method):
+            def side_effect(path, *args, **kw):
+                if path.startswith('/lib/partman'):
+                    return real_method('%s%s' % (prefix, path), *args, **kw)
+                else:
+                    return real_method(path, *args, **kw)
+            return side_effect
+
+        for method in ('listdir', 'path.isdir', 'access', 'path.exists'):
+            if method.startswith('path'):
+                real_method = getattr(os.path, method.split('.')[1])
+            else:
+                real_method = getattr(os, method)
+            method = mock.patch('os.%s' % method)
+            mocked_method = method.start()
+            mocked_method.side_effect = side_effect_factory(real_method)
+            self.addCleanup(method.stop)
+
+        self.page.description_cache = {}
+
+    def test_method_description(self):
+        for method in self.page.subdirectories('/lib/partman/choose_method'):
+            print method
+
+@unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
+class TestPage(unittest.TestCase):
+    def setUp(self):
+        # We could mock out the db for this, but we ultimately want to make
+        # sure that the debconf questions its getting exist.
+        self.page = ubi_partman.Page(None)
+        self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
+        self.addCleanup(self.page.db.shutdown)
+
+        # We don't want to go through the entire prepare method, pulling
+        # in fakeroot, just to intialize description_cache.
+        self.page.description_cache = {}
+
+    def test_description(self):
+        question = 'partman-auto/init_automatically_partition'
+        description = unicode(self.page.db.metaget(question, 'description'),
+                              'utf-8', 'replace')
+        self.assertEqual(self.page.description(question), description)
+        self.assertIn(question, self.page.description_cache)
+
+    def test_default_mountpoint_choices(self):
+        pairs = [('partman-basicfilesystems/fat_mountpoint', 'ntfs'),
+                 ('partman-basicfilesystems/mountpoint', 'ext4')]
+        try:
+            # We cannot test uboot if we're not running on armel.
+            self.page.description('partman-uboot/mountpoint')
+            pairs.append(('partman-uboot/mountpoint', 'uboot'))
+        except debconf.DebconfError:
+            pass
+        for question, fs in pairs:
+            choices = self.page.choices_untranslated(question)
+            mountpoints = [choice.split(' ', 1)[0] for choice in choices
+                           if choice.startswith('/')]
+            default_mountpoints = [default[0] for default in
+                                   self.page.default_mountpoint_choices(fs)]
+            self.assertTrue(len(default_mountpoints) > 0)
+            self.assertItemsEqual(mountpoints, default_mountpoints)
+
+    def test_method_description(self):
+        # FIXME: move this into the Directory tests, following use_as()
+        pairs = [('swap', 'partman/method_long/swap'),
+                 ('efi', 'partman-efi/text/efi'),
+                 ('biosgrub', 'partman/method_long/biosgrub')]
+        try:
+            # We cannot test newworld if we're not running on powerpc.
+            self.page.description('partman/method_long/newworld')
+            pairs.append(('newworld', 'partman/method_long/newworld'))
+        except debconf.DebconfError:
+            pass
+        for method, question in pairs:
+            self.assertEqual(self.page.description(question),
+                             self.page.method_description(method))
+        self.assertEqual(self.page.method_description('foobar'), 'foobar')
+
 
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
 class TestCalculateAutopartitioningOptions(unittest.TestCase):
@@ -20,7 +114,6 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
     def setUp(self):
         # We could mock out the db for this, but we ultimately want to make
         # sure that the debconf questions its getting exist.
-        import debconf
         self.page = ubi_partman.Page(None)
         self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(self.page.db.shutdown)
@@ -211,4 +304,4 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         self.assertItemsEqual(self.manual, options['manual'])
 
 if __name__ == '__main__':
-    test_support.run_unittest(TestCalculateAutopartitioningOptions)
+    test_support.run_unittest(TestCalculateAutopartitioningOptions, TestPage, PartmanPageDirectoryTests)
