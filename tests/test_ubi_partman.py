@@ -184,8 +184,9 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
             '=dev=sda' : [ '', 0, 0, 0, '', 0, 'ntfs']}
 
         question = 'ubiquity/partitioner/single_os_resize'
-        question_has_variables(question, ['DISTRO'])
+        question_has_variables(question, ['OS', 'DISTRO'])
         # Ensure that we're not grabbing the value from previous runs.
+        self.page.db.subst(question, 'OS', operating_system)
         self.page.db.subst(question, 'DISTRO', release.name)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
