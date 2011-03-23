@@ -162,7 +162,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         desc = self.page.extended_description(question)
         replace = ubi_partman.PartitioningOption(title, desc)
 
-        options = self.page.calculate_autopartitioning_options(layout)
+        operating_systems, ubuntu_systems = \
+            self.page.calculate_operating_systems(layout)
+        options = self.page.calculate_autopartitioning_options(
+                        operating_systems, ubuntu_systems)
         self.assertIn('resize', options)
         self.assertItemsEqual(resize, options['resize'])
         self.assertIn('use_device', options)
@@ -183,7 +186,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         title = self.page.description(question)
         desc = self.page.extended_description(question)
         use_device = ubi_partman.PartitioningOption(title, desc)
-        options = self.page.calculate_autopartitioning_options([])
+        operating_systems, ubuntu_systems = \
+            self.page.calculate_operating_systems([])
+        options = self.page.calculate_autopartitioning_options(
+                        operating_systems, ubuntu_systems)
 
         self.assertIn('use_device', options)
         self.assertItemsEqual(use_device, options['use_device'])
@@ -217,7 +223,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         desc = self.page.extended_description(question)
         reuse = ubi_partman.PartitioningOption(title, desc)
 
-        options = self.page.calculate_autopartitioning_options(layout)
+        operating_systems, ubuntu_systems = \
+            self.page.calculate_operating_systems(layout)
+        options = self.page.calculate_autopartitioning_options(
+                        operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
         self.assertItemsEqual(use_device, options['use_device'])
 
@@ -253,7 +262,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         desc = self.page.extended_description(question)
         reuse = ubi_partman.PartitioningOption(title, desc)
 
-        options = self.page.calculate_autopartitioning_options(layout)
+        operating_systems, ubuntu_systems = \
+            self.page.calculate_operating_systems(layout)
+        options = self.page.calculate_autopartitioning_options(
+                        operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
         self.assertItemsEqual(use_device, options['use_device'])
 
@@ -293,7 +305,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         desc = self.page.extended_description(question)
         resize = ubi_partman.PartitioningOption(title, desc)
 
-        options = self.page.calculate_autopartitioning_options(layout)
+        operating_systems, ubuntu_systems = \
+            self.page.calculate_operating_systems(layout)
+        options = self.page.calculate_autopartitioning_options(
+                        operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
         self.assertItemsEqual(use_device, options['use_device'])
 
