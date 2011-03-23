@@ -19,6 +19,7 @@ if [ ! -e d-i/source ]; then
 	make -C d-i build
 fi
 rebuild=false
+# TODO if --debconf in args
 if [ ! -e d-i/templates ]; then
 	# For debian-installer-utils
 	DEB_HOST_ARCH_OS=$(dpkg-architecture -qDEB_HOST_ARCH_OS) \
@@ -60,4 +61,4 @@ UBIQUITY_GLADE=gui/gtk \
 fakeroot xvfb-run ./tests/run-frontend
 
 # TODO do something like the deferred stuff in the usb-creator next branch.
-# Install some basic dependencies.
+# TODO rewrite this in Python, and generate the list of tests from here.
