@@ -1,4 +1,4 @@
-ubiquity (2.5.28) UNRELEASED; urgency=low
+ubiquity (2.5.28) natty; urgency=low
 
   [ Evan Dandrea ]
   * Update the descriptions for the automatic partitioning options to match
@@ -28,7 +28,7 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
     LP: #734695).
   * Run plugininstall in debconf frontend (LP: #740183).
 
- -- Evan Dandrea <ev@ubuntu.com>  Mon, 21 Mar 2011 12:34:41 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 23 Mar 2011 20:22:00 +0000
 
 ubiquity (2.5.27) natty; urgency=low
 
