@@ -13,6 +13,7 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
   * Properly substitute in the non-Ubuntu system when generating descriptions
     for dual boot partitioning.
   * Remove alpha warning for reuse option in preparation for the 11.04 Beta.
+  * Update translations from Launchpad.
 
   [ Colin Watson ]
   * Preprocess our variant of keyboard-configuration.postinst, so that it
