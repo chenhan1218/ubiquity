@@ -222,7 +222,8 @@ class Wizard(BaseFrontend):
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'quit', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
-                                   'cancelbutton', 'exitbutton')
+                                   'cancelbutton', 'exitbutton',
+                                   'install_button', 'restart_to_continue')
         self.current_page = None
         self.backup = None
         self.allowed_change_step = True
@@ -598,7 +599,7 @@ class Wizard(BaseFrontend):
             while gtk.events_pending():
                 gtk.main_iteration()
 
-        # There's still work to do (postinstall).  Lets keep the user
+        # There's still work to do (postinstall).  Let's keep the user
         # entertained.
         self.start_slideshow()
         gtk.main()
@@ -607,7 +608,7 @@ class Wizard(BaseFrontend):
 
         if self.oem_user_config:
             self.quit_installer()
-        elif not self.get_reboot_seen() or not self.get_shutdown_seen():
+        elif not (self.get_reboot_seen() or self.get_shutdown_seen()):
             self.live_installer.hide()
             if ('UBIQUITY_ONLY' in os.environ or
                 'UBIQUITY_GREETER' in os.environ):

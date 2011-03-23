@@ -25,26 +25,9 @@ import locale
 import sys
 from ubiquity import misc, im_switch
 
-_supported_locales = None
-
-def get_supported_locales():
-    """Returns a list of all locales supported by the installation system."""
-    global _supported_locales
-    if _supported_locales is None:
-        _supported_locales = {}
-        supported = open('/usr/share/i18n/SUPPORTED')
-        for line in supported:
-            (slocale, charset) = line.split(None, 1)
-            _supported_locales[slocale] = charset
-        supported.close()
-    return _supported_locales
-
-
 # if 'just_country' is True, only the country is changing
 def reset_locale(frontend, just_country=False):
     di_locale = frontend.db.get('debian-installer/locale')
-    if di_locale not in get_supported_locales():
-        di_locale = frontend.db.get('debian-installer/fallbacklocale')
     if not di_locale:
         # TODO cjwatson 2006-07-17: maybe fetch
         # languagechooser/language-name and set a language based on

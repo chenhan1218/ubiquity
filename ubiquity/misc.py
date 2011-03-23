@@ -11,7 +11,6 @@ import shutil
 import contextlib
 
 from ubiquity import osextras
-from ubiquity.parted_server import PartedServer
 
 def is_swap(device):
     swap = False
@@ -130,6 +129,8 @@ def raise_privileges(func):
 def grub_options():
     """ Generates a list of suitable targets for grub-installer
         @return empty list or a list of ['/dev/sda1','Ubuntu Hardy 8.04'] """
+    from ubiquity.parted_server import PartedServer
+
     l = []
     try:
         oslist = {}
@@ -183,6 +184,8 @@ def grub_options():
     return l
 
 def boot_device():
+    from ubiquity.parted_server import PartedServer
+
     boot = None
     root = None
     try:
@@ -376,7 +379,8 @@ def os_prober():
                 text = re.sub('\s*\(.*\).*', '', res[1])
                 _os_prober_oslist[res[0]] = text
             else:
-                _os_prober_oslist[res[0]] = res[1]
+                # Get rid of the bootloader indication. It's not relevant here.
+                _os_prober_oslist[res[0]] = res[1].replace(' (loader)', '')
     return _os_prober_oslist
 
 @raise_privileges

@@ -6,8 +6,7 @@
 description	"End-user configuration after initial OEM installation (debconf)"
 author		"Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>"
 
-start on (filesystem
-          and stopped udevtrigger)
+start on stopping rc RUNLEVEL=[2345]
 stop on runlevel [016]
 
 task

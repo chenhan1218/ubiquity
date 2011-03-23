@@ -1,9 +1,85 @@
-ubiquity (2.5.25) UNRELEASED; urgency=low
+ubiquity (2.5.29) natty; urgency=low
 
+  * Remove cy from LINGUAS. Fixes build failure.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 23 Mar 2011 21:16:17 +0000
+
+ubiquity (2.5.28) natty; urgency=low
+
+  [ Evan Dandrea ]
+  * Update the descriptions for the automatic partitioning options to match
+    changes to the specification (LP: #736959).
+  * Mount /proc and friends for apt-clone.
+  * Use the noninteractive debconf frontend when calling apt-clone.
+  * apt-clone is now a separate package.
+  * Add a partitioning heading to help clarify what operating systems
+    may be acted upon by the installer.
+  * Remove ' (loader)' from the os-prober operating system descriptions on
+    the initial partitioning page.
+  * Properly substitute in the non-Ubuntu system when generating descriptions
+    for dual boot partitioning.
+  * Remove alpha warning for reuse option in preparation for the 11.04 Beta.
+  * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu17, grub-installer 1.60ubuntu2, localechooser 2.34ubuntu3,
+    partman-auto 93ubuntu13, partman-auto-loop 0ubuntu19.
+
+  [ Colin Watson ]
+  * Preprocess our variant of keyboard-configuration.postinst, so that it
+    includes the keyboard_present function.
+  * Start oem-config-debconf on stopping rc RUNLEVEL=[2345], rather than on
+    (filesystem and stopped udevtrigger); this guarantees that we will never
+    end up without a controlling terminal because tty1 has already started.
+  * Don't run the oem-config job in recovery mode (thanks, Shih-Yuan Lee;
+    LP: #734695).
+  * Run plugininstall in debconf frontend (LP: #740183).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 23 Mar 2011 20:22:00 +0000
+
+ubiquity (2.5.27) natty; urgency=low
+
+  * Drop code related to debian-installer/fallbacklocale, since that
+    template no longer exists (LP: #736060).
+  * Update imported translations from gtk+2.0 2.24.3-0ubuntu2 and
+    gnome-panel 1:2.32.1-0ubuntu6.
+  * Ensure that PartedServer dialogs are always properly closed on
+    exceptional paths.
+  * Fix partition-table-full check to cope with disks without a partition
+    table.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 16 Mar 2011 14:36:02 +0000
+
+ubiquity (2.5.26) natty; urgency=low
+
+  [ Evan Dandrea ]
+  * Revert dropping privileges earlier (LP: #730209).
+
+  [ Colin Watson ]
+  * Update for changes in localechooser up to 2.34ubuntu1.
+  * Automatic update of included source packages: localechooser 2.34ubuntu2,
+    partman-auto 93ubuntu10.
+  * Update translations from Launchpad.
+  * GTK frontend:
+    - Translate some other possible versions of the next button when
+      changing language (LP: #730208).
+
+  [ Daniel Manrique ]
+  * Allow preseeding only ubiquity/reboot to suppress the reboot dialog,
+    without needing to preseed ubiquity/poweroff as well (LP: #727416).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 Mar 2011 17:34:27 +0000
+
+ubiquity (2.5.25) natty; urgency=low
+
+  [ Mario Limonciello ]
   * Install oem-config-debconf properly. (LP: #732576)
   * Don't trigger oem-config-debconf on dbus.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 10 Mar 2011 09:04:37 -0600
+  [ Kees Cook ]
+  * scripts/plugininstall.py: do not explode if /proc/swaps is missing,
+    thanks to Gilles Grandou (LP: #651886).
+
+ -- Kees Cook <kees@ubuntu.com>  Thu, 10 Mar 2011 14:37:48 -0800
 
 ubiquity (2.5.24) natty; urgency=low
 

@@ -139,23 +139,29 @@ endif
 	    -e 's,^\([[:space:]]*\)update-initramfs,\1: update-initramfs,' \
 		d-i/source/console-setup/debian/keyboard-configuration.postinst \
 		> debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
+	(cd d-i/source/console-setup && \
+	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst)
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
 	sed 's,\(finish-install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
 	chmod +x debian/ubiquity/bin/hw-detect
-	set -e; for x in languagemap localechooser post-base-installer; do \
+	set -e; for x in languagemap localechooser; do \
 		sed 's,/usr/share/localechooser,/usr/lib/ubiquity/localechooser,g' \
 			d-i/source/localechooser/$$x \
 			> debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
 	done
+	sed 's,/usr/share/localechooser,/usr/lib/ubiquity/localechooser,g' \
+		d-i/source/localechooser/post-base-installer.d/05localechooser \
+		> debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
+	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
 	sed 's/\\\$${!TAB}/ /g' \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser \
 		> debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-debconf
 	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser-debconf
-	install d-i/source/localechooser/finish-install \
-		debian/ubiquity/usr/lib/ubiquity/localechooser/
+	install d-i/source/localechooser/finish-install.d/05localechooser \
+		debian/ubiquity/usr/lib/ubiquity/localechooser/finish-install
 	install d-i/source/tzsetup/post-base-installer.d/*tzsetup \
 		debian/ubiquity/usr/lib/ubiquity/tzsetup/post-base-installer
 	sed -e 's,/target/,/,g;s,/target,/,g' \

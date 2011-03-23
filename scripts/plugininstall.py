@@ -637,7 +637,10 @@ class Install(install_misc.InstallBase):
     def get_resume_partition(self):
         biggest_size = 0
         biggest_partition = None
-        swaps = open('/proc/swaps')
+        try:
+            swaps = open('/proc/swaps')
+        except:
+            return None
         for line in swaps:
             words = line.split()
             if words[1] != 'partition':
@@ -1131,7 +1134,7 @@ class Install(install_misc.InstallBase):
             for line in manifest_file:
                 if line.strip() != '' and not line.startswith('#'):
                     keep.add(line.split()[0])
-        # Lets not rip out the ground beneath our feet.
+        # Let's not rip out the ground beneath our feet.
         keep.add('ubiquity')
         keep.add('oem-config')
 
@@ -1293,19 +1296,28 @@ class Install(install_misc.InstallBase):
             return
         import lsb_release
         working = os.path.join(self.target, 'ubiquity-apt-clone')
+        working = os.path.join(working,
+                               'apt-clone-state-%s.tar.gz' % os.uname()[1])
         codename = lsb_release.get_distro_information()['CODENAME']
         if not os.path.exists(working):
             return
         try:
-            subprocess.check_call(['/usr/share/ubiquity/apt-clone',
-                                   'restore-new-distro', os.path.join(working,
-                                   'apt-state.tar.gz'), codename, self.target])
+            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
+            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+            subprocess.check_call(['apt-clone', 'restore-new-distro',
+                working, codename, '--destination', self.target],
+                preexec_fn=install_misc.debconf_disconnect)
         except subprocess.CalledProcessError:
             # TODO input an error question.
             syslog.syslog(syslog.LOG_WARNING,
                 'Could not restore packages from the previous install:')
             for line in traceback.format_exc().split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
+        finally:
+            misc.execute('umount', '-f', self.target + '/proc')
+            misc.execute('umount', '-f', self.target + '/sys')
+            misc.execute('umount', '-f', self.target + '/dev')
 
     def copy_network_config(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:

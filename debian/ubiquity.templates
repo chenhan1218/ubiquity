@@ -229,22 +229,6 @@ Template: ubiquity/text/part_auto_files
 Type: text
 _Description: Files (${SIZE})
 
-Template: ubiquity/text/part_auto_comment_label
-Type: text
-_Description: How do you want to partition the disk?
-
-Template: ubiquity/text/part_auto_comment_none
-Type: text
-_Description: This computer has no operating systems on it.
-
-Template: ubiquity/text/part_auto_comment_one
-Type: text
-_Description: This computer has ${OS} on it.
-
-Template: ubiquity/text/part_auto_comment_many
-Type: text
-_Description: This computer has several operating systems on it.
-
 Template: ubiquity/text/part_advanced_heading_label
 Type: text
 _Description: Prepare partitions
@@ -1158,65 +1142,93 @@ _Description: Welcome
 Template: ubiquity/partitioner/single_os_replace
 Type: text
 _Description: Replace ${OS} with ${DISTRO}
- This will <b>erase</b> all of your ${OS} programs, documents, photos, music,
- and any other files.
+ <span foreground="darkred">Warning:</span> This will erase all of your ${OS}
+ programs, documents, photos, music, and any other files.
 
 Template: ubiquity/partitioner/single_os_resize
 Type: text
-_Description: Install ${DISTRO} alongside it
+_Description: Install ${DISTRO} alongside ${OS}
+ No files will be deleted. You can choose which operating system you want each
+ time the computer starts up.
+
+Template: ubiquity/partitioner/ubuntu_inside
+Type: text
+_Description: Install ${DISTRO} inside ${OS}
  No files will be deleted. You can choose which operating system you want each
  time the computer starts up.
 
 Template: ubiquity/partitioner/advanced
 Type: text
-_Description: Manual configuration (advanced)
- Too smart for us? Get your hands dirty with some advanced partitioning
- options.
+_Description: Something else
+ You can create or resize partitions yourself, or choose multiple partitions
+ for ${DISTRO}.
 
 Template: ubiquity/partitioner/ubuntu_format
 Type: text
 _Description: Erase ${CURDISTRO} and reinstall
- This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos,
- music, and any other files.
+ <span foreground="darkred">Warning:</span> This will delete all your
+ ${CURDISTRO} programs, documents, photos, music, and any other files.
 
 Template: ubiquity/partitioner/ubuntu_upgrade
 Type: text
 _Description: Upgrade ${CURDISTRO} to ${VER}
- You can upgrade ${CURDISTRO} without losing any of your important documents or
- applications.
+ No files will be deleted. Installed software will be kept where possible.
 
 Template: ubiquity/partitioner/ubuntu_resize
 Type: text
-_Description: Install ${DISTRO} ${VER} alongside
- Still on the fence? You can install ${DISTRO} ${VER} alongside your existing
- copy of ${CURDISTRO}.
+_Description: Install ${DISTRO} ${VER} alongside ${CURDISTRO}
+ No files will be deleted. You can choose which operating system you want each
+ time the computer starts up.
 
 Template: ubiquity/partitioner/no_systems_format
 Type: text
 _Description: Erase disk and install ${DISTRO}
- Ready to take the plunge? A clean install erases your entire hard disk and
- installs ${DISTRO}.
+ <span foreground="darkred">Warning:</span> This will delete any files on the
+ disk.
 
 Template: ubiquity/partitioner/ubuntu_and_os_format
 Type: text
 _Description: Erase everything and reinstall
- This will <b>erase</b> all your programs, documents, photos, music, and other
- files in both ${OS} and ${CURDISTRO}.
+ <span foreground="darkred">Warning:</span> This will delete all your
+ programs, documents, photos, music, and other files in both ${OS} and
+ ${CURDISTRO}.
 
 Template: ubiquity/partitioner/ubuntu_reinstall
 Type: text
 _Description: Reinstall ${CURDISTRO}
- You can reinstall ${CURDISTRO} without losing any of your important documents
- or applications.
+ No files will be deleted. Installed software will be kept where possible.
 
 Template: ubiquity/partitioner/multiple_os_format
 Type: text
 _Description: Erase disk and install ${DISTRO}
- This will <b>erase</b> all your programs, documents, photos, music, and any
- other files in all operating systems. 
+ <span foreground="darkred">Warning:</span> This will delete any files on the
+ disk.
 
 Template: ubiquity/partitioner/multiple_os_resize
 Type: text
 _Description: Install ${DISTRO} alongside them
  No files will be deleted. You can choose which operating system you want each
  time the computer starts up.
+
+Template: ubiquity/partitioner/heading_one
+Type: text
+_Description:
+ This computer currently has ${OS} on it. What would you like to do?
+
+Template: ubiquity/partitioner/heading_dual
+Type: text
+_Description:
+ This computer currently has ${OS1} and ${OS2} on it. What would you like
+ to do?
+
+Template: ubiquity/partitioner/heading_multiple
+Type: text
+_Description:
+ This computer currently has multiple operating systems on it. What would you
+ like to do?
+
+Template: ubiquity/partitioner/heading_no_detected
+Type: text
+_Description:
+ This computer currently has no detected operating systems. What would you
+ like to do?
