@@ -1,8 +1,8 @@
-ubiquity (2.5.29) UNRELEASED; urgency=low
+ubiquity (2.5.29) natty; urgency=low
 
   * Remove cy from LINGUAS. Fixes build failure.
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 23 Mar 2011 20:57:18 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 23 Mar 2011 21:16:17 +0000
 
 ubiquity (2.5.28) natty; urgency=low
 
