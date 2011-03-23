@@ -13,6 +13,40 @@ sys.path.pop()
 from ubiquity import misc
 import debconf
 
+def question_has_variables(question, lookup_variables):
+    existing_variables = []
+    found_question = False
+    with open('tests/templates.dat') as templates:
+        for line in templates:
+            # TODO: extended description as well?
+            if line.startswith('Name: %s' % question):
+                found_question = True
+                continue
+            if not line.startswith('Description:') or not found_question:
+                continue
+            last = 13
+            while True:
+                start = line.find('${', last)
+                if start != -1:
+                    end = line.find('}', last)
+                    if end != -1:
+                        existing_variables.append(line[start+2:end])
+                        last = end + 1
+                    else:
+                        raise EOFError, 'Expected to find } on \'%s\'' % line
+                else:
+                    break
+            # Descriptions are only ever on a single line.
+            break
+    if not found_question:
+        raise AssertionError, 'Never found the question: %s' % question
+    only_in_lookup = set(lookup_variables) - set(existing_variables)
+    only_in_template = set(existing_variables) - set(lookup_variables)
+    if only_in_lookup or only_in_template:
+        raise AssertionError, ('%s\nOnly in lookup: %s\nOnly in template: %s' %
+            (question, ', '.join(only_in_lookup), ', '.join(only_in_template)))
+
+
 # These tests skip when their dependencies are not met and tests/run takes
 # arguments to generate said dependencies, so neither need to know about the
 # inner workings of each other.
@@ -132,6 +166,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
 
         # Always checked, never SUBST'ed.
         question = 'ubiquity/partitioner/advanced'
+        question_has_variables(question, [])
         title = self.page.description(question)
         desc = self.page.extended_description(question)
         self.manual = ubi_partman.PartitioningOption(title, desc)
@@ -149,6 +184,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
             '=dev=sda' : [ '', 0, 0, 0, '', 0, 'ntfs']}
 
         question = 'ubiquity/partitioner/single_os_resize'
+        question_has_variables(question, ['DISTRO'])
         # Ensure that we're not grabbing the value from previous runs.
         self.page.db.subst(question, 'DISTRO', release.name)
         title = self.page.description(question)
@@ -156,6 +192,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         resize = ubi_partman.PartitioningOption(title, desc)
 
         question = 'ubiquity/partitioner/single_os_replace'
+        question_has_variables(question, ['OS', 'DISTRO'])
         self.page.db.subst(question, 'OS', operating_system)
         self.page.db.subst(question, 'DISTRO', release.name)
         title = self.page.description(question)
@@ -182,6 +219,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         misc.get_release.return_value = release
 
         question = 'ubiquity/partitioner/no_systems_format'
+        question_has_variables(question, ['DISTRO'])
         self.page.db.subst(question, 'DISTRO', release.name)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
@@ -211,12 +249,14 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         self.page.extra_options['reuse'] = [(0, '/dev/sda1')]
 
         question = 'ubiquity/partitioner/ubuntu_format'
+        question_has_variables(question, ['CURDISTRO'])
         self.page.db.subst(question, 'CURDISTRO', operating_system)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
         use_device = ubi_partman.PartitioningOption(title, desc)
 
         question = 'ubiquity/partitioner/ubuntu_upgrade'
+        question_has_variables(question, ['CURDISTRO', 'VER'])
         self.page.db.subst(question, 'CURDISTRO', operating_system)
         self.page.db.subst(question, 'VER', release.version)
         title = self.page.description(question)
@@ -251,12 +291,14 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         self.page.extra_options['reuse'] = [(0, '/dev/sda1')]
 
         question = 'ubiquity/partitioner/ubuntu_format'
+        question_has_variables(question, ['CURDISTRO'])
         self.page.db.subst(question, 'CURDISTRO', operating_system)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
         use_device = ubi_partman.PartitioningOption(title, desc)
 
         question = 'ubiquity/partitioner/ubuntu_reinstall'
+        question_has_variables(question, ['CURDISTRO'])
         self.page.db.subst(question, 'CURDISTRO', operating_system)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
@@ -294,12 +336,14 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
             '=dev=sda' : [ '', 0, 0, 0, '', 0, 'ntfs']}
 
         question = 'ubiquity/partitioner/multiple_os_format'
+        question_has_variables(question, ['DISTRO'])
         self.page.db.subst(question, 'DISTRO', release.name)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
         use_device = ubi_partman.PartitioningOption(title, desc)
 
         question = 'ubiquity/partitioner/multiple_os_resize'
+        question_has_variables(question, ['DISTRO'])
         self.page.db.subst(question, 'DISTRO', release.name)
         title = self.page.description(question)
         desc = self.page.extended_description(question)
