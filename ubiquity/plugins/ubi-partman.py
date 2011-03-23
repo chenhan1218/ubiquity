@@ -1892,6 +1892,8 @@ class Page(plugin.Plugin):
                 options['replace'] = opt
 
             q = 'ubiquity/partitioner/ubuntu_and_os_format'
+            system = (set(operating_systems) - set(ubuntu_systems)).pop()
+            self.db.subst(q, 'OS', system)
             self.db.subst(q, 'CURDISTRO', ubuntu)
             title = self.description(q)
             desc = self.extended_description(q)

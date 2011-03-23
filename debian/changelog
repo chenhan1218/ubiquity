@@ -10,6 +10,8 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
     may be acted upon by the installer.
   * Remove ' (loader)' from the os-prober operating system descriptions on
     the initial partitioning page.
+  * Properly substitute in the non-Ubuntu system when generating descriptions
+    for dual boot partitioning.
 
   [ Colin Watson ]
   * Preprocess our variant of keyboard-configuration.postinst, so that it
