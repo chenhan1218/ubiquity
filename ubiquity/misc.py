@@ -378,7 +378,8 @@ def os_prober():
                 text = re.sub('\s*\(.*\).*', '', res[1])
                 _os_prober_oslist[res[0]] = text
             else:
-                _os_prober_oslist[res[0]] = res[1]
+                # Get rid of the bootloader indication. It's not relevant here.
+                _os_prober_oslist[res[0]] = res[1].replace(' (loader)', '')
     return _os_prober_oslist
 
 @raise_privileges

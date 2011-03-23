@@ -8,6 +8,8 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
   * apt-clone is now a separate package.
   * Add a partitioning heading to help clarify what operating systems
     may be acted upon by the installer.
+  * Remove ' (loader)' from the os-prober operating system descriptions on
+    the initial partitioning page.
 
   [ Colin Watson ]
   * Preprocess our variant of keyboard-configuration.postinst, so that it
