@@ -14,6 +14,9 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
     for dual boot partitioning.
   * Remove alpha warning for reuse option in preparation for the 11.04 Beta.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu17, grub-installer 1.60ubuntu2, localechooser 2.34ubuntu3,
+    partman-auto 93ubuntu13, partman-auto-loop 0ubuntu19.
 
   [ Colin Watson ]
   * Preprocess our variant of keyboard-configuration.postinst, so that it
