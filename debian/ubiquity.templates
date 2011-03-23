@@ -229,22 +229,6 @@ Template: ubiquity/text/part_auto_files
 Type: text
 _Description: Files (${SIZE})
 
-Template: ubiquity/text/part_auto_comment_label
-Type: text
-_Description: How do you want to partition the disk?
-
-Template: ubiquity/text/part_auto_comment_none
-Type: text
-_Description: This computer has no operating systems on it.
-
-Template: ubiquity/text/part_auto_comment_one
-Type: text
-_Description: This computer has ${OS} on it.
-
-Template: ubiquity/text/part_auto_comment_many
-Type: text
-_Description: This computer has several operating systems on it.
-
 Template: ubiquity/text/part_advanced_heading_label
 Type: text
 _Description: Prepare partitions
@@ -1225,3 +1209,26 @@ Type: text
 _Description: Install ${DISTRO} alongside them
  No files will be deleted. You can choose which operating system you want each
  time the computer starts up.
+
+Template: ubiquity/partitioner/heading_one
+Type: text
+_Description:
+ This computer currently has ${OS} on it. What would you like to do?
+
+Template: ubiquity/partitioner/heading_dual
+Type: text
+_Description:
+ This computer currently has ${OS1} and ${OS2} on it. What would you like
+ to do?
+
+Template: ubiquity/partitioner/heading_multiple
+Type: text
+_Description:
+ This computer currently has multiple operating systems on it. What would you
+ like to do?
+
+Template: ubiquity/partitioner/heading_no_detected
+Type: text
+_Description:
+ This computer currently has no detected operating systems. What would you
+ like to do?

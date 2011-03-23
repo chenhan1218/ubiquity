@@ -6,6 +6,8 @@ ubiquity (2.5.28) UNRELEASED; urgency=low
   * Mount /proc and friends for apt-clone.
   * Use the noninteractive debconf frontend when calling apt-clone.
   * apt-clone is now a separate package.
+  * Add a partitioning heading to help clarify what operating systems
+    may be acted upon by the installer.
 
   [ Colin Watson ]
   * Preprocess our variant of keyboard-configuration.postinst, so that it
