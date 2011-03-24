@@ -215,6 +215,8 @@ class Install(install_misc.InstallBase):
                 'Could not restore packages from the previous install:')
             for line in traceback.format_exc().split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
+            self.db.input('critical', 'ubiquity/install/broken_apt_clone')
+            self.db.go()
         try:
             self.copy_network_config()
         except:
@@ -1308,13 +1310,6 @@ class Install(install_misc.InstallBase):
             subprocess.check_call(['apt-clone', 'restore-new-distro',
                 working, codename, '--destination', self.target],
                 preexec_fn=install_misc.debconf_disconnect)
-        except subprocess.CalledProcessError:
-            syslog.syslog(syslog.LOG_WARNING,
-                'Could not restore packages from the previous install:')
-            for line in traceback.format_exc().split('\n'):
-                syslog.syslog(syslog.LOG_WARNING, line)
-            self.db.input('critical', 'ubiquity/install/broken_apt_clone')
-            self.db.go()
         finally:
             misc.execute('umount', '-f', self.target + '/proc')
             misc.execute('umount', '-f', self.target + '/sys')
