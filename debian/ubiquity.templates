@@ -715,6 +715,13 @@ _Description: Error copying network configuration
  continue, but the network configuration will have to be set up again in the
  installed system.
 
+Template: ubiquity/install/broken_apt_clone
+Type: error
+_Description: Error restoring installed applications
+ An error occurred while restoring previously-installed applications.  The
+ installation will continue, but you may have to manually reinstall some
+ applications after the computer reboots.
+
 Template: ubiquity/install/md5_check
 Type: boolean
 Default: true

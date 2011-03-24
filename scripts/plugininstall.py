@@ -1309,11 +1309,12 @@ class Install(install_misc.InstallBase):
                 working, codename, '--destination', self.target],
                 preexec_fn=install_misc.debconf_disconnect)
         except subprocess.CalledProcessError:
-            # TODO input an error question.
             syslog.syslog(syslog.LOG_WARNING,
                 'Could not restore packages from the previous install:')
             for line in traceback.format_exc().split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
+            self.db.input('critical', 'ubiquity/install/broken_apt_clone')
+            self.db.go()
         finally:
             misc.execute('umount', '-f', self.target + '/proc')
             misc.execute('umount', '-f', self.target + '/sys')
