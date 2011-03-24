@@ -79,11 +79,18 @@ class PartmanPageDirectoryTests(unittest.TestCase):
             mocked_method.side_effect = side_effect_factory(real_method)
             self.addCleanup(method.stop)
 
+        # Don't cache descriptions.
         self.page.description_cache = {}
 
-    def test_method_description(self):
-        for method in self.page.subdirectories('/lib/partman/choose_method'):
-            print method
+    #def test_filesystem_description(self):
+    #    for fs in self.page.scripts('/lib/partman/valid_filesystems'):
+    #        print self.page.filesystem_description(fs)
+
+    #def test_method_description(self):
+    #    for method in self.page.subdirectories('/lib/partman/choose_method'):
+    #        if method != 'dont_use':
+    #            self.assertNotEqual(method,
+    #                                self.page.method_description(method))
 
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
 class TestPage(unittest.TestCase):
@@ -94,8 +101,7 @@ class TestPage(unittest.TestCase):
         self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(self.page.db.shutdown)
 
-        # We don't want to go through the entire prepare method, pulling
-        # in fakeroot, just to intialize description_cache.
+        # Don't cache descriptions.
         self.page.description_cache = {}
 
     def test_description(self):
@@ -139,6 +145,13 @@ class TestPage(unittest.TestCase):
                              self.page.method_description(method))
         self.assertEqual(self.page.method_description('foobar'), 'foobar')
 
+    def test_calculate_autopartitioning_heading(self):
+        oses = []
+        has_ubuntu = False
+        head = self.page.calculate_autopartitioning_heading(oses, has_ubuntu)
+        q = 'ubiquity/partitioner/heading_no_detected'
+        no_detected = self.page.extended_description(q)
+        self.assertEqual(no_detected, head)
 
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
 class TestCalculateAutopartitioningOptions(unittest.TestCase):
@@ -160,8 +173,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         get_release.start()
         self.addCleanup(get_release.stop)
 
-        # We don't want to go through the entire prepare method, pulling
-        # in fakeroot, just to intialize description_cache.
+        # Don't cache descriptions.
         self.page.description_cache = {}
 
         # Always checked, never SUBST'ed.
@@ -200,6 +212,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         desc = self.page.extended_description(question)
         replace = ubi_partman.PartitioningOption(title, desc)
 
+        # FIXME surely need to reset questions, no?
         operating_systems, ubuntu_systems = \
             self.page.calculate_operating_systems(layout)
         options = self.page.calculate_autopartitioning_options(
