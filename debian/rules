@@ -47,6 +47,9 @@ check:
 	set -e; for x in $$(find -type f -print0 | xargs -0 file -i | grep "text/x-shellscript" | cut -d':' -f1); do \
 		sh -n $$x; \
 	done
+ifndef UBIQUITY_NO_TESTS
+	./tests/run
+endif
 
 pychecker:
 	./run-pychecker
