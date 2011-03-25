@@ -27,6 +27,7 @@ from ubiquity import misc, im_switch
 
 # if 'just_country' is True, only the country is changing
 def reset_locale(frontend, just_country=False):
+    frontend.start_debconf()
     di_locale = frontend.db.get('debian-installer/locale')
     if not di_locale:
         # TODO cjwatson 2006-07-17: maybe fetch
