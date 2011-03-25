@@ -47,9 +47,6 @@ check:
 	set -e; for x in $$(find -type f -print0 | xargs -0 file -i | grep "text/x-shellscript" | cut -d':' -f1); do \
 		sh -n $$x; \
 	done
-ifndef UBIQUITY_NO_TESTS
-	./tests/run
-endif
 
 pychecker:
 	./run-pychecker
@@ -214,6 +211,11 @@ endif
 		cp desktop/hi$${size}-app-ubiquity.png debian/ubiquity-frontend-kde/usr/share/icons/hicolor/$${size}x$${size}/apps/ubiquity.png; \
 	done
 
+tests: install
+ifndef UBIQUITY_NO_TESTS
+	./tests/run
+endif
+
 BINARY_INDEP_OPTIONS := -i
 ifdef UBIQUITY_NO_GTK
 BINARY_INDEP_OPTIONS += -Noem-config-gtk
@@ -288,5 +290,5 @@ binary-arch: install
 	dh_md5sums
 	dh_builddeb
 
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+binary: tests binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install tests

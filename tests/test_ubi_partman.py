@@ -212,7 +212,6 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         desc = self.page.extended_description(question)
         replace = ubi_partman.PartitioningOption(title, desc)
 
-        # FIXME surely need to reset questions, no?
         operating_systems, ubuntu_systems = \
             self.page.calculate_operating_systems(layout)
         options = self.page.calculate_autopartitioning_options(

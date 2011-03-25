@@ -19,7 +19,7 @@ if [ ! -e d-i/source ]; then
 	make -C d-i build
 fi
 rebuild=false
-# TODO if --debconf in args
+
 if [ ! -e d-i/templates ]; then
 	# For debian-installer-utils
 	DEB_HOST_ARCH_OS=$(dpkg-architecture -qDEB_HOST_ARCH_OS) \
@@ -52,6 +52,5 @@ export DEBCONF_SYSTEMRC=tests/debconf.conf
 $rebuild && debconf-loadtemplate ubiquity tests/debconfdb
 [ -e ubiquity/Makefile ] || (./configure && cd ubiquity; make)
 
-if [ -z "$(find d-i/source -maxdepth 1 -name "*.udeb")" ]; then
-    for x in d-i/source/part*.udeb; do dpkg -x $x tests/partman-tree; done
-fi
+rm -rf tests/partman-tree
+for x in d-i/source/part*.udeb; do dpkg -x $x tests/partman-tree; done
