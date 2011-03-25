@@ -1764,7 +1764,8 @@ class Page(plugin.Plugin):
             for partition in layout[disk]:
                 system = misc.find_in_os_prober(partition.device)
                 if system and system != 'swap':
-                    operating_systems.append(system)
+                    if not system.startswith('Windows Recovery'):
+                        operating_systems.append(system)
         ubuntu_systems = filter(lambda x: x.lower().find('buntu') != -1,
                                 operating_systems)
         return (operating_systems, ubuntu_systems)
