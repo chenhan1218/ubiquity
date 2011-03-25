@@ -3,6 +3,9 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
   * Add an error message for apt-clone failing.
   * Do not consider Windows Recovery partitions in the list of operating
     systems.
+  * Add unit tests, which can be run via ./tests/run or by building the
+    package.  To override a failing test causing the package build to
+    fail, use the UBIQUITY_NO_TESTS environment variable.
 
  -- Evan Dandrea <ev@ubuntu.com>  Thu, 24 Mar 2011 13:27:38 +0000
 

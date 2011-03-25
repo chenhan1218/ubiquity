@@ -14,6 +14,7 @@ from ubiquity import osextras
 
 def is_swap(device):
     swap = False
+    fp = None
     try:
         fp = open('/proc/swaps')
         for line in fp:
@@ -405,8 +406,9 @@ def windows_startup_folder(mount_path):
             return path
     return ''
 
+ReleaseInfo = namedtuple('ReleaseInfo', 'name, version')
+
 def get_release():
-    ReleaseInfo = namedtuple('ReleaseInfo', 'name, version')
     if get_release.release_info is None:
         try:
             with open('/cdrom/.disk/info') as fp:
