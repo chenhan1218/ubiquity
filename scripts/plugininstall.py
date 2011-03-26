@@ -1303,6 +1303,7 @@ class Install(install_misc.InstallBase):
         codename = lsb_release.get_distro_information()['CODENAME']
         if not os.path.exists(working):
             return
+        install_misc.chroot_setup(self.target)
         try:
             misc.execute('mount', '--bind', '/proc', self.target + '/proc')
             misc.execute('mount', '--bind', '/sys', self.target + '/sys')
@@ -1311,6 +1312,7 @@ class Install(install_misc.InstallBase):
                 working, codename, '--destination', self.target],
                 preexec_fn=install_misc.debconf_disconnect)
         finally:
+            install_misc.chroot_cleanup(self.target)
             misc.execute('umount', '-f', self.target + '/proc')
             misc.execute('umount', '-f', self.target + '/sys')
             misc.execute('umount', '-f', self.target + '/dev')

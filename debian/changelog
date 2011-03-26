@@ -7,6 +7,8 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
   * Add unit tests, which can be run via ./tests/run or by building the
     package.  To override a failing test causing the package build to
     fail, use the UBIQUITY_NO_TESTS environment variable.
+  * Divert initctl around apt-clone to prevent packages with Upstart
+    jobs from failing to be reinstalled.
 
   [ Colin Watson ]
   * Start debconf in ubiquity.i18n.reset_locale if it isn't already running
