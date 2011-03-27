@@ -19,12 +19,13 @@
           <object class="GtkLabel" id="part_ask_heading">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="xalign">0</property>
             <property name="yalign">0</property>
             <property name="label" translatable="yes">This computer currently has Ubuntu 11.04 on it. What would you like to do?</property>
             <property name="wrap">True</property>
           </object>
           <packing>
-            <property name="expand">True</property>
+            <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">0</property>
           </packing>
@@ -89,6 +90,7 @@
                             <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;Still on the fence? You can install Ubuntu alongside your current operating system.&lt;/span&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
+                            <property name="max_width_chars">40</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -167,6 +169,7 @@
                             <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;This will erase all your Ubuntu programs, documents, photos, music, and any other files.&lt;/span&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
+                            <property name="max_width_chars">40</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -244,6 +247,7 @@
                             <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;Looking for a fresh start? You can re-install Ubuntu without loosing any of your previous data or settings.&lt;/span&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
+                            <property name="max_width_chars">40</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -322,6 +326,7 @@
                             <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;Ready to take the plunge? A clean install erases your entire hard disk and installs a fresh copy of Ubuntu.&lt;/span&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
+                            <property name="max_width_chars">40</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -419,6 +424,7 @@
                             <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;Too smart for us? Get your hands dirty with some advanced partitioning options.&lt;/span&gt;</property>
                             <property name="use_markup">True</property>
                             <property name="wrap">True</property>
+                            <property name="max_width_chars">40</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>

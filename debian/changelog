@@ -9,6 +9,8 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
     fail, use the UBIQUITY_NO_TESTS environment variable.
   * Divert initctl around apt-clone to prevent packages with Upstart
     jobs from failing to be reinstalled.
+  * Ensure that the partition description labels all wrap at the same
+    point (LP: #741664).
 
   [ Colin Watson ]
   * Start debconf in ubiquity.i18n.reset_locale if it isn't already running
