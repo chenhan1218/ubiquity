@@ -44,6 +44,7 @@ my @basebd = (
     'pkg-config',
     'po-debconf (>= 1.0)',
     'python-all-dev (>= 2.6)',
+    'python-apt',
     'python-central (>= 0.5)',
     'python-gobject-dev',
     'python-gtk2-dev',
