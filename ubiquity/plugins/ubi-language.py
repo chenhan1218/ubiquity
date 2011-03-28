@@ -339,6 +339,7 @@ class PageGtk(PageBase):
         install_w = next_button.size_request()[0]
         next_button.set_label(reboot_label)
         restart_w = next_button.size_request()[0]
+        next_button.set_label(next_label)
         if next_w > install_w and next_w > restart_w:
             next_button.set_size_request(next_w, -1)
         elif install_w > restart_w:
