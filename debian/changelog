@@ -5,6 +5,7 @@ ubiquity (2.5.31) UNRELEASED; urgency=low
   * Use the standard nocheck DEB_BUILD_OPTIONS argument instead of
     UBIQUITY_NO_TESTS. Thanks Steve Langasek!
   * Run the tests on all architectures.
+  * Don't feed jockey's output into debconf (LP: #739632).
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 Mar 2011 20:56:02 +0100
 

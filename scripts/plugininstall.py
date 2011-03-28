@@ -1069,7 +1069,8 @@ class Install(install_misc.InstallBase):
                 misc.execute('mount', '--bind', '/dev', self.target + '/dev')
                 inst_composite = ['chroot', self.target, 'jockey-text',
                                   '-C', '--no-dbus']
-                p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE)
+                p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
+                                     stdout=sys.stderr)
                 p.communicate('y\n')
             except OSError:
                 syslog.syslog(syslog.LOG_WARNING,
