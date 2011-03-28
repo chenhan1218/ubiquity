@@ -2,6 +2,9 @@ ubiquity (2.5.31) UNRELEASED; urgency=low
 
   * Put build-dependencies in the right place.
   * Add python-apt to the build-depends for the test harness.
+  * Use the standard nocheck DEB_BUILD_OPTIONS argument instead of
+    UBIQUITY_NO_TESTS. Thanks Steve Langasek!
+  * Run the tests on all architectures.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 Mar 2011 20:56:02 +0100
 

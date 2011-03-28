@@ -212,7 +212,7 @@ endif
 	done
 
 tests: install
-ifndef UBIQUITY_NO_TESTS
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	./tests/run
 endif
 
@@ -256,7 +256,7 @@ endif
 
 # Build architecture-dependent files here.
 binary-arch: DH_OPTIONS=$(BINARY_ARCH_OPTIONS)
-binary-arch: install
+binary-arch: tests install
 	dh_testdir
 	dh_testroot
 	dh_installchangelogs
@@ -290,5 +290,5 @@ binary-arch: install
 	dh_md5sums
 	dh_builddeb
 
-binary: tests binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install tests
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
