@@ -1,3 +1,9 @@
+ubiquity (2.5.31) UNRELEASED; urgency=low
+
+  * Put build-dependencies in the right place.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 Mar 2011 20:56:02 +0100
+
 ubiquity (2.5.30) natty; urgency=low
 
   [ Evan Dandrea ]
