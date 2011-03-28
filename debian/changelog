@@ -1,4 +1,4 @@
-ubiquity (2.5.31) UNRELEASED; urgency=low
+ubiquity (2.5.31) natty; urgency=low
 
   * Put build-dependencies in the right place.
   * Add python-apt to the build-depends for the test harness.
@@ -7,7 +7,7 @@ ubiquity (2.5.31) UNRELEASED; urgency=low
   * Run the tests on all architectures.
   * Don't feed jockey's output into debconf (LP: #739632).
 
- -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 Mar 2011 20:56:02 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 Mar 2011 23:21:15 +0100
 
 ubiquity (2.5.30) natty; urgency=low
 
