@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-23 17:30+0000\n"
+"POT-Creation-Date: 2011-03-28 18:28+0100\n"
 "PO-Revision-Date: 2011-01-26 14:25+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:6001 ../ubiquity.templates:171001
+#: ../ubiquity.templates:6001 ../ubiquity.templates:172001
 msgid "Install"
 msgstr "_Instalo"
 
@@ -1040,39 +1040,64 @@ msgstr ""
 "vazhdojë, por konfigurimi i rrjetit duhet të rivendoset në sistemin e "
 "instaluar."
 
+#. Type: error
+#. Description
+#: ../ubiquity.templates:138001
+#, fuzzy
+#| msgid "Error updating installer"
+msgid "Error restoring installed applications"
+msgstr "Gabim në përdiësimin e instaluesit"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:138001
+#, fuzzy
+#| msgid ""
+#| "An error occurred while copying the network settings.  The installation "
+#| "will continue, but the network configuration will have to be set up again "
+#| "in the installed system."
+msgid ""
+"An error occurred while restoring previously-installed applications.  The "
+"installation will continue, but you may have to manually reinstall some "
+"applications after the computer reboots."
+msgstr ""
+"Ndodhi një gabim gjatë kopjimit të parametrave të rrjetit. Instalimi do të "
+"vazhdojë, por konfigurimi i rrjetit duhet të rivendoset në sistemin e "
+"instaluar."
+
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:142001
 msgid "Calculating files to skip copying..."
 msgstr "Po llogarisim skedarët që do lëmë pa kopjuar..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:143001
 msgid "Ready when you are..."
 msgstr "Gati kur të jeni edhe ju gati..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:144001
 msgid "Installing language packs"
 msgstr "Duke instaluar paketat e gjuhës"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:145001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "Duke shkarkuar paketat e gjuhës (${TIME} ngelen)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid "Failed to unmount partitions"
 msgstr "Çmontimi i ndarjes dështoi"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1082,25 +1107,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid "Please close any applications using these mount points."
 msgstr "Ju lutemi mbyllni çdo aplikim që po i përdor këto pika hyrjeje."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "Doni që instaluesi të përpiqet t'i përdorë këto particione përsëri?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid "Do you want to return to the partitioner?"
 msgstr "Doni të ktheheni tek particionuesi?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1110,7 +1135,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:161001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1120,7 +1145,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:161001
+#: ../ubiquity.templates:162001
 msgid "System Configuration"
 msgstr "Konfigurimi i sistemit"
 
@@ -1128,109 +1153,109 @@ msgstr "Konfigurimi i sistemit"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:162001 ../ubiquity.templates:221001
+#: ../ubiquity.templates:163001 ../ubiquity.templates:222001
 msgid "Welcome"
 msgstr "Mirësevini"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:163001
+#: ../ubiquity.templates:164001
 msgid "Network configuration"
 msgstr "Konfigurimi i rrjetit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:164001
+#: ../ubiquity.templates:165001
 msgid "Software selection"
 msgstr "Përzgjedhja e programeve"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:165001
+#: ../ubiquity.templates:166001
 msgid "Language"
 msgstr "Gjuha"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:166001
+#: ../ubiquity.templates:167001
 msgid "Prepare"
 msgstr "Përgatit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:168001
 msgid "Timezone"
 msgstr "Zona orare"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Keyboard"
 msgstr "Tastiera"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:170001
 msgid "Disk Setup"
 msgstr "Instalimi i Diskut"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:171001
 msgid "User Info"
 msgstr "Informacione Rreth Përdoruesit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:173001
 msgid "installation process"
 msgstr "proçesi i instalimit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:175001
 msgid "Checking for installer updates"
 msgstr "Duke kërkuar për përditësime të instaluesit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid "Reading package information"
 msgstr "Duke lexuar informacionin e paketave"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:177001
 msgid "Updating package information"
 msgstr "Duke përditësuar informacionin e paketave"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "Skedari ${INDEX} nga ${TOTAL} me ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:179001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "Skedari ${INDEX} nga ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "Installing update"
 msgstr "Duke instaluar përditësimin"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "Error updating installer"
 msgstr "Gabim në përdiësimin e instaluesit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
 "Instaluesi hasi në një gabim ndërkohë që po përpiqej të përditësonte "
@@ -1239,20 +1264,20 @@ msgstr ""
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "USB disk"
 msgstr "USB disk"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1262,7 +1287,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1274,13 +1299,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:186001 ../ubiquity.templates:187001
 msgid "Installation failed"
 msgstr "Instalimi dështoi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1291,7 +1316,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:187001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "Instaluesi hasi në një gabim të parekuperueshëm dhe do të rinisë në këtë "
@@ -1299,43 +1324,43 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:189001
 msgid "Preparing to install ${RELEASE}"
 msgstr "Duke u përgatitur për të instaluar ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid "Wireless"
 msgstr "Wireless (pa fije)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "Please select your wireless network from this list"
 msgstr "Ju lutemi të zgjidhni rrjetin tuaj wireless nga kjo listë"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "Select drive:"
 msgstr "Zgjidh draivin:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "Krijo hapësirë duke zvarritur ndarësin këtu poshtë:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "The entire disk will be used:"
 msgstr "Do të përdoret i gjithë disku:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 #, no-c-format
 msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
@@ -1346,7 +1371,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1356,7 +1381,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1367,7 +1392,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1377,37 +1402,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:202001
 msgid "Split Largest Partition"
 msgstr "Nda Particionin më të Madh"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:204001
 msgid "For best results, please ensure that this computer:"
 msgstr "Për rezultate më të mira, ju lutemi të siguroheni që ky kompjuter:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "has at least ${SIZE} available drive space"
 msgstr "ka të paktën ${SIZE} hapësirë të lirë në disk"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid "is plugged in to a power source"
 msgstr "është lidhur me një burim korenti"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:207001
 msgid "is connected to the Internet"
 msgstr "është lidhur me internetin"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:208001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1421,7 +1446,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1431,37 +1456,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "Install this third-party software"
 msgstr "Instalo programe të palëve të treta"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "Download updates while installing"
 msgstr "Shkarko përditësiet gjatë instalimit"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid "Layout:"
 msgstr "Dalja:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid "Variant:"
 msgstr "Varianti:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 msgid "Below is an image of your current layout:"
 msgstr "Poshtë është një imazh i daljes suaj të momentit:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1473,31 +1498,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 msgid "Time Zone:"
 msgstr "Zona Kohore:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:220001
 msgid "Region:"
 msgstr "Krahina:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid "[type here to change]"
 msgstr "[kliko këtu për ta ndryshuar]"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1505,7 +1530,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr ""
 
@@ -1517,8 +1542,8 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001 ../ubiquity.templates:225001
-#: ../ubiquity.templates:229001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:225001 ../ubiquity.templates:226001
+#: ../ubiquity.templates:230001 ../ubiquity.templates:235001
 msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
@@ -1526,19 +1551,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid "Something else"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1546,13 +1571,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:228001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1560,7 +1585,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr ""
 
@@ -1568,14 +1593,14 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001 ../ubiquity.templates:232001
+#: ../ubiquity.templates:229001 ../ubiquity.templates:233001
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr ""
 
@@ -1583,7 +1608,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001 ../ubiquity.templates:233001
+#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
 msgstr ""
 
@@ -1591,7 +1616,7 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001 ../ubiquity.templates:233001
+#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1599,13 +1624,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:232001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1614,19 +1639,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:236001
 #, fuzzy
 #| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
@@ -1634,7 +1659,7 @@ msgstr "Ky kompjuter nuk ka një ${OS}."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:237001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1642,7 +1667,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:238001
 #, fuzzy
 #| msgid "This computer has no operating systems on it."
 msgid ""
@@ -1652,7 +1677,7 @@ msgstr "Ky kompjuter nuk ka një sistem operativ."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:239001
 #, fuzzy
 #| msgid "This computer has no operating systems on it."
 msgid ""
