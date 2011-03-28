@@ -12,6 +12,8 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
   * Ensure that the partition description labels all wrap at the same
     point (LP: #741664).
   * Move test dependencies into build-depends.  Thanks Colin Watson!
+  * Move the apt-clone working directory into /var/log/installer at the
+    end of installation (LP: #739492).
 
   [ Colin Watson ]
   * Start debconf in ubiquity.i18n.reset_locale if it isn't already running

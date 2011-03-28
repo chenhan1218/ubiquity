@@ -1492,6 +1492,13 @@ class Install(install_misc.InstallBase):
                 oem_id_file.close()
         except (debconf.DebconfError, IOError):
             pass
+        try:
+            path = os.path.join(self.target, 'ubiquity-apt-clone')
+            if os.path.exists(path):
+                shutil.move(path,
+                            os.path.join(self.target, 'var/log/installer'))
+        except IOError:
+            pass
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""
