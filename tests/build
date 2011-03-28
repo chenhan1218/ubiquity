@@ -7,13 +7,6 @@ if ! dpkg-checkbuilddeps; then
 	sudo apt-get -y build-dep ubiquity
 fi
 
-for p in python-pyicu debconf-utils python-mock; do
-	if [ ! -e /var/lib/dpkg/info/$p.list ]; then
-		sudo apt-get -y install python-pyicu debconf-utils
-		break
-	fi
-done
-
 if [ ! -e d-i/source ]; then
 	make -C d-i update
 	make -C d-i build

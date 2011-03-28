@@ -11,6 +11,7 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
     jobs from failing to be reinstalled.
   * Ensure that the partition description labels all wrap at the same
     point (LP: #741664).
+  * Move test dependencies into build-depends.  Thanks Colin Watson!
 
   [ Colin Watson ]
   * Start debconf in ubiquity.i18n.reset_locale if it isn't already running
