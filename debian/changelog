@@ -15,6 +15,9 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Start debconf in ubiquity.i18n.reset_locale if it isn't already running
     (LP: #649895).
+  * Remove grub_device_label from string_extended, now that the boot loader
+    question is only asked from the partitioning page rather than a separate
+    dialog (LP: #726740).
 
  -- Evan Dandrea <ev@ubuntu.com>  Thu, 24 Mar 2011 13:27:38 +0000
 
