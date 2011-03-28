@@ -16,6 +16,8 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
     end of installation (LP: #739492).
   * Set the next button back to its original label once done calculating
     its size.
+  * Automatic update of included source packages: migration-assistant
+    0.6.9, user-setup 1.28ubuntu14.
 
   [ Colin Watson ]
   * Start debconf in ubiquity.i18n.reset_locale if it isn't already running
