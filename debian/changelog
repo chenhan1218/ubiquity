@@ -1,4 +1,4 @@
-ubiquity (2.5.30) UNRELEASED; urgency=low
+ubiquity (2.5.30) natty; urgency=low
 
   [ Evan Dandrea ]
   * Add an error message for apt-clone failing.
@@ -26,7 +26,7 @@ ubiquity (2.5.30) UNRELEASED; urgency=low
     question is only asked from the partitioning page rather than a separate
     dialog (LP: #726740).
 
- -- Evan Dandrea <ev@ubuntu.com>  Thu, 24 Mar 2011 13:27:38 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 Mar 2011 18:30:33 +0100
 
 ubiquity (2.5.29) natty; urgency=low
 
