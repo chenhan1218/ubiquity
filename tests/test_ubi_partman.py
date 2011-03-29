@@ -140,8 +140,13 @@ class TestPage(unittest.TestCase):
     def test_method_description(self):
         # FIXME: move this into the Directory tests, following use_as()
         pairs = [('swap', 'partman/method_long/swap'),
-                 ('efi', 'partman-efi/text/efi'),
                  ('biosgrub', 'partman/method_long/biosgrub')]
+        try:
+            # We cannot test efi if we're not running on x86.
+            self.page.description('partman-efi/text/efi')
+            pairs.append(('efi', 'partman-efi/text/efi'))
+        except debconf.DebconfError:
+            pass
         try:
             # We cannot test newworld if we're not running on powerpc.
             self.page.description('partman/method_long/newworld')

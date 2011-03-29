@@ -1,3 +1,9 @@
+ubiquity (2.5.32) UNRELEASED; urgency=low
+
+  * Fix test failure on non-x86 architectures.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Mar 2011 10:24:58 +0100
+
 ubiquity (2.5.31) natty; urgency=low
 
   * Put build-dependencies in the right place.
