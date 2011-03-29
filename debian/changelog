@@ -1,3 +1,10 @@
+ubiquity (2.5.33) UNRELEASED; urgency=low
+
+  * Shut down the debconf-communicator instance started in DM.run.  This
+    should reduce the number of spurious crash reports we get.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Mar 2011 11:50:34 +0100
+
 ubiquity (2.5.32) natty; urgency=low
 
   * Fix test failure on non-x86 architectures.

@@ -483,6 +483,7 @@ EndSection
                                   'utf-8', 'replace')
             except debconf.DebconfError:
                 pass
+            db.shutdown()
 
             if title and message:
                 if self.frontend == 'gtk_ui':
