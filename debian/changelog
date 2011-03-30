@@ -1,5 +1,6 @@
 ubiquity (2.5.33) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Shut down the debconf-communicator instance started in DM.run.  This
     should reduce the number of spurious crash reports we get.
   * KDE frontend:
@@ -8,6 +9,10 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
       EINTR-safety (LP: #745014).
     - Show ext2 and btrfs in the same colour as ext3 and ext4, rather than
       in the same colour as free space.
+
+  [ Evan Dandrea ]
+  * Clarify substitution variables in the automatic partition templates
+    using comments.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Mar 2011 11:50:34 +0100
 
