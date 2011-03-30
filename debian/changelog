@@ -9,6 +9,9 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
       EINTR-safety (LP: #745014).
     - Show ext2 and btrfs in the same colour as ext3 and ext4, rather than
       in the same colour as free space.
+  * localechooser/supported-locales only lists additional locales, so
+    calculate the set of language packs to install using the union of it and
+    debian-installer/locale (LP: #741304).
 
   [ Evan Dandrea ]
   * Clarify substitution variables in the automatic partition templates

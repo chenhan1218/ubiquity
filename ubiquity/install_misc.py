@@ -794,17 +794,16 @@ class InstallBase:
         except debconf.DebconfError:
             pass
         if not langpacks:
+            langpack_set = set()
             try:
                 langpack_db = self.db.get('localechooser/supported-locales')
-                langpack_set = set()
                 for locale in langpack_db.replace(',', '').split():
                     langpack_set.add(locale_to_language_pack(locale))
-                langpacks = sorted(langpack_set)
             except debconf.DebconfError:
                 pass
-        if not langpacks:
             langpack_db = self.db.get('debian-installer/locale')
-            langpacks = [locale_to_language_pack(langpack_db)]
+            langpack_set.add(locale_to_language_pack(langpack_db))
+            langpacks = sorted(langpack_set)
 
         if len(langpacks) == 1 and langpacks[0] in ('C', 'en'):
             # Touch
