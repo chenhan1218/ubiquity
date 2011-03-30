@@ -43,6 +43,8 @@ _Description:
 Template: ubiquity/text/try_install_text_label
 Type: text
 _Description:
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
+# MEDIUM is a variable substituted into this string, and may be 'CD'
  You can try ${RELEASE} without making any changes to your computer,
  directly from this ${MEDIUM}.
  .
@@ -51,10 +53,12 @@ _Description:
 
 Template: ubiquity/text/try_ubuntu
 Type: text
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Try ${RELEASE}
 
 Template: ubiquity/text/install_ubuntu
 Type: text
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Install ${RELEASE}
 
 Template: ubiquity/text/release_notes_label
@@ -83,6 +87,8 @@ Description: for internal use; can be preseeded
 Template: ubiquity/text/alpha_warning_label
 Type: text
 _Description:
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
+# MEDIUM is a variable substituted into this string, and may be 'CD'
  This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not
  a final release; that will come with the final release of ${RELEASE} in
  April 2011.
@@ -227,6 +233,7 @@ _Description: Allocate drive space
 
 Template: ubiquity/text/part_auto_files
 Type: text
+# SIZE is a variable substituted into this string, and may be '100 GB'
 _Description: Files (${SIZE})
 
 Template: ubiquity/text/part_advanced_heading_label
@@ -267,6 +274,7 @@ _Description: Continue without a bootloader.
 
 Template: ubiquity/text/skip_label
 Type: text
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 _Description:
  You will need to manually install a bootloader in order to start ${RELEASE}.
 
@@ -440,6 +448,7 @@ _Description: Boot loader
 Template: ubiquity/text/finished_label
 Type: text
 _Description:
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
  Installation has finished.  You can continue testing ${RELEASE} now, but until
  you restart the computer, any changes you make or documents you save will
  not be preserved.
@@ -984,6 +993,7 @@ Description: for internal use; automatically reboot when the install fails.
 
 Template: ubiquity/text/prepare_heading_label
 Type: text
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Preparing to install ${RELEASE}
 
 Template: ubiquity/text/wireless_heading_label
@@ -1062,6 +1072,7 @@ _Description: For best results, please ensure that this computer:
 
 Template: ubiquity/text/prepare_sufficient_space
 Type: text
+# SIZE is a variable substituted into this string, and may be '3.7 GB'
 _Description: has at least ${SIZE} available drive space
 
 Template: ubiquity/text/prepare_power_source
@@ -1074,6 +1085,7 @@ _Description: is connected to the Internet
 
 Template: ubiquity/text/prepare_foss_disclaimer
 Type: text
+# RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 _Description:
  ${RELEASE} uses third-party software to display Flash, MP3 and other media,
  and to work with some wireless hardware. Some of this software is

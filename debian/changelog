@@ -14,8 +14,7 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
     debian-installer/locale (LP: #741304).
 
   [ Evan Dandrea ]
-  * Clarify substitution variables in the automatic partition templates
-    using comments.
+  * Clarify substitution variables in the debconf templates using comments.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Mar 2011 11:50:34 +0100
 
