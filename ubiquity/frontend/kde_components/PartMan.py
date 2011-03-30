@@ -370,7 +370,7 @@ class PartMan(QtGui.QWidget):
                 self.edit_dialog.partition_edit_mount_combo.addItem(mp)
 
     def on_partition_list_treeview_activated(self, index):
-        """ activated when parition lick clicked """
+        """ activated when partition line clicked """
         if not self.ctrlr.allowed_change_step():
             return
 
