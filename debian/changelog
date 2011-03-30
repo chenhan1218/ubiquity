@@ -12,6 +12,9 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
   * localechooser/supported-locales only lists additional locales, so
     calculate the set of language packs to install using the union of it and
     debian-installer/locale (LP: #741304).
+  * Do a quick check at startup to see if the debconf database is locked by
+    something else, and exit slightly more gracefully than by raising an
+    exception (LP: #746020).
 
   [ Evan Dandrea ]
   * Clarify substitution variables in the debconf templates using comments.
