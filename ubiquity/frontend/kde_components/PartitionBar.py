@@ -31,8 +31,10 @@ class Partition:
     # colors used to render partition types
     # 'auto' is used to represent the results of automatic partitioning.
     filesystemColours = {'auto':        '#509DE8',
+                         'ext2':        '#418DD4',
                          'ext3':        '#418DD4',
                          'ext4':        '#418DD4',
+                         'btrfs':       '#418DD4',
                          'free':        '#FFFFFF',
                          'linux-swap':  '#FF80E0',
                          'fat32':       '#C0DAFF',

@@ -6,6 +6,8 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
     - Force the SIGCHLD handler installed by QProcessManager to use
       SA_RESTART, in the hope of avoiding problems with Python's lack of
       EINTR-safety (LP: #745014).
+    - Show ext2 and btrfs in the same colour as ext3 and ext4, rather than
+      in the same colour as free space.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Mar 2011 11:50:34 +0100
 
