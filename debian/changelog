@@ -2,6 +2,10 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
 
   * Shut down the debconf-communicator instance started in DM.run.  This
     should reduce the number of spurious crash reports we get.
+  * KDE frontend:
+    - Force the SIGCHLD handler installed by QProcessManager to use
+      SA_RESTART, in the hope of avoiding problems with Python's lack of
+      EINTR-safety (LP: #745014).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 29 Mar 2011 11:50:34 +0100
 

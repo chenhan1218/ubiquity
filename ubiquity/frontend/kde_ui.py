@@ -29,6 +29,7 @@ import os
 import traceback
 import syslog
 import atexit
+import signal
 import dbus
 
 # kde gui specifics
@@ -60,6 +61,12 @@ class UbiquityUI(kdeui.KMainWindow):
     def __init__(self, parent=None):
         QtGui.QMainWindow.__init__(self, parent)
         uic.loadUi(os.path.join(UIDIR, "app.ui"), self)
+
+        # QProcessManager sets a SIGCHLD handler without SA_RESTART; this
+        # can cause ubiquity crashes, because Python's subprocess module
+        # (and indeed much of Python in general) is not EINTR-safe.  Force
+        # this to be restartable.
+        signal.siginterrupt(signal.SIGCHLD, False)
 
         distro_name = "Kubuntu"
         distro_release = ""
