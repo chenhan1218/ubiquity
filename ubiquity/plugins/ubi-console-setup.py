@@ -383,7 +383,9 @@ class Page(plugin.Plugin):
                  '^keyboard-configuration/model',
                  '^keyboard-configuration/unsupported_'],
                 {'OVERRIDE_ALLOW_PRESEEDING': '1',
-                 'LC_ALL': di_locale})
+                 'LC_ALL': di_locale,
+                 'PATH': '/usr/lib/ubiquity/console-setup:' +
+                         os.environ['PATH']})
 
     # keyboard-configuration has a complex model of whether to store defaults
     # in debconf, induced by its need to run well both in an installer context

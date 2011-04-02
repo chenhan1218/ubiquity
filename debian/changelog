@@ -1,3 +1,10 @@
+ubiquity (2.5.34) UNRELEASED; urgency=low
+
+  * Force the output of 'locale charmap' to UTF-8 while running
+    console-setup (LP: #730576).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 02 Apr 2011 16:09:33 +0100
+
 ubiquity (2.5.33) natty; urgency=low
 
   [ Colin Watson ]
