@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-03-28 18:28+0100\n"
+"POT-Creation-Date: 2011-04-02 13:00+0100\n"
 "PO-Revision-Date: 2011-03-30 14:38+0000\n"
 "Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
@@ -65,6 +65,8 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
+#. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:9001
 msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
@@ -73,6 +75,7 @@ msgstr "您可以直接从此 ${MEDIUM} 尝试 ${RELEASE}，而不用对您的�
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:9001
 msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
@@ -83,12 +86,14 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Try ${RELEASE}"
 msgstr "试用 ${RELEASE}"
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:11001
 msgid "Install ${RELEASE}"
 msgstr "安装 ${RELEASE}"
@@ -117,6 +122,8 @@ msgstr "您可能希望 <a href=\"update\">更新安装程序</a>。"
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
+#. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
@@ -341,6 +348,7 @@ msgstr "分配磁盘空间"
 
 #. Type: text
 #. Description
+#. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
 msgstr "文件 (${SIZE})"
@@ -399,6 +407,7 @@ msgstr "继续，不安装启动引导程序。"
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:58001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
@@ -633,6 +642,7 @@ msgstr "引导程序"
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:95001
 msgid ""
 "Installation has finished.  You can continue testing ${RELEASE} now, but "
@@ -1269,6 +1279,7 @@ msgstr "安装程序遇到了一个不可修复的错误，现在将会重新启
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:189001
 msgid "Preparing to install ${RELEASE}"
 msgstr "准备安装 ${RELEASE}"
@@ -1353,6 +1364,7 @@ msgstr "要获得最佳的体验，请确定这台计算机："
 
 #. Type: text
 #. Description
+#. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:205001
 msgid "has at least ${SIZE} available drive space"
 msgstr "有至少 ${SIZE} 可用的磁盘空间"
@@ -1371,6 +1383,7 @@ msgstr "已经连接到互联网"
 
 #. Type: text
 #. Description
+#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:208001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
@@ -1451,12 +1464,15 @@ msgstr "[在此输入以更改]"
 
 #. Type: text
 #. Description
+#. OS is a variable substituted into this string, and may be 'Windows 7'
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "将 ${OS} 替换为 ${DISTRO}"
 
 #. Type: text
 #. Description
+#. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
@@ -1467,6 +1483,8 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
+#. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "安装 ${DISTRO}，与 ${OS} 共存"
@@ -1488,6 +1506,8 @@ msgstr "不会删除文件。您可以在每次电脑启动的时候选择操作
 
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
+#. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "安装 ${DISTRO}，替代 ${OS}"
@@ -1500,6 +1520,7 @@ msgstr "其他选项"
 
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:227001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
@@ -1508,12 +1529,14 @@ msgstr "您可以自己创建、调整分区，或者为 ${DISTRO} 选择多个�
 
 #. Type: text
 #. Description
+#. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "卸载 ${CURDISTRO} 并重新安装"
 
 #. Type: text
 #. Description
+#. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
@@ -1524,6 +1547,8 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
+#. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "升级 ${CURDISTRO} 到 ${VER}"
@@ -1539,14 +1564,19 @@ msgstr "不会删除文件。会尽量保留已安装的软件。"
 
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
+#. VER is a variable substituted into this string, and may be '11.04'
+#. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "安装 ${DISTRO} ${VER}，与 ${CURDISTRO} 共存"
 
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "清除整个磁盘并安装 ${DISTRO}"
@@ -1569,6 +1599,8 @@ msgstr "删除全部并重新安装"
 
 #. Type: text
 #. Description
+#. OS is a variable substituted into this string, and may be 'Windows 7'
+#. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:232001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
@@ -1580,24 +1612,29 @@ msgstr ""
 
 #. Type: text
 #. Description
+#. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "重新安装 ${CURDISTRO}"
 
 #. Type: text
 #. Description
+#. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
 msgstr "安装 ${DISTRO}，与其他系统共存"
 
 #. Type: text
 #. Description
+#. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "这台计算机已经安装了 ${OS}。您准备怎么做？"
 
 #. Type: text
 #. Description
+#. OS1 is a variable substituted into this string, and may be 'Windows 7'
+#. OS2 is a variable substituted into this string, and may be 'Mac OS X'
 #: ../ubiquity.templates:237001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
