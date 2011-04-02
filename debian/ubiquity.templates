@@ -42,9 +42,10 @@ _Description:
 
 Template: ubiquity/text/try_install_text_label
 Type: text
-_Description:
 # RELEASE is a variable substituted into this string, and may be 'Ubuntu'
+#flag:comment:2
 # MEDIUM is a variable substituted into this string, and may be 'CD'
+_Description:
  You can try ${RELEASE} without making any changes to your computer,
  directly from this ${MEDIUM}.
  .
@@ -86,9 +87,10 @@ Description: for internal use; can be preseeded
 
 Template: ubiquity/text/alpha_warning_label
 Type: text
-_Description:
+#flag:comment:2
 # RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 # MEDIUM is a variable substituted into this string, and may be 'CD'
+_Description:
  This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not
  a final release; that will come with the final release of ${RELEASE} in
  April 2011.
@@ -447,8 +449,8 @@ _Description: Boot loader
 
 Template: ubiquity/text/finished_label
 Type: text
-_Description:
 # RELEASE is a variable substituted into this string, and may be 'Ubuntu'
+_Description:
  Installation has finished.  You can continue testing ${RELEASE} now, but until
  you restart the computer, any changes you make or documents you save will
  not be preserved.
@@ -1161,14 +1163,16 @@ _Description: Welcome
 
 Template: ubiquity/partitioner/single_os_replace
 Type: text
-# DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 # OS is a variable substituted into this string, and may be 'Windows 7'
+#flag:comment:1
+# DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Replace ${OS} with ${DISTRO}
  <span foreground="darkred">Warning:</span> This will erase all of your ${OS}
  programs, documents, photos, music, and any other files.
 
 Template: ubiquity/partitioner/single_os_resize
 Type: text
+#flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 # OS is a variable substituted into this string, and may be 'Windows 7'
 _Description: Install ${DISTRO} alongside ${OS}
@@ -1177,6 +1181,7 @@ _Description: Install ${DISTRO} alongside ${OS}
 
 Template: ubiquity/partitioner/ubuntu_inside
 Type: text
+#flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 # OS is a variable substituted into this string, and may be 'Windows 7'
 _Description: Install ${DISTRO} inside ${OS}
@@ -1185,6 +1190,7 @@ _Description: Install ${DISTRO} inside ${OS}
 
 Template: ubiquity/partitioner/advanced
 Type: text
+#flag:comment:2
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Something else
  You can create or resize partitions yourself, or choose multiple partitions
@@ -1199,6 +1205,7 @@ _Description: Erase ${CURDISTRO} and reinstall
 
 Template: ubiquity/partitioner/ubuntu_upgrade
 Type: text
+#flag:comment:1
 # CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 # VER is a variable substituted into this string, and may be '11.04'
 _Description: Upgrade ${CURDISTRO} to ${VER}
@@ -1206,6 +1213,7 @@ _Description: Upgrade ${CURDISTRO} to ${VER}
 
 Template: ubiquity/partitioner/ubuntu_resize
 Type: text
+#flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 # VER is a variable substituted into this string, and may be '11.04'
 # CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
@@ -1215,6 +1223,7 @@ _Description: Install ${DISTRO} ${VER} alongside ${CURDISTRO}
 
 Template: ubiquity/partitioner/no_systems_format
 Type: text
+#flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Erase disk and install ${DISTRO}
  <span foreground="darkred">Warning:</span> This will delete any files on the
@@ -1222,8 +1231,9 @@ _Description: Erase disk and install ${DISTRO}
 
 Template: ubiquity/partitioner/ubuntu_and_os_format
 Type: text
-# CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
+#flag:comment:2
 # OS is a variable substituted into this string, and may be 'Windows 7'
+# CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 _Description: Erase everything and reinstall
  <span foreground="darkred">Warning:</span> This will delete all your
  programs, documents, photos, music, and other files in both ${OS} and
@@ -1231,12 +1241,14 @@ _Description: Erase everything and reinstall
 
 Template: ubiquity/partitioner/ubuntu_reinstall
 Type: text
+#flag:comment:1
 # CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 _Description: Reinstall ${CURDISTRO}
  No files will be deleted. Installed software will be kept where possible.
 
 Template: ubiquity/partitioner/multiple_os_format
 Type: text
+#flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Erase disk and install ${DISTRO}
  <span foreground="darkred">Warning:</span> This will delete any files on the
@@ -1244,6 +1256,7 @@ _Description: Erase disk and install ${DISTRO}
 
 Template: ubiquity/partitioner/multiple_os_resize
 Type: text
+#flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Install ${DISTRO} alongside them
  No files will be deleted. You can choose which operating system you want each
@@ -1251,12 +1264,14 @@ _Description: Install ${DISTRO} alongside them
 
 Template: ubiquity/partitioner/heading_one
 Type: text
+#flag:comment:2
 # OS is a variable substituted into this string, and may be 'Windows 7'
 _Description:
  This computer currently has ${OS} on it. What would you like to do?
 
 Template: ubiquity/partitioner/heading_dual
 Type: text
+#flag:comment:2
 # OS1 is a variable substituted into this string, and may be 'Windows 7'
 # OS2 is a variable substituted into this string, and may be 'Mac OS X'
 _Description:
