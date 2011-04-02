@@ -15,6 +15,10 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
   * Do a quick check at startup to see if the debconf database is locked by
     something else, and exit slightly more gracefully than by raising an
     exception (LP: #746020).
+  * GTK frontend:
+    - Fix the partman plugin to convert the return value of
+      gtk.TreeModel.get_value to Unicode before looking it up in a dict
+      (LP: #746408).
 
   [ Evan Dandrea ]
   * Clarify substitution variables in the debconf templates using comments.

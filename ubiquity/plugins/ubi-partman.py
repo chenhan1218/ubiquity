@@ -309,7 +309,7 @@ class PageGtk(PageBase):
         if not i:
             return None
         m = self.part_auto_select_drive.get_model()
-        val = m.get_value(i, 0)
+        val = unicode(m.get_value(i, 0))
 
         partman_id = self.extra_options['use_device'][1][val][0]
         disk_id = partman_id.rsplit('/', 1)[1]
@@ -432,7 +432,7 @@ class PageGtk(PageBase):
         if not i:
             return
         m = self.part_auto_select_drive.get_model()
-        val = m.get_value(i, 0)
+        val = unicode(m.get_value(i, 0))
         size = self.extra_options['use_device'][1][val][1]
         self.partitionbox.set_size(size)
 
