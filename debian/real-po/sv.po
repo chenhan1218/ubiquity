@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-08 18:28+0000\n"
+"PO-Revision-Date: 2011-03-29 19:17+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:25+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1047,27 +1047,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Fel vid uppdatering av installationsprogrammet"
+msgstr "Fel vid återställning av installerade program"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Ett fel inträffade vid kopiering av nätverksinställningarna.  Installationen "
-"kommer att fortsätta men nätverkskonfigurationen måste konfigureras igen i "
-"det installerade systemet."
+"Ett fel inträffade vid återställning av tidigare installerade program. "
+"Installationen kommer att fortsätta men du kanske måste installera om några "
+"program manuellt efter att datorn har startats om."
 
 #. Type: text
 #. Description
@@ -1530,24 +1523,18 @@ msgstr "Ersätt ${OS} med ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
-"andra filer i ${OS}."
+"<span foreground=\"darkred\">Varning:</span> Detta kommer att radera alla "
+"dina program, dokument, foton, musik och andra filer i ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Installera ${DISTRO} vid sidan om det"
+msgstr "Installera ${DISTRO} vid sidan av ${OS}"
 
 #. Type: text
 #. Description
@@ -1569,16 +1556,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Installera ${DISTRO} vid sidan om det"
+msgstr "Installera ${DISTRO} inuti ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Någonting annat"
 
 #. Type: text
 #. Description
@@ -1587,6 +1572,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Du kan själv skapa eller ändra storlek på partitionerna, eller välja flera "
+"partitioner för ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1597,16 +1584,12 @@ msgstr "Radera ${CURDISTRO} och installera om"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
-"andra filer i ${CURDISTRO}."
+"<span foreground=\"darkred\">Varning:</span> Detta kommer att ta bort alla "
+"dina program, dokument, foton, musik och andra filer i ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1622,14 +1605,14 @@ msgstr "Uppgradera ${CURDISTRO} till ${VER}"
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"Inga filer kommer att tas bort. Installerad programvara kommer att behållas "
+"där det är möjligt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Installera ${DISTRO} ${VER} vid sidan om"
+msgstr "Installera ${DISTRO} ${VER} vid sidan av ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1648,6 +1631,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Varning:</span> Detta kommer att ta bort alla "
+"filer på disken."
 
 #. Type: text
 #. Description
@@ -1658,17 +1643,14 @@ msgstr "Radera allting och installera om"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik och "
-"andra filer i både ${OS} och ${CURDISTRO}."
+"<span foreground=\"darkred\">Varning:</span> Detta kommer att ta bort alla "
+"dina program, dokument, foton, musik och andra filer i både ${OS} och "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1685,10 +1667,8 @@ msgstr "Installera ${DISTRO} vid sidan om dem"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Denna dator har ${OS} installerat."
+msgstr "Denna dator innehåller för närvarande ${OS}. Vad vill du göra?"
 
 #. Type: text
 #. Description
@@ -1697,26 +1677,26 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Denna dator innehåller för närvarande ${OS1} och ${OS2}. Vad vill du göra?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Denna dator har inga operativsystem installerade."
+msgstr ""
+"Denna dator innehåller för närvarande flera operativsystem. Vad vill du göra?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Denna dator har inga operativsystem installerade."
+msgstr ""
+"Denna dator innehåller för närvarande inga upptäckta operativsystem. Vad "
+"vill du göra?"
 
 #. Type: title
 #. Description
@@ -1781,175 +1761,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Tar bort paket"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Det tar endast några få minuter att svara på frågorna."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrera dokument och inställningar"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Hur vill du partitionera disken?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Denna dator har flera operativsystem installerade."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Var vill du lägga ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Detta kommer att ta bort ${SYSTEMS} och installera ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Redo att installera"
-
-#~ msgid "Details"
-#~ msgstr "Detaljer"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Ditt nya operativsystem kommer nu att installeras med följande "
-#~ "inställningar:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avancerat..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Steg ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Söker efter filer..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Ställer in datornamn..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Verkställer konfiguration"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Fortsätt med installationen."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Använd hela partitionen"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Använd hela disken"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Du kan uppgradera ${CURDISTRO} utan att förlora några av dina viktiga "
-#~ "dokument eller program."
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Tvekar du fortfarande? Du kan installera ${DISTRO} ${VER} vid sidan om "
-#~ "din befintliga kopia av ${CURDISTRO}."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Redo att ta språnget? En ren installation raderar hela din hårddisk och "
-#~ "installerar ${DISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Du kan installera om ${CURDISTRO} utan att förlora några av dina viktiga "
-#~ "dokument eller program."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik "
-#~ "och andra filer i alla operativsystem."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Använd största oavbrutna lediga utrymmet"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ange partitioner manuellt (avancerat)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Avancerade alternativ"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Installera starthanterare"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Populäritetstävling"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Delta i undersökningen av paketanvändning"
-
-#~ msgid "Network proxy"
-#~ msgstr "Nätverksproxyserver"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Språk: ${LANGUAGE}\n"
-#~ " Tangentbordslayout: ${KEYMAP}\n"
-#~ " Namn: ${FULLNAME}\n"
-#~ " Inloggningsnamn: ${USERNAME}\n"
-#~ " Plats: ${LOCATION}\n"
-#~ " Migrationsguide:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Radera och använd hela disken"
-
-#~ msgid "Summary"
-#~ msgstr "Sammanfattning"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Denna dator kommer att vara färdig att användas efter att du svarat på "
-#~ "ett antal frågor."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Redo att installera?  Efter att du besvarat ett antal frågor så kommer "
-#~ "innehållet på live-${MEDIUM} installeras på denna dator så att du kan "
-#~ "köra ${RELEASE} med full fart utan ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Detta är en förutgåva av installationsprogrammet för ${RELEASE} för "
-#~ "${MEDIUM} (live). Det är inte en slutgiltig utgåva, den kommer att "
-#~ "levereras med den slutgiltiga utgåvan av ${RELEASE} i oktober 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Ta reda på tangentbordslayout"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Ta reda på tangentbordslayout"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Installera vid sidan om andra operativsystem"

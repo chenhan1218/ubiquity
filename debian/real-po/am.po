@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -980,10 +980,8 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "ማሻሻያውን በመግጠም ላይ ስህተት ተፈጥሯል"
+msgstr ""
 
 #. Type: error
 #. Description
@@ -1549,10 +1547,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "ይህ ኮምፒዩተር ${OS} የስርአት መተግበሪያ አለው"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1565,22 +1561,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "ይህ ኮምፒዩተር የስርአት መተግበሪያ የለውም"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "ይህ ኮምፒዩተር የስርአት መተግበሪያ የለውም"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1637,97 +1629,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "ጥያቄዎቹን ይመልሱ፡፡ ጥቂት ደቂቃዎች ብቻ ነው የሚፈጀው፡፡"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "ሰነዶችን እና አቀማመጦችን ማምጣት"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "ዲስኩን እንዴት አድርገው መከፋፈል ይፈልጋሉ?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "ይህ ኮምፒዩተር በርከት ያለ የስርአት መተግበሪያ አለው"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "የት ነው የሚያስቀምጡት ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "ይህ ይጠፋ ${SYSTEMS} እና ይገጠማል ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "ለመግጠም ዝግጁ ነው"
-
-#~ msgid "Details"
-#~ msgstr "ዝርዝሮች"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "አዲሱ የመስሪያ ዘዴዎ በዚህ ምርጫዎ መስረት ይገጠማል"
-
-#~ msgid "Advanced..."
-#~ msgstr "የረቀቀ"
-
-#~ msgid "Scanning files..."
-#~ msgstr "ፋይሎችን በማሰስ ላይ..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "የኮምፒዩተር ስም በማዋቀር ላይ"
-
-#~ msgid "Applying configuration"
-#~ msgstr "አወቃቀሩን መተግበር"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "መወስን ክፍልፋዩችን በእጅ (የረቀቀ)"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "ዲስኩን ሰርዞ በሙሉ መጠቀም"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "ጥቂት ጥያቄዎች ከመለሱ በኋላ ፤ ኮምፒዩተሮት ለስራ ዝግጁ ይሆናል"
-
-#~ msgid "Advanced Options"
-#~ msgstr "የረቀቀ ምርጫ"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "በጥቅል ተጠቃሚነት ቆጠራ ስለመሳተፍ"
-
-#~ msgid "Popularity contest"
-#~ msgstr "ተወዳጅ ውድድር"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "የኤችቲቲፒ ወኪል"
-
-#~ msgid "Network proxy"
-#~ msgstr "የኔትዎርክ ወኪል"
-
-#~ msgid "Port:"
-#~ msgstr "ፖርት"
-
-#~ msgid "Summary"
-#~ msgstr "ማጠቃለያ"
-
-#~ msgid "Install boot loader"
-#~ msgstr "ማስነሻ መጫኛውን መግጠም"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "የተገኘውን ሰፊ ተከታታይ ሰፊ ባዶ ቦታ ተጠቀም"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " ቋንቋ: ${LANGUAGE}\\n\n"
-#~ "የፊደል ገበታ አቀራረብ: ${KEYMAP}\\n\n"
-#~ "ስም: ${FULLNAME}\\n\n"
-#~ "የመግቢያ ስም: ${USERNAME}\\n\n"
-#~ "አካባቢ: ${LOCATION}\\n\n"
-#~ "የመፍለስ እርዳታ:\\n\n"
-#~ "${MIGRATE}"

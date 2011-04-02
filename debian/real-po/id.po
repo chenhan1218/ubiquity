@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1039,26 +1039,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Galat memperbarui pemasang"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Ada error ketika menyalin pengaturan jaringan. Instalasi akan dilanjutkan, "
-"tapi konfigurasi jaringan harus diatur lagi nanti pada sistem yang terinstal"
 
 #. Type: text
 #. Description
@@ -1646,10 +1637,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Komputer ini memiliki ${OS} di dalamnya"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1662,22 +1651,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Komputer ini tidak memiliki sistem operasi.."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Komputer ini tidak memiliki sistem operasi.."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1743,138 +1728,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Menghapus paket-paket"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Proses menjawab pertanyaan hanya memerlukan waktu beberapa menit."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrasi dokumen dan pengaturan"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Bagaimana anda ingin membuat partisi disk?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Komputer ini memiliki beberapa sistem operasi di dalamnya."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Dimanakah anda ingin meletakkan ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Ini akan menghapus ${SYSTEMS} dan menginstal ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Siap untuk dipasang"
-
-#~ msgid "Details"
-#~ msgstr "Rincian"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Sistem operasi baru anda sekarang akan dipasang dengan pengaturan berikut:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Lanjut..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Langkah ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Memindai berkas..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Sedang mengatur nama komputer..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Menerapkan konfigurasi"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Lanjutkan dengan instalasi."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Gunakan semua partisi"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Gunakan semua disk"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Tentukan partisi secara manual (advanced)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Pilihan Tingkat Lanjut"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Pasang pemuat boot"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Kontes popularitas"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Berpartisipasi dalam survey penggunaan paket"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy jaringan"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Bahasa: ${LANGUAGE}\n"
-#~ " Susunan keyboard: ${KEYMAP}\n"
-#~ " Nama: ${FULLNAME}\n"
-#~ " Nama login: ${USERNAME}\n"
-#~ " Lokasi: ${LOCATION}\n"
-#~ " Asisten migrasi:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Setelah anda menjawab beberapa pertanyaan, komputer ini siap digunakan."
-
-#~ msgid "Summary"
-#~ msgstr "Ringkasan"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Hapus dan gunakan seluruh cakram"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Gunakan ruang kosong yang terbesar"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Siap memasang? Setelah anda menjawab beberapa pertanyaan, isi dari "
-#~ "${MEDIUM} live dapat dipasang pada komputer sehingga anda dapat "
-#~ "menjalankan ${RELEASE} dengan kecepatan penuh tanpa ${MEDIUM}nya."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Tentukan Tampilan Keyboard"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Tentukan tampilan keyboard"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Install bersamaan dengan sistem operasi lain."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ini adalah versi awal dari ${RELEASE} live ${MEDIUM} instalasi. Ini "
-#~ "bukanlah versi akhir; yang akan digabungkan dengan versi akhir dari "
-#~ "${RELEASE} pada Oktober 2010."

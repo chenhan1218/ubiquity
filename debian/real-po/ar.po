@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1017,26 +1017,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "خطأ في تحديث المثبت"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"حدث خطأ في نسخ اإعدادات الشبكة. سيستمر التثبيت، لكن يجب ضبط إعدادات الشبكة "
-"بعد تثبيت النظام."
 
 #. Type: text
 #. Description
@@ -1612,10 +1603,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "يحتوي هذا الحاسوب على نظام التشغيل ‪${OS}‬"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1628,22 +1617,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "لا يحتوي هذا الحاسوب على نظام تشغيل"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "لا يحتوي هذا الحاسوب على نظام تشغيل"
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1706,135 +1691,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "يحذف الحزم"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "لن تستغرق الإجابة على الأسئلة أكثر من بضعة دقائق."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "انقل الإعدادات والمستندات"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "كيف تريد تقسيم القرص؟"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "يحتوي هذا الحاسوب على عدة أنظمة تشغيل"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "أين تريد وضع ${RELEASE}؟"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "هذا سيحذف ${SYSTEMS} ويثبّت ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "مستعد للتثبيت"
-
-#~ msgid "Details"
-#~ msgstr "التفاصيل"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "سيُثبّت نظام التشغيل الجديد الآن وفقا للإعدادات التالية:"
-
-#~ msgid "Advanced..."
-#~ msgstr "متقدم..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "خطوة ${INDEX}\\${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "يفحص الملفات..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "يضبط اسم الحاسوب..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "تطبيق التضبيط"
-
-#~ msgid "Continue with installation."
-#~ msgstr "تابع التثبيت."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "استخدم الجزء كله"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "استخدم القرص كله"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "حدد الأقسام يدويا (متقدم)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "الخيارات المتقدّمة"
-
-#~ msgid "Install boot loader"
-#~ msgstr "ثبّت محمّل الإقلاع"
-
-#~ msgid "Popularity contest"
-#~ msgstr "مسابقة الشعبية"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "شارك في استبيان استخدام الحزم"
-
-#~ msgid "Network proxy"
-#~ msgstr "وسيط الشبكة"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "وسيط HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "المنفذ:"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "بمجرد إجابتك لبعض الأسئلة سيكون هذا الحاسوب جاهزا للاستخدام."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "امسح القرص واستخدمه كاملا"
-
-#~ msgid "Summary"
-#~ msgstr "ملخّص"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " اللغه: ${LANGUAGE}\n"
-#~ " تخطيط لوحة المفاتيح: ${KEYMAP}\n"
-#~ " الاسم الكامل: ${FULLNAME}\n"
-#~ " اسم الولوج: ${USERNAME}\n"
-#~ " المكان: ${LOCATION}\n"
-#~ " مساعد الانتقال:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "استخدم أكبر مساحة متاحة متصلة"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "ثبّت بجوار أنظمة تشغيل أخرى"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "حدد تخطيط لوحة المفاتيح"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "جاهز للتثبيت؟ بعد إجابتك عن بضعة أسئلة، ستتمكن من تثبيت محتوى ${MEDIUM} "
-#~ "الحي على هذا الحاسوب حيث سيمكنك تشغيل ${RELEASE} بالسرعة الكاملة دون أن "
-#~ "تحتاج ${MEDIUM}."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "حدد تخطيط لوحة المفاتيح"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "هذه إصدارة أولية من مثبت${MEDIUM}  ${RELEASE} الحي. ليست الإصدارة "
-#~ "النهائية التي ستأتي مع إصدارة ${RELEASE} النهائية في أكتوبر 2010."

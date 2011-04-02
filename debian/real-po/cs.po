@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:25+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1036,26 +1036,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Chyba při aktualizaci instalátoru"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Při kopírování nastavení sítě došlo k chybě. Instalace bude pokračovat, ale "
-"nastavení sítě bude muset být znovu nastaveno v nainstalovaném systému."
 
 #. Type: text
 #. Description
@@ -1639,10 +1630,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Tento počítač obsahuje ${OS}."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1655,22 +1644,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Tento počítač neobsahuje žádný operační systém."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Tento počítač neobsahuje žádný operační systém."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1734,139 +1719,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňování balíků"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Odpovědi na otázky by neměly zabrat víc než pár minut."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Přenést dokumenty a nastavení"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Jak chcete rozdělit disk?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Tento počítač obsahuje několik operačních systémů."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Kam chcete umístit ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Tímto odstraníte ${SYSTEMS} a nainstalujete ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Připraven k instalaci"
-
-#~ msgid "Details"
-#~ msgstr "Podrobnosti"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Váš nový operační systém bude nyní nainstalován s následujícím nastavením:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Pokročilé..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Krok ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Prohledávají se soubory..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Nastavuje se název počítače..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Aplikuje se nastavení"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Pokračovat v instalaci."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Použít celý oddíl"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Použít celý disk"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Použít největší souvislé volné místo"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Upřesnit oddíly ručně (pro pokročilé)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Pokročilé volby"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalovat zavaděč"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Anketa oblíbenosti"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Zúčastnit se průzkumu používání balíků"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy sítě"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Jazyk: ${LANGUAGE}\n"
-#~ " Rozložení klávesnice: ${KEYMAP}\n"
-#~ " Jméno: ${FULLNAME}\n"
-#~ " Přihlašovací jméno: ${USERNAME}\n"
-#~ " Poloha: ${LOCATION}\n"
-#~ " Pomocník migrace:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Smazat a použít celý disk"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Jakmile odpovíte na pár otázek, bude tento počítač připraven k použití."
-
-#~ msgid "Summary"
-#~ msgstr "Shrnutí"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Připraveni na instalaci? Jakmile odpovíte na několik otázek, bude obsah "
-#~ "tohoto spustitelného ${MEDIUM} nainstalován na váš počítač. Díky tomu "
-#~ "budete moci ${RELEASE} používat daleko rychleji a bez potřeby vkládat "
-#~ "${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Toto je předběžné vydání instalátoru spustitelného ${MEDIUM} pro "
-#~ "${RELEASE}. Nejedná se o konečné vydání, které přijde s ${RELEASE} v "
-#~ "říjnu 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Odhadnout rozložení klávesnice"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Nainstalovat vedle ostatních operačních systémů"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Odhadnout rozložení klávesnice"

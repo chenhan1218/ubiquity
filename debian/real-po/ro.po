@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-23 05:44+0000\n"
+"PO-Revision-Date: 2011-04-02 04:17+0000\n"
 "Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1048,26 +1048,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Eroare la actualizarea programului de instalare"
+msgstr "Eroare la restaurarea aplicațiilor instalate"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"A apărut o eroare în timpul copierii configurărilor de rețea. Instalarea va "
-"continua, dar rețeaua va trebui configurată din nou pe sistemul instalat."
+"A apărut o eroare la restaurarea aplicațiilor care erau instalate până acum. "
+"Instalarea va continua, dar va trebui să reinstalați manual o parte din "
+"aplicații după repornirea calculatorului."
 
 #. Type: text
 #. Description
@@ -1529,24 +1523,19 @@ msgstr "Înlocuiește ${OS} cu ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Aceasta va <b>șterge</b> toate programele, documentele, fotografiile, muzica "
-"și orice alte fișiere de pe ${OS}."
+"<span foreground=\"darkred\">Avertisment:</span> Această acțiune va șterge "
+"toate programele, documentele, pozele, muzica și orice alte fișiere din "
+"${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Instalează ${DISTRO} alături"
+msgstr "Instalează ${DISTRO} alături de ${OS}"
 
 #. Type: text
 #. Description
@@ -1568,16 +1557,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Instalează ${DISTRO} alături"
+msgstr "Instalează ${DISTRO} în interiorul ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Altceva"
 
 #. Type: text
 #. Description
@@ -1586,6 +1573,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Puteți crea sau redimensiona partiții sau puteți alege mai multe partiții "
+"pentru ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1596,16 +1585,13 @@ msgstr "Șterge ${CURDISTRO} și reinstalează"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Aceasta va <b>șterge</b> toate programele, documentele, fotografiile, muzica "
-"și orice alte fișiere de pe ${CURDISTRO}."
+"<span foreground=\"darkred\">Avertisment:</span> Această acțiune va șterge "
+"toate programele, documentele, pozele, muzica și orice alte fișiere din "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1621,14 +1607,14 @@ msgstr "Înnoiește ${CURDISTRO} la ${VER}"
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"Niciun fișier nu va fi șters. Software-ul instalat va fi păstrat, pe cât "
+"posibil."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Instalează ${DISTRO} ${VER} alături"
+msgstr "Instalează ${DISTRO} ${VER} alături de ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1647,6 +1633,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Atenție:</span> Această acțiune va șterge toate "
+"fișierele de pe disc."
 
 #. Type: text
 #. Description
@@ -1657,17 +1645,14 @@ msgstr "Șterge totul și reinstalează"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"Aceasta va <b>șterge</b> toate programele, documentele, fotografiile, muzica "
-"și orice alte fișiere atât de pe ${OS} cât și de pe ${CURDISTRO}."
+"<span foreground=\"darkred\">Atenție:</span> Această acțiune va șterge toate "
+"programele, documentele, pozele, muzica și alte fișiere atât din ${OS} cât "
+"și din ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1684,10 +1669,8 @@ msgstr "Instalează ${DISTRO} alături"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Acest calculator are instalat ${OS}."
+msgstr "Acest calculator are momentan instalat ${OS}. Ce ați dori să faceți?"
 
 #. Type: text
 #. Description
@@ -1696,26 +1679,28 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Acest calculator are momentan instalat ${OS1} și ${OS2}. Ce ați dori să "
+"faceți?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Acest calculator nu are instalat niciun sistem de operare."
+msgstr ""
+"Acest calculator are mai multe sisteme de operare instalate pe el. Ce ați "
+"dori să faceți?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Acest calculator nu are instalat niciun sistem de operare."
+msgstr ""
+"Acest calculator nu pare să aibă niciun sistem de operare instalat. Ce ați "
+"dori să faceți?"
 
 #. Type: title
 #. Description
@@ -1780,171 +1765,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Se elimină pachetele"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Va dura doar câteva minute să răspundeți la întrebări."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrează documentele și configurările"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Cum doriți să partiționați discul?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Pe acest calculator sunt instalate mai multe sisteme de operare."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Unde doriți să plasați ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Aceasta va șterge ${SYSTEMS} și va instala ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Gata de instalare"
-
-#~ msgid "Details"
-#~ msgstr "Detalii"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "Noul sistem de operare va fi instalat cu următoarele configurări:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avansat..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Pasul ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Se examinează fișierele..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Se definește numele calculatorului..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Se aplică configurările"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Continuă instalarea."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Utilizează întreaga partiție"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Utilizează întregul disc"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Aveți posibilitatea să înnoiți ${CURDISTRO} fără a pierde niciun document "
-#~ "și nicio aplicație importantă."
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Aveți posibilitatea să instalați ${DISTRO} ${VER} alături de ${CURDISTRO}."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr "O instalare curată șterge tot hard discul și instalează ${DISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Aveți posibilitatea să reinstalați ${CURDISTRO} fără a pierde niciun "
-#~ "document și nicio aplicație importantă."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Aceasta va <b>șterge</b> toate programele, documentele, fotografiile, "
-#~ "muzica și orice alte fișiere de pe toate sistemele de operare."
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurs de popularitate"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy rețea"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Șterge și folosește întreg discul"
-
-#~ msgid "Summary"
-#~ msgstr "Rezumat"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Folosește cel mai mare spațiu liber continuu"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opțiuni avansate"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participați la sondajul privind utilizarea pachetelor"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifică partițiile manual (avansat)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "După ce veți răspunde la câteva întrebări, calculatorul va fi pregătit de "
-#~ "utilizare."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Gata de instalare? Odată ce ați răspuns la câteva întrebări, conținutul "
-#~ "acestui ${MEDIUM} live poate fi instalat pe calculator, astfel încât veți "
-#~ "putea folosi ${RELEASE} la viteză întreagă, fără a mai fi nevoie de "
-#~ "${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Aceasta este o versiune de dezvoltare a acestui ${MEDIUM} de instalare "
-#~ "pentru ${RELEASE}. Nu este versiunea finală, care va veni cu ultima "
-#~ "lansare a ${RELEASE} în octombrie 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Determinare aranjament de tastatură"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalează programul de încărcare a sistemului"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Limba: ${LANGUAGE}\n"
-#~ " Aranjamentul tastaturii: ${KEYMAP}\n"
-#~ " Numele: ${FULLNAME}\n"
-#~ " Numele de utilizator: ${USERNAME}\n"
-#~ " Locația: ${LOCATION}\n"
-#~ " Asistare migrare:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Detectează aranjamentul de tastatură"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalează lângă alte sisteme de operare"

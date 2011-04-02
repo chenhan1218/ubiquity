@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1042,26 +1042,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Villa við uppfærslu á uppsetningaforriti"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Villa kom upp við afritun á netstillingum. Uppsetningin mun halda áfram, en "
-"setja verður aftur upp allar stillingar á neti á nýja kerfinu."
 
 #. Type: text
 #. Description
@@ -1517,24 +1508,16 @@ msgstr "Skipta ${OS} út fyrir ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Þetta mun <b>eyða</b> öllum ${OS} forritum, skjölum, myndum, tónlist og "
-"ýmsum öðrum skrám."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Settu jafnframt upp ${DISTRO} á tölvuna"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1556,10 +1539,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Settu jafnframt upp ${DISTRO} á tölvuna"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1584,16 +1565,10 @@ msgstr "Eyða ${CURDISTRO} og enduruppsetja"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Þetta mun <b>eyða</b> öllum ${CURDISTRO} forritum, skjölum, myndum, tónlist "
-"og ýmsum öðrum skrám."
 
 #. Type: text
 #. Description
@@ -1613,10 +1588,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Setja jafnframt upp ${DISTRO} ${VER} samhliða"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1666,10 +1639,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "${OS} er á þessari tölvu."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1682,22 +1653,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Það eru engin stýrikerfi á þessari tölvu."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Það eru engin stýrikerfi á þessari tölvu."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1762,135 +1729,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Það tekur örskamma stund að svara þessum spurningum."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Flytja gögn og stillingar"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Hvernig viltu skipta diskinum?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Það eru nokkur stýrikerfi á þessari tölvu."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Hvert viltu setja ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Þetta mun eyða ${SYSTEMS} og setja ${RELEASE} upp."
-
-#~ msgid "Ready to install"
-#~ msgstr "Tilbúin að setja upp"
-
-#~ msgid "Details"
-#~ msgstr "Upplýsingar"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "Nýja stýrikerfið þitt verður sett upp með eftirfarandi stillingum:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Frekari stillingar..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Skref ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Fer yfir skrár..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Stilli nafn tölvu..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Virkja stillingar"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Halda áfram með uppsetninguna."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Nota alla disksneiðina"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Nota allan diskinn"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Þú getur uppfært ${CURDISTRO} án þess að tapa neinu af forritum erða "
-#~ "skjölum."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Nota stærsta lausa plássið"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ákveða deildir í höndunum (erfitt)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Frekari stillingar"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Setja upp ræsistjóra"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Vinsældarkeppni"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Taktu þátt í könnun sem mælir notkun pakka"
-
-#~ msgid "Network proxy"
-#~ msgstr "Vefsel (proxy) netkerfis"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP sel (proxy):"
-
-#~ msgid "Port:"
-#~ msgstr "Hlið:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Tungumál: ${LANGUAGE}\n"
-#~ " Skipulag lyklaborðs: ${KEYMAP}\n"
-#~ " Nafn: ${FULLNAME}\n"
-#~ " Notandanafn: ${USERNAME}\n"
-#~ " Staðsetning: ${LOCATION}\n"
-#~ " Flutningshjálpari:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "Tölvan verður nothæf eftir nokkrar spurningar."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Eyða og nota allan diskinn"
-
-#~ msgid "Summary"
-#~ msgstr "Samantekt"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Tilbúinn fyrir uppsetningu?  Eftir að þú hefur svarað nokkrum spurningum, "
-#~ "verður hægt að setja efnið á þessum ${MEDIUM} prófunardiski (LiveMedium) "
-#~ "upp á þessa tölvu þannig að þú getir keyrt ${RELEASE} á fullum hraða án "
-#~ "${MEDIUM} disksins."
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Setja upp við hlið annarra stýrikerfa"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Finna út lyklaborðsuppsetningu"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Finna út lyklaborðsuppsetningu"

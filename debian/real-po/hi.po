@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-10 07:15+0000\n"
-"Last-Translator: Manish Kumar <manishku86@yahoo.co.in>\n"
+"PO-Revision-Date: 2011-03-26 06:32+0000\n"
+"Last-Translator: Ankit Mathur <ankitreloaded@gmail.com>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:25+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1025,26 +1025,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "अद्यतन संस्थापन में त्रुटि पाई गई"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"नेटवर्क विन्यास की प्रतिलिपि के दौरान त्रुटि पाई गई. संस्थापन चालू रहेगा लेकिन नेटवर्क "
-"विन्यास संस्थापित तंत्र में पुनः किया जा सकता है."
 
 #. Type: text
 #. Description
@@ -1497,24 +1488,16 @@ msgstr "${OS} को ${DISTRO} से प्रतिस्थापित क�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"यह आपके ${OS} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को <b>मिटा</"
-"b> देगा."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "${DISTRO} को इसके पार्श्व में संस्थापित करें"
+msgstr "${DISTRO} को ${OS} के साथ-साथ संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1536,16 +1519,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "${DISTRO} को इसके पार्श्व में संस्थापित करें"
+msgstr "${DISTRO} को ${OS} के अन्दर संस्थापित करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "कुछ और"
 
 #. Type: text
 #. Description
@@ -1554,6 +1535,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"आप विभाजित क्षेत्र स्वयं बना या जोड़-घटा सकते हैं या फिर ${DISTRO} के लिए एकाधिक "
+"विभाजित क्षेत्र चुन सकते हैं"
 
 #. Type: text
 #. Description
@@ -1564,16 +1547,10 @@ msgstr "${CURDISTRO} को मिटाएँ तथा पुनःसंस�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"यह आपके ${CURDISTRO} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को  "
-"<b>मिटा</b> देगा."
 
 #. Type: text
 #. Description
@@ -1588,15 +1565,13 @@ msgstr "Upgrade ${CURDISTRO} का उन्नयन ${VER} में कर�
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
-msgstr ""
+msgstr "कोई फाइल नहीं मिटेगा, संस्थापित अनुप्रयोग जहां हो सके वहाँ रखे जाएंगे"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "${DISTRO} ${VER} को पार्श्व में संस्थापित करें"
+msgstr "${DISTRO} ${VER} को ${CURDISTRO}  के साथ-साथ संस्थापित करें"
 
 #. Type: text
 #. Description
@@ -1625,17 +1600,11 @@ msgstr "सबकुछ को मिटा कर पुनःसंस्थ�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"यह आपके ${CURDISTRO} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को "
-"दोनो ${OS} तथा ${CURDISTRO} से <b>मिटा</b> देगा."
 
 #. Type: text
 #. Description
@@ -1652,10 +1621,8 @@ msgstr "${DISTRO} का संस्थापना उनके पार्�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "इस कम्प्यूटर में ${OS} है."
+msgstr "इस समय इस कंप्यूटर पर ${OS} है; आप क्या करना चाहेंगे ?"
 
 #. Type: text
 #. Description
@@ -1663,27 +1630,24 @@ msgstr "इस कम्प्यूटर में ${OS} है."
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "इस समय इस समय इस कंप्यूटर पर  ${OS1} और ${OS2} है; आप क्या करना चाहेंगे ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "इस कम्प्यूटर में कोई भी आपरेटिंग तंत्र नहीं है."
+msgstr "इस समय इस कंप्यूटर पर एकाधिक ऑपरेटिंग तंत्र हैं; आप क्या करना चाहेंगे?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "इस कम्प्यूटर में कोई भी आपरेटिंग तंत्र नहीं है."
+msgstr ""
+"इस समय इस कंप्यूटर पर कोई भी पता लगाये गए ऑपरेटिंग तंत्र नहीं हैं; आप क्या करना चाहेंगे?"
 
 #. Type: title
 #. Description
@@ -1746,170 +1710,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "प्रश्नों के उत्तर देने में मात्र कुछ मिनट लगेंगे."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "दस्तावेज तथा विन्यास का प्रवास करें"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "चुने गये डिस्क को कैसे विभाजन करना चाहते हैं?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "इस कम्प्यूटर में कई आपरेटिंग तंत्र है."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "आप ${RELEASE} को कहाँ रखना चाहते हैं?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "यह ${SYSTEMS} मिट जाएगा तथा ${RELEASE} संस्थापित हो जाएगा।"
-
-#~ msgid "Ready to install"
-#~ msgstr "संस्थापना हेतु तैयार."
-
-#~ msgid "Details"
-#~ msgstr "विवरण"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "आपका नया आपरेटिंग तंत्र निम्न विन्यास के साथ संस्थापित हैंः"
-
-#~ msgid "Advanced..."
-#~ msgstr "उन्नत..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "भाग ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "फ़ाइलों की स्कैनिंग की जा रही है..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "कम्प्यूटर का नाम रखा जा रहा है..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "विन्यास लागु कर रहा है"
-
-#~ msgid "Continue with installation."
-#~ msgstr "संस्थापना में आगे बढ़े."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "पूरे पार्टीशन का प्रयोग करें"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "पूरे डिस्क का प्रयोग करें"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "आप You can upgrade ${CURDISTRO} का उन्नयन अपने महत्वपूर्ण दस्तावेज या अनुप्रयोग को "
-#~ "खोये बिना कर सकते हैं."
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "अभी तक दुविधा में है? आप चाहे तो ${DISTRO} ${VER} का संस्थापना अपने वर्तमान "
-#~ "${CURDISTRO} के प्रति के साथ पार्श्व में संस्थापित कर सकते हैं."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "गोता लगाने के लिए तैयार हैं? के साफसुथरा संस्थापना आपके संपूर्ण हार्ड डिस्क को मिटा देगा "
-#~ "तथा ${DISTRO} को संस्थापित करेगा."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "आप ${CURDISTRO} का पुनःसंस्थापना किसी महत्वपूर्ण दस्तावेज या अनुप्रयोग को बिना खोये "
-#~ "कर सकते हैं"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "यह आपके सभी ऑपरेटिंग तंत्र के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा अन्य कोई फ़ाइल "
-#~ "<b>मिटा</b> देगा."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "पूरे डिस्क को मिटाकर कर उपयोग करें"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "सबसे बड़े सतत रिक्त स्थान का उपयोग करें"
-
-#~ msgid "Install boot loader"
-#~ msgstr "बूटलोडर संस्थापन"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP प्रोक्सी:"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "पैकेज उपयोगिता सर्वेक्षण में भाग लें"
-
-#~ msgid "Popularity contest"
-#~ msgstr "लोकप्रिय विवाद"
-
-#~ msgid "Port:"
-#~ msgstr "पोर्टः"
-
-#~ msgid "Summary"
-#~ msgstr "सारांश"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "एक बार कुछ प्रश्नो का जबाब दे, फिर यह कम्प्यूटर उपयोग हेतु तैयार हो जाएगा."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "संस्थापन हेतु तैयार हैं? एक बार बस कुछ प्रश्नो के जबाब दें इस सजीव ${MEDIUM} के अंश आपके "
-#~ "कम्प्यूटर में संस्थापित हो जाएगा ताकि आप ${RELEASE} को बिना ${MEDIUM} के पूरे गति से "
-#~ "चला सकेंगे."
-
-#~ msgid "Advanced Options"
-#~ msgstr "उन्नत विकल्प"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " भाषा: ${LANGUAGE}\n"
-#~ " कुंजीपटल अभिन्यास: ${KEYMAP}\n"
-#~ " नाम: ${FULLNAME}\n"
-#~ " लाँगइन नाम: ${USERNAME}\n"
-#~ " स्थान: ${LOCATION}\n"
-#~ " प्रवास सहायता:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Network proxy"
-#~ msgstr "संजाल प्रोक्सी"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "हस्त विभाजन का उल्लेख करें (उन्नत)"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का "
-#~ "एक अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "अन्य ऑपरेटिंग तंत्र के अनुपार्श्व संस्थापित करें"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "कुंजीपटल विन्यास को समझे"

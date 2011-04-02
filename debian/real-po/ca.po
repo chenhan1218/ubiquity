@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-02-24 08:52+0000\n"
-"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
+"PO-Revision-Date: 2011-03-28 05:40+0000\n"
+"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Reinicia per continuar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Configuració manual (avançat)"
 
 #. Type: text
 #. Description
@@ -177,7 +177,7 @@ msgstr "Escriviu aquí per provar el vostre teclat"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Detecta la disposició del teclat"
 
 #. Type: text
 #. Description
@@ -354,7 +354,7 @@ msgstr "Reserva espai de disc"
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Fitxers (${SIZE})"
 
 #. Type: text
 #. Description
@@ -871,7 +871,7 @@ msgstr "S'està configurant el maquinari..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "S'està instal·lant programari de tercers..."
 
 #. Type: text
 #. Description
@@ -889,19 +889,19 @@ msgstr "S'està configurant el carregador..."
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "S'estan desant els paquets insta·lats..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "S'estan restaurant paquets instal·lats anteriorment..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Installing additional packages..."
-msgstr "S'estan instal·lant els paquets addicionals"
+msgstr "S'estan instal·lant els paquets addicionals..."
 
 #. Type: text
 #. Description
@@ -1047,33 +1047,23 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "S'ha produït un error en actualitzar l'instal·lador"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"S'ha produït un error en copiar els paràmetres de la xarxa. La instal·lació "
-"continuarà, però la xarxa s'haurà de tornar a configurar en el sistema "
-"instal·lat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Calculating files to skip copying..."
-msgstr "S'estan calculant els fitxers per a ometre en copiar..."
+msgstr "S'estan calculant els fitxers per ometre en copiar..."
 
 #. Type: text
 #. Description
@@ -1523,7 +1513,7 @@ msgstr "[escriviu aquí per canviar-ho]"
 #. Description
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Reemplaça ${OS} per ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1532,6 +1522,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Avís:</span> aquesta acció suprimirà tots els "
+"programes, documents, fotografies, música i qualsevol altre tipus de fitxer "
+"del sistema operatiu ${OS}."
 
 #. Type: text
 #. Description
@@ -1553,6 +1546,8 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"No se suprimiran els fitxers. Podeu triar quin sistema operatiu voleu cada "
+"cop que engegueu l'ordinador."
 
 #. Type: text
 #. Description
@@ -1564,7 +1559,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Alguna altra cosa"
 
 #. Type: text
 #. Description
@@ -1578,7 +1573,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Suprimeix el sistema operatiu ${CURDISTRO} i torna a instal·lar-lo"
 
 #. Type: text
 #. Description
@@ -1592,7 +1587,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Actualitza ${CURDISTRO} a la versió ${VER}"
 
 #. Type: text
 #. Description
@@ -1602,6 +1597,8 @@ msgstr ""
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"No se suprimirà cap fitxer. Es mantindrà el programari instal·lat sempre que "
+"sigui possible."
 
 #. Type: text
 #. Description
@@ -1615,7 +1612,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Esborra el disc i instal·la el sistema operatiu ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1626,12 +1623,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Avís:</span> aquesta acció suprimirà tots els "
+"fitxers del disc."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Suprimeix-ho tot i torna a instal·lar-lo"
 
 #. Type: text
 #. Description
@@ -1646,7 +1645,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Torna a instal·lar el sistema operatiu ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1657,10 +1656,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Aquest ordinador té instal·lat el sitstema operatiu ${OS}."
+msgstr "Aquest ordinador duu el sistema operatiu ${OS}. Què voleu fer?"
 
 #. Type: text
 #. Description
@@ -1669,26 +1666,25 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Aquest ordinador duu els sistemes operatius ${OS1} i ${OS2}. Què voleu fer?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Aquest ordinador no té instal·lat cap sistema operatiu."
+msgstr "Aquest ordinador duu diversos sistemes operatius. Què voleu fer?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Aquest ordinador no té instal·lat cap sistema operatiu."
+msgstr ""
+"Aquest ordinador no duu cap sistema operatiu que s'hagi detectat. Què voleu "
+"fer?"
 
 #. Type: title
 #. Description
@@ -1753,141 +1749,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Només trigareu uns minuts en contestar les preguntes."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migra els documents i les configuracions"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Com voleu partir el disc?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Aquest ordinador té diversos sistemes operatius instal·lats."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "On voleu instal·lar ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Això suprimirà ${SYSTEMS} i instal·larà ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Preparat per a instal·lar"
-
-#~ msgid "Details"
-#~ msgstr "Detalls"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "El sistema operatiu nou s'instal·larà ara amb els paràmetres següents:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avançat..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Pas ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "S'estan analitzant els fitxers..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "S'està establint el nom de l'ordinador..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Aplicació de la configuració"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Continueu amb la instal·lació."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Utilitza tota la partició"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Utilitza el disc sencer"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Utilitza l'espai lliure continu més gran"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificació manual de les particions (avançat)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opcions avançades"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instal·la el carregador"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurs de popularitat"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participeu a l'enquesta d'utilització de paquets"
-
-#~ msgid "Network proxy"
-#~ msgstr "Servidor intermediari de xarxa"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Servidor intermediari HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Llengua:${LANGUAGE}\n"
-#~ " Disposició del teclat: ${KEYMAP}\n"
-#~ " Nom: ${FULLNAME}\n"
-#~ " Nom d'entrada: ${USERNAME}\n"
-#~ " Ubicació: ${LOCATION}\n"
-#~ " Assistent de migració:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Summary"
-#~ msgstr "Resum"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Esborra el disc i utilitza'l per complet"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "L'ordinador estarà a punt per a fer-lo servir un cop hàgiu respost unes "
-#~ "quantes preguntes."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Esteu a punt per instal·lar? Un cop hàgiu respost a unes poques "
-#~ "preguntes, el contingut del ${MEDIUM} autònom es podrà instal·lar en "
-#~ "aquest ordinador de manera que podreu executar ${RELEASE} a velocitat "
-#~ "màxima sense fer servir el ${MEDIUM}."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Esbrina la disposició del teclat"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Endevina la disposició del teclat"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instal·la'l juntament amb els altres sistemes operatius"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Aquesta es una versió prèvia de l'instal·lador del sistema operatiu "
-#~ "${RELEASE} mitjançant un ${MEDIUM} autònom. No és una versió definitiva; "
-#~ "aquesta arribarà quan s'alliberi la versió final de la distribució "
-#~ "${RELEASE} a l'Octubre de 2010."

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1043,27 +1043,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Грешка при актуализиране на инсталатора"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"При копирането на мрежовите настройки възникна грешка. Инсталацията ще "
-"продължи, но мрежовите настройки няма да бъдат зададени на инсталираната "
-"система."
 
 #. Type: text
 #. Description
@@ -1653,10 +1643,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Този компютър има инсталирана ${OS}."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1669,22 +1657,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Този компютър няма операционни системи на него."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Този компютър няма операционни системи на него."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1749,140 +1733,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Премахване на пакети"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr ""
-#~ "Отговарянето на въпросите би трябвало да отнеме само няколко минути."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Мигриране на документи и настойки"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Как желаете да разделите диска?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Този компютър има няколко операционни системи."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Къде искате да инсталирате ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Това ще изтрие ${SYSTEMS} и ще инсталира ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Готов за инсталация"
-
-#~ msgid "Details"
-#~ msgstr "Подробности"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Вашата нова операционна система ще бъде инсталирана със следните "
-#~ "параметри:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Допълнителни..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Стъпка ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Сканиране на файловете..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Настройване името на компютъра..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Прилагане на конфигурация"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Продължаване с инсталацията."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Да се използва целият дял"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Да се използва целият диск"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Използване на най-голямото свободно място"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Допълнителни опции"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Инсталиране на зареждащата програма"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Състезание по известност"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Участвайте в проучването за употреба на пакетите"
-
-#~ msgid "Network proxy"
-#~ msgstr "Мрежов сървър-посредник"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP посредник:"
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Език: ${LANGUAGE}\n"
-#~ " Клавиатурна подредба: ${KEYMAP}\n"
-#~ " Пълно име: ${FULLNAME}\n"
-#~ " Потребителско име: ${USERNAME}\n"
-#~ " Местоположение: ${LOCATION}\n"
-#~ " Асистент за мигрирането:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "След като отговорите на няколко въпроса, компютърът ще е готов за работа."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Изтриване и използване на целия диск"
-
-#~ msgid "Summary"
-#~ msgstr "Резюме"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Готови за инсталиране?  След като отговорите на няколко въпроса, "
-#~ "съдържанието на ${MEDIUM} ще може да се инсталира на този компютър, така "
-#~ "че да работите с ${RELEASE} с пълните му възможности без ${MEDIUM}."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ръчно задаване на дялове (за напреднали)"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Инсталиране, запазвайки другите операционни системи"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Това е предварително издание на ${RELEASE} live ${MEDIUM} инсталатор. "
-#~ "Това не е окончателното издание; то ще дойде с окончателното издание на "
-#~ "${RELEASE} през октомври 2010."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Отгатване на клавиатурната подредба"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Отгатване на клавиатурната подредба"

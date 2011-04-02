@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-12 15:14+0000\n"
+"PO-Revision-Date: 2011-03-28 18:25+0000\n"
 "Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:25+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -369,7 +369,7 @@ msgstr "Prestatu partizioak"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:51001
 msgid "_Install Now[ action ]"
-msgstr "_Instalatu orain"
+msgstr "_Instalatu"
 
 #. Type: title
 #. Description
@@ -1045,27 +1045,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Errorea instalatzailea eguneratzean"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Errore bat gertatu da sarearen ezarpenak kopiatzean. Instalazioak jarraituko "
-"du, baina sarearen konfigurazioa berriro ezarri beharko da instalatutako "
-"sisteman."
 
 #. Type: text
 #. Description
@@ -1524,24 +1514,16 @@ msgstr "Ordeztu ${OS} ${DISTRO}(r)ekin"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Honek zure ${OS}(e)ko programa, dokumentu, argazki, musika eta bestelako "
-"fitxategi guztiak <b>ezabatu</b>ko ditu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Instalatu ${DISTRO} besteekin batera"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1563,10 +1545,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Instalatu ${DISTRO} besteekin batera"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1591,16 +1571,10 @@ msgstr "Ezabatu ${CURDISTRO} eta berrinstalatu"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Honek zure ${CURDISTRO}(e)ko programa, dokumentu, argazki, musika eta "
-"bestelako fitxategi guztiak <b>ezabatu</b>ko ditu."
 
 #. Type: text
 #. Description
@@ -1620,10 +1594,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Instalatu ${DISTRO} ${VER} besteekin batera"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1631,7 +1603,7 @@ msgstr "Instalatu ${DISTRO} ${VER} besteekin batera"
 #. Description
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr "Ezabatu diskoa eta instalatu ${DISTRO}"
+msgstr "Hustu diskoa eta instalatu ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1673,10 +1645,8 @@ msgstr "Instalatu ${DISTRO} besteekin batera"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Ordenagailu honek ${OS} dauka."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1689,22 +1659,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Ordenagailu honek ez dauka sistema eragilerik."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Ordenagailu honek ez dauka sistema eragilerik."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1769,145 +1735,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Minutu batzuk besterik ez dituzu beharko galderak erantzuteko."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migratu dokumentu eta ezarpenak"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Nola egin nahi dituzu partizioak?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Ordenagailu honek sistema eragile ugari ditu."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Non jarri nahi duzu ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Honek ${SYSTEMS} ezabatu eta ${RELEASE} instalatuko du."
-
-#~ msgid "Ready to install"
-#~ msgstr "Instalatzeko prest"
-
-#~ msgid "Details"
-#~ msgstr "Xehetasunak"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "Orain zure sistema berria instalatuko da, ondoko ezarpenekin:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Aurreratua..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "${INDEX}/${TOTAL} pausoa"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Fitxategiak arakatzen..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Ordenagailuaren izena ezartzen..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Konfigurazioa aplikatzen"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Instalazioarekin jarraitu."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Partizio osoa erabili"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Disko osoa erabili"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "${CURDISTRO} bertsio-berritu dezakezu dokumentu edo aplikazio "
-#~ "garrantzitsuak galdu gabe."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Aukera aurreratuak"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Pakete-erabilpen inkestan parte hartu"
-
-#~ msgid "Port:"
-#~ msgstr "Ataka:"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Leku libre jarrai handiena erabili"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Eskuz zehaztu partizioak (aurreratua)"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Disko osoa ezabatu eta erabili"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Galdera batzuk erantzun bezain azkar, erabiltzeko prest egongo da "
-#~ "ordenagailu hau."
-
-#~ msgid "Summary"
-#~ msgstr "Laburpena"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalatu beste sistema eragileen ondoan"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Honako hau ${RELEASE} bertsioaren aurre-argitaratzearen 'live ${MEDIUM}' "
-#~ "instalatzailea da. Ez da bukaerako bertsioa; bukaerako ${RELEASE} "
-#~ "bertsioa 2010eko urrian argitaratuko da."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Detektatu teklatuaren diseinua"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Detektatu teklatuaren diseinua"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalatu abiarazte-kudeatzailea"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy-a:"
-
-#~ msgid "Network proxy"
-#~ msgstr "Sareko proxy-a"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Arrakasta leihaketa"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Hizkuntza: ${LANGUAGE}\n"
-#~ " Teklatu-diseinua: ${KEYMAP}\n"
-#~ " Izen osoa: ${FULLNAME}\n"
-#~ " Erabiltzaile-izena: ${USERNAME}\n"
-#~ " Kokalekua: ${LOCATION}\n"
-#~ " Migrazio-laguntzailea:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Instalatzeko prest? Zenbait galdera erantzun ondoren, 'live "
-#~ "${MEDIUM}'aren edukiak instalatu ahalko dira ordenagailu honetan honela "
-#~ "${RELEASE} abiadura osoan exekutatuz ${MEDIUM} erabili gabe."

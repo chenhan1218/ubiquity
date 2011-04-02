@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2010-10-02 15:37+0000\n"
-"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
+"PO-Revision-Date: 2011-04-02 08:39+0000\n"
+"Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -44,7 +44,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:6001 ../ubiquity.templates:172001
 msgid "Install"
-msgstr "Linux sistemos įdiegimas"
+msgstr "Įdiegimas"
 
 #. Type: text
 #. Description
@@ -176,13 +176,13 @@ msgstr "Rašykite čia savo klaviatūrai išbandyti"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Nustatyti klaviatūros išdėstymą"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "Nustatyti klaviatūros išdėstymą..."
 
 #. Type: text
 #. Description
@@ -248,7 +248,7 @@ msgstr "Patvirtinkite slaptažodį"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Patvirtinkite slaptažodį:"
 
 #. Type: text
 #. Description
@@ -260,7 +260,7 @@ msgstr "Jūsų kompiuterio vardas:"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "Šis vardas naudojamas susijungiant su kitais kompiuteriais."
 
 #. Type: text
 #. Description
@@ -274,7 +274,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Slaptažodžiai nesutampa"
 
 #. Type: text
 #. Description
@@ -355,7 +355,7 @@ msgstr "Paskirti vietą diske"
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Failai (${SIZE})"
 
 #. Type: text
 #. Description
@@ -465,7 +465,7 @@ msgstr "Paleisti naują sistemą"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Išjungti dabar"
 
 #. Type: text
 #. Description
@@ -867,7 +867,7 @@ msgstr "Konfigūruojama aparatinė įranga..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "Įdiegiama trečiųjų šalių programinė įranga..."
 
 #. Type: text
 #. Description
@@ -885,13 +885,13 @@ msgstr "Konfigūruojama sistemos įkėlimo programa..."
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Išsaugomi įdiegti paketai..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "Atkuriami anksčiau įdiegti paketai..."
 
 #. Type: text
 #. Description
@@ -1040,26 +1040,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Klaida atnaujinant diegimo programą"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Įvyko klaida kopijuojant tinklo nuostatas. Diegimas bus pratęstas, bet "
-"tinklo konfigūracija įdiegtoje sistemoje turės būti atlikta iš naujo."
 
 #. Type: text
 #. Description
@@ -1179,7 +1170,7 @@ msgstr "Kalba"
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Prepare"
-msgstr ""
+msgstr "Pasiruoškite"
 
 #. Type: text
 #. Description
@@ -1363,6 +1354,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d mažesni skirsniai yra nerodomi, naudokite <a href=\"\">skirstymo įrankį "
+"patyrusiems</a>, jei norite patys sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1372,7 +1365,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "1 mažesnis skirsnis yra nerodomas, naudokite <a href=\"\">skirstymo įrankį "
-"patyrusiems</a> jei norite pats sutvarkyti skirsnius."
+"patyrusiems</a>, jei norite patys sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1382,8 +1375,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d skirsniai bus ištrinti, naudokite <a href=\"\">skirstymo įrankį "
-"patyrusiems</a> jei norite pats sutvarkyti skirsnius."
+"%d skirsniai bus pašalinti, naudokite <a href=\"\">skirstymo įrankį "
+"patyrusiems</a>, jei norite patys sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1392,8 +1385,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 skirsnis bus ištrintas, naudokite <a href=\"\">skirstymo įrankį "
-"patyrusiems</a> jei norite pats sutvarkyti skirsnius."
+"1 skirsnis bus pašalintas, naudokite <a href=\"\">skirstymo įrankį "
+"patyrusiems</a>, jei norite patys sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1434,6 +1427,11 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} naudoja trečiųjų šalių programinę įrangą Flash, MP3 ir kitų "
+"terpių failams atkurti, bei darbui su kai kuria belaidžio ryšio aparatine "
+"įranga. Dalis šios programinės įrangos yra uždaro kodo. Šiai programinei "
+"įrangai galioja licencijos sąlygos, pateiktos tos programinės įrangos "
+"dokumentacijoje."
 
 #. Type: text
 #. Description
@@ -1447,7 +1445,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "Įdiegti šią trečiųjų šalių programinę įrangą"
 
 #. Type: text
 #. Description
@@ -1501,13 +1499,13 @@ msgstr "Regionas:"
 #. Description
 #: ../ubiquity.templates:221001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[rašykite čia, jei norite pakeisti]"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Pakeisti ${OS} su ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1516,12 +1514,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Dėmesio:</span> Bus pašalintos visos jūsų ${OS} "
+"programos, dokumentai, nuotraukos, muzika bei visi kiti failai."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Įdiegti ${DISTRO} šalia ${OS}"
 
 #. Type: text
 #. Description
@@ -1537,18 +1537,20 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Jokie failai nebus pašalinti. Galėsite pasirinkti norimą naudoti operacinę "
+"sistemą kompiuterio paleidimo metu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Įdiegti ${DISTRO} ${OS} viduje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Kas nors kita"
 
 #. Type: text
 #. Description
@@ -1557,12 +1559,14 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Jūs pats galite kurti skirsnius, keisti jų dydį ar pasirinkti kelis "
+"skirsnius, norimus naudoti su ${DISTRO}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Naikinti ${CURDISTRO} ir įdiegti iš naujo"
 
 #. Type: text
 #. Description
@@ -1571,12 +1575,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Dėmesio:</span> Bus pašalintos visos jūsų "
+"${CURDISTRO} programos, dokumentai, nuotraukos, muzika bei visi kiti failai."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Atnaujinti ${CURDISTRO} į ${VER}"
 
 #. Type: text
 #. Description
@@ -1586,12 +1592,14 @@ msgstr ""
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"Jokie failai nebus pašalinti. Esama programinė įranga bus išsaugota, kur "
+"įmanoma."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Įdiegti ${DISTRO} ${VER} šalia ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1599,7 +1607,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Išvalyti diską ir įdiegti ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1610,12 +1618,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Dėmesio:</span> Bus pašalinti visi failai, "
+"esantys diske."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Išvalyti viską ir įdiegti iš naujo"
 
 #. Type: text
 #. Description
@@ -1625,26 +1635,27 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Dėmesio:</span> Bus pašalintos visos jūsų "
+"programos, dokumentai, nuotraukos, muzika bei visi kiti ${OS} ir "
+"${CURDISTRO} failai."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Iš naujo įdiegti ${CURDISTRO}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "Įdiegti ${DISTRO} šalia jų"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Šiame kompiuteryje yra įdiegta ${OS} operacinė sistema."
+msgstr "Šiame kompiuteryje jau įdiegta ${OS}. Ką norėtumėte daryti?"
 
 #. Type: text
 #. Description
@@ -1653,26 +1664,27 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Šiame kompiuteryje jau įdiegta ${OS1} bei ${OS2}. Ką norėtumėte daryti?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Šioje laikmenoje (kompiuteryje) neaptikta jokia operacinė sistema."
+msgstr ""
+"Šiame kompiuteryje jau įdiegtos kelios operacinės sistemos. Ką norėtumėte "
+"daryti?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Šioje laikmenoje (kompiuteryje) neaptikta jokia operacinė sistema."
+msgstr ""
+"Šiame kompiuteryje neaptikta jokių įdiegtų operacinių sistemų. Ką norėtumėte "
+"daryti?"
 
 #. Type: title
 #. Description
@@ -1736,135 +1748,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Atsakymai į šiuos klausimus užtruks tik keletą minučių."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Įkelkite turimus dokumentus ir nustatymus"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Kaip norite sudalinti diską?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Šiame kompiuteryje yra keletas operacinių sistemų."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Į kurią vietą norite įdiegti ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr ""
-#~ "Dėmesio: šis veiksmas ištrins ${SYSTEMS} OS bei visus duomenis "
-#~ "pasirinktoje laikmenoje ir įdiegs ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Paruošta įdiegti"
-
-#~ msgid "Details"
-#~ msgstr "Išsamiau"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Jūsų naujoji operacinė sistema bus įdiegta naudojant tokius nustatymus:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Išsamiau..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Žingsnis ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Peržiūrimi failai..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Nustatomas kompiuterio vardas..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Pritaikoma konfigūracija"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Tęsti diegimą."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Naudoti visą skirsnį"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Naudoti visą diską"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Sudėtingesnės parinktys"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Įdiegti sistemos paleidimo programą"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Populiarumo varžybos"
-
-#~ msgid "Network proxy"
-#~ msgstr "Tinklo proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Prievadas:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Kalba: ${LANGUAGE}\n"
-#~ " Klaviatūros išdėstymas: ${KEYMAP}\n"
-#~ " Vardas, pavardė: ${FULLNAME}\n"
-#~ " Prisijungimo vardas: ${USERNAME}\n"
-#~ " Vieta: ${LOCATION}\n"
-#~ " Duomenų bei nustatymų importavimas:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
-
-#~ msgid "Summary"
-#~ msgstr "Santrauka"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Dalyvauti paketų naudojimo apžvalgoje"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Ištrinti viską diske - naudoti visą diską"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Pasiruošę įdiegimui? Atsakykite į kelis klausimus ir ${MEDIUM} turinys "
-#~ "bus įdiegtas į šį kompiuterį, kad galėtumėte naudoti ${RELEASE} visu "
-#~ "greičiu be ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra "
-#~ "galutinė laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Nustatyti klaviatūros klavišų išdėstymą"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Įdiegti šalia kitų operacinių sistemų"

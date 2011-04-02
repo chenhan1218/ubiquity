@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-11 06:50+0000\n"
+"PO-Revision-Date: 2011-03-29 16:01+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1009,24 +1009,19 @@ msgstr "複製網路設定時發生錯誤。安裝會繼續，但網路須於安
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "更新安裝程式發生錯誤"
+msgstr "還原安裝的應用程式時發生錯誤"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
-msgstr "複製網路設定時發生錯誤。安裝會繼續，但網路須於安裝好的新系統再次設定。"
+msgstr ""
+"當還原先前安裝的應用程式時遭遇到錯誤。安裝程序將繼續，但在電腦重新開機後您可"
+"能需要手動重新安裝某些應用程式。"
 
 #. Type: text
 #. Description
@@ -1463,22 +1458,18 @@ msgstr "將 ${OS} 替換為 ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
-msgstr "這會<b>清除</b>您所有的 ${OS} 程式、文件、相片、音樂、任何其他檔案等。"
+msgstr ""
+"<span foreground=\"darkred\">Warning:</span> 這會抹除您所有的 ${OS} 程式、文"
+"件、相片、音樂，以及任何其他檔案。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "將 ${DISTRO} 與它安裝在一起"
+msgstr "將 ${DISTRO} 與 ${OS} 安裝在一起"
 
 #. Type: text
 #. Description
@@ -1498,16 +1489,14 @@ msgstr "不會刪除任何檔案。每當電腦啟動時，您可以選擇您想
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "將 ${DISTRO} 與它安裝在一起"
+msgstr "將 ${DISTRO} 安裝在 ${OS} 內"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "其他"
 
 #. Type: text
 #. Description
@@ -1516,6 +1505,7 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"您可以自己建立或重新調整分割區大小，又或者是為 ${DISTRO} 選擇多個分割區。"
 
 #. Type: text
 #. Description
@@ -1526,15 +1516,12 @@ msgstr "清除 ${CURDISTRO} 並重新安裝"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"這會<b>清除</b>您的所有 ${CURDISTRO} 程式、文件、相片、音樂、任何其他檔案等。"
+"<span foreground=\"darkred\">警告：</span>這會刪除您所有的 ${CURDISTRO} 程"
+"式、文件、相片、音樂，以及任何其他檔案。"
 
 #. Type: text
 #. Description
@@ -1549,15 +1536,13 @@ msgstr "將 ${CURDISTRO} 升級為 {VER}"
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
-msgstr ""
+msgstr "不會刪除任何檔案。安裝的軟體將被保留在可能的位置上。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "一同安裝 ${DISTRO} ${VER}"
+msgstr "將 ${DISTRO} ${VER} 與 ${CURDISTRO} 安裝在一起"
 
 #. Type: text
 #. Description
@@ -1575,7 +1560,7 @@ msgstr "清除磁碟並安裝 ${DISTRO}"
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
-msgstr ""
+msgstr "<span foreground=\"darkred\">警告：</span>這會刪除磁碟上的所有檔案。"
 
 #. Type: text
 #. Description
@@ -1586,17 +1571,13 @@ msgstr "清除任何資料並重新安裝"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"這會<b>清除</b> ${OS} 與 ${CURDISTRO} 的所有程式、文件、相片、檔案、任何其他"
-"檔案。"
+"<span foreground=\"darkred\">警告：</span>這會刪除您在 ${OS} 與 ${CURDISTRO} "
+"上的所有程式、文件、相片、音樂，以及任何其他檔案。"
 
 #. Type: text
 #. Description
@@ -1613,10 +1594,8 @@ msgstr "將 ${DISTRO} 與它們安裝在一起"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "此電腦含有 ${OS} 作業系統。"
+msgstr "這臺電腦目前有安裝 ${OS}。您想要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1624,27 +1603,23 @@ msgstr "此電腦含有 ${OS} 作業系統。"
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "這臺電腦目前有安裝 ${OS1} 與 ${OS2}。您想要怎麼處理？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "此電腦沒有作業系統。"
+msgstr "這臺電腦目前有安裝多種作業系統。您想要怎麼處理？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "此電腦沒有作業系統。"
+msgstr "這臺電腦目前未偵測到有作業系統。您想要怎麼處理？"
 
 #. Type: title
 #. Description
@@ -1706,163 +1681,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在移除套件"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "回答這些問題應該只需要花上幾分鐘。"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "轉移文件及設定"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "您想要如何分割磁碟？"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "此電腦有多個作業系統。"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "您想將 ${RELEASE} 放在哪裡？"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "將會刪除 ${SYSTEMS} 並安裝 ${RELEASE}。"
-
-#~ msgid "Ready to install"
-#~ msgstr "準備就緒以安裝"
-
-#~ msgid "Details"
-#~ msgstr "詳細資料"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "您的新作業系統將會依據以下設定安裝："
-
-#~ msgid "Advanced..."
-#~ msgstr "進階..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "步驟 ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "正在掃瞄檔案..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "正在設定電腦名稱..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "正在套用設定"
-
-#~ msgid "Continue with installation."
-#~ msgstr "繼續安裝。"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "使用整個分割區"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "使用整顆磁碟"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "您可以升級 ${CURDISTRO} 而不會喪失任何您的重要文件或應用程式。"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "還在觀望嗎？您可以將 ${DISTRO} ${VER} 與您現有的 ${CURDISTRO} 版本安裝在一"
-#~ "起。"
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr "準備要衝了嗎？乾淨的安裝會清除您整個硬碟並安裝 ${DISTRO}。"
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "您可以重新安裝 ${CURDISTRO} 而不會喪失您的任何重要文件或應用程式。"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "這會<b>清除</b>您所有作業系統中的全部的程式、文件、相片、音樂、任何其他檔"
-#~ "案。"
-
-#~ msgid "Advanced Options"
-#~ msgstr "進階選項"
-
-#~ msgid "Network proxy"
-#~ msgstr "網路代理伺服器"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP 代理伺服器："
-
-#~ msgid "Port:"
-#~ msgstr "連接埠："
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " 使用語言：${LANGUAGE}\n"
-#~ " 鍵盤模式：${KEYMAP}\n"
-#~ " 真實姓名：${FULLNAME}\n"
-#~ " 登入帳號：${USERNAME}\n"
-#~ " 所在地區：${LOCATION}\n"
-#~ " 資料轉移：\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "您只要回答一些問題，這台電腦很快就可以準備就緒。"
-
-#~ msgid "Summary"
-#~ msgstr "摘要"
-
-#~ msgid "Install boot loader"
-#~ msgstr "安裝開機載入程式"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "使用最大的連續可用空間"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "準備好要安裝了嗎？只要您回答一些問題，這個 live ${MEDIUM} 的內容就能安裝到"
-#~ "這台電腦上，這樣您就能全速執行 ${RELEASE} 而不需用到 ${MEDIUM}。"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "這是 ${RELEASE} 的 live ${MEDIUM} 安裝程式。它並非最終發行版本；"
-#~ "${RELEASE} 最終發行版本的安裝程式將於 2010 年 10 月釋出。"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "推測鍵盤配置"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "推測鍵盤配置"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "手動指定分割區 (進階)"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "安裝且與其它作業系統並存"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "參與套件使用普查"
-
-#~ msgid "Popularity contest"
-#~ msgstr "普及程度統計"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "消除並使用整顆磁碟"

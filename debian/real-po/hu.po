@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:25+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1040,27 +1040,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "A telepítő frissítésekor hiba történt"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"A hálózati beállítások másolása meghiúsult. A telepítés folytatódik, azonban "
-"elképzelhető, hogy a hálózati beállításait újra meg kell adnia a telepített "
-"rendszernek."
 
 #. Type: text
 #. Description
@@ -1518,24 +1508,16 @@ msgstr "${OS} cseréje ezzel: ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Ez <b>törli</b> az összes programját, dokumentumát, fényképét, zenéjét és "
-"minden más fájlját a(z) ${OS} alatt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "${DISTRO} telepítése mellé"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1557,10 +1539,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "${DISTRO} telepítése mellé"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1585,16 +1565,10 @@ msgstr "${CURDISTRO} törlése és újratelepítés"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Ez <b>törli</b> az összes programját, dokumentumát, fényképét, zenéjét és "
-"minden más fájlját a(z) ${CURDISTRO} alatt."
 
 #. Type: text
 #. Description
@@ -1614,10 +1588,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "${DISTRO} ${VER} telepítése mellé"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1646,17 +1618,11 @@ msgstr "Minden törlése, és újratelepítés"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"Ez egyaránt <b>törli</b> az összes programját, dokumentumát, fényképét, "
-"zenéjét és minden más fájlját a(z) ${OS} és ${CURDISTRO} alatt."
 
 #. Type: text
 #. Description
@@ -1673,11 +1639,8 @@ msgstr "${DISTRO} telepítése melléjük"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr ""
-"Erre a számítógépre jelenleg a(z) ${OS} operációs rendszer van telepítve."
 
 #. Type: text
 #. Description
@@ -1690,22 +1653,18 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "A számítógépen jelenleg nincs operációs rendszer."
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "A számítógépen jelenleg nincs operációs rendszer."
+msgstr ""
 
 #. Type: title
 #. Description
@@ -1770,161 +1729,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "A kérdések megválaszolása csak pár percig fog tartani."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Dokumentumok és beállítások átvitele"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Hogyan kívánja particionálni a lemezt?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Erre a számítógépre jelenleg több operációs rendszer van telepítve."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Hová szeretné telepíteni a(z) ${RELEASE} operációs rendszert?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr ""
-#~ "Ez törli a(z) ${SYSTEMS} rendszert és telepíti a(z) ${RELEASE} rendszert."
-
-#~ msgid "Ready to install"
-#~ msgstr "Készen áll a telepítésre"
-
-#~ msgid "Details"
-#~ msgstr "Részletek"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Haladó…"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "${INDEX}. lépés (összesen ${TOTAL})"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Fájlok elemzése…"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Gépnév beállítása…"
-
-#~ msgid "Applying configuration"
-#~ msgstr "A beállítások alkalmazása"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Telepítés folytatása."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Teljes partició használata"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Teljes lemez felhasználása"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "A(z) ${CURDISTRO} frissíthető a fontos dokumentumai vagy alkalmazásai "
-#~ "elvesztése nélkül."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "A(z) ${CURDISTRO} újratelepíthető a fontos dokumentumai vagy alkalmazásai "
-#~ "elvesztése nélkül."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Ez egyaránt <b>törli</b> az összes programját, dokumentumát, fényképét, "
-#~ "zenéjét és minden más fájlját minden operációs rendszere alatt."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "A legnagyobb összefüggő szabad hely használata"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Partíciók saját kezű megadása (haladóknak)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Speciális beállítások"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Népszerűségi verseny"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Részvétel a csomaghasználat felmérésében"
-
-#~ msgid "Network proxy"
-#~ msgstr "Hálózati proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Nyelv: ${LANGUAGE}\n"
-#~ " Billentyűzetkiosztás: ${KEYMAP}\n"
-#~ " Név: ${FULLNAME}\n"
-#~ " Bejelentkezési név: ${USERNAME}\n"
-#~ " Hely: ${LOCATION}\n"
-#~ " Átviteli segéd:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Néhány kérdés megválaszolása után a számítógép készen fog állni a "
-#~ "használatra."
-
-#~ msgid "Summary"
-#~ msgstr "Összegzés"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Törlés és a teljes lemez felhasználása"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Készen áll a telepítésre? Pár kérdés megválaszolása után telepítheti "
-#~ "számítógépére a live ${MEDIUM} tartalmát, ezután a számítógép teljes "
-#~ "kapacitását kihasználva futtatható a(z) ${RELEASE}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ez a(z) ${RELEASE} live ${MEDIUM} telepítő előzetes kiadása. Még nem a "
-#~ "végleges kiadás, az a(z) ${RELEASE} végleges kiadásával fog érkezni 2010 "
-#~ "októberében."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Rendszerbetöltő telepítése"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Billentyűkiosztás felismerése"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Billentyűzetkiosztás felismerése"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Telepítés más operációs rendszerek mellé"

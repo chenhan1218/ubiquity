@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-08 18:46+0000\n"
+"PO-Revision-Date: 2011-03-31 16:28+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:25+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1048,27 +1048,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Produciuse un erro ao actualizar o instalador"
+msgstr "Produciuse un erro ao restaurar os aplicativos instalados"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Produciuse un erro ao copiar a configuración da rede. A instalación "
-"continuará, pero a configuración da rede terá que ser creada de novo no "
-"sistema instalado."
+"produciuse un erro ao restaurar os aplicativos instalados previamente. A "
+"instalación continuará, mais deberá reinstalar manualmente algúns "
+"aplicativos despois de reiniciar o equipo."
 
 #. Type: text
 #. Description
@@ -1414,7 +1407,7 @@ msgstr "Dividir a partición máis grande"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "For best results, please ensure that this computer:"
-msgstr "Para ter os resultados mellores, asegúrese que este equipo:"
+msgstr "Para ter os mellores resultados mellores, asegúrese que este equipo:"
 
 #. Type: text
 #. Description
@@ -1468,7 +1461,7 @@ msgstr "Instalar este software de terceiros"
 #. Description
 #: ../ubiquity.templates:211001
 msgid "Download updates while installing"
-msgstr "Descargar as actualizacións mentres ser realiza a instalación"
+msgstr "Descargar as actualizacións mentres se realiza a instalación"
 
 #. Type: text
 #. Description
@@ -1516,7 +1509,7 @@ msgstr "Rexión:"
 #. Description
 #: ../ubiquity.templates:221001
 msgid "[type here to change]"
-msgstr "[teclee aquí para cambiar]"
+msgstr "[escriba aquí para cambiar]"
 
 #. Type: text
 #. Description
@@ -1527,24 +1520,18 @@ msgstr "Substituír ${OS} con ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Isto <b>borrará</b> todos os seu ${OS}, programas, documentos, fotos, "
-"música, e outros ficheiros."
+"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os seus "
+"programas, documentos, fotos, música, e calquera outro ficheiro de ${OS}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Instalar ${DISTRO} ao seu carón"
+msgstr "Instalar ${DISTRO} a carón de ${OS}"
 
 #. Type: text
 #. Description
@@ -1566,16 +1553,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Instalar ${DISTRO} ao seu carón"
+msgstr "Instalar ${DISTRO} dentro de {OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Algo máis"
 
 #. Type: text
 #. Description
@@ -1584,6 +1569,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Pode crear ou redimensionar particións, ou escoller múltiplas particións "
+"para ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1594,16 +1581,13 @@ msgstr "Borar ${CURDISTRO} e reinstalar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Isto <b>borrará</b> todo ${CURDISTRO}, programas,  documentos, fotos, "
-"música, e outros ficheiros."
+"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os seus "
+"programas, documentos, fotos, música, e calquera outro ficheiro de "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1619,14 +1603,14 @@ msgstr "Anovar ${CURDISTRO} a ${VER}"
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"Non se eliminará ningún ficheiro. Manterase o software instalado de ser "
+"posíbel."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Instalar ${DISTRO} ${VER} ao carón de"
+msgstr "Instalar ${DISTRO} ${VER} a carón de ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1645,6 +1629,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os ficheiros "
+"do disco."
 
 #. Type: text
 #. Description
@@ -1655,17 +1641,14 @@ msgstr "Borar todo e reinstalar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"Isto <b>borrará</b> todos os seus programas, documentos, fotos, música, e "
-"outros ficheiros en ${OS} e ${CURDISTRO}."
+"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os seus "
+"programas, documentos, fotos, música, e outros ficheiro de ${OS} e de  "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1682,10 +1665,8 @@ msgstr "Instalar ${DISTRO} ao seu carón"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Este computador ten ${OS} instalado."
+msgstr "Este equipo ten instalado actualmente ${OS}. Que quere facer?"
 
 #. Type: text
 #. Description
@@ -1694,26 +1675,27 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Este equipo ten instalado actualmente ${OS1} e ${OS2}. Que quere facer?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Este computador non ten ningún sistema operativo instalado."
+msgstr ""
+"Este equipo ten instalados actualmente múltiples sistemas operativos. Que "
+"quere facer?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Este computador non ten ningún sistema operativo instalado."
+msgstr ""
+"Este equipo non ten instalados actualmente ningún sistema operativo. Que "
+"quere facer?"
 
 #. Type: title
 #. Description
@@ -1778,173 +1760,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Responder a estas preguntas só lle levará uns minutos."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrar os documentos e as configuracións"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Como quere particionar o disco?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Este computador ten varios sistemas operativos instalados."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Onde desexa poñer ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Isto borrará ${SYSTEMS} e instalará ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Preparado para instalar"
-
-#~ msgid "Details"
-#~ msgstr "Detalles"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "O seu novo sistema operativo instalarase coas seguintes opcións:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avanzado..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Paso ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Analizando ficheiros..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Asignando o nome ao computador..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Aplicando a configuración"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Continuar coa instalación."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Usar toda a partición"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Usar todo o disco"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Pode anovar ${CURDISTRO} sen perder ningún dos seus documentos ou "
-#~ "aplicativos importantes."
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Aínda dubida? Pode instalar ${DISTRO} ${VER} ao carón da súa copia actual "
-#~ "de ${CURDISTRO}."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Preparado para dar o paso? Unha instalación limpa borra todos os datos do "
-#~ "disco ríxido e instala ${DISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Pode reinstalar ${CURDISTRO} sen perder ningún dos seus documentos ou "
-#~ "aplicativos importantes."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Isto <b>borrará</b> todos os seus programas, documentos, fotos, música, e "
-#~ "outros ficheiros importantes en todos os sistemas operativos."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificar as particións manualmente (avanzado)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opcións avanzadas"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurso de popularidade"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participe na enquisa de uso de paquetes"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Porto:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Idioma: ${LANGUAGE}\n"
-#~ " Mapa de teclado: ${KEYMAP}\n"
-#~ " Nome completo: ${FULLNAME}\n"
-#~ " Nome de usuario: ${USERNAME}\n"
-#~ " Localización: ${LOCATION}\n"
-#~ " Asistente de migración:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Summary"
-#~ msgstr "Resumo"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Logo de responder algunhas preguntas, este computador estará listo para "
-#~ "usar."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Borrar e empregar o disco enteiro"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Está preparado para instalar? Logo de responder unhas cantas preguntas, "
-#~ "os contidos do ${MEDIUM} vivo poden instalarse neste computador e vostede "
-#~ "poderá executar ${RELEASE} a plena velocidade sen o ${MEDIUM}."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalar o cargador de arrinque"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Esta é unha versión previa do instalador ${RELEASE} live ${MEDIUM}. Non é "
-#~ "unha versión final, que virá coa distribución de ${RELEASE} en Outubro de "
-#~ "2010."
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy de rede"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Empregar o maior espazo libre contiguo"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalar ao carón dos outros sistemas operativos"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Adiviñar a disposición do teclado"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Adiviñar a disposición do teclado"

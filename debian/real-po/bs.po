@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-03-28 18:28+0100\n"
-"PO-Revision-Date: 2011-03-08 10:05+0000\n"
+"PO-Revision-Date: 2011-03-29 14:06+0000\n"
 "Last-Translator: megaribi <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-03-23 17:24+0000\n"
-"X-Generator: Launchpad (build 12633)\n"
+"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
+"X-Generator: Launchpad (build 12710)\n"
 
 #. Type: text
 #. Description
@@ -1040,26 +1040,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid "Error updating installer"
 msgid "Error restoring installed applications"
-msgstr "Greška u nadogradnji instalacijskog sistema"
+msgstr "Greška u obnovi instaliranih aplikacija"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Nastupila je greška pri kopiranju mrežnih postavki. Instalacije će se "
-"nastaviti, ali postavke mreže će se ponovo morati instalirati na sistemu."
+"Greška pri vraćanju prethodno instalirane aplikacije. Instalacija će se "
+"nastaviti, ali možda ćete morati da ručno instalirate neke aplikacije nakon "
+"što računar restartuje."
 
 #. Type: text
 #. Description
@@ -1519,24 +1513,18 @@ msgstr "Zamjena ${OS} sa ${DISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"Ovo će <b>obrisati</b> sve vaše ${OS} programe, dokumente, fotografije, "
-"muziku i bilo koje druge datoteke."
+"<span foreground=\"darkred\">Upozorenje:</span> To će obrisati sve od vaših  "
+"${OS} programa, dokumenata, fotografija, muzike, i drugih datoteka."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Instaliraj ${DISTRO} pored ovoga"
+msgstr "Instaliraj ${DISTRO} pored ${OS}"
 
 #. Type: text
 #. Description
@@ -1558,16 +1546,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
-#, fuzzy
-#| msgid "Install ${DISTRO} alongside it"
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Instaliraj ${DISTRO} pored ovoga"
+msgstr "Instaliraj ${DISTRO} unutar ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Nešto drugo"
 
 #. Type: text
 #. Description
@@ -1576,6 +1562,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Možete da kreirate ili promijenite veličinu particije sami, ili da izaberete "
+"više particija za ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1586,16 +1574,12 @@ msgstr "Obriši ${CURDISTRO} I reinstaliraj"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#| "music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"Ovo će <b>obrisati</b> sve vaše ${CURDISTRO} programe, dokumente, "
-"fotografije, muziku i bilo koje druge datoteke."
+"<span foreground=\"darkred\">Upozorenje:</span> To će obrisati sve vaše "
+"${CURDISTRO} programe, dokumente, fotografije, muziku, i druge datoteke."
 
 #. Type: text
 #. Description
@@ -1611,14 +1595,14 @@ msgstr "Nadogradnja ${CURDISTRO} na ${VER}"
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"Nijedna datoteka neće biti obrisana. Instalirani softver će biti sačuvan "
+"kada je to moguće."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
-#, fuzzy
-#| msgid "Install ${DISTRO} ${VER} alongside"
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Instaliraj ${DISTRO} ${VER} usporedno"
+msgstr "Instaliraj ${DISTRO} ${VER} pored ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1637,6 +1621,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> To će obrisati sve datoteke "
+"na disku."
 
 #. Type: text
 #. Description
@@ -1647,17 +1633,14 @@ msgstr "Briši sve i ponovo instaliraj"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-#, fuzzy
-#| msgid ""
-#| "This will <b>erase</b> all your programs, documents, photos, music, and "
-#| "other files in both ${OS} and ${CURDISTRO}."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"Ovo če <b>obrisati</b> sve programe, dokumente, fotografije, muziku i druge "
-"datoteke u ${OS} i ${CURDISTRO}."
+"<span foreground=\"darkred\">Upozorenje:</span> To će obrisati sve vaše "
+"programe, dokumente, fotografije, muziku, i druge datoteke i na ${OS} i na "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1674,10 +1657,8 @@ msgstr "Instaliraj ${DISTRO} pored njega"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-#, fuzzy
-#| msgid "This computer has ${OS} on it."
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Na ovom kompjuteru se nalazi ${OS}."
+msgstr "Ovaj komjuter trenutno ima ${OS} na sebi. Šta želite uraditi?"
 
 #. Type: text
 #. Description
@@ -1685,27 +1666,27 @@ msgstr "Na ovom kompjuteru se nalazi ${OS}."
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "Ovaj komjuter trenutno ima${OS1} i ${OS2} na sebi. Šta želite uraditi?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "Na ovom kompjuteru se ne nalazi operativni sistem."
+msgstr ""
+"Ovaj komjuter trenutno ima više opreativnih sistema na sebi. Šta želite "
+"uraditi?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
-#, fuzzy
-#| msgid "This computer has no operating systems on it."
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "Na ovom kompjuteru se ne nalazi operativni sistem."
+msgstr ""
+"Ovaj komjuter trenutno nema prepoznatih opreativnih sistema na sebi. Šta "
+"želite uraditi?"
 
 #. Type: title
 #. Description
@@ -1770,173 +1751,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Odgovaranje na pitanja ne bi smjelo trajati duže od par minuta."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Prebacivanje dokumenata i postavki"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Kako želite particionisati disk?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Ovaj kompjuter ima više operativnih sistema."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Gde želite postaviti ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Ovo će izbrisati ${SYSTEMS} i instalirati ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Spreman za instalaciju"
-
-#~ msgid "Details"
-#~ msgstr "Detalji"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Vaš novi operativni sistem će se instalirati sa slijedećim postavkama:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Napredno..."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Korak ${INDEX}/${TOTAL}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Skaniram datoteke..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Postavljam ime računara..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Primjena konfiguracije"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Nastavi sa instalacijom."
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Koristi cijelu particiju"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Koristi cijeli disk"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Možete nadograditi ${CURDISTRO} bez gubitka bilo kojeg vašeg važnog "
-#~ "dokumenta ili programa."
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Još uvijek na ogradi? Možete instalirati ${DISTRO} ${VER} uz vaš "
-#~ "postojeći primjerak${CURDISTRO}."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Spremni da preuzmete odgovornost? Čista instalacija briše cijeli hard "
-#~ "disk i instalira ${DISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Možete ponovo da instalirate ${CURDISTRO} bez gubljenja bilo kojeg od "
-#~ "vaših važnih dokumenata i aplikacija."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Ovo će <b>obrisati</b> sve programe, dokumente, fotografije, muziku i "
-#~ "druge datoteke u svim operativnim sistemima."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Obriši i koristi cijeli disk"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Nakon što odgovorite na nekoliko pitanja, ovaj kompjuter će biti spreman "
-#~ "za upotrebu."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Koristiti najveći neprekidni slobodni prostor"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Označi particiju manuelno(napredno)"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Napredne opcije"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instaliraj but louder"
-
-#~ msgid "Network proxy"
-#~ msgstr "Mrežni proxy"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Jezik: ${LANGUAGE}\n"
-#~ " Raspored na tastaturit: ${KEYMAP}\n"
-#~ " Ime: ${FULLNAME}\n"
-#~ " Korisničko ime: ${USERNAME}\n"
-#~ " Lokacija: ${LOCATION}\n"
-#~ " Pomoćnik za migracijut:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP posrednik (proxy):"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Učestvujte u anketi upotrebe paketa"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Takmičenje u popularnosti"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Summary"
-#~ msgstr "Sažetak"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Spremni za instalaciju? Nakon sto odgovorite na nekoliko pitanja, sadržaj "
-#~ "ovog live ${MEDIUM} može biti instaliran na vaš računar tako da možete "
-#~ "pokrenuti ${RELEASE} punom brzinom."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Odredite raspored tastature"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instaliraj zajedno s drugim operativnim sistemom"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ovo je predizdanje ${RELEASE} verzije ${MEDIUM} instalera. Ovo nije "
-#~ "finalna verzija, ona će biti objavljena sa ${RELEASE} u Oktobru 2010."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Odredi raspored tastature"
