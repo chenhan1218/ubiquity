@@ -19,7 +19,7 @@ ubiquity (2.5.33) UNRELEASED; urgency=low
     - Fix the partman plugin to convert the return value of
       gtk.TreeModel.get_value to Unicode before looking it up in a dict
       (LP: #746408).
-  * Update translations from Launchpad (LP: #745924).
+  * Update translations from Launchpad (LP: #745924, #746500).
 
   [ Evan Dandrea ]
   * Clarify substitution variables in the debconf templates using comments.
