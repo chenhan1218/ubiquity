@@ -64,6 +64,9 @@ def main():
         if glob.glob('/var/lib/dpkg/info/%s.list' % pkg):
             purge.append(pkg)
 
+    if not os.path.exists("/home/.ecryptfs"):
+        purge.append("cryptsetup")
+
     ac = client.AptClient()
     ac.commit_packages(install=[], reinstall=[], remove=[], purge=purge, upgrade=[],
                        downgrade=[],
