@@ -7,6 +7,10 @@ ubiquity (2.5.34) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Bump panel indicators ABI (LP: #745681).
 
+  [ Mario Limonciello ]
+  * Modify oem-config-remove-gtk to look in /var/lib/dpkg/info again
+    rather than /var/lib/dpkg/info/*/ for installed packages.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 02 Apr 2011 16:09:33 +0100
 
 ubiquity (2.5.33) natty; urgency=low

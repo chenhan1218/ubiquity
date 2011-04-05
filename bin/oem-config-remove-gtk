@@ -61,7 +61,7 @@ def main():
     purge = []
     for pkg in ('ubiquity', 'ubiquity-casper', 
                 'ubiquity-ubuntu-artwork', 'ubiquity-slideshow-ubuntu'):
-        if glob.glob('/var/lib/dpkg/info/*/%s.list' % pkg):
+        if glob.glob('/var/lib/dpkg/info/%s.list' % pkg):
             purge.append(pkg)
 
     ac = client.AptClient()
