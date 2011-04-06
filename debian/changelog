@@ -3,7 +3,7 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Provide a better description for the upgrade/reinstall option that
     intends to make the difference between it and a traditional Ubuntu
-    upgrade clear.
+    upgrade clear (LP: #752372).
 
   [ Colin Watson ]
   * Switch to xz compression for the source package, saving nearly a
