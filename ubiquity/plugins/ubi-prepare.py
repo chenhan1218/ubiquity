@@ -306,7 +306,7 @@ class Page(plugin.Plugin):
         try:
             with open('/cdrom/casper/filesystem.size') as fp:
                 size = int(fp.readline())
-        except Exception, e:
+        except IOError, e:
             self.debug('Could not determine squashfs size: %s' % e)
         # TODO substitute into the template for the state box.
         min_disk_size = size * 1.20 # fudge factor.

@@ -2037,7 +2037,15 @@ class Page(plugin.Plugin):
                     parted.select_disk(dev)
                     size = int(parted.partition_info(p_id)[2])
                     key = biggest_free[0][2]
-                    self.extra_options['biggest_free'] = (key, size)
+                    filesystem_size = 0
+                    try:
+                        with open('/cdrom/casper/filesystem.size') as fp:
+                            filesystem_size = int(fp.readline())
+                    except IOError:
+                        self.debug('Could not determine filesystem size.')
+                    fudge = 200 * 1024 * 1024 # 200 MB
+                    if size > filesystem_size + fudge:
+                        self.extra_options['biggest_free'] = (key, size)
 
                 # TODO: Add misc.find_in_os_prober(info[5]) ...and size?
                 reuse = self.find_script(menu_options, 'reuse')

@@ -4,6 +4,8 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   * Provide a better description for the upgrade/reinstall option that
     intends to make the difference between it and a traditional Ubuntu
     upgrade clear (LP: #752372).
+  * Don't show the biggest_free option if we can't fit Ubuntu in the
+    free space (LP: #751145).
 
   [ Colin Watson ]
   * Switch to xz compression for the source package, saving nearly a
