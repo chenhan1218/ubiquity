@@ -1,8 +1,13 @@
 ubiquity (2.5.35) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Provide a better description for the upgrade/reinstall option that
     intends to make the difference between it and a traditional Ubuntu
     upgrade clear.
+
+  [ Colin Watson ]
+  * Switch to xz compression for the source package, saving nearly a
+    megabyte.
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 06 Apr 2011 11:13:25 +0100
 
