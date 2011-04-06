@@ -1167,7 +1167,7 @@ Type: text
 #flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Replace ${OS} with ${DISTRO}
- <span foreground="darkred">Warning:</span> This will erase all of your ${OS}
+ <span foreground="darkred">Warning:</span> This will delete all of your ${OS}
  programs, documents, photos, music, and any other files.
 
 Template: ubiquity/partitioner/single_os_resize
@@ -1176,8 +1176,8 @@ Type: text
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 # OS is a variable substituted into this string, and may be 'Windows 7'
 _Description: Install ${DISTRO} alongside ${OS}
- No files will be deleted. You can choose which operating system you want each
- time the computer starts up.
+ Documents, music, and other personal files will be kept. You can choose which
+ operating system you want each time the computer starts up.
 
 Template: ubiquity/partitioner/ubuntu_inside
 Type: text
@@ -1185,8 +1185,8 @@ Type: text
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 # OS is a variable substituted into this string, and may be 'Windows 7'
 _Description: Install ${DISTRO} inside ${OS}
- No files will be deleted. You can choose which operating system you want each
- time the computer starts up.
+ Documents, music, and other personal files will be kept. You can choose which
+ operating system you want each time the computer starts up.
 
 Template: ubiquity/partitioner/advanced
 Type: text
@@ -1209,7 +1209,8 @@ Type: text
 # CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 # VER is a variable substituted into this string, and may be '11.04'
 _Description: Upgrade ${CURDISTRO} to ${VER}
- No files will be deleted. Installed software will be kept where possible.
+ Documents, music, and other personal files will be kept. Installed software
+ will be kept where possible. System-wide settings will be cleared.
 
 Template: ubiquity/partitioner/ubuntu_resize
 Type: text
@@ -1218,8 +1219,8 @@ Type: text
 # VER is a variable substituted into this string, and may be '11.04'
 # CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 _Description: Install ${DISTRO} ${VER} alongside ${CURDISTRO}
- No files will be deleted. You can choose which operating system you want each
- time the computer starts up.
+ Documents, music, and other personal files will be kept. You can choose which
+ operating system you want each time the computer starts up.
 
 Template: ubiquity/partitioner/no_systems_format
 Type: text
@@ -1244,23 +1245,24 @@ Type: text
 #flag:comment:1
 # CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 _Description: Reinstall ${CURDISTRO}
- No files will be deleted. Installed software will be kept where possible.
+ Documents, music, and other personal files will be kept. Installed software
+ will be kept where possible. System-wide settings will be cleared.
 
 Template: ubiquity/partitioner/multiple_os_format
 Type: text
 #flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Erase disk and install ${DISTRO}
- <span foreground="darkred">Warning:</span> This will delete any files on the
- disk.
+ <span foreground="darkred">Warning:</span> This will delete all your programs,
+ documents, photos, music, and any other files in all operating systems.
 
 Template: ubiquity/partitioner/multiple_os_resize
 Type: text
 #flag:comment:1
 # DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 _Description: Install ${DISTRO} alongside them
- No files will be deleted. You can choose which operating system you want each
- time the computer starts up.
+ Documents, music, and other personal files will be kept. You can choose which
+ operating system you want each time the computer starts up.
 
 Template: ubiquity/partitioner/heading_one
 Type: text

@@ -1,3 +1,11 @@
+ubiquity (2.5.35) UNRELEASED; urgency=low
+
+  * Provide a better description for the upgrade/reinstall option that
+    intends to make the difference between it and a traditional Ubuntu
+    upgrade clear.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 06 Apr 2011 11:13:25 +0100
+
 ubiquity (2.5.34) natty; urgency=low
 
   [ Colin Watson ]
