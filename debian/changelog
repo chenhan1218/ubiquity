@@ -11,7 +11,10 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   * Switch to xz compression for the source package, saving nearly a
     megabyte.
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 06 Apr 2011 11:13:25 +0100
+  [ Mackenzie Morgan ]
+  * Make radio buttons use label wording for screen reader (LP: #749653)
+
+ -- Mackenzie Morgan <maco.m@ubuntu.com>  Thu, 07 Apr 2011 00:02:21 -0400
 
 ubiquity (2.5.34) natty; urgency=low
 
