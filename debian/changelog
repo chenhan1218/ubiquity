@@ -6,6 +6,7 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
     upgrade clear (LP: #752372).
   * Don't show the biggest_free option if we can't fit Ubuntu in the
     free space (LP: #751145).
+  * Try calling unlock_environment a bit earlier to work around LP: 657086.
 
   [ Colin Watson ]
   * Switch to xz compression for the source package, saving nearly a
