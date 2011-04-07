@@ -811,6 +811,7 @@ class Wizard(BaseFrontend):
         self.refresh()
 
     def unlock_environment(self):
+        syslog.syslog('Reverting lockdown the desktop environment.')
         for key in ('/apps/indicator-session/suppress_logout_menuitem',
                     '/apps/indicator-session/suppress_logout_restart_menuitem',
                     '/apps/indicator-session/suppress_restart_menuitem',
