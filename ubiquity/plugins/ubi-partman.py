@@ -284,7 +284,7 @@ class PageGtk(PageBase):
             return False
 
     def plugin_on_back_clicked(self):
-        if self.current_page in self.plugin_optional_widgets:
+        if self.current_page == self.page_auto:
             title = self.controller.get_string(self.plugin_title)
             self.controller._wizard.page_title.set_markup(
                 '<span size="xx-large">%s</span>' % title)
@@ -297,6 +297,9 @@ class PageGtk(PageBase):
             self.plugin_is_install = False
             return True
         else:
+            # If we're on the first page (ask), then we want to go back to
+            # prepare. If we're on the advanced page, then we want to go back
+            # to the first page (ask).
             return False
 
     def set_disk_layout(self, layout):

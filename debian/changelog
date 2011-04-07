@@ -7,6 +7,8 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   * Don't show the biggest_free option if we can't fit Ubuntu in the
     free space (LP: #751145).
   * Try calling unlock_environment a bit earlier to work around LP: 657086.
+  * Be sure to back up in the dbfilter when backing up from the advanced
+    partitioning page (LP: #744938).
 
   [ Colin Watson ]
   * Switch to xz compression for the source package, saving nearly a
