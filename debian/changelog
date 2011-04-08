@@ -19,7 +19,10 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Update artwork gui/qt/images/squares.png
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 06 Apr 2011 11:13:25 +0100
+  [ Julien Lavergne ]
+  * Disable panel when using openbox-lubuntu. 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sat, 09 Apr 2011 00:38:18 +0200
 
 ubiquity (2.5.34) natty; urgency=low
 
