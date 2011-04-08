@@ -48,8 +48,6 @@ WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 # Just db_get them.  No need for any other overhead, surely.  Actually, you
 # need the dbfilter for that get.
 
-# TODO: Set the 'have at least 3 GB' from /cdrom/casper/filesystem.size + a
-# fudge factor.
 class PreparePageBase(plugin.PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
 
@@ -301,15 +299,15 @@ class Page(plugin.Plugin):
         self.ui.set_sufficient_space_text(space)
 
     def min_size(self):
-        # Default to 3 GB
-        size = 3 * 1024 * 1024 * 1024
+        # Default to 5 GB
+        size = 5 * 1024 * 1024 * 1024
         try:
             with open('/cdrom/casper/filesystem.size') as fp:
                 size = int(fp.readline())
         except IOError, e:
             self.debug('Could not determine squashfs size: %s' % e)
         # TODO substitute into the template for the state box.
-        min_disk_size = size * 1.20 # fudge factor.
+        min_disk_size = size * 2 # fudge factor.
         return min_disk_size
 
     def big_enough(self, size):

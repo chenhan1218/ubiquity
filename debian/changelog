@@ -9,6 +9,8 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   * Try calling unlock_environment a bit earlier to work around LP: 657086.
   * Be sure to back up in the dbfilter when backing up from the advanced
     partitioning page (LP: #744938).
+  * Increase the minimum size of the Ubuntu install to be twice the size
+    of the contents of the installation (roughly 5.2 GB) (LP: #745148).
 
   [ Colin Watson ]
   * Switch to xz compression for the source package, saving nearly a
