@@ -14,6 +14,9 @@ ubiquity (2.5.35) UNRELEASED; urgency=low
   * Switch to xz compression for the source package, saving nearly a
     megabyte.
 
+  [ Jonathan Riddell ]
+  * Update artwork gui/qt/images/squares.png
+
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 06 Apr 2011 11:13:25 +0100
 
 ubiquity (2.5.34) natty; urgency=low
