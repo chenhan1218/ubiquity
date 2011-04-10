@@ -17,6 +17,8 @@ ubiquity (2.6.0) UNRELEASED; urgency=low
     megabyte.
   * Update translations from Launchpad.
   * Update imported translations from gtk+2.0 2.24.4-0ubuntu1.
+  * Automatic update of included source packages: apt-setup 1:0.49ubuntu4,
+    netcfg 1.60ubuntu3.
 
   [ Jonathan Riddell ]
   * Update artwork gui/qt/images/squares.png
