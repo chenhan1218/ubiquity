@@ -393,8 +393,6 @@ class PartMan(QtGui.QWidget):
         elif partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
                 self.partman_create_dialog(devpart, partition)
-        else:
-            self.partman_edit_dialog(devpart, partition)
 
     ### actions for clicking the buttons ###
 
