@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-02 13:00+0100\n"
+"POT-Creation-Date: 2011-04-10 01:34+0100\n"
 "PO-Revision-Date: 2011-03-31 06:25+0000\n"
 "Last-Translator: Nguyễn Anh <Unknown>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -1522,8 +1522,12 @@ msgstr "Thay thế ${OS} bằng ${DISTRO}"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
+#, fuzzy
+#| msgid ""
+#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
-"<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+"<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">Cảnh báo:</span> Tiến trình này sẽ xóa toàn bộ "
@@ -1548,9 +1552,13 @@ msgstr "Cài ${DISTRO} bên cạnh ${OS}"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. You can choose which operating system you want "
+#| "each time the computer starts up."
 msgid ""
-"No files will be deleted. You can choose which operating system you want "
-"each time the computer starts up."
+"Documents, music, and other personal files will be kept. You can choose "
+"which operating system you want each time the computer starts up."
 msgstr ""
 "Sẽ không xóa tập tin nào. Bạn có thể chọn lựa hệ điều hành mỗi lần máy tính "
 "khởi động."
@@ -1612,8 +1620,12 @@ msgstr "Nâng cấp ${CURDISTRO} lên bản ${VER}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
-"No files will be deleted. Installed software will be kept where possible."
+"Documents, music, and other personal files will be kept. Installed software "
+"will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 "Không xóa các tập tin. Những phần mềm đã cài sẽ được lưu ở nơi nào khả dĩ."
 
@@ -1638,9 +1650,7 @@ msgstr "Xóa sạch đĩa và cài đặt ${DISTRO}"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:231001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1673,6 +1683,22 @@ msgstr ""
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "Cài đặt lại ${CURDISTRO}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+#, fuzzy
+#| msgid ""
+#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
+#| "${CURDISTRO} programs, documents, photos, music, and any other files."
+msgid ""
+"<span foreground=\"darkred\">Warning:</span> This will delete all your "
+"programs, documents, photos, music, and any other files in all operating "
+"systems."
+msgstr ""
+"<span foreground=\"darkred\">Cảnh báo:</span> Việc này sẽ xóa toàn bộ các "
+"chương trình, tài liệu, ảnh, nhạc và những tập tin khác trong ${CURDISTRO} "
+"của bạn."
 
 #. Type: text
 #. Description

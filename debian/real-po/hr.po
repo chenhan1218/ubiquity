@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-02 13:00+0100\n"
+"POT-Creation-Date: 2011-04-10 01:34+0100\n"
 "PO-Revision-Date: 2011-03-06 12:55+0000\n"
 "Last-Translator: Saša Teković <Unknown>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -1535,7 +1535,7 @@ msgstr "Zamjeni ${OS} s ${DISTRO}"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
 msgid ""
-"<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+"<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 
@@ -1557,9 +1557,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. You can choose which operating system you want "
+#| "each time the computer starts up."
 msgid ""
-"No files will be deleted. You can choose which operating system you want "
-"each time the computer starts up."
+"Documents, music, and other personal files will be kept. You can choose "
+"which operating system you want each time the computer starts up."
 msgstr ""
 "Nijedna datoteka neće biti izbrisana. Možete odabrati koji operativni sustav "
 "želite koristiti kod svakog pokretanja računala."
@@ -1617,7 +1621,8 @@ msgstr "Nadogradi ${CURDISTRO} na ${VER}"
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
 msgid ""
-"No files will be deleted. Installed software will be kept where possible."
+"Documents, music, and other personal files will be kept. Installed software "
+"will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 
 #. Type: text
@@ -1641,9 +1646,7 @@ msgstr "Obriši disk i instaliraj ${DISTRO}"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:231001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1672,6 +1675,15 @@ msgstr ""
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "Ponovno instaliraj ${CURDISTRO}"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+msgid ""
+"<span foreground=\"darkred\">Warning:</span> This will delete all your "
+"programs, documents, photos, music, and any other files in all operating "
+"systems."
+msgstr ""
 
 #. Type: text
 #. Description
