@@ -15,6 +15,7 @@ ubiquity (2.6.0) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Switch to xz compression for the source package, saving nearly a
     megabyte.
+  * Update translations from Launchpad.
 
   [ Jonathan Riddell ]
   * Update artwork gui/qt/images/squares.png

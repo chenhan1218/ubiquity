@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-02 13:00+0100\n"
-"PO-Revision-Date: 2011-03-26 21:39+0000\n"
-"Last-Translator: Andriy Korchak <kharts@ukr.net>\n"
+"PO-Revision-Date: 2011-04-08 11:04+0000\n"
+"Last-Translator: Rosel <Unknown>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
@@ -1054,7 +1054,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Помилка при відновленні встановлених програм"
 
 #. Type: error
 #. Description
@@ -1064,6 +1064,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Виникла помилка під час відновлення попередньо встановлених програм.  "
+"Інсталяція продовжиться, але ви повинні самостійно переустановити деякі "
+"програми після перезавантаження комп'тера"
 
 #. Type: text
 #. Description
@@ -1669,6 +1672,9 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Попередження:</span> Ця дія видалить усі ваші "
+"програми, документи, фотографії, музику та інші файли як у ${OS}, так і в "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1689,7 +1695,7 @@ msgstr "Встановити ${DISTRO} поруч з ними"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "На вашому комп'ютері зараз встановлено ${OS}. Що ви бажаєте зробити?"
 
 #. Type: text
 #. Description
@@ -1700,6 +1706,8 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"На вашому комп'ютері зараз встановлені ${OS1} та ${OS2}. Що ви бажаєте "
+"зробити?"
 
 #. Type: text
 #. Description

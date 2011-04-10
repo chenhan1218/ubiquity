@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-02 13:00+0100\n"
-"PO-Revision-Date: 2011-04-01 17:10+0000\n"
-"Last-Translator: Kudret EMRE <Unknown>\n"
+"PO-Revision-Date: 2011-04-07 20:48+0000\n"
+"Last-Translator: Yiğit Ateş <yigitates@ceviri.ubuntu-tr.net>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
@@ -36,8 +36,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"Bizim için fazla zekice mi? İleri düzeyde bölümleme seçenekleri ile elinizi "
-"kirletin."
+"Bizden daha zeki olduğunu mu düşünüyorsun? O zaman seni gelişmiş bölümleme "
+"seçeneklerine alalım."
 
 #. Type: text
 #. Description
@@ -63,7 +63,7 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Şu an, sistem üreticisi kipinde yükleme yapıyorsunuz. Lütfen, bu toplu "
-"sistem kümesi için benzersiz bir ad girin. Girdiğiniz ad kurulan sistemde "
+"sistem kümesi için benzersiz bir ad girin. Girdiğiniz ad, kurulan sistemde "
 "saklanacaktır ve hata raporlarında kullanılabilir."
 
 #. Type: text
@@ -138,8 +138,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
-"Bu ${RELEASE} çalışır ${MEDIUM} yükleyicisinin bir ön sürümüdür. Bu bir son "
-"sürüm değildir; ${RELEASE} ' un kararlı sürümü Nisan 2011 de yayınlanacaktır."
+"Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
+"bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Nisan 2011'de "
+"yayınlanacaktır."
 
 #. Type: text
 #. Description
@@ -149,7 +150,7 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Bu kurulum süreci- sabit diskinizin bölümlerini yeniden boyutlandırabilir "
+"Bu kurulum süreci, sabit diskinizin bölümlerini yeniden boyutlandırabilir "
 "veya silebilir. Bu programı çalıştırmadan önce<b>tüm değerli verilerinizi "
 "yedeklediğinize</b> emin olun."
 
@@ -205,7 +206,7 @@ msgstr "Lütfen aşağıdaki tuşlardan birine basın:"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Is the following key present on your keyboard?"
-msgstr "Aşağıdaki tuş klavyeniz, üzerinde gösteriliyor mu?"
+msgstr "Aşağıdaki tuş, klavyeniz üzerinde gösteriliyor mu?"
 
 #. Type: text
 #. Description
@@ -235,7 +236,7 @@ msgstr "Bir kullanıcı adı seçin:"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Username"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı"
 
 #. Type: text
 #. Description
@@ -426,8 +427,7 @@ msgstr "Önyükleyici olmadan devam edin."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"${RELEASE} sürümünü başlatabilmek için elle bir önyükleyici kurmanız "
-"gerekiyor."
+"${RELEASE}'yu başlatabilmek için elle bir önyükleyici kurmanız gerekiyor."
 
 #. Type: text
 #. Description
@@ -571,7 +571,7 @@ msgstr "Bağlama noktası"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:80001
 msgid "Format?"
-msgstr "Biçimlendir?"
+msgstr "Biçimlendirilsin mi?"
 
 #. Type: text
 #. Description
@@ -614,7 +614,7 @@ msgstr "Bölüm oluştur"
 #. Description
 #: ../ubiquity.templates:86001 ../ubiquity.templates:93001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Megabayt (~1000000 bayt) cinsinden yeni bölüm boyutu:"
+msgstr "Megabayt (1000000 bayt) cinsinden yeni bölüm boyutu:"
 
 #. Type: text
 #. Description
@@ -752,7 +752,8 @@ msgstr "Kurulum Başarısız Oldu"
 #: ../ubiquity.templates:105001 ../ubiquity.templates:106001
 #: ../ubiquity.templates:107001 ../ubiquity.templates:108001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Kurulum, dosyaları sabit diske kopyalarken bir hatayla karşılaştı:"
+msgstr ""
+"Kurulum aracı, dosyaları sabit diske kopyalarken bir hatayla karşılaştı:"
 
 #. Type: error
 #. Description
@@ -902,7 +903,7 @@ msgstr "Yüklenen paketler kaydediliyor..."
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr "önceden yüklenmiş paketler onarılıyor"
+msgstr "Önceden yüklenen paketler geri getiriliyor..."
 
 #. Type: text
 #. Description
@@ -993,7 +994,7 @@ msgid ""
 "distributor."
 msgstr ""
 "Bu durum, eski bir kurulum dosyası kullanmanızdan veya yukarıda sıralanan "
-"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi /var/"
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi, /var/"
 "log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
 "aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
 "diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
@@ -1026,7 +1027,7 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Veri aktarılırken bir hata oluştudu. Daha fazla ayrıntıyı /var/log/syslog "
+"Veri aktarılırken bir hata oluştu. Daha fazla ayrıntıyı /var/log/syslog "
 "içerisinde bulabilirsiniz. Kurulum devam edecek; fakat size gereken belge ve "
 "ayarların bazıları ya da tümü yerleşik sisteme yüklenmemiş olabilir."
 
@@ -1044,14 +1045,14 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek; fakat ağ "
+"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek, fakat ağ "
 "yapılandırmasının yerleşik sistemde yeniden kurulumu gerekecektir."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Yüklenen uygulamalar geri getirilirken bir hata oluştu"
 
 #. Type: error
 #. Description
@@ -1061,9 +1062,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Önceden yüklü olan uygulamaları düzenlenirken bir hata oluştu. Kurulum devam "
-"edecek fakat bilgisayar yeniden başladıktan sonra bazı uygulamaları tekrar "
-"yüklemeniz gerekebilir."
+"Önceden yüklenen uygulamalar geri getirilirken bir hata oluştu. Kurulum "
+"devam edecek, fakat bilgisayar yeniden başlatıldıktan sonra bazı "
+"uygulamaları tekrar yüklemeniz gerekebilir."
 
 #. Type: text
 #. Description
@@ -1102,9 +1103,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Kurulum programının, değişiklikleri bölümleme tablosuna işlemesi gerekiyor "
-"ancak bunu yapamıyor; çünkü şu bağlama noktalarındaki bölümler dosya "
-"sisteminden ayırılamıyor:"
+"Kurulum programının, değişiklikleri bölümleme tablosuna işlemesi gerekiyor; "
+"ancak şu bağlama noktalarındaki bölümler dosya sisteminden ayırılamadığı "
+"için değişiklikler bölümleme tablosuna işlenemiyor:"
 
 #. Type: boolean
 #. Description

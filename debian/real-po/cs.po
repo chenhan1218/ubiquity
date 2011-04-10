@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-02 13:00+0100\n"
-"PO-Revision-Date: 2011-02-22 19:08+0000\n"
+"PO-Revision-Date: 2011-04-05 15:40+0000\n"
 "Last-Translator: Adrian Guniš <andygun696@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Pro pokračování restartovat"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Ruční konfigurace (pokročilé)"
 
 #. Type: text
 #. Description
@@ -186,7 +186,7 @@ msgstr "Zde můžete vyzkoušet nastavení klávesnice"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Rozpoznat rozložení klávesnice"
 
 #. Type: text
 #. Description
@@ -363,7 +363,7 @@ msgstr "Přidělení místa na disku"
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Soubory (${SIZE})"
 
 #. Type: text
 #. Description
@@ -873,7 +873,7 @@ msgstr "Nastavuje se hardware..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "Instalace softwaru třetích stran..."
 
 #. Type: text
 #. Description
@@ -891,13 +891,13 @@ msgstr "Nastavuje se zavaděč..."
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Ukládání nainstalovaných balíků..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "Obnovování dříve nainstalovaných balíků..."
 
 #. Type: text
 #. Description
@@ -1047,7 +1047,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Chyba při obnovování nainstalovaných aplikací"
 
 #. Type: error
 #. Description
@@ -1057,6 +1057,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Při obnovování dříve nainstalovaných aplikací došlo k chybě. Instalace bude "
+"pokračovat, ale možná budete muset ručně přeinstalovat některé aplikace po "
+"restartování počítače."
 
 #. Type: text
 #. Description
@@ -1511,7 +1514,7 @@ msgstr "[klikněte zde pro změnu]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Nahradit ${OS} distribucí ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1521,6 +1524,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Upozornění:</span> Tímto se smažou všechny vaše "
+"programy, dokumenty, fotografie, hudba a další soubory z ${OS}."
 
 #. Type: text
 #. Description
@@ -1528,7 +1533,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Nainstalovat ${DISTRO} vedle ${OS}"
 
 #. Type: text
 #. Description
@@ -1544,6 +1549,8 @@ msgid ""
 "No files will be deleted. You can choose which operating system you want "
 "each time the computer starts up."
 msgstr ""
+"Žádné soubory nebudou smazány. Při každém spuštění počítače si můžete "
+"zvolit, jaký operační systém chcete spustit."
 
 #. Type: text
 #. Description
@@ -1551,13 +1558,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Nainstalovat ${DISTRO} do ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Něco jiného"
 
 #. Type: text
 #. Description
@@ -1567,13 +1574,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Můžete si sami vytvořit nebo změnit velikost oddílů nebo si pro ${DISTRO} "
+"zvolit více oddílů."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Smazat ${CURDISTRO} a přeinstalovat"
 
 #. Type: text
 #. Description
@@ -1583,6 +1592,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Upozornění:</span> Tímto se smažou všechny vaše "
+"programy, dokumenty, fotografie, hudba a další soubory z ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1590,7 +1601,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Přejít z vydání ${CURDISTRO} na ${VER}"
 
 #. Type: text
 #. Description
@@ -1600,6 +1611,8 @@ msgstr ""
 msgid ""
 "No files will be deleted. Installed software will be kept where possible."
 msgstr ""
+"Žádné soubory nebudou smazány. Nainstalovaný software bude zachován, bude-li "
+"to možné."
 
 #. Type: text
 #. Description
@@ -1608,7 +1621,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Nainstalovat ${DISTRO} ${VER} vedle ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1618,7 +1631,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Vymazat disk a nainstalovat ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1629,12 +1642,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Upozornění:</span> Tímto se smažou všechny "
+"soubory na disku."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Smazat všechno a přeinstalovat"
 
 #. Type: text
 #. Description
@@ -1646,27 +1661,30 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Upozornění:</span> Tímto se smažou všechny vaše "
+"programy, dokumenty, fotografie, hudba a další soubory z ${OS} a "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Přeinstalovat ${CURDISTRO}"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "Nainstalovat ${DISTRO} vedle nich"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "Na tomto počítači je aktuálně nainstalovaný ${OS}. Co chcete udělat?"
 
 #. Type: text
 #. Description
@@ -1677,6 +1695,8 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Na tomto počítači jsou aktuálně nainstalovány ${OS1} a ${OS2}. Co chcete "
+"udělat?"
 
 #. Type: text
 #. Description
@@ -1685,6 +1705,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"Na tomto počítači je aktuálně nainstalováno více operačních systémů. Co "
+"chcete udělat?"
 
 #. Type: text
 #. Description
@@ -1693,6 +1715,7 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"Na tomto počítači nebyly rozpoznány žádné operační systémy. Co chcete udělat?"
 
 #. Type: title
 #. Description

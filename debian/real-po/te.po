@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-02 13:00+0100\n"
-"PO-Revision-Date: 2011-03-27 04:49+0000\n"
-"Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
+"PO-Revision-Date: 2011-04-06 05:23+0000\n"
+"Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
@@ -1033,7 +1033,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "ఇంతకుముందు స్థాపించబడిన అనువర్తనాలను తిరిగిచేతనం చేయుటలో దోషం"
 
 #. Type: error
 #. Description
@@ -1043,6 +1043,8 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"ఇంతకుముందు స్థాపించబడిన అనువర్తనాలను తిరిగిచేతనం చేయుటలో దోషం ఏర్పడింది.  స్థాపన కొనసాగుతుంది కాని, "
+"కొన్ని అనువర్తనాలను మానవీయంగా  కంప్యూటర్ బూట్  అయినతర్వాత మరల స్థాపించవలసిరావచ్చు."
 
 #. Type: text
 #. Description

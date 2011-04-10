@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-02 13:00+0100\n"
-"PO-Revision-Date: 2011-04-02 08:39+0000\n"
+"PO-Revision-Date: 2011-04-06 04:56+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Norėdami tęsti paleiskite iš naujo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Rankinis konfigūravimas (išplėstinis)"
 
 #. Type: text
 #. Description
@@ -1051,7 +1051,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Klaida atkuriant įdiegtas programas"
 
 #. Type: error
 #. Description
@@ -1061,6 +1061,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Įvyko klaida atkuriant anksčiau įdiegtas programas. Įdiegimas bus pratęstas, "
+"tačiau turėsite rankiniu būdu iš naujo įdiegti kai kurias programas, kai "
+"kompiuteris bus paleistas iš naujo."
 
 #. Type: text
 #. Description
@@ -1453,6 +1456,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
+"Fluendo MP3 papildinys apima MPEG Layer-3 garso dekodavimo technologiją "
+"licencijuotą iš „Fraunhofer IIS and Thomson“."
 
 #. Type: text
 #. Description
