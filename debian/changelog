@@ -5,7 +5,10 @@ ubiquity (2.6.1) UNRELEASED; urgency=low
     - Disable partition edit dialog on row activation, until such time as we
       know how to distinguish click from double-click (LP: #628906).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sun, 10 Apr 2011 14:05:10 +0100
+  [ Julien Lavergne ]
+  * Disable ubiquity panel for openbox session. 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Sun, 10 Apr 2011 20:31:13 +0200
 
 ubiquity (2.6.0) natty; urgency=low
 
