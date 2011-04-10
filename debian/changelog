@@ -1,3 +1,39 @@
+ubiquity (2.6.1) UNRELEASED; urgency=low
+
+  [ Stéphane Graber ]
+  * KDE frontend:
+    - Disable partition edit dialog on row activation, until such time as we
+      know how to distinguish click from double-click (LP: #628906).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 10 Apr 2011 14:05:10 +0100
+
+ubiquity (2.6.0) natty; urgency=low
+
+  [ Evan Dandrea ]
+  * Provide a better description for the upgrade/reinstall option that
+    intends to make the difference between it and a traditional Ubuntu
+    upgrade clear (LP: #752372).
+  * Don't show the biggest_free option if we can't fit Ubuntu in the
+    free space (LP: #751145).
+  * Try calling unlock_environment a bit earlier to work around LP: 657086.
+  * Be sure to back up in the dbfilter when backing up from the advanced
+    partitioning page (LP: #744938).
+  * Increase the minimum size of the Ubuntu install to be twice the size
+    of the contents of the installation (roughly 5.2 GB) (LP: #745148).
+
+  [ Colin Watson ]
+  * Switch to xz compression for the source package, saving nearly a
+    megabyte.
+  * Update translations from Launchpad.
+  * Update imported translations from gtk+2.0 2.24.4-0ubuntu1.
+  * Automatic update of included source packages: apt-setup 1:0.49ubuntu4,
+    netcfg 1.60ubuntu3.
+
+  [ Jonathan Riddell ]
+  * Update artwork gui/qt/images/squares.png
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 10 Apr 2011 01:47:19 +0100
+
 ubiquity (2.5.35) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]

@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-02 13:00+0100\n"
-"PO-Revision-Date: 2011-03-29 15:14+0000\n"
+"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"PO-Revision-Date: 2011-04-06 18:53+0000\n"
 "Last-Translator: jmb_kz <Unknown>\n"
 "Language-Team: Kazakh\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:17+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
@@ -110,25 +110,22 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
-"a> оқуға не <a href=\"update\">осы орнатушы бағдарламаны жаңартуыңыз</a> "
-"келіп тұрған шығар."
+"<a href=\"release-notes\">Шығарылым қосымша мәліметтерін</a> оқығыңызға не "
+"<a href=\"update\">осы орнатушы бағдарламаны жаңартуыңызға</a> болады."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Мүмкін сіз <a href=\"release-notes\">осы шығарылымға қосымша мәліметтерді</"
-"a> оқуға келіп тұрған шығар."
+"<a href=\"release-notes\">Шығарылым қосымша мәліметтерін</a> оқуыңызға "
+"болады."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"Мүмкін сіз <a href=\"update\">осы орнатушы бағдарламаны жаңартуыңыз</a> "
-"келіп тұрған шығар."
+msgstr "<a href=\"update\">Осы орнатушы бағдарламаны жаңартуыңызға</a> болады."
 
 #. Type: text
 #. Description
@@ -274,7 +271,7 @@ msgstr "Сіздің компьютеріңіздің аты:"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "The name it uses when it talks to other computers."
-msgstr "Басқа компьютермен басланысатын кезде қолданылатын атыңыз."
+msgstr "Басқа компьютерлермен байланысатын кезде қолданылатын атыңыз."
 
 #. Type: text
 #. Description
@@ -463,7 +460,7 @@ msgstr "Орнатылым аяқталды"
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Continue Testing"
-msgstr "Тестілеуді жалғастыру"
+msgstr "Жүйеде жұмыс істеуді жалғастыру"
 
 #. Type: text
 #. Description
@@ -667,9 +664,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Орнатылым аяқталды. Сіз ${RELEASE} әрі қарай осы сессияда жұмыс істей "
-"аласыз, бірақ қайта жүктеуге жіберген кезде жасалған әрекеттер және құжаттар "
-"жойылады."
+"Орнатылым аяқталды. Сіз ${RELEASE}-мен әрі қарай осы сеанста жұмыс істей "
+"аласыз, бірақ компьютерді қайта жүктейтін кезде жасалған әрекеттер және "
+"құжаттар жойылады."
 
 #. Type: text
 #. Description
@@ -930,19 +927,19 @@ msgstr "Жойылатын пакеттер тексерілуде..."
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Дестелерді жүктеп алу (${TIME} қалды)..."
+msgstr "Пакеттерді жүктеп алу (${TIME} қалды)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists..."
-msgstr "Десте тізімін жүктеп алу жүруде..."
+msgstr "Пакеттер тізімі жүктелінуде..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Десте тізімін жүктеп алу жүруде (${TIME} қалды)..."
+msgstr "Пакеттер тізімі жүктелінуде (${TIME} қалды)..."
 
 #. Type: error
 #. Description
@@ -960,13 +957,13 @@ msgstr "${PACKAGE} пакетін жою қатесі"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while installing packages"
-msgstr "Дестелер орнатуда қате кетті"
+msgstr "Пакеттерді орнату кезінде қате пайда болды"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "An error occurred while installing packages:"
-msgstr "Дестелер орнату кезінде қате кетті:"
+msgstr "Пакеттерді орнату кезінде қате пайда болды:"
 
 #. Type: error
 #. Description
@@ -1001,13 +998,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Error while removing packages"
-msgstr "Дестелер жоюда қате кетті"
+msgstr "Пакеттерді жою кезінде қате пайда болды"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:135001
 msgid "An error occurred while removing packages:"
-msgstr "Дестелер жою кезінде қате кетті:"
+msgstr "Пакеттерді жою кезінде қате пайда болды:"
 
 #. Type: error
 #. Description
@@ -1529,8 +1526,12 @@ msgstr "${OS} ${DISTRO} алмастыру"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
+#, fuzzy
+#| msgid ""
+#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
-"<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+"<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">Назар аударыңыз:</span> Бұл әрекет сіздің ${OS} "
@@ -1555,9 +1556,13 @@ msgstr "${DISTRO} ${OS} қасында орнату"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. You can choose which operating system you want "
+#| "each time the computer starts up."
 msgid ""
-"No files will be deleted. You can choose which operating system you want "
-"each time the computer starts up."
+"Documents, music, and other personal files will be kept. You can choose "
+"which operating system you want each time the computer starts up."
 msgstr ""
 "Ешбір файл жойылмайтын болады. Компьютер қосылатын кезде жүктелінетін "
 "операциялық жүйені таңдауыңызға болады."
@@ -1619,8 +1624,12 @@ msgstr "${CURDISTRO} ${VER} дейін жаңарту"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
-"No files will be deleted. Installed software will be kept where possible."
+"Documents, music, and other personal files will be kept. Installed software "
+"will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 "Сіздің ешбір файлыңыз жойылмайтын болады. Орнатылған бағдарламалар "
 "мүмкіндігінше сақталынатын болады."
@@ -1646,9 +1655,7 @@ msgstr "Дискіні жойып, ${DISTRO} орнату"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:231001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1682,6 +1689,22 @@ msgstr ""
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} қайта орнату"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+#, fuzzy
+#| msgid ""
+#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
+#| "${CURDISTRO} programs, documents, photos, music, and any other files."
+msgid ""
+"<span foreground=\"darkred\">Warning:</span> This will delete all your "
+"programs, documents, photos, music, and any other files in all operating "
+"systems."
+msgstr ""
+"<span foreground=\"darkred\">Назар аударыңыз:</span> Бұл әрекет сіздің "
+"${CURDISTRO} барлық бағдарламаларын, құжаттарын, фотосуреттерін, өлеңдерін "
+"және басқа да файлдарын жоятын болады."
 
 #. Type: text
 #. Description

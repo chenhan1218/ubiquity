@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-02 13:00+0100\n"
+"POT-Creation-Date: 2011-04-10 01:34+0100\n"
 "PO-Revision-Date: 2011-03-26 06:32+0000\n"
 "Last-Translator: Ankit Mathur <ankitreloaded@gmail.com>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
@@ -1505,7 +1505,7 @@ msgstr "${OS} को ${DISTRO} से प्रतिस्थापित क�
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
 msgid ""
-"<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+"<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 
@@ -1527,9 +1527,13 @@ msgstr "${DISTRO} को ${OS} के साथ-साथ संस्थाप�
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. You can choose which operating system you want "
+#| "each time the computer starts up."
 msgid ""
-"No files will be deleted. You can choose which operating system you want "
-"each time the computer starts up."
+"Documents, music, and other personal files will be kept. You can choose "
+"which operating system you want each time the computer starts up."
 msgstr ""
 "कोई फ़ाइल नहीं मिटेगा. आप चाहे तो चुन सकते है कि प्रत्येक बार कंप्यूटर को आरंभ करते समय कौन "
 "सा ऑपरेटिंग तंत्र चालू होगा."
@@ -1588,8 +1592,12 @@ msgstr "Upgrade ${CURDISTRO} का उन्नयन ${VER} में कर�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
-"No files will be deleted. Installed software will be kept where possible."
+"Documents, music, and other personal files will be kept. Installed software "
+"will be kept where possible. System-wide settings will be cleared."
 msgstr "कोई फाइल नहीं मिटेगा, संस्थापित अनुप्रयोग जहां हो सके वहाँ रखे जाएंगे"
 
 #. Type: text
@@ -1613,9 +1621,7 @@ msgstr "डिस्क को मिटा तथा ${DISTRO} को संस
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:231001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1644,6 +1650,15 @@ msgstr ""
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} पुनःसंस्थापित करें"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+msgid ""
+"<span foreground=\"darkred\">Warning:</span> This will delete all your "
+"programs, documents, photos, music, and any other files in all operating "
+"systems."
+msgstr ""
 
 #. Type: text
 #. Description

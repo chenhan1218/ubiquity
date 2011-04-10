@@ -1,4 +1,4 @@
-apt-setup 1:0.49ubuntu3
+apt-setup 1:0.49ubuntu4
 base-installer 1.116ubuntu1
 bterm-unifont 1.2
 choose-mirror 2.37ubuntu1
@@ -11,7 +11,7 @@ hw-detect 1.81ubuntu2
 kboot-installer 0.0.1ubuntu9
 localechooser 2.34ubuntu3
 migration-assistant 0.6.9
-netcfg 1.60ubuntu2
+netcfg 1.60ubuntu3
 partconf 1.36
 partman-auto 93ubuntu13
 partman-auto-loop 0ubuntu19

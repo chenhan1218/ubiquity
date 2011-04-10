@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-02 13:00+0100\n"
+"POT-Creation-Date: 2011-04-10 01:34+0100\n"
 "PO-Revision-Date: 2011-03-30 19:10+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-02 11:16+0000\n"
-"X-Generator: Launchpad (build 12710)\n"
+"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
@@ -1521,8 +1521,12 @@ msgstr "${OS} süsteemi asendamine süsteemiga ${DISTRO}"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
+#, fuzzy
+#| msgid ""
+#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
-"<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+"<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">Hoiatus:</span> sellega kustutatakse kõik sinu "
@@ -1547,9 +1551,13 @@ msgstr "Paigalda ${DISTRO} ${OS} süsteemi kõrvale"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. You can choose which operating system you want "
+#| "each time the computer starts up."
 msgid ""
-"No files will be deleted. You can choose which operating system you want "
-"each time the computer starts up."
+"Documents, music, and other personal files will be kept. You can choose "
+"which operating system you want each time the computer starts up."
 msgstr ""
 "Ühtegi faili ei kustutata. Arvuti käivitumisel saad valida, millist "
 "operatsioonisüsteemi kasutada."
@@ -1611,8 +1619,12 @@ msgstr "Uuenda ${CURDISTRO} versioonile ${VER}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
+#, fuzzy
+#| msgid ""
+#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
-"No files will be deleted. Installed software will be kept where possible."
+"Documents, music, and other personal files will be kept. Installed software "
+"will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 "Ühtegi faili ei kustutata. Paigaldatud tarkvara säilitatakse, kui võimalik."
 
@@ -1637,9 +1649,7 @@ msgstr "Kustuta ketas ja paigalda ${DISTRO}"
 
 #. Type: text
 #. Description
-#. Type: text
-#. Description
-#: ../ubiquity.templates:231001 ../ubiquity.templates:234001
+#: ../ubiquity.templates:231001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1673,6 +1683,22 @@ msgstr ""
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "Paigalda ${CURDISTRO} uuesti"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+#, fuzzy
+#| msgid ""
+#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
+#| "${CURDISTRO} programs, documents, photos, music, and any other files."
+msgid ""
+"<span foreground=\"darkred\">Warning:</span> This will delete all your "
+"programs, documents, photos, music, and any other files in all operating "
+"systems."
+msgstr ""
+"<span foreground=\"darkred\">Hoiatus:</span> sellega kustutatakse kõik sinu "
+"${CURDISTRO} süsteemi programmid, dokumendid, fotod, muusika ja ka kõik "
+"ülejäänud failid."
 
 #. Type: text
 #. Description
