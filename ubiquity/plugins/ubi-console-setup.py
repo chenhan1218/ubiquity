@@ -373,6 +373,8 @@ class Page(plugin.Plugin):
             l = 'C'
         self._locale = l
 
+        self.has_variants = False
+
         # Technically we should provide a version as the second argument,
         # but that isn't currently needed and it would require querying
         # apt/dpkg for the current version, which would be slow, so we don't
@@ -380,7 +382,7 @@ class Page(plugin.Plugin):
         return (['/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst',
                  'configure'],
                 ['^keyboard-configuration/layout', '^keyboard-configuration/variant',
-                 '^keyboard-configuration/model',
+                 '^keyboard-configuration/model', '^keyboard-configuration/altgr$',
                  '^keyboard-configuration/unsupported_'],
                 {'OVERRIDE_ALLOW_PRESEEDING': '1',
                  'LC_ALL': di_locale,
@@ -405,6 +407,7 @@ class Page(plugin.Plugin):
             # Reset these in case we just backed up from the variant
             # question.
             self.store_defaults(True)
+            self.has_variants = False
             self.succeeded = True
             # TODO cjwatson 2006-09-07: no keyboard-configuration support
             # for layout choice translation yet
@@ -412,12 +415,25 @@ class Page(plugin.Plugin):
                 self.choices_untranslated(question))
             self.ui.set_keyboard(self.db.get(question))
             return True
-        elif question == 'keyboard-configuration/variant':
-            # TODO cjwatson 2006-10-02: no keyboard-configuration support
-            # for variant choice translation yet
-            self.ui.set_keyboard_variant_choices(
-                self.choices_untranslated(question))
-            self.ui.set_keyboard_variant(self.db.get(question))
+        elif question in ('keyboard-configuration/variant',
+                          'keyboard-configuration/altgr'):
+            if question == 'keyboard-configuration/altgr':
+                if self.has_variants:
+                    return True
+                else:
+                    # If there's only one variant, it is always the same as
+                    # the layout name.
+                    single_variant = self.db.get(
+                        'keyboard-configuration/layout')
+                    self.ui.set_keyboard_variant_choices([single_variant])
+                    self.ui.set_keyboard_variant(single_variant)
+            else:
+                # TODO cjwatson 2006-10-02: no keyboard-configuration
+                # support for variant choice translation yet
+                self.has_variants = True
+                self.ui.set_keyboard_variant_choices(
+                    self.choices_untranslated(question))
+                self.ui.set_keyboard_variant(self.db.get(question))
             # keyboard-configuration preseeding is special, and needs to be
             # checked by hand. The seen flag on
             # keyboard-configuration/layout is used internally by

@@ -1,3 +1,9 @@
+ubiquity (2.6.2) UNRELEASED; urgency=low
+
+  * Handle keyboard layouts with only one variant (LP: #711926).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 Apr 2011 13:55:13 +0100
+
 ubiquity (2.6.1) natty; urgency=low
 
   [ Stéphane Graber ]
