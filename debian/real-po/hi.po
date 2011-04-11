@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:49+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1753,3 +1753,214 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "चुने गये डिस्क को कैसे विभाजन करना चाहते हैं?"
+
+#~ msgid "Advanced..."
+#~ msgstr "उन्नत..."
+
+#~ msgid "Scanning files..."
+#~ msgstr "फ़ाइलों की स्कैनिंग की जा रही है..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "कम्प्यूटर का नाम रखा जा रहा है..."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "पूरे डिस्क को मिटाकर कर उपयोग करें"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "सबसे बड़े सतत रिक्त स्थान का उपयोग करें"
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "आप ${RELEASE} को कहाँ रखना चाहते हैं?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "यह ${SYSTEMS} मिट जाएगा तथा ${RELEASE} संस्थापित हो जाएगा।"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "दस्तावेज तथा विन्यास का प्रवास करें"
+
+#~ msgid "Details"
+#~ msgstr "विवरण"
+
+#~ msgid "Install boot loader"
+#~ msgstr "बूटलोडर संस्थापन"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP प्रोक्सी:"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "पैकेज उपयोगिता सर्वेक्षण में भाग लें"
+
+#~ msgid "Popularity contest"
+#~ msgstr "लोकप्रिय विवाद"
+
+#~ msgid "Port:"
+#~ msgstr "पोर्टः"
+
+#~ msgid "Applying configuration"
+#~ msgstr "विन्यास लागु कर रहा है"
+
+#~ msgid "Summary"
+#~ msgstr "सारांश"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "एक बार कुछ प्रश्नो का जबाब दे, फिर यह कम्प्यूटर उपयोग हेतु तैयार हो जाएगा."
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "प्रश्नों के उत्तर देने में मात्र कुछ मिनट लगेंगे."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "संस्थापन हेतु तैयार हैं? एक बार बस कुछ प्रश्नो के जबाब दें इस सजीव ${MEDIUM} के अंश आपके "
+#~ "कम्प्यूटर में संस्थापित हो जाएगा ताकि आप ${RELEASE} को बिना ${MEDIUM} के पूरे गति से "
+#~ "चला सकेंगे."
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "इस कम्प्यूटर में कोई भी आपरेटिंग तंत्र नहीं है."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "इस कम्प्यूटर में ${OS} है."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "इस कम्प्यूटर में कई आपरेटिंग तंत्र है."
+
+#~ msgid "Ready to install"
+#~ msgstr "संस्थापना हेतु तैयार."
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "आपका नया आपरेटिंग तंत्र निम्न विन्यास के साथ संस्थापित हैंः"
+
+#~ msgid "Advanced Options"
+#~ msgstr "उन्नत विकल्प"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " भाषा: ${LANGUAGE}\n"
+#~ " कुंजीपटल अभिन्यास: ${KEYMAP}\n"
+#~ " नाम: ${FULLNAME}\n"
+#~ " लाँगइन नाम: ${USERNAME}\n"
+#~ " स्थान: ${LOCATION}\n"
+#~ " प्रवास सहायता:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Network proxy"
+#~ msgstr "संजाल प्रोक्सी"
+
+#~ msgid "Continue with installation."
+#~ msgstr "संस्थापना में आगे बढ़े."
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "हस्त विभाजन का उल्लेख करें (उन्नत)"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का "
+#~ "एक अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "भाग ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "पूरे पार्टीशन का प्रयोग करें"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "पूरे डिस्क का प्रयोग करें"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "अन्य ऑपरेटिंग तंत्र के अनुपार्श्व संस्थापित करें"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "कुंजीपटल विन्यास को समझे"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "यह आपके ${OS} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल को "
+#~ "<b>मिटा</b> देगा."
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "${DISTRO} को इसके पार्श्व में संस्थापित करें"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "कोई फ़ाइल नहीं मिटेगा. आप चाहे तो चुन सकते है कि प्रत्येक बार कंप्यूटर को आरंभ करते समय "
+#~ "कौन सा ऑपरेटिंग तंत्र चालू होगा."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "यह आपके ${CURDISTRO} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल "
+#~ "को  <b>मिटा</b> देगा."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "आप You can upgrade ${CURDISTRO} का उन्नयन अपने महत्वपूर्ण दस्तावेज या अनुप्रयोग को "
+#~ "खोये बिना कर सकते हैं."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "${DISTRO} ${VER} को पार्श्व में संस्थापित करें"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "अभी तक दुविधा में है? आप चाहे तो ${DISTRO} ${VER} का संस्थापना अपने वर्तमान "
+#~ "${CURDISTRO} के प्रति के साथ पार्श्व में संस्थापित कर सकते हैं."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "यह आपके ${CURDISTRO} के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा कोई अन्य फ़ाइल "
+#~ "को दोनो ${OS} तथा ${CURDISTRO} से <b>मिटा</b> देगा."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr ""
+#~ "गोता लगाने के लिए तैयार हैं? के साफसुथरा संस्थापना आपके संपूर्ण हार्ड डिस्क को मिटा देगा "
+#~ "तथा ${DISTRO} को संस्थापित करेगा."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "आप ${CURDISTRO} का पुनःसंस्थापना किसी महत्वपूर्ण दस्तावेज या अनुप्रयोग को बिना खोये "
+#~ "कर सकते हैं"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "यह आपके सभी ऑपरेटिंग तंत्र के सभी कार्यक्रम, दस्तावेज, फोटो, संगीत, तथा अन्य कोई फ़ाइल "
+#~ "<b>मिटा</b> देगा."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr "कोई फाइल नहीं मिटेगा, संस्थापित अनुप्रयोग जहां हो सके वहाँ रखे जाएंगे"

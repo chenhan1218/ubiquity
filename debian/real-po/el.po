@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1795,3 +1795,148 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Αφαίρεση πακέτων"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Η απάντηση στις ερωτήσεις θα διαρκέσει μόνο λίγα λεπτά."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Μεταφορά εγγράφων και ρυθμίσεων"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Πως θέλετε να κάνετε τη κατάτμηση του δίσκου;"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Ο υπολογιστής αυτός δεν έχει εγκατεστημένα λειτουργικά συστήματα."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Που θα θέλετε να εγκαταστήσετε το ${RELEASE};"
+
+#~ msgid "Ready to install"
+#~ msgstr "Έτοιμο για εγκατάσταση"
+
+#~ msgid "Details"
+#~ msgstr "Λεπτομέρειες"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "Το νέο σας λειτουργικό σύστημα θα εγκατασταθεί τώρα με τις παρακάτω "
+#~ "ρυθμίσεις:"
+
+#~ msgid "Advanced Options"
+#~ msgstr "Προχωρημένες Επιλογές"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Διαγωνισμός δημοφιλίας"
+
+#~ msgid "Port:"
+#~ msgstr "Θύρα:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Γλώσσα: ${LANGUAGE}\n"
+#~ " Διάταξη πληκτρολογίου: ${KEYMAP}\n"
+#~ " Όνομα: ${FULLNAME}\n"
+#~ " Όνομα χρήστη: ${USERNAME}\n"
+#~ " Τοποθεσία: ${LOCATION}\n"
+#~ " Βοηθός μετάβασης:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Ανίχνευση αρχείων..."
+
+#~ msgid "Applying configuration"
+#~ msgstr "Εφαρμογή ρυθμίσεων"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Διαγραφή και χρήση ολόκληρου του δίσκου"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr ""
+#~ "Αυτό θα διαγράψει το/τα ${SYSTEMS} και θα εγκαταστήσει το ${RELEASE}."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Μόλις απαντήσετε μερικές ερωτήσεις, ο υπολογιστής θα είναι έτοιμος για "
+#~ "χρήση."
+
+#~ msgid "Summary"
+#~ msgstr "Σύνοψη"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Εγκατάσταση διαχειριστή εκκίνησης"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "Διαμεσολαβητής HTTP:"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Συμμετοχή στην έρευνα χρήσης των εφαρμογών"
+
+#~ msgid "Continue with installation."
+#~ msgstr "Συνέχεια της εγκατάστασης."
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Ορίστε τις κατατμήσεις χειροκίνητα (για προχωρημένους)"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Αυτόματη ανίχνευση διάταξης πληκτρολογίου"
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Ο υπολογιστής αυτός έχει περισσότερα από ένα λειτουργικά συστήματα."
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Βήμα ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Χρήση ολόκληρου του δίσκου"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Χρήση ολόκληρης της κατάτμησης"
+
+#~ msgid "Network proxy"
+#~ msgstr "Διαμεσολαβητής δικτύου (proxy)"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Χρήση του μεγαλύτερου συνεχούς ελεύθερου μέρους του δίσκου"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Αυτή είναι μια προ-έκδοση του προγράμματος εγκατάστασης του ${RELEASE} "
+#~ "live ${MEDIUM}. Δεν είναι η τελική έκδοση. Αυτή θα περιλαμβάνεται στην "
+#~ "τελική έκδοση του ${RELEASE} που θα είναι έτοιμη τον Οκτώβρη του 2010."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Ο υπολογιστής αυτός έχει εγκατεστημένα ${OS}."
+
+#~ msgid "Advanced..."
+#~ msgstr "Ειδικές επιλογές..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Καθορισμός ονόματος συστήματος...."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Είστε έτοιμοι για την εγκατάσταση; Μόλις απαντήσετε σε μερικές ερωτήσεις, "
+#~ "τα περιεχόμενα του live ${MEDIUM} θα εγκατασταθούν σε αυτόν τον "
+#~ "υπολογιστή ώστε να μπορείτε να χρησιμοποιήσετε το ${RELEASE} χωρίς το "
+#~ "${MEDIUM}."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Προσδιορισμός διάταξης πληκτρολογίου"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Εγκατάσταση παράλληλα με άλλα λειτουργικά συστήματα"

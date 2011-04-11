@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1800,3 +1800,164 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A remover pacotes"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Migrar documentos e definições"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Como deseja particionar o disco?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Este computador não tem sistemas operativos instalados."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Este computador tem vários sistemas operativos instalados."
+
+#~ msgid "Ready to install"
+#~ msgstr "Preparado para instalar"
+
+#~ msgid "Details"
+#~ msgstr "Detalhes"
+
+#~ msgid "Advanced Options"
+#~ msgstr "Opções Avançadas"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Concurso de popularidade"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Participe na estatística de utilização de pacotes"
+
+#~ msgid "Network proxy"
+#~ msgstr "Proxy de rede"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "Proxy HTTP:"
+
+#~ msgid "Port:"
+#~ msgstr "Porta:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Idioma: ${LANGUAGE}\n"
+#~ " Configuração de teclado: ${KEYMAP}\n"
+#~ " Nome: ${FULLNAME}\n"
+#~ " Nome de Login: ${USERNAME}\n"
+#~ " Localização: ${LOCATION}\n"
+#~ " Assistente de Migração:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "A verificar ficheiros..."
+
+#~ msgid "Applying configuration"
+#~ msgstr "A aplicar configuração"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Após responder a algumas perguntas, este computador estará pronto a usar."
+
+#~ msgid "Summary"
+#~ msgstr "Sumário"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Especificar as partições manualmente (avançado)"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Este computador tem o ${OS} instalado."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Onde quer colocar o ${RELEASE}?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Isto irá apagar o(s) ${SYSTEMS} e instalar o ${RELEASE}."
+
+#~ msgid "Advanced..."
+#~ msgstr "Avançado..."
+
+#~ msgid "Install boot loader"
+#~ msgstr "Instalar a Rotina de Arranque (bootloader)"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "A definir o nome do computador..."
+
+#~ msgid "Continue with installation."
+#~ msgstr "Continuar com a instalação."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Pronto para instalar? Depois de responder a algumas questões, os "
+#~ "conteúdos do live ${MEDIUM} podem ser instalados neste computador para "
+#~ "que possa correr o ${RELEASE} à velocidade máxima sem o ${MEDIUM}."
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Passo ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Utilizar a Totatlidade da Partição"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Utilizar a Totatlidade do Disco"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Esta é uma versão prévia do instalador dp ${RELEASE} live ${MEDIUM}. Não "
+#~ "se trata da versão final; a qual virá com a versão final do ${RELEASE} em "
+#~ "Outubro de 2010."
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "O seu novo sistema operativo será instalado com as seguintes definições:"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Utilizar o maior espaço contínuo livre"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instalar lado a lado com outros sistemas operativos"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Apagar e utilizar o disco rígido inteiro"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Responder a algumas questões irá demorar apenas uns breves minutos."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Descobrir a Disposição do Teclado"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Descobrir a disposição do Teclado"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Nenhum ficheiro será apagado. De cada vez que iniciar o computador, pode "
+#~ "escolher o sistema operativo que quer utilizar."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "Nenhum ficheiro será apagado. Os programas instalados, se possível, serão "
+#~ "mantidos."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Aviso:</span> Isto vai apagar todos os "
+#~ "programas, fotos, músicas, documentos e outros ficheiros do seu ${OS}."

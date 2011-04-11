@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1710,3 +1710,92 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Qada vala ya heri fireh û biberdewamî bi karbîne"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Patîsyona bidestan nîşanbide(Pêşketî)"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Bersivandina pirsan diviya tenê çend xulekan bidomiya."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Belge û mîhengan têxê"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Dabeşkirina dîskê çawa dixwazî?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Li ser vê Kompîtirê pergala xebitandinê tune"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Li ser vê Kompîtirê ${OS} heye."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Li serr vê komputerê ji yekê zêdetir pergal hene."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Dixwazî ${RELEASE} li ku bi cî bikî?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Ev ê pergala ${SYSTEMS} jê bibe û reşana ${RELEASE} bar bike."
+
+#~ msgid "Ready to install"
+#~ msgstr "Ji bo sazkirinê amade ye"
+
+#~ msgid "Details"
+#~ msgstr "Kîtekît"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "Pergala xebatê ya nû wê bi van taybetmendiyan were sazkirin."
+
+#~ msgid "Advanced..."
+#~ msgstr "Pêşketî..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "Vebijêrkên pêşkeftî"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Barkera boot saz bike"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Bertekên naskirî"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Tev li lêkolîna bikaranîna pakêtê bibe"
+
+#~ msgid "Network proxy"
+#~ msgstr "Proksiya Torê"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "Proksiya HTTP:"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Ziman: ${LANGUAGE}\n"
+#~ " Rengê klavyeyê: ${KEYMAP}\n"
+#~ " Nav: ${FULLNAME}\n"
+#~ " Navê têketinê: ${USERNAME}\n"
+#~ " Cî: ${LOCATION}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Pel tên skenkirin..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Navê komputerê tê mîhenkirin..."
+
+#~ msgid "Summary"
+#~ msgstr "Kurte"

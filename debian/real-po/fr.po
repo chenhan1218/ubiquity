@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-10 16:58+0000\n"
+"PO-Revision-Date: 2011-04-11 07:04+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:49+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1555,6 +1555,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
+"logiciels ${OS}, documents, photos, musiques, et autres fichiers."
 
 #. Type: text
 #. Description
@@ -1578,6 +1580,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Les documents, musiques et autres fichiers personnels seront conservés. Vous "
+"pouvez choisir le système d'exploitation à lancer au moment du démarrage de "
+"l'ordinateur."
 
 #. Type: text
 #. Description
@@ -1640,6 +1645,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Les documents, musiques et autres fichiers personnels seront conservés. les "
+"logiciels installés seront conservés dans la mesure du possible. Les "
+"réglages effectués au niveau du système seront perdus."
 
 #. Type: text
 #. Description
@@ -1705,6 +1713,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
+"logiciels, documents, photos, musiques, et autres fichiers de tous les "
+"systèmes d'exploitation."
 
 #. Type: text
 #. Description
@@ -1816,3 +1827,231 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Suppression des paquets"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Utiliser le plus grand espace libre disponible"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Définir les partitions manuellement (avancé)"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr ""
+#~ "Répondre aux questions ne devrait vous prendre que quelques minutes."
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Aucun système d'exploitation n'est installé sur cet ordinateur."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "${OS} est installé sur cet ordinateur."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr ""
+#~ "Plusieurs systèmes d'exploitation sont installés sur cet ordinateur."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Où désirez-vous mettre ${RELEASE} ?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Cette action supprimera ${SYSTEMS} et installera ${RELEASE}."
+
+#~ msgid "Details"
+#~ msgstr "Détails"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "Votre nouveau système d'exploitation va maintenant être installé avec les "
+#~ "paramètres suivants :"
+
+#~ msgid "Advanced..."
+#~ msgstr "Avancé..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "Options avancées"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Participez aux statistiques d'utilisation des paquets"
+
+#~ msgid "Network proxy"
+#~ msgstr "Serveur mandataire (proxy)"
+
+#~ msgid "Port:"
+#~ msgstr "Port :"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Analyse des fichiers..."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Après avoir répondu à quelques questions, votre ordinateur sera prêt à "
+#~ "être utilisé."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Tout effacer et utiliser le disque entier"
+
+#~ msgid "Applying configuration"
+#~ msgstr "Application de la configuration"
+
+#~ msgid "Summary"
+#~ msgstr "Récapitulatif"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Langue : ${LANGUAGE}\n"
+#~ " Disposition du clavier : ${KEYMAP}\n"
+#~ " Nom : ${FULLNAME}\n"
+#~ " Nom d'utilisateur : ${USERNAME}\n"
+#~ " Fuseau horaire : ${LOCATION}\n"
+#~ " Assistant de migration :\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Transférer des documents et des paramètres"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Prêt pour l'installation ? Après avoir répondu à quelques questions, le "
+#~ "contenu de ${MEDIUM} sera installé sur votre disque dur. ${RELEASE}  "
+#~ "s'exécutera alors de manière optimale sans avoir besoin de ${MEDIUM}."
+
+#~ msgid "Continue with installation."
+#~ msgstr "Poursuivre l'installation."
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "Serveur mandataire (proxy) HTTP :"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Ceci est une pré-version du programme d'installation live ${MEDIUM} de "
+#~ "${RELEASE}. Il ne s'agit pas d'une version définitive, qui arrivera lors "
+#~ "de la sortie définitive de ${RELEASE} en octobre 2010."
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Étape ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Utiliser la partition entière"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Utiliser le disque entier"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Trouver la disposition du clavier"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Comment voulez-vous partitionner le disque ?"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Installer le chargeur de d'amorçage"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Statistiques de popularité"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Configuration du nom de l'ordinateur..."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Détecter la disposition du clavier"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Installer à côté d'autres systèmes d'exploitation"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Aucun fichier ne sera supprimé. Vous pouvez choisir le système "
+#~ "d'exploitation que vous désirez à chaque démarrage de l'ordinateur."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Vous pouvez mettre à niveau ${CURDISTRO} sans perdre aucun de vos "
+#~ "documents importants ou applications."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Vous pouvez réinstaller ${CURDISTRO} sans perdre aucun de vos documents "
+#~ "importants ou applications."
+
+#~ msgid "Ready to install"
+#~ msgstr "Prêt pour l'installation"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ceci <b>supprimera</b> tous les logiciels, documents, photos, musiques et "
+#~ "autres fichiers de ${OS}"
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "Installer ${DISTRO) conjointement"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ceci <b>supprimera</b> tous vos logiciels, documents, photos, musiques et "
+#~ "autres fichiers de ${CURDISTRO}."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "Installer ${DISTRO} ${VER} conjointement"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "Vous hésitez encore ? Vous pouvez installer ${DISTRO} ${VER} "
+#~ "conjointement à votre copie existante de ${CURDISTRO}."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr ""
+#~ "Prêt à vous jeter à l'eau ? Une installation propre efface votre disque "
+#~ "dur en entier et installe ${DISTRO}."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Ceci <b>supprimera</b> tous vos logiciels, documents, photos, musiques et "
+#~ "autres fichiers de ${OS} et de ${CURDISTRO}."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Ceci <b>supprimera</b> tous vos logiciels, documents, photos, musiques et "
+#~ "autres fichiers de tous vos systèmes d'exploitation."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "Aucun fichier ne sera supprimé, les logiciels installés seront conservés "
+#~ "si possible."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous "
+#~ "vos logiciels ${OS}, vos documents, photos, musiques et tout autre "
+#~ "fichier."

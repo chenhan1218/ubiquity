@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:45+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1727,3 +1727,133 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "আপনি কিভাবে ডিস্কটি পার্টিশন করতে চান?"
+
+#~ msgid "Ready to install"
+#~ msgstr "ইনস্টলের জন্য প্রস্তুত"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "আপনার নতুন অপারেটিং সিস্টেম নিম্নোক্ত বৈশিষ্ট্য সমূহ নিয়ে ইনস্টল করা হবে:"
+
+#~ msgid "Install boot loader"
+#~ msgstr "বুট লোডার ইনস্টল করুন"
+
+#~ msgid "Scanning files..."
+#~ msgstr "ফাইলসমূহ পরীক্ষা করা হচ্ছে..."
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "এই কম্পিউটারে কোন অপারেটিং সিস্টেম নেই।"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "এই কম্পিউটারে ${OS} রয়েছে।"
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "এই কম্পিউটারে একাধিক অপারেটিং সিস্টেম রয়েছে।"
+
+#~ msgid "Details"
+#~ msgstr "বিস্তারিত"
+
+#~ msgid "Port:"
+#~ msgstr "পোর্ট:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " ভাষা: ${LANGUAGE}\n"
+#~ " কীবোর্ড লেআউট: ${KEYMAP}\n"
+#~ " নাম: ${FULLNAME}\n"
+#~ " লগইন নাম: ${USERNAME}\n"
+#~ " এলাকা: ${LOCATION}\n"
+#~ " মাইগ্রেশন সহকারী::\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Applying configuration"
+#~ msgstr "কনফিগারেশন আরোপ করা হচ্ছে"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "এই প্রশ্নগুলোর উত্তর দিতে মাত্র কয়েক মিনিট সময় লাগবে।"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "বৃহত্তম ধারাবাহিক মুক্ত স্থান ব্যবহার করুন"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "পুরো হার্ড-ডিস্ক মুছে ব্যবহার করুন"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "নিজ হাতে পার্টিশনগুলো নির্ধারণ করুন (দক্ষতর)"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "কয়েকটি প্রশ্নের উত্তর দেয়া হলেই এই কম্পিউটারটা ব্যবহারোপযোগী হয়ে যাবে।"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "নথিপত্র বা ডকুমেন্টস্ এবং সেটিংস্ স্থানান্তর করান"
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "${RELEASE}কে কোথায় রাখতে চান?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "এটা করলে ${SYSTEMS} মুছে যাবে এবং ${RELEASE} ইনস্টল হবে।"
+
+#~ msgid "Advanced..."
+#~ msgstr "উন্নততর ..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "উন্নততর বিকল্পসমূহ"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "প্যাকেজ ব্যবহার বিষয়ের জরিপে অংশগ্রহণ করুন"
+
+#~ msgid "Popularity contest"
+#~ msgstr "জনপ্রিয়তার প্রতিযোগিতা"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP প্রক্সি:"
+
+#~ msgid "Network proxy"
+#~ msgstr "নেটওয়র্ক প্রক্সি"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "কম্পিউটারের নামকরণ করা হচ্ছে..."
+
+#~ msgid "Summary"
+#~ msgstr "সারসংক্ষেপ"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "ইনস্টল করতে প্রস্তুত? কিছু প্রশ্নের উত্তর দেওয়ার মাধ্যমে আপনি ${RELEASE} লাইভ "
+#~ "${MEDIUM} থেকে ইনস্টল করতে পারবেন। ইসন্টল শেষ করার পর আপনি পূর্ণ গতিতে "
+#~ "${MEDIUM} ছাড়াই উবুন্টু ব্যবহার করতে পারবেন।"
+
+#~ msgid "Continue with installation."
+#~ msgstr "ইন্সটলেশন চালিয়ে যাও"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "অন্য অপারেটিং সিস্টেমের সাথে ইন্সটল করুন"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "কীবোর্ড লেআউট বুঝে নাও"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "সম্পূর্ণ পার্টিশন ব্যবহার কর"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "সম্পূর্ণ ডিস্ক ব্যবহার কর"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "কীবোর্ড লেআউট বুঝে নাও"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "ধাপ ${INDEX}/${TOTAL}"

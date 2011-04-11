@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:45+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1778,3 +1778,225 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Đang gỡ bỏ các gói"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Sử dụng phần không gian trống liên tục lớn nhất"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Xác định phân vùng thủ công (cao cấp)"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Bạn chỉ cần vài phút để trả lời các câu hỏi."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Chuyển các tài liệu và thiết lập"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Bạn muốn phân vùng ổ đĩa cứng như thế nào?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Máy tính này không chứa hệ điều hành nào."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Bạn muốn đặt ${RELEASE} ở đâu?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Tiến trình này sẽ xóa ${SYSTEMS} và cài đặt ${RELEASE}."
+
+#~ msgid "Ready to install"
+#~ msgstr "Đã sẵn sàng cài đặt"
+
+#~ msgid "Details"
+#~ msgstr "Chi tiết"
+
+#~ msgid "Advanced..."
+#~ msgstr "Nâng cao..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "Tùy chọn nâng cao"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Cài đặt bộ nạp khởi động"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Tham gia khảo sát các gói đang sử dụng"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Tham gia cuộc khảo sát về gói đang sử dụng"
+
+#~ msgid "Network proxy"
+#~ msgstr "Proxy mạng"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP proxy:"
+
+#~ msgid "Port:"
+#~ msgstr "Cổng:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Ngôn ngữ: ${LANGUAGE}\n"
+#~ " Cách sắp xếp bàn phím: ${KEYMAP}\n"
+#~ " Tên: ${FULLNAME}\n"
+#~ " Tên đăng nhập: ${USERNAME}\n"
+#~ " Vị trí : ${LOCATION}\n"
+#~ " Trợ lý di cư:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Đang đặt tên cho máy tính..."
+
+#~ msgid "Applying configuration"
+#~ msgstr "Đang áp dụng cấu hình"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Sau khi trả lời xong một vài câu hỏi, máy tính này sẽ sẵn sàng sử dụng."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Xóa và dùng toàn bộ ổ cứng"
+
+#~ msgid "Summary"
+#~ msgstr "Tóm tắt"
+
+#~ msgid "Continue with installation."
+#~ msgstr "Tiếp tục cài đặt."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Sẵn sàng cài đặt chưa?  Sau khi trả lời một vài câu hỏi, nội dung của "
+#~ "live ${MEDIUM} sẽ được cài đặt trên máy tính này, cho phép bạn chạy được "
+#~ "${RELEASE} một cách nhanh nhất không dùng ${MEDIUM}."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Nhận dạng sơ đồ bàn phím"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Cài đặt bên cạnh các hệ điều hành khác"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Đây là bản tiền phát hành của bộ cài đặt ${RELEASE} live ${MEDIUM}. Đây "
+#~ "chưa phải là bản phát hành cuổi cùng - được phát hành vào ${RELEASE} "
+#~ "trong tháng 10 năm 2010."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Nhận dạng sơ đồ bàn phím"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Bước ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Sử dụng toàn bộ phân vùng"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Sử dụng toàn bộ ổ đĩa"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Máy tính này chứa hệ điều hành ${OS}."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Máy tính này chứa một số hệ điều hành."
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "Hệ điều hành mới của bạn sẽ được cài đặt với những thiết lập sau:"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Tiến trình này sẽ <b>xóa bỏ</b> toàn bộ các chương trình, tài liệu, hình "
+#~ "ảnh, âm nhạc và mọi tập tin khác trong ${OS}."
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "Cài đặt ${DISTRO} song song với nó"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Sẽ không xóa tập tin nào. Bạn có thể chọn lựa hệ điều hành mỗi lần máy "
+#~ "tính khởi động."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Tiến trình này sẽ <b>xóa bỏ</b> toàn bộ các chương trình, tài liệu, hình "
+#~ "ảnh, âm nhạc và mọi tập tin khác trong ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Bạn có thể nâng cấp ${CURDISTRO} mà không làm mất bất kỳ tài liệu hay ứng "
+#~ "dụng quan trọng nào."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "Cài đặt ${DISTRO} ${VER} song song"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "Vẫn còn phân vân? Bạn có thể cài ${DISTRO} ${VER} song song với bản "
+#~ "${CURDISTRO} hiện có."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr ""
+#~ "Đã sẵn sàng mạo hiểm? Việc cài đặt mới sẽ xóa toàn bộ đĩa cứng của bạn và "
+#~ "cài đặt ${DISTRO}."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Tiến trình này sẽ <b>xóa bỏ</b> tất cả các chương trình, tài liệu, hình "
+#~ "ảnh, âm nhạc và những tập tin khác trong cả ${OS} và ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Bạn có thể cài đặt ${CURDISTRO} mà không làm mất bất kỳ ứng dụng hay tài "
+#~ "liệu quan trọng nào."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Tiến trình này sẽ <b>xóa bỏ</b> tất cả các chương trình, tài liệu, hình "
+#~ "ảnh, âm nhạc và những tập tin khác trong tất cả các hệ điều hành hiện có."
+
+#~ msgid "Scanning files..."
+#~ msgstr "Đang quét các tập tin..."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Cảnh báo:</span> Tiến trình này sẽ xóa toàn "
+#~ "bộ các chuơng trình, tài liệu, ảnh, nhạc và những tập tin khác trong "
+#~ "${OS} của bạn."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "Không xóa các tập tin. Những phần mềm đã cài sẽ được lưu ở nơi nào khả dĩ."

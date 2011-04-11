@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1804,3 +1804,226 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Вказати розділи вручну (розширено)"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "На цьому комп'ютері не встановлено жодної операційної системи"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "На цьому комп'ютері встановлено ${OS}"
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "На цьому комп'ютері встановлено декілька операційних систем"
+
+#~ msgid "Ready to install"
+#~ msgstr "Готовий до встановлення"
+
+#~ msgid "Details"
+#~ msgstr "Подробиці"
+
+#~ msgid "Advanced..."
+#~ msgstr "Додатково..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "Розширені налаштування"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP проксі:"
+
+#~ msgid "Port:"
+#~ msgstr "Порт:"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Сканування файлів..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Встановлення назви комп'ютера..."
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Відповіді на запитання займуть кілька хвилин."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Стерти все і використати весь диск"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Використати найбільший безперервний вільний простір"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Перенести документи та налаштування"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Як ви хочете розмітити диск?"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Встановити початковий завантажувач"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Брати участь в досліджені рейтингу пакунків"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Рейтинг популярності"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Мова: ${LANGUAGE}\n"
+#~ " Розкладка клавіатури: ${KEYMAP}\n"
+#~ " Повне ім'я: ${FULLNAME}\n"
+#~ " Ім'я користувача: ${USERNAME}\n"
+#~ " Місце розташування: ${LOCATION}\n"
+#~ " Допомога з міграції:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Network proxy"
+#~ msgstr "Проксі сервер"
+
+#~ msgid "Applying configuration"
+#~ msgstr "Застосувати налаштування"
+
+#~ msgid "Summary"
+#~ msgstr "Зведення"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Готові розпочати процес встановлення? Дайте відповідь на кілька запитань, "
+#~ "після чого вміст ${MEDIUM} буде встановлено на цей комп'ютер та "
+#~ "${RELEASE} буде працювати на повну потужність, без потреби в ${MEDIUM}."
+
+#~ msgid "Continue with installation."
+#~ msgstr "Продовжити встановлення."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Дайте відповідь на кілька запитань і цей комп'ютер буде готовий до "
+#~ "використання."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Куди ви хочете встановити ${RELEASE}?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Буде вилучено ${SYSTEMS} та встановлено ${RELEASE}."
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "Нова операційна система буде встановлена з наступними параметрами:"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Використати весь розділ"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Використати весь диск"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Крок ${INDEX} з ${TOTAL}"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Це предреліз  ${RELEASE} установщика ${MEDIUM}. Це не фінальний реліз; "
+#~ "версія ${RELEASE} вийде офіційно в Жовтні 2010 року."
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "З’ясувати розкладку клавіатури"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Встановити поряд з іншими операційними системами"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Визначаю розкладку клавіатури"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ця дія <b>видалить</b> всі Ваші ${OS} програми, документи, фотографії, "
+#~ "музику та всі інші файли."
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "Встановити ${DISTRO} поруч"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ця дія <b>видалить</b> всі Ваші ${CURDISTRO} програми, документи, "
+#~ "фотографії, музику та всі інші файли."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "Встановити ${DISTRO} ${VER} поруч"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "Не можете визначитися? У Вас є можливість встановити ${DISTRO} ${VER} "
+#~ "поряд з Вашою існуючої копією ${CURDISTRO}."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Ця дія <b>видалить</b> всі Ваші програми, документи, фотографії, музику "
+#~ "та всі інші файли в ${OS} і ${CURDISTRO}."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Ця дія <b>видалить</b> всі Ваші програми, документи, фотографії, музику "
+#~ "та всі інші файли у всіх операційних системах."
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Файли будуть збережені. Ви можете обирати операційну систему кожного разу "
+#~ "при увімкненні комп'ютера."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Ви можете оновити ${CURDISTRO} без жодних втрат Ваших документів чи "
+#~ "програм."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr ""
+#~ "Ви готові зробити рішучий крок? Чисте встановлення видалить усе з Вашого "
+#~ "жорсткого диску та встановить ${DISTRO}."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Ви можете перевстановити $ {CURDISTRO} без втрат Ваших документів та "
+#~ "програм."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "Жодного файлу не буде видалено. Встановлене програмне забезпечення буде "
+#~ "збережено за можливістю."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Попередження:</span> Ця дія зітре всі "
+#~ "програми, документи, фотографії, музику та інші файли операційної системи "
+#~ "${OS}."
