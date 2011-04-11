@@ -9,11 +9,11 @@ flash-kernel 2.28ubuntu18
 grub-installer 1.60ubuntu2
 hw-detect 1.81ubuntu2
 kboot-installer 0.0.1ubuntu9
-localechooser 2.34ubuntu3
+localechooser 2.34ubuntu4
 migration-assistant 0.6.9
 netcfg 1.60ubuntu3
 partconf 1.36
-partman-auto 93ubuntu13
+partman-auto 93ubuntu14
 partman-auto-loop 0ubuntu19
 partman-base 147ubuntu1
 partman-basicfilesystems 69ubuntu1
