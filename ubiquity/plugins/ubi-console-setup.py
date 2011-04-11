@@ -404,16 +404,16 @@ class Page(plugin.Plugin):
             return self.succeeded
 
         if question == 'keyboard-configuration/layout':
-            # Reset these in case we just backed up from the variant
-            # question.
-            self.store_defaults(True)
-            self.has_variants = False
-            self.succeeded = True
             # TODO cjwatson 2006-09-07: no keyboard-configuration support
             # for layout choice translation yet
             self.ui.set_keyboard_choices(
                 self.choices_untranslated(question))
             self.ui.set_keyboard(self.db.get(question))
+            # Reset these in case we just backed up from the variant
+            # question.
+            self.store_defaults(True)
+            self.has_variants = False
+            self.succeeded = True
             return True
         elif question in ('keyboard-configuration/variant',
                           'keyboard-configuration/altgr'):
