@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-29 14:06+0000\n"
+"PO-Revision-Date: 2011-04-10 21:23+0000\n"
 "Last-Translator: megaribi <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
 "X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
@@ -1529,16 +1529,12 @@ msgstr "Zamjena ${OS} sa ${DISTRO}"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Upozorenje:</span> To će obrisati sve od vaših  "
-"${OS} programa, dokumenata, fotografija, muzike, i drugih datoteka."
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve vaše "
+"${OS} programe, dokumente, fotografije muziku, i druge datoteke."
 
 #. Type: text
 #. Description
@@ -1558,16 +1554,12 @@ msgstr "Instaliraj ${DISTRO} pored ${OS}"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Datoteke neće biti izbrisane. Možete odabrati koji operativni sistem koji "
-"želite svaki put kad se računar pokreće."
+"Dokumenti, muzika, i druge lične datoteke biće sačuvani. Možete da izaberete "
+"koji operativni sistem želite svaki put kad se računar pokreće."
 
 #. Type: text
 #. Description
@@ -1625,15 +1617,12 @@ msgstr "Nadogradnja ${CURDISTRO} na ${VER}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"Nijedna datoteka neće biti obrisana. Instalirani softver će biti sačuvan "
-"kada je to moguće."
+"Dokumenti, muzika, i druge lične datoteke biće sačuvani. Instalirani softver "
+"će biti sačuvan kada je to moguće. Sistemske postavke će biti obrisane."
 
 #. Type: text
 #. Description
@@ -1694,17 +1683,14 @@ msgstr "Ponovo instaliraj ${CURDISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
-#| "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Upozorenje:</span> To će obrisati sve vaše "
-"${CURDISTRO} programe, dokumente, fotografije, muziku, i druge datoteke."
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve vaše "
+"programe, dokumente, fotografije muziku, i druge datoteke na svim "
+"operativnim sistemima."
 
 #. Type: text
 #. Description

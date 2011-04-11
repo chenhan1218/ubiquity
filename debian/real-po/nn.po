@@ -2,32 +2,33 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Åsmund Skjæveland <aasmunds@ulrik.uio.no>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2010-10-02 15:40+0000\n"
-"Last-Translator: Rune Gangstø <runegang@gmail.com>\n"
-"Language-Team: Norwegian nynorsk <i18n-nn@lister.ping.uio.no>\n"
+"PO-Revision-Date: 2011-04-11 00:46+0000\n"
+"Last-Translator: Åsmund Skjæveland <aasmunds@ulrik.uio.no>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
 "X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Start på nytt for å halda fram"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Manuelt oppsett (avansert)"
 
 #. Type: text
 #. Description
@@ -36,6 +37,7 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"For smart for oss? Bruk avanserte partisjoneringsval og sett i gang sjølv."
 
 #. Type: text
 #. Description
@@ -108,7 +110,7 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Det kan hende du ynskjer å lese <a href=\"release-notes\">merknader for "
+"Det kan henda du ynskjer å lesa <a href=\"release-notes\">merknader for "
 "utgjeving</a> eller <a href=\"update\">oppdatera dette "
 "installasjonverktøyet</a>."
 
@@ -117,7 +119,7 @@ msgstr ""
 #: ../ubiquity.templates:13001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Det kan hende du ynskjer å lesa <a href=\"release-notes\">merknader for "
+"Det kan henda du ynskjer å lesa <a href=\"release-notes\">merknader for "
 "utgjeving</a>."
 
 #. Type: text
@@ -136,6 +138,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"Dette er ei førutgåva av ${RELEASE} live ${MEDIUM}-installasjonsprogrammet. "
+"Det er ikkje ei endeleg utgåve. Den vil koma med den endelege utgåva av "
+"${RELEASE} i april 2011."
 
 #. Type: text
 #. Description
@@ -159,7 +164,7 @@ msgstr "Åtvaring"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Where are you?"
-msgstr "Kvar bur du?"
+msgstr "Kor bur du?"
 
 #. Type: text
 #. Description
@@ -171,31 +176,31 @@ msgstr "Tastaturutforming"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Choose your keyboard layout:"
-msgstr "Vel di tastaturutforming:"
+msgstr "Vel tastaturutforming:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Type here to test your keyboard"
-msgstr "Skriv her for å teste tastaturet ditt"
+msgstr "Skriv her for å testa tastaturet ditt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Oppdag tastaturutforming"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "Oppdag tastaturutforming …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Please press one of the following keys:"
-msgstr "Trykk på ein av dei følgjande tastane:"
+msgstr "Trykk ein av dei følgjande tastane:"
 
 #. Type: text
 #. Description
@@ -255,7 +260,7 @@ msgstr "Stadfest passord"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Stadfest passord:"
 
 #. Type: text
 #. Description
@@ -267,7 +272,7 @@ msgstr "Namnet på denne datamaskina:"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "The name it uses when it talks to other computers."
-msgstr "Namnet den brukar når den snakkar med andre datamaskinar."
+msgstr "Namnet ho brukar når ho snakkar med andre datamaskinar."
 
 #. Type: text
 #. Description
@@ -279,7 +284,7 @@ msgstr "Du køyrer i feilsøkingsmodus. Bruk ikkje eit verdifullt passord."
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Passorda stemmer ikkje"
 
 #. Type: text
 #. Description
@@ -327,7 +332,7 @@ msgstr "Krev passord for å logga inn"
 #. Description
 #: ../ubiquity.templates:46001
 msgid "Encrypt my home folder"
-msgstr "Krypter heimemappa mi"
+msgstr "Krypter heimemappa"
 
 #. Type: text
 #. Description
@@ -346,21 +351,21 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Om du ikkje vil importera nokon kontoar, ikkje vel nokon og forsett til "
+"Om du ikkje vil importera nokon kontoar, ikkje vel nokon og hald fram til "
 "neste side."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Allocate drive space"
-msgstr "Angi stasjonsstørrelsar"
+msgstr "Set av diskplass"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Filer (${SIZE})"
 
 #. Type: text
 #. Description
@@ -401,8 +406,8 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Unnskyld, det skjedde ein feil og det var ikkje mogleg å installera "
-"oppstartslastaren på den valde partisjonen."
+"Det skjedde ein feil og det var ikkje mogleg å installera oppstartslastaren "
+"på den valde partisjonen."
 
 #. Type: text
 #. Description
@@ -470,7 +475,7 @@ msgstr "Start om att no"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Slå av no"
 
 #. Type: text
 #. Description
@@ -503,14 +508,14 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:71001
 msgid "New Partition Table..."
-msgstr "Ny partisjonstabell..."
+msgstr "Ny partisjonstabell …"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:72001
 msgid "Add..."
-msgstr "Legg til ..."
+msgstr "Legg til …"
 
 #. Type: text
 #. Description
@@ -537,7 +542,7 @@ msgstr "Tilbakestill"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Recalculating partitions..."
-msgstr "Reknar ut partisjonar på nytt..."
+msgstr "Reknar ut partisjonar på nytt …"
 
 #. Type: text
 #. Description
@@ -601,7 +606,7 @@ msgstr "ukjend"
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Create partition"
-msgstr "Opprett partisjon"
+msgstr "Lag partisjon"
 
 #. Type: text
 #. Description
@@ -662,7 +667,7 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Installasjonen er ferdig. Du kan fortsette testinga av ${RELEASE} no, men "
+"Installasjonen er ferdig. Du kan fortsetja testinga av ${RELEASE} no, men "
 "endringar og dokument vil fyrst kunne lagrast når maskina er starta om att."
 
 #. Type: text
@@ -693,7 +698,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Verifying the installation configuration..."
-msgstr "Verifiserer installasjonskonfigurasjonen..."
+msgstr "Verifiserer installasjonskonfigurasjonen …"
 
 #. Type: title
 #. Description
@@ -705,19 +710,19 @@ msgstr "Installerer systemet"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Finding the distribution to copy..."
-msgstr "Finn ein distribusjon å kopiera..."
+msgstr "Finn ein distribusjon å kopiera …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Copying files..."
-msgstr "Kopierer filer..."
+msgstr "Kopierer filer …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Almost finished copying files..."
-msgstr "Nesten ferdig med å kopiera filer..."
+msgstr "Nesten ferdig med å kopiera filer …"
 
 #. Type: error
 #. Description
@@ -758,7 +763,7 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Dette er fordi det ikkje er nok ledig plass slik at installasjonen kan "
-"fullførast. Køyr installasjonen på nytt og vel ein anna partisjon med nok "
+"fullførast. Køyr installasjonen på nytt og vel ein annan partisjon med nok "
 "lagringsplass."
 
 #. Type: error
@@ -783,7 +788,7 @@ msgid ""
 msgstr ""
 "Dette er ofte på grunn av ein skada harddisk. Det kan vere lurt å sjekka om "
 "harddisken er gamal og må bytast ut, eller flytta datamaskina til eit "
-"kjøligare rom."
+"kjølegare rom."
 
 #. Type: error
 #. Description
@@ -804,57 +809,57 @@ msgstr ""
 "Dette er ofte på grunn av ei skada CD-/DVD-plate eller spelar, eller det kan "
 "vera ein øydelagd harddisk. Det kan hende det hjelp å reingjera CD/DVD-"
 "plata, brenna plata med ein lågare fart eller reingjera linsa på spelaren. "
-"(ein får kjøpt reinsesett på i dei fleste elektronikkbutikkar) Det kan "
-"alternativt hende det er ein skada harddisk, og det kan då hjelpa å skifta "
-"harddisk eller flytta maskina til eit kjøligare rom."
+"(Ein får kjøpt reinsesett i dei fleste elektronikkbutikkar.) Det kan "
+"alternativt henda det er ein skada harddisk, og det kan då hjelpa å skifta "
+"harddisk eller flytta maskina til eit kjølegare rom."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:109001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Den følgjande fila var ikkje lik kopien av kjelda på CD-en/DVD-en:"
+msgstr "Den følgjande fila var ikkje lik originalen på CD-en/DVD-en:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:110001
 msgid "Copying installation logs..."
-msgstr "Kopierer installasjonsloggar..."
+msgstr "Kopierer installasjonsloggar …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:111001
 msgid "Configuring target system..."
-msgstr "Stiller inn målsystemet..."
+msgstr "Stiller inn målsystemet …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Configuring system locales..."
-msgstr "Set opp systemspråk..."
+msgstr "Set opp systemspråk …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:113001
 msgid "Configuring apt..."
-msgstr "Set opp apt..."
+msgstr "Set opp apt …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Configuring time zone..."
-msgstr "Set opp tidssone ..."
+msgstr "Set opp tidssone …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Configuring keyboard..."
-msgstr "Set opp tastatur..."
+msgstr "Set opp tastatur …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Creating user..."
-msgstr "Lagar brukar ..."
+msgstr "Lagar brukar …"
 
 #. Type: text
 #. Description
@@ -866,79 +871,79 @@ msgstr "Importerer dokument og instillingar"
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Configuring hardware..."
-msgstr "Set opp maskinvara..."
+msgstr "Set opp maskinvara …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "Installerer tredjepartsprogramvare …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:120001
 msgid "Configuring network..."
-msgstr "Set opp nettverk ..."
+msgstr "Set opp nettverk …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Configuring boot loader..."
-msgstr "Set opp oppstartslastaren ..."
+msgstr "Set opp oppstartslastaren …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Lagrar installerte pakkar …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "Gjenopprettar tidlegare installerte pakkar …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Installing additional packages..."
-msgstr "Installerer tilleggspakker"
+msgstr "Installerer tilleggspakkar …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Checking for packages to install..."
-msgstr "Leitar etter pakker å installera..."
+msgstr "Leitar etter pakkar å installera …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Removing extra packages..."
-msgstr "Fjernar ekstrapakkar ..."
+msgstr "Fjernar ekstrapakkar …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Checking for packages to remove..."
-msgstr "Kontrollerer om det er pakker som skal fjernast..."
+msgstr "Kontrollerer om det er pakkar som skal fjernast …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Lastar ned pakker (${TIME} gjenstår)..."
+msgstr "Lastar ned pakkar (${TIME} gjenstår) …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists..."
-msgstr "Lastar ned pakkeliste..."
+msgstr "Lastar ned pakkeliste …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Lastar ned pakkeliste (${TIME} gjenstår)..."
+msgstr "Lastar ned pakkeliste (${TIME} gjenstår) …"
 
 #. Type: error
 #. Description
@@ -956,13 +961,13 @@ msgstr "Klarte ikkje å fjerna ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while installing packages"
-msgstr "Feil ved installering av pakker"
+msgstr "Feil ved installering av pakkar"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "An error occurred while installing packages:"
-msgstr "Ein feil oppstod under installasjon av pakker:"
+msgstr "Ein feil oppstod under installasjon av pakkar:"
 
 #. Type: error
 #. Description
@@ -988,8 +993,8 @@ msgid ""
 msgstr ""
 "Dette kan koma av at det vert brukt eit gammalt installasjonsmedium, eller "
 "det kan vera ein feil i nokre av pakkane lista opp ovanfor. Fleire detaljar "
-"finn du i /var/log/syslog. Installeraren vil freiste å fortsetja uansett, "
-"men kan feila på eit seinare punkt. Då vil den ikkje vera i stand til å "
+"finn du i /var/log/syslog. Installeraren vil freista å fortsetja uansett, "
+"men kan feila på eit seinare punkt. Då vil han ikkje vera i stand til å "
 "installera eller fjerna andre pakkar (kanskje også seg sjølv) frå det "
 "installerte systemet. Du bør leite etter nyare versjonar av "
 "installasjonsmediet, eller senda inn ei feilmelding til distributøren."
@@ -1004,7 +1009,7 @@ msgstr "Feil ved fjerning av pakkar"
 #. Description
 #: ../ubiquity.templates:135001
 msgid "An error occurred while removing packages:"
-msgstr "Det oppstod ein feil under fjerning av pakker:"
+msgstr "Det oppstod ein feil under fjerning av pakkar:"
 
 #. Type: error
 #. Description
@@ -1021,7 +1026,7 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Det skjedde ein feil under overføring av data. Fleire detaljar kan finnest "
+"Det skjedde ein feil under overføring av data. Fleire detaljar kan finnast "
 "i /var/log/syslog. Installasjonen vil fortsetja, men det kan henda nokre "
 "eller alle dokumenta og innstillingane du valde ikkje er overførte til det "
 "installerte systemet."
@@ -1048,7 +1053,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Feil under gjenoppretting av installerte program"
 
 #. Type: error
 #. Description
@@ -1058,18 +1063,21 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Det skjedde ein feil under gjenoppretting av installerte program."
+"Installasjonen vil fortsetja, men du må kanskje installera somme program "
+"manuelt etter at datamaskina startar på nytt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Calculating files to skip copying..."
-msgstr "Reknar ut kva filer som ikkje skal kopierast..."
+msgstr "Reknar ut kva filer som ikkje skal kopierast …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Ready when you are..."
-msgstr "Klar når du er det..."
+msgstr "Klar når du er det …"
 
 #. Type: title
 #. Description
@@ -1081,13 +1089,13 @@ msgstr "Installerer språkpakkane"
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Lastar ned språkpakkar (${TIME} står att)..."
+msgstr "Lastar ned språkpakkar (${TIME} står att) …"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Failed to unmount partitions"
-msgstr "Klarte ikkje avmontere partisjonane"
+msgstr "Klarte ikkje avmontera partisjonane"
 
 #. Type: boolean
 #. Description
@@ -1097,7 +1105,7 @@ msgid ""
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
 "Installasjonen treng å endra på partisjonstabellane men kan ikkje gjera "
-"dette fordi partisjonar på desse monteringspunkta ikkje lèt seg avmonterast:"
+"dette fordi partisjonar på desse monteringspunkta ikkje let seg avmontera:"
 
 #. Type: boolean
 #. Description
@@ -1204,7 +1212,7 @@ msgstr "Brukarinformasjon"
 #. Description
 #: ../ubiquity.templates:173001
 msgid "installation process"
-msgstr "Innstallasjonsprosess"
+msgstr "Installasjonsprosess"
 
 #. Type: text
 #. Description
@@ -1253,7 +1261,7 @@ msgstr "Feil under oppdatering av installasjonsprogrammet"
 #: ../ubiquity.templates:181001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Det oppstod ein feil da installasjonsprogrammet prøvde å oppdatera seg sjølv;"
+"Det oppstod ein feil då installasjonsprogrammet prøvde å oppdatera seg sjølv;"
 
 #. Type: text
 #. Description
@@ -1276,8 +1284,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Ver vennleg å vel installasjonspråk. Dette språket vil verte standard språk "
-"for denne datamaskina."
+"Vel installasjonspråk. Dette språket vil verta standard språk for denne "
+"datamaskina."
 
 #. Type: text
 #. Description
@@ -1295,7 +1303,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:186001 ../ubiquity.templates:187001
 msgid "Installation failed"
-msgstr "Innstallasjonen feila"
+msgstr "Installasjonen feila"
 
 #. Type: text
 #. Description
@@ -1305,7 +1313,7 @@ msgid ""
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
 "Installasjonsprogrammet støytte på ein uoppretteleg feil. Ei skrivebordsøkt "
-"vil no starta slik at du kan sjå nærare på problemet eller prøve å "
+"vil no starta slik at du kan sjå nærare på problemet eller prøva å "
 "installera på nytt."
 
 #. Type: text
@@ -1333,7 +1341,7 @@ msgstr "Trådlaus"
 #. Description
 #: ../ubiquity.templates:191001
 msgid "Please select your wireless network from this list"
-msgstr "Ver vennleg å vel ditt trådlause nettverk frå denne lista"
+msgstr "Vel trådlaust nettverk frå denne lista"
 
 #. Type: text
 #. Description
@@ -1351,7 +1359,7 @@ msgstr "Fordel diskplass ved å dra delarane nedanfor:"
 #. Description
 #: ../ubiquity.templates:197001
 msgid "The entire disk will be used:"
-msgstr "Heile disken vil verte brukt:"
+msgstr "Heile disken vil verta brukt:"
 
 #. Type: text
 #. Description
@@ -1361,7 +1369,7 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d mindre partisjonar er gøymde. Bruk <a href=\"\">verktøy for avansert "
+"%d små partisjonar er gøymde. Bruk <a href=\"\">verktøy for avansert "
 "partisjonering</a> for meir kontroll"
 
 #. Type: text
@@ -1371,7 +1379,7 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 mindre partisjon er gøymd. Bruk <a href=\"\">verktøy for avansert "
+"1 liten partisjon er gøymd. Bruk <a href=\"\">verktøy for avansert "
 "partisjonering</a> for meir kontroll"
 
 #. Type: text
@@ -1382,7 +1390,7 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d partisjonar vil verte sletta. Bruk <a href=\"\">verktøy for avansert "
+"%d partisjonar vil verta sletta. Bruk <a href=\"\">verktøy for avansert "
 "partisjonering</a> for meir kontroll"
 
 #. Type: text
@@ -1392,7 +1400,7 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 partisjon vil verte sletta. Bruk <a href=\"\">verktøy for avansert "
+"1 partisjon vil verta sletta. Bruk <a href=\"\">verktøy for avansert "
 "partisjonering</a> for meir kontroll"
 
 #. Type: text
@@ -1405,8 +1413,7 @@ msgstr "Del opp den største partisjonen"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
-"For dei beste resultata, ver vennleg å kontroller at denne datamaskina:"
+msgstr "For best resultat, kontroller at denne datamaskina:"
 
 #. Type: text
 #. Description
@@ -1419,13 +1426,13 @@ msgstr "har minst ${SIZE} ledig diskplass"
 #. Description
 #: ../ubiquity.templates:206001
 msgid "is plugged in to a power source"
-msgstr "Er kopla til ei straumkjelde"
+msgstr "er kopla til ei straumkjelde"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "is connected to the Internet"
-msgstr "Er kopla til internett"
+msgstr "er kopla til internett"
 
 #. Type: text
 #. Description
@@ -1456,7 +1463,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Install this third-party software"
-msgstr "Installer denne tredjeparts programvare"
+msgstr "Installer tredjeparts programvare"
 
 #. Type: text
 #. Description
@@ -1480,7 +1487,7 @@ msgstr "Variant:"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Below is an image of your current layout:"
-msgstr "Nedanfor visast eit beilete av noverande utsjånad:"
+msgstr "Nedanfor visast eit bilete av noverande utsjånad:"
 
 #. Type: text
 #. Description
@@ -1517,7 +1524,7 @@ msgstr "[Skriv her for å endra]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Byt us ${OS} med ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1534,7 +1541,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Installer ${DISTRO} ved sida av ${OS}"
 
 #. Type: text
 #. Description
@@ -1557,13 +1564,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Installer ${DISTRO} inni ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Noko anna"
 
 #. Type: text
 #. Description
@@ -1573,13 +1580,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Du kan laga og endra partisjonar sjølv, eller velja fleire partisjonar til "
+"${DISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Slett ${CURDISTRO} og reinstaller"
 
 #. Type: text
 #. Description
@@ -1589,6 +1598,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Åtvaring:</span> Dette vil sletta alle "
+"programma, dokumenta, fotografia, musikken, og alle andre filer du har på "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1596,7 +1608,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Oppgrader ${CURDISTRO} til ${VER}"
 
 #. Type: text
 #. Description
@@ -1615,7 +1627,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Installer ${DISTRO} ${VER} ved sida av ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1625,7 +1637,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Slett disken og installer ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1634,12 +1646,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Åtvaring:</span> Dette vil sletta alle filene "
+"på disken."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Slett alt og installer på nytt"
 
 #. Type: text
 #. Description
@@ -1651,13 +1665,16 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Åtvaring:</span> Dette vil sletta alle "
+"programma, dokumenta, fotografia, musikken, og alle andre filer du har på "
+"både ${OS} og${CURDISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Installer ${CURDISTRO} på nytt"
 
 #. Type: text
 #. Description
@@ -1673,14 +1690,14 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "Installer ${DISTRO} ved sida av"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "Denne datamaskina har ${OS} frå før. Kva vil du gjera?"
 
 #. Type: text
 #. Description
@@ -1690,7 +1707,7 @@ msgstr ""
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "Denne datamaskina har ${OS1} og ${OS2} frå før. Kva vil du gjera?"
 
 #. Type: text
 #. Description
@@ -1699,6 +1716,7 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"Denne datamaskina har fleire operativsystem installert. Kva vil du gjera?"
 
 #. Type: text
 #. Description
@@ -1707,6 +1725,8 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"Denne datamaskina ser ikkje ut til å ha noko operativsystem. Kva vil du "
+"gjera?"
 
 #. Type: title
 #. Description
@@ -1724,20 +1744,20 @@ msgstr "OEM-modus (berre for maskinprodusentar)"
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr "Gjer klart for OEM-konfigurasjon"
+msgstr "Gjer klart for OEM-oppsett"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Gjer klart for OEM-konfigurasjon..."
+msgstr "Gjer klart for OEM-oppsett …"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr "Klar for OEM-konfigurasjon"
+msgstr "Klar for OEM-oppsett"
 
 #. Type: text
 #. Description
@@ -1761,9 +1781,9 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Straks systemet er tilfredstillande konfigurert, køyr «oem-config-prepare». "
+"Straks systemet er tilfredstillande sett opp, køyr «oem-config-prepare». "
 "Systemet vil då sletta den mellombelse «oem»-brukaren. Sluttbrukaren vert "
-"stillt forskjellege konfigurasjonsspørsmål neste gong systemet startar."
+"stilt forskjellege oppsettspørsmål neste gong systemet startar."
 
 #. Type: text
 #. Description

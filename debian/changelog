@@ -8,6 +8,7 @@ ubiquity (2.6.1) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Automatic update of included source packages: localechooser 2.34ubuntu4,
     partman-auto 93ubuntu14.
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sun, 10 Apr 2011 14:05:10 +0100
 

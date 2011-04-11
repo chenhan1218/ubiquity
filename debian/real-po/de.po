@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-31 06:25+0000\n"
+"PO-Revision-Date: 2011-04-10 23:43+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
+"X-Launchpad-Export-Date: 2011-04-11 00:48+0000\n"
 "X-Generator: Launchpad (build 12757)\n"
 
 #. Type: text
@@ -1555,17 +1555,13 @@ msgstr "${OS} mit ${DISTRO} ersetzen"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">Warnung:</span> Dies wird alle Ihre "
-"Anwendungen, Dokumente, Fotos, Musik sowie alle anderen Dateien von ${OS} "
-"unwiderruflich löschen."
+"Anwendungen, Dokumente, Fotos, Musik und alle anderen Dateien von ${OS} "
+"löschen."
 
 #. Type: text
 #. Description
@@ -1585,16 +1581,13 @@ msgstr "${DISTRO} neben ${OS} installieren"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Es werden keine Dateien gelöscht. Sie können jedes mal auswählen, wenn der "
-"Rechner startet, welches Betriebssystem Sie starten möchten."
+"Dokumente, Musik und andere persönliche Dateien bleiben bestehen. Sie können "
+"bei jedem Start des Rechners auswählen, welches Betriebssystem Sie benutzen "
+"möchten."
 
 #. Type: text
 #. Description
@@ -1653,15 +1646,13 @@ msgstr "${CURDISTRO} auf die Version ${VER} aktualisieren"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"Es werden keine Dateien gelöscht. Installierte Software wird übernommen, "
-"wenn möglich."
+"Dokumente, Musik und andere persönliche Dateien bleiben bestehen. "
+"Installierte Anwendungen bleiben – sofern dies möglich ist – ebenfalls "
+"bestehen. System-weite Einstellungen werden zurückgesetzt."
 
 #. Type: text
 #. Description
@@ -1722,18 +1713,14 @@ msgstr "${CURDISTRO} neu installieren"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
-#| "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
 "<span foreground=\"darkred\">Warnung:</span> Dies wird alle Ihre "
-"Anwendungen, Dokumente, Fotos, Musik sowie alle anderen Dateien von "
-"${CURDISTRO} unwiderruflich löschen."
+"Anwendungen, Dokumente, Fotos, Musik und alle anderen Dateien von allen "
+"Betriebssystemen löschen."
 
 #. Type: text
 #. Description
