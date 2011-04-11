@@ -1,4 +1,4 @@
-ubiquity (2.6.1) UNRELEASED; urgency=low
+ubiquity (2.6.1) natty; urgency=low
 
   [ Stéphane Graber ]
   * KDE frontend:
@@ -12,7 +12,7 @@ ubiquity (2.6.1) UNRELEASED; urgency=low
   * Add ${misc:Depends} to dependencies of ubiquity-ubuntu-artwork and
     oem-config-remaster.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sun, 10 Apr 2011 14:05:10 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 Apr 2011 02:22:28 +0100
 
 ubiquity (2.6.0) natty; urgency=low
 
