@@ -1,4 +1,4 @@
-ubiquity (2.6.2) UNRELEASED; urgency=low
+ubiquity (2.6.2) natty; urgency=low
 
   [ Colin Watson ]
   * Handle keyboard layouts with only one variant (LP: #711926).
@@ -10,7 +10,7 @@ ubiquity (2.6.2) UNRELEASED; urgency=low
     (LP: #757208).
   * Update translations from Launchpad.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 Apr 2011 13:55:13 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 11 Apr 2011 17:51:12 +0100
 
 ubiquity (2.6.1) natty; urgency=low
 
