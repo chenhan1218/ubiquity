@@ -1,8 +1,13 @@
 ubiquity (2.6.2) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Handle keyboard layouts with only one variant (LP: #711926).
   * Make sure to set a new variant default when changing keyboard layout
     (LP: #745137).
+
+  [ Evan Dandrea ]
+  * Deal with the confirmation key being translated in jockey-text (LP:
+    #757208).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 Apr 2011 13:55:13 +0100
 

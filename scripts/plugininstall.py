@@ -1064,13 +1064,15 @@ class Install(install_misc.InstallBase):
             package = self.db.get('ubiquity/nonfree_package')
             self.do_install([package])
             try:
+                env = os.environ.copy()
+                env['LC_ALL'] = 'C'
                 misc.execute('mount', '--bind', '/proc', self.target + '/proc')
                 misc.execute('mount', '--bind', '/sys', self.target + '/sys')
                 misc.execute('mount', '--bind', '/dev', self.target + '/dev')
                 inst_composite = ['chroot', self.target, 'jockey-text',
                                   '-C', '--no-dbus']
                 p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
-                                     stdout=sys.stderr)
+                                     stdout=sys.stderr, env=env)
                 p.communicate('y\n')
             except OSError:
                 syslog.syslog(syslog.LOG_WARNING,
