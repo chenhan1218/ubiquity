@@ -24,6 +24,7 @@ Description: Ubuntu live CD installer
 
 Package: ubiquity-ubuntu-artwork
 Architecture: all
+Depends: ${misc:Depends}
 Conflicts: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc
 Replaces: ubuntu-express-ubuntu-artwork, ubuntu-express-ubuntu-doc, espresso-ubuntu-artwork, espresso-ubuntu-doc, ubiquity-ubuntu-doc, ubiquity (<< 1.13.0)
 Provides: ubiquity-artwork-${mangled-version}
@@ -33,6 +34,7 @@ Description: Ubuntu artwork for Ubiquity live installer
 
 #Package: ubiquity-guadalinex-artwork
 #Architecture: all
+#Depends: ${misc:Depends}
 #Conflicts: ubuntu-express-guadalinex-artwork, ubuntu-express-guadalinex-doc, espresso-guadalinex-artwork, espresso-guadalinex-doc, ubiquity-guadalinex-doc
 #Replaces: ubuntu-express-guadalinex-artwork, ubuntu-express-guadalinex-doc, espresso-guadalinex-artwork, espresso-guadalinex-doc, ubiquity-guadalinex-doc
 #Provides: ubiquity-artwork-${mangled-version}
@@ -142,7 +144,7 @@ Description: Prepare for OEM configuration
 
 Package: oem-config-remaster
 Architecture: all
-Depends: genisoimage, gnupg, apt-utils
+Depends: ${misc:Depends}, genisoimage, gnupg, apt-utils
 Description: Remaster a CD with additional oem-config functionality
  This script remasters a CD with additional packages and optional oem-config
  preseed data.
