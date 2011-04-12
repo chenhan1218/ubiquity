@@ -24,6 +24,7 @@ import os
 import platform
 import stat
 import re
+import pwd
 import textwrap
 import shutil
 import subprocess
@@ -1331,8 +1332,8 @@ class Install(install_misc.InstallBase):
         target_user = self.db.get('passwd/username')
 
         # GTK
-        # FIXME evand 2009-12-11: We assume /home here, but determine it below.
-        target_keyrings = os.path.join(self.target, 'home', target_user,
+        homedir = pwd.getpwnam(target_user).pw_dir
+        target_keyrings = os.path.join(self.target, homedir[1:],
                                        '.gnome2/keyrings')
 
         # Sanity checks.  We don't want to do anything if a network
@@ -1340,7 +1341,7 @@ class Install(install_misc.InstallBase):
         # selected to install without formatting.
         if os.path.exists(target_keyrings):
             return
-        config_source = 'xml:readwrite:$HOME/.gconf'
+        config_source = 'xml:readwrite:%s/.gconf' % homedir
         subp = subprocess.Popen(['chroot', self.target, 'sudo', '-i', '-n',
             '-u', target_user, '--', 'gconftool-2', '--direct',
             '--config-source', config_source, '--dir-exists',
