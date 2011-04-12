@@ -360,21 +360,22 @@ def acquire_lock():
     lock.flush()
     os.fsync(lock.fileno())
 
-    # Do a quick check to see if the debconf database is locked by something
-    # else.
-    test_debconf = subprocess.Popen(
-        ['debconf-communicate', '-fnoninteractive', 'ubiquity'],
-        stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
-    try:
-        print >>test_debconf.stdin, 'VERSION 2.0'
-        test_debconf.stdout.readline()
-    except IOError:
-        pass
-    test_debconf.stdin.close()
-    if test_debconf.wait() != 0:
-        print "Debconf database is locked!"
-        print "This may be because a package management program is running."
-        sys.exit(1)
+    if 'DEBIAN_HAS_FRONTEND' not in os.environ:
+        # Do a quick check to see if the debconf database is locked by
+        # something else.
+        test_debconf = subprocess.Popen(
+            ['debconf-communicate', '-fnoninteractive', 'ubiquity'],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+        try:
+            print >>test_debconf.stdin, 'VERSION 2.0'
+            test_debconf.stdout.readline()
+        except IOError:
+            pass
+        test_debconf.stdin.close()
+        if test_debconf.wait() != 0:
+            print "Debconf database is locked!"
+            print "This may be because a package management program is running."
+            sys.exit(1)
 
 def run_oem_hooks():
     """Run hook scripts from /usr/lib/oem-config/post-install."""
