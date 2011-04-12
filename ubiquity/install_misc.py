@@ -805,10 +805,13 @@ class InstallBase:
             langpack_set.add(locale_to_language_pack(langpack_db))
             langpacks = sorted(langpack_set)
 
+        no_install = '/var/lib/ubiquity/no-install-langpacks'
+        if os.path.exists(no_install):
+            osextras.unlink_force(no_install)
         if len(langpacks) == 1 and langpacks[0] in ('C', 'en'):
             # Touch
-            with file('/var/lib/ubiquity/no-install-langpacks', 'a'):
-                os.utime('/var/lib/ubiquity/no-install-langpacks', None)
+            with open(no_install, 'a'):
+                os.utime(no_install, None)
 
         syslog.syslog('keeping language packs for: %s' % ' '.join(langpacks))
 
@@ -881,11 +884,13 @@ class InstallBase:
                              if get_cache_pkg(cache, lp).is_installed]
 
         del cache
-
         record_installed(to_install)
+
+        langpacks_file = '/var/lib/ubiquity/langpacks'
+        if os.path.exists(langpacks_file):
+            osextras.unlink_force(langpacks_file)
         if install_new:
             if save:
-                langpacks_file = '/var/lib/ubiquity/langpacks'
                 if not os.path.exists(os.path.dirname(langpacks_file)):
                     os.makedirs(os.path.dirname(langpacks_file))
                 with open(langpacks_file, 'w') as langpacks:

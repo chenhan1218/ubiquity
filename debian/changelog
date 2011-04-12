@@ -1,3 +1,9 @@
+ubiquity (2.6.3) UNRELEASED; urgency=low
+
+  * Clean up after the langpacks state on multiple runs of the installer.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 12 Apr 2011 10:14:14 +0100
+
 ubiquity (2.6.2) natty; urgency=low
 
   [ Colin Watson ]
