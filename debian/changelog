@@ -1,9 +1,9 @@
-ubiquity (2.6.4) UNRELEASED; urgency=low
+ubiquity (2.6.4) natty; urgency=low
 
   * Don't check for debconf database locks when ubiquity is itself running
     inside a debconf frontend (LP: #758858).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Apr 2011 21:05:11 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Apr 2011 21:25:47 +0100
 
 ubiquity (2.6.3) natty; urgency=low
 
