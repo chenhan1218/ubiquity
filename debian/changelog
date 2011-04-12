@@ -1,4 +1,4 @@
-ubiquity (2.6.3) UNRELEASED; urgency=low
+ubiquity (2.6.3) natty; urgency=low
 
   * Clean up after the langpacks state on multiple runs of the installer.
   * Prefer biggest_free over resize always now that we make sure the
@@ -11,7 +11,7 @@ ubiquity (2.6.3) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.57ubuntu18, migration-assistant 0.6.10.
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 12 Apr 2011 10:14:14 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 12 Apr 2011 18:29:53 +0100
 
 ubiquity (2.6.2) natty; urgency=low
 
