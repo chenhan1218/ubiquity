@@ -2,7 +2,7 @@ ubiquity (2.6.3) UNRELEASED; urgency=low
 
   * Clean up after the langpacks state on multiple runs of the installer.
   * Prefer biggest_free over resize always now that we make sure the
-    biggest_free choice offers at least 5GB.
+    biggest_free choice offers at least 5GB (LP: #758236, LP: #652852).
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 12 Apr 2011 10:14:14 +0100
 
