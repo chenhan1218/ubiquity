@@ -1796,18 +1796,10 @@ class Page(plugin.Plugin):
 
         if wubi_option:
             pass
-        elif 'resize' in self.extra_options:
-            if 'biggest_free' in self.extra_options:
-                biggest_free = self.extra_options['biggest_free'][1]
-                resize = self.extra_options['resize']
-                for disk in resize:
-                    if resize[disk][5] - resize[disk][1] > biggest_free:
-                        self.debug('Partman: dropping biggest_free option.')
-                        del self.extra_options['biggest_free']
-                        break
-                if 'biggest_free' in self.extra_options:
-                    self.debug('Partman: dropping resize option.')
-                    del self.extra_options['resize']
+        elif ('resize' in self.extra_options and
+              'biggest_free' in self.extra_options):
+                self.debug('Partman: dropping resize option.')
+                del self.extra_options['resize']
 
         resize_option = ('resize' in self.extra_options or
                          'biggest_free' in self.extra_options)
@@ -2040,7 +2032,7 @@ class Page(plugin.Plugin):
                     parted.select_disk(dev)
                     size = int(parted.partition_info(p_id)[2])
                     key = biggest_free[0][2]
-                    filesystem_size = 0
+                    filesystem_size = 5 * 1024 * 1024 * 1024 # 5GB
                     try:
                         with open('/cdrom/casper/filesystem.size') as fp:
                             filesystem_size = int(fp.readline())
