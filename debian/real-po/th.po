@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-09 01:24+0000\n"
+"PO-Revision-Date: 2011-04-12 03:00+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 16:45+0000\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
@@ -1028,7 +1028,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "การกู้คืนโปรแกรมที่ติดตั้งแล้วผิดพลาด"
 
 #. Type: error
 #. Description
@@ -1038,6 +1038,8 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"เกิดข้อผิดพลาดขณะคืนค่าโปรแกรมที่ติดตั้งไว้ก่อนหน้านี้ การติดตั้งจะดำเนินต่อไป "
+"แต่คุณอาจต้องติดตั้งโปรแกรมประยุกต์บางโปรแกรมหลังเริ่มเครื่องใหม่"
 
 #. Type: text
 #. Description
@@ -1486,6 +1488,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม ${OS} เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1493,7 +1497,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} คู่กับ ${OS}"
 
 #. Type: text
 #. Description
@@ -1509,6 +1513,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"เอกสาร เพลง และแฟ้มส่วนตัวอื่นๆ จะถูกเก็บไว้ "
+"คุณสามารถเลือกระบบปฏิบัติการที่คุณต้องการเมื่อเปิดเครื่องคอมพิวเตอร์"
 
 #. Type: text
 #. Description
@@ -1516,13 +1522,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} ใน ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "มีบางอย่างผิดพลาด"
 
 #. Type: text
 #. Description
@@ -1531,7 +1537,7 @@ msgstr ""
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
-msgstr ""
+msgstr "คุณสามารถสร้างหรือปรับขนาดพาร์ทิชันด้วยตัวเองหรือเลือกพาร์ทิชันสำหรับ ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1548,6 +1554,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม ${CURDISTRO} เอกสาร "
+"ภาพถ่าย เพลง และแฟ้มอื่นๆ ของคุณจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1566,6 +1574,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"เอกสาร เพลง และแฟ้มส่วนตัวอื่นๆ จะถูกเก็บไว้ ซอฟต์แวร์ที่ติดตั้งจะถูกเก็บไว้ในที่ที่ใช้ได้ "
+"การตั้งค่าทั้งระบบจะถูกล้าง"
 
 #. Type: text
 #. Description
@@ -1574,7 +1584,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} ${VER} คู่กับ ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1592,7 +1602,7 @@ msgstr "ลบดิสก์และติดตั้ง ${DISTRO}"
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
-msgstr ""
+msgstr "<span foreground=\"darkred\">คำเตือน:</span> ทุกแฟ้มในเครื่องจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1610,6 +1620,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณใน ${OS} และ ${CURDISTRO} จะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1626,6 +1638,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณในทุกระบบปฏิบัติการจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1639,7 +1653,7 @@ msgstr "ติดตั้ง ${DISTRO} ไว้คู่กับมัน"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มี ${OS} อยู่แล้ว คุณต้องการจะทำอย่างไร?"
 
 #. Type: text
 #. Description
@@ -1649,7 +1663,7 @@ msgstr ""
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มี ${OS1} และ ${OS2}  อยู่แล้ว คุณต้องการจะทำอย่างไร?"
 
 #. Type: text
 #. Description
@@ -1657,7 +1671,7 @@ msgstr ""
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มีหลายระบบปฏิบัติการ คุณต้องการจะทำอย่างไร?"
 
 #. Type: text
 #. Description
@@ -1665,7 +1679,7 @@ msgstr ""
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr ""
+msgstr "ไม่พบระบบปฏิบัติการบนเครื่องนี้ คุณต้องการจะทำอย่างไร?"
 
 #. Type: title
 #. Description

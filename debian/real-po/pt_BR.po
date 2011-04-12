@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-10 19:21+0000\n"
-"Last-Translator: André Gondim <andregondim@ubuntu.com>\n"
+"PO-Revision-Date: 2011-04-12 15:17+0000\n"
+"Last-Translator: Gabriell H. R. Nascimento <gabriel.elric@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
@@ -198,13 +198,13 @@ msgstr "Detectar disposição do teclado..."
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Please press one of the following keys:"
-msgstr "Por favor pressione uma das seguintes teclas:"
+msgstr "Por favor, pressione uma das teclas a seguir:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Is the following key present on your keyboard?"
-msgstr "A seguinte tecla está presente no seu teclado?"
+msgstr "A tecla seguinte está presente no seu teclado?"
 
 #. Type: text
 #. Description
@@ -307,7 +307,7 @@ msgstr "Senha razoável"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Good password"
-msgstr "Boa senha"
+msgstr "Senha boa"
 
 #. Type: text
 #. Description
@@ -357,7 +357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Allocate drive space"
-msgstr "Espaço da unidade alocada"
+msgstr "Alocar espaço da unidade"
 
 #. Type: text
 #. Description
@@ -405,7 +405,7 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Desculpe, mas ocorreu um erro e não foi possível instalar o gerenciador de "
+"Desculpe, ocorreu um erro e não foi possível instalar o gerenciador de "
 "inicialização no local especificado."
 
 #. Type: text
@@ -447,7 +447,7 @@ msgstr "Isto pode deixar seu computador incapaz de inicializar."
 #. Description
 #: ../ubiquity.templates:61001
 msgid "How would you like to proceed?"
-msgstr "Como você gostaria de prosseguir?"
+msgstr "Como você gostaria de proceder?"
 
 #. Type: text
 #. Description
@@ -498,7 +498,7 @@ msgid ""
 "following detail in your bug report, and attach the files /var/log/syslog "
 "and /var/log/partman:"
 msgstr ""
-"Desculpe: a instalação falhou. Por favor reporte seu problema https://"
+"Desculpe: a instalação falhou. Por favor relate seu problema https://"
 "launchpad.net/ubuntu/+source/ubiquity/+filebug (não coloque junto a nenhum "
 "outro problema já relatado) e um desenvolvedor irá resolver seu problema o "
 "mais rápido possível. Para ajudar os desenvolvedores a entenderem o "
@@ -754,8 +754,7 @@ msgstr "Falha na instalação"
 #: ../ubiquity.templates:105001 ../ubiquity.templates:106001
 #: ../ubiquity.templates:107001 ../ubiquity.templates:108001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
-"O instalador encontrou um erro na cópia dos arquivos para o disco rígido:"
+msgstr "O instalador encontrou um erro ao copiar arquivos para o disco rígido:"
 
 #. Type: error
 #. Description
@@ -766,7 +765,7 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Isto é devido a espaço insuficiente no disco para completar a instalação na "
-"partição alvo. Por favor execute o instalador novamente e selecione uma "
+"partição indicada. Por favor execute o instalador novamente e selecione uma "
 "partição maior."
 
 #. Type: error
@@ -813,14 +812,14 @@ msgstr ""
 "Isto acontece geralmente devido a uma falha no CD/DVD (disco ou unidade), ou "
 "uma falha no disco rígido. Talvez ajude limpar o CD/DVD, gravar o CD/DVD em "
 "velocidade mais baixa, limpar as lentes da unidade (kits de limpeza podem "
-"ser encontrados em lojas de eletrônicos), verificar se o HD é antigo e "
-"precisa ser trocado ou mover o sistema para um ambiente mais fresco."
+"ser encontrados em lojas de eletrônicos), verificar se o disco rígido é "
+"antigo e precisa ser trocado ou mover o sistema para um ambiente mais fresco."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:109001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "O seguinte arquivo não corresponde a sua cópia original no CD/DVD:"
+msgstr "O arquivo a seguir não corresponde a sua cópia original no CD/DVD:"
 
 #. Type: text
 #. Description
@@ -838,7 +837,7 @@ msgstr "Configurando sistema alvo..."
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Configuring system locales..."
-msgstr "Configurando as localidades do sistema..."
+msgstr "Configurando as localizações do sistema..."
 
 #. Type: text
 #. Description
@@ -978,7 +977,7 @@ msgstr "Um erro ocorreu durante a instalação dos pacotes:"
 #. Description
 #: ../ubiquity.templates:134001 ../ubiquity.templates:135001
 msgid "The following packages are in a broken state:"
-msgstr "Os seguintes pacotes estão em estado quebrado:"
+msgstr "Os seguintes pacotes estão corrompidos:"
 
 #. Type: error
 #. Description
@@ -1075,13 +1074,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Calculating files to skip copying..."
-msgstr "Calculando arquivos para pular durante a cópia..."
+msgstr "Calculando arquivos para ignorar durante a cópia..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Ready when you are..."
-msgstr "Pronto quando você esta..."
+msgstr "Pronto quando você estiver..."
 
 #. Type: title
 #. Description
@@ -1139,7 +1138,7 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Algumas das partições que você criou são muito pequenas. Por favor, re-crie "
+"Algumas das partições que você criou são muito pequenas. Por favor, recrie "
 "partições com tamanho mínimo de:"
 
 #. Type: boolean
@@ -1212,7 +1211,7 @@ msgstr "Configuração de disco"
 #. Description
 #: ../ubiquity.templates:171001
 msgid "User Info"
-msgstr "Informações do usuário"
+msgstr "Informação do usuário"
 
 #. Type: text
 #. Description
@@ -1242,7 +1241,7 @@ msgstr "Atualizando informações do pacote"
 #. Description
 #: ../ubiquity.templates:178001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "Arquivo ${INDEX} de ${TOTAL} à ${SPEED}/s"
+msgstr "Arquivo ${INDEX} de ${TOTAL} a ${SPEED}/s"
 
 #. Type: text
 #. Description
@@ -1273,7 +1272,7 @@ msgstr "O instalador encontrou um erro ao tentar se atualizar:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:182001
 msgid "USB disk"
-msgstr "Disco USB..."
+msgstr "Disco USB"
 
 #. Type: text
 #. Description
@@ -1289,8 +1288,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Por favor, escolha um idioma para o processo de instalação. Este idioma será "
-"o padrão para o seu computador."
+"Por favor, escolha o idioma para o processo de instalação. Esse idioma será "
+"o padrão para este computador."
 
 #. Type: text
 #. Description
@@ -1317,8 +1316,9 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"O instalador encontrou um erro irrecuperável. A sessão desktop irá executar "
-"e você poderá investigar o problema ou tentar instalar novamente."
+"O instalador encontrou um erro irrecuperável. A sessão desktop será "
+"executada agora e você poderá investigar o problema ou tentar instalar "
+"novamente."
 
 #. Type: text
 #. Description
@@ -1343,7 +1343,7 @@ msgstr "Sem fio"
 #. Description
 #: ../ubiquity.templates:191001
 msgid "Please select your wireless network from this list"
-msgstr "Por favor, seleciona sua rede sem fio nesta lista"
+msgstr "Por favor, selecione sua rede sem fio nesta lista"
 
 #. Type: text
 #. Description
@@ -1371,7 +1371,7 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d partições pequenas estão ocultas, use o <a href=\"\">ferramenta de "
+"%d partições pequenas estão ocultas, use a <a href=\"\">ferramenta de "
 "particionamento avançado</a> para maior controle"
 
 #. Type: text
@@ -1381,7 +1381,7 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 partição pequena está oculta, use o <a href=\"\">ferramenta de "
+"1 partição pequena está oculta, use a <a href=\"\">ferramenta de "
 "particionamento avançado</a> para maior controle"
 
 #. Type: text
@@ -1392,7 +1392,7 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d partições serão apagadas, use o <a href=\"\">ferramenta de "
+"%d partições serão apagadas, use a <a href=\"\">ferramenta de "
 "particionamento avançada</a> para maior controle"
 
 #. Type: text
@@ -1402,14 +1402,14 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"1 partição será excluída, use a <href=\"\">ferramenta de particionamento "
+"1 partição será apagada, use a <href=\"\">ferramenta de particionamento "
 "avançada</a> para maior controle"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "Split Largest Partition"
-msgstr "Dividir partição larga"
+msgstr "Dividir a maior partição"
 
 #. Type: text
 #. Description
@@ -1434,7 +1434,7 @@ msgstr "está conectado a uma fonte de energia"
 #. Description
 #: ../ubiquity.templates:207001
 msgid "is connected to the Internet"
-msgstr "está conectado na Internet"
+msgstr "está conectado à Internet"
 
 #. Type: text
 #. Description
@@ -1501,7 +1501,7 @@ msgid ""
 msgstr ""
 "Selecione a sua localização, para que o sistema possa usar as convenções de "
 "visualização adequadas para o seu país, buscar atualizações de sites mais "
-"perto de você, e definir o relógio para o horário local correto."
+"perto de você e definir o relógio para o horário local correto."
 
 #. Type: text
 #. Description
@@ -1588,7 +1588,7 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"Você pode criar ou redimensionar partições sozinho, ou escolher várias "
+"Você pode criar ou redimensionar partições sozinho ou escolher várias "
 "partições para ${DISTRO}."
 
 #. Type: text
@@ -1628,7 +1628,7 @@ msgid ""
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 "Documentos, música e outros arquivos serão mantidos. Software instalados "
-"serão mantidos onde for possível. Todas configurações do sistema serão "
+"serão mantidos onde for possível. Todas as configurações do sistema serão "
 "limpadas."
 
 #. Type: text
@@ -1724,7 +1724,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
-"Atualmente este computador tem o ${OS} e o ${OS2} instalados. O que você "
+"Atualmente este computador tem o ${OS1} e o ${OS2} instalados. O que você "
 "gostaria de fazer?"
 
 #. Type: text
@@ -1789,7 +1789,7 @@ msgid ""
 msgstr ""
 "Quando você inicializar no novo sistema, poderá logar-se como o usuário "
 "'oem' e a senha selecionada anteriormente; este usuário também tem "
-"privilégios administrativos usando o 'sudo'. Você estará então, apto para "
+"privilégios administrativos usando o 'sudo'. Você estará, então, apto para "
 "fazer qualquer modificação adicional que necessite no sistema."
 
 #. Type: text
@@ -1801,8 +1801,8 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "Quando o sistema estiver configurado de forma satisfatória, execute 'oem-"
-"config-prepare'. Isto ira fazer com que o sistema apague o usuário "
-"temporário 'oem' e perguntar o usuário final várias questões de configuração "
+"config-prepare'. Isto irá fazer com que o sistema apague o usuário "
+"temporário 'oem' e pergunte ao usuário final várias questões de configuração "
 "na próxima vez que for iniciado."
 
 #. Type: text

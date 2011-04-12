@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-29 16:01+0000\n"
+"PO-Revision-Date: 2011-04-12 10:32+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
@@ -1478,6 +1478,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\"警告：</span>這會刪除您所有的 ${OS} 程式、文件、"
+"音樂，以及任何其他檔案。"
 
 #. Type: text
 #. Description
@@ -1501,6 +1503,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"文件、音樂、其他個人檔案將被保留。您可以在每次電腦開機時選擇您想要進入的作業"
+"系統。"
 
 #. Type: text
 #. Description
@@ -1561,6 +1565,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"文件、音樂、其他個人檔案將被保留。安裝的軟體會被保留在可能的位置上。系統全域"
+"的設定會被清除。"
 
 #. Type: text
 #. Description
@@ -1623,6 +1629,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">警告：</span>這會刪除所有作業系統上您所有的程"
+"式、文件、相片、音樂，與任何其他檔案。"
 
 #. Type: text
 #. Description

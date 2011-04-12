@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-30 14:38+0000\n"
+"PO-Revision-Date: 2011-04-11 23:00+0000\n"
 "Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
@@ -1478,6 +1478,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">注意：</span>这会删除 ${OS} 里面的全部程序、文"
+"档、照片、音乐和其他文件。"
 
 #. Type: text
 #. Description
@@ -1501,6 +1503,7 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"保留文档、音乐和其他个人文件。您可以在每次计算机启动时选择要进入的操作系统。"
 
 #. Type: text
 #. Description
@@ -1559,7 +1562,7 @@ msgstr "升级 ${CURDISTRO} 到 ${VER}"
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
-msgstr ""
+msgstr "保留文档、音乐和其他个人文件，尽量保留已安装的软件。会清除系统设置。"
 
 #. Type: text
 #. Description
@@ -1622,6 +1625,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">注意：</span>这会删除所有系统里面的全部程序、文"
+"档、照片、音乐和其他文件。"
 
 #. Type: text
 #. Description

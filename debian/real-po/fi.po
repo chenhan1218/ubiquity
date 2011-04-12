@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-01 08:59+0000\n"
+"PO-Revision-Date: 2011-04-12 05:54+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
@@ -1534,6 +1534,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Varoitus:</span> Tämä poistaa kaikki "
+"käyttöjärjestelmän ”${OS}” sovellukset, asiakirjat, valokuvat, musiikit ja "
+"muut tiedostot."
 
 #. Type: text
 #. Description
@@ -1557,6 +1560,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Asiakirjat, musiikki ja muut henkilökohtaiset tiedostot säilytetään. "
+"Jokaisella tietokoneen käynnistyskerralla voit valita, mikä "
+"käyttöjärjestelmä käynnistetään."
 
 #. Type: text
 #. Description
@@ -1619,6 +1625,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Asiakirjat, musiikki ja muut henkilökohtaiset tiedostot säilytetään. "
+"Asennetut sovellukset säilytetään siltä osin kuin mahdollista. "
+"Järjestelmänlaajuiset asetukset tullaan palauttamaan oletuksiksi."
 
 #. Type: text
 #. Description
@@ -1684,6 +1693,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Varoitus:</span> Tämä poistaa kaikkien "
+"käyttöjärjestelmien kaikki sovellukset, asiakirjat, valokuvat, musiikit ja "
+"muut tiedostot."
 
 #. Type: text
 #. Description

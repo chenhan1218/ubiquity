@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-04 16:28+0000\n"
-"Last-Translator: Milo Casagrande <milo@casagrande.name>\n"
+"PO-Revision-Date: 2011-04-12 13:23+0000\n"
+"Last-Translator: Luca Ferretti <elle.uca@ubuntu-it.org>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-11 16:44+0000\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
@@ -1544,6 +1544,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Attenzione:</span> in questo modo verranno "
+"eliminati programmi, documenti, foto, musica e altri file presenti in ${OS}."
 
 #. Type: text
 #. Description
@@ -1567,6 +1569,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Verranno mantenuti documenti, musica e altri file personali. Sarà possibile "
+"scegliere il sistema operativo desiderato all'avvio del computer."
 
 #. Type: text
 #. Description
@@ -1629,6 +1633,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Verranno mantenuti documenti, musica e altri file personali. Dove possibile "
+"sarà mantenuto il software installato. Le impostazioni di sistema verranno "
+"azzerate."
 
 #. Type: text
 #. Description
@@ -1694,6 +1701,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Attenzione:</span> in questo modo verranno "
+"eliminati programmi, documenti, foto, musica e altri file presenti in tutti "
+"i sistemi operativi."
 
 #. Type: text
 #. Description
