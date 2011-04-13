@@ -311,7 +311,30 @@ def copy_debconf():
     if not TARGET:
         return
     targetdb = TARGET + '/var/cache/debconf/config.dat'
-    for q in ('^keyboard-configuration/', '^console-setup/', '^oem-config/'):
+    patterns = ['^oem-config/']
+    oem = False
+
+    import debconf
+    dccomm = subprocess.Popen(['debconf-communicate',
+                               '-fnoninteractive', 'ubiquity'],
+                              stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, close_fds=True)
+    try:
+        dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
+        try:
+            if dc.get('oem-config/enable') == 'true':
+                oem = True
+        except debconf.DebconfError:
+            pass
+    finally:
+        dccomm.stdin.close()
+        dccomm.wait()
+
+    if not oem:
+        patterns.append('^keyboard-configuration/')
+        patterns.append('^console-setup/')
+
+    for q in patterns:
         misc.execute_root('debconf-copydb', 'configdb', 'targetdb', '-p', q,
                      '--config=Name:targetdb', '--config=Driver:File',
                      '--config=Filename:%s' % targetdb)
