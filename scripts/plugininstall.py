@@ -1332,7 +1332,7 @@ class Install(install_misc.InstallBase):
         target_user = self.db.get('passwd/username')
 
         # GTK
-        homedir = pwd.getpwnam(target_user).pw_dir
+        homedir = '/home/%s' % target_user
         target_keyrings = os.path.join(self.target, homedir[1:],
                                        '.gnome2/keyrings')
 
