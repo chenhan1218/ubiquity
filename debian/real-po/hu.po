@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-05 09:11+0000\n"
-"Last-Translator: KAMI <kami911@gmail.com>\n"
+"PO-Revision-Date: 2011-04-11 10:45+0000\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1527,16 +1527,13 @@ msgstr "${OS} cseréje ezzel: ${DISTRO}"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Figyelmeztetés:</span> Ez a művelet törli a(z) "
-"${OS} programjait, dokumentumait, fotóit, zenéit és egyéb fájljait."
+"<span foreground=\"darkred\">Figyelmeztetés:</span> Ez törölni fogja az "
+"összes programját, dokumentumát, fényképét, zenéjét és minden más fájlját a"
+"(z) ${OS} alatt."
 
 #. Type: text
 #. Description
@@ -1556,16 +1553,13 @@ msgstr "${DISTRO} telepítése ${OS} mellé"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"A fájlok nem lesznek törölve. A számítógép minden bekapcsolásakor "
-"kiválaszthatja, melyik operációs rendszert szeretné használni."
+"A dokumentumok, zenék és más személyes fájlok megmaradnak. A számítógép "
+"minden bekapcsolásakor kiválaszthatja, melyik operációs rendszert szeretné "
+"használni."
 
 #. Type: text
 #. Description
@@ -1623,15 +1617,13 @@ msgstr "${CURDISTRO} frissítése erre a verzióra: ${VER}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"A fájlok nem lesznek törölve. A telepített  alkalmazások – ha lehetséges – "
-"megmaradnak."
+"A dokumentumok, zenék és más személyes fájlok megmaradnak. Ahol lehetséges, "
+"a telepített szoftverek is megmaradnak. Az egész rendszerre kiterjedő "
+"beállítások törlődnek."
 
 #. Type: text
 #. Description
@@ -1692,17 +1684,14 @@ msgstr "${CURDISTRO} újratelepítése"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
-#| "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Figyelmeztetés:</span> Ez a művelet törli a(z) "
-"${CURDISTRO} programjait, dokumentumait, fotóit, zenéit és egyéb fájljait."
+"<span foreground=\"darkred\">Figyelmeztetés:</span> Ez törölni fogja az "
+"összes programját, dokumentumát, fényképét, zenéjét és minden más fájlját "
+"minden operációs rendszere alatt."
 
 #. Type: text
 #. Description
@@ -1810,3 +1799,215 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "A legnagyobb összefüggő szabad hely használata"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Partíciók saját kezű megadása (haladóknak)"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "A kérdések megválaszolása csak pár percig fog tartani."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Dokumentumok és beállítások átvitele"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Hogyan kívánja particionálni a lemezt?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "A számítógépen jelenleg nincs operációs rendszer."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr ""
+#~ "Erre a számítógépre jelenleg a(z) ${OS} operációs rendszer van telepítve."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Erre a számítógépre jelenleg több operációs rendszer van telepítve."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Hová szeretné telepíteni a(z) ${RELEASE} operációs rendszert?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr ""
+#~ "Ez törli a(z) ${SYSTEMS} rendszert és telepíti a(z) ${RELEASE} rendszert."
+
+#~ msgid "Ready to install"
+#~ msgstr "Készen áll a telepítésre"
+
+#~ msgid "Details"
+#~ msgstr "Részletek"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "Az új operációs rendszer a következő beállításokkal kerül telepítésre:"
+
+#~ msgid "Advanced..."
+#~ msgstr "Haladó…"
+
+#~ msgid "Advanced Options"
+#~ msgstr "Speciális beállítások"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Népszerűségi verseny"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Részvétel a csomaghasználat felmérésében"
+
+#~ msgid "Network proxy"
+#~ msgstr "Hálózati proxy"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP proxy:"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Nyelv: ${LANGUAGE}\n"
+#~ " Billentyűzetkiosztás: ${KEYMAP}\n"
+#~ " Név: ${FULLNAME}\n"
+#~ " Bejelentkezési név: ${USERNAME}\n"
+#~ " Hely: ${LOCATION}\n"
+#~ " Átviteli segéd:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Fájlok elemzése…"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Gépnév beállítása…"
+
+#~ msgid "Applying configuration"
+#~ msgstr "A beállítások alkalmazása"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Néhány kérdés megválaszolása után a számítógép készen fog állni a "
+#~ "használatra."
+
+#~ msgid "Summary"
+#~ msgstr "Összegzés"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Törlés és a teljes lemez felhasználása"
+
+#~ msgid "Continue with installation."
+#~ msgstr "Telepítés folytatása."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Készen áll a telepítésre? Pár kérdés megválaszolása után telepítheti "
+#~ "számítógépére a live ${MEDIUM} tartalmát, ezután a számítógép teljes "
+#~ "kapacitását kihasználva futtatható a(z) ${RELEASE}."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Ez a(z) ${RELEASE} live ${MEDIUM} telepítő előzetes kiadása. Még nem a "
+#~ "végleges kiadás, az a(z) ${RELEASE} végleges kiadásával fog érkezni 2010 "
+#~ "októberében."
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Teljes partició használata"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Rendszerbetöltő telepítése"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Billentyűkiosztás felismerése"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "${INDEX}. lépés (összesen ${TOTAL})"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Teljes lemez felhasználása"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Billentyűzetkiosztás felismerése"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Telepítés más operációs rendszerek mellé"
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "${DISTRO} telepítése mellé"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "A fájlok nem lesznek törölve. A számítógép minden bekapcsolásakor "
+#~ "kiválaszthatja, melyik operációs rendszert szeretné használni."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "${DISTRO} ${VER} telepítése mellé"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ez <b>törli</b> az összes programját, dokumentumát, fényképét, zenéjét és "
+#~ "minden más fájlját a(z) ${OS} alatt."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ez <b>törli</b> az összes programját, dokumentumát, fényképét, zenéjét és "
+#~ "minden más fájlját a(z) ${CURDISTRO} alatt."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Ez egyaránt <b>törli</b> az összes programját, dokumentumát, fényképét, "
+#~ "zenéjét és minden más fájlját a(z) ${OS} és ${CURDISTRO} alatt."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Ez egyaránt <b>törli</b> az összes programját, dokumentumát, fényképét, "
+#~ "zenéjét és minden más fájlját minden operációs rendszere alatt."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "A(z) ${CURDISTRO} frissíthető a fontos dokumentumai vagy alkalmazásai "
+#~ "elvesztése nélkül."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "A(z) ${CURDISTRO} újratelepíthető a fontos dokumentumai vagy alkalmazásai "
+#~ "elvesztése nélkül."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "A fájlok nem lesznek törölve. A telepített  alkalmazások – ha lehetséges "
+#~ "– megmaradnak."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Figyelmeztetés:</span> Ez a művelet törli a"
+#~ "(z) ${OS} programjait, dokumentumait, fotóit, zenéit és egyéb fájljait."

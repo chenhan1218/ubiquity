@@ -11,6 +11,16 @@ else
     cp -a /etc/default/keyboard /target/etc/default/
     chroot /target setupcon --save-only
 
+    if db_get oem-config/enable && [ "$RET" = true ]; then
+	# Discard meaningless values from the live filesystem build, since
+	# we won't copy in our own answers in OEM mode.
+	for template in \
+## SEEN TEMPLATES ## all templates of keyb-conf except alerts and ctrl_alt_bksp
+	do
+	    echo RESET $template
+	done | chroot /target debconf-communicate >/dev/null
+    fi
+
     apt-install keyboard-configuration || true
     apt-install console-setup || true
 fi

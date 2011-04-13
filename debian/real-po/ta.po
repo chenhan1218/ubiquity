@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1668,3 +1668,39 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "கேள்விகளுக்கு பதில் அளிப்பதற்கு சில நிமிடங்கள் போதும்."
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "உங்களுக்கு வன் தட்டில் எப்படி இடம் பிரிக்க வேண்டும்?"
+
+#~ msgid "Ready to install"
+#~ msgstr "நிறுவத் தயார்"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "பின்வரும் அமைப்பில் உங்கள் இயங்கு தளம் அமைக்கப் படும்:"
+
+#~ msgid "Advanced Options"
+#~ msgstr "கூடுதல் விருப்பங்கள்"
+
+#~ msgid "Scanning files..."
+#~ msgstr "கோப்புகளை வருடுகிறது."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "கணினியின் பெயர் அமைத்தல்..."
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "மிகப்பெரிய தொடர்ந்த  உபயோகம் இல்லாத இடத்தை உபயோகப்படுத்து."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "முழு  வட்டையும் அழித்து உபயோகபடுத்து."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "சில கேள்விகளுக்கு ஒருமுறை பதிலளித்தால்,இந்த கணினியானது உபயோகபடுத்த தாயாரகிவிடும்."
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "நீங்களாக வகிர்வை குறிப்பிடுங்கள்.(மேம்பட்ட விருப்பம்)"

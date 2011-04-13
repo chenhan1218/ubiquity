@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-09 01:24+0000\n"
+"PO-Revision-Date: 2011-04-12 03:00+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1028,7 +1028,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "การกู้คืนโปรแกรมที่ติดตั้งแล้วผิดพลาด"
 
 #. Type: error
 #. Description
@@ -1038,6 +1038,8 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"เกิดข้อผิดพลาดขณะคืนค่าโปรแกรมที่ติดตั้งไว้ก่อนหน้านี้ การติดตั้งจะดำเนินต่อไป "
+"แต่คุณอาจต้องติดตั้งโปรแกรมประยุกต์บางโปรแกรมหลังเริ่มเครื่องใหม่"
 
 #. Type: text
 #. Description
@@ -1486,6 +1488,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม ${OS} เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1493,7 +1497,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} คู่กับ ${OS}"
 
 #. Type: text
 #. Description
@@ -1505,14 +1509,12 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
-msgstr "ไม่มีแฟ้มที่จะลบ คุณสามารถเลือกระบบปฏิบัติการที่คุณต้องการในแต่ละครั้งที่เริ่มคอมพิวเตอร์ได้"
+msgstr ""
+"เอกสาร เพลง และแฟ้มส่วนตัวอื่นๆ จะถูกเก็บไว้ "
+"คุณสามารถเลือกระบบปฏิบัติการที่คุณต้องการเมื่อเปิดเครื่องคอมพิวเตอร์"
 
 #. Type: text
 #. Description
@@ -1520,13 +1522,13 @@ msgstr "ไม่มีแฟ้มที่จะลบ คุณสามา�
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} ใน ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "มีบางอย่างผิดพลาด"
 
 #. Type: text
 #. Description
@@ -1535,7 +1537,7 @@ msgstr ""
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
-msgstr ""
+msgstr "คุณสามารถสร้างหรือปรับขนาดพาร์ทิชันด้วยตัวเองหรือเลือกพาร์ทิชันสำหรับ ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1552,6 +1554,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม ${CURDISTRO} เอกสาร "
+"ภาพถ่าย เพลง และแฟ้มอื่นๆ ของคุณจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1570,6 +1574,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"เอกสาร เพลง และแฟ้มส่วนตัวอื่นๆ จะถูกเก็บไว้ ซอฟต์แวร์ที่ติดตั้งจะถูกเก็บไว้ในที่ที่ใช้ได้ "
+"การตั้งค่าทั้งระบบจะถูกล้าง"
 
 #. Type: text
 #. Description
@@ -1578,7 +1584,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "ติดตั้ง ${DISTRO} ${VER} คู่กับ ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1596,7 +1602,7 @@ msgstr "ลบดิสก์และติดตั้ง ${DISTRO}"
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
-msgstr ""
+msgstr "<span foreground=\"darkred\">คำเตือน:</span> ทุกแฟ้มในเครื่องจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1614,6 +1620,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณใน ${OS} และ ${CURDISTRO} จะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1630,6 +1638,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณในทุกระบบปฏิบัติการจะถูกลบ"
 
 #. Type: text
 #. Description
@@ -1643,7 +1653,7 @@ msgstr "ติดตั้ง ${DISTRO} ไว้คู่กับมัน"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มี ${OS} อยู่แล้ว คุณต้องการจะทำอย่างไร?"
 
 #. Type: text
 #. Description
@@ -1653,7 +1663,7 @@ msgstr ""
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มี ${OS1} และ ${OS2}  อยู่แล้ว คุณต้องการจะทำอย่างไร?"
 
 #. Type: text
 #. Description
@@ -1661,7 +1671,7 @@ msgstr ""
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มีหลายระบบปฏิบัติการ คุณต้องการจะทำอย่างไร?"
 
 #. Type: text
 #. Description
@@ -1669,7 +1679,7 @@ msgstr ""
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr ""
+msgstr "ไม่พบระบบปฏิบัติการบนเครื่องนี้ คุณต้องการจะทำอย่างไร?"
 
 #. Type: title
 #. Description
@@ -1731,3 +1741,198 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "ใช้พื้นที่ว่างต่อเนื่องที่ใหญ่ที่สุด"
+
+#~ msgid "Details"
+#~ msgstr "รายละเอียด"
+
+#~ msgid "Advanced..."
+#~ msgstr "ขั้นสูง..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "ตัวเลือกขั้นสูง"
+
+#~ msgid "Install boot loader"
+#~ msgstr "ติดตั้งบูตโหลดเดอร์"
+
+#~ msgid "Port:"
+#~ msgstr "พอร์ต:"
+
+#~ msgid "Summary"
+#~ msgstr "ภาพรวม"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "ลบและใช้พื้นที่ดิสก์ทั้งหมด"
+
+#~ msgid "Continue with installation."
+#~ msgstr "ดำเนินการติดตั้งต่อไป"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "การตอบคำถามใช้เวลาเพียงไม่กี่นาทีเท่านั้น"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "กำหนดพาร์ทิชันเอง (ขั้นสูง)"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "คุณต้องการจัดการพาร์ทิชันดิสก์อย่างไร?"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "เข้าร่วมในการสำรวจการใช้งานแพกเกจ"
+
+#~ msgid "Network proxy"
+#~ msgstr "พร็อกซีเครือข่าย"
+
+#~ msgid "Scanning files..."
+#~ msgstr "กำลังสแกนแฟ้ม..."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "โยกย้ายเอกสารและการปรับแต่ง"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "คอมพิวเตอร์นี้ไม่มีระบบปฎิบัติการติดตั้งอยู่"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "คอมพิวเตอร์นี้มีระบบปฎิบัติการ ${OS} ติดตั้งอยู่"
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "คอมพิวเตอร์นี้มีระบบปฏิบัติการที่หลากหลายติดตั้งอยู่"
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "คุณต้องการวาง ${RELEASE} ไว้ที่ใด?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "นี่จะเป็นการลบ ${SYSTEMS} และติดตั้ง ${RELEASE}"
+
+#~ msgid "Ready to install"
+#~ msgstr "พร้อมที่จะติดตั้ง"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "ระบบปฏิบัติการใหม่ของคุณจะติดตั้งด้วยการตั้งค่าตามนี้:"
+
+#~ msgid "Popularity contest"
+#~ msgstr "ประกวดความนิยม"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "พร็อกซี HTTP:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " ภาษา: ${LANGUAGE}\n"
+#~ " แป้นพิมพ์: ${KEYMAP}\n"
+#~ " ชื่อ: ${FULLNAME}\n"
+#~ " ชื่อในการเข้าระบบ: ${USERNAME}\n"
+#~ " ตำแหน่ง: ${LOCATION}\n"
+#~ " ผู้ช่วยเหลือในการโอนย้าย:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "กำลังตั้งชื่อเครื่องคอมพิวเตอร์..."
+
+#~ msgid "Applying configuration"
+#~ msgstr "กำลังปรับใช้การตั้งค่า"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "ใช้ทั้งพาร์ทิชัน"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "ใช้ทั้งดิสก์"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "ขั้นตอนที่ ${INDEX}/${TOTAL}"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "เพียงคุณตอบคำถามไม่กี่ข้อ คอมพิวเตอร์เครื่องนี้ก็จะพร้อมใช้งาน"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
+#~ "ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "ตรวจหาผังแป้นพิมพ์"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "พร้อมที่จะติดตั้งแล้วหรือไม่? เพียงคุณตอบคำถามไม่กี่คำถาม ข้อมูลของ ${MEDIUM} "
+#~ "จะถูกติดตั้งลงบนคอมพิวเตอร์ คุณสามารถเรียกใช้ ${RELEASE} "
+#~ "ได้อย่างเต็มความสามารถโดยไม่ต้องใช้ ${MEDIUM} อีกต่อไป"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "ตรวจหาผังแป้มพิมพ์"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "ติดตั้งคู่กับระบบปฏิบัติการอื่น"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr "นี่จะ<b>ลบ</b> ${OS}, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ทั้งหมดของคุณ"
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "ติดตั้ง ${DISTRO} ไว้คู่กัน"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr "นี่จะ<b>ลบ</b> ${CURDISTRO}, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ทั้งหมด"
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "ติดตั้ง ${DISTRO} ${VER} ไว้คู่กัน"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "นี่จะ<b>ลบ</b> โปรแกรม, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ใน ${OS} และ "
+#~ "${CURDISTRO}"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "นี่จะ<b>ลบ</b> โปรแกรม, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ในระบบปฏิบัติการทั้งหมด"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "ไม่มีแฟ้มที่จะลบ คุณสามารถเลือกระบบปฏิบัติการที่คุณต้องการในแต่ละครั้งที่เริ่มคอมพิวเตอร์ได้"
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr "คุณสามารถปรับรุ่น ${CURDISTRO} โดยไม่สูญเสียเอกสารที่สำคัญหรือโปรแกรมใด ๆ"
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr "คุณสามารถติดตั้ง ${CURDISTRO} ใหม่ โดยไม่สูญเสียเอกสารที่สำคัญหรือโปรแกรมใด ๆ"
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr "พร้อมที่จะกระโดดแล้วหรือ? ติดตั้งแบบสะอาดโดยลบฮาร์ดดิสก์ทั้งหมดและติดตั้ง ${DISTRO}"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "ยังติดอยู่ในหน้าต่างอย่างนั้นหรือ? คุณสามารถติดตั้ง ${DISTRO} ${VER} คู่ไปกับสำเนาของ "
+#~ "${CURDISTRO}"

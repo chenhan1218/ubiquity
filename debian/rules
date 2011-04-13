@@ -140,7 +140,8 @@ endif
 		d-i/source/console-setup/debian/keyboard-configuration.postinst \
 		> debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
 	(cd d-i/source/console-setup && \
-	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst)
+	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst && \
+	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/share/ubiquity/console-setup-apply)
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
 	sed 's,\(finish-install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \

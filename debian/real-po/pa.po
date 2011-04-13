@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1668,3 +1668,27 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "ਪ੍ਰਸ਼ਨਾਂ ਦੇ ੳੁੱਤਰ ਦੇਣ ਨੂੰ ਸਿਰਫ ਚੰਦ ਮਿਨਟ ਹੀ ਲਗ ਸਕਦੇ ਹਨ।"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "ਤੁਹਾਡਾ ਨਵਾਂ ਅੌਪਰੇਟਿਂਗ ਸਿਸਟਮ ਹੁਣ ੲਿਨ੍ਹਾਂ ਸੈਟਿਂਗਾਂ ਨਾਲ ਿੲੰਸਟਾਲ ਕੀਤਾ ਜਾੲੇਗਾ:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " ਭਾਸ਼ਾ: ${LANGUAGE}\n"
+#~ " ਕੀਬੋਰਡ ਤਰਤੀਬ: ${KEYMAP}\n"
+#~ " ਨਾਂ: ${FULLNAME}\n"
+#~ " ਟਿਕਾਣਾ: ${LOCATION} \n"
+#~ " ੳੁਡਾਰੀ ਸਹਾੲਿਕ: \n"
+#~ " ${MIGRATE}"

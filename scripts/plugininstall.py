@@ -24,6 +24,7 @@ import os
 import platform
 import stat
 import re
+import pwd
 import textwrap
 import shutil
 import subprocess
@@ -1064,13 +1065,15 @@ class Install(install_misc.InstallBase):
             package = self.db.get('ubiquity/nonfree_package')
             self.do_install([package])
             try:
+                env = os.environ.copy()
+                env['LC_ALL'] = 'C'
                 misc.execute('mount', '--bind', '/proc', self.target + '/proc')
                 misc.execute('mount', '--bind', '/sys', self.target + '/sys')
                 misc.execute('mount', '--bind', '/dev', self.target + '/dev')
                 inst_composite = ['chroot', self.target, 'jockey-text',
                                   '-C', '--no-dbus']
                 p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
-                                     stdout=sys.stderr)
+                                     stdout=sys.stderr, env=env)
                 p.communicate('y\n')
             except OSError:
                 syslog.syslog(syslog.LOG_WARNING,
@@ -1329,8 +1332,8 @@ class Install(install_misc.InstallBase):
         target_user = self.db.get('passwd/username')
 
         # GTK
-        # FIXME evand 2009-12-11: We assume /home here, but determine it below.
-        target_keyrings = os.path.join(self.target, 'home', target_user,
+        homedir = '/home/%s' % target_user
+        target_keyrings = os.path.join(self.target, homedir[1:],
                                        '.gnome2/keyrings')
 
         # Sanity checks.  We don't want to do anything if a network
@@ -1338,7 +1341,7 @@ class Install(install_misc.InstallBase):
         # selected to install without formatting.
         if os.path.exists(target_keyrings):
             return
-        config_source = 'xml:readwrite:$HOME/.gconf'
+        config_source = 'xml:readwrite:%s/.gconf' % homedir
         subp = subprocess.Popen(['chroot', self.target, 'sudo', '-i', '-n',
             '-u', target_user, '--', 'gconftool-2', '--direct',
             '--config-source', config_source, '--dir-exists',

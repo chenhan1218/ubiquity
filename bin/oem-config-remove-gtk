@@ -60,7 +60,8 @@ def _on_transaction(trans):
 def main():
     purge = []
     for pkg in ('ubiquity', 'ubiquity-casper', 
-                'ubiquity-ubuntu-artwork', 'ubiquity-slideshow-ubuntu'):
+                'ubiquity-ubuntu-artwork', 'ubiquity-slideshow-ubuntu',
+                'oem-config-slideshow-ubuntu'):
         if glob.glob('/var/lib/dpkg/info/%s.list' % pkg):
             purge.append(pkg)
 

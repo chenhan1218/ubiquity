@@ -17,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1502,16 +1502,10 @@ msgstr "${OS} ని   ${DISTRO} తో మార్చు"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">హెచ్చరిక:</span> ఇది మీ ${OS} లోని ప్రోగ్రాములను, పత్రాలను, "
-"చిత్రాలను, సంగీతం, మరియు ఇతర ఫైళ్ళను చెరిపివేస్తుంది."
 
 #. Type: text
 #. Description
@@ -1531,14 +1525,10 @@ msgstr "${OS} తోబాటు గా ${DISTRO} ను స్థాపిం�
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
-msgstr "ఫైళ్లు తొలగించబడవు. కంప్యూటర్ ప్రారంభమైనపుడు మీకు కావలసిన నిర్వహణ వ్యవస్థ ఎంపికచేసుకోవచ్చు"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1596,13 +1586,10 @@ msgstr "${CURDISTRO} ను  ${VER} రూపాంతరంతో తాజా�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
-msgstr "ఏ ఫైళ్ళ తొలగించబడవు. స్థాపించిన సాఫ్ట్‍వేర్ సాధ్యమైన చోట ఉంచబడుతుంది."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1661,17 +1648,11 @@ msgstr "${CURDISTRO} తిరిగి స్థాపించాలా"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
-#| "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">హెచ్చరిక:</span> ఇది మీ ${CURDISTRO} లోని ప్రోగ్రాములను, "
-"పత్రాలను, చిత్రాలను, సంగీతం, మరియు ఇతర ఫైళ్ళను తీసివేస్తుంది."
 
 #. Type: text
 #. Description
@@ -1774,3 +1755,203 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "ఇతర ఆపరేటింగ్ సిస్టంలతో పాటు పక్కపక్కనే స్థాపించండి"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "చెరిపివేసి డిస్కు మొత్తాన్నీ వాడు"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "పార్టిషన్‌లను మాన్యువల్‌గా నిర్దేశించు (అధునాతన)"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "ఒకసారి మీరు కొన్ని ప్రశ్నలకు సమాధానం తెలిపిన తరువాత, ఈ కంప్యూటర్ వాడటానికి సిద్ధంగా ఉంటుంది."
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "ప్రశ్నలకు జవాబివ్వడానికి కొన్ని నిముషాలు మాత్రమే పడుతుంది."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "ఇది  ${RELEASE} యొక్క ముందు విడుదల అయిన లైవ్  ${MEDIUM} స్థాపకం. ఇది చివరి విడుదల కాదు; "
+#~ "${RELEASE} యొక్క చివరి విడుదల అక్టోబర్ 2010లో వస్తుంది."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "కీబోర్డు నమూనా గుర్తించు"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "కీబోర్డు నమూనా గుర్తించు"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "పత్రాలను మరియు అమరికలను తరలించు"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "ఈ కంప్యూటర్ నందు ఎటువంటి ఆపరేటింగ్ సిస్టంలు లేవు."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "ఈ కంప్యూటర్‌  ${OS} ను కలిగిఉంది."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "${RELEASE} ను ఎక్కడ స్థాపిద్దామనుకుంటున్నారు?"
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "ఈ కంప్యూటరు వివిధ ఆపరేటింగ్ సిస్టంలను కలిగిఉంది."
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "మీరు డిస్కును ఎలా పార్టిషన్ చేద్దామనుకుంటున్నారు?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "ఇది  ${SYSTEMS} తీసివేస్తుంది మరియు ${RELEASE} ను స్థాపిస్తుంది."
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "మీ కొత్త ఆపరేటింగ్ సిస్టం కింద పేర్కొన్న అమరికలతో ఇపుడు స్థాపించబడుతుంది:"
+
+#~ msgid "Ready to install"
+#~ msgstr "స్థాపించడానికి సిద్ధంగా ఉంది"
+
+#~ msgid "Details"
+#~ msgstr "వివరాలు"
+
+#~ msgid "Advanced..."
+#~ msgstr "అధునాతన..."
+
+#~ msgid "Install boot loader"
+#~ msgstr "బూట్ లోడర్‌ని స్థాపించు"
+
+#~ msgid "Advanced Options"
+#~ msgstr "ఉన్నత ఎంపికలు"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP ప్రోక్సీ:"
+
+#~ msgid "Network proxy"
+#~ msgstr "నెట్వర్కు ప్రోక్సీ"
+
+#~ msgid "Scanning files..."
+#~ msgstr "ఫైళ్ళను తనిఖీచేస్తోంది..."
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " భాష: ${LANGUAGE}\n"
+#~ "కీ బోర్డు నమూనా: ${KEYMAP}\n"
+#~ "పేరు: ${FULLNAME}\n"
+#~ "లాగిన్ పేరు: ${USERNAME}\n"
+#~ "స్థానం: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Setting computer name..."
+#~ msgstr "కంప్యూటర్ పేరు అమర్చబడుతోంది..."
+
+#~ msgid "Applying configuration"
+#~ msgstr "కాన్ఫిగరేషన్ అనువర్తిస్తోంది"
+
+#~ msgid "Continue with installation."
+#~ msgstr "స్థాపనను కొనసాగించండి."
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "పార్టిషన్ మొ త్తాన్ని వాడు"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "డిస్కు మొ త్తాన్ని వాడు"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "అతిపెద్ద ఎడతెగని ఖాళీ స్థలాన్ని వాడు"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Step ${INDEX}/${TOTAL}"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "మీ  ${OS} అనువర్తనాలు, పత్రాలు, ఛాయాచిత్రాలు, సంగీతం, మరియు మిగతా ఫైళ్లు  <b>తుడిచివేయబడతాయి</"
+#~ "b>"
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "${DISTRO} ఉన్నదాని పక్కన  స్థాపించు"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "ఫైళ్లు తొలగించబడవు. కంప్యూటర్ ప్రారంభమైనపుడు మీకు కావలసిన నిర్వహణ వ్యవస్థ ఎంపికచేసుకోవచ్చు"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "మీ  ${CURDISTRO} అనువర్తనాలు, పత్రాలు, ఛాయాచిత్రాలు, సంగీతం, మరియు మిగతా ఫైళ్లు  "
+#~ "<b>తుడిచివేయబడతాయి</b>"
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "${DISTRO} ${VER} ఉన్నవాటి పక్కన స్థాపించు"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "ఇంకా గోడమీద పిల్లిలాగా వున్నారా? మీ ప్రస్తుత  ${CURDISTRO} వ్యవస్థ ప్రక్కనే ${DISTRO} "
+#~ "${VER}  స్థాపించవచ్చు."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr "దూకడానికి సిద్ధమేనా? శుభ్రమైన స్థాపన మీ హార్డ్ డిస్క్ ను తుడిచేసి ${DISTRO} స్థాపిస్తుంది."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "మీ ${OS} మరియు  ${CURDISTRO} యెక్క అనువర్తనాలు, పత్రాలు, ఛాయాచిత్రాలు, సంగీతం, మరియు మిగతా "
+#~ "ఫైళ్లు <b>తుడిచివేయబడతాయి</b>"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "మీ అన్ని నిర్వహణ వ్యవస్థలలో  అనువర్తనాలు, పత్రాలు, ఛాయాచిత్రాలు, సంగీతం, మరియు మిగతా ఫైళ్లు "
+#~ "<b>తుడిచివేయబడతాయి</b>"
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr "మీ ముఖ్యమైన పత్రాలు లేక అనువర్తనాలకు నష్టంలేకుండా ${CURDISTRO} తాజాపరచవచ్చు"
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr "మీ ముఖ్యమైన పత్రాలు లేక అనువర్తనాలకు నష్టంలేకుండా ${CURDISTRO} తిరిగిస్థాపించవచ్చు"
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr "ఏ ఫైళ్ళ తొలగించబడవు. స్థాపించిన సాఫ్ట్‍వేర్ సాధ్యమైన చోట ఉంచబడుతుంది."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">హెచ్చరిక:</span> ఇది మీ ${OS} లోని ప్రోగ్రాములను, "
+#~ "పత్రాలను, చిత్రాలను, సంగీతం, మరియు ఇతర ఫైళ్ళను చెరిపివేస్తుంది."
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "ప్యాకేజీ వాడుక సర్వేలో పాల్గొనండి"
+
+#~ msgid "Popularity contest"
+#~ msgstr "ప్రజాదరణ పోటీ"
+
+#~ msgid "Port:"
+#~ msgstr "పోర్టు:"

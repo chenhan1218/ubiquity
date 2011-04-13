@@ -747,7 +747,10 @@ class Wizard(BaseFrontend):
             self.shutdown_button.hide()
 
         # Parse the slideshow size early to prevent the window from growing
-        self.slideshow = '/usr/share/ubiquity-slideshow'
+        if self.oem_user_config:
+            self.slideshow = '/usr/share/oem-config-slideshow'
+        else:
+            self.slideshow = '/usr/share/ubiquity-slideshow'
         if os.path.exists(self.slideshow):
             try:
                 cfg = ConfigParser.ConfigParser()

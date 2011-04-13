@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-29 19:17+0000\n"
+"PO-Revision-Date: 2011-04-10 18:46+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1539,16 +1539,12 @@ msgstr "Ersätt ${OS} med ${DISTRO}"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Varning:</span> Detta kommer att radera alla "
-"dina program, dokument, foton, musik och andra filer i ${OS}."
+"<span foreground=\"darkred\">Varning:</span> Detta kommer att ta bort alla "
+"dina ${OS}-program, dokument, foton, musik och alla andra filer."
 
 #. Type: text
 #. Description
@@ -1568,16 +1564,12 @@ msgstr "Installera ${DISTRO} vid sidan av ${OS}"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Inga filer kommer att tas bort. Du kan välja vilket operativsystem som du "
-"vill använda varje gång som datorn startar upp."
+"Dokument, musik och andra personliga filer kommer att behållas. Du kan välja "
+"vilket operativsystem som du vill ha varje gång datorn startar upp."
 
 #. Type: text
 #. Description
@@ -1635,15 +1627,13 @@ msgstr "Uppgradera ${CURDISTRO} till ${VER}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"Inga filer kommer att tas bort. Installerad programvara kommer att behållas "
-"där det är möjligt."
+"Dokument, musik och andra personliga filer kommer att behållas. Installerade "
+"program kommer att behållas där det är möjligt. Systeminställningar kommer "
+"att försvinna."
 
 #. Type: text
 #. Description
@@ -1704,17 +1694,14 @@ msgstr "Installera om ${CURDISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
-#| "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
 "<span foreground=\"darkred\">Varning:</span> Detta kommer att ta bort alla "
-"dina program, dokument, foton, musik och andra filer i ${CURDISTRO}."
+"dina program, dokument, foton, musik och alla andra filer i alla "
+"operativsystem."
 
 #. Type: text
 #. Description
@@ -1823,3 +1810,228 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Tar bort paket"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Använd största oavbrutna lediga utrymmet"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Ange partitioner manuellt (avancerat)"
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Migrera dokument och inställningar"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Hur vill du partitionera disken?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Denna dator har inga operativsystem installerade."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Denna dator har ${OS} installerat."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Denna dator har flera operativsystem installerade."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Var vill du lägga ${RELEASE}?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Detta kommer att ta bort ${SYSTEMS} och installera ${RELEASE}."
+
+#~ msgid "Ready to install"
+#~ msgstr "Redo att installera"
+
+#~ msgid "Details"
+#~ msgstr "Detaljer"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "Ditt nya operativsystem kommer nu att installeras med följande "
+#~ "inställningar:"
+
+#~ msgid "Advanced..."
+#~ msgstr "Avancerat..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "Avancerade alternativ"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Installera starthanterare"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Populäritetstävling"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Delta i undersökningen av paketanvändning"
+
+#~ msgid "Network proxy"
+#~ msgstr "Nätverksproxyserver"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP-proxy:"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Språk: ${LANGUAGE}\n"
+#~ " Tangentbordslayout: ${KEYMAP}\n"
+#~ " Namn: ${FULLNAME}\n"
+#~ " Inloggningsnamn: ${USERNAME}\n"
+#~ " Plats: ${LOCATION}\n"
+#~ " Migrationsguide:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Söker efter filer..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Ställer in datornamn..."
+
+#~ msgid "Applying configuration"
+#~ msgstr "Verkställer konfiguration"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Radera och använd hela disken"
+
+#~ msgid "Summary"
+#~ msgstr "Sammanfattning"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Denna dator kommer att vara färdig att användas efter att du svarat på "
+#~ "ett antal frågor."
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Det tar endast några få minuter att svara på frågorna."
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Redo att installera?  Efter att du besvarat ett antal frågor så kommer "
+#~ "innehållet på live-${MEDIUM} installeras på denna dator så att du kan "
+#~ "köra ${RELEASE} med full fart utan ${MEDIUM}."
+
+#~ msgid "Continue with installation."
+#~ msgstr "Fortsätt med installationen."
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Detta är en förutgåva av installationsprogrammet för ${RELEASE} för "
+#~ "${MEDIUM} (live). Det är inte en slutgiltig utgåva, den kommer att "
+#~ "levereras med den slutgiltiga utgåvan av ${RELEASE} i oktober 2010."
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Steg ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Använd hela partitionen"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Använd hela disken"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Ta reda på tangentbordslayout"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Ta reda på tangentbordslayout"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Installera vid sidan om andra operativsystem"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik "
+#~ "och andra filer i ${OS}."
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "Installera ${DISTRO} vid sidan om det"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Inga filer kommer att tas bort. Du kan välja vilket operativsystem som du "
+#~ "vill använda varje gång som datorn startar upp."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik "
+#~ "och andra filer i ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Du kan uppgradera ${CURDISTRO} utan att förlora några av dina viktiga "
+#~ "dokument eller program."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "Installera ${DISTRO} ${VER} vid sidan om"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik "
+#~ "och andra filer i både ${OS} och ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Du kan installera om ${CURDISTRO} utan att förlora några av dina viktiga "
+#~ "dokument eller program."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Detta kommer att <b>radera</b> alla dina program, dokument, foton, musik "
+#~ "och andra filer i alla operativsystem."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr ""
+#~ "Redo att ta språnget? En ren installation raderar hela din hårddisk och "
+#~ "installerar ${DISTRO}."
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "Tvekar du fortfarande? Du kan installera ${DISTRO} ${VER} vid sidan om "
+#~ "din befintliga kopia av ${CURDISTRO}."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "Inga filer kommer att tas bort. Installerad programvara kommer att "
+#~ "behållas där det är möjligt."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Varning:</span> Detta kommer att radera alla "
+#~ "dina program, dokument, foton, musik och andra filer i ${OS}."

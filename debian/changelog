@@ -1,14 +1,84 @@
 ubiquity (2.6.1) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
+  * bin/ubiquity-dm: use correct KDE wallpaper path
+
+  [ Colin Watson ]
+  * Don't copy keyboard-configuration questions to /target in OEM mode, and
+    reset any values that come from the live filesystem build.  oem-config
+    will ask them later, and copying these confuses it (LP: #741304).
+  * GTK frontend:
+    - Avoid a crash if the automatic partitioning page is never displayed.
+
+  [ Evan Dandrea ]
+  * Remove the 'Bootloader device' line.  See LP #726740.
+
+  [ Mario Limonciello ]
+  * Show the oem-config slideshow in oem-config rather than the ubuntu one.
+  * Uninstall the oem-config slideshow after install is done.
+
+  [ Julien Lavergne ]
+  * Disable ubiquity panel for openbox session. 
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Wed, 13 Apr 2011 22:17:57 +0200
+
+ubiquity (2.6.5) natty; urgency=low
+
+  * Fix broken home directory lookup (LP: #759401).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 13 Apr 2011 09:17:48 +0100
+
+ubiquity (2.6.4) natty; urgency=low
+
+  * Don't check for debconf database locks when ubiquity is itself running
+    inside a debconf frontend (LP: #758858).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 12 Apr 2011 21:25:47 +0100
+
+ubiquity (2.6.3) natty; urgency=low
+
+  * Clean up after the langpacks state on multiple runs of the installer.
+  * Prefer biggest_free over resize always now that we make sure the
+    biggest_free choice offers at least 5GB (LP: #758236, LP: #652852).
+  * Determine the home directory of the target user when copying the
+    network configuration (LP: 745607).
+  * Select all the ubiquity slideshow packages for removal, and do not
+    error out if none can be found (LP: #745607).
+  * Update translations from Launchpad.
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu18, migration-assistant 0.6.10.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 12 Apr 2011 18:29:53 +0100
+
+ubiquity (2.6.2) natty; urgency=low
+
+  [ Colin Watson ]
+  * Handle keyboard layouts with only one variant (LP: #711926).
+  * Make sure to set a new variant default when changing keyboard layout
+    (LP: #745137).
+
+  [ Evan Dandrea ]
+  * Deal with the confirmation key being translated in jockey-text
+    (LP: #757208).
+  * Update translations from Launchpad.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 11 Apr 2011 17:51:12 +0100
+
+ubiquity (2.6.1) natty; urgency=low
+
   [ Stéphane Graber ]
   * KDE frontend:
     - Disable partition edit dialog on row activation, until such time as we
       know how to distinguish click from double-click (LP: #628906).
 
-  [ Julien Lavergne ]
-  * Disable ubiquity panel for openbox session. 
+  [ Colin Watson ]
+  * Automatic update of included source packages: localechooser 2.34ubuntu4,
+    partman-auto 93ubuntu14.
+  * Update translations from Launchpad.
+  * Add ${misc:Depends} to dependencies of ubiquity-ubuntu-artwork and
+    oem-config-remaster.
 
- -- Julien Lavergne <gilir@ubuntu.com>  Sun, 10 Apr 2011 20:31:13 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 Apr 2011 02:22:28 +0100
 
 ubiquity (2.6.0) natty; urgency=low
 

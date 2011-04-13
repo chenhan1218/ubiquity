@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1545,16 +1545,10 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Faili netiks dzēsti. Jūs varēsiet izvēlēties, kuru operētājsistēmu palaist, "
-"startējot datoru."
 
 #. Type: text
 #. Description
@@ -1776,3 +1770,214 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Noņem pakotnes"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Lai atbildētu uz jautājumiem, vajadzēs tikai dažas minūtes."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Pārcelt dokumentus un iestatījumus"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Kā vēlaties dalīt disku?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Uz šī datora nav nevienas operētājsistēmas"
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Uz šī datora jau ir ${OS}."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Uz šī datora jau ir vairākas operētājsistēmas"
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Kur jūs vēlaties likt ${RELEASE}?"
+
+#~ msgid "Ready to install"
+#~ msgstr "Gatavs instalēt"
+
+#~ msgid "Details"
+#~ msgstr "Sīkāka informācija"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "Jūsu jaunā operētājsistēma tagad tiks instalēta ar šādiem iestatījumiem:"
+
+#~ msgid "Advanced Options"
+#~ msgstr "Paplašinātās opcijas"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Instalēt palaidēju"
+
+#~ msgid "Network proxy"
+#~ msgstr "Tīkla starpniekserveris"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP starpniekserveris:"
+
+#~ msgid "Port:"
+#~ msgstr "Ports:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Valoda: ${LANGUAGE}\n"
+#~ " Tastatūras izkārtojums: ${KEYMAP}\n"
+#~ " Vārds: ${FULLNAME}\n"
+#~ " Pieteikumvārds: ${USERNAME}\n"
+#~ " Atrašanās vieta: ${LOCATION}\n"
+#~ " Dokumentu un iestatījumu pārcelšana: \n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Skenē failus..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Iestata datora nosaukumu..."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Dzēst un izmantot visu disku"
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Izmantot lielāko nepārtraukto brīvo vietu"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Norādīt sadaļas pašrocīgi (lietpratējiem)"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Tiklīdz jūs būsiet atbildējis uz dažiem jautājumiem, dators būs gatavs "
+#~ "lietošanai."
+
+#~ msgid "Advanced..."
+#~ msgstr "Papildus..."
+
+#~ msgid "Popularity contest"
+#~ msgstr "Popularitātes aptauja"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Piedalieties programmatūras pakotņu izmantošanas aptaujā"
+
+#~ msgid "Applying configuration"
+#~ msgstr "Pielieto konfigurāciju"
+
+#~ msgid "Summary"
+#~ msgstr "Kopsavilkums"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Esat gatavi instalēt? Pēc tam, kad būsiet atbildējuši uz dažiem "
+#~ "jautājumiem, dzīvā ${MEDIUM} saturs var tikt instalēts šajā datorā, lai "
+#~ "jūs varētu palaist ${RELEASE} pilnā apjomā, neizmantojot ${MEDIUM}."
+
+#~ msgid "Continue with installation."
+#~ msgstr "Turpināt ar instalēšanu."
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Šī darbība dzēsīs ${SYSTEMS} un instalēs ${RELEASE}."
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instalēt blakus citai operētājsistēmai"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Šī ir pirmslaidiena versija ${RELEASE} dzīvā ${MEDIUM} instalatoram. Šis "
+#~ "nav galējais laidiens; tā gala versija ${RELEASE} iznāks kā 2010 gada "
+#~ "oktobrī."
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Uzminēt tastatūras izkārtojumu"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Uzminēt tastatūras izkārtojumu"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Solis ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Izmantot visu sadaļu"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Izmantot visu disku"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Tas <b>izdzēsīs</b> visas ${OS} programmas, dokumentus, fotogrāfijas, "
+#~ "mūziku un visus citus failus."
+
+#~ msgid "Install ${DISTRO} alongside it"
+#~ msgstr "Instalēt ${DISTRO} tai blakus"
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Faili netiks dzēsti. Jūs varēsiet izvēlēties, kuru operētājsistēmu "
+#~ "palaist, startējot datoru."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Tas <b>izdzēsīs</b> visas ${CURDISTRO}} programmas, dokumentus, "
+#~ "fotogrāfijas, mūziku un visus citus failus."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Jūs varat uzlabot ${CURDISTRO}, nezaudējot savus svarīgos dokumentus vai "
+#~ "lietotnes."
+
+#~ msgid "Install ${DISTRO} ${VER} alongside"
+#~ msgstr "Instalēt ${DISTRO} ${VER} blakus"
+
+#~ msgid ""
+#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
+#~ "existing copy of ${CURDISTRO}."
+#~ msgstr ""
+#~ "Nevarat izšķirties? Jūs varat instalēt ${DISTRO} ${VER} blakus esošajai "
+#~ "${CURDISTRO} kopijai."
+
+#~ msgid ""
+#~ "Ready to take the plunge? A clean install erases your entire hard disk "
+#~ "and installs ${DISTRO}."
+#~ msgstr ""
+#~ "Gatavs lēcienam? Tīrā instalēšana izdzēsīs visu cieto disku un uzinstalēs "
+#~ "${DISTRO}."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Tas <b>izdzēsīs</b> visas programmas, dokumentus, fotogrāfijas, mūziku un "
+#~ "visus citus failus gan ${OS}, gan ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Jūs varat pārinstalēt ${CURDISTRO}, nezaudējot nevienu svarīgu dokumentu "
+#~ "vai lietotni."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Tas <b>izdzēsīs</b> visas programmas, dokumentus, fotogrāfijas, mūziku un "
+#~ "visus citus failus visās operētājsistēmās."

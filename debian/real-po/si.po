@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:45+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1673,3 +1673,88 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "විශාලතම සන්තතික හිස් ඉඩ භාවිතා කරන්න"
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "මකා දමා සම්පූර්ණ තැටියම භාවිතා කරන්න"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "මෙම ප්‍රශ්න වලට පිළිතුරු සැපයීමට ගත වන්නේ මිනිත්තු කිහිපයක් පමණි."
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr "ඔබ ප්‍රශ්න කිහිපයකට පිළිතුරු දුන් පසු මෙම පරිඝණකය භාවිතයට සූදානම් තත්වයට පත් වනු ඇත."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "ලේඛන හා සැකසුම් සංක්‍රමණය කරන්න"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "ඔබට තැටිය partition කිරීමට අවශ්‍ය කෙසේද?"
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "මෙම පරිඝණකයේ මෙහෙයුම් පද්ධතියක් නොමැත."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "මෙම පරිඝණකයේ ${OS} ඇත."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "මෙම පරිඝණකයේ මෙහෙයුම් පද්ධති කිහිපයක් ඇත."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "ඔබට ${RELEASE} දැමීමට අවශ්‍ය කොතැනටද?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "මෙය ${SYSTEMS} මකා දමා ${RELEASE} ස්ථාපනය කරනු ඇත."
+
+#~ msgid "Ready to install"
+#~ msgstr "ස්ථාපනයට සූදානම්"
+
+#~ msgid "Details"
+#~ msgstr "විස්තර"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "ඔබගේ නව මෙහෙයුම් පද්ධතිය පසු දැක්වෙන සැකසුම් සමග ස්ථාපනය වනු ඇත:"
+
+#~ msgid "Advanced..."
+#~ msgstr "උසස්..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "උසස් තෝරාගැනීම්"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "පැකේජ භාවිත සමීක්ෂණයට සහභාගී වන්න"
+
+#~ msgid "Network proxy"
+#~ msgstr "ජාල ප්‍රොක්සි"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP ප්‍රොක්සි:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " භාෂාව: ${LANGUAGE}\n"
+#~ " යතුරුපුවරු සැකැස්ම: ${KEYMAP}\n"
+#~ " නම: ${FULLNAME}\n"
+#~ " ප්‍රවේශ නම: ${USERNAME}\n"
+#~ " ස්ථානය: ${LOCATION}\n"
+#~ " සංක්‍රමණ සහකරු:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "ගොනු පිරික්සමින්..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "පරිඝණකයේ නම සකසමින්..."
+
+#~ msgid "Summary"
+#~ msgstr "සාරාංශය"

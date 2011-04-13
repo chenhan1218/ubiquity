@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1668,3 +1668,19 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr ""
+#~ "Ang pagsagot sa mga tanong ay mangangailangan lamang ng ilang minuto."
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Paano mo gustong hatiin ang iyong disk?"
+
+#~ msgid "Ready to install"
+#~ msgstr "Handa nang iluklok"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr ""
+#~ "Ang iyong bagong operating system ay iluluklok na ganito ang pagkakaayos:"

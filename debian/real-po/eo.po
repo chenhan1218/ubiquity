@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-09 23:44+0000\n"
-"X-Generator: Launchpad (build 12757)\n"
+"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #. Type: text
 #. Description
@@ -1513,16 +1513,10 @@ msgstr "Anstataŭigi ${OS} per ${DISTRO}"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:224001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#| "${OS} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Atenton:</span> Ĉi tio forigos ĉiujn viajn "
-"programarojn, dokumentojn, fotojn, muzikon kaj aliajn dosierojn de ${OS}."
 
 #. Type: text
 #. Description
@@ -1542,16 +1536,10 @@ msgstr "Instali ${DISTRO} flanke al ${OS}"
 #. Description
 #: ../ubiquity.templates:225001 ../ubiquity.templates:226001
 #: ../ubiquity.templates:230001 ../ubiquity.templates:235001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. You can choose which operating system you want "
-#| "each time the computer starts up."
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Neniu dosiero estos forigita. Vi povas elekti kiun operaciumon vi volas, "
-"kiam la komputilo startas."
 
 #. Type: text
 #. Description
@@ -1608,15 +1596,10 @@ msgstr "Ĝisdatigi ${CURDISTRO} al ${VER}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001 ../ubiquity.templates:233001
-#, fuzzy
-#| msgid ""
-#| "No files will be deleted. Installed software will be kept where possible."
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"Neniu dosiero estos forigita. Instalitaj programaroj estos mantenitaj kie "
-"eblas."
 
 #. Type: text
 #. Description
@@ -1677,18 +1660,11 @@ msgstr "Reinstali ${CURDISTRO}"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
-#, fuzzy
-#| msgid ""
-#| "<span foreground=\"darkred\">Warning:</span> This will delete all your "
-#| "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Atenton:</span> Ĉi tio forigos ĉiujn viajn "
-"programarojn, dokumentojn, fotojn, muzikon kaj aliajn dosierojn de "
-"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1796,3 +1772,205 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
+
+#~ msgid "Answering the questions should only take a few minutes."
+#~ msgstr "Respondado pri la demandoj probable daŭros nur kelkajn minutojn."
+
+#~ msgid "Migrate documents and settings"
+#~ msgstr "Migru dokumentojn kaj agordaĵojn"
+
+#~ msgid "How do you want to partition the disk?"
+#~ msgstr "Kiel vi volas partigi la diskon?"
+
+#~ msgid "Ready to install"
+#~ msgstr "Pretas por instalado"
+
+#~ msgid "Details"
+#~ msgstr "Detaloj"
+
+#~ msgid ""
+#~ "Your new operating system will now be installed with the following "
+#~ "settings:"
+#~ msgstr "Via nova operaciumo estos nun instalita kun la sekvaj agordoj:"
+
+#~ msgid "Advanced..."
+#~ msgstr "Por progresantoj..."
+
+#~ msgid "Advanced Options"
+#~ msgstr "Altnivelaj Opcioj"
+
+#~ msgid "Install boot loader"
+#~ msgstr "Instali praŝargilon"
+
+#~ msgid "Popularity contest"
+#~ msgstr "Konkurso pri populareco"
+
+#~ msgid "Participate in the package usage survey"
+#~ msgstr "Partoprenu pritaksadon de uzo de pakoj"
+
+#~ msgid "Network proxy"
+#~ msgstr "Reta prokurilo"
+
+#~ msgid "HTTP proxy:"
+#~ msgstr "HTTP-prokurilo"
+
+#~ msgid "Port:"
+#~ msgstr "Pordo:"
+
+#~ msgid ""
+#~ " Language: ${LANGUAGE}\n"
+#~ " Keyboard layout: ${KEYMAP}\n"
+#~ " Name: ${FULLNAME}\n"
+#~ " Login name: ${USERNAME}\n"
+#~ " Location: ${LOCATION}\n"
+#~ " Migration Assistant:\n"
+#~ " ${MIGRATE}"
+#~ msgstr ""
+#~ " Lingvo: ${LANGUAGE}\n"
+#~ " Klavara aranĝo: ${KEYMAP}\n"
+#~ " Nomo: ${FULLNAME}\n"
+#~ " Salutnomo: ${USERNAME}\n"
+#~ " Loko: ${LOCATION}\n"
+#~ " Migra Asistilo:\n"
+#~ " ${MIGRATE}"
+
+#~ msgid "Scanning files..."
+#~ msgstr "Skananta dosierojn..."
+
+#~ msgid "Setting computer name..."
+#~ msgstr "Fiksanta komputilan nomon..."
+
+#~ msgid "This computer has no operating systems on it."
+#~ msgstr "Ĉi tiu komputilo havas neniujn operaciumojn sur ĝi."
+
+#~ msgid "This computer has ${OS} on it."
+#~ msgstr "Ĉi tiu komputilo havas operaciumo ${OS} sur ĝi."
+
+#~ msgid "This computer has several operating systems on it."
+#~ msgstr "Ĉi tiu komputilo havas plurajn operaciumojn sur ĝi."
+
+#~ msgid "Where do you want to put ${RELEASE}?"
+#~ msgstr "Kien vi volas instali ${RELEASE}?"
+
+#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
+#~ msgstr "Ĉi tio forigos ${SYSTEMS} kaj instalos ${RELEASE}."
+
+#~ msgid "Applying configuration"
+#~ msgstr "Apliki agordon"
+
+#~ msgid "Once you answer a few questions, this computer will be ready to use."
+#~ msgstr ""
+#~ "Respondinte kelkajn demandojn, ĉi tiu komputilo estos preta por uzo."
+
+#~ msgid "Erase and use the entire disk"
+#~ msgstr "Viŝi kaj uzi la tutan diskon"
+
+#~ msgid "Summary"
+#~ msgstr "Resumo"
+
+#~ msgid ""
+#~ "Ready to install?  Once you answer a few questions, the contents of the "
+#~ "live ${MEDIUM} can be installed on this computer so you can run "
+#~ "${RELEASE} at full speed without the ${MEDIUM}."
+#~ msgstr ""
+#~ "Ĉu preta por instali? Respondinte kelkajn demandojn, la enhavo de la viva "
+#~ "${MEDIUM} povas esti instalata al tiu ĉi komputilo por ke vi povu ruli "
+#~ "${RELEASE}-n plenrapide sen la ${MEDIUM}."
+
+#~ msgid "Continue with installation."
+#~ msgstr "Daŭrigi la instaladon."
+
+#~ msgid "Use the largest continuous free space"
+#~ msgstr "Uzi la plej grandan seninterrompan spacon"
+
+#~ msgid "Specify partitions manually (advanced)"
+#~ msgstr "Specifi diskpartojn mane (progresinte)"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in October 2010."
+#~ msgstr ""
+#~ "Tio ĉi estas antaŭ-eldono de la viva ${MEDIUM}-instalilo de ${RELEASE}. "
+#~ "Ĝi ne estas definitiva eldono; tiu venos kun la fina eldono de ${RELEASE} "
+#~ "en oktobro 2010"
+
+#~ msgid "Figure out keyboard layout"
+#~ msgstr "Eltrovi klavarfasonon"
+
+#~ msgid "Step ${INDEX}/${TOTAL}"
+#~ msgstr "Paŝo ${INDEX}/${TOTAL}"
+
+#~ msgid "Use Entire Partition"
+#~ msgstr "Uzi tutan subdiskon"
+
+#~ msgid "Use Entire Disk"
+#~ msgstr "Uzi tutan diskon"
+
+#~ msgid "Figure Out Keyboard Layout"
+#~ msgstr "Eltrovi klavarfasonon"
+
+#~ msgid "Install alongside other operating systems"
+#~ msgstr "Instali apud aliaj operaciumoj"
+
+#~ msgid ""
+#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ĉit tio <b>forigos</b> ĉiujn viajn programarojn, dokumentojn, fotojn, "
+#~ "muzikoj kaj iujn ajn dosierojn de ${OS}."
+
+#~ msgid ""
+#~ "No files will be deleted. You can choose which operating system you want "
+#~ "each time the computer starts up."
+#~ msgstr ""
+#~ "Neniu dosiero estos forigita. Vi povas elekti kiun operaciumon vi volas, "
+#~ "kiam la komputilo startas."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
+#~ "music, and any other files."
+#~ msgstr ""
+#~ "Ĉit tio <b>forigos</b> ĉiujn viajn programarojn, dokumentojn, fotojn, "
+#~ "muzikoj kaj iujn ajn dosierojn de ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can upgrade ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Vi povas ĝisdatigi ${CURDISTRO} sen perdi iujn ajn viajn gravajn "
+#~ "dokumentojn aŭ aplikaĵojn."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "other files in both ${OS} and ${CURDISTRO}."
+#~ msgstr ""
+#~ "Ĉit tio <b>forigos</b> ĉiujn viajn programarojn, dokumentojn, fotojn, "
+#~ "muzikoj kaj iujn ajn dosierojn ambaŭ de ${OS} kaj ${CURDISTRO}."
+
+#~ msgid ""
+#~ "You can reinstall ${CURDISTRO} without losing any of your important "
+#~ "documents or applications."
+#~ msgstr ""
+#~ "Vi povas reinstali ${CURDISTRO} sen perdi iujn ajn gravajn dokumentojn aŭ "
+#~ "aplikaĵojn."
+
+#~ msgid ""
+#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
+#~ "any other files in all operating systems."
+#~ msgstr ""
+#~ "Ĉit tio <b>forigos</b> ĉiujn viajn programarojn, dokumentojn, fotojn, "
+#~ "muzikoj kaj iujn ajn dosierojn en ĉiuj viaj operaciumoj."
+
+#~ msgid ""
+#~ "No files will be deleted. Installed software will be kept where possible."
+#~ msgstr ""
+#~ "Neniu dosiero estos forigita. Instalitaj programaroj estos mantenitaj kie "
+#~ "eblas."
+
+#~ msgid ""
+#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
+#~ "${OS} programs, documents, photos, music, and any other files."
+#~ msgstr ""
+#~ "<span foreground=\"darkred\">Atenton:</span> Ĉi tio forigos ĉiujn viajn "
+#~ "programarojn, dokumentojn, fotojn, muzikon kaj aliajn dosierojn de ${OS}."
