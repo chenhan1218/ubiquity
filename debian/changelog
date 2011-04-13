@@ -7,6 +7,8 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
   * Don't copy keyboard-configuration questions to /target in OEM mode, and
     reset any values that come from the live filesystem build.  oem-config
     will ask them later, and copying these confuses it (LP: #741304).
+  * GTK frontend:
+    - Avoid a crash if the automatic partitioning page is never displayed.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 13 Apr 2011 10:08:02 +0100
 
