@@ -1,3 +1,9 @@
+ubiquity (2.6.6) UNRELEASED; urgency=low
+
+  * bin/ubiquity-dm: use correct KDE wallpaper path
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 13 Apr 2011 10:08:02 +0100
+
 ubiquity (2.6.5) natty; urgency=low
 
   * Fix broken home directory lookup (LP: #759401).
