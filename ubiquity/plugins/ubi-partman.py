@@ -125,6 +125,28 @@ class PageGtk(PageBase):
             self.custom_partitioning_title = builder.get_object('custom_partitioning_title')
             self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
 
+            # Ask page accessibility
+            self.atk_use_device = self.use_device.get_accessible()
+            self.atk_use_device_title = self.use_device_title.get_accessible()
+            self.atk_use_device_title.add_relationship(atk.RELATION_LABEL_FOR, self.atk_use_device)
+            self.atk_use_device.add_relationship(atk.RELATION_LABELLED_BY, self.atk_use_device_title)
+            self.atk_replace_partition = self.replace_partition.get_accessible()
+            self.atk_replace_partition_title = self.replace_partition_title.get_accessible()
+            self.atk_replace_partition_title.add_relationship(atk.RELATION_LABEL_FOR, self.atk_replace_partition)
+            self.atk_replace_partition.add_relationship(atk.RELATION_LABELLED_BY, self.atk_replace_partition_title)
+            self.atk_reuse_partition = self.reuse_partition.get_accessible()
+            self.atk_reuse_partition_title = self.reuse_partition_title.get_accessible()
+            self.atk_reuse_partition_title.add_relationship(atk.RELATION_LABEL_FOR, self.atk_reuse_partition)
+            self.atk_reuse_partition.add_relationship(atk.RELATION_LABELLED_BY, self.atk_reuse_partition_title)
+            self.atk_resize_use_free = self.resize_use_free.get_accessible()
+            self.atk_resize_use_free_title = self.resize_use_free_title.get_accessible()
+            self.atk_resize_use_free_title.add_relationship(atk.RELATION_LABEL_FOR, self.atk_resize_use_free)
+            self.atk_resize_use_free.add_relationship(atk.RELATION_LABELLED_BY, self.atk_resize_use_free_title)
+            self.atk_custom_partitioning = self.custom_partitioning.get_accessible()
+            self.atk_custom_partitioning_title = self.custom_partitioning_title.get_accessible()
+            self.atk_custom_partitioning_title.add_relationship(atk.RELATION_LABEL_FOR, self.atk_custom_partitioning)
+            self.atk_custom_partitioning.add_relationship(atk.RELATION_LABELLED_BY, self.atk_custom_partitioning_title)
+
             # Advanced page
             self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
             self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')

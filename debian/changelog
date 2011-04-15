@@ -22,6 +22,9 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
   [ Julien Lavergne ]
   * Disable ubiquity panel for openbox session. 
 
+  [ Mackenzie Morgan ]
+  * Make radio buttons use label wording for screen reader (LP: #749653)
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 13 Apr 2011 10:08:02 +0100
 
 ubiquity (2.6.5) natty; urgency=low
