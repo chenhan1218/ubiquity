@@ -17,6 +17,8 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
   * Move installation of the nvidia driver to after the removal of
     unneeded kernels. Divert update-initramfs for the duration and
     trigger it afterwards (LP: #759804).
+  * Make the 'name already exists on the network' warning message not
+    block the user from moving forward (LP: #760884).
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.

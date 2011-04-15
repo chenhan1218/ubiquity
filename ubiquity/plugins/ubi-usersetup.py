@@ -427,7 +427,6 @@ class PageGtk(PageBase):
             # FIXME: i18n
             self.hostname_error('That name already exists on the network.')
             self.hostname_ok.hide()
-            self.controller.allow_go_forward(False)
 
     def hostname_timeout(self, widget):
         import gio
