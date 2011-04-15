@@ -15,7 +15,7 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.
-  * Uninstall the oem-config slideshow after install is done.
+  * Uninstall the oem-config slideshow after install is done (LP: #759935).
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 13 Apr 2011 10:08:02 +0100
 
