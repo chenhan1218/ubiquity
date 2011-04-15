@@ -1278,9 +1278,8 @@ class PageKde(PageBase):
         self.disk_layout = layout
         self.partAuto.setDiskLayout(layout)
 
-    def set_grub_options(self):
+    def set_grub_options(self, default):
         options = misc.grub_options()
-        default = misc.grub_default()
         if default.startswith('/'):
             default = os.path.realpath(default)
         self.partMan.setGrubOptions(options, default)
