@@ -208,6 +208,9 @@ class Install(install_misc.InstallBase):
             self.remove_extras()
 
         self.next_region()
+        if 'UBIQUITY_OEM_USER_CONFIG' not in os.environ:
+            self.install_restricted_extras()
+
         self.db.progress('INFO', 'ubiquity/install/apt_clone_restore')
         try:
             self.apt_clone_restore()
@@ -1036,6 +1039,47 @@ class Install(install_misc.InstallBase):
         if inst_langpacks:
             self.verify_language_packs()
 
+    def install_restricted_extras(self):
+        if self.db.get('ubiquity/use_nonfree') == 'true':
+            self.db.progress('INFO', 'ubiquity/install/nonfree')
+            package = self.db.get('ubiquity/nonfree_package')
+            self.do_install([package])
+            try:
+                install_misc.chrex(self.target,'dpkg-divert', '--package',
+                        'ubiquity', '--rename', '--quiet', '--add',
+                        '/usr/sbin/update-initramfs')
+                try:
+                    os.symlink('/bin/true', os.path.join(self.target,
+                        'usr/sbin/update-initramfs'))
+                except OSError:
+                    pass
+                env = os.environ.copy()
+                env['LC_ALL'] = 'C'
+                misc.execute('mount', '--bind', '/proc', self.target + '/proc')
+                misc.execute('mount', '--bind', '/sys', self.target + '/sys')
+                misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+                inst_composite = ['chroot', self.target, 'jockey-text',
+                                  '-C', '--no-dbus', '-k', self.kernel_version]
+                p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
+                                     stdout=sys.stderr, env=env)
+                p.communicate('y\n')
+            except OSError:
+                syslog.syslog(syslog.LOG_WARNING,
+                    'Could not install a composited driver:')
+                for line in traceback.format_exc().split('\n'):
+                    syslog.syslog(syslog.LOG_WARNING, line)
+            finally:
+                misc.execute('umount', '-f', self.target + '/proc')
+                misc.execute('umount', '-f', self.target + '/sys')
+                misc.execute('umount', '-f', self.target + '/dev')
+                osextras.unlink_force(os.path.join(self.target,
+                    'usr/sbin/update-initramfs'))
+                install_misc.chrex(self.target,'dpkg-divert', '--package',
+                        'ubiquity', '--rename', '--quiet', '--remove',
+                        '/usr/sbin/update-initramfs')
+                install_misc.chrex(self.target,'update-initramfs', '-c', '-k',
+                        self.kernel_version)
+
     def install_extras(self):
         """Try to install additional packages requested by installer
         components."""
@@ -1059,31 +1103,6 @@ class Install(install_misc.InstallBase):
 
         if found_cdrom:
             os.rename("%s.apt-setup" % sources_list, sources_list)
-
-        if self.db.get('ubiquity/use_nonfree') == 'true':
-            self.db.progress('INFO', 'ubiquity/install/nonfree')
-            package = self.db.get('ubiquity/nonfree_package')
-            self.do_install([package])
-            try:
-                env = os.environ.copy()
-                env['LC_ALL'] = 'C'
-                misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-                misc.execute('mount', '--bind', '/sys', self.target + '/sys')
-                misc.execute('mount', '--bind', '/dev', self.target + '/dev')
-                inst_composite = ['chroot', self.target, 'jockey-text',
-                                  '-C', '--no-dbus']
-                p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
-                                     stdout=sys.stderr, env=env)
-                p.communicate('y\n')
-            except OSError:
-                syslog.syslog(syslog.LOG_WARNING,
-                    'Could not install a composited driver:')
-                for line in traceback.format_exc().split('\n'):
-                    syslog.syslog(syslog.LOG_WARNING, line)
-            finally:
-                misc.execute('umount', '-f', self.target + '/proc')
-                misc.execute('umount', '-f', self.target + '/sys')
-                misc.execute('umount', '-f', self.target + '/dev')
 
         # TODO cjwatson 2007-08-09: python reimplementation of
         # oem-config/finish-install.d/07oem-config-user. This really needs

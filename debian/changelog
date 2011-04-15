@@ -14,6 +14,9 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
   * Remove the 'Bootloader device' line.  See LP #726740.
   * Do not reset the bootloader choice unless it's absolutely necessary
     (LP: #756920). Thanks Stéphane Graber!
+  * Move installation of the nvidia driver to after the removal of
+    unneeded kernels. Divert update-initramfs for the duration and
+    trigger it afterwards (LP: #759804).
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.
