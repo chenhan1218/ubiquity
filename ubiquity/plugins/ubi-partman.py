@@ -454,11 +454,10 @@ class PageGtk(PageBase):
         self.custom_partitioning.set_active(True)
         self.controller.go_forward()
 
-    def set_grub_options(self):
+    def set_grub_options(self, default):
         import gtk, gobject
         self.bootloader_vbox.show()
         options = misc.grub_options()
-        default = misc.grub_default()
         if default.startswith('/'):
             default = os.path.realpath(default)
         l = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
@@ -2746,9 +2745,13 @@ class Page(plugin.Plugin):
         else:
             self.finish_partitioning = True
         self.succeeded = True
+        self.exit_ui_loops()
+
+    def exit_ui_loops(self):
         if self.install_bootloader:
             self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
-        self.exit_ui_loops()
+
+        plugin.Plugin.exit_ui_loops(self)
 
     # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
@@ -2829,7 +2832,12 @@ class Page(plugin.Plugin):
 
     def maybe_update_grub(self):
         if self.install_bootloader:
-            self.ui.set_grub_options()
+            grub_bootdev=self.db.get("grub-installer/bootdev")
+            if grub_bootdev and grub_bootdev in (part[0] for part in misc.grub_options()):
+                default = grub_bootdev
+            else:
+                default = misc.grub_default()
+            self.ui.set_grub_options(default)
 
 # Notes:
 #
