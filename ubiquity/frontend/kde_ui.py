@@ -1180,6 +1180,10 @@ class Wizard(BaseFrontend):
                 dbfilter.start(auto_process=True)
 
         elif finished_step == 'ubi-partman':
+            # Flush changes to the database so that when the parallel db
+            # starts, it does so with the most recent changes.
+            self.stop_debconf()
+            self.start_debconf()
             self.ui.progressBar.show()
             self.installing = True
             from ubiquity.debconfcommunicator import DebconfCommunicator
