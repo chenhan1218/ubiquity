@@ -1419,6 +1419,10 @@ class Wizard(BaseFrontend):
                 dbfilter.start(auto_process=True)
 
         elif finished_step == 'ubi-partman':
+            # Flush changes to the database so that when the parallel db
+            # starts, it does so with the most recent changes.
+            self.stop_debconf()
+            self.start_debconf()
             options = misc.grub_options()
             self.grub_options.clear()
             for opt in options:
