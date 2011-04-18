@@ -21,6 +21,8 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
     block the user from moving forward (LP: #760884).
   * Briefly shut down the debconf database to flush any changes before
     starting the parallel database (LP: #761094).
+  * Fix removal of slideshow packages for non-GTK frontends
+    (LP: #745607).
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.
