@@ -25,6 +25,9 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
     (LP: #745607).
   * Set the locale again after the timezone page so that the slideshow
     can have country-specific translations (LP: #758658).
+  * Automatic update of included source packages: base-installer
+    1.116ubuntu2, choose-mirror 2.37ubuntu2, console-setup 1.57ubuntu19,
+    flash-kernel 2.28ubuntu19, user-setup 1.28ubuntu15.
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.
