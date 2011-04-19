@@ -23,6 +23,8 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
     starting the parallel database (LP: #761094).
   * Fix removal of slideshow packages for non-GTK frontends
     (LP: #745607).
+  * Set the locale again after the timezone page so that the slideshow
+    can have country-specific translations (LP: #758658).
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.

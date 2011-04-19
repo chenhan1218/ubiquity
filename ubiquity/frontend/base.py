@@ -39,6 +39,9 @@ class Controller:
         self.oem_config = wizard.oem_config
         self.oem_user_config = wizard.oem_user_config
 
+    def set_locale(self, locale):
+        self._wizard.locale = locale
+
     def translate(self, lang=None, just_me=True, not_me=False, reget=False):
         pass
     def allow_go_forward(self, allowed):

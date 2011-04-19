@@ -594,7 +594,8 @@ class Page(plugin.Plugin):
 
     def cleanup(self):
         plugin.Plugin.cleanup(self)
-        i18n.reset_locale(self.frontend, just_country=True)
+        self.ui.controller.set_locale(
+                i18n.reset_locale(self.frontend, just_country=True))
 
 class Install(plugin.InstallPlugin):
     def prepare(self, unfiltered=False):
