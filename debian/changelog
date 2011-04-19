@@ -1,4 +1,4 @@
-ubiquity (2.6.6) UNRELEASED; urgency=low
+ubiquity (2.6.6) natty; urgency=low
 
   [ Jonathan Riddell ]
   * bin/ubiquity-dm: use correct KDE wallpaper path
@@ -40,7 +40,7 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
   [ Mackenzie Morgan ]
   * Make radio buttons use label wording for screen reader (LP: #749653)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 13 Apr 2011 10:08:02 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 19 Apr 2011 11:45:53 +0100
 
 ubiquity (2.6.5) natty; urgency=low
 
