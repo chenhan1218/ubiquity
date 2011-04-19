@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-09 09:57+0000\n"
+"PO-Revision-Date: 2011-04-13 08:07+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -1053,7 +1053,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Villa við að endurheimta uppsett forrit"
 
 #. Type: error
 #. Description
@@ -1063,6 +1063,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Villa kom upp þegar reynt var að endurheimta áður uppsett forrit. "
+"Uppsetningin mun halda áfram, en þú gætir þurft að setja aftur upp einhver "
+"forrit eftir endurræsingu tölvunnar."
 
 #. Type: text
 #. Description
@@ -1441,6 +1444,11 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
+"${RELEASE} styðst við hugbúnað frá öðrum aðilum til að vinna með Flash, MP3 "
+"og fleira slíkt, auk þess að nota utanaðkomandi rekla fyrir nokkur þráðlaus "
+"netkort. Sumt af þeim hugbúnaði er lokaður (closed-source). Slíkur "
+"hugbúnaður er háður notkunarskilmálum í notkunarleyfi því sem ætti að fylgja "
+"hugbúnaðinum."
 
 #. Type: text
 #. Description
@@ -1528,6 +1536,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Aðvörun:</span> Þetta mun eyða öllum ${OS} "
+"forritum, skjölum, myndum, tónlist og öðrum skrám."
 
 #. Type: text
 #. Description
@@ -1551,6 +1561,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Allar persónulegar skrár á borð við skjöl, tónlist o.þ.h. verða ósnertar. Þú "
+"getur valið hvaða stýrikerfi þú vilt nota í hvert skipti sem tölvan er ræst."
 
 #. Type: text
 #. Description
@@ -1608,6 +1620,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Allar persónulegar skrár á borð við skjöl, tónlist o.þ.h. verða ósnertar. "
+"Uppsettum forritum verður viðhaldið þar sem það er hægt. Kerfislægar "
+"stillingar verða endurstilltar."
 
 #. Type: text
 #. Description

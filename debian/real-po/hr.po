@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-06 12:55+0000\n"
+"PO-Revision-Date: 2011-04-14 15:43+0000\n"
 "Last-Translator: Saša Teković <Unknown>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Ponovno pokreni za nastavak"
 
 #. Type: text
 #. Description
@@ -1058,7 +1058,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Greška kod vraćanja instaliranih aplikacija"
 
 #. Type: error
 #. Description
@@ -1068,6 +1068,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Dogodila se greška kod vraćanja prethodno instaliranih aplikacija. "
+"Instalacija će se nastaviti, ali možda ćete nakon ponovnog pokretanja "
+"sustava trebati ručno ponoviti instalaciju nekih aplikacija."
 
 #. Type: text
 #. Description
@@ -1538,6 +1541,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve vaše "
+"${OS} programe, dokumente, slike, glazbu i ostale datoteke."
 
 #. Type: text
 #. Description
@@ -1545,7 +1550,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Instaliraj ${DISTRO} uz ${OS}"
 
 #. Type: text
 #. Description
@@ -1561,6 +1566,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Dokumenti, glazba i ostali privatni podaci će biti zadržani. Kod pokretanja "
+"računala ćete moći odabrati koji operativni sustav želite učitati."
 
 #. Type: text
 #. Description
@@ -1568,13 +1575,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Instaliraj ${DISTRO} unutar ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Nešto drugo"
 
 #. Type: text
 #. Description
@@ -1584,6 +1591,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Možete stvoriti ili promijeniti veličinu particija, odnosno odabrati više "
+"particija za ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1600,6 +1609,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve vaše "
+"${CURDISTRO} programe, dokumente, slike, glazbu i ostale datoteke."
 
 #. Type: text
 #. Description
@@ -1618,6 +1629,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Dokumenti, glazba i ostale osobne datoteke će biti zadržane. Instalirani "
+"programi će se pokušati očuvati gdje god je moguće. Postavke sustava će biti "
+"prepisane."
 
 #. Type: text
 #. Description
@@ -1626,7 +1640,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Instaliraj ${DISTRO} ${VER} uz ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1645,6 +1659,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve datoteke "
+"na disku."
 
 #. Type: text
 #. Description
@@ -1662,6 +1678,9 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve vaše "
+"programe, dokumente, slike, glazbu i ostale datoteke u ${OS} i ${CURDISTRO} "
+"operativnom sustavu."
 
 #. Type: text
 #. Description
@@ -1678,6 +1697,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> Ovo će obrisati sve vaše "
+"programe, dokumente, slike, glazbu i ostale datoteke u svim operativnim "
+"sustavima."
 
 #. Type: text
 #. Description
@@ -1691,7 +1713,7 @@ msgstr "Instaliraj ${DISTRO} uz njih"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "Na ovom je računalu trenutno instaliran ${OS}. Što želite učiniti?"
 
 #. Type: text
 #. Description
@@ -1702,6 +1724,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Na ovom je računalu trenutno instaliran ${OS1} i ${OS2}. Što želite učiniti?"
 
 #. Type: text
 #. Description
@@ -1710,6 +1733,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"Na ovom je računalu trenutno instalirano nekoliko operativnih sustava. Što "
+"želite učiniti?"
 
 #. Type: text
 #. Description
@@ -1718,6 +1743,7 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"Na ovom računalu nije pronađen nijedan operativni sustav. Što želite učiniti?"
 
 #. Type: title
 #. Description

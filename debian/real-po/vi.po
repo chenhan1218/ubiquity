@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-31 06:25+0000\n"
-"Last-Translator: Nguyễn Anh <Unknown>\n"
+"PO-Revision-Date: 2011-04-18 09:11+0000\n"
+"Last-Translator: dongha <Unknown>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:37+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -1526,6 +1526,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Cảnh báo:</span> Việc này sẽ làm xóa toàn bộ "
+"chương trình trên $(OS), tài liệu, ảnh, nhạc và các dữ liệu khác."
 
 #. Type: text
 #. Description
@@ -1549,6 +1551,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Tài liệu, nhạc và các dữ liệu cá nhân khác sẽ được giữ lại. Bạn có thể chọn "
+"hệ điều hành mỗi khi máy tính khởi động."
 
 #. Type: text
 #. Description
@@ -1611,6 +1615,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Tài liệu, nhạc và các dữ liệu cá nhân khác sẽ được giữ lại. Các phần mềm đã "
+"cài đặt có thể được giữ lại. Các cài đặt hệ thống sẽ bị xóa bỏ."
 
 #. Type: text
 #. Description
@@ -1675,6 +1681,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Cảnh báo:</span> Việc này sẽ làm xóa toàn bộ "
+"chương trình, tài liệu, ảnh, nhạc và các dữ liệu khác trong tất cả các hệ "
+"điều hành của bạn."
 
 #. Type: text
 #. Description

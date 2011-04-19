@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-04 03:31+0000\n"
+"PO-Revision-Date: 2011-04-15 00:31+0000\n"
 "Last-Translator: Tranzistors <Unknown>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Pārstartējiet, lai turpinātu"
 
 #. Type: text
 #. Description
@@ -1050,7 +1050,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Kļūda, atjaunojot instalētās lietotnes"
 
 #. Type: error
 #. Description
@@ -1060,6 +1060,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Gadījās kļūda, atjaunojot iepriekš instalētās lietotnes. Instalēšana "
+"turpināsies, bet jums būs pašrocīgi jāinstalē dažas pakotnes pēc datora "
+"pārstartēšanās."
 
 #. Type: text
 #. Description
@@ -1526,6 +1529,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu ${OS} "
+"programmas, dokumentus, fotogrāfijas, mūziku, un jebkurus citus failus."
 
 #. Type: text
 #. Description
@@ -1533,7 +1538,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Instalēt ${DISTRO} blakus ${OS}"
 
 #. Type: text
 #. Description
@@ -1549,6 +1554,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Dokumenti, mūzika un citi personīgie faili tiks paturēti. Jūs varat "
+"izvēlēties, kuru operētājsistēmu vēlaties lietot katru reizi, kad dators "
+"tiek ieslēgts."
 
 #. Type: text
 #. Description
@@ -1556,13 +1564,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Instalēt ${DISTRO} iekš ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Kaut kas cits"
 
 #. Type: text
 #. Description
@@ -1572,6 +1580,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Jūs varat pats mainīt sadaļu izmēru, vai izvēlēties vairākas sadaļās "
+"distribūcijai ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1588,6 +1598,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu "
+"${CURDISTRO} programmas, dokumentus, fotogrāfijas, mūziku, un jebkurus citus "
+"failus."
 
 #. Type: text
 #. Description
@@ -1606,6 +1619,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Dokumenti, mūzika un citi personīgie faili tiks paturēti. Instalētā "
+"programmatūra, kur tas ir iespējams, tiks paturēta. Sistēmas iestatījumi "
+"netiks paturēti."
 
 #. Type: text
 #. Description
@@ -1614,7 +1630,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Instalēt ${DISTRO} ${VER} blakus ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1633,6 +1649,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Brīdinājums:</span> Tiks dzēsti visi faili uz "
+"diska."
 
 #. Type: text
 #. Description
@@ -1650,6 +1668,9 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu "
+"programmas, dokumentus, fotogrāfijas, mūziku, un jebkurus citus failus gan "
+"${OS}, gan ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1666,6 +1687,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu "
+"programmas, dokumentus, fotogrāfijas, mūziku, un jebkurus citus failus visās "
+"operētājsistēmās."
 
 #. Type: text
 #. Description
@@ -1679,7 +1703,7 @@ msgstr "Instalēt ${DISTRO} tām blakus"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "Uz šī datora pašlaik ir ${OS}. Ko vēlaties darīt?"
 
 #. Type: text
 #. Description
@@ -1689,7 +1713,7 @@ msgstr ""
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "Uz šī datora pašlaik ir ${OS1} un ${OS2}. Ko vēlaties darīt?"
 
 #. Type: text
 #. Description
@@ -1697,7 +1721,7 @@ msgstr ""
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr ""
+msgstr "Uz šī datora pašlaik ir vairākas operētājsistēmas. Ko vēlaties darīt?"
 
 #. Type: text
 #. Description
@@ -1705,7 +1729,7 @@ msgstr ""
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr ""
+msgstr "Uz šī datora nav atrastas operētājsistēmas. Ko vēlaties darīt?"
 
 #. Type: title
 #. Description

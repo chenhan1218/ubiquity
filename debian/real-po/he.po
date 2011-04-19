@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-30 13:32+0000\n"
+"PO-Revision-Date: 2011-04-14 06:15+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -1509,6 +1509,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">אזהרה:</span> פעולה זו תמחק את כל התכנית, "
+"המסמכים, התמונות, המוזיקה ושאר הקבצים שב־${OS} ."
 
 #. Type: text
 #. Description
@@ -1532,6 +1534,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"מסמכים, מוזיקה וקבצים אישיים אחרים יישמרו. ניתן לבחור מהי מערכת ההפעלה בה "
+"ברצונך להשתמש בכל פעם עם הפעלת המחשב."
 
 #. Type: text
 #. Description
@@ -1593,6 +1597,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"מסמכים, מוזיקה וקבצים אישיים אחרים יישמרו. התוכנות המותקנות יישמרו היכן "
+"שניתן. הגדרות כלל מערכתיות יימחקו."
 
 #. Type: text
 #. Description
@@ -1658,6 +1664,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">אזהרה:</span> פעולה זו תמחק את כל התכניות, "
+"המסמכים, התמונות, המוזיקה וכל שאר הקבצים בכל מערכות ההפעלה."
 
 #. Type: text
 #. Description

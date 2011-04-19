@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-06 15:06+0000\n"
-"Last-Translator: Fumihito YOSHIDA <hito@kugutsu.org>\n"
+"PO-Revision-Date: 2011-04-13 18:07+0000\n"
+"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -1535,6 +1535,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">警告:</span> これにより、${OS} 上にあるプログラ"
+"ム、ドキュメント、写真、音楽、その他のファイルはすべて削除されます。"
 
 #. Type: text
 #. Description
@@ -1558,6 +1560,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"ドキュメント、音楽、その他の個人ファイルは残されます。コンピュータを起動する"
+"際に、どのOSで起動するか選択できます。"
 
 #. Type: text
 #. Description
@@ -1581,8 +1585,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"${DISTRO} のために、自分で複数のパーティションの作成・サイズ変更を行うこと"
-"も、任意に選択することもできます。"
+"${DISTRO} 用に、自分で複数のパーティションの作成・サイズ変更を行うことも、任"
+"意に選択することもできます。"
 
 #. Type: text
 #. Description
@@ -1619,6 +1623,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"ドキュメント、音楽、その他の個人ファイルは残されます。インストールされている"
+"ソフトウェアは可能であれば残されます。システム全体の設定はクリアされます。"
 
 #. Type: text
 #. Description
@@ -1683,6 +1689,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">警告:</span> これにより、すべてのOS上にあるプロ"
+"グラム、ドキュメント、写真、音楽、その他のファイルはすべて削除されます。"
 
 #. Type: text
 #. Description

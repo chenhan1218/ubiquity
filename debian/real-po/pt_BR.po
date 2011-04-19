@@ -7,22 +7,22 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-12 15:17+0000\n"
-"Last-Translator: Gabriell H. R. Nascimento <gabriel.elric@gmail.com>\n"
+"PO-Revision-Date: 2011-04-18 18:06+0000\n"
+"Last-Translator: Teylo Laundos Aguiar <teylo.aguiar@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:37+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr "Reiniciar para continuar"
+msgstr "Reinicie para continuar"
 
 #. Type: text
 #. Description
@@ -37,8 +37,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"Muito inteligente para nós? Suje as mãos com algumas opções de "
-"particionamento avançado."
+"Se achando experto? Suje as mãos com algumas opções de particionamento "
+"avançado."
 
 #. Type: text
 #. Description
@@ -76,8 +76,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Você pode experimentar ${RELEASE} sem fazer quaisquer alterações no seu "
-"computador, diretamente a partir do ${MEDIUM}."
+"Você pode experimentar o ${RELEASE} sem fazer quaisquer alterações no seu "
+"computador, diretamente a partir deste ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -95,14 +95,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Try ${RELEASE}"
-msgstr "Experimentar ${RELEASE}"
+msgstr "Experimentar o ${RELEASE}"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:11001
 msgid "Install ${RELEASE}"
-msgstr "Instalar ${RELEASE}"
+msgstr "Instalar o ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1163,7 +1163,7 @@ msgstr "Configuração do sistema"
 #. Description
 #: ../ubiquity.templates:163001 ../ubiquity.templates:222001
 msgid "Welcome"
-msgstr "Bem-vindo(a)"
+msgstr "Bem-vindo"
 
 #. Type: text
 #. Description
@@ -1578,7 +1578,7 @@ msgstr "Instalar ${DISTRO} dentro do ${OS}"
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr "Algo mais"
+msgstr "Opção avançada"
 
 #. Type: text
 #. Description
@@ -1588,8 +1588,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"Você pode criar ou redimensionar partições sozinho ou escolher várias "
-"partições para ${DISTRO}."
+"Você pode criar ou redimensionar partições manualmente ou escolher múltiplas "
+"partições para o ${DISTRO}."
 
 #. Type: text
 #. Description

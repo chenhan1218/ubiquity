@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2010-10-02 15:34+0000\n"
-"Last-Translator: sterios prosiniklis <steriosprosiniklis@gmail.com>\n"
+"PO-Revision-Date: 2011-04-15 21:09+0000\n"
+"Last-Translator: Theodore Grammenos <Unknown>\n"
 "Language-Team: <en@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Επανεκκίνηση για να συνεχίσετε"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Χειροκίνητη ρύθμιση (για προχωρημένους)"
 
 #. Type: text
 #. Description
@@ -36,6 +36,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Πολύ απλό για μας; Λερώστε τα χέρια σας με μερικές επιλογές κατάτμησης για "
+"προχωρημένους."
 
 #. Type: text
 #. Description
@@ -50,7 +52,7 @@ msgstr "Εγκατάσταση"
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Εγκατάσταση (OEM, για κατασκευαστές)"
+msgstr "Εγκατάσταση (τύπου OEM, μόνο για κατασκευαστές)"
 
 #. Type: text
 #. Description
@@ -137,6 +139,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2011."
 msgstr ""
+"Αυτή είναι μια πρώιμη έκδοση της εγκατάστασης του ${RELEASE} Live ${MEDIUM}. "
+"Η τελική έκδοση θα κυκλοφορήσει μαζί με την τελική έκδοση του ${RELEASE} τον "
+"Απρίλιο του 2011."
 
 #. Type: text
 #. Description
@@ -185,13 +190,13 @@ msgstr "Πληκτρολογήστε εδώ για να δοκιμάσετε τ�
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Εντοπισμός διάταξης πληκτρολογίου"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "Εντοπισμός διάταξης πληκτρολογίου…"
 
 #. Type: text
 #. Description
@@ -257,7 +262,7 @@ msgstr "Επιβεβαίωση συνθηματικού"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "Επιβεβαιώστε το συνθηματικό:"
 
 #. Type: text
 #. Description
@@ -283,7 +288,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Τα συνθηματικά δεν ταιριάζουν"
 
 #. Type: text
 #. Description
@@ -365,7 +370,7 @@ msgstr "Κατανομή χώρου στο δίσκο"
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Αρχεία (${SIZE})"
 
 #. Type: text
 #. Description
@@ -478,7 +483,7 @@ msgstr "Επανεκκίνηση τώρα"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Απενεργοποίηση τώρα"
 
 #. Type: text
 #. Description
@@ -888,7 +893,7 @@ msgstr "Ρύθμιση υλικού..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "Γίνεται εγκατάσταση λογισμικού τρίτων…"
 
 #. Type: text
 #. Description
@@ -906,13 +911,13 @@ msgstr "Ρύθμιση διαχειριστή εκκίνησης..."
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Αποθήκευση των εγκατεστημένων πακέτων…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "Επαναφορά προηγούμενων εγκατεστημένων πακέτων..."
 
 #. Type: text
 #. Description
@@ -1065,7 +1070,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Σφάλμα κατά την επαναφορά εγκατεστημένων πακέτων"
 
 #. Type: error
 #. Description
@@ -1075,6 +1080,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Συνέβη ένα σφάλμα κατά την επαναφορά των προηγούμενα εγκατεστημένων "
+"εφαρμογών. Η εγκατάσταση θα συνεχίσει, αλλά πιθανόν να χρειαστεί να κάνετε "
+"επανεγκατάσταση μερικών εφαρμογών μετά την επανεκκίνηση του υπολογιστή."
 
 #. Type: text
 #. Description
@@ -1541,7 +1549,7 @@ msgstr "[πληκτρολογήστε  εδώ για αλλαγή]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Αντικατάσταση του ${OS} με το ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1551,6 +1559,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Προσοχή:</span> Αυτό θα διαγράψει όλα τα "
+"προγράμματα, τα έγγραφα, τις φωτογραφίες, τη μουσική και οποιαδήποτε άλλα "
+"αρχεία στο ${OS}."
 
 #. Type: text
 #. Description
@@ -1558,7 +1569,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Εγκατάσταση του ${DISTRO} μαζί με το ${OS}"
 
 #. Type: text
 #. Description
@@ -1574,6 +1585,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Τα έγγραφα, η μουσική, και τα άλλα προσωπικά σας αρχεία θα διατηρηθούν. Θα "
+"μπορείτε να επιλέγετε ποιο λειτουργικό σύστημα θα χρησιμοποιείτε κατά την "
+"εκκίνηση του υπολογιστή σας."
 
 #. Type: text
 #. Description
@@ -1581,13 +1595,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Εγκατάσταση του ${DISTRO} μέσα στο ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Κάτι άλλο"
 
 #. Type: text
 #. Description
@@ -1597,13 +1611,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Μπορείτε να δημιουργήσετε κατατμήσεις ή να αλλάξετε το μέγεθός τους, ή να "
+"επιλέξετε πολλαπλές κατατμήσεις για το ${DISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Διαγραφή του ${CURDISTRO} και επανεγκατάσταση"
 
 #. Type: text
 #. Description
@@ -1613,6 +1629,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Προσοχή:</span> Αυτό θα διαγράψει όλα τα "
+"προγράμματα, τα έγγραφα, τις φωτογραφίας και όλα τα υπόλοιπα αρχεία στο "
+"${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1620,7 +1639,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Αναβάθμιση του ${CURDISTRO} σε ${VER}"
 
 #. Type: text
 #. Description
@@ -1631,6 +1650,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Τα έγγραφα, η μουσική και τα υπόλοιπα προσωπικά σας αρχεία θα διατηρηθούν. "
+"Το εγκατεστημένο λογισμικό θα διατηρηθεί αν είναι δυνατόν. Οι ρυθμίσεις του "
+"συστήματος θα διαγραφούν."
 
 #. Type: text
 #. Description
@@ -1639,7 +1661,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Εγκατάσταση του ${DISTRO} ${VER} παράλληλα με το ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1649,7 +1671,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Διαγραφή του δίσκου και εγκατάσταση του ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1658,12 +1680,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Προσοχή:</span> Αυτό θα διαγράψει όλα τα αρχεία "
+"στον δίσκο."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Διαγραφή όλων και επανεγκατάσταση"
 
 #. Type: text
 #. Description
@@ -1675,13 +1699,16 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Προειδοποίηση:</span> Αυτή η επιλογή θα "
+"διαγράψει όλα τα προγράμματα, τα έγγραφα, τις φωτογραφίες, τη μουσική και "
+"οτιδήποτε άλλο αρχείο στα ${OS} και ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Επανεγκατάσταση του ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1691,13 +1718,16 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Προειδοποίηση:</span> Αυτή η επιλογή θα "
+"διαγράψει όλα τα προγράμματα, τα έγγραφα, τις φωτογραφίες, τη μουσική και "
+"οτιδήποτε άλλο αρχείο σε όλα τα εγκατεστημένα λειτουργικά συστήματα."
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "Εγκατάσταση του ${DISTRO} παράλληλα με τα άλλα"
 
 #. Type: text
 #. Description
@@ -1705,6 +1735,8 @@ msgstr ""
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr ""
+"Αυτός ο υπολογιστής έχει εγκατεστημένο το λειτουργικό σύστημα ${OS}. Τι θα "
+"θέλατε να κάνετε;"
 
 #. Type: text
 #. Description
@@ -1715,6 +1747,8 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Αυτός ο υπολογιστής έχει εγκατεστημένα τα λειτουργικά συστήματα ${OS1} και "
+"${OS2}. Τι θα θέλατε να κάνετε;"
 
 #. Type: text
 #. Description
@@ -1723,6 +1757,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"Αυτός ο υπολογιστής έχει περισσότερα από ένα λειτουργικά συστήματα "
+"εγκατεστημένα. Τι θα θέλατε να κάνετε;"
 
 #. Type: text
 #. Description
@@ -1731,6 +1767,7 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"Αυτός ο υπολογιστής δεν έχει λειτουργικό σύστημα. Τι θα θέλατε να κάνετε;"
 
 #. Type: title
 #. Description

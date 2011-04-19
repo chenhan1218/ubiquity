@@ -28,6 +28,7 @@ ubiquity (2.6.6) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.116ubuntu2, choose-mirror 2.37ubuntu2, console-setup 1.57ubuntu19,
     flash-kernel 2.28ubuntu19, user-setup 1.28ubuntu15.
+  * Update translations from Launchpad.
 
   [ Mario Limonciello ]
   * Show the oem-config slideshow in oem-config rather than the ubuntu one.

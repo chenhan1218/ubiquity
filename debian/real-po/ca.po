@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-12 10:59+0000\n"
-"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
+"PO-Revision-Date: 2011-04-13 09:12+0000\n"
+"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -36,6 +36,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Massa simple? Poseu-vos mans a la feina amb les opcions avançades de "
+"partiment."
 
 #. Type: text
 #. Description
@@ -839,7 +841,7 @@ msgstr "S'està configurant el sistema instal·lat..."
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Configuring system locales..."
-msgstr "S'estan configurant els locales del sistema"
+msgstr "S'estan configurant la localització del sistema..."
 
 #. Type: text
 #. Description
@@ -1568,6 +1570,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Els documents, música i altres fitxers personals es mantindran. Podeu triar "
+"quin sistema operatiu voleu cada cop que s'iniciï l'ordinador."
 
 #. Type: text
 #. Description
@@ -1630,6 +1634,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Els documents, música i altres fitxers personals es mantindran. El "
+"programari instal·lat es mantindrà si és possible. Els paràmetres que "
+"afecten tot el sistema es netejaran."
 
 #. Type: text
 #. Description

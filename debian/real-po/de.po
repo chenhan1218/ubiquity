@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-10 23:43+0000\n"
+"PO-Revision-Date: 2011-04-18 11:59+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:20+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:37+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -63,7 +63,7 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Sie installieren im OEM-Modus (Herstellermodus). Bitte geben Sie einen "
-"eindeutigen Namen für diese Rechnergruppe an. Der Name wird auf den "
+"eindeutigen Namen für diese Serie von Rechnern ein. Dieser Name wird auf den "
 "installierten Systemen gespeichert und kann bei Fehlerberichten nützlich "
 "sein."
 
@@ -96,7 +96,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Try ${RELEASE}"
-msgstr "${RELEASE} testen"
+msgstr "${RELEASE} ausprobieren"
 
 #. Type: text
 #. Description
@@ -191,13 +191,13 @@ msgstr "Geben Sie hier etwas ein, um Ihre Tastaturbelegung zu überprüfen"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr "Tastenbelegung automatisch erkennen"
+msgstr "Tastaturbelegung automatisch erkennen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr "Tastenbelegung automatisch erkennen …"
+msgstr "Tastaturbelegung automatisch erkennen …"
 
 #. Type: text
 #. Description
@@ -326,7 +326,7 @@ msgstr "Starkes Passwort"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Log in automatically"
-msgstr "Automatisch anmelden"
+msgstr "Automatische Anmeldung"
 
 #. Type: text
 #. Description
@@ -347,8 +347,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Wählen Sie alle Konten, die Sie importieren möchten. Die Dokumente und "
-"Einstellungen dieser Konten werden nach der Installation zur Verfügung "
+"Wählen Sie alle Benutzerkonten, die Sie importieren möchten. Die Dokumente "
+"und Einstellungen dieser Konten werden nach der Installation zur Verfügung "
 "stehen."
 
 #. Type: text
@@ -359,7 +359,7 @@ msgid ""
 "page."
 msgstr ""
 "Wenn Sie keine Benutzerkonten importieren möchten, wählen Sie nichts aus und "
-"gehen Sie zur nächsten Seite weiter."
+"gehen weiter zur nächsten Seite."
 
 #. Type: text
 #. Description
@@ -398,13 +398,13 @@ msgstr "Die Installation beenden?"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Do you really want to quit the installation now?"
-msgstr "Möchten Sie nun wirklich die Installation beenden?"
+msgstr "Möchten Sie die Installation jetzt wirklich beenden?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Bootloader install failed"
-msgstr "Bootloader-Installation fehlgeschlagen"
+msgstr "Die Installation des Boot-Loaders ist gescheitert"
 
 #. Type: text
 #. Description
@@ -414,21 +414,21 @@ msgid ""
 "at the specified location."
 msgstr ""
 "Entschuldigung, ein Fehler ist aufgetreten und es war nicht möglich, den "
-"Bootloader an der gewünschten Stelle zu installieren."
+"Boot-Loader an dem gewünschten Ort zu installieren."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
-"Bitte wählen sie ein anderes Gerät, auf dem der Bootloader installiert "
+"Bitte wählen Sie ein anderes Gerät, auf dem der Boot-Loader installiert "
 "werden soll:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue without a bootloader."
-msgstr "Fortsetzen ohne Bootloader-Installation."
+msgstr "Fortsetzen ohne Installation eines Boot-Loaders."
 
 #. Type: text
 #. Description
@@ -437,7 +437,7 @@ msgstr "Fortsetzen ohne Bootloader-Installation."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Sie werden den Bootloader manuell installieren müssen, um ${RELEASE} zu "
+"Sie werden einen Boot-Loader manuell installieren müssen, um ${RELEASE} zu "
 "starten."
 
 #. Type: text
@@ -509,10 +509,11 @@ msgid ""
 "and /var/log/partman:"
 msgstr ""
 "Leider ist die Installation fehlgeschlagen. Bitte melden Sie diesen Fehler "
-"unter https://launchpad.net/ubuntu/+source/ubiquity/+filebug (erstellen Sie "
-"auf jeden Fall einen neuen Fehlerbericht) und ein Entwickler wird sich so "
-"bald wie möglich diesem annehmen. Zur besseren Fehleranalyse fügen Sie bitte "
-"die Dateien »/var/log/syslog« und »/var/log/partman« dem Bericht bei:"
+"unter https://launchpad.net/ubuntu/+source/ubiquity/+filebug (als einen "
+"neuen Fehlerbericht) und ein Entwickler wird sich so bald wie möglich diesem "
+"annehmen. Zur besseren Fehleranalyse geben Sie bitte folgende Informationen "
+"an und fügen die Dateien »/var/log/syslog« sowie »/var/log/partman« dem "
+"Bericht hinzu:"
 
 #. Type: text
 #. Description
@@ -611,7 +612,7 @@ msgstr "Freier Speicherplatz"
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:84001
 msgid "unknown"
-msgstr "unbekannt"
+msgstr "Unbekannt"
 
 #. Type: text
 #. Description
@@ -679,8 +680,8 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "Die Installation ist abgeschlossen. Sie können ${RELEASE} jetzt weiter "
-"testen, aber alle Änderungen, die Sie bis zu einem Neustart des Systems "
-"durchführen, werden nicht gespeichert."
+"ausprobieren, aber alle Änderungen, die Sie bis zu einem Neustart des "
+"Systems durchführen, werden nicht gespeichert."
 
 #. Type: text
 #. Description
@@ -710,7 +711,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Verifying the installation configuration..."
-msgstr "Einstellungen des Installationsprogramms werden überprüft …"
+msgstr "Konfiguration der Installation wird überprüft …"
 
 #. Type: title
 #. Description
@@ -763,7 +764,8 @@ msgstr "Installation fehlgeschlagen"
 #: ../ubiquity.templates:105001 ../ubiquity.templates:106001
 #: ../ubiquity.templates:107001 ../ubiquity.templates:108001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Beim Kopieren auf die Festplatte ist ein Fehler aufgetreten:"
+msgstr ""
+"Beim Kopieren der Dateien auf die Festplatte ist ein Fehler aufgetreten:"
 
 #. Type: error
 #. Description
@@ -819,19 +821,21 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Dies wird oft durch fehlerhafte CD/DVD-Laufwerke oder -Medien oder eine "
+"Dies wird oft durch fehlerhafte CD/DVD-Laufwerke, -Medien oder eine "
 "fehlerhafte Festplatte verursacht. Es kann helfen, die CD/DVD zu reinigen, "
 "die CD/DVD mit einer niedrigeren Geschwindigkeit zu brennen, die Linse des "
 "CD/DVD-Laufwerks zu reinigen (Zubehör für solche Reinigungen ist häufig im "
-"Elektronikhandel verfügbar), zu prüfen, ob ihre Festplatte alt ist und "
-"ausgetauscht werden muss, oder das System in eine kühlere Umgebung zu "
+"Elektronikhandel verfügbar), zu prüfen, ob die Festplatte alt ist und "
+"ausgetauscht werden muss oder das System in eine kühlere Umgebung zu "
 "verlagern."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:109001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Die folgende Datei entspricht nicht ihrer Quellkopie auf der CD/DVD:"
+msgstr ""
+"Folgende Datei entsprach nach dem Kopieren nicht der Originaldatei auf der "
+"CD/DVD:"
 
 #. Type: text
 #. Description
@@ -927,7 +931,7 @@ msgstr "Zusätzliche Pakete werden installiert …"
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Checking for packages to install..."
-msgstr "Zu installierende Pakete werden überprüft …"
+msgstr "Zu installierende Pakete werden ermittelt …"
 
 #. Type: text
 #. Description
@@ -939,7 +943,7 @@ msgstr "Zusatzpakete werden entfernt …"
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Checking for packages to remove..."
-msgstr "Nach zu entfernenden Paketen wird geprüft …"
+msgstr "Zu entfernende Pakete werden ermittelt …"
 
 #. Type: text
 #. Description
@@ -951,13 +955,13 @@ msgstr "Pakete werden heruntergeladen (${TIME} verbleibend) …"
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Downloading package lists..."
-msgstr "Paketliste wird heruntergeladen …"
+msgstr "Paketlisten werden heruntergeladen …"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Paketliste wird heruntergeladen (${TIME} verbleibend) …"
+msgstr "Paketlisten werden heruntergeladen (${TIME} verbleibend) …"
 
 #. Type: error
 #. Description
@@ -969,7 +973,7 @@ msgstr "Fehler beim Installieren von ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Error removing ${PACKAGE}"
-msgstr "Fehler beim Löschen von ${PACKAGE}"
+msgstr "Fehler beim Entfernen von ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -981,7 +985,7 @@ msgstr "Fehler beim Installieren der Pakete"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "An error occurred while installing packages:"
-msgstr "Ein Fehler trat beim Installieren von Paketen auf:"
+msgstr "Ein Fehler ist beim Installieren der Pakete aufgetreten:"
 
 #. Type: error
 #. Description
@@ -1005,13 +1009,15 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Der Fehler kann durch die Verwendung eines veralteten Installationsprogramms "
-"auftreten oder von den obigen Paketen verursacht worden sein. Näheres finden "
-"Sie in der Protokolldatei »/var/log/syslog«. Die Installation wird "
-"fortgesetzt, kann aber zu einem späteren Zeitpunkt scheitern. Möglicherweise "
-"können dann nicht alle erforderlichen Pakete installiert oder entfernt "
-"werden. Sie sollten überprüfen, ob eine neuere Version des "
-"Installationsprogramms vorliegt oder den Fehler dem Hersteller melden."
+"Der Fehler könnte durch die Verwendung eines veralteten "
+"Installationsprogramms verursacht worden sein oder aufgrund eines Fehlers in "
+"den obigen Paketen. In der Protokolldatei »/var/log/syslog« könnte Näheres "
+"dazu stehen. Es wird versucht, die Installation fortzusetzen, sie könnte "
+"aber zu einem späteren Zeitpunkt fehlschlagen. Möglicherweise können dann "
+"nicht alle erforderlichen Pakete installiert oder entfernt werden (inklusive "
+"des Installationsprogramms selbst). Sie sollten zuerst überprüfen, ob eine "
+"neuere Version des Installationsprogramms bzw. -mediums verfügbar ist oder "
+"den Fehler dem Herausgeber der Veröffentlichung melden."
 
 #. Type: error
 #. Description
@@ -1023,13 +1029,13 @@ msgstr "Fehler beim Entfernen der Pakete"
 #. Description
 #: ../ubiquity.templates:135001
 msgid "An error occurred while removing packages:"
-msgstr "Ein Fehler trat beim Entfernen von Paketen auf:"
+msgstr "Ein Fehler ist beim Entfernen von Paketen aufgetreten:"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Error migrating documents and settings"
-msgstr "Fehler bei der Übernahme der Dokumente und Einstellungen"
+msgstr "Fehler beim Importieren der Dokumente und Einstellungen"
 
 #. Type: error
 #. Description
@@ -1040,10 +1046,11 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"Ein Fehler ist bei der Übernahme der Daten aufgetreten. Weitere Einzelheiten "
-"dazu sind in /var/log/syslog zu finden. Die Installation wird fortgesetzt, "
-"aber einige oder alle der von Ihnen gewählten Dokumente und Einstellungen "
-"konnten nicht auf das Zielsystem übertragen werden."
+"Ein Fehler ist beim Importieren der Daten aufgetreten. In der Datei »/var/"
+"log/syslog« steht möglicherweise Näheres dazu. Die Installation wird "
+"fortgesetzt, aber einige oder alle Dokumente und Einstellungen der von Ihnen "
+"gewählten Benutzerkonten könnten nicht auf das Zielsystem übertragen worden "
+"sein."
 
 #. Type: error
 #. Description
@@ -1077,8 +1084,8 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Es trat ein Fehler beim Wiederherstellen der zuvor installierten Anwendungen "
-"auf. Die Installation wird zwar fortgesetzt, Sie werden jedoch einige "
+"Es ist ein Fehler beim Wiederherstellen der zuvor installierten Anwendungen "
+"aufgetreten. Die Installation wird fortgesetzt, Sie werden jedoch einige "
 "Anwendungen manuell nach-installieren müssen, nachdem der Rechner neu "
 "gestartet wurde."
 
@@ -1110,7 +1117,7 @@ msgstr "Sprachpakete werden heruntergeladen (${TIME} verbleibend) …"
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Failed to unmount partitions"
-msgstr "Partitionen konnten nicht ausgehängt werden"
+msgstr "Das Aushängen der Partitionen ist gescheitert"
 
 #. Type: boolean
 #. Description
@@ -1119,9 +1126,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Die Installationsanwendung muss Änderungen an den Partitionstabellen "
-"durchführen, kann dies aber nicht tun, da die Laufwerkseinbindungen an "
-"folgenden Einhängepunkten nicht gelöst werden konnten:"
+"Das Installationsprogramm muss Änderungen an den Partitionstabellen "
+"durchführen, kann dies aber nicht tun, weil Partitionen an den folgenden "
+"Einhängepunkten nicht ausgehängt werden konnten:"
 
 #. Type: boolean
 #. Description
@@ -1135,8 +1142,8 @@ msgstr ""
 #: ../ubiquity.templates:154001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Möchten Sie, dass das Installationsprogramm erneut versucht, die "
-"Laufwerkseinbindungen zu lösen?"
+"Möchten Sie, dass das Installationsprogramm erneut versucht, die Partitionen "
+"auszuhängen?"
 
 #. Type: boolean
 #. Description
@@ -1161,14 +1168,14 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Wenn Sie nicht zum Partitionseditor zurückkehren und den Speicherplatz "
-"vergrößern, kann die Installation scheitern."
+"Wenn Sie nicht zum Partitionsmenü zurückkehren und die Größe dieser "
+"Partitionen ändern, könnte die Installation fehlschlagen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:162001
 msgid "System Configuration"
-msgstr "Systemeinrichtung"
+msgstr "Systemeinstellungen"
 
 #. Type: text
 #. Description
@@ -1182,13 +1189,13 @@ msgstr "Willkommen"
 #. Description
 #: ../ubiquity.templates:164001
 msgid "Network configuration"
-msgstr "Netzwerkkonfiguration"
+msgstr "Netzwerkeinstellungen"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Software selection"
-msgstr "Softwareauswahl"
+msgstr "Software-Auswahl"
 
 #. Type: text
 #. Description
@@ -1218,7 +1225,7 @@ msgstr "Tastatur"
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Disk Setup"
-msgstr "Festplattenkonfiguration"
+msgstr "Einrichtung der Festplatten"
 
 #. Type: text
 #. Description
@@ -1236,7 +1243,7 @@ msgstr "Installationsvorgang"
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Checking for installer updates"
-msgstr "Auf Aktualisierungen des Installationsprogramms prüfen"
+msgstr "Aktualisierungen für das Installationsprogramm werden gesucht"
 
 #. Type: text
 #. Description
@@ -1266,7 +1273,7 @@ msgstr "Datei ${INDEX} von ${TOTAL}"
 #. Description
 #: ../ubiquity.templates:180001
 msgid "Installing update"
-msgstr "Aktualisierungen werden installiert"
+msgstr "Aktualisierung wird installiert"
 
 #. Type: text
 #. Description
@@ -1322,7 +1329,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:186001 ../ubiquity.templates:187001
 msgid "Installation failed"
-msgstr "Installation gescheitert"
+msgstr "Die Installation ist gescheitert"
 
 #. Type: text
 #. Description
@@ -1332,8 +1339,8 @@ msgid ""
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
 "Bei der Installation ist ein nicht behebbarer Fehler aufgetreten. Es wird "
-"nun eine Sitzung der Arbeitsumgebung gestartet, sodass Sie das Problem "
-"untersuchen können und die Installation erneut probieren können."
+"nun eine Sitzung in der Arbeitsumgebung gestartet, sodass Sie das Problem "
+"untersuchen oder eine erneute Installation versuchen können."
 
 #. Type: text
 #. Description
@@ -1373,8 +1380,8 @@ msgstr "Laufwerk wählen:"
 #: ../ubiquity.templates:196001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr ""
-"Weisen Sie den Festplattenspeicher zu, indem Sie unten stehendes Element an "
-"die entsprechende Position ziehen"
+"Weisen Sie Festplattenspeicher zu, indem Sie die unten stehende "
+"Aufteilungsmarkierung verschieben"
 
 #. Type: text
 #. Description
@@ -1468,10 +1475,11 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} verwendet Software von Drittanbietern, um Flash, MP3 und andere "
-"Medien wiederzugeben sowie für die Steuerung einiger WLAN-Hardware-"
-"Komponenten. Einige dieser Programme sind nicht quelloffen. Diese Software "
-"unterliegt den in ihrer Dokumentation enthaltenen Lizenzbestimmungen."
+"${RELEASE} verwendet Software von Drittanbietern, um Flash-Videos, MP3-"
+"Dateien und andere Medien wiederzugeben sowie für die Nutzung einiger "
+"Drahtlos-Hardware-Komponenten. Einige dieser Programme sind nicht "
+"quelloffen. Solche Software unterliegt den in ihrer jeweiligen Dokumentation "
+"enthaltenen Lizenzbestimmungen."
 
 #. Type: text
 #. Description
@@ -1499,7 +1507,7 @@ msgstr "Aktualisierungen während der Installation herunterladen"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Layout:"
-msgstr "Tastenbelegung:"
+msgstr "Tastaturbelegung:"
 
 #. Type: text
 #. Description
@@ -1511,7 +1519,7 @@ msgstr "Variante:"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Below is an image of your current layout:"
-msgstr "Unten befindet sich ein Bild der momentanen Tastenbelegung:"
+msgstr "Unten sehen Sie ein Bild der aktuellen Tastaturbelegung:"
 
 #. Type: text
 #. Description
@@ -1809,10 +1817,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Wenn sie das neue System starten, können sie sich als Benutzer »oem« mit dem "
+"Wenn Sie das neue System starten, können Sie sich als Benutzer »oem« mit dem "
 "vorher gewählten Passwort anmelden; dieser Benutzer hat "
-"Systemverwaltungsrechte, wenn »sudo« benutzt wird. So können Sie weitere "
-"Veränderungen an dem System durchführen."
+"Systemverwaltungsrechte, wenn »sudo« benutzt wird. Auf diese Weise können "
+"Sie weitere gewünschte Änderungen an dem System durchführen."
 
 #. Type: text
 #. Description
@@ -1823,8 +1831,8 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "Nachdem Sie das System Ihren Wünschen gemäß angepasst haben, führen Sie den "
-"Befehl »oem-config-prepare« aus. Dadurch wird der temporäre Benutzer oem "
-"gelöscht und der Endanwender zur Einrichtung des Systems beim nächsten Start "
+"Befehl »oem-config-prepare« aus. Dadurch wird der temporäre Benutzer »oem« "
+"gelöscht und der Endanwender beim nächsten Start zur Einrichtung des Systems "
 "aufgefordert."
 
 #. Type: text

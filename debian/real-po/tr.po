@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-04-11 12:20+0000\n"
+"PO-Revision-Date: 2011-04-12 23:33+0000\n"
 "Last-Translator: Yiğit Ateş <yigitates@ceviri.ubuntu-tr.net>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 17:21+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
+"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
 #. Description
@@ -1485,7 +1485,7 @@ msgstr "Değişik biçim:"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Below is an image of your current layout:"
-msgstr "Aşağıdaki geçerli yerleşimin bir görüntüsüdür:"
+msgstr "Aşağıdaki, geçerli yerleşimin bir görüntüsüdür:"
 
 #. Type: text
 #. Description
@@ -1523,7 +1523,7 @@ msgstr "[değiştirmek için buraya yazın]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "${OS} yi  ${DISTRO} ile değiştir"
+msgstr "${OS} işletim sistemini  ${DISTRO} ile değiştir"
 
 #. Type: text
 #. Description
@@ -1533,9 +1533,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Uyarı:</span> Bu işlem tüm ${OS} "
-"programlarınızı, belgelerinizi, resimlerinizi, müziklerinizi ve diğer "
-"dosyalarınızı silecektir."
+"<span foreground=\"darkred\">Uyarı:</span> Bu işlem; ${OS} işletim "
+"sisteminizin tüm programlarını, belgelerinizi, resimlerinizi, müziklerinizi "
+"ve diğer dosyalarınızı silecektir."
 
 #. Type: text
 #. Description
@@ -1543,7 +1543,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "${DISTRO} dağıtımını ${OS} yanına kur"
+msgstr "${DISTRO} dağıtımını ${OS} işletim sisteminin yanına kur"
 
 #. Type: text
 #. Description
@@ -1559,8 +1559,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Belgeler,müzik ve diğer kişisel dosyalar saklanacak. Bilgisayarınızı her "
-"çalıştırdığınızda hangi işletim sistemini kullanacağınızı seçebilirsiniz."
+"Belgeler,müzikler ve diğer kişisel dosyalar saklanacak. Bilgisayarınızı her "
+"çalıştırdığınızda, hangi işletim sistemini kullanacağınızı seçebilirsiniz."
 
 #. Type: text
 #. Description
@@ -1574,7 +1574,7 @@ msgstr "${OS} içine ${DISTRO} kur"
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr "Başka birşey"
+msgstr "Başka bir şey"
 
 #. Type: text
 #. Description
@@ -1592,7 +1592,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr "${CURDISTRO} yu sil ve  yeniden yükle"
+msgstr "${CURDISTRO} sürümünü sil ve  yeniden yükle"
 
 #. Type: text
 #. Description
@@ -1602,9 +1602,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Uyarı:</span> Bu işlem sizin tüm ${CURDISTRO} "
-"program, fotoğraf, m\r\n"
-"üzik ve diğer başka dosyalarınızı silecektir."
+"<span foreground=\"darkred\">Uyarı:</span> Bu işlem; ${CURDISTRO} işletim "
+"sisteminizin programlarını, fotoğraflarınızı, müziklerinizi ve diğer "
+"dosyalarınızı silecektir."
 
 #. Type: text
 #. Description
@@ -1612,7 +1612,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr "${CURDISTRO} yu ${VER} e yükselt"
+msgstr "${CURDISTRO} sürümünü ${VER} sürümüne yükselt"
 
 #. Type: text
 #. Description
@@ -1623,8 +1623,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"Belgeler,müzik ve diğer kişisel dosyalar saklanacak. Kurulu yazılımlar "
-"kuruldukları yerde saklanabilir. Ayarlar sistem çapında silenecek."
+"Belgeler,müzikler ve diğer kişisel dosyalar saklanacak. Kurulu yazılımlar, "
+"kuruldukları yerde saklanabilir. Sistem genelinde etkin ayarlar sıfırlanacak."
 
 #. Type: text
 #. Description
@@ -1633,7 +1633,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "${DISTRO} ${VER} dağıtımını ${CURDISTRO} yanına kur"
+msgstr "${DISTRO} ${VER} sürümünü ${CURDISTRO} sürümünün yanına kur"
 
 #. Type: text
 #. Description
@@ -1652,13 +1652,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Uyarı:</span> Bu diskteki dosyaları silecektir."
+"<span foreground=\"darkred\">Uyarı:</span> Bu işlem, diskteki tüm dosyaları "
+"silecektir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr "Herşeyi sil ve yeniden yükle"
+msgstr "Her şeyi sil ve yeniden yükle"
 
 #. Type: text
 #. Description
@@ -1670,16 +1671,16 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Uyarı:</span> Bu işlem hem ${OS} hem de "
-"${CURDISTRO} dağıtımlarındaki tüm program, belge, fotoğraf, müzik ve başka "
-"diğer dosyalarınızı silecektir."
+"<span foreground=\"darkred\">Uyarı:</span> Bu işlem; hem ${OS} hem de "
+"${CURDISTRO} işletim sistemlerindeki tüm programları, belgeleri, "
+"fotoğrafları, müzikleri ve diğer dosyalarınızı silecektir."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr "${CURDISTRO} yu tekrar yükle"
+msgstr "${CURDISTRO} sürümünü tekrar yükle"
 
 #. Type: text
 #. Description
@@ -1689,7 +1690,7 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Uyarı:</span> Bu işlem diğer işletim "
+"<span foreground=\"darkred\">Uyarı:</span> Bu işlem; diğer işletim "
 "sistemlerinde bulunan tüm programlarınızı, belgelerinizi, resimlerinizi, "
 "müziklerinizi ve diğer dosyalarınızı silecektir."
 
@@ -1698,14 +1699,15 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr "${DISTRO} yu onların yanına yükle"
+msgstr "${DISTRO}'yu diğer işletim sistemlerinin yanına yükle"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Bu bilgisayarda şu anda ${OS}  dağıtımı var. Ne yapmak isterdiniz?"
+msgstr ""
+"Bu bilgisayarda, şu anda ${OS} işletim sistemi var. Ne yapmak isterdiniz?"
 
 #. Type: text
 #. Description
@@ -1716,7 +1718,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
-"Bu bilgisayarda şu anda ${OS1} ve ${OS2}  dağıtımları var. Ne yapmak "
+"Bu bilgisayarda, şu anda ${OS1} ve ${OS2} işletim sistemleri var. Ne yapmak "
 "isterdiniz?"
 
 #. Type: text
@@ -1726,7 +1728,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
-"Bu bilgisayarda şu anda birçok işletim sistemleri var. Ne yapmak isterdiniz?"
+"Bu bilgisayarda, şu anda çok sayıda işletim sistemi kurulu. Ne yapmak "
+"isterdiniz?"
 
 #. Type: text
 #. Description
