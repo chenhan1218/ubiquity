@@ -126,6 +126,7 @@ class PageGtk(PageBase):
             self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
 
             # Ask page accessibility
+            import atk
             self.atk_use_device = self.use_device.get_accessible()
             self.atk_use_device_title = self.use_device_title.get_accessible()
             self.atk_use_device_title.add_relationship(atk.RELATION_LABEL_FOR, self.atk_use_device)
