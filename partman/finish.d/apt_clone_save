@@ -53,7 +53,7 @@ mount "$root" "$mountpoint"
 working="$mountpoint/ubiquity-apt-clone"
 
 mkdir -p "$working"
-if ! apt-clone clone --source "$mountpoint" "$working"; then
+if ! apt-clone clone --with-dpkg-repack --source "$mountpoint" "$working"; then
 	# TODO: if the above fails, ask a debconf error question.
 	fail
 fi

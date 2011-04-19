@@ -1,6 +1,7 @@
 ubiquity (2.6.7) UNRELEASED; urgency=low
 
   * Fix missing import on the partitioning page.
+  * Repack debs in apt-clone.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 19 Apr 2011 15:16:09 +0100
 
