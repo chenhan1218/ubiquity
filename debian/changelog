@@ -1,5 +1,6 @@
 ubiquity (2.6.7) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Fix missing import on the partitioning page.
   * Repack debs in apt-clone.
   * Disable the upgrade/reinstall option when no Internet connection is
@@ -10,6 +11,10 @@ ubiquity (2.6.7) UNRELEASED; urgency=low
     for details.
   * Defend against temporary mountpoints not existing before attempting
     to remove them (LP: #759716).
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu20, grub-installer 1.60ubuntu3, partman-auto 93ubuntu15.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 19 Apr 2011 15:16:09 +0100
 
