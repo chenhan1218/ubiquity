@@ -237,7 +237,8 @@ class PageGtk(PageBase):
             pass
         finally:
             subprocess.call(['umount', mount_path])
-            os.rmdir(mount_path)
+            if os.path.exists(mount_path):
+                os.rmdir(mount_path)
 
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
@@ -2050,7 +2051,8 @@ class Page(plugin.Plugin):
                             pass
                         finally:
                             subprocess.call(['umount', mount_path])
-                            os.rmdir(mount_path)
+                            if os.path.exists(mount_path):
+                                os.rmdir(mount_path)
 
                 biggest_free = self.find_script(menu_options, 'biggest_free')
                 if biggest_free:
