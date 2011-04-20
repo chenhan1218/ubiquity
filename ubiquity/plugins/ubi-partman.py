@@ -1734,6 +1734,10 @@ class Page(plugin.Plugin):
     def calculate_reuse_option(self):
         '''Takes the current Ubuntu version on disk and the release we're about
         to install as parameters.'''
+
+        if self.db.get('ubiquity/online') != 'true':
+            self.debug('Not online, so not showing the upgrade option.')
+            return None
         # TODO: verify that ubuntu is the same partition as one of the ones
         #       offered in the reuse options.
         release = misc.get_release()

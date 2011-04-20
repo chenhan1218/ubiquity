@@ -2,6 +2,8 @@ ubiquity (2.6.7) UNRELEASED; urgency=low
 
   * Fix missing import on the partitioning page.
   * Repack debs in apt-clone.
+  * Disable the upgrade/reinstall option when no Internet connection is
+    available.  See LP 766171 for details.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 19 Apr 2011 15:16:09 +0100
 
