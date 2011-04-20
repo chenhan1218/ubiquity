@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-13 08:55+0000\n"
-"Last-Translator: sangho <Unknown>\n"
+"PO-Revision-Date: 2011-04-19 22:39+0000\n"
+"Last-Translator: Sangkeun Park <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
 "X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
@@ -1040,7 +1040,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "설치된 애플리케이션 복구 에러"
 
 #. Type: error
 #. Description
@@ -1050,6 +1050,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"이전에 설치된 애플리케이션을 복구하는 동안 에러가 발생했습니다. 설치는 계속하"
+"지만, 재부팅 후에 몇개의 어플리케이션들은 수동으로 재설치되어야 할 수도 있습"
+"니다."
 
 #. Type: text
 #. Description
@@ -1502,7 +1505,7 @@ msgstr "[여기에 변경할 것을 입력하십시오.]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "$(OS)를 $(DISTRO)로 대체"
 
 #. Type: text
 #. Description
@@ -1512,6 +1515,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Warning:</span> 이것은 당신의 ${OS} 프로그램, 문"
+"서, 사진, 음악, 기타 다른 파일들을 지웁니다."
 
 #. Type: text
 #. Description
@@ -1519,7 +1524,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "$(OS)와 함께 $(DISTRO) 설치"
 
 #. Type: text
 #. Description
@@ -1535,6 +1540,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"문서, 음악, 기타 다른 개인 파일들은 유지됩니다. 컴퓨터를 시작할 때 당신이 원"
+"하는 운영 체제를 선택할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -1542,13 +1549,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "$(OS) 내에 $(DISTRO) 설치"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "그 밖의 것들"
 
 #. Type: text
 #. Description
@@ -1558,13 +1565,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"스스로 파티션을 만들거나 크기를 조절, 또는 $(DISTRO)를 위한 두 개의 파티션을 "
+"선택할 수 있습니다."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "$(CURDISTRO) 삭제 및 재설치"
 
 #. Type: text
 #. Description
@@ -1574,6 +1583,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Warning:</span> 이것은 모든 ${CURDISTRO} 프로그"
+"램, 문서, 사진, 음악, 기타 파일들을 삭제합니다."
 
 #. Type: text
 #. Description
@@ -1600,7 +1611,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "$CURDISTRO)와 함께 $(DISTRO) $(VER) 설치"
 
 #. Type: text
 #. Description
@@ -1619,6 +1630,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">경고:</span> 이것은 디스크의 모든 파일을 삭제합"
+"니다."
 
 #. Type: text
 #. Description
@@ -1636,6 +1649,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">경고:</span> 이것은 ${OS} 와 ${CURDISTRO}에서 당"
+"신의 프로그램, 문서, 사진, 음악, 그리고 기타 파일들을 삭제합니다."
 
 #. Type: text
 #. Description
@@ -1652,20 +1667,22 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">경고:</span> 이것은 모든 운영 체제에서 당신의 프"
+"로그램, 문서, 사진, 음악, 그리고 기타 파일들을 삭제합니다."
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "그것들과 함께 $(DISTRO) 설치"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "이 컴퓨터는 현재 $(OS)를 소유하고 있습니다. 무엇을 하고싶습니까?"
 
 #. Type: text
 #. Description

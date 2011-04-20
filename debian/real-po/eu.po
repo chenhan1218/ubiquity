@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-04-10 01:34+0100\n"
-"PO-Revision-Date: 2011-03-28 18:25+0000\n"
+"PO-Revision-Date: 2011-04-19 19:03+0000\n"
 "Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-19 10:36+0000\n"
+"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
 "X-Generator: Launchpad (build 12847)\n"
 
 #. Type: text
@@ -1056,7 +1056,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Errorea instalatutako aplikazioak berriztatzean"
 
 #. Type: error
 #. Description
@@ -1066,6 +1066,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Errore bat gertatu da aurrez instalatutako aplikazioak berriztatzean. "
+"Instalazioak aurrera jarraituko du, baina ordenagailua berrabiarazi ondoren "
+"aplikazio batzuk eskuz berrinstalatu beharko dituzu."
 
 #. Type: text
 #. Description
@@ -1534,6 +1537,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Abisua:</span> Honek ${OS}(e)ko programa, "
+"dokumentu, argazki, musika eta bestelako fitxategi guztiak ezabatuko ditu."
 
 #. Type: text
 #. Description
@@ -1541,7 +1546,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Instalatu ${DISTRO} ${OS}(r)ekin batera"
 
 #. Type: text
 #. Description
@@ -1557,6 +1562,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Dokumentuak, musika eta bestelako fitxategiak ez dira ezabatuko. "
+"Ordenagailua abiarazten den aldiro hautatu dezakezu zein sistema eragile "
+"erabili."
 
 #. Type: text
 #. Description
@@ -1564,13 +1572,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Instalatu ${DISTRO} ${OS}(r)en barruan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Beste aukera bat"
 
 #. Type: text
 #. Description
@@ -1580,6 +1588,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Partizioak nahi bezala sortu edo tamainaz aldatu ditzakezu, edo partizio bat "
+"baino gehiago aukeratu ${DISTRO}(r)entzat."
 
 #. Type: text
 #. Description
@@ -1596,6 +1606,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Abisua:</span> Honek ${CURDISTRO}(e)ko "
+"programa, dokumentu, argazki, musika eta bestelako fitxategi guztiak "
+"ezabatuko ditu."
 
 #. Type: text
 #. Description
@@ -1614,6 +1627,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Dokumentuak, musika eta bestelako fitxategiak ez dira ezabatuko. "
+"Instalatutako softwarea mantenduko da ahal dela. Sisteman zeharko ezarpenak "
+"garbituko dira."
 
 #. Type: text
 #. Description
@@ -1622,7 +1638,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Instalatu ${DISTRO} ${VER} ${CURDISTRO}(r)ekin batera"
 
 #. Type: text
 #. Description
@@ -1641,6 +1657,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Abisua:</span> Honek diskoko fitxategi guztiak "
+"ezabatuko ditu."
 
 #. Type: text
 #. Description
@@ -1658,6 +1676,9 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Abisua:</span> Honek programa, dokumentu, "
+"argazki, musika eta bestelako fitxategi guztiak ezabatuko ditu bai ${OS}(e)n "
+"bai ${CURDISTRO}(e)n."
 
 #. Type: text
 #. Description
@@ -1674,6 +1695,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Abisua:</span> Honek programa, dokumentu, "
+"argazki, musika eta bestelako fitxategi guztiak ezabatuko ditu sistema "
+"eragile guztietatik."
 
 #. Type: text
 #. Description
@@ -1687,7 +1711,7 @@ msgstr "Instalatu ${DISTRO} besteekin batera"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "Ordenagailu honetan ${OS} dago instalatuta. Zer egin nahi duzu?"
 
 #. Type: text
 #. Description
@@ -1698,6 +1722,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"Ordenagailu honetan ${OS1} eta ${OS2} daude instalatuta. Zer egin nahi duzu?"
 
 #. Type: text
 #. Description
@@ -1706,6 +1731,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"Ordenagailu honetan sistema eragile ugari daude instalatuta. Zer egin nahi "
+"duzu?"
 
 #. Type: text
 #. Description
@@ -1714,6 +1741,8 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"Ordenagailu honetan ez dago sistema eragile ezagunik instalatuta. Zer egin "
+"nahi duzu?"
 
 #. Type: title
 #. Description
