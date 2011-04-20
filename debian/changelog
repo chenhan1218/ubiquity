@@ -5,6 +5,9 @@ ubiquity (2.6.7) UNRELEASED; urgency=low
   * Disable the upgrade/reinstall option when no Internet connection is
     available.  See LP 766171 for details.
   * Update translations from Launchpad.
+  * Don't ever show scrollbars in the slideshow.  The window growing
+    slightly is not ideal, but still better than this. See LP 529201
+    for details.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 19 Apr 2011 15:16:09 +0100
 
