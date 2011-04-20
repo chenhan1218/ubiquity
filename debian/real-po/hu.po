@@ -425,7 +425,7 @@ msgstr "Folytatás rendszerbetöltő nélkül."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"A(z) $RELEASE indításához saját kezűleg kell telepítenie egy "
+"A(z) ${RELEASE} indításához saját kezűleg kell telepítenie egy "
 "rendszerbetöltőt."
 
 #. Type: text

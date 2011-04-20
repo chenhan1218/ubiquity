@@ -1634,7 +1634,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr "Mettre ${CURDISTRO} à niveau vers $(VER)"
+msgstr "Mettre ${CURDISTRO} à niveau vers ${VER}"
 
 #. Type: text
 #. Description

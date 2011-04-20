@@ -1527,7 +1527,7 @@ msgid ""
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">Cảnh báo:</span> Việc này sẽ làm xóa toàn bộ "
-"chương trình trên $(OS), tài liệu, ảnh, nhạc và các dữ liệu khác."
+"chương trình trên ${OS}, tài liệu, ảnh, nhạc và các dữ liệu khác."
 
 #. Type: text
 #. Description
