@@ -1,3 +1,9 @@
+ubiquity (2.6.9) UNRELEASED; urgency=low
+
+  * Disable the alpha warning.  Whoops.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 21 Apr 2011 17:35:26 +0100
+
 ubiquity (2.6.8) natty; urgency=low
 
   * Pretend to be online in tests.  Fixes build failure.
