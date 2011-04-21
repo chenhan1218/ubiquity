@@ -1,8 +1,8 @@
-ubiquity (2.6.8) UNRELEASED; urgency=low
+ubiquity (2.6.8) natty; urgency=low
 
   * Pretend to be online in tests.  Fixes build failure.
 
- -- Evan Dandrea <ev@ubuntu.com>  Thu, 21 Apr 2011 13:05:25 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 21 Apr 2011 14:48:24 +0100
 
 ubiquity (2.6.7) natty; urgency=low
 
