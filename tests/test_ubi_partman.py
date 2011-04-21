@@ -198,6 +198,9 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         title = self.page.description(question)
         desc = self.page.extended_description(question)
         self.manual = ubi_partman.PartitioningOption(title, desc)
+        
+        # Pretend to be online.
+        self.page.db.set('ubiquity/online', 'true')
 
     # 'This computer currently has Windows on it.'
     def test_windows_only(self):
