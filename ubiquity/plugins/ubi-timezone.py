@@ -304,7 +304,13 @@ class PageKde(plugin.PluginUI):
 class PageDebconf(plugin.PluginUI):
     plugin_title = 'ubiquity/text/timezone_heading_label'
 
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+
 class PageNoninteractive(plugin.PluginUI):
+    def __init__(self, controller, *args, **kwargs):
+        self.controller = controller
+
     def set_timezone(self, timezone):
         """Set the current selected timezone."""
         self.timezone = timezone
