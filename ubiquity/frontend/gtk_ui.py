@@ -644,6 +644,7 @@ class Wizard(BaseFrontend):
             self.page_mode.hide()
             return
 
+        self.page_section.hide()
         slideshow_locale = self.slideshow_get_available_locale(self.slideshow, self.locale)
         slideshow_main = self.slideshow + '/slides/index.html'
 
@@ -1469,6 +1470,7 @@ class Wizard(BaseFrontend):
         stage, then errors can safely return us to partitioning.
         """
 
+        self.page_section.show()
         if self.installing and not self.installing_no_return:
             # Stop the currently displayed page.
             if self.dbfilter is not None:
