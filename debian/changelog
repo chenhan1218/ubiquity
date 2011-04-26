@@ -1,3 +1,9 @@
+ubiquity (2.6.11) UNRELEASED; urgency=low
+
+  * Prevent the OOM killer from selecting ubiquity.  See  LP #770865.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 26 Apr 2011 12:31:25 +0100
+
 ubiquity (2.6.10) natty; urgency=low
 
   * Add __init__ methods to ubi-timezone's PageDebconf and

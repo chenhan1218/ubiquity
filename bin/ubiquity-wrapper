@@ -35,6 +35,9 @@ def main():
         inner = ['/usr/lib/ubiquity/bin/ubiquity']
         inner.extend(newargv)
 
+        # Ensure the OOM killer doesn't nom on us.
+        with open('/proc/%d/oom_score_adj' % os.getpid(), 'w') as fp:
+            fp.write('-1000')
         # Lock HAL's storage subsystem (or DeviceKit-disks or udisks).
         if osextras.find_on_path('udisks'):
             toexec.extend(['udisks', '--inhibit', '--'])
