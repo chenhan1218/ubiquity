@@ -6,6 +6,8 @@ ubiquity (2.6.11) UNRELEASED; urgency=low
   * Hide the other pages when starting the slideshow so that verbose
     languages that cause the window to grow do not leave lots of
     whitespace on the slideshow (LP: #770253).
+  * Don't offer the download updates option when there is no Internet
+    connection. See LP: 651932.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 26 Apr 2011 12:31:25 +0100
 

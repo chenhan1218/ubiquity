@@ -90,6 +90,9 @@ class PreparePageBase(plugin.PluginUI):
                 if WGET_HASH == h.hexdigest():
                     state = True
             self.prepare_network_connection.set_state(state)
+            self.prepare_download_updates.set_sensitive(state)
+            if not state:
+                self.prepare_download_updates.set_active(False)
             self.controller.dbfilter.set_online_state(state)
             return False
 
