@@ -1,5 +1,6 @@
 ubiquity (2.6.11) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Prevent the OOM killer from selecting ubiquity.  See  LP #770865.
   * Ensure that the partition ComboBoxEntry can be focused
     (LP: #769043).
@@ -8,6 +9,9 @@ ubiquity (2.6.11) UNRELEASED; urgency=low
     whitespace on the slideshow (LP: #770253).
   * Don't offer the download updates option when there is no Internet
     connection. See LP: 651932.
+
+  [ Colin Watson ]
+  * Re-enable alpha warning for oneiric.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 26 Apr 2011 12:31:25 +0100
 
