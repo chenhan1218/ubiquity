@@ -1,4 +1,4 @@
-ubiquity (2.6.11) UNRELEASED; urgency=low
+ubiquity (2.7.0) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Prevent the OOM killer from selecting ubiquity.  See  LP #770865.
