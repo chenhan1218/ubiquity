@@ -214,7 +214,7 @@ endif
 
 tests: install
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	./tests/run
+	xvfb-run ./tests/run
 endif
 
 BINARY_INDEP_OPTIONS := -i

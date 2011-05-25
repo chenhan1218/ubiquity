@@ -9,6 +9,8 @@ ubiquity (2.7.0) UNRELEASED; urgency=low
     whitespace on the slideshow (LP: #770253).
   * Don't offer the download updates option when there is no Internet
     connection. See LP: 651932.
+  * Provide access to the keymaps most-relevant for the currently
+    selected language in the keyboard indicator (LP: #656777).
 
   [ Colin Watson ]
   * Re-enable alpha warning for oneiric.

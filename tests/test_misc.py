@@ -132,6 +132,22 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(misc.debconf_escape('\\A test string\n'),
                          '\\\\A\\ test\\ string\\n')
 
+    @mock.patch('ubiquity.gconftool.set_list')
+    def test_set_indicator_keymaps(self, mock_set_list):
+        args = ('/desktop/gnome/peripherals/keyboard/kbd/layouts', 'string',
+                ['us', 'gh', 'gb', 'ie', 'za', 'ng', 'ph', 'us\taltgr-intl',
+                 'us\thbs', 'in\teng', 'ca\teng', 'us\teuro', 'us\tintl',
+                 'us\talt-intl', 'us\tcolemak', 'us\tdvorak',
+                 'us\tdvorak-intl', 'us\tdvorak-alt-intl', 'us\tdvorak-l',
+                 'us\tdvorak-r', 'us\tdvorak-classic', 'us\tdvp', 'us\tmac',
+                 'us\tolpc2', 'gh\tgeneric', 'gh\tgillbt', 'gb\textd',
+                 'gb\tintl', 'gb\tdvorak', 'gb\tdvorakukp', 'gb\tmac',
+                 'gb\tmac_intl', 'gb\tcolemak', 'ie\tUnicodeExpert',
+                 'ie\togam', 'ie\togam_is434', 'ph\tcapewell-dvorak',
+                 'ph\tcapewell-qwerf2k6', 'ph\tcolemak', 'ph\tdvorak'])
+        misc.set_indicator_keymaps('en_US.UTF-8')
+        mock_set_list.assert_called_once_with(*args)
+
 #class PartedServerTests(unittest.TestCase):
 #    def setUp(self):
 #        patcher = mock.patch('ubiquity.parted_server.PartedServer')

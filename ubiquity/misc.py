@@ -560,4 +560,36 @@ def dmimodel():
         syslog.syslog(syslog.LOG_ERR, 'Unable to determine the model from DMI')
     return model
 
+def set_indicator_keymaps(locale):
+    import libxml2
+    import xklavier
+    import gtk
+    from ubiquity import gconftool
+
+    xpath = "//iso_639_3_entry[@part1_code='%s']"
+    gconf_key = '/desktop/gnome/peripherals/keyboard/kbd/layouts'
+    variants = []
+    def process_variant(*args):
+        if hasattr(args[2], 'get_name'):
+            variants.append('%s\t%s' % (args[1].get_name(), args[2].get_name()))
+        else:
+            variants.append(args[1].get_name())
+
+    lang = locale.split('_')[0]
+    fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
+    context = fp.xpathNewContext()
+    nodes = context.xpathEvalExpression(xpath % lang)
+    if nodes:
+        code = nodes[0].prop('part2_code')
+        display = gtk.gdk.display_get_default()
+        engine = xklavier.Engine(display)
+        configreg = xklavier.ConfigRegistry(engine)
+        configreg.load(False)
+        configreg.foreach_language_variant(code, process_variant)
+        if variants:
+            gconftool.set_list(gconf_key, 'string', variants)
+            return
+    # Use the system default if no other keymaps can be determined.
+    gconftool.set_list(gconf_key, 'string', '')
+
 # vim:ai:et:sts=4:tw=80:sw=4:
