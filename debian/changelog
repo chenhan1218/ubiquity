@@ -15,6 +15,11 @@ ubiquity (2.7.0) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Re-enable alpha warning for oneiric.
 
+  [ Mario Limonciello ]
+  * In automatic ubiquity mode, don't clobber grub-installer/bootdev
+    because of the U/I widget not being populated.  Fixes preseeded
+    grub-installer/bootdev.
+
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 26 Apr 2011 12:31:25 +0100
 
 ubiquity (2.6.10) natty; urgency=low
