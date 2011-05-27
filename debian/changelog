@@ -11,6 +11,7 @@ ubiquity (2.7.0) UNRELEASED; urgency=low
     connection. See LP: 651932.
   * Provide access to the keymaps most-relevant for the currently
     selected language in the keyboard indicator (LP: #656777).
+  * gnome-settings-daemon no longer daemonizes (LP: #788859).
 
   [ Colin Watson ]
   * Re-enable alpha warning for oneiric.

@@ -365,7 +365,6 @@ EndSection
                     ['/usr/lib/gnome-settings-daemon/gnome-settings-daemon'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges)
-                proc.wait()
                 extras.append(proc)
 
             if os.path.exists('/usr/bin/xfsettingsd'):
