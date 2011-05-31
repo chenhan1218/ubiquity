@@ -36,8 +36,8 @@ class PageGtk(plugin.PluginUI):
         self.controller = controller
         self.current_layout = None
         try:
-            import gtk
-            builder = gtk.Builder()
+            from gi.repository import Gtk
+            builder = Gtk.Builder()
             self.controller.add_builder(builder)
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepKeyboardConf.ui'))
             builder.connect_signals(self)
@@ -112,15 +112,15 @@ class PageGtk(plugin.PluginUI):
             self.controller.dbfilter.apply_keyboard(layout, variant)
 
     def set_keyboard_choices(self, choices):
-        import gtk, gobject
-        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        from gi.repository import Gtk, GObject
+        layouts = Gtk.ListStore(GObject.TYPE_STRING)
         self.keyboardlayoutview.set_model(layouts)
         for v in sorted(choices):
             layouts.append([v])
 
         if len(self.keyboardlayoutview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            column = Gtk.TreeViewColumn("Layout", Gtk.CellRendererText(), text=0)
+            column.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
             self.keyboardlayoutview.append_column(column)
             selection = self.keyboardlayoutview.get_selection()
             selection.connect('changed',
@@ -153,15 +153,15 @@ class PageGtk(plugin.PluginUI):
             return unicode(model.get_value(iterator, 0))
 
     def set_keyboard_variant_choices(self, choices):
-        import gtk, gobject
-        variants = gtk.ListStore(gobject.TYPE_STRING)
+        from gi.repository import Gtk, GObject
+        variants = Gtk.ListStore(GObject.TYPE_STRING)
         self.keyboardvariantview.set_model(variants)
         for v in sorted(choices):
             variants.append([v])
 
         if len(self.keyboardvariantview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            column = Gtk.TreeViewColumn("Variant", Gtk.CellRendererText(), text=0)
+            column.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
             self.keyboardvariantview.append_column(column)
             selection = self.keyboardvariantview.get_selection()
             selection.connect('changed',

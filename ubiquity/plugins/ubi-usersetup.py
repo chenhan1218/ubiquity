@@ -169,8 +169,8 @@ class PageGtk(PageBase):
         self.hostname_edited = False
         self.hostname_timeout_id = 0
 
-        import gtk
-        builder = gtk.Builder()
+        from gi.repository import Gtk
+        builder = Gtk.Builder()
         self.controller.add_builder(builder)
         builder.add_from_file('/usr/share/ubiquity/gtk/stepUserInfo.ui')
         builder.connect_signals(self)
@@ -411,17 +411,17 @@ class PageGtk(PageBase):
         self.hostname_edited = (widget.get_text() != '')
 
         # Let's not call this every time the user presses a key.
-        import gobject
+        from gi.repository import GObject
         if self.hostname_timeout_id:
-            gobject.source_remove(self.hostname_timeout_id)
-        self.hostname_timeout_id = gobject.timeout_add(300,
+            GObject.source_remove(self.hostname_timeout_id)
+        self.hostname_timeout_id = GObject.timeout_add(300,
                                         self.hostname_timeout, widget)
 
     def lookup_result(self, resolver, result):
-        import glib
+        from gi.repository import GObject
         try:
             resolver.lookup_by_name_finish(result)
-        except glib.GError:
+        except GObject.GError:
             pass
         else:
             # FIXME: i18n
@@ -429,9 +429,9 @@ class PageGtk(PageBase):
             self.hostname_ok.hide()
 
     def hostname_timeout(self, widget):
-        import gio
+        from gi.repository import Gio
         if self.hostname_ok.get_property('visible'):
-            res = gio.resolver_get_default()
+            res = Gio.resolver_get_default()
             hostname = widget.get_text()
             for host in (hostname, '%s.local' % hostname):
                 res.lookup_by_name_async(self.lookup_result, host)

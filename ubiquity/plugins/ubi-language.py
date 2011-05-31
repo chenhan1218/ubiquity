@@ -74,8 +74,8 @@ class PageGtk(PageBase):
             ui_file = 'stepLanguage.ui'
             self.only = False
         try:
-            import gtk
-            builder = gtk.Builder()
+            from gi.repository import Gtk
+            builder = Gtk.Builder()
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], ui_file))
             builder.connect_signals(self)
             self.controller.add_builder(builder)
@@ -154,13 +154,13 @@ class PageGtk(PageBase):
         self.network_change()
 
     def network_change(self, state=None):
-        import gobject
+        from gi.repository import GObject
         if state and (state != 4 and state != 3):
             return
         if self.timeout_id:
-            gobject.source_remove(self.timeout_id)
-        self.timeout_id = gobject.timeout_add(300, self.check_returncode)
-        self.timeout_id = gobject.timeout_add(300, self.check_returncode_release_notes)
+            GObject.source_remove(self.timeout_id)
+        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
+        self.timeout_id = GObject.timeout_add(300, self.check_returncode_release_notes)
 
     def check_returncode(self, *args):
         import subprocess
@@ -206,9 +206,9 @@ class PageGtk(PageBase):
         self.controller.dbfilter.ok_handler()
 
     def set_language_choices(self, choices, choice_map):
-        import gtk, gobject
+        from gi.repository import Gtk, GObject
         PageBase.set_language_choices(self, choices, choice_map)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        list_store = Gtk.ListStore(GObject.TYPE_STRING)
         for choice in choices:
             list_store.append([choice])
         # Support both iconview and treeview
@@ -220,8 +220,8 @@ class PageGtk(PageBase):
             self.iconview.set_columns(columns)
         else:
             if len(self.treeview.get_columns()) < 1:
-                column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-                column.set_sizing(gtk.TREE_VIEW_COLUMN_GROW_ONLY)
+                column = Gtk.TreeViewColumn(None, Gtk.CellRendererText(), text=0)
+                column.set_sizing(Gtk.TreeViewColumnSizing.GROW_ONLY)
                 self.treeview.append_column(column)
                 selection = self.treeview.get_selection()
                 selection.connect('changed',
@@ -285,12 +285,12 @@ class PageGtk(PageBase):
         # strip encoding; we use UTF-8 internally no matter what
         lang = lang.split('.')[0]
         self.controller.translate(lang)
-        import gtk
+        from gi.repository import Gtk
         ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
         if ltr == 'default:RTL':
-            gtk.widget_set_default_direction(gtk.TEXT_DIR_RTL)
+            Gtk.widget_set_default_direction(Gtk.TextDirection.RTL)
         else:
-            gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
+            Gtk.widget_set_default_direction(Gtk.TextDirection.LTR)
 
         if self.only:
             # The language page for oem-config doesn't have the fancy greeter.
@@ -303,14 +303,14 @@ class PageGtk(PageBase):
         # Set the release name (Ubuntu 10.04) and medium (USB or CD) where
         # necessary.
         w = self.try_install_text_label
-        text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+        text = i18n.get_string(Gtk.Buildable.get_name(w), lang)
         text = text.replace('${RELEASE}', release.name)
         text = text.replace('${MEDIUM}', install_medium)
         w.set_label(text)
 
         # Big buttons.
         for w in (self.try_ubuntu, self.install_ubuntu):
-            text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+            text = i18n.get_string(Gtk.Buildable.get_name(w), lang)
             text = text.replace('${RELEASE}', release.name)
             text = text.replace('${MEDIUM}', install_medium)
             w.get_child().set_markup('<span size="x-large">%s</span>' % text)

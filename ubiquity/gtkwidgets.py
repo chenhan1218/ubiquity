@@ -1,12 +1,13 @@
 #!/usr/bin/python
 
-import gtk
-import gobject
+from gi.repository import Gtk
+from gi.repository import Gdk
+from gi.repository import GdkPixbuf
+from gi.repository import GObject
 import cairo
-import pango
+from gi.repository import Pango
 
 import dbus
-import glib
 
 from dbus.mainloop.glib import DBusGMainLoop
 DBusGMainLoop(set_as_default=True)
@@ -42,28 +43,28 @@ def draw_round_rect(c, r, x, y, w, h):
     c.close_path()
 
 def gtk_to_cairo_color(c):
-    color = gtk.gdk.color_parse(c)
+    color = Gdk.color_parse(c)
     s = 1.0/65535.0
     r = color.red * s
     g = color.green * s
     b = color.blue * s
     return r, g, b
 
-class StylizedFrame(gtk.Bin):
+class StylizedFrame(Gtk.Bin):
     __gtype_name__ = 'StylizedFrame'
     __gproperties__ = {
-        'radius'  : (gobject.TYPE_INT,
+        'radius'  : (GObject.TYPE_INT,
                     'Radius',
                     'The radius of the rounded corners.',
-                    0, 32767, 10, gobject.PARAM_READWRITE),
-        'width'   : (gobject.TYPE_INT,
+                    0, 32767, 10, GObject.PARAM_READWRITE),
+        'width'   : (GObject.TYPE_INT,
                     'Width',
                     'The width of the outline.',
-                    0, 32767, 1, gobject.PARAM_READWRITE),
-        'padding' : (gobject.TYPE_INT,
+                    0, 32767, 1, GObject.PARAM_READWRITE),
+        'padding' : (GObject.TYPE_INT,
                     'Padding',
                     'The padding between the bin and the outline.',
-                    0, 32767, 2, gobject.PARAM_READWRITE)
+                    0, 32767, 2, GObject.PARAM_READWRITE)
     }
     
     def do_get_property(self, prop):
@@ -73,43 +74,43 @@ class StylizedFrame(gtk.Bin):
         setattr(self, prop.name, value)
 
     def __init__(self):
-        gtk.Bin.__init__(self)
+        Gtk.Bin.__init__(self)
         self.child = None
         self.radius = 10
         self.width = 1
         self.padding = 2
 
     #def do_realize(self):
-    #    self.set_flags(gtk.REALIZED)
+    #    self.set_flags(Gtk.REALIZED)
 
-    #    self.window = gtk.gdk.Window(
+    #    self.window = Gdk.Window(
     #        self.get_parent_window(),
     #        width=self.allocation.width,
     #        height=self.allocation.height,
-    #        window_type=gtk.gdk.WINDOW_CHILD,
-    #        wclass=gtk.gdk.INPUT_OUTPUT,
-    #        event_mask=self.get_events() | gtk.gdk.EXPOSURE_MASK)
+    #        window_type=Gdk.WINDOW_CHILD,
+    #        wclass=Gdk.INPUT_OUTPUT,
+    #        event_mask=self.get_events() | Gdk.EventMask.EXPOSURE_MASK)
 
     #    self.window.set_user_data(self)
     #    self.style.attach(self.window)
-    #    self.style.set_background(self.window, gtk.STATE_NORMAL)
+    #    self.style.set_background(self.window, Gtk.StateType.NORMAL)
     #    self.window.move_resize(*self.allocation)
-    #    gtk.Bin.do_realize(self)
+    #    Gtk.Bin.do_realize(self)
 
     def do_size_request(self, req):
         w, h = 1, 1
-        if self.child:
-            w, h = self.child.size_request()
+        if self.get_child():
+            w, h = self.get_child().size_request()
         req.width = w + (self.width * 2) + (self.padding * 2)
         req.height = h + (self.width * 2) + (self.padding * 2)
 
     def do_size_allocate(self, alloc):
         self.allocation = alloc
-        self.child.size_allocate(alloc)
+        self.get_child().size_allocate(alloc)
 
     def do_forall(self, include_internals, callback, user_data):
-        if self.child:
-            callback(self.child, user_data)
+        if self.get_child():
+            callback(self.get_child(), user_data)
 
     def paint_background(self, c):
         c.set_source_rgb(*gtk_to_cairo_color('#fbfbfb'))
@@ -130,30 +131,30 @@ class StylizedFrame(gtk.Bin):
         c.set_source_rgb(*gtk_to_cairo_color('#c7c7c6'))
         c.set_line_width(self.width)
         c.stroke()
-        gtk.Bin.do_expose_event(self, event)
+        Gtk.Bin.do_expose_event(self, event)
 
-gobject.type_register(StylizedFrame)
+GObject.type_register(StylizedFrame)
 
 # c3032
 # TODO Glade gets really slow when dealing with uint64 properties.
 # Investigate.
-class ResizeWidget(gtk.HPaned):
+class ResizeWidget(Gtk.HPaned):
     __gtype_name__ = 'ResizeWidget'
     __gproperties__ = {
-        'part_size' : (gobject.TYPE_UINT64,
+        'part_size' : (GObject.TYPE_UINT64,
                     'Partition size',
                     'The size of the partition being resized',
-                    1, 2**64-1, 100, gobject.PARAM_READWRITE),
-        'min_size'  : (gobject.TYPE_UINT64,
+                    1, 2**64-1, 100, GObject.PARAM_READWRITE),
+        'min_size'  : (GObject.TYPE_UINT64,
                     'Minimum size',
                     'The minimum size that the existing partition can be '\
                     'resized to',
-                    0, 2**64-1, 0, gobject.PARAM_READWRITE),
-        'max_size'  : (gobject.TYPE_UINT64,
+                    0, 2**64-1, 0, GObject.PARAM_READWRITE),
+        'max_size'  : (GObject.TYPE_UINT64,
                     'Maximum size',
                     'The maximum size that the existing partition can be ' \
                     'resized to',
-                    1, 2**64-1, 100, gobject.PARAM_READWRITE)
+                    1, 2**64-1, 100, GObject.PARAM_READWRITE)
     }
     
     def do_get_property(self, prop):
@@ -169,7 +170,7 @@ class ResizeWidget(gtk.HPaned):
     # (because you don't want to be able to delete them), add a get_children()
     # function.  Yes.
     def __init__(self, part_size=100, min_size=0, max_size=100, existing_part=None, new_part=None):
-        gtk.HPaned.__init__(self)
+        Gtk.HPaned.__init__(self)
         assert min_size <= max_size <= part_size
         assert part_size > 0
         # The size (b) of the existing partition.
@@ -182,11 +183,11 @@ class ResizeWidget(gtk.HPaned):
         # FIXME: Why do we still need these event boxes to get proper bounds
         # for the linear gradient?
         self.existing_part = existing_part or PartitionBox()
-        eb = gtk.EventBox()
+        eb = Gtk.EventBox()
         eb.add(self.existing_part)
         self.pack1(eb, shrink=False)
         self.new_part = new_part or PartitionBox()
-        eb = gtk.EventBox()
+        eb = Gtk.EventBox()
         eb.add(self.new_part)
         self.pack2(eb, shrink=False)
         self.show_all()
@@ -204,7 +205,7 @@ class ResizeWidget(gtk.HPaned):
         pixels = int(tmp * total)
         self.new_part.set_size_request(pixels, -1)
 
-        gtk.HPaned.do_realize(self)
+        Gtk.HPaned.do_realize(self)
 
     def do_expose_event(self, event):
         s1 = self.existing_part.get_allocation().width
@@ -216,7 +217,7 @@ class ResizeWidget(gtk.HPaned):
         
         percent = (float(s2) / float(total))
         self.new_part.set_size(percent * self.part_size)
-        gtk.HPaned.do_expose_event(self, event)
+        Gtk.HPaned.do_expose_event(self, event)
 
     def set_pref_size(self, size):
         s1 = self.existing_part.get_allocation().width
@@ -242,38 +243,38 @@ class ResizeWidget(gtk.HPaned):
             return size
 
 
-gobject.type_register(ResizeWidget)
+GObject.type_register(ResizeWidget)
 
-class DiskBox(gtk.HBox):
+class DiskBox(Gtk.HBox):
     __gtype_name__ = 'DiskBox'
 
     def add(self, partition, size):
-        gtk.HBox.add(self, partition, expand=False)
+        Gtk.HBox.add(self, partition, expand=False)
         partition.set_size_request(size, -1)
 
     def clear(self):
         self.forall(lambda x: self.remove(x))
 
-gobject.type_register(DiskBox)
+GObject.type_register(DiskBox)
 
 class PartitionBox(StylizedFrame):
     __gtype_name__ = 'PartitionBox'
     __gproperties__ = {
-        'title'  : (gobject.TYPE_STRING,
+        'title'  : (GObject.TYPE_STRING,
                     'Title',
                     None,
                     'Title',
-                    gobject.PARAM_READWRITE),
-        'icon-name' : (gobject.TYPE_STRING,
+                    GObject.PARAM_READWRITE),
+        'icon-name' : (GObject.TYPE_STRING,
                     'Icon Name',
                     None,
                     'distributor-logo',
-                    gobject.PARAM_READWRITE),
-        'extra'  : (gobject.TYPE_STRING,
+                    GObject.PARAM_READWRITE),
+        'extra'  : (GObject.TYPE_STRING,
                     'Extra Text',
                     None,
                     '',
-                    gobject.PARAM_READWRITE),
+                    GObject.PARAM_READWRITE),
     }
     
     def do_get_property(self, prop):
@@ -290,7 +291,7 @@ class PartitionBox(StylizedFrame):
             self.ostitle.set_markup('<b>%s</b>' % value)
             return
         elif prop.name == 'icon-name':
-            self.logo.set_from_icon_name(value, gtk.ICON_SIZE_DIALOG)
+            self.logo.set_from_icon_name(value, Gtk.IconSize.DIALOG)
             return
         elif prop.name == 'extra':
             self.extra.set_markup('<small>%s</small>' % (value and value or ' '))
@@ -305,33 +306,33 @@ class PartitionBox(StylizedFrame):
         # 5 px between the extra heading and the size
         # 12 px below the bottom-most element
         StylizedFrame.__init__(self)
-        vbox = gtk.VBox()
-        self.logo = gtk.image_new_from_icon_name(icon_name, gtk.ICON_SIZE_DIALOG)
-        align = gtk.Alignment(0.5, 0.5, 0.5, 0.5)
+        vbox = Gtk.VBox()
+        self.logo = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.DIALOG)
+        align = Gtk.Alignment.new(0.5, 0.5, 0.5, 0.5)
         align.set_padding(10, 0, 0, 0)
         align.add(self.logo)
-        vbox.pack_start(align, expand=False)
+        vbox.pack_start(align, False, True, 0)
 
-        self.ostitle = gtk.Label()
-        self.ostitle.set_ellipsize(pango.ELLIPSIZE_END)
-        align = gtk.Alignment(0.5, 0.5, 0.5, 0.5)
+        self.ostitle = Gtk.Label()
+        self.ostitle.set_ellipsize(Pango.EllipsizeMode.END)
+        align = Gtk.Alignment.new(0.5, 0.5, 0.5, 0.5)
         align.set_padding(6, 0, 0, 0)
         align.add(self.ostitle)
-        vbox.pack_start(align, expand=False)
+        vbox.pack_start(align, False, True, 0)
 
-        self.extra = gtk.Label()
-        self.extra.set_ellipsize(pango.ELLIPSIZE_END)
-        align = gtk.Alignment(0.5, 0.5, 0.5, 0.5)
+        self.extra = Gtk.Label()
+        self.extra.set_ellipsize(Pango.EllipsizeMode.END)
+        align = Gtk.Alignment.new(0.5, 0.5, 0.5, 0.5)
         align.set_padding(4, 0, 0, 0)
         align.add(self.extra)
-        vbox.pack_start(align, expand=False)
+        vbox.pack_start(align, False, True, 0)
 
-        self.size = gtk.Label()
-        self.size.set_ellipsize(pango.ELLIPSIZE_END)
-        align = gtk.Alignment(0.5, 0.5, 0.5, 0.5)
+        self.size = Gtk.Label()
+        self.size.set_ellipsize(Pango.EllipsizeMode.END)
+        align = Gtk.Alignment.new(0.5, 0.5, 0.5, 0.5)
         align.set_padding(5, 12, 0, 0)
         align.add(self.size)
-        vbox.pack_start(align, expand=False)
+        vbox.pack_start(align, False, True, 0)
         self.add(vbox)
 
         self.ostitle.set_markup('<b>%s</b>' % title)
@@ -377,15 +378,15 @@ class PartitionBox(StylizedFrame):
         c.fill_preserve()
         #c.restore()
 
-gobject.type_register(PartitionBox)
+GObject.type_register(PartitionBox)
 
 class StateBox(StylizedFrame):
     __gtype_name__ = 'StateBox'
     __gproperties__ = {
-        'label'  : (gobject.TYPE_STRING,
+        'label'  : (GObject.TYPE_STRING,
                     'Label',
                     None,
-                    'label', gobject.PARAM_READWRITE),
+                    'label', GObject.PARAM_READWRITE),
     }
     
     def do_get_property(self, prop):
@@ -401,17 +402,17 @@ class StateBox(StylizedFrame):
     
     def __init__(self, text=''):
         StylizedFrame.__init__(self)
-        alignment = gtk.Alignment()
+        alignment = Gtk.Alignment.new()
         alignment.set_padding(7, 7, 15, 15)
-        hbox = gtk.HBox()
+        hbox = Gtk.HBox()
         hbox.set_spacing(10)
-        self.image = gtk.Image()
-        self.image.set_from_stock(gtk.STOCK_YES, gtk.ICON_SIZE_LARGE_TOOLBAR)
-        self.label = gtk.Label(text)
+        self.image = Gtk.Image()
+        self.image.set_from_stock(Gtk.STOCK_YES, Gtk.IconSize.LARGE_TOOLBAR)
+        self.label = Gtk.Label(label=text)
         
         self.label.set_alignment(0, 0.5)
-        hbox.pack_start(self.image, expand=False)
-        hbox.pack_start(self.label)
+        hbox.pack_start(self.image, False, True, 0)
+        hbox.pack_start(self.label, True, True, 0)
         alignment.add(hbox)
         self.add(alignment)
         self.show_all()
@@ -421,27 +422,27 @@ class StateBox(StylizedFrame):
     def set_state(self, state):
         self.status = state
         if state:
-            self.image.set_from_stock(gtk.STOCK_YES, gtk.ICON_SIZE_LARGE_TOOLBAR)
+            self.image.set_from_stock(Gtk.STOCK_YES, Gtk.IconSize.LARGE_TOOLBAR)
         else:
-            self.image.set_from_stock(gtk.STOCK_NO, gtk.ICON_SIZE_LARGE_TOOLBAR)
+            self.image.set_from_stock(Gtk.STOCK_NO, Gtk.IconSize.LARGE_TOOLBAR)
 
     def get_state(self):
         return self.status
 
-gobject.type_register(StateBox)
+GObject.type_register(StateBox)
 
 # TODO: Doesn't show correctly in Glade.
-class LabelledEntry(gtk.Entry):
+class LabelledEntry(Gtk.Entry):
     __gtype_name__ = 'LabelledEntry'
     __gproperties__ = {
-        'label'  : (gobject.TYPE_STRING,
+        'label'  : (GObject.TYPE_STRING,
                     'Label',
                     None,
-                    'label', gobject.PARAM_READWRITE),
-        'persist' : (gobject.TYPE_BOOLEAN,
+                    'label', GObject.PARAM_READWRITE),
+        'persist' : (GObject.TYPE_BOOLEAN,
                      'Persist', 'Show the label even when there is text.',
                      False,
-                     gobject.PARAM_READWRITE),
+                     GObject.PARAM_READWRITE),
     }
 
     def do_get_property(self, prop):
@@ -461,10 +462,10 @@ class LabelledEntry(gtk.Entry):
             setattr(self, prop.name, value)
 
     def __init__(self, label='', persist=False):
-        gtk.Entry.__init__(self)
+        Gtk.Entry.__init__(self)
         self.label = label
         self.persist = persist
-        self.inactive_color = self.style.fg[gtk.STATE_INSENSITIVE]
+        self.inactive_color = self.style.fg[Gtk.StateType.INSENSITIVE]
 
     def set_label(self, label):
         self.label = label or ''
@@ -479,7 +480,7 @@ class LabelledEntry(gtk.Entry):
         return self.persist
 
     def do_expose_event(self, event):
-        gtk.Entry.do_expose_event(self, event)
+        Gtk.Entry.do_expose_event(self, event)
         # Get the text_area.
         win = self.window.get_children()[0]
         if self.has_focus():
@@ -498,55 +499,54 @@ class LabelledEntry(gtk.Entry):
             w = 1
         win.draw_layout(gc, w, 2, layout)
 
-gobject.type_register(LabelledEntry)
+GObject.type_register(LabelledEntry)
 
-class LabelledComboBoxEntry(gtk.ComboBoxEntry):
+class LabelledComboBoxEntry(Gtk.ComboBox):
     __gtype_name__ = 'LabelledComboBoxEntry'
     __gproperties__ = {
-        'label'  : (gobject.TYPE_STRING,
+        'label'  : (GObject.TYPE_STRING,
                     'Label',
                     None,
-                    'label', gobject.PARAM_READWRITE),
+                    'label', GObject.PARAM_READWRITE),
     }
 
     def do_get_property(self, prop):
         if prop.name == 'label':
-            return self.child.get_label()
+            return self.get_child().get_label()
         return getattr(self, prop.name)
 
     def do_set_property(self, prop, value):
         if prop.name == 'label':
-            self.child.set_label(value)
+            self.get_child().set_label(value)
             return
         setattr(self, prop.name, value)
 
     def __init__(self, model=None, column=-1):
-        #gtk.ComboBoxEntry.__init__(self, model, column)
-        gtk.ComboBox.__init__(self)
+        Gtk.ComboBox.__init__(self, has_entry=True)
         l = LabelledEntry()
         l.show()
         self.add(l)
-gobject.type_register(LabelledComboBoxEntry)
+GObject.type_register(LabelledComboBoxEntry)
 
 # Modified from John Stowers' client-side-windows demo.
-class GreyableBin(gtk.Bin):
+class GreyableBin(Gtk.Bin):
     __gsignals__ = {
         "damage_event"  :   "override"
     }
     __gproperties__ = {
-        'greyed'  : (gobject.TYPE_BOOLEAN,
-                    'Greyed', 'greyed', False, gobject.PARAM_READWRITE),
+        'greyed'  : (GObject.TYPE_BOOLEAN,
+                    'Greyed', 'greyed', False, GObject.PARAM_READWRITE),
     }
     __gtype_name__ = 'GreyableBin'
 
     def __init__(self):
-        gtk.Bin.__init__(self)
+        Gtk.Bin.__init__(self)
 
         self.child = None
         self.offscreen_window = None
         self.greyed = False
 
-        self.unset_flags(gtk.NO_WINDOW)
+        self.unset_flags(Gtk.NO_WINDOW)
 
     def do_set_property(self, pspec, value):
         setattr(self, pspec.name, value)
@@ -561,9 +561,9 @@ class GreyableBin(gtk.Bin):
         return offscreen_x, offscreen_y
 
     def _pick_offscreen_child(self, offscreen_window, widget_x, widget_y):
-        if self.child and self.child.flags() & gtk.VISIBLE:
+        if self.get_child() and self.get_child().flags() & Gtk.VISIBLE:
             x,y = self._to_child(widget_x, widget_y)
-            ca = self.child.allocation
+            ca = self.get_child().allocation
             if (x >= 0 and x < ca.width and y >= 0 and y < ca.height):
                 return self.offscreen_window
         return None
@@ -579,85 +579,85 @@ class GreyableBin(gtk.Bin):
         offscreen_y = offscreen_x
 
     def do_realize(self):
-        self.set_flags(gtk.REALIZED)
+        self.set_flags(Gtk.REALIZED)
 
         border_width = self.border_width
 
         w = self.allocation.width - 2*border_width
         h = self.allocation.height - 2*border_width
 
-        self.window = gtk.gdk.Window(
+        self.window = Gdk.Window(
                 self.get_parent_window(),
                 x=self.allocation.x + border_width,
                 y=self.allocation.y + border_width,
                 width=w,
                 height=h,
-                window_type=gtk.gdk.WINDOW_CHILD,
+                window_type=Gdk.WINDOW_CHILD,
                 event_mask=self.get_events() 
-                        | gtk.gdk.EXPOSURE_MASK
-                        | gtk.gdk.POINTER_MOTION_MASK
-                        | gtk.gdk.BUTTON_PRESS_MASK
-                        | gtk.gdk.BUTTON_RELEASE_MASK
-                        | gtk.gdk.SCROLL_MASK
-                        | gtk.gdk.ENTER_NOTIFY_MASK
-                        | gtk.gdk.LEAVE_NOTIFY_MASK,
+                        | Gdk.EventMask.EXPOSURE_MASK
+                        | Gdk.EventMask.POINTER_MOTION_MASK
+                        | Gdk.EventMask.BUTTON_PRESS_MASK
+                        | Gdk.EventMask.BUTTON_RELEASE_MASK
+                        | Gdk.EventMask.SCROLL_MASK
+                        | Gdk.EventMask.ENTER_NOTIFY_MASK
+                        | Gdk.EventMask.LEAVE_NOTIFY_MASK,
                 visual=self.get_visual(),
                 colormap=self.get_colormap(),
-                wclass=gtk.gdk.INPUT_OUTPUT)
+                wclass=Gdk.INPUT_OUTPUT)
 
         self.window.set_user_data(self)
         self.window.connect("pick-embedded-child", self._pick_offscreen_child)
 
-        if self.child and self.child.flags() & gtk.VISIBLE:
-            w = self.child.allocation.width
-            h = self.child.allocation.height
+        if self.get_child() and self.get_child().flags() & Gtk.VISIBLE:
+            w = self.get_child().allocation.width
+            h = self.get_child().allocation.height
 
-        self.offscreen_window = gtk.gdk.Window(
+        self.offscreen_window = Gdk.Window(
                 self.get_root_window(),
                 x=self.allocation.x + border_width,
                 y=self.allocation.y + border_width,
                 width=w,
                 height=h,
-                window_type=gtk.gdk.WINDOW_OFFSCREEN,
+                window_type=Gdk.WINDOW_OFFSCREEN,
                 event_mask=self.get_events() 
-                        | gtk.gdk.EXPOSURE_MASK
-                        | gtk.gdk.POINTER_MOTION_MASK
-                        | gtk.gdk.BUTTON_PRESS_MASK
-                        | gtk.gdk.BUTTON_RELEASE_MASK
-                        | gtk.gdk.SCROLL_MASK
-                        | gtk.gdk.ENTER_NOTIFY_MASK
-                        | gtk.gdk.LEAVE_NOTIFY_MASK,
+                        | Gdk.EventMask.EXPOSURE_MASK
+                        | Gdk.EventMask.POINTER_MOTION_MASK
+                        | Gdk.EventMask.BUTTON_PRESS_MASK
+                        | Gdk.EventMask.BUTTON_RELEASE_MASK
+                        | Gdk.EventMask.SCROLL_MASK
+                        | Gdk.EventMask.ENTER_NOTIFY_MASK
+                        | Gdk.EventMask.LEAVE_NOTIFY_MASK,
                 visual=self.get_visual(),
                 colormap=self.get_colormap(),
-                wclass=gtk.gdk.INPUT_OUTPUT)
+                wclass=Gdk.INPUT_OUTPUT)
         self.offscreen_window.set_user_data(self)
 
-        if self.child:
-            self.child.set_parent_window(self.offscreen_window)
+        if self.get_child():
+            self.get_child().set_parent_window(self.offscreen_window)
 
-        gtk.gdk.offscreen_window_set_embedder(self.offscreen_window, self.window)
+        Gdk.offscreen_window_set_embedder(self.offscreen_window, self.window)
 
         self.offscreen_window.connect("to-embedder", self._offscreen_window_to_parent)
         self.offscreen_window.connect("from-embedder", self._offscreen_window_from_parent)
 
         self.style.attach(self.window)
-        self.style.set_background(self.window, gtk.STATE_NORMAL)
-        self.style.set_background(self.offscreen_window, gtk.STATE_NORMAL)
+        self.style.set_background(self.window, Gtk.StateType.NORMAL)
+        self.style.set_background(self.offscreen_window, Gtk.StateType.NORMAL)
 
         self.offscreen_window.show()
 
     def do_child_type(self):
         #FIXME: This never seems to get called...
-        if self.child:
+        if self.get_child():
             return None
-        return gtk.Widget.__gtype__
+        return Gtk.Widget.__gtype__
 
     def do_unrealize(self):
         self.offscreen_window.set_user_data(None)
         self.offscreen_window = None
 
     def do_add(self, widget):
-        if not self.child:
+        if not self.get_child():
             widget.set_parent_window(self.offscreen_window)
             widget.set_parent(self)
             self.child = widget
@@ -665,21 +665,21 @@ class GreyableBin(gtk.Bin):
             print "Cannot have more than one child"
 
     def do_remove(self, widget):
-        was_visible = widget.flags() & gtk.VISIBLE
-        if self.child == widget:
+        was_visible = widget.flags() & Gtk.VISIBLE
+        if self.get_child() == widget:
             widget.unparent()
             self.child = None
-            if was_visible and (self.flags() & gtk.VISIBLE):
+            if was_visible and (self.flags() & Gtk.VISIBLE):
                 self.queue_resize()
 
     def do_forall(self, internal, callback, data):
-        if self.child:
-            callback(self.child, data)
+        if self.get_child():
+            callback(self.get_child(), data)
 
     def do_size_request(self, r):
         cw, ch = 0,0;
-        if self.child and (self.child.flags() & gtk.VISIBLE):
-            cw, ch = self.child.size_request()
+        if self.get_child() and (self.get_child().flags() & Gtk.VISIBLE):
+            cw, ch = self.get_child().size_request()
 
         # FIXME: what do we need border_width and an extra
         # 10px for?
@@ -693,22 +693,22 @@ class GreyableBin(gtk.Bin):
         w = self.allocation.width - border_width
         h = self.allocation.height - border_width
 
-        if self.flags() & gtk.REALIZED:
+        if self.get_realized():
             self.window.move_resize(
                             allocation.x + border_width,
                             allocation.y + border_width,
                             w,h)
 
-        if self.child and self.child.flags() & gtk.VISIBLE:
-            ca = gtk.gdk.Rectangle(x=0,y=0,width=w,height=h)
+        if self.get_child() and self.get_child().flags() & Gtk.VISIBLE:
+            ca = (0, 0, w, h)
 
-            if self.flags() & gtk.REALIZED:
+            if self.get_realized():
                 self.offscreen_window.move_resize(
                             allocation.x + border_width,
                             allocation.y + border_width,
                             w, h)
 
-            self.child.size_allocate(ca)
+            self.get_child().size_allocate(ca)
 
     # FIXME this does not play well with the automatic partitioning page
     # (expose events to the max, causes lockup)
@@ -718,9 +718,9 @@ class GreyableBin(gtk.Bin):
         return True
 
     def do_expose_event(self, event):
-        if self.flags() & gtk.VISIBLE and self.flags() & gtk.MAPPED:
+        if self.flags() & Gtk.VISIBLE and self.get_mapped():
             if event.window == self.window:
-                pm = gtk.gdk.offscreen_window_get_pixmap(self.offscreen_window)
+                pm = Gdk.offscreen_window_get_pixmap(self.offscreen_window)
                 w,h = pm.get_size()
 
                 cr = event.window.cairo_create()
@@ -742,21 +742,21 @@ class GreyableBin(gtk.Bin):
             elif event.window == self.offscreen_window:
                 self.style.paint_flat_box(
                                 event.window,
-                                gtk.STATE_NORMAL, gtk.SHADOW_NONE,
+                                Gtk.StateType.NORMAL, Gtk.ShadowType.NONE,
                                 event.area, self, "blah",
                                 0, 0, -1, -1)
-                if self.child:
-                    self.propagate_expose(self.child, event)
+                if self.get_child():
+                    self.propagate_expose(self.get_child(), event)
 
         return False
 
-gobject.type_register(GreyableBin)
+GObject.type_register(GreyableBin)
 
 WM = 'com.ubuntu.ubiquity.WirelessManager'
 WM_PATH = '/com/ubuntu/ubiquity/WirelessManager'
 
 # Taken from software-center.
-class CellRendererPixbufWithOverlay(gtk.CellRendererText):
+class CellRendererPixbufWithOverlay(Gtk.CellRendererText):
     """ A CellRenderer with support for a pixbuf and a overlay icon
     
     It also supports "markup" and "text" so that orca and friends can
@@ -773,20 +773,20 @@ class CellRendererPixbufWithOverlay(gtk.CellRendererText):
 
     __gproperties__ = {
         'overlay' : (bool, 'overlay', 'show an overlay icon', False,
-                     gobject.PARAM_READWRITE),
-        'pixbuf'  : (gtk.gdk.Pixbuf, 'pixbuf', 'pixbuf',
-                     gobject.PARAM_READWRITE)
+                     GObject.PARAM_READWRITE),
+        'pixbuf'  : (GdkPixbuf.Pixbuf, 'pixbuf', 'pixbuf',
+                     GObject.PARAM_READWRITE)
     }
     __gtype_name__ = 'CellRendererPixbufWithOverlay'
 
     def __init__(self, overlay_icon_name):
-        gtk.CellRendererText.__init__(self)
-        icons = gtk.icon_theme_get_default()
+        Gtk.CellRendererText.__init__(self)
+        icons = Gtk.IconTheme.get_default()
         self.overlay = False
         try:
             self._installed = icons.load_icon(overlay_icon_name,
                                           self.OVERLAY_SIZE, 0)
-        except glib.GError:
+        except GObject.GError:
             # icon not present in theme, probably because running uninstalled
             self._installed = icons.load_icon('emblem-system',
                                           self.OVERLAY_SIZE, 0)
@@ -836,30 +836,30 @@ class CellRendererPixbufWithOverlay(gtk.CellRendererText):
                                -1, -1,          # size
                                0, 0, 0)         # dither
 
-gobject.type_register(CellRendererPixbufWithOverlay)
+GObject.type_register(CellRendererPixbufWithOverlay)
 
-class WirelessTreeView(gtk.TreeView):
+class WirelessTreeView(Gtk.TreeView):
     __gtype_name__ = 'WirelessTreeView'
 
     def __init__(self, bus):
-        self.model = gtk.ListStore(str)
-        gtk.TreeView.__init__(self, self.model)
+        self.model = Gtk.ListStore(str)
+        Gtk.TreeView.__init__(self, self.model)
 
         self.cache = {}
         self.bus = bus
         self.set_headers_visible(False)
 
-        col = gtk.TreeViewColumn()
+        col = Gtk.TreeViewColumn()
         cell_pixbuf = CellRendererPixbufWithOverlay('nm-secure-lock')
         cell_pixbuf.set_property('overlay', True)
-        cell = gtk.CellRendererText()
+        cell = Gtk.CellRendererText()
         col.pack_start(cell_pixbuf, False)
         col.pack_start(cell, True)
         col.set_cell_data_func(cell, self.column_data_func, 0)
         col.set_cell_data_func(cell_pixbuf, self.pixbuf_data_func)
         self.append_column(col)
         
-        it = gtk.icon_theme_get_default()
+        it = Gtk.IconTheme.get_default()
         self.icons = {}
         map = {'wifi-020': 'nm-signal-00',
                'wifi-040': 'nm-signal-25',
@@ -892,7 +892,7 @@ class WirelessTreeView(gtk.TreeView):
         cr.set_source_rgb(0,0,0)
         cr.rectangle(0, 0, *self.window.get_geometry()[2:4])
         cr.paint()
-        gtk.TreeView.do_expose_event(self, event)
+        Gtk.TreeView.do_expose_event(self, event)
 
     def added(self, ap):
         self.cache[ap] = self.interface.GetProperties(ap)
@@ -955,35 +955,35 @@ class WirelessTreeView(gtk.TreeView):
         self.interface.Connect(ap)
     # Need to watch state change so we can enable the next button.
 
-gobject.type_register(WirelessTreeView)
+GObject.type_register(WirelessTreeView)
 
 # TODO: Show a helpful note if we don't see any wifi networks and a card is
 # disabled.
-class WirelessWidget(gtk.VBox):
+class WirelessWidget(Gtk.VBox):
     __gtype_name__ = 'WirelessWidget'
     def __init__(self):
-        gtk.VBox.__init__(self, spacing=6)
+        Gtk.VBox.__init__(self, spacing=6)
         bus = dbus.SystemBus()
-        sw = gtk.ScrolledWindow()
-        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
+        sw = Gtk.ScrolledWindow()
+        sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         self.treeview = WirelessTreeView(bus)
         #box = GreyableBin()
         #box.set_property('greyed', False)
         sw.add(self.treeview)
         #box.add(sw)
-        #self.pack_start(box)
-        self.pack_start(sw)
-        hbox = gtk.HBox(spacing=6)
-        self.pack_start(hbox, expand=False)
+        #self.pack_start(box, True, True, 0)
+        self.pack_start(sw, True, True, 0)
+        hbox = Gtk.HBox(spacing=6)
+        self.pack_start(hbox, False, True, 0)
         # TODO i18n
-        l = gtk.Label('Password:')
+        l = Gtk.Label(label='Password:')
         hbox.pack_start(l, False)
-        self.entry = gtk.Entry()
-        hbox.pack_start(self.entry)
+        self.entry = Gtk.Entry()
+        hbox.pack_start(self.entry, True, True, 0)
         # TODO i18n
-        cb = gtk.CheckButton('Display password')
+        cb = Gtk.CheckButton('Display password')
         cb.set_active(True)
-        hbox.pack_start(cb)
+        hbox.pack_start(cb, True, True, 0)
         self.treeview.get_selection().connect('changed', self.changed)
         cb.connect('toggled', self.show_passphrase)
         self.show_all()
@@ -1000,16 +1000,16 @@ class WirelessWidget(gtk.VBox):
         self.entry.set_text(passphrase)
         # if not passphrase and lock set, next.set_sensitive(False)
 
-gobject.type_register(WirelessWidget)
+GObject.type_register(WirelessWidget)
 
 if __name__ == "__main__":
     options = ('that you have at least 3GB available drive space',
                'that you are plugged in to a power source',
                'that you are connected to the Internet with an ethernet cable')
-    w = gtk.Window()
-    w.connect('destroy', gtk.main_quit)
+    w = Gtk.Window()
+    w.connect('destroy', Gtk.main_quit)
     b = GreyableBin()
-    a = gtk.VBox()
+    a = Gtk.VBox()
     a.set_spacing(5)
     a.set_border_width(20)
     
@@ -1018,24 +1018,24 @@ if __name__ == "__main__":
     power = StateBox(options[1])
     inet = StateBox(options[2])
     for widget in (space, power, inet):
-        a.pack_start(widget, expand=False)
+        a.pack_start(widget, False, True, 0)
 
     # Partition resizing.
     existing_part = PartitionBox('Files (20 MB)', '', 'folder')
     new_part = PartitionBox('Ubuntu 10.10', '/dev/sda2 (btrfs)', 'distributor-logo')
     hb = ResizeWidget(2**64, 2**64/4, 2**64/1.25, existing_part, new_part)
-    a.pack_start(hb, expand=False)
-    button = gtk.Button('Install')
+    a.pack_start(hb, False, True, 0)
+    button = Gtk.Button('Install')
     def func(*args):
         print 'Size:', hb.get_size()
     button.connect('clicked', func)
-    a.pack_start(button, expand=False)
+    a.pack_start(button, False, True, 0)
 
     le = LabelledEntry('A labelled entry')
-    a.pack_start(le, expand=False)
+    a.pack_start(le, False, True, 0)
 
     lcbe = LabelledComboBoxEntry()
-    a.pack_start(lcbe, expand=False)
+    a.pack_start(lcbe, False, True, 0)
 
     bus = dbus.SystemBus()
     upower = bus.get_object('org.freedesktop.UPower', '/org/freedesktop/UPower')
@@ -1045,7 +1045,7 @@ if __name__ == "__main__":
     bus.add_signal_receiver(power_state_changed, 'Changed', 'org.freedesktop.UPower', 'org.freedesktop.UPower')
     power_state_changed()
     
-    w2 = gtk.Window()
+    w2 = Gtk.Window()
     w2.set_transient_for(w)
     w2.set_modal(True)
     w2.show()
@@ -1053,10 +1053,10 @@ if __name__ == "__main__":
     b.set_property('greyed', True)
     b.add(a)
     wireless = WirelessWidget()
-    a.pack_start(wireless)
+    a.pack_start(wireless, True, True, 0)
     w.add(b)
     w.show_all()
-    gtk.main()
+    Gtk.main()
 
 # TODO: Process layered on top of os-prober (or function) that:
 #       - Calls os-prober to find the OS name.
@@ -1068,4 +1068,4 @@ if __name__ == "__main__":
 
 # TODO: Bring in the timezone_map, but keep it in a separate file and make it
 # so the tz database can be None, in which case it just prints the map
-# background.  Give it its own gdk.window or EventBox.
+# background.  Give it its own Gdk.window or EventBox.

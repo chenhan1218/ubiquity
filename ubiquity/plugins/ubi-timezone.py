@@ -41,8 +41,8 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
-            import gtk
-            builder = gtk.Builder()
+            from gi.repository import Gtk
+            builder = Gtk.Builder()
             self.controller.add_builder(builder)
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
             builder.connect_signals(self)
@@ -88,7 +88,7 @@ class PageGtk(plugin.PluginUI):
 
     def setup_page(self):
         # TODO Put a frame around the completion to add contrast (LP: #605908)
-        import gobject, gtk
+        from gi.repository import Gtk, GObject
         from ubiquity import timezone_map
         self.tzdb = ubiquity.tz.Database()
         PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
@@ -110,9 +110,9 @@ class PageGtk(plugin.PluginUI):
                 model = changed.cache[text]
             else:
                 # fetch
-                model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING,
-                                      gobject.TYPE_STRING, gobject.TYPE_STRING,
-                                      gobject.TYPE_STRING)
+                model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                      GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                      GObject.TYPE_STRING)
                 changed.cache[text] = model
                 # TODO benchmark this
                 results = [(name, self.tzdb.get_loc(city))
@@ -152,11 +152,11 @@ class PageGtk(plugin.PluginUI):
         self.timeout_id = 0
         def queue_entry_changed(entry):
             if self.timeout_id:
-                gobject.source_remove(self.timeout_id)
-            self.timeout_id = gobject.timeout_add(300, changed, entry)
+                GObject.source_remove(self.timeout_id)
+            self.timeout_id = GObject.timeout_add(300, changed, entry)
 
         self.city_entry.connect('changed', queue_entry_changed)
-        completion = gtk.EntryCompletion()
+        completion = Gtk.EntryCompletion()
         self.city_entry.set_completion(completion)
         completion.set_inline_completion(True)
         completion.set_inline_selection(True)
@@ -185,8 +185,8 @@ class PageGtk(plugin.PluginUI):
             else:
                 text = '%s <small>(%s)</small>' % (row[0], row[2])
             cell.set_property('markup', text)
-        cell = gtk.CellRendererText()
-        completion.pack_start(cell)
+        cell = Gtk.CellRendererText()
+        completion.pack_start(cell, True, True, 0)
         completion.set_match_func(match_func)
         completion.set_cell_data_func(cell, data_func)
 
