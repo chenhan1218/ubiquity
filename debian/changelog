@@ -1,4 +1,4 @@
-ubiquity (2.7.0) UNRELEASED; urgency=low
+ubiquity (2.7.0) oneiric; urgency=low
 
   [ Evan Dandrea ]
   * Prevent the OOM killer from selecting ubiquity.  See  LP #770865.
@@ -25,7 +25,7 @@ ubiquity (2.7.0) UNRELEASED; urgency=low
     because of the U/I widget not being populated.  Fixes preseeded
     grub-installer/bootdev.
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 26 Apr 2011 12:31:25 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 31 May 2011 14:56:14 +0100
 
 ubiquity (2.6.10) natty; urgency=low
 
