@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-13 09:12+0000\n"
 "Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan\n"
@@ -131,14 +131,20 @@ msgstr "Podeu <a href=\"update\">actualitzar aquest instal·lador</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Aquesta és una versió en desenvolupament de l'instal·lador ${MEDIUM} autònom "
-"en ${RELEASE}. No és una versió final, la qual estarà disponible amb "
-"l'alliberament de ${RELEASE} a l'abril de 2011."
+"Aquesta es una versió prèvia de l'instal·lador del sistema operatiu "
+"${RELEASE} mitjançant un ${MEDIUM} autònom. No és una versió definitiva; "
+"aquesta arribarà quan s'alliberi la versió final de la distribució "
+"${RELEASE} a l'Octubre de 2010."
 
 #. Type: text
 #. Description
@@ -1815,6 +1821,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Aquesta és una versió en desenvolupament de l'instal·lador ${MEDIUM} "
+#~ "autònom en ${RELEASE}. No és una versió final, la qual estarà disponible "
+#~ "amb l'alliberament de ${RELEASE} a l'abril de 2011."
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Utilitza l'espai lliure continu més gran"
 
@@ -1936,16 +1951,6 @@ msgstr "S'estan suprimint els paquets"
 
 #~ msgid "Install alongside other operating systems"
 #~ msgstr "Instal·la'l juntament amb els altres sistemes operatius"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Aquesta es una versió prèvia de l'instal·lador del sistema operatiu "
-#~ "${RELEASE} mitjançant un ${MEDIUM} autònom. No és una versió definitiva; "
-#~ "aquesta arribarà quan s'alliberi la versió final de la distribució "
-#~ "${RELEASE} a l'Octubre de 2010."
 
 #~ msgid "Continue with installation."
 #~ msgstr "Continueu amb la instal·lació."

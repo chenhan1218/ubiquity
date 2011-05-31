@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-15 08:51+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -131,11 +131,18 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
+"Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra galutinė "
+"laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
 
 #. Type: text
 #. Description
@@ -1930,14 +1937,6 @@ msgstr "Šalinami paketai"
 
 #~ msgid "Use Entire Disk"
 #~ msgstr "Naudoti visą diską"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra "
-#~ "galutinė laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Nustatyti klaviatūros klavišų išdėstymą"

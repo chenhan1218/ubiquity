@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-12 23:33+0000\n"
 "Last-Translator: Yiğit Ateş <yigitates@ceviri.ubuntu-tr.net>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
@@ -133,14 +133,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
-"bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Nisan 2011'de "
-"yayınlanacaktır."
+"Bu, ${RELEASE} çalışan ${MEDIUM} kurulum aracının bir ön sürümüdür. Kararlı "
+"sürüm değildir; bu aracın kararlı sürümü ${RELEASE} ile birlikte Ekim "
+"2010'da gelecektir."
 
 #. Type: text
 #. Description
@@ -1804,6 +1809,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
+#~ "bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Nisan 2011'de "
+#~ "yayınlanacaktır."
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "En büyük kesintisiz boş alanı kullan"
 
@@ -1865,15 +1879,6 @@ msgstr "Paketler kaldırılıyor"
 
 #~ msgid "Continue with installation."
 #~ msgstr "Kuruluma devam et."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Bu, ${RELEASE} çalışan ${MEDIUM} kurulum aracının bir ön sürümüdür. "
-#~ "Kararlı sürüm değildir; bu aracın kararlı sürümü ${RELEASE} ile birlikte "
-#~ "Ekim 2010'da gelecektir."
 
 #~ msgid "Step ${INDEX}/${TOTAL}"
 #~ msgstr "Adım ${INDEX}/${TOTAL}"

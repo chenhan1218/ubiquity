@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-12 10:32+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -127,13 +127,18 @@ msgstr "您可能會希望<a href=\"update\">更新本安裝程式</a>。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"這是 ${RELEASE} live ${MEDIUM} 預先發行版本的安裝程式。這不是最終發行版本；"
-"${RELEASE}  的最終發行版將於2011年4月發行。"
+"這是 ${RELEASE} 的 live ${MEDIUM} 安裝程式。它並非最終發行版本；${RELEASE} 最"
+"終發行版本的安裝程式將於 2010 年 10 月釋出。"
 
 #. Type: text
 #. Description
@@ -1733,6 +1738,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "正在移除套件"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "這是 ${RELEASE} live ${MEDIUM} 預先發行版本的安裝程式。這不是最終發行版"
+#~ "本；${RELEASE}  的最終發行版將於2011年4月發行。"
+
 #~ msgid "How do you want to partition the disk?"
 #~ msgstr "您想要如何分割磁碟？"
 
@@ -1828,14 +1841,6 @@ msgstr "正在移除套件"
 
 #~ msgid "This computer has ${OS} on it."
 #~ msgstr "此電腦含有 ${OS} 作業系統。"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "這是 ${RELEASE} 的 live ${MEDIUM} 安裝程式。它並非最終發行版本；"
-#~ "${RELEASE} 最終發行版本的安裝程式將於 2010 年 10 月釋出。"
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "推測鍵盤配置"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-18 09:11+0000\n"
 "Last-Translator: dongha <Unknown>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -131,14 +131,19 @@ msgstr "Có thể bạn muốn <a href=\"update\">cập nhật trình cài đặ
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Đây là bản tiền phát hành của trình cài đặt ${RELEASE} trực tiếp từ "
-"${MEDIUM}. Bản chính thức sẽ đi kèm với bản phát hành chính thức của "
-"${RELEASE} vào Tháng Tư 2011"
+"Đây là bản tiền phát hành của bộ cài đặt ${RELEASE} live ${MEDIUM}. Đây chưa "
+"phải là bản phát hành cuổi cùng - được phát hành vào ${RELEASE} trong tháng "
+"10 năm 2010."
 
 #. Type: text
 #. Description
@@ -1788,6 +1793,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Đang gỡ bỏ các gói"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Đây là bản tiền phát hành của trình cài đặt ${RELEASE} trực tiếp từ "
+#~ "${MEDIUM}. Bản chính thức sẽ đi kèm với bản phát hành chính thức của "
+#~ "${RELEASE} vào Tháng Tư 2011"
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Sử dụng phần không gian trống liên tục lớn nhất"
 
@@ -1892,15 +1906,6 @@ msgstr "Đang gỡ bỏ các gói"
 
 #~ msgid "Install alongside other operating systems"
 #~ msgstr "Cài đặt bên cạnh các hệ điều hành khác"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Đây là bản tiền phát hành của bộ cài đặt ${RELEASE} live ${MEDIUM}. Đây "
-#~ "chưa phải là bản phát hành cuổi cùng - được phát hành vào ${RELEASE} "
-#~ "trong tháng 10 năm 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Nhận dạng sơ đồ bàn phím"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-19 22:39+0000\n"
 "Last-Translator: Sangkeun Park <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -128,13 +128,18 @@ msgstr "<a href=\"update\">이 설치 프로그램을 업데이트</a>하시기�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"이것은 ${RELEASE} 예비 배포판 라이브 ${MEDIUM} 설치 프로그램입니다. 최종 배포"
-"판이 아닙니다. ${RELEASE} 최종 배포판은 2011년 4월에 나옵니다."
+"이것은 ${RELEASE} 라이브 ${MEDIUM}설치 시험 배포판입니다. ${RELEASE}의 최종 "
+"배포판은 2010년 10월에 발표됩니다."
 
 #. Type: text
 #. Description
@@ -1772,6 +1777,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "패키지를 제거합니다"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "이것은 ${RELEASE} 예비 배포판 라이브 ${MEDIUM} 설치 프로그램입니다. 최종 "
+#~ "배포판이 아닙니다. ${RELEASE} 최종 배포판은 2011년 4월에 나옵니다."
+
 #~ msgid "This computer has no operating systems on it."
 #~ msgstr "이 컴퓨터에 운영체제가 없습니다."
 
@@ -1868,14 +1881,6 @@ msgstr "패키지를 제거합니다"
 #~ "설치할 준비가 되셨습니까? 몇가지 질문에 대답하시면, 라이브 ${MEDIUM}의 내"
 #~ "용들이 컴퓨터에 설치되어서 ${MEDIUM}없이도 ${RELEASE}를 최고 속도로 실행"
 #~ "할 수 있습니다."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "이것은 ${RELEASE} 라이브 ${MEDIUM}설치 시험 배포판입니다. ${RELEASE}의 최"
-#~ "종 배포판은 2010년 10월에 발표됩니다."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "키보드 배열 파악"

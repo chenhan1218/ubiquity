@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-15 21:09+0000\n"
 "Last-Translator: Theodore Grammenos <Unknown>\n"
 "Language-Team: <en@li.org>\n"
@@ -134,14 +134,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Αυτή είναι μια πρώιμη έκδοση της εγκατάστασης του ${RELEASE} Live ${MEDIUM}. "
-"Η τελική έκδοση θα κυκλοφορήσει μαζί με την τελική έκδοση του ${RELEASE} τον "
-"Απρίλιο του 2011."
+"Αυτή είναι μια προ-έκδοση του προγράμματος εγκατάστασης του ${RELEASE} live "
+"${MEDIUM}. Δεν είναι η τελική έκδοση. Αυτή θα περιλαμβάνεται στην τελική "
+"έκδοση του ${RELEASE} που θα είναι έτοιμη τον Οκτώβρη του 2010."
 
 #. Type: text
 #. Description
@@ -1833,6 +1838,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Αφαίρεση πακέτων"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Αυτή είναι μια πρώιμη έκδοση της εγκατάστασης του ${RELEASE} Live "
+#~ "${MEDIUM}. Η τελική έκδοση θα κυκλοφορήσει μαζί με την τελική έκδοση του "
+#~ "${RELEASE} τον Απρίλιο του 2011."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Η απάντηση στις ερωτήσεις θα διαρκέσει μόνο λίγα λεπτά."
 
@@ -1943,15 +1957,6 @@ msgstr "Αφαίρεση πακέτων"
 
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Χρήση του μεγαλύτερου συνεχούς ελεύθερου μέρους του δίσκου"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Αυτή είναι μια προ-έκδοση του προγράμματος εγκατάστασης του ${RELEASE} "
-#~ "live ${MEDIUM}. Δεν είναι η τελική έκδοση. Αυτή θα περιλαμβάνεται στην "
-#~ "τελική έκδοση του ${RELEASE} που θα είναι έτοιμη τον Οκτώβρη του 2010."
 
 #~ msgid "This computer has ${OS} on it."
 #~ msgstr "Ο υπολογιστής αυτός έχει εγκατεστημένα ${OS}."

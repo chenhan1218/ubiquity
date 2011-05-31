@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-13 13:30+0000\n"
 "Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -130,13 +130,18 @@ msgstr "Môžete <a href=\"update\">aktualizovať tento inštalátor</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Toto je pre-release ${RELEASE} inštalátora live ${MEDIUM}. Nie je to finálne "
-"vydanie. Finálne vydanie ${RELEASE} bude hotové v apríli 2011."
+"Toto je verzia pred vydaním ${RELEASE} inštalátora live ${MEDIUM}. Toto nie "
+"je hotové vydanie, to bude až v hotovom vydaní ${RELEASE} v októbri 2010."
 
 #. Type: text
 #. Description
@@ -1796,6 +1801,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Odstraňujú sa balíky"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Toto je pre-release ${RELEASE} inštalátora live ${MEDIUM}. Nie je to "
+#~ "finálne vydanie. Finálne vydanie ${RELEASE} bude hotové v apríli 2011."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Odpovede na otázky vám zaberú len pár minút."
 
@@ -1910,15 +1923,6 @@ msgstr "Odstraňujú sa balíky"
 #~ "Ste pripravení na inštaláciu? Potom, ako zodpoviete niekoľko otázok, sa "
 #~ "obsah tohto live ${MEDIUM} nainštaluje na tento počítač a ${RELEASE} "
 #~ "budete môcť spúšťať v plnej rýchlosti bez tohto ${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Toto je verzia pred vydaním ${RELEASE} inštalátora live ${MEDIUM}. Toto "
-#~ "nie je hotové vydanie, to bude až v hotovom vydaní ${RELEASE} v októbri "
-#~ "2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Zistiť rozloženie klávesnice"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-18 18:06+0000\n"
 "Last-Translator: Teylo Laundos Aguiar <teylo.aguiar@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
@@ -132,13 +132,18 @@ msgstr "Você talvez queira <a href=\"update\">atualizar este instalador</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Este é um pré-lançamento live do ${RELEASE} instalador ${MEDIUM}. Não é a "
-"versão final; que virá com a versão final do ${RELEASE} em abril de 2011."
+"Este é um pré-lançamento do instalador ${RELEASE} LIVE ${MEDIUM}. Não é a "
+"versão final, que terá lançamento da ${RELEASE} em outubro de 2010."
 
 #. Type: text
 #. Description
@@ -1811,6 +1816,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Removendo pacotes"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Este é um pré-lançamento live do ${RELEASE} instalador ${MEDIUM}. Não é a "
+#~ "versão final; que virá com a versão final do ${RELEASE} em abril de 2011."
+
 #~ msgid "Migrate documents and settings"
 #~ msgstr "Migrar documentos e configurações"
 
@@ -1921,14 +1934,6 @@ msgstr "Removendo pacotes"
 #~ "conteúdos do ${MEDIUM} poderão ser instalados neste computador, então "
 #~ "você poderá executar o ${RELEASE} com a máxima performance sem o "
 #~ "${MEDIUM}."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Este é um pré-lançamento do instalador ${RELEASE} LIVE ${MEDIUM}. Não é a "
-#~ "versão final, que terá lançamento da ${RELEASE} em outubro de 2010."
 
 #~ msgid "Use Entire Partition"
 #~ msgstr "Usar a partição inteira"

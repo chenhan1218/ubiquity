@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-14 15:43+0000\n"
 "Last-Translator: Saša Teković <Unknown>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -134,14 +134,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Ovo je razvojna inačica ${RELEASE} live ${MEDIUM} instalacijskog programa. "
-"Ovo nije finalna inačica. Ista će biti dostupna nakon službene objave "
-"${RELEASE} u travnju 2011."
+"Ovo je razvojna inačica ${RELEASE} ${MEDIUM} instalacijskog programa. Ovo "
+"nije stabilna inačica; Ona će biti objavljena sa konačnim ${RELEASE} "
+"izdanjem u listopadu 2010."
 
 #. Type: text
 #. Description
@@ -1807,6 +1812,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Ovo je razvojna inačica ${RELEASE} live ${MEDIUM} instalacijskog "
+#~ "programa. Ovo nije finalna inačica. Ista će biti dostupna nakon službene "
+#~ "objave ${RELEASE} u travnju 2011."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Odgovaranje na pitanja ne bi smjelo trajati duže od par minuta."
 
@@ -1933,15 +1947,6 @@ msgstr "Uklanjanje paketa"
 
 #~ msgid "Use Entire Disk"
 #~ msgstr "Koristi cijeli disk"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ovo je razvojna inačica ${RELEASE} ${MEDIUM} instalacijskog programa. Ovo "
-#~ "nije stabilna inačica; Ona će biti objavljena sa konačnim ${RELEASE} "
-#~ "izdanjem u listopadu 2010."
 
 #~ msgid "Figure Out Keyboard Layout"
 #~ msgstr "Saznaj raspored tipkovnice"

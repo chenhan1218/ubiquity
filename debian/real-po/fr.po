@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-11 07:04+0000\n"
 "Last-Translator: Bruno Patri <bruno.patri@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
@@ -136,13 +136,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Ceci est une pré-version du ${MEDIUM} live d'installation de ${RELEASE}. La "
-"version finale de ${RELEASE} sera disponible lors de sa sortie en avril 2011."
+"Ceci est une pré-version du programme d'installation live ${MEDIUM} de "
+"${RELEASE}. Il ne s'agit pas d'une version définitive, qui arrivera lors de "
+"la sortie définitive de ${RELEASE} en octobre 2010."
 
 #. Type: text
 #. Description
@@ -1828,6 +1834,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Suppression des paquets"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Ceci est une pré-version du ${MEDIUM} live d'installation de ${RELEASE}. "
+#~ "La version finale de ${RELEASE} sera disponible lors de sa sortie en "
+#~ "avril 2011."
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Utiliser le plus grand espace libre disponible"
 
@@ -1930,15 +1945,6 @@ msgstr "Suppression des paquets"
 
 #~ msgid "HTTP proxy:"
 #~ msgstr "Serveur mandataire (proxy) HTTP :"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ceci est une pré-version du programme d'installation live ${MEDIUM} de "
-#~ "${RELEASE}. Il ne s'agit pas d'une version définitive, qui arrivera lors "
-#~ "de la sortie définitive de ${RELEASE} en octobre 2010."
 
 #~ msgid "Step ${INDEX}/${TOTAL}"
 #~ msgstr "Étape ${INDEX}/${TOTAL}"

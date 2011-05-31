@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-19 19:03+0000\n"
 "Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -131,14 +131,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Honako hau ${RELEASE} aurre-bertsio baten live ${MEDIUM} instalatzailea da. "
-"Ez da azken bertsioa; ${RELEASE} azken bertsioa 2011ko apirilean "
-"argitaratuko da."
+"Honako hau ${RELEASE} bertsioaren aurre-argitaratzearen 'live ${MEDIUM}' "
+"instalatzailea da. Ez da bukaerako bertsioa; bukaerako ${RELEASE} bertsioa "
+"2010eko urrian argitaratuko da."
 
 #. Type: text
 #. Description
@@ -1808,6 +1813,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Honako hau ${RELEASE} aurre-bertsio baten live ${MEDIUM} instalatzailea "
+#~ "da. Ez da azken bertsioa; ${RELEASE} azken bertsioa 2011ko apirilean "
+#~ "argitaratuko da."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Minutu batzuk besterik ez dituzu beharko galderak erantzuteko."
 
@@ -1883,15 +1897,6 @@ msgstr "Paketeak ezabatzen"
 
 #~ msgid "Install alongside other operating systems"
 #~ msgstr "Instalatu beste sistema eragileen ondoan"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Honako hau ${RELEASE} bertsioaren aurre-argitaratzearen 'live ${MEDIUM}' "
-#~ "instalatzailea da. Ez da bukaerako bertsioa; bukaerako ${RELEASE} "
-#~ "bertsioa 2010eko urrian argitaratuko da."
 
 #~ msgid "Figure Out Keyboard Layout"
 #~ msgstr "Detektatu teklatuaren diseinua"

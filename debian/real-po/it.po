@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-12 13:23+0000\n"
 "Last-Translator: Luca Ferretti <elle.uca@ubuntu-it.org>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -133,14 +133,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
 "Questa è una versione di pre-rilascio del programma d'installazione Live "
 "${MEDIUM} di ${RELEASE}. Non è la versione finale di ${RELEASE}, prevista "
-"per aprile 2011."
+"per ottobre 2010."
 
 #. Type: text
 #. Description
@@ -1812,6 +1817,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Rimozione dei pacchetti"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Questa è una versione di pre-rilascio del programma d'installazione Live "
+#~ "${MEDIUM} di ${RELEASE}. Non è la versione finale di ${RELEASE}, prevista "
+#~ "per aprile 2011."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Per rispondere alle domande ci vorranno solo pochi minuti."
 
@@ -1926,15 +1940,6 @@ msgstr "Rimozione dei pacchetti"
 
 #~ msgid "Continue with installation."
 #~ msgstr "Continua l'installazione."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Questa è una versione di pre-rilascio del programma d'installazione Live "
-#~ "${MEDIUM} di ${RELEASE}. Non è la versione finale di ${RELEASE}, prevista "
-#~ "per ottobre 2010."
 
 #~ msgid "Step ${INDEX}/${TOTAL}"
 #~ msgstr "Passo ${INDEX}/${TOTAL}"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-13 18:07+0000\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
@@ -134,13 +134,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"これは${RELEASE}のライブ${MEDIUM}インストーラのプレリリース版であり、最終リ"
-"リース版ではありません。${RELEASE}の最終リリースが出るのは2011年4月です。"
+"このインストーラは ${RELEASE} ライブ ${MEDIUM} インストーラのプレリリース版で"
+"す。最終リリースではありません。${RELEASE} の最終リリースは2010年10月になりま"
+"す。"
 
 #. Type: text
 #. Description
@@ -1801,6 +1807,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "これは${RELEASE}のライブ${MEDIUM}インストーラのプレリリース版であり、最終"
+#~ "リリース版ではありません。${RELEASE}の最終リリースが出るのは2011年4月で"
+#~ "す。"
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "連続する最大の空き領域を使用する"
 
@@ -1920,15 +1935,6 @@ msgstr "パッケージを削除しています"
 
 #~ msgid "Step ${INDEX}/${TOTAL}"
 #~ msgstr "ステップ ${INDEX}/${TOTAL}"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "このインストーラは ${RELEASE} ライブ ${MEDIUM} インストーラのプレリリース"
-#~ "版です。最終リリースではありません。${RELEASE} の最終リリースは2010年10月"
-#~ "になります。"
 
 #~ msgid "Use Entire Partition"
 #~ msgstr "パーティション全体を使用"

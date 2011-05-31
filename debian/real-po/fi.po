@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-12 05:54+0000\n"
 "Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -131,14 +131,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Tämä on esiversio ${RELEASE}-käyttöjärjestelmästä (${MEDIUM}-asennuskuva). "
-"HUOM! Tämä ei ole lopullinen versio. Virallinen ${RELEASE}-julkaisu tapahtuu "
-"huhtikuussa 2011."
+"Tämä on ${RELEASE} -esijulkaisun (${MEDIUM}) asennusohjelma. Se ei ole "
+"asennusohjelman lopullinen versio. Lopullinen ${RELEASE} -julkaisu ilmestyy "
+"lokakuussa 2010."
 
 #. Type: text
 #. Description
@@ -1808,6 +1813,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Tämä on esiversio ${RELEASE}-käyttöjärjestelmästä (${MEDIUM}-"
+#~ "asennuskuva). HUOM! Tämä ei ole lopullinen versio. Virallinen ${RELEASE}-"
+#~ "julkaisu tapahtuu huhtikuussa 2011."
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Käytä suurinta yhtenäistä vapaata tilaa"
 
@@ -1911,15 +1925,6 @@ msgstr "Poistetaan paketteja"
 
 #~ msgid "Continue with installation."
 #~ msgstr "Jatka asennusta."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tämä on ${RELEASE} -esijulkaisun (${MEDIUM}) asennusohjelma. Se ei ole "
-#~ "asennusohjelman lopullinen versio. Lopullinen ${RELEASE} -julkaisu "
-#~ "ilmestyy lokakuussa 2010."
 
 #~ msgid ""
 #~ "Ready to install?  Once you answer a few questions, the contents of the "

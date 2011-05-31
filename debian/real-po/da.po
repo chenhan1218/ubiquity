@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-11 18:15+0000\n"
 "Last-Translator: AJenbo <anders@jenbo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -134,14 +134,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
 "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-installationsprogram. "
 "Det er ikke en endelig udgave; den kommer med den endelige udgivelse af "
-"${RELEASE} i april 2010."
+"${RELEASE} i oktober 2010."
 
 #. Type: text
 #. Description
@@ -1810,6 +1815,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Fjerner pakker"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-"
+#~ "installationsprogram. Det er ikke en endelig udgave; den kommer med den "
+#~ "endelige udgivelse af ${RELEASE} i april 2010."
+
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Angiv partitioner manuelt (avanceret)"
 
@@ -1931,15 +1945,6 @@ msgstr "Fjerner pakker"
 
 #~ msgid "Use Entire Disk"
 #~ msgstr "Brug hele disken"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-"
-#~ "installationsprogram. Det er ikke en endelig udgave; den kommer med den "
-#~ "endelige udgivelse af ${RELEASE} i oktober 2010."
 
 #~ msgid "Use Entire Partition"
 #~ msgstr "Brug hele partitionen"

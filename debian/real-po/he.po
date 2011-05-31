@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-14 06:15+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
@@ -129,13 +129,18 @@ msgstr "מומלץ לבצע <a href=\"update\">עדכון של תכנית התק
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"זוהי גרסת טרום הפצה של  ${MEDIUM} ההתקנה החי של ${RELEASE}. זוהי אינה הגרסה "
-"הסופית; שתופיע בגרסה הסופית של ${RELEASE} באפריל 2011."
+"זוהי טרום הפצה של תכנית ההתקנה החיה של ${RELEASE} מ־${MEDIUM}. זוהי אינה "
+"הגרסה העדכנית ביותר; שתושק יחד עם שחרור ${RELEASE} באוקטובר 2010."
 
 #. Type: text
 #. Description
@@ -1769,6 +1774,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "זוהי גרסת טרום הפצה של  ${MEDIUM} ההתקנה החי של ${RELEASE}. זוהי אינה "
+#~ "הגרסה הסופית; שתופיע בגרסה הסופית של ${RELEASE} באפריל 2011."
+
 #~ msgid "Details"
 #~ msgstr "פרטים"
 
@@ -1818,14 +1831,6 @@ msgstr "החבילות מוסרות"
 
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "מרגע המענה על מספר שאלות, המחשב יהיה מוכן לשימוש."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "זוהי טרום הפצה של תכנית ההתקנה החיה של ${RELEASE} מ־${MEDIUM}. זוהי אינה "
-#~ "הגרסה העדכנית ביותר; שתושק יחד עם שחרור ${RELEASE} באוקטובר 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "זיהוי פריסת המקלדת"

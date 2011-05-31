@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-15 12:39+0000\n"
 "Last-Translator: Carlos Manuel <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
@@ -135,14 +135,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Esta é uma versão de pré-lançamento do instalador do ${RELEASE} live "
-"${MEDIUM}. Ainda não é a versão final que virá com o lançamento final do "
-"${RELEASE} em Abril de 2011."
+"Esta é uma versão prévia do instalador dp ${RELEASE} live ${MEDIUM}. Não se "
+"trata da versão final; a qual virá com a versão final do ${RELEASE} em "
+"Outubro de 2010."
 
 #. Type: text
 #. Description
@@ -1806,6 +1811,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "A remover pacotes"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Esta é uma versão de pré-lançamento do instalador do ${RELEASE} live "
+#~ "${MEDIUM}. Ainda não é a versão final que virá com o lançamento final do "
+#~ "${RELEASE} em Abril de 2011."
+
 #~ msgid "Migrate documents and settings"
 #~ msgstr "Migrar documentos e definições"
 
@@ -1913,15 +1927,6 @@ msgstr "A remover pacotes"
 
 #~ msgid "Use Entire Disk"
 #~ msgstr "Utilizar a Totatlidade do Disco"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Esta é uma versão prévia do instalador dp ${RELEASE} live ${MEDIUM}. Não "
-#~ "se trata da versão final; a qual virá com a versão final do ${RELEASE} em "
-#~ "Outubro de 2010."
 
 #~ msgid ""
 #~ "Your new operating system will now be installed with the following "
