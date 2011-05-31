@@ -1,3 +1,9 @@
+ubiquity (2.7.4) UNRELEASED; urgency=low
+
+  * Fix sys.path handling in test_ubi_partman.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 May 2011 20:51:45 +0100
+
 ubiquity (2.7.3) oneiric; urgency=low
 
   * Ugh. Add python-libxml2 and python-xklavier to build dependencies.

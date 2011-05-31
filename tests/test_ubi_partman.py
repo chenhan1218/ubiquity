@@ -9,7 +9,7 @@ import sys
 import os
 sys.path.insert(0, 'ubiquity/plugins')
 ubi_partman = __import__('ubi-partman')
-sys.path.pop()
+sys.path.pop(0)
 from ubiquity import misc
 import debconf
 
