@@ -1,6 +1,7 @@
 ubiquity (2.7.2) UNRELEASED; urgency=low
 
   * Add a pyflakes run to the check build target.
+  * Add dependency on python-libxml2. Fixes FTBFS (again).
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 31 May 2011 15:58:29 +0100
 
