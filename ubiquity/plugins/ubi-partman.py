@@ -226,7 +226,6 @@ class PageGtk(PageBase):
         device = self.extra_options['wubi']
         import tempfile
         import subprocess
-        import shutil
         mount_path = tempfile.mkdtemp()
         try:
             subprocess.check_call(['mount', device, mount_path])

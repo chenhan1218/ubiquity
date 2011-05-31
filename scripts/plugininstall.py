@@ -24,7 +24,6 @@ import os
 import platform
 import stat
 import re
-import pwd
 import textwrap
 import shutil
 import subprocess

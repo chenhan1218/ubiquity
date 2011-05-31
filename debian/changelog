@@ -1,3 +1,9 @@
+ubiquity (2.7.2) UNRELEASED; urgency=low
+
+  * Add a pyflakes run to the check build target.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 31 May 2011 15:58:29 +0100
+
 ubiquity (2.7.1) oneiric; urgency=low
 
   * Add build dependency on xvfb.  Fixes FTBFS.

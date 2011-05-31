@@ -47,6 +47,8 @@ check:
 	set -e; for x in $$(find -type f -print0 | xargs -0 file -i | grep "text/x-shellscript" | cut -d':' -f1); do \
 		sh -n $$x; \
 	done
+	# Check the syntax of any Python scripts.
+	./tests/run-pyflakes
 
 pychecker:
 	./run-pychecker
