@@ -15,6 +15,8 @@ ubiquity (2.7.0) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Re-enable alpha warning for oneiric.
+  * Make ubiquity/nonfree_package preseedable, and allow it to contain
+    multiple whitespace-separated package names.
 
   [ Mario Limonciello ]
   * In automatic ubiquity mode, don't clobber grub-installer/bootdev

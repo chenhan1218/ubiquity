@@ -1015,8 +1015,8 @@ Template: ubiquity/nonfree_package
 Type: text
 Default: ubuntu-restricted-addons
 Description: for internal use; can be preseeded
- The package that will be installed when the proprietary extras package is
- installed
+ The package(s) that will be installed when the proprietary extras checkbox
+ is selected.
 
 Template: ubiquity/download_updates
 Type: boolean

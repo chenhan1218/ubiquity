@@ -1042,8 +1042,8 @@ class Install(install_misc.InstallBase):
     def install_restricted_extras(self):
         if self.db.get('ubiquity/use_nonfree') == 'true':
             self.db.progress('INFO', 'ubiquity/install/nonfree')
-            package = self.db.get('ubiquity/nonfree_package')
-            self.do_install([package])
+            packages = self.db.get('ubiquity/nonfree_package').split()
+            self.do_install(packages)
             try:
                 install_misc.chrex(self.target,'dpkg-divert', '--package',
                         'ubiquity', '--rename', '--quiet', '--add',
