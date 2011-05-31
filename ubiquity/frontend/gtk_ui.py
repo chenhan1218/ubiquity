@@ -163,7 +163,7 @@ class Wizard(BaseFrontend):
             if os.path.exists(uifile):
                 self.builder.add_from_file(uifile)
                 widget = self.builder.get_object(name)
-                steps.append_page(widget)
+                steps.append_page(widget, None)
             else:
                 print >>sys.stderr, 'Could not find ui file %s' % name
             return widget
@@ -273,7 +273,7 @@ class Wizard(BaseFrontend):
                             if isinstance(w, str):
                                 w = add_subpage(self, steps, w)
                             else:
-                                steps.append_page(w)
+                                steps.append_page(w, None)
                             rv.append(w)
                         return rv
                     mod.widgets = fill_out(widgets)
