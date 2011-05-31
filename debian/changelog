@@ -1,3 +1,9 @@
+ubiquity (2.7.3) UNRELEASED; urgency=low
+
+  * Ugh. Add python-libxml2 and python-xklavier to build dependencies.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 31 May 2011 17:40:04 +0100
+
 ubiquity (2.7.2) oneiric; urgency=low
 
   * Add a pyflakes run to the check build target.
