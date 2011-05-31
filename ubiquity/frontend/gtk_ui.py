@@ -44,8 +44,6 @@ import dbus
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import Pango
-import warnings
-warnings.filterwarnings('ignore', 'error opening config file', Pango.Warning)
 from gi.repository import GObject
 GObject.threads_init()
 import glib
@@ -76,17 +74,9 @@ os.environ['UBIQUITY_GLADE'] = UIDIR
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-def process_labels(w):
-    if isinstance(w, Gtk.Container):
-        children = w.get_children()
-        for c in children:
-            process_labels(c)
-    elif isinstance(w, Gtk.Label):
-        w.set_property('can-focus', False)
-
 def set_root_cursor(cursor=None):
     if cursor is None:
-        cursor = Gdk.Cursor.new(Gdk.ARROW)
+        cursor = Gdk.Cursor.new(Gdk.CursorType.ARROW)
     win = Gdk.get_default_root_window()
     if win:
         win.set_cursor(cursor)
@@ -242,19 +232,16 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        Gtk.window_set_default_icon_from_file('/usr/share/pixmaps/'
-                                              'ubiquity.png')
-
         # This needs to be done before the GtkBuilder objects are created.
-        style = Gtk.MenuBar().rc_get_style()
-        bg = style.bg[Gtk.StateType.NORMAL]
-        Gtk.rc_parse_string('''
-        style "ubiquity" {
-            GtkProgressBar::min-horizontal-bar-height = 10
-            bg[ACTIVE] = "%s"
-        }
-        class "GtkProgressBar" style "ubiquity"
-        ''' % bg)
+        #style = Gtk.MenuBar().rc_get_style()
+        #bg = style.bg[Gtk.StateType.NORMAL]
+        #Gtk.rc_parse_string('''
+        #style "ubiquity" {
+        #    GtkProgressBar::min-horizontal-bar-height = 10
+        #    bg[ACTIVE] = "%s"
+        #}
+        #class "GtkProgressBar" style "ubiquity"
+        #''' % bg)
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
@@ -292,12 +279,11 @@ class Wizard(BaseFrontend):
                     mod.widgets = fill_out(widgets)
                     mod.optional_widgets = fill_out(optional_widgets)
                     mod.all_widgets = mod.widgets + mod.optional_widgets
-                    for w in mod.all_widgets:
-                        process_labels(w)
                     self.pageslen += 1
                     self.pages.append(mod)
 
-        #If no plugins declare they are install, then we'll say the last one is
+        # If no plugins declare they are install, then we'll say the last one
+        # is
         if not found_install:
             self.pages[self.pageslen - 1].ui.plugin_is_install = True
 
@@ -665,11 +651,13 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
 
-        style = Gtk.MenuBar().rc_get_style()
-        self.live_installer.set_style(style)
-        self.page_title.set_style(style)
-        self.install_progress_text.set_style(style)
-        self.install_details_expander.set_style(style)
+        self.live_installer.set_default_icon_from_file('/usr/share/pixmaps/'
+                                                       'ubiquity.png')
+        #style = Gtk.MenuBar().rc_get_style()
+        #self.live_installer.set_style(style)
+        #self.page_title.set_style(style)
+        #self.install_progress_text.set_style(style)
+        #self.install_details_expander.set_style(style)
         # TODO lazy load
         from vte import Terminal
         self.vte = Terminal()
@@ -1243,13 +1231,6 @@ class Wizard(BaseFrontend):
                 # Stop processing and return to the page.
                 self.allow_change_step(True)
                 return
-
-        step = self.page_name(self.steps.get_current_page())
-
-        # Beware that 'step' is the step we're leaving, not the one we're
-        # entering. At present it's a little awkward to define actions that
-        # occur upon entering a page without unwanted side-effects when the
-        # user tries to go forward but fails due to validation.
 
         if self.dbfilter is not None:
             self.dbfilter.ok_handler()

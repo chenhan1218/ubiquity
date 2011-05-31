@@ -402,7 +402,7 @@ class StateBox(StylizedFrame):
     
     def __init__(self, text=''):
         StylizedFrame.__init__(self)
-        alignment = Gtk.Alignment.new()
+        alignment = Gtk.Alignment()
         alignment.set_padding(7, 7, 15, 15)
         hbox = Gtk.HBox()
         hbox.set_spacing(10)
@@ -465,7 +465,7 @@ class LabelledEntry(Gtk.Entry):
         Gtk.Entry.__init__(self)
         self.label = label
         self.persist = persist
-        self.inactive_color = self.style.fg[Gtk.StateType.INSENSITIVE]
+        #self.inactive_color = self.get_style().fg[Gtk.StateType.INSENSITIVE]
 
     def set_label(self, label):
         self.label = label or ''
@@ -527,230 +527,6 @@ class LabelledComboBoxEntry(Gtk.ComboBox):
         l.show()
         self.add(l)
 GObject.type_register(LabelledComboBoxEntry)
-
-# Modified from John Stowers' client-side-windows demo.
-class GreyableBin(Gtk.Bin):
-    __gsignals__ = {
-        "damage_event"  :   "override"
-    }
-    __gproperties__ = {
-        'greyed'  : (GObject.TYPE_BOOLEAN,
-                    'Greyed', 'greyed', False, GObject.PARAM_READWRITE),
-    }
-    __gtype_name__ = 'GreyableBin'
-
-    def __init__(self):
-        Gtk.Bin.__init__(self)
-
-        self.child = None
-        self.offscreen_window = None
-        self.greyed = False
-
-        self.unset_flags(Gtk.NO_WINDOW)
-
-    def do_set_property(self, pspec, value):
-        setattr(self, pspec.name, value)
-
-    def do_get_property(self, pspec):
-        return getattr(self, pspec.name)
-
-    def _to_child(self, widget_x, widget_y):
-        return widget_x, widget_y
-
-    def _to_parent(self, offscreen_x, offscreen_y):
-        return offscreen_x, offscreen_y
-
-    def _pick_offscreen_child(self, offscreen_window, widget_x, widget_y):
-        if self.get_child() and self.get_child().flags() & Gtk.VISIBLE:
-            x,y = self._to_child(widget_x, widget_y)
-            ca = self.get_child().allocation
-            if (x >= 0 and x < ca.width and y >= 0 and y < ca.height):
-                return self.offscreen_window
-        return None
-
-    def _offscreen_window_to_parent(self, offscreen_window, offscreen_x, offscreen_y, parent_x, parent_y):
-        x,y = self._to_parent(offscreen_x, offscreen_y)
-        offscreen_x = parent_x
-        offscreen_y = offscreen_x
-
-    def _offscreen_window_from_parent(self, parent_window, parent_x, parent_y, offscreen_x, offscreen_y):
-        x,y = self._to_child(parent_x, parent_y)
-        offscreen_x = parent_x
-        offscreen_y = offscreen_x
-
-    def do_realize(self):
-        self.set_flags(Gtk.REALIZED)
-
-        border_width = self.border_width
-
-        w = self.allocation.width - 2*border_width
-        h = self.allocation.height - 2*border_width
-
-        self.window = Gdk.Window(
-                self.get_parent_window(),
-                x=self.allocation.x + border_width,
-                y=self.allocation.y + border_width,
-                width=w,
-                height=h,
-                window_type=Gdk.WINDOW_CHILD,
-                event_mask=self.get_events() 
-                        | Gdk.EventMask.EXPOSURE_MASK
-                        | Gdk.EventMask.POINTER_MOTION_MASK
-                        | Gdk.EventMask.BUTTON_PRESS_MASK
-                        | Gdk.EventMask.BUTTON_RELEASE_MASK
-                        | Gdk.EventMask.SCROLL_MASK
-                        | Gdk.EventMask.ENTER_NOTIFY_MASK
-                        | Gdk.EventMask.LEAVE_NOTIFY_MASK,
-                visual=self.get_visual(),
-                colormap=self.get_colormap(),
-                wclass=Gdk.INPUT_OUTPUT)
-
-        self.window.set_user_data(self)
-        self.window.connect("pick-embedded-child", self._pick_offscreen_child)
-
-        if self.get_child() and self.get_child().flags() & Gtk.VISIBLE:
-            w = self.get_child().allocation.width
-            h = self.get_child().allocation.height
-
-        self.offscreen_window = Gdk.Window(
-                self.get_root_window(),
-                x=self.allocation.x + border_width,
-                y=self.allocation.y + border_width,
-                width=w,
-                height=h,
-                window_type=Gdk.WINDOW_OFFSCREEN,
-                event_mask=self.get_events() 
-                        | Gdk.EventMask.EXPOSURE_MASK
-                        | Gdk.EventMask.POINTER_MOTION_MASK
-                        | Gdk.EventMask.BUTTON_PRESS_MASK
-                        | Gdk.EventMask.BUTTON_RELEASE_MASK
-                        | Gdk.EventMask.SCROLL_MASK
-                        | Gdk.EventMask.ENTER_NOTIFY_MASK
-                        | Gdk.EventMask.LEAVE_NOTIFY_MASK,
-                visual=self.get_visual(),
-                colormap=self.get_colormap(),
-                wclass=Gdk.INPUT_OUTPUT)
-        self.offscreen_window.set_user_data(self)
-
-        if self.get_child():
-            self.get_child().set_parent_window(self.offscreen_window)
-
-        Gdk.offscreen_window_set_embedder(self.offscreen_window, self.window)
-
-        self.offscreen_window.connect("to-embedder", self._offscreen_window_to_parent)
-        self.offscreen_window.connect("from-embedder", self._offscreen_window_from_parent)
-
-        self.style.attach(self.window)
-        self.style.set_background(self.window, Gtk.StateType.NORMAL)
-        self.style.set_background(self.offscreen_window, Gtk.StateType.NORMAL)
-
-        self.offscreen_window.show()
-
-    def do_child_type(self):
-        #FIXME: This never seems to get called...
-        if self.get_child():
-            return None
-        return Gtk.Widget.__gtype__
-
-    def do_unrealize(self):
-        self.offscreen_window.set_user_data(None)
-        self.offscreen_window = None
-
-    def do_add(self, widget):
-        if not self.get_child():
-            widget.set_parent_window(self.offscreen_window)
-            widget.set_parent(self)
-            self.child = widget
-        else:
-            print "Cannot have more than one child"
-
-    def do_remove(self, widget):
-        was_visible = widget.flags() & Gtk.VISIBLE
-        if self.get_child() == widget:
-            widget.unparent()
-            self.child = None
-            if was_visible and (self.flags() & Gtk.VISIBLE):
-                self.queue_resize()
-
-    def do_forall(self, internal, callback, data):
-        if self.get_child():
-            callback(self.get_child(), data)
-
-    def do_size_request(self, r):
-        cw, ch = 0,0;
-        if self.get_child() and (self.get_child().flags() & Gtk.VISIBLE):
-            cw, ch = self.get_child().size_request()
-
-        # FIXME: what do we need border_width and an extra
-        # 10px for?
-        r.width = self.border_width + cw + 10
-        r.height = self.border_width + ch + 10
-
-    def do_size_allocate(self, allocation):
-        self.allocation = allocation
-
-        border_width = self.border_width
-        w = self.allocation.width - border_width
-        h = self.allocation.height - border_width
-
-        if self.get_realized():
-            self.window.move_resize(
-                            allocation.x + border_width,
-                            allocation.y + border_width,
-                            w,h)
-
-        if self.get_child() and self.get_child().flags() & Gtk.VISIBLE:
-            ca = (0, 0, w, h)
-
-            if self.get_realized():
-                self.offscreen_window.move_resize(
-                            allocation.x + border_width,
-                            allocation.y + border_width,
-                            w, h)
-
-            self.get_child().size_allocate(ca)
-
-    # FIXME this does not play well with the automatic partitioning page
-    # (expose events to the max, causes lockup)
-    def do_damage_event(self, eventexpose):
-        # invalidate the whole window
-        self.window.invalidate_rect(None, False)
-        return True
-
-    def do_expose_event(self, event):
-        if self.flags() & Gtk.VISIBLE and self.get_mapped():
-            if event.window == self.window:
-                pm = Gdk.offscreen_window_get_pixmap(self.offscreen_window)
-                w,h = pm.get_size()
-
-                cr = event.window.cairo_create()
-                if self.greyed:
-                    cr.save()
-                cr.rectangle(0,0,w,h)
-                cr.clip()
-
-                # paint the offscreen child
-                cr.set_source_pixmap(pm, 0, 0)
-                cr.paint()
-
-                if self.greyed:
-                    cr.restore()
-                    cr.set_source_rgba(0,0,0,0.5)
-                    cr.rectangle(0, 0, *event.window.get_geometry()[2:4])
-                    cr.paint()
-
-            elif event.window == self.offscreen_window:
-                self.style.paint_flat_box(
-                                event.window,
-                                Gtk.StateType.NORMAL, Gtk.ShadowType.NONE,
-                                event.area, self, "blah",
-                                0, 0, -1, -1)
-                if self.get_child():
-                    self.propagate_expose(self.get_child(), event)
-
-        return False
-
-GObject.type_register(GreyableBin)
 
 WM = 'com.ubuntu.ubiquity.WirelessManager'
 WM_PATH = '/com/ubuntu/ubiquity/WirelessManager'
@@ -1008,7 +784,7 @@ if __name__ == "__main__":
                'that you are connected to the Internet with an ethernet cable')
     w = Gtk.Window()
     w.connect('destroy', Gtk.main_quit)
-    b = GreyableBin()
+    #b = GreyableBin()
     a = Gtk.VBox()
     a.set_spacing(5)
     a.set_border_width(20)
@@ -1050,11 +826,11 @@ if __name__ == "__main__":
     w2.set_modal(True)
     w2.show()
     #w.add(b)
-    b.set_property('greyed', True)
-    b.add(a)
-    wireless = WirelessWidget()
-    a.pack_start(wireless, True, True, 0)
-    w.add(b)
+    #b.set_property('greyed', True)
+    #b.add(a)
+    #wireless = WirelessWidget()
+    #a.pack_start(wireless, True, True, 0)
+    #w.add(b)
     w.show_all()
     Gtk.main()
 
