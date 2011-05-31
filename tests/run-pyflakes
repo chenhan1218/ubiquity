@@ -57,6 +57,7 @@ def main():
     fp.close()
 
     # Now filter thin
+    error = False
     for line in contents:
         if line.startswith('#'):
             continue
@@ -67,6 +68,9 @@ def main():
 
         if test_line not in exclusions:
             print line
+            error = True
+    if error:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
