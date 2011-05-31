@@ -53,6 +53,7 @@ my @basebd = (
     'python-scour',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',
+    'xvfb',
 );
 my $basebd = join ', ', @basebd;
 my $parsed = Dpkg::Deps::deps_parse($basebd, reduce_arch => 1);

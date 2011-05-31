@@ -1,3 +1,9 @@
+ubiquity (2.7.1) UNRELEASED; urgency=low
+
+  * Add build dependency on xvfb.  Fixes FTBFS.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 31 May 2011 15:39:53 +0100
+
 ubiquity (2.7.0) oneiric; urgency=low
 
   [ Evan Dandrea ]
