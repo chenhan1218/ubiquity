@@ -12,6 +12,8 @@ ubiquity (2.7.0) UNRELEASED; urgency=low
   * Provide access to the keymaps most-relevant for the currently
     selected language in the keyboard indicator (LP: #656777).
   * gnome-settings-daemon no longer daemonizes (LP: #788859).
+  * Automatic update of included source packages: partman-auto
+    93ubuntu16.
 
   [ Colin Watson ]
   * Re-enable alpha warning for oneiric.
