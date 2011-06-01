@@ -668,7 +668,7 @@ class Wizard(BaseFrontend):
             None, 0, None, None)
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window size.
-        self.live_installer.set_property('allow_grow', False)
+        self.live_installer.set_resizable(False)
         # TODO move this into gtkwidgets as a subclass of GtkExpander or use a
         # GtkFixed.
         def do_allocate(widget, allocation):
