@@ -973,7 +973,7 @@ class Wizard(BaseFrontend):
         label = Gtk.Label(label=text)
         label.set_line_wrap(True)
         label.set_selectable(False)
-        dialog.vbox.add(label)
+        dialog.get_content_area().add(label)
         dialog.show_all()
         response = dialog.run()
         dialog.hide()
