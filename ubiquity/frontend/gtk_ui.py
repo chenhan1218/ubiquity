@@ -712,7 +712,7 @@ class Wizard(BaseFrontend):
         # The default instantiation of GtkComboBoxEntry creates a
         # GtkCellRenderer, so reuse it.
         self.grub_new_device_entry.set_model(self.grub_options)
-        self.grub_new_device_entry.set_text_column(0)
+        self.grub_new_device_entry.set_entry_text_column(0)
         renderer = Gtk.CellRendererText()
         self.grub_new_device_entry.pack_start(renderer, True)
         self.grub_new_device_entry.add_attribute(renderer, 'text', 1)
