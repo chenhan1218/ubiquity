@@ -330,7 +330,7 @@ class Wizard(BaseFrontend):
                     widgets.append((c, prefix))
         if not just_current:
             for toplevel in self.toplevels:
-                if toplevel.name != 'live_installer':
+                if toplevel.get_name() != 'live_installer':
                     for c in self.all_children(toplevel):
                         widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=False)
