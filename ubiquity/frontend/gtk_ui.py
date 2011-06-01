@@ -659,12 +659,13 @@ class Wizard(BaseFrontend):
         #self.install_progress_text.set_style(style)
         #self.install_details_expander.set_style(style)
         # TODO lazy load
-        from vte import Terminal
-        self.vte = Terminal()
+        from gi.repository import Vte
+        self.vte = Vte.Terminal()
         self.install_details_sw.add(self.vte)
-        self.vte.fork_command('tail',
-                             ['tail', '-f', '/var/log/installer/debug',
-                                      '-f', '/var/log/syslog', '-q'])
+        self.vte.fork_command_full(0, None,
+            ['/usr/bin/tail', '-f', '/var/log/installer/debug',
+                              '-f', '/var/log/syslog', '-q'],
+            None, 0, None, None)
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window size.
         self.live_installer.set_property('allow_grow', False)
