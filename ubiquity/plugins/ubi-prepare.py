@@ -195,7 +195,7 @@ class PageKde(PreparePageBase):
     restricted_package_name = 'kubuntu-restricted-addons'
 
     def __init__(self, controller, *args, **kwargs):
-        from ubiquity.qtwidgets import StateBox
+        from ubiquity.qtwidgets import StateBox, CheckBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return

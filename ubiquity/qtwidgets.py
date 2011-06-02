@@ -1,5 +1,5 @@
 from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QLabel, QHBoxLayout, QPixmap, QFrame, QPalette
+from PyQt4.QtGui import QLabel, QHBoxLayout, QPixmap, QFrame, QPalette, QCheckBox
 import sys
 
 class StateBox(QFrame):
@@ -35,3 +35,20 @@ class StateBox(QFrame):
             self.label.setText(value)
         else:
             print >>sys.stderr, "qtwidgets.StateBox set_property() only implemented for label"
+
+
+class CheckBox(QCheckBox):
+    print "im in ur qtwidgets, overridin ur functions"
+    def __init__(self, parent=None):
+        print "INITIALIZING QCHECKBOX"
+        QCheckBox.__init__(self, parent)
+
+    def set_sensitive(self, state):
+        QCheckBox.setEnabled(self,state)
+
+    def set_active(self, state):
+        QCheckBox.setChecked(self,state)
+
+    def get_active(self):
+        return QCheckBox.isChecked(self)
+ 
