@@ -1,3 +1,10 @@
+ubiquity (2.7.4ubuntu1) natty; urgency=low
+
+  * make ubi-prepare.py handle cases where prepare_download_updates
+    is Qt too (LP: #791446)
+
+ -- Mackenzie Morgan <maco.m@ubuntu.com>  Thu, 02 Jun 2011 02:18:12 -0400
+
 ubiquity (2.7.4) oneiric; urgency=low
 
   * Fix sys.path handling in test_ubi_partman.
