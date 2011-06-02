@@ -48,7 +48,7 @@
     </widget>
    </item>
    <item row="5" column="0">
-    <widget class="CheckBox" name="prepare_download_updates">
+    <widget class="QCheckBox" name="prepare_download_updates">
      <property name="text">
       <string>Download updates while installing</string>
      </property>

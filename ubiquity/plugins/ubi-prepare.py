@@ -90,9 +90,15 @@ class PreparePageBase(plugin.PluginUI):
                 if WGET_HASH == h.hexdigest():
                     state = True
             self.prepare_network_connection.set_state(state)
-            self.prepare_download_updates.set_sensitive(state)
+            if type(self.prepare_download_updates) is "QCheckBox":
+                self.prepare_download_updates.setEnabled(state)
+            else if type(self.prepare_download_updates) is "gtk.CheckButton":
+                self.prepare_download_updates.set_sensitive(state)
             if not state:
-                self.prepare_download_updates.set_active(False)
+                if type(self.prepare_download_updates) is "QCheckBox":
+                    self.prepare_download_updates.setChecked(False)
+                else if type(self.prepare_download_updates) is "gtk.CheckButton":
+                    self.prepare_download_updates.set_active(False)
             self.controller.dbfilter.set_online_state(state)
             return False
 
@@ -195,7 +201,7 @@ class PageKde(PreparePageBase):
     restricted_package_name = 'kubuntu-restricted-addons'
 
     def __init__(self, controller, *args, **kwargs):
-        from ubiquity.qtwidgets import StateBox, CheckBox
+        from ubiquity.qtwidgets import StateBox
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return
@@ -244,7 +250,10 @@ class PageKde(PreparePageBase):
                 self.check_returncode)
 
     def set_download_updates(self, val):
-        self.prepare_download_updates.setChecked(val)
+        if type(self.prepare_download_updates) is "QCheckBox":
+            self.prepare_download_updates.setChecked(val)
+        else if type(self.prepare_download_updates) is "gtk.CheckButton":
+            self.prepare_download_updates.set_active(val)
 
     def get_download_updates(self):
         from PyQt4.QtCore import Qt
