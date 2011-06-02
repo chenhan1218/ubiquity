@@ -1,4 +1,4 @@
-ubiquity (2.7.4ubuntu1) natty; urgency=low
+ubiquity (2.7.5) UNRELEASED; urgency=low
 
   * make ubi-prepare.py handle cases where prepare_download_updates
     is Qt too (LP: #791446)
