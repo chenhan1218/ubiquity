@@ -92,12 +92,12 @@ class PreparePageBase(plugin.PluginUI):
             self.prepare_network_connection.set_state(state)
             if type(self.prepare_download_updates) is "QCheckBox":
                 self.prepare_download_updates.setEnabled(state)
-            else if type(self.prepare_download_updates) is "gtk.CheckButton":
+            elif type(self.prepare_download_updates) is "gtk.CheckButton":
                 self.prepare_download_updates.set_sensitive(state)
             if not state:
                 if type(self.prepare_download_updates) is "QCheckBox":
                     self.prepare_download_updates.setChecked(False)
-                else if type(self.prepare_download_updates) is "gtk.CheckButton":
+                elif type(self.prepare_download_updates) is "gtk.CheckButton":
                     self.prepare_download_updates.set_active(False)
             self.controller.dbfilter.set_online_state(state)
             return False
@@ -252,7 +252,7 @@ class PageKde(PreparePageBase):
     def set_download_updates(self, val):
         if type(self.prepare_download_updates) is "QCheckBox":
             self.prepare_download_updates.setChecked(val)
-        else if type(self.prepare_download_updates) is "gtk.CheckButton":
+        elif type(self.prepare_download_updates) is "gtk.CheckButton":
             self.prepare_download_updates.set_active(val)
 
     def get_download_updates(self):
