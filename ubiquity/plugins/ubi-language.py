@@ -288,9 +288,9 @@ class PageGtk(PageBase):
         from gi.repository import Gtk
         ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
         if ltr == 'default:RTL':
-            Gtk.widget_set_default_direction(Gtk.TextDirection.RTL)
+            Gtk.Widget.set_default_direction(Gtk.TextDirection.RTL)
         else:
-            Gtk.widget_set_default_direction(Gtk.TextDirection.LTR)
+            Gtk.Widget.set_default_direction(Gtk.TextDirection.LTR)
 
         if self.only:
             # The language page for oem-config doesn't have the fancy greeter.
