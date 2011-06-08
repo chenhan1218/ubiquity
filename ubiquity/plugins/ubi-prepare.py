@@ -90,15 +90,9 @@ class PreparePageBase(plugin.PluginUI):
                 if WGET_HASH == h.hexdigest():
                     state = True
             self.prepare_network_connection.set_state(state)
-            if type(self.prepare_download_updates) is "QCheckBox":
-                self.prepare_download_updates.setEnabled(state)
-            elif type(self.prepare_download_updates) is "gtk.CheckButton":
-                self.prepare_download_updates.set_sensitive(state)
+            self.set_download_updates(state)
             if not state:
-                if type(self.prepare_download_updates) is "QCheckBox":
-                    self.prepare_download_updates.setChecked(False)
-                elif type(self.prepare_download_updates) is "gtk.CheckButton":
-                    self.prepare_download_updates.set_active(False)
+                self.enable_download_updates(False)
             self.controller.dbfilter.set_online_state(state)
             return False
 
@@ -164,12 +158,15 @@ class PageGtk(PreparePageBase):
             gobject.source_remove(self.timeout_id)
         self.timeout_id = gobject.timeout_add(300, self.check_returncode)
 
+    def enable_download_updates(self, val):
+        self.prepare_download_updates.set_sensitive(val)
+
     def set_download_updates(self, val):
         self.prepare_download_updates.set_active(val)
 
     def get_download_updates(self):
         return self.prepare_download_updates.get_active()
-    
+
     def set_allow_nonfree(self, allow):
         if not allow:
             self.prepare_nonfree_software.set_active(False)
@@ -249,11 +246,11 @@ class PageKde(PreparePageBase):
             self.timer.disconnect(self.timer, SIGNAL("timeout()"),
                 self.check_returncode)
 
+    def enable_download_updates(self, val):
+        self.prepare_download_updates.setEnabled(val)
+
     def set_download_updates(self, val):
-        if type(self.prepare_download_updates) is "QCheckBox":
-            self.prepare_download_updates.setChecked(val)
-        elif type(self.prepare_download_updates) is "gtk.CheckButton":
-            self.prepare_download_updates.set_active(val)
+        self.prepare_download_updates.setChecked(val)
 
     def get_download_updates(self):
         from PyQt4.QtCore import Qt
