@@ -1,4 +1,4 @@
-ubiquity (2.7.6) UNRELEASED; urgency=low
+ubiquity (2.7.6) oneiric; urgency=low
 
   * Support filesystem.manifest-remove (equivalent to the difference between
     filesystem.manifest and filesystem.manifest-desktop in the old style),
@@ -7,7 +7,7 @@ ubiquity (2.7.6) UNRELEASED; urgency=low
     configuration.  The livecd-rootfs live-build integration will create
     this in DVD images.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 11 Jun 2011 18:38:51 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sun, 12 Jun 2011 00:23:14 +0100
 
 ubiquity (2.7.5) oneiric; urgency=low
 
