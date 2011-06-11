@@ -1238,12 +1238,30 @@ class Install(install_misc.InstallBase):
         # Looking through files for packages to remove is pretty quick, so
         # don't bother with a progress bar for that.
 
-        # Check for packages specific to the live CD.
+        # Check for packages specific to the live CD.  (manifest-desktop is
+        # the old method, which listed all the packages to keep;
+        # manifest-remove is the new method, which lists all the packages to
+        # remove.)
+        manifest_remove = os.path.join(self.casper_path,
+                                       'filesystem.manifest-remove')
         manifest_desktop = os.path.join(self.casper_path,
                                         'filesystem.manifest-desktop')
         manifest = os.path.join(self.casper_path, 'filesystem.manifest')
-        if (os.path.exists(manifest_desktop) and
-            os.path.exists(manifest)):
+        if os.path.exists(manifest_remove) and os.path.exists(manifest):
+            difference = set()
+            manifest_file = open(manifest_remove)
+            for line in manifest_file:
+                if line.strip() != '' and not line.startswith('#'):
+                    difference.add(line.split()[0])
+            manifest_file.close()
+            live_packages = set()
+            manifest_file = open(manifest)
+            for line in manifest_file:
+                if line.strip() != '' and not line.startswith('#'):
+                    live_packages.add(line.split()[0])
+            manifest_file.close()
+            desktop_packages = live_packages - difference
+        elif os.path.exists(manifest_desktop) and os.path.exists(manifest):
             desktop_packages = set()
             manifest_file = open(manifest_desktop)
             for line in manifest_file:
