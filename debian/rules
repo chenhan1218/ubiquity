@@ -216,7 +216,11 @@ endif
 
 tests: install
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	xvfb-run ./tests/run
+	if ! xvfb-run -e debian/xvfb.log ./tests/run; then \
+		echo "xauth/Xrdb output:"; \
+		cat debian/xvfb.log; \
+		exit 1; \
+	fi
 endif
 
 BINARY_INDEP_OPTIONS := -i

@@ -1,3 +1,9 @@
+ubiquity (2.7.7) UNRELEASED; urgency=low
+
+  * Show output from xauth and Xrdb if xrdb-run fails.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 13 Jun 2011 14:00:44 +0100
+
 ubiquity (2.7.6) oneiric; urgency=low
 
   * Support filesystem.manifest-remove (equivalent to the difference between
