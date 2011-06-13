@@ -1,6 +1,6 @@
 ubiquity (2.7.7) UNRELEASED; urgency=low
 
-  * Show output from xauth and Xrdb if xrdb-run fails.
+  * Show output from xauth and Xrdb after calling xvfb-run.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 13 Jun 2011 14:00:44 +0100
 
