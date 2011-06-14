@@ -18,7 +18,7 @@ endif
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
 
-PYTHON := $(shell pyversions -r)
+PYTHON := $(shell pyversions -d)
 
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
@@ -249,7 +249,7 @@ binary-indep: install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	DH_OPTIONS= dh_pycentral -i
+	dh_python2 /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -Vmangled-version='$(MANGLED_VERSION)'
@@ -290,7 +290,7 @@ binary-arch: tests install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	DH_OPTIONS= dh_pycentral -a
+	dh_python2 /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'
