@@ -1,3 +1,10 @@
+ubiquity (2.7.9) UNRELEASED; urgency=low
+
+  * Use pycompile (python-minimal) rather than py_compilefiles
+    (python-central).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jun 2011 16:39:41 +0100
+
 ubiquity (2.7.8) oneiric; urgency=low
 
   * Fix xvfb-run error handling.
