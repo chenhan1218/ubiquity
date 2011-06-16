@@ -3,6 +3,7 @@ ubiquity (2.7.9) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Use pycompile (python-minimal) rather than py_compilefiles
     (python-central).
+  * Add lightdm to lists of display managers in Upstart jobs (LP: #798328).
 
   [ Mackenzie Morgan ]
   * make ubi-prepare.py handle cases where prepare_download_updates
