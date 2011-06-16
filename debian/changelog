@@ -1,7 +1,12 @@
 ubiquity (2.7.9) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Use pycompile (python-minimal) rather than py_compilefiles
     (python-central).
+
+  [ Mackenzie Morgan ]
+  * make ubi-prepare.py handle cases where prepare_download_updates
+    is Qt too (LP: #791446)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Jun 2011 16:39:41 +0100
 
