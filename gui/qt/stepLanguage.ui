@@ -57,7 +57,7 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="2" rowspan="2">
+   <item row="4" column="2">
     <widget class="QComboBox" name="language_combobox">
      <property name="editable">
       <bool>false</bool>

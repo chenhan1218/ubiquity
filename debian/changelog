@@ -1,3 +1,9 @@
+ubiquity (2.7.10) UNRELEASED; urgency=low
+
+  * [KDE] Fix language selection comobox position within grid (LP: #743062)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Sun, 19 Jun 2011 01:12:15 +0200
+
 ubiquity (2.7.9) oneiric; urgency=low
 
   [ Colin Watson ]
