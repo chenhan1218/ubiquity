@@ -1,4 +1,4 @@
-ubiquity (2.7.10) UNRELEASED; urgency=low
+ubiquity (2.7.10) oneiric; urgency=low
 
   * Fix reversed calls to enable_download_updates and set_download_updates,
     broken in 2.7.9 (LP: #800261).
@@ -6,7 +6,7 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.64ubuntu3, user-setup 1.28ubuntu16.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 21 Jun 2011 16:49:31 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 Jun 2011 13:52:45 +0100
 
 ubiquity (2.7.9) oneiric; urgency=low
 
