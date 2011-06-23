@@ -1,3 +1,9 @@
+ubiquity (2.7.11) UNRELEASED; urgency=low
+
+  * Use at-spi2 dbus launcher to start the at-spi2 daemon
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Thu, 23 Jun 2011 13:25:56 +1000
+
 ubiquity (2.7.10) oneiric; urgency=low
 
   * Fix reversed calls to enable_download_updates and set_download_updates,
