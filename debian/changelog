@@ -1,8 +1,10 @@
 ubiquity (2.7.11) UNRELEASED; urgency=low
 
   * Use at-spi2 dbus launcher to start the at-spi2 daemon
+  * Determine accessibility state from gsettings using the gsettings command,
+    to make sure privileges are dropped
 
- -- Luke Yelavich <themuso@ubuntu.com>  Thu, 23 Jun 2011 13:25:56 +1000
+ -- Luke Yelavich <themuso@ubuntu.com>  Thu, 23 Jun 2011 13:34:23 +1000
 
 ubiquity (2.7.10) oneiric; urgency=low
 
