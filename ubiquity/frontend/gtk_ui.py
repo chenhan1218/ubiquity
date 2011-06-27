@@ -674,11 +674,11 @@ class Wizard(BaseFrontend):
         def do_allocate(widget, allocation):
             child = self.install_details_expander.get_label_widget()
             a = child.get_allocation()
-            expander_size = widget.style_get_property('expander-size')
-            expander_spacing = widget.style_get_property('expander-spacing')
+            expander_size = widget.style_get_property('expander-size', Gtk.StateType.NORMAL)
+            expander_spacing = widget.style_get_property('expander-spacing', Gtk.StateType.NORMAL)
             border_width = widget.get_property('border-width')
-            #focus_width = widget.style_get_property('focus-line-width')
-            focus_pad = widget.style_get_property('focus-padding')
+            #focus_width = widget.style_get_property('focus-line-width', Gtk.StateType.NORMAL)
+            focus_pad = widget.style_get_property('focus-padding', Gtk.StateType.NORMAL)
 
             w = allocation.width - 2 * border_width - expander_size - \
                 2 * expander_spacing - 2 * focus_pad # - 2 * focus_width
@@ -765,10 +765,10 @@ class Wizard(BaseFrontend):
         if (self.oem_user_config or
             'UBIQUITY_ONLY' in os.environ or
             'UBIQUITY_GREETER' in os.environ):
-            f = Gdk.FUNC_RESIZE | Gdk.FUNC_MAXIMIZE | Gdk.FUNC_MOVE
+            f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | Gdk.WMFunction.MOVE
             if not self.oem_user_config:
-                f |= Gdk.FUNC_CLOSE
-            widget.window.set_functions(f)
+                f |= Gdk.WMFunction.CLOSE
+            widget.get_window().set_functions(f)
 
     def lockdown_environment(self):
         atexit.register(self.unlock_environment)
@@ -781,10 +781,10 @@ class Wizard(BaseFrontend):
             gconftool.set(key, 'bool', 'true')
 
         self.quit.hide()
-        f = Gdk.FUNC_RESIZE | Gdk.FUNC_MAXIMIZE | Gdk.FUNC_MOVE
+        f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | Gdk.WMFunction.MOVE
         if not 'UBIQUITY_ONLY' in os.environ:
-            f |= Gdk.FUNC_MINIMIZE
-        self.live_installer.window.set_functions(f)
+            f |= Gdk.WMFunction.MINIMIZE
+        self.live_installer.get_window().set_functions(f)
         self.allow_change_step(False)
         self.refresh()
 
@@ -802,10 +802,10 @@ class Wizard(BaseFrontend):
                     gconftool.set(key, 'bool', self.gconf_previous[key])
         if not self.oem_user_config:
             self.quit.show()
-        f = Gdk.FUNC_RESIZE | Gdk.FUNC_MAXIMIZE | \
-            Gdk.FUNC_MOVE | Gdk.FUNC_CLOSE
+        f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | \
+            Gdk.WMFunction.MOVE | Gdk.WMFunction.CLOSE
         if not 'UBIQUITY_ONLY' in os.environ:
-            f |= Gdk.FUNC_MINIMIZE
+            f |= Gdk.WMFunction.MINIMIZE
         self.refresh()
 
     def set_locales(self):
@@ -1125,7 +1125,7 @@ class Wizard(BaseFrontend):
         # focusable item is a label or a button (often, the welcome text label
         # and the quit button), set the focus to the next button.
         if not self.live_installer.get_focus():
-            self.live_installer.child_focus(Gtk.DIR_TAB_FORWARD)
+            self.live_installer.child_focus(Gtk.DirectionType.TAB_FORWARD)
         focus = self.live_installer.get_focus()
         if focus:
             if focus.__class__ == Gtk.Label:
@@ -1193,7 +1193,7 @@ class Wizard(BaseFrontend):
         """quit installer cleanly."""
 
         # Let the user know we're shutting down.
-        self.finished_dialog.window.set_cursor(self.watch)
+        self.finished_dialog.get_window().set_cursor(self.watch)
         set_root_cursor(self.watch)
         self.quit_button.set_sensitive(False)
         self.reboot_button.set_sensitive(False)
