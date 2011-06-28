@@ -43,95 +43,67 @@ def draw_round_rect(c, r, x, y, w, h):
     c.close_path()
 
 def gtk_to_cairo_color(c):
-    color = Gdk.color_parse(c)
+    color = Gdk.color_parse(c)[1]
     s = 1.0/65535.0
     r = color.red * s
     g = color.green * s
     b = color.blue * s
     return r, g, b
 
-class StylizedFrame(Gtk.Bin):
+class StylizedFrame(Gtk.Alignment):
     __gtype_name__ = 'StylizedFrame'
     __gproperties__ = {
         'radius'  : (GObject.TYPE_INT,
                     'Radius',
                     'The radius of the rounded corners.',
-                    0, 32767, 10, GObject.PARAM_READWRITE),
+                    0, GObject.constants.G_MAXINT, 10,
+                    GObject.PARAM_READWRITE),
         'width'   : (GObject.TYPE_INT,
                     'Width',
                     'The width of the outline.',
-                    0, 32767, 1, GObject.PARAM_READWRITE),
-        'padding' : (GObject.TYPE_INT,
-                    'Padding',
-                    'The padding between the bin and the outline.',
-                    0, 32767, 2, GObject.PARAM_READWRITE)
+                    0, GObject.constants.G_MAXINT, 1,
+                    GObject.PARAM_READWRITE),
     }
     
-    def do_get_property(self, prop):
-        return getattr(self, prop.name)
-
-    def do_set_property(self, prop, value):
-        setattr(self, prop.name, value)
-
     def __init__(self):
-        Gtk.Bin.__init__(self)
-        self.child = None
+        Gtk.Alignment.__init__(self)
         self.radius = 10
         self.width = 1
-        self.padding = 2
 
-    #def do_realize(self):
-    #    self.set_flags(Gtk.REALIZED)
+    def do_get_property(self, prop):
+        if prop.name in ('radius', 'width'):
+            return getattr(self, prop.name)
+        else:
+            return Gtk.Alignment.do_get_property(self, prop)
 
-    #    self.window = Gdk.Window(
-    #        self.get_parent_window(),
-    #        width=self.allocation.width,
-    #        height=self.allocation.height,
-    #        window_type=Gdk.WINDOW_CHILD,
-    #        wclass=Gdk.INPUT_OUTPUT,
-    #        event_mask=self.get_events() | Gdk.EventMask.EXPOSURE_MASK)
-
-    #    self.window.set_user_data(self)
-    #    self.style.attach(self.window)
-    #    self.style.set_background(self.window, Gtk.StateType.NORMAL)
-    #    self.window.move_resize(*self.allocation)
-    #    Gtk.Bin.do_realize(self)
-
-    def do_size_request(self, req):
-        w, h = 1, 1
-        if self.get_child():
-            w, h = self.get_child().size_request()
-        req.width = w + (self.width * 2) + (self.padding * 2)
-        req.height = h + (self.width * 2) + (self.padding * 2)
-
-    def do_size_allocate(self, alloc):
-        self.allocation = alloc
-        self.get_child().size_allocate(alloc)
-
-    def do_forall(self, include_internals, callback, user_data):
-        if self.get_child():
-            callback(self.get_child(), user_data)
+    def do_set_property(self, prop, value):
+        if prop.name in ('radius', 'width'):
+            setattr(self, prop.name, value)
+            self.queue_draw()
+        else:
+            Gtk.Alignment.do_set_property(self, prop, value)
 
     def paint_background(self, c):
         c.set_source_rgb(*gtk_to_cairo_color('#fbfbfb'))
-        draw_round_rect(c, self.radius, self.allocation.x + self.width,
-                        self.allocation.y + self.width,
-                        self.allocation.width - (self.width * 2),
-                        self.allocation.height - (self.width * 2))
+        alloc = self.get_allocation()
+        draw_round_rect(c, self.radius,
+                        self.width / 2, self.width / 2,
+                        alloc.width - self.width,
+                        alloc.height - self.width)
         c.fill_preserve()
 
-    def do_expose_event(self, event):
-        x, y, w, h = self.allocation
-        c = self.window.cairo_create()
-        c.rectangle(x, y, w, h)
-        c.clip()
+    def do_draw(self, c):
+        alloc = self.get_allocation()
         # Background
         self.paint_background(c)
         # Edge
         c.set_source_rgb(*gtk_to_cairo_color('#c7c7c6'))
         c.set_line_width(self.width)
         c.stroke()
-        Gtk.Bin.do_expose_event(self, event)
+        if self.get_child():
+            top, bottom, left, right = self.get_padding()
+            c.translate(left, top)
+            self.get_child().draw(c)
 
 GObject.type_register(StylizedFrame)
 
