@@ -90,8 +90,6 @@ ifndef UBIQUITY_NO_GTK
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
 	mv -n debian/ubiquity-frontend-gtk/usr/lib/ubiquity/ubiquity \
 		debian/ubiquity/usr/lib/ubiquity/
-	mv -n debian/ubiquity/usr/lib/ubiquity/ubiquity/cheese* \
-		debian/ubiquity-frontend-gtk/usr/lib/ubiquity/
 	rm -f debian/ubiquity/usr/lib/ubiquity/ubiquity/_osextras.a \
 		debian/ubiquity/usr/lib/ubiquity/ubiquity/_osextras.la
 endif

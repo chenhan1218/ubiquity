@@ -33,24 +33,14 @@ if test "x$UBIQUITY_NO_GTK" = x; then
 			  x11])
   AC_SUBST(PANEL_CFLAGS)
   AC_SUBST(PANEL_LIBS)
-  PKG_CHECK_MODULES(CHEESE, [glib-2.0
-			     gtk+-2.0 >= $GTK_REQUIRED
-			     gobject-2.0
-			     pygobject-2.0
-			     cheese-gtk])
-  AC_SUBST(CHEESE_CFLAGS)
-  AC_SUBST(CHEESE_LIBS)
   AM_PATH_GTK_2_0([$GTK_REQUIRED])
   AC_CONFIG_FILES(
 	src/Makefile
 	src/panel/Makefile
-	src/cheese/Makefile
 	)
 else
   AC_SUBST(BASE_CFLAGS, [""])
   AC_SUBST(BASE_LIBS, [""])
-  AC_SUBST(CHEESE_CFLAGS, [""])
-  AC_SUBST(CHEESE_LIBS, [""])
 fi
 
 
