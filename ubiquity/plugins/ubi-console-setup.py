@@ -57,7 +57,7 @@ class PageGtk(plugin.PluginUI):
         # isinstance(LabelledEntry and just call set_label.  We'll need to
         # properly name the debconf keys though (s/inactive_label//)
         test_label = self.controller.get_string('keyboard_test_label', lang)
-        self.keyboard_test.set_label(test_label)
+        self.keyboard_test.set_placeholder_text(test_label)
 
     @plugin.only_this_page
     def calculate_result(self, w, keymap):

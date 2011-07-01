@@ -199,7 +199,7 @@ class PageGtk(PageBase):
         # okay check icon and the hostname error messages.
         paddingbox = builder.get_object('paddingbox')
         def func(box):
-            box.parent.child_set_property(box, 'expand', False)
+            box.get_parent().child_set_property(box, 'expand', False)
             box.set_size_request(box.get_allocation().width / 2, -1)
         paddingbox.connect('realize', func)
 
@@ -236,10 +236,10 @@ class PageGtk(PageBase):
         pasw = self.controller.get_string('password_inactive_label', lang)
         vpas = self.controller.get_string('password_again_inactive_label',
                                           lang)
-        self.username.set_label(user)
-        self.fullname.set_label(full)
-        self.password.set_label(pasw)
-        self.verified_password.set_label(vpas)
+        self.username.set_placeholder_text(user)
+        self.fullname.set_placeholder_text(full)
+        self.password.set_placeholder_text(pasw)
+        self.verified_password.set_placeholder_text(vpas)
 
     # Functions called by the Page.
 

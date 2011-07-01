@@ -66,7 +66,7 @@ class PageGtk(plugin.PluginUI):
         self.tzmap.set_time_format(fmt)
         inactive = self.controller.get_string(
             'timezone_city_entry_inactive_label', lang)
-        self.city_entry.set_label(inactive)
+        self.city_entry.set_placeholder_text(inactive)
 
     def set_timezone(self, timezone):
         self.zones = self.controller.dbfilter.build_timezone_list()
