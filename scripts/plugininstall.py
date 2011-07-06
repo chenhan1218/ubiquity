@@ -307,7 +307,10 @@ class Install(install_misc.InstallBase):
                     ['chroot', self.target, 'pyversions', '-s'],
                     stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
                 for python in supported.split():
-                    cachedpython = cache['%s-minimal' % python]
+                    try:
+                        cachedpython = cache['%s-minimal' % python]
+                    except KeyError:
+                        continue
                     if not cachedpython.is_installed:
                         continue
                     version = cachedpython.installed.version
@@ -325,7 +328,10 @@ class Install(install_misc.InstallBase):
                     ['chroot', self.target, 'py3versions', '-s'],
                     stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
                 for python in supported.split():
-                    cachedpython = cache['%s-minimal' % python]
+                    try:
+                        cachedpython = cache['%s-minimal' % python]
+                    except KeyError:
+                        continue
                     if not cachedpython.is_installed:
                         continue
                     version = cachedpython.installed.version
