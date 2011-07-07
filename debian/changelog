@@ -12,6 +12,8 @@ ubiquity (2.7.11) UNRELEASED; urgency=low
     /var/cache/debconf/config.dat mode 0600 in the installed system,
     breaking the first run of some package management frontends
     (LP: #442941).
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu21, flash-kernel 2.28ubuntu26.
 
  -- Luke Yelavich <themuso@ubuntu.com>  Thu, 23 Jun 2011 13:34:23 +1000
 
