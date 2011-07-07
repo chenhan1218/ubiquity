@@ -8,6 +8,10 @@ ubiquity (2.7.11) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Handle the case where one of the packages returned by 'pyversions -s' or
     'py3versions -s' is not installed (LP: #806349).
+  * Add --config=Mode:0644 to debconf-copydb call, as otherwise we leave
+    /var/cache/debconf/config.dat mode 0600 in the installed system,
+    breaking the first run of some package management frontends
+    (LP: #442941).
 
  -- Luke Yelavich <themuso@ubuntu.com>  Thu, 23 Jun 2011 13:34:23 +1000
 
