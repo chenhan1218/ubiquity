@@ -28,7 +28,9 @@ update:
 update-local:
 	$(MAKE) -C d-i update UPDATE_LOCAL=1
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
 
 build-stamp:
 	dh_testdir
