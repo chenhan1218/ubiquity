@@ -81,137 +81,133 @@ class PageGtk(PageBase):
     plugin_is_install = True
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
-        try:
-            from gi.repository import Gtk
-            builder = Gtk.Builder()
-            self.controller.add_builder(builder)
-            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
-            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
-            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
-            builder.connect_signals(self)
+        from gi.repository import Gtk
+        builder = Gtk.Builder()
+        self.controller.add_builder(builder)
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
+        builder.connect_signals(self)
 
-            self.page_ask = builder.get_object('stepPartAsk')
-            self.page_auto = builder.get_object('stepPartAuto')
-            self.page_advanced = builder.get_object('stepPartAdvanced')
+        self.page_ask = builder.get_object('stepPartAsk')
+        self.page_auto = builder.get_object('stepPartAuto')
+        self.page_advanced = builder.get_object('stepPartAdvanced')
 
-            # Grub options
-            self.bootloader_vbox = builder.get_object('bootloader_vbox')
-            self.grub_device_entry = builder.get_object('grub_device_entry')
+        # Grub options
+        self.bootloader_vbox = builder.get_object('bootloader_vbox')
+        self.grub_device_entry = builder.get_object('grub_device_entry')
 
-            # Automatic page
-            self.resizewidget = builder.get_object('resizewidget')
-            self.partitionbox = builder.get_object('partitionbox')
-            self.partition_container = builder.get_object('partition_container')
-            self.part_auto_select_drive = builder.get_object('part_auto_select_drive')
-            self.resize_use_free = builder.get_object('resize_use_free')
-            self.custom_partitioning = builder.get_object('custom_partitioning')
-            self.use_device = builder.get_object('use_device')
-            self.reuse_partition = builder.get_object('reuse_partition')
-            self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
-            self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
-            self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
+        # Automatic page
+        self.resizewidget = builder.get_object('resizewidget')
+        self.partitionbox = builder.get_object('partitionbox')
+        self.partition_container = builder.get_object('partition_container')
+        self.part_auto_select_drive = builder.get_object('part_auto_select_drive')
+        self.resize_use_free = builder.get_object('resize_use_free')
+        self.custom_partitioning = builder.get_object('custom_partitioning')
+        self.use_device = builder.get_object('use_device')
+        self.reuse_partition = builder.get_object('reuse_partition')
+        self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
+        self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
+        self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
 
-            # Ask page
-            self.part_ask_heading = builder.get_object('part_ask_heading')
-            self.use_device_title = builder.get_object('use_device_title')
-            self.use_device_desc = builder.get_object('use_device_desc')
-            self.replace_partition = builder.get_object('replace_partition')
-            self.replace_partition_title = builder.get_object('replace_partition_title')
-            self.replace_partition_desc = builder.get_object('replace_partition_desc')
-            self.reuse_partition_title = builder.get_object('reuse_partition_title')
-            self.reuse_partition_desc = builder.get_object('reuse_partition_desc')
-            self.resize_use_free_title = builder.get_object('resize_use_free_title')
-            self.resize_use_free_desc = builder.get_object('resize_use_free_desc')
-            self.custom_partitioning_title = builder.get_object('custom_partitioning_title')
-            self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
+        # Ask page
+        self.part_ask_heading = builder.get_object('part_ask_heading')
+        self.use_device_title = builder.get_object('use_device_title')
+        self.use_device_desc = builder.get_object('use_device_desc')
+        self.replace_partition = builder.get_object('replace_partition')
+        self.replace_partition_title = builder.get_object('replace_partition_title')
+        self.replace_partition_desc = builder.get_object('replace_partition_desc')
+        self.reuse_partition_title = builder.get_object('reuse_partition_title')
+        self.reuse_partition_desc = builder.get_object('reuse_partition_desc')
+        self.resize_use_free_title = builder.get_object('resize_use_free_title')
+        self.resize_use_free_desc = builder.get_object('resize_use_free_desc')
+        self.custom_partitioning_title = builder.get_object('custom_partitioning_title')
+        self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
 
-            # Ask page accessibility
-            from gi.repository import Atk
-            self.atk_use_device = self.use_device.get_accessible()
-            self.atk_use_device_title = self.use_device_title.get_accessible()
-            self.atk_use_device_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_use_device)
-            self.atk_use_device.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_use_device_title)
-            self.atk_replace_partition = self.replace_partition.get_accessible()
-            self.atk_replace_partition_title = self.replace_partition_title.get_accessible()
-            self.atk_replace_partition_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_replace_partition)
-            self.atk_replace_partition.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_replace_partition_title)
-            self.atk_reuse_partition = self.reuse_partition.get_accessible()
-            self.atk_reuse_partition_title = self.reuse_partition_title.get_accessible()
-            self.atk_reuse_partition_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_reuse_partition)
-            self.atk_reuse_partition.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_reuse_partition_title)
-            self.atk_resize_use_free = self.resize_use_free.get_accessible()
-            self.atk_resize_use_free_title = self.resize_use_free_title.get_accessible()
-            self.atk_resize_use_free_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_resize_use_free)
-            self.atk_resize_use_free.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_resize_use_free_title)
-            self.atk_custom_partitioning = self.custom_partitioning.get_accessible()
-            self.atk_custom_partitioning_title = self.custom_partitioning_title.get_accessible()
-            self.atk_custom_partitioning_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_custom_partitioning)
-            self.atk_custom_partitioning.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_custom_partitioning_title)
+        # Ask page accessibility
+        from gi.repository import Atk
+        self.atk_use_device = self.use_device.get_accessible()
+        self.atk_use_device_title = self.use_device_title.get_accessible()
+        self.atk_use_device_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_use_device)
+        self.atk_use_device.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_use_device_title)
+        self.atk_replace_partition = self.replace_partition.get_accessible()
+        self.atk_replace_partition_title = self.replace_partition_title.get_accessible()
+        self.atk_replace_partition_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_replace_partition)
+        self.atk_replace_partition.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_replace_partition_title)
+        self.atk_reuse_partition = self.reuse_partition.get_accessible()
+        self.atk_reuse_partition_title = self.reuse_partition_title.get_accessible()
+        self.atk_reuse_partition_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_reuse_partition)
+        self.atk_reuse_partition.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_reuse_partition_title)
+        self.atk_resize_use_free = self.resize_use_free.get_accessible()
+        self.atk_resize_use_free_title = self.resize_use_free_title.get_accessible()
+        self.atk_resize_use_free_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_resize_use_free)
+        self.atk_resize_use_free.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_resize_use_free_title)
+        self.atk_custom_partitioning = self.custom_partitioning.get_accessible()
+        self.atk_custom_partitioning_title = self.custom_partitioning_title.get_accessible()
+        self.atk_custom_partitioning_title.add_relationship(Atk.RelationType.LABEL_FOR, self.atk_custom_partitioning)
+        self.atk_custom_partitioning.add_relationship(Atk.RelationType.LABELLED_BY, self.atk_custom_partitioning_title)
 
-            # Advanced page
-            self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
-            self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
-            self.partition_create_dialog = builder.get_object('partition_create_dialog')
-            self.partition_list_treeview = builder.get_object('partition_list_treeview')
-            self.partition_create_type_label = builder.get_object('partition_create_type_label')
-            self.partition_create_type_primary = builder.get_object('partition_create_type_primary')
-            self.partition_create_type_logical = builder.get_object('partition_create_type_logical')
-            self.partition_create_size_spinbutton = builder.get_object('partition_create_size_spinbutton')
-            self.partition_create_place_beginning = builder.get_object('partition_create_place_beginning')
-            self.partition_create_use_combo = builder.get_object('partition_create_use_combo')
-            self.partition_edit_dialog = builder.get_object('partition_edit_dialog')
-            self.partition_edit_size_label = builder.get_object('partition_edit_size_label')
-            self.partition_edit_size_spinbutton = builder.get_object('partition_edit_size_spinbutton')
-            self.partition_edit_use_combo = builder.get_object('partition_edit_use_combo')
-            self.partition_edit_format_label = builder.get_object('partition_edit_format_label')
-            self.partition_edit_format_checkbutton = builder.get_object('partition_edit_format_checkbutton')
-            self.partition_button_new_label = builder.get_object('partition_button_new_label')
-            self.partition_button_new = builder.get_object('partition_button_new')
-            self.partition_button_edit = builder.get_object('partition_button_edit')
-            self.partition_button_delete = builder.get_object('partition_button_delete')
-            self.partition_button_undo = builder.get_object('partition_button_undo')
-            self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
-            self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
-            self.partition_list_buttonbox = builder.get_object('partition_list_buttonbox')
-            self.part_advanced_recalculating_box = builder.get_object('part_advanced_recalculating_box')
-            self.part_advanced_recalculating_spinner = builder.get_object('part_advanced_recalculating_spinner')
-            self.part_advanced_recalculating_label = builder.get_object('part_advanced_recalculating_label')
+        # Advanced page
+        self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
+        self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
+        self.partition_create_dialog = builder.get_object('partition_create_dialog')
+        self.partition_list_treeview = builder.get_object('partition_list_treeview')
+        self.partition_create_type_label = builder.get_object('partition_create_type_label')
+        self.partition_create_type_primary = builder.get_object('partition_create_type_primary')
+        self.partition_create_type_logical = builder.get_object('partition_create_type_logical')
+        self.partition_create_size_spinbutton = builder.get_object('partition_create_size_spinbutton')
+        self.partition_create_place_beginning = builder.get_object('partition_create_place_beginning')
+        self.partition_create_use_combo = builder.get_object('partition_create_use_combo')
+        self.partition_edit_dialog = builder.get_object('partition_edit_dialog')
+        self.partition_edit_size_label = builder.get_object('partition_edit_size_label')
+        self.partition_edit_size_spinbutton = builder.get_object('partition_edit_size_spinbutton')
+        self.partition_edit_use_combo = builder.get_object('partition_edit_use_combo')
+        self.partition_edit_format_label = builder.get_object('partition_edit_format_label')
+        self.partition_edit_format_checkbutton = builder.get_object('partition_edit_format_checkbutton')
+        self.partition_button_new_label = builder.get_object('partition_button_new_label')
+        self.partition_button_new = builder.get_object('partition_button_new')
+        self.partition_button_edit = builder.get_object('partition_button_edit')
+        self.partition_button_delete = builder.get_object('partition_button_delete')
+        self.partition_button_undo = builder.get_object('partition_button_undo')
+        self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
+        self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
+        self.partition_list_buttonbox = builder.get_object('partition_list_buttonbox')
+        self.part_advanced_recalculating_box = builder.get_object('part_advanced_recalculating_box')
+        self.part_advanced_recalculating_spinner = builder.get_object('part_advanced_recalculating_spinner')
+        self.part_advanced_recalculating_label = builder.get_object('part_advanced_recalculating_label')
 
-            self.partition_bars = {}
-            self.segmented_bar_vbox = None
-            self.resize_min_size = None
-            self.resize_max_size = None
-            self.resize_pref_size = None
-            self.resize_path = ''
-            self.auto_colors = ['3465a4', '73d216', 'f57900']
-            self.extra_options = {}
+        self.partition_bars = {}
+        self.segmented_bar_vbox = None
+        self.resize_min_size = None
+        self.resize_max_size = None
+        self.resize_pref_size = None
+        self.resize_path = ''
+        self.auto_colors = ['3465a4', '73d216', 'f57900']
+        self.extra_options = {}
 
-            self.partition_create_mount_combo.get_child().set_activates_default(True)
-            self.partition_edit_mount_combo.get_child().set_activates_default(True)
+        self.partition_create_mount_combo.get_child().set_activates_default(True)
+        self.partition_edit_mount_combo.get_child().set_activates_default(True)
 
-            self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
-            self.current_page = self.page_ask
+        self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
+        self.current_page = self.page_ask
 
-            # Set some parameters that do not change between runs of the plugin
-            release = misc.get_release()
-            self.partitionbox.set_property('title', release.name)
+        # Set some parameters that do not change between runs of the plugin
+        release = misc.get_release()
+        self.partitionbox.set_property('title', release.name)
 
-            # New partition
-            self.resizewidget.get_child2().get_child().set_property('title', release.name)
+        # New partition
+        self.resizewidget.get_child2().get_child().set_property('title', release.name)
 
-            # Annoyingly, you can't set packing properties for cell renderers
-            # in Glade.
-            cell = Gtk.CellRendererText()
-            self.part_auto_select_drive.pack_start(cell, False)
-            self.part_auto_select_drive.add_attribute(cell, 'text', 0)
-            cell = Gtk.CellRendererText()
-            cell.set_property('xalign', 1.0)
-            cell.set_property('sensitive', False)
-            self.part_auto_select_drive.pack_start(cell, True)
-            self.part_auto_select_drive.add_attribute(cell, 'markup', 1)
-        except Exception, e:
-            self.debug('Could not create partman page: %s', e)
-            self.page_ask = None
+        # Annoyingly, you can't set packing properties for cell renderers
+        # in Glade.
+        cell = Gtk.CellRendererText()
+        self.part_auto_select_drive.pack_start(cell, False)
+        self.part_auto_select_drive.add_attribute(cell, 'text', 0)
+        cell = Gtk.CellRendererText()
+        cell.set_property('xalign', 1.0)
+        cell.set_property('sensitive', False)
+        self.part_auto_select_drive.pack_start(cell, True)
+        self.part_auto_select_drive.add_attribute(cell, 'markup', 1)
         self.plugin_widgets = self.page_ask
 
     def plugin_get_current_page(self):
