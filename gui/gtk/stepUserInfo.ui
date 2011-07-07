@@ -142,7 +142,7 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">20</property>
                 <property name="invisible_char_set">True</property>
-                <property name="label">Password</property>
+                <property name="placeholder_text">Password</property>
                 <signal name="changed" handler="info_loop"/>
               </object>
               <packing>
@@ -182,7 +182,7 @@
                 <property name="activates_default">True</property>
                 <property name="width_chars">20</property>
                 <property name="invisible_char_set">True</property>
-                <property name="label">Confirm password</property>
+                <property name="placeholder_text">Confirm password</property>
                 <signal name="changed" handler="info_loop"/>
               </object>
               <packing>
@@ -230,7 +230,7 @@
                 <property name="invisible_char">&#x2022;</property>
                 <property name="activates_default">True</property>
                 <property name="width_chars">40</property>
-                <property name="label">Your name</property>
+                <property name="placeholder_text">Your name</property>
                 <signal name="changed" handler="info_loop"/>
               </object>
               <packing>
@@ -265,7 +265,7 @@
                 <property name="invisible_char">&#x2022;</property>
                 <property name="activates_default">True</property>
                 <property name="width_chars">15</property>
-                <property name="label">Username</property>
+                <property name="placeholder_text">Username</property>
                 <signal name="changed" handler="info_loop"/>
               </object>
               <packing>
@@ -356,7 +356,7 @@
                         <property name="invisible_char">&#x2022;</property>
                         <property name="activates_default">True</property>
                         <property name="width_chars">20</property>
-                        <property name="label"></property>
+                        <property name="placeholder_text"></property>
                         <signal name="changed" handler="info_loop"/>
                       </object>
                       <packing>
