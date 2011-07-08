@@ -5,7 +5,7 @@
 #   Aaron Bockover <abockover@novell.com>
 #
 # Translated to Python and further modifications by:
-#   Evan Dandrea <evand@ubuntu.com>
+#   Evan Dandrea <ev@ubuntu.com>
 #
 # Copyright (C) 2008 Novell, Inc.
 # Copyright (C) 2008 Canonical Ltd.

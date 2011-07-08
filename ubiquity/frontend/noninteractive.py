@@ -6,7 +6,7 @@
 #
 # Authors:
 #
-# - Evan Dandrea <evand@ubuntu.com>
+# - Evan Dandrea <ev@ubuntu.com>
 #
 # This file is part of Ubiquity.
 #

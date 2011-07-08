@@ -12,7 +12,7 @@
 # - Antonio Olmo Titos <aolmo#emergya._info>
 # - Gumer Coronel Pérez <gcoronel#emergya._info>
 # - Colin Watson <cjwatson@ubuntu.com>
-# - Evan Dandrea <evand@ubuntu.com>
+# - Evan Dandrea <ev@ubuntu.com>
 # - Mario Limonciello <superm1@ubuntu.com>
 #
 # This file is part of Ubiquity.

@@ -7,7 +7,7 @@
 # Authors:
 #
 # - Colin Watson <cjwatson@ubuntu.com>
-# - Evan Dandrea <evand@ubuntu.com>
+# - Evan Dandrea <ev@ubuntu.com>
 # - Roman Shtylman <shtylman@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify

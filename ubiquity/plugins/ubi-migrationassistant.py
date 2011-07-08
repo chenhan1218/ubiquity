@@ -1,6 +1,6 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
-# Copyright (C) 2006 Evan Dandrea <evand@ubuntu.com>.
+# Copyright (C) 2006 Evan Dandrea <ev@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

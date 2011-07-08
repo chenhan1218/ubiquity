@@ -1,7 +1,7 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
 # Copyright (C) 2009 Canonical Ltd.
-# Written by Evan Dandrea <evand@ubuntu.com>.
+# Written by Evan Dandrea <ev@ubuntu.com>.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
