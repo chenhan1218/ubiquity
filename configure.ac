@@ -29,7 +29,7 @@ AM_PATH_PYTHON([2.5])
 if test "x$UBIQUITY_NO_GTK" = x; then
   PKG_CHECK_MODULES(PANEL, [glib-2.0
 			  gtk+-2.0 >= $GTK_REQUIRED
-			  indicator
+			  indicator-0.4
 			  x11])
   AC_SUBST(PANEL_CFLAGS)
   AC_SUBST(PANEL_LIBS)
