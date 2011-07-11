@@ -4,21 +4,21 @@ import unittest
 from ubiquity import gtkwidgets, segmented_bar, timezone_map, tz
 from test import test_support
 from gi.repository import Gtk
+import sys
 
 class WidgetTests(unittest.TestCase):
     def setUp(self):
         self.err = None
-        def excepthook(type, value, tb):
+        def excepthook(exctype, value, tb):
             Gtk.main_quit()
-            self.err = type(value)
-        import sys
+            self.err = exctype, tb
         sys.excepthook = excepthook
         self.win = Gtk.Window()
 
     def tearDown(self):
         self.win.hide()
         if self.err:
-            raise self.err
+            raise self.err[0], None, self.err[1]
 
     def test_segmented_bar(self):
         sb = segmented_bar.SegmentedBar()
