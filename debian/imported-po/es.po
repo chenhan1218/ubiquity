@@ -1,4 +1,4 @@
-# translation of gtk+.gtk-2-22.po to Español
+# translation of gtk+.HEAD.po to Español
 # Copyright © 1999-2002, 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gtk+ package.
 #
@@ -9,22 +9,23 @@
 # Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2002, 2003.
 # Juan Manuel García Molina <juanma_gm@wanadoo.es>, 2003.
 # Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2003 - 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+.gtk-2-22\n"
+"Project-Id-Version: gtk+.master\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-12 16:01+0000\n"
-"PO-Revision-Date: 2010-08-30 00:58+0200\n"
+"PO-Revision-Date: 2011-06-19 17:15+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #. Type: text
 #. Description
@@ -52,15 +53,6 @@ msgstr "_Cerrar"
 msgctxt "Stock label, navigation"
 msgid "_Back"
 msgstr "A_trás"
-
-#. Type: text
-#. Description
-#. Translations for this template are imported from GTK. Please keep them in
-#. sync.
-#: ../ubiquity.templates-imported:4001
-msgctxt "Stock label, navigation"
-msgid "_Forward"
-msgstr "A_delante"
 
 #. Type: text
 #. Description

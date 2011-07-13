@@ -1,3 +1,10 @@
+ubiquity (2.7.13) UNRELEASED; urgency=low
+
+  * Change the forward button text to Continue. Thanks to Matthew Paul
+    Thomas for the suggestion.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 13 Jul 2011 10:46:22 +0100
+
 ubiquity (2.7.12) oneiric; urgency=low
 
   * Update disable_autologin to match current user-setup-apply, including

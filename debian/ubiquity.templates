@@ -465,6 +465,11 @@ Type: text
 # Translators, this text will appear on a button, so KEEP IT SHORT
 _Description: Continue
 
+Template: ubiquity/text/next
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Continue
+
 Template: ubiquity/finished_restart_only
 Type: text
 _Description:
