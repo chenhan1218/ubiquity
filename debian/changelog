@@ -1,4 +1,4 @@
-ubiquity (2.7.13) UNRELEASED; urgency=low
+ubiquity (2.7.13) oneiric; urgency=low
 
   [ Evan Dandrea ]
   * Change the forward button text to Continue. Thanks to Matthew Paul
@@ -13,7 +13,7 @@ ubiquity (2.7.13) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel
     2.28ubuntu27.
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 13 Jul 2011 10:46:22 +0100
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Fri, 15 Jul 2011 00:14:00 -0500
 
 ubiquity (2.7.12) oneiric; urgency=low
 
