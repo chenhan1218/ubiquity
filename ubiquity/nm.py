@@ -10,7 +10,11 @@ NM_DEVICE_WIFI = 'org.freedesktop.NetworkManager.Device.Wireless'
 NM_AP = 'org.freedesktop.NetworkManager.AccessPoint'
 NM_SETTINGS = 'org.freedesktop.NetworkManager.Settings'
 NM_SETTINGS_CONN = 'org.freedesktop.NetworkManager.Settings.Connection'
+NM_SETTINGS_PATH = '/org/freedesktop/NetworkManager/Settings'
 DEVICE_TYPE_WIFI = 2
+NM_STATE_DISCONNECTED = 20
+NM_STATE_CONNECTING = 40
+NM_STATE_CONNECTED_GLOBAL = 70
 
 
 # TODO: DBus exceptions.  Catch 'em all.
@@ -26,7 +30,9 @@ def get_vendor_and_model(udi):
     vendor = ''
     model = ''
     cmd = ['udevadm', 'info', '--path=%s' % udi, '--query=property']
-    out = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()
+    with open('/dev/null', 'w') as devnull:
+        out = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=devnull)
+        out = out.communicate()
     if not out[1]:
         for prop in out[0].split('\n'):
             if prop.startswith('ID_VENDOR_FROM_DATABASE'):
@@ -35,104 +41,147 @@ def get_vendor_and_model(udi):
                 model = prop.split('ID_MODEL_FROM_DATABASE=')[1]
     return (vendor, model)
 
-class NetworkManagerCache:
+class NetworkManager:
     def __init__(self, model):
+        self.model = model
+        self.timeout_id = 0
+        self.start()
+
+    def start(self):
         self.bus = dbus.SystemBus()
         self.manager = self.bus.get_object(NM, '/org/freedesktop/NetworkManager')
-        self.model = model
-        self.bus.add_signal_receiver(self.ap_added, 'AccessPointAdded',
-                                     NM_DEVICE_WIFI, NM)
-        self.bus.add_signal_receiver(self.ap_removed, 'AccessPointRemoved',
-                                     NM_DEVICE_WIFI, NM)
+        add = self.bus.add_signal_receiver
+        add(self.queue_build_cache, 'AccessPointAdded', NM_DEVICE_WIFI, NM)
+        add(self.queue_build_cache, 'AccessPointRemoved', NM_DEVICE_WIFI, NM)
+        add(self.state_changed, 'StateChanged', NM, NM)
+        add(self.queue_build_cache, 'DeviceAdded', NM, NM)
+        add(self.queue_build_cache, 'DeviceRemoved', NM, NM)
+        add(self.properties_changed, 'PropertiesChanged', NM_AP,
+            path_keyword='path')
         self.build_cache()
         self.build_passphrase_cache()
 
-    # TODO device added, removed, call build_cache in the former?
+    def state_changed(self, state):
+        print 'state changed:',
+        if state == NM_STATE_DISCONNECTED:
+            print 'disconnected'
+        elif state == NM_STATE_CONNECTING:
+            print 'connecting'
+        elif state == NM_STATE_CONNECTED_GLOBAL:
+            print 'connected'
+        else:
+            print 'unknown:', state
 
     def connect_to_ap(self, device, ap, passphrase=None):
+        device_obj = self.bus.get_object(NM, device)
+        ap_list = device_obj.GetAccessPoints(dbus_interface=NM_DEVICE_WIFI)
+        saved_strength = 0
+        saved_path = ''
+        for ap_path in ap_list:
+            ap_obj = self.bus.get_object(NM, ap_path)
+            ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
+            strength = get_prop(ap_obj, NM_AP, 'Strength')
+            if ssid == ap and saved_strength < strength:
+                # Connect to the strongest AP.
+                saved_strength = strength
+                saved_path = ap_path
+        if not saved_path:
+            # Went away?
+            print 'went away'
+            return
+
         obj = dbus.Dictionary(signature='sa{sv}')
         if passphrase:
             obj['802-11-wireless-security'] = { 'psk' : passphrase }
         self.manager.AddAndActivateConnection(
-            obj,
-            dbus.ObjectPath(device),
-            dbus.ObjectPath(ap))
-
-    def ap_added(self, ap):
-        print 'ap_added', ap
-        iterator = self.model.get_iter_first()
-        while iterator:
-            device_path = self.model[iterator][0]
-            device_obj = self.bus.get_object(NM, device_path)
-            if get_prop(device_obj, NM_DEVICE, 'DeviceType') == DEVICE_TYPE_WIFI:
-                ap_list = device_obj.GetAccessPoints(dbus_interface=NM_DEVICE_WIFI)
-                for ap_path in ap_list:
-                    if ap_path == ap:
-                        ap_obj = self.bus.get_object(NM, ap_path)
-                        ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
-                        strength = get_prop(ap_obj, NM_AP, 'Strength')
-                        security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
-                        self.cache[ap_path] = {'ssid'     : ssid,
-                                               'strength' : strength,
-                                               'security' : security}
-                        self.model.append(iterator, [ap_path])
-            iterator = self.model.iter_next(iterator)
-
-    def ap_removed(self, ap):
-        ap = str(ap)
-        try:
-            self.cache.pop(ap)
-        except KeyError:
-            print 'cache miss?', ap
-            return
-        def search_and_destroy(model, path, iterator, ap):
-            if model[iterator][0] == ap:
-                model.remove(iterator)
-                return True
-        self.model.foreach(search_and_destroy, ap)
+            obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path))
 
     def build_passphrase_cache(self):
         self.passphrases_cache = {}
-        settings_obj = self.bus.get_object(NM,
-            '/org/freedesktop/NetworkManager/Settings')
-        for con in settings_obj.ListConnections(dbus_interface=NM_SETTINGS):
-            connection_obj = self.bus.get_object(NM, con)
-            props = connection_obj.GetSettings(dbus_interface=NM_SETTINGS_CONN)
+        settings_obj = self.bus.get_object(NM, NM_SETTINGS_PATH)
+        for conn in settings_obj.ListConnections(dbus_interface=NM_SETTINGS):
+            conn_obj = self.bus.get_object(NM, conn)
+            props = conn_obj.GetSettings(dbus_interface=NM_SETTINGS_CONN)
             if '802-11-wireless-security' in props:
-                # TODO either infinite timeout or find some UI way of handling
-                # retrying on timeout.
-                sec = connection_obj.GetSecrets('802-11-wireless-security',
-                                            dbus_interface=NM_SETTINGS_CONN)
+                sec = conn_obj.GetSecrets('802-11-wireless-security',
+                                          dbus_interface=NM_SETTINGS_CONN)
                 sec = sec['802-11-wireless-security'].values()[0]
                 ssid = decode_ssid(props['802-11-wireless']['ssid'])
                 self.passphrases_cache[ssid] = sec
 
+    def ssid_in_model(self, iterator, ssid, security):
+        i = self.model.iter_children(iterator)
+        while i:
+            row = self.model[i]
+            if row[0] == ssid and row[1] == security:
+                return i
+            i = self.model.iter_next(i)
+        return None
+
+    def prune(self, iterator, ssids):
+        to_remove = []
+        while iterator:
+            ssid = self.model[iterator][0]
+            if ssid not in ssids:
+                to_remove.append(iterator)
+            iterator = self.model.iter_next(iterator)
+        for iterator in to_remove:
+            self.model.remove(iterator)
+
+    def queue_build_cache(self, *args):
+        if self.timeout_id:
+            GObject.source_remove(self.timeout_id)
+        self.timeout_id = GObject.timeout_add(500, self.build_cache)
+            
+    def properties_changed(self, props, path=None):
+        if 'Strength' in props:
+            ap_obj = self.bus.get_object(NM, path)
+            ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
+            security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+            strength = int(props['Strength'])
+            iterator = self.model.get_iter_first()
+            while iterator:
+                i = self.ssid_in_model(iterator, ssid, security)
+                if i:
+                    print 'props', ssid, strength
+                    self.model.set_value(i, 2, strength) 
+                iterator = self.model.iter_next(iterator)
+
     def build_cache(self):
-        self.cache = {}
-        for device_path in self.manager.GetDevices():
-            print 'device', device_path
+        devices = self.manager.GetDevices()
+        for device_path in devices:
             device_obj = self.bus.get_object(NM, device_path)
             if get_prop(device_obj, NM_DEVICE, 'DeviceType') != DEVICE_TYPE_WIFI:
                 continue
-            self.cache[device_path] = {}
-            cached = self.cache[device_path]
-            udi = get_prop(device_obj, NM_DEVICE, 'Udi')
-            cached['vendor'], cached['model'] = get_vendor_and_model(udi)
-            iterator = self.model.append(None, [device_path])
-
+            iterator = None
+            i = self.model.get_iter_first()
+            while i:
+                if self.model[i][0] == device_path:
+                    iterator = i
+                    break
+                i = self.model.iter_next(i)
+            if not iterator:
+                udi = get_prop(device_obj, NM_DEVICE, 'Udi')
+                vendor, model = get_vendor_and_model(udi)
+                iterator = self.model.append(None, [device_path, vendor, model])
             ap_list = device_obj.GetAccessPoints(dbus_interface=NM_DEVICE_WIFI)
+            ssids = []
             for ap_path in ap_list:
                 ap_obj = self.bus.get_object(NM, ap_path)
                 ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
-                strength = get_prop(ap_obj, NM_AP, 'Strength')
+                strength = int(get_prop(ap_obj, NM_AP, 'Strength'))
                 security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
-                self.cache[ap_path] = {'ssid'     : ssid,
-                                       'strength' : strength,
-                                       'security' : security}
-                # TODO: there's multiple APs for a single ssid, obviously.
-                # Find out how nm-applet handles this.
-                print 'ap_path', ap_path, ssid
-                self.model.append(iterator, [ap_path])
+                i = self.ssid_in_model(iterator, ssid, security)
+                if not i:
+                    self.model.append(iterator, [ssid, security, strength])
+                else:
+                    self.model.set_value(i, 2, strength) 
+                ssids.append(ssid)
+            i = self.model.iter_children(iterator)
+            self.prune(i, ssids)
+        i = self.model.get_iter_first()
+        self.prune(i, devices)
+        return False
 
 class NetworkManagerTreeView(Gtk.TreeView):
     __gtype_name__ = 'NetworkManagerTreeView'
@@ -140,9 +189,10 @@ class NetworkManagerTreeView(Gtk.TreeView):
         Gtk.TreeView.__init__(self)
         self.password_entry = password_entry
         self.configure_icons()
-        model = Gtk.TreeStore(str)
+        model = Gtk.TreeStore(str, object, object)
+        model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         # TODO eventually this will subclass GenericTreeModel.
-        self.wifi_model = NetworkManagerCache(model)
+        self.wifi_model = NetworkManager(model)
         self.set_model(model)
 
         ssid_column = Gtk.TreeViewColumn('')
@@ -189,15 +239,11 @@ class NetworkManagerTreeView(Gtk.TreeView):
             self.icons.append(ico)
 
     def pixbuf_func(self, column, cell, model, iterator, data):
-        path = model[iterator][0]
-        try:
-            cached = self.wifi_model.cache[path]
-        except KeyError:
-            return
-        if not cached.has_key('strength'):
+        if model.iter_has_child(iterator):
             cell.set_property('pixbuf', None)
             return
-        strength = cached['strength']
+        ssid = model[iterator][0]
+        strength = model[iterator][2]
         if strength < 30:
             icon = 0
         elif strength < 50:
@@ -208,54 +254,38 @@ class NetworkManagerTreeView(Gtk.TreeView):
             icon = 3
         else:
             icon = 4
-        if cached.has_key('security'):
-            icon *= 2
+        if model[iterator][1]:
+            icon += 4
         cell.set_property('pixbuf', self.icons[icon])
 
     def data_func(self, column, cell, model, iterator, data):
-        path = model[iterator][0]
-        try:
-            cached = self.wifi_model.cache[path]
-        except KeyError:
-            return
-        if cached.has_key('vendor'):
-            txt = '%s %s' % (cached['vendor'], cached['model'])
+        ssid = model[iterator][0]
+
+        if model.iter_has_child(iterator):
+            txt = '%s %s' % (model[iterator][1], model[iterator][2])
             cell.set_property('text', txt)
         else:
-            cell.set_property('text', cached['ssid'])
+            cell.set_property('text', ssid)
 
-    def is_secure(self, path):
+    def get_passphrase(self, ssid):
         try:
-            cached = self.wifi_model.cache[path]
-        except KeyError:
-            return
-        return cached.has_key('security') and cached['security']
-
-    def get_passphrase(self, path):
-        try:
-            cached = self.wifi_model.passphrases_cache[path]
+            cached = self.wifi_model.passphrases_cache[ssid]
         except KeyError:
             return ''
         return cached
 
-    def get_ssid(self, path):
-        try:
-            return self.wifi_model.cache[path]['ssid']
-        except KeyError:
-            return ''
-
     def connect_to_selection(self, passphrase):
         model, iterator = self.get_selection().get_selected()
-        path = model[iterator][0]
+        ssid = model[iterator][0]
         try:
-            cached = self.wifi_model.cache[path]
+            cached = self.wifi_model.cache[ssid]
         except KeyError:
             return
         if cached.has_key('vendor'):
             return
         parent = model.iter_parent(iterator)
         if parent:
-            self.wifi_model.connect_to_ap(model[parent][0], path, passphrase)
+            self.wifi_model.connect_to_ap(model[parent][0], ssid, passphrase)
             
 
 GObject.type_register(NetworkManagerTreeView)
@@ -296,10 +326,12 @@ class NetworkManagerWidget(Gtk.VBox):
         iterator = selection.get_selected()[1]
         if not iterator:
             return
-        path = selection.get_tree_view().get_model()[iterator][0]
-        if self.view.is_secure(path):
+        row = selection.get_tree_view().get_model()[iterator]
+        secure = row[1]
+        ssid = row[0]
+        if secure:
             self.hbox.set_sensitive(True)
-            passphrase = self.view.get_passphrase(self.view.get_ssid(path))
+            passphrase = self.view.get_passphrase(ssid)
             self.password_entry.set_text(passphrase)
         else:
             self.hbox.set_sensitive(False)
