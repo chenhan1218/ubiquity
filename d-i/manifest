@@ -1,4 +1,4 @@
-apt-setup 1:0.49ubuntu6
+apt-setup 1:0.49ubuntu7
 base-installer 1.119ubuntu3
 bterm-unifont 1.2
 choose-mirror 2.38ubuntu2
@@ -25,7 +25,7 @@ partman-jfs 34
 partman-newworld 25
 partman-partitioning 81ubuntu1
 partman-reiserfs 51
-partman-target 71ubuntu2
+partman-target 73ubuntu1
 partman-uboot 4
 partman-xfs 48
 preseed 1.49ubuntu1
