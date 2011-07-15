@@ -301,7 +301,8 @@ EndSection
                 os.path.expanduser('~%s/.gconf' %
                 self.username))
             accessibility = 'false'
-            if osextras.find_on_path('gconftool-2'):
+            if (osextras.find_on_path('gconftool-2') and 
+               osextras.find_on_path('gsettings')):
                 subprocess.call(
                     ['gconftool-2', '--config-source', gconf_dir,
                      '--type', 'int', '--set',
