@@ -1,3 +1,10 @@
+ubiquity (2.7.14) UNRELEASED; urgency=low
+
+  * When copying symlinks, just try unlinking and handle exceptions, rather
+    than statting them first to find out what to do.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 15 Jul 2011 14:27:23 +0100
+
 ubiquity (2.7.13) oneiric; urgency=low
 
   [ Evan Dandrea ]

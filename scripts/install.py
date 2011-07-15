@@ -368,11 +368,15 @@ class Install(install_misc.InstallBase):
                 st = os.lstat(sourcepath)
                 mode = stat.S_IMODE(st.st_mode)
                 if stat.S_ISLNK(st.st_mode):
-                    if os.path.lexists(targetpath):
-                        if os.path.isdir(targetpath):
+                    try:
+                        os.unlink(targetpath)
+                    except OSError, e:
+                        if e.errno == errno.ENOENT:
+                            pass
+                        elif e.errno == errno.EISDIR:
                             os.rmdir(targetpath)
                         else:
-                            os.unlink(targetpath)
+                            raise
                     linkto = os.readlink(sourcepath)
                     os.symlink(linkto, targetpath)
                 elif stat.S_ISDIR(st.st_mode):
