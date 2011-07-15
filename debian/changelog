@@ -10,6 +10,8 @@ ubiquity (2.7.13) UNRELEASED; urgency=low
     (LP: #810700)
   * Don't assume that gsettings is on PATH just because gconftool-2 is.
     They come from separate packages.
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu27.
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 13 Jul 2011 10:46:22 +0100
 
