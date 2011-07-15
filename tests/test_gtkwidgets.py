@@ -65,6 +65,13 @@ from ubiquity import nm
 import mock
 import dbus
 class NetworkManagerTests(unittest.TestCase):
+    def setUp(self):
+        patcher = mock.patch('ubiquity.nm.NetworkManager.start')
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        self.model = Gtk.TreeStore(str, object, object)
+        self.manager = nm.NetworkManager(self.model)
+
     def test_get_vendor_and_model_null(self):
         self.assertEqual(nm.get_vendor_and_model('bogus'), ('',''))
 
@@ -82,6 +89,35 @@ class NetworkManagerTests(unittest.TestCase):
                 dbus.Byte(114), dbus.Byte(115), dbus.Byte(101), dbus.Byte(97)]
         self.assertEqual(nm.decode_ssid(ssid), 'Ubuntu-Battersea')
 
+    def test_ssid_in_model(self):
+        iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
+        for ssid in ('Orange', 'Apple', 'Grape'):
+            self.model.append(iterator, [ssid, True, 0])
+        self.assertIsNotNone(self.manager.ssid_in_model(iterator, 'Apple', True))
+        self.assertIsNone(self.manager.ssid_in_model(iterator, 'Grape', False))
+
+    def test_prune(self):
+        iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
+        fruits = ['Orange', 'Apple', 'Grape']
+        for ssid in fruits:
+            self.model.append(iterator, [ssid, True, 0])
+        i = self.model.iter_children(iterator)
+        self.manager.prune(i, fruits)
+        ret = []
+        while i:
+            ret.append(self.model[i][0])
+            i = self.model.iter_next(i)
+        # There haven't been any changes in this update.
+        self.assertListEqual(fruits, ret)
+        # An AP that was present no longer is.
+        fruits.pop()
+        i = self.model.iter_children(iterator)
+        self.manager.prune(i, fruits)
+        ret = []
+        while i:
+            ret.append(self.model[i][0])
+            i = self.model.iter_next(i)
+        self.assertListEqual(fruits, ret)
         
 if __name__ == '__main__':
     test_support.run_unittest(WidgetTests)
