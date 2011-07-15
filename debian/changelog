@@ -2,6 +2,9 @@ ubiquity (2.7.13) UNRELEASED; urgency=low
 
   * Change the forward button text to Continue. Thanks to Matthew Paul
     Thomas for the suggestion.
+  * Don't try to unlink directories during fily copy routine that were
+    created by partman (/var/lock, /var/run), rmdir them instead. 
+    (LP: #810700)
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 13 Jul 2011 10:46:22 +0100
 
