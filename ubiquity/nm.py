@@ -261,7 +261,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
     def data_func(self, column, cell, model, iterator, data):
         ssid = model[iterator][0]
 
-        if model.iter_has_child(iterator):
+        if not model.iter_parent(iterator):
             txt = '%s %s' % (model[iterator][1], model[iterator][2])
             cell.set_property('text', txt)
         else:
