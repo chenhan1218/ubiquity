@@ -1542,7 +1542,7 @@ class Wizard(BaseFrontend):
         label.set_selectable(False)
         vbox.pack_start(label, True, True, 0)
         vbox.show_all()
-        dialog.vbox.pack_start(vbox, True, True, 0)
+        dialog.get_content_area().pack_start(vbox, True, True, 0)
         response = dialog.run()
         self.allow_change_step(saved_allowed_change_step)
         dialog.hide()
