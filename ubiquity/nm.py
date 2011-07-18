@@ -41,36 +41,38 @@ def get_vendor_and_model(udi):
                 model = prop.split('ID_MODEL_FROM_DATABASE=')[1]
     return (vendor, model)
 
+def wireless_hardware_present():
+    # NetworkManager keeps DBus objects for wireless devices around even when
+    # the hardware switch is off.
+    bus = dbus.SystemBus()
+    manager = bus.get_object(NM, '/org/freedesktop/NetworkManager')
+    devices = manager.GetDevices()
+    for device_path in devices:
+        device_obj = bus.get_object(NM, device_path)
+        if get_prop(device_obj, NM_DEVICE, 'DeviceType') == DEVICE_TYPE_WIFI:
+            return True
+    return False
+
 class NetworkManager:
-    def __init__(self, model):
+    def __init__(self, model, state_changed=None):
         self.model = model
         self.timeout_id = 0
-        self.start()
+        self.start(state_changed)
 
-    def start(self):
+    def start(self, state_changed=None):
         self.bus = dbus.SystemBus()
         self.manager = self.bus.get_object(NM, '/org/freedesktop/NetworkManager')
         add = self.bus.add_signal_receiver
         add(self.queue_build_cache, 'AccessPointAdded', NM_DEVICE_WIFI, NM)
         add(self.queue_build_cache, 'AccessPointRemoved', NM_DEVICE_WIFI, NM)
-        add(self.state_changed, 'StateChanged', NM, NM)
+        if state_changed:
+            add(state_changed, 'StateChanged', NM, NM)
         add(self.queue_build_cache, 'DeviceAdded', NM, NM)
         add(self.queue_build_cache, 'DeviceRemoved', NM, NM)
         add(self.properties_changed, 'PropertiesChanged', NM_AP,
             path_keyword='path')
         self.build_cache()
         self.build_passphrase_cache()
-
-    def state_changed(self, state):
-        print 'state changed:',
-        if state == NM_STATE_DISCONNECTED:
-            print 'disconnected'
-        elif state == NM_STATE_CONNECTING:
-            print 'connecting'
-        elif state == NM_STATE_CONNECTED_GLOBAL:
-            print 'connected'
-        else:
-            print 'unknown:', state
 
     def connect_to_ap(self, device, ap, passphrase=None):
         device_obj = self.bus.get_object(NM, device)
@@ -185,14 +187,14 @@ class NetworkManager:
 
 class NetworkManagerTreeView(Gtk.TreeView):
     __gtype_name__ = 'NetworkManagerTreeView'
-    def __init__(self, password_entry=None):
+    def __init__(self, password_entry=None, state_changed=None):
         Gtk.TreeView.__init__(self)
         self.password_entry = password_entry
         self.configure_icons()
         model = Gtk.TreeStore(str, object, object)
         model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         # TODO eventually this will subclass GenericTreeModel.
-        self.wifi_model = NetworkManager(model)
+        self.wifi_model = NetworkManager(model, state_changed)
         self.set_model(model)
 
         ssid_column = Gtk.TreeViewColumn('')
@@ -208,6 +210,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
         self.set_headers_visible(False)
         self.expand_all()
         # TODO pre-select existing connection.
+        # TODO expand by default
 
     def row_activated(self, unused, path, column):
         passphrase = None
@@ -277,12 +280,6 @@ class NetworkManagerTreeView(Gtk.TreeView):
     def connect_to_selection(self, passphrase):
         model, iterator = self.get_selection().get_selected()
         ssid = model[iterator][0]
-        try:
-            cached = self.wifi_model.cache[ssid]
-        except KeyError:
-            return
-        if cached.has_key('vendor'):
-            return
         parent = model.iter_parent(iterator)
         if parent:
             self.wifi_model.connect_to_ap(model[parent][0], ssid, passphrase)
@@ -291,11 +288,15 @@ class NetworkManagerTreeView(Gtk.TreeView):
 GObject.type_register(NetworkManagerTreeView)
 
 class NetworkManagerWidget(Gtk.VBox):
+    __gtype_name__ = 'NetworkManagerWidget'
+    __gsignals__ = { 'connection' : (GObject.SignalFlags.RUN_FIRST,
+                                        GObject.TYPE_NONE, (GObject.TYPE_UINT,))}
     def __init__(self):
         Gtk.VBox.__init__(self)
         self.set_spacing(12)
         self.password_entry = Gtk.Entry()
-        self.view = NetworkManagerTreeView(self.password_entry)
+        self.view = NetworkManagerTreeView(self.password_entry,
+                                           self.state_changed)
         scrolled_window = Gtk.ScrolledWindow()
         scrolled_window.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scrolled_window.set_shadow_type(Gtk.ShadowType.IN)
@@ -315,6 +316,9 @@ class NetworkManagerWidget(Gtk.VBox):
         selection.connect('changed', self.changed)
         selection.select_path(0)
     
+    def state_changed(self, state):
+        self.emit('connection', state)
+
     def connect(self, *args):
         passphrase = self.password_entry.get_text()
         self.view.connect_to_selection(passphrase)
