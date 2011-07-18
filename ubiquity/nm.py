@@ -239,7 +239,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
             self.icons.append(ico)
 
     def pixbuf_func(self, column, cell, model, iterator, data):
-        if model.iter_has_child(iterator):
+        if not model.iter_parent(iterator):
             cell.set_property('pixbuf', None)
             return
         ssid = model[iterator][0]

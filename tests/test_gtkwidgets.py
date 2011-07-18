@@ -118,6 +118,13 @@ class NetworkManagerTests(unittest.TestCase):
             ret.append(self.model[i][0])
             i = self.model.iter_next(i)
         self.assertListEqual(fruits, ret)
+
+    def test_pixbuf_func(self):
+        iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
+        mock_cell = mock.Mock()
+        tv = nm.NetworkManagerTreeView()
+        tv.pixbuf_func(None, mock_cell, self.model, iterator, None)
+        mock_cell.set_property.assert_called_with('pixbuf', None)
         
 if __name__ == '__main__':
     test_support.run_unittest(WidgetTests)
