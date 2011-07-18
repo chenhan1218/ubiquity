@@ -1,3 +1,9 @@
+ubiquity (2.7.15) UNRELEASED; urgency=low
+
+  * Remove dead code from debian/oem-config.oem-config.upstart.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Jul 2011 12:22:46 +0100
+
 ubiquity (2.7.14) oneiric; urgency=low
 
   * When copying symlinks, just try unlinking and handle exceptions, rather
