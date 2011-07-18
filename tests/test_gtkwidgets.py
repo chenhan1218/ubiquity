@@ -139,6 +139,15 @@ class NetworkManagerTests(unittest.TestCase):
         tv.pixbuf_func(None, mock_cell, self.model, i, None)
         mock_cell.set_property.assert_called_with('pixbuf', tv.icons[4])
 
+    def test_data_func(self):
+        iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
+        mock_cell = mock.Mock()
+        tv = nm.NetworkManagerTreeView()
+        tv.data_func(None, mock_cell, self.model, iterator, None)
+        mock_cell.set_property.assert_called_with('text', 'Intel Wireless')
+        i = self.model.append(iterator, ['Orange', True, 0])
+        tv.data_func(None, mock_cell, self.model, i, None)
+        mock_cell.set_property.assert_called_with('text', 'Orange')
         
 if __name__ == '__main__':
     test_support.run_unittest(WidgetTests)
