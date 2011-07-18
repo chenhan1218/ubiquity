@@ -125,6 +125,20 @@ class NetworkManagerTests(unittest.TestCase):
         tv = nm.NetworkManagerTreeView()
         tv.pixbuf_func(None, mock_cell, self.model, iterator, None)
         mock_cell.set_property.assert_called_with('pixbuf', None)
+        # 0% strength, protected network
+        i = self.model.append(iterator, ['Orange', True, 0])
+        tv.pixbuf_func(None, mock_cell, self.model, i, None)
+        mock_cell.set_property.assert_called_with('pixbuf', tv.icons[5])
+        # 30% strength, protected network
+        self.model.set_value(i, 2, 30)
+        tv.pixbuf_func(None, mock_cell, self.model, i, None)
+        mock_cell.set_property.assert_called_with('pixbuf', tv.icons[6])
+        # 95% strength, unprotected network
+        self.model.set_value(i, 1, False)
+        self.model.set_value(i, 2, 95)
+        tv.pixbuf_func(None, mock_cell, self.model, i, None)
+        mock_cell.set_property.assert_called_with('pixbuf', tv.icons[4])
+
         
 if __name__ == '__main__':
     test_support.run_unittest(WidgetTests)
