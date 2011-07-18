@@ -773,7 +773,7 @@ class PageGtk(PageBase):
 
         self.partition_create_use_combo.clear()
         renderer = Gtk.CellRendererText()
-        self.partition_create_use_combo.pack_start(renderer, True, True, 0)
+        self.partition_create_use_combo.pack_start(renderer, True)
         self.partition_create_use_combo.add_attribute(renderer, 'text', 2)
         list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
                                    GObject.TYPE_STRING)
@@ -787,8 +787,8 @@ class PageGtk(PageBase):
         for mp, choice_c, choice in self.controller.dbfilter.default_mountpoint_choices():
             list_store.append([mp])
         self.partition_create_mount_combo.set_model(list_store)
-        if self.partition_create_mount_combo.get_text_column() == -1:
-            self.partition_create_mount_combo.set_text_column(0)
+        if self.partition_create_mount_combo.get_entry_text_column() == -1:
+            self.partition_create_mount_combo.set_entry_text_column(0)
         self.partition_create_mount_combo.get_child().set_text('')
 
         response = self.partition_create_dialog.run()
@@ -876,7 +876,7 @@ class PageGtk(PageBase):
 
         self.partition_edit_use_combo.clear()
         renderer = Gtk.CellRendererText()
-        self.partition_edit_use_combo.pack_start(renderer, True, True, 0)
+        self.partition_edit_use_combo.pack_start(renderer, True)
         self.partition_edit_use_combo.add_attribute(renderer, 'text', 1)
         list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         for script, arg, option in partition['method_choices']:
@@ -913,8 +913,8 @@ class PageGtk(PageBase):
             for mp, choice_c, choice in partition['mountpoint_choices']:
                 list_store.append([mp, choice])
         self.partition_edit_mount_combo.set_model(list_store)
-        if self.partition_edit_mount_combo.get_text_column() == -1:
-            self.partition_edit_mount_combo.set_text_column(0)
+        if self.partition_edit_mount_combo.get_entry_text_column() == -1:
+            self.partition_edit_mount_combo.set_entry_text_column(0)
         current_mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
         if current_mountpoint is not None:
             self.partition_edit_mount_combo.get_child().set_text(current_mountpoint)
