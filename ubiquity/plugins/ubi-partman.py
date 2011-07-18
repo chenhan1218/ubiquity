@@ -588,7 +588,7 @@ class PageGtk(PageBase):
         self.part_advanced_recalculating_spinner.stop()
         self.part_advanced_recalculating_box.hide()
 
-    def partman_column_name (self, unused_column, cell, model, iterator):
+    def partman_column_name (self, unused_column, cell, model, iterator, user_data):
         partition = model[iterator][1]
         if 'id' not in partition:
             # whole disk
@@ -604,7 +604,7 @@ class PageGtk(PageBase):
             free_space = self.controller.get_string('partition_free_space')
             cell.set_property('text', '  %s' % free_space)
 
-    def partman_column_type (self, unused_column, cell, model, iterator):
+    def partman_column_type (self, unused_column, cell, model, iterator, user_data):
         partition = model[iterator][1]
         if 'id' not in partition or 'method' not in partition:
             if ('parted' in partition and
@@ -620,14 +620,14 @@ class PageGtk(PageBase):
             cell.set_property('text', partition['method'])
 
     @plugin.only_this_page
-    def partman_column_mountpoint (self, unused_column, cell, model, iterator):
+    def partman_column_mountpoint (self, unused_column, cell, model, iterator, user_data):
         partition = model[iterator][1]
         mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
         if mountpoint is None:
             mountpoint = ''
         cell.set_property('text', mountpoint)
 
-    def partman_column_format (self, unused_column, cell, model, iterator):
+    def partman_column_format (self, unused_column, cell, model, iterator, user_data):
         partition = model[iterator][1]
         if 'id' not in partition:
             cell.set_property('visible', False)
@@ -654,7 +654,7 @@ class PageGtk(PageBase):
         self.controller.allow_change_step(False)
         self.controller.dbfilter.edit_partition(devpart, fmt='dummy')
 
-    def partman_column_size (self, unused_column, cell, model, iterator):
+    def partman_column_size (self, unused_column, cell, model, iterator, user_data):
         partition = model[iterator][1]
         if 'id' not in partition:
             cell.set_property('text', '')
@@ -664,7 +664,7 @@ class PageGtk(PageBase):
             size_mb = int(partition['parted']['size']) / 1000000
             cell.set_property('text', '%d MB' % size_mb)
 
-    def partman_column_used (self, unused_column, cell, model, iterator):
+    def partman_column_used (self, unused_column, cell, model, iterator, user_data):
         partition = model[iterator][1]
         if 'id' not in partition or partition['parted']['fs'] == 'free':
             cell.set_property('text', '')
