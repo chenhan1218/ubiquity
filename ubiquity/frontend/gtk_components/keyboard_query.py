@@ -27,7 +27,7 @@ class KeyboardQuery(Gtk.Window):
         self.set_keep_above(True)
         self.set_modal(True)
         self.set_border_width(20)
-        self.set_property('allow_grow', False)
+        self.set_property('resizable', False)
         # TODO if we can allocate the space we'll need ahead of time, we can
         # use center_on_parent here.
         self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
