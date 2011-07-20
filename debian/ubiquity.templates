@@ -1038,14 +1038,14 @@ _Description: The entire disk will be used:
 Template: ubiquity/text/part_auto_hidden_label
 Type: text
 _Description:
- %d smaller partitions are hidden, use the <a href="">advanced
- partitioning tool</a> for more control
+ <small>%d smaller partitions are hidden, use the <a href="">advanced
+ partitioning tool</a> for more control</small>
 
 Template: ubiquity/text/part_auto_hidden_label_one
 Type: text
 _Description:
- 1 smaller partition is hidden, use the <a href="">advanced
- partitioning tool</a> for more control
+ <small>1 smaller partition is hidden, use the <a href="">advanced
+ partitioning tool</a> for more control</small>
 
 Template: ubiquity/text/part_auto_deleted_label
 Type: text
