@@ -878,32 +878,6 @@ class Wizard(BaseFrontend):
         if isinstance(widget, Gtk.Label):
             widget.set_markup(text)
 
-            # Ideally, these attributes would be in the ui file (and can be if
-            # we bump required gtk+ to 2.16), but as long as we support glade
-            # files, we can't make the change.
-            textlen = len(text.encode("UTF-8"))
-            if 'heading_label' in name:
-                attrs = Pango.AttrList()
-                attrs.insert(Pango.AttrScale(Pango.SCALE_LARGE, 0, textlen))
-                attrs.insert(Pango.AttrWeight(Pango.Weight.BOLD, 0, textlen))
-                widget.set_attributes(attrs)
-            elif 'extra_label' in name:
-                attrs = Pango.AttrList()
-                attrs.insert(Pango.AttrScale(Pango.SCALE_SMALL, 0, textlen))
-                widget.set_attributes(attrs)
-            elif ('group_label' in name or 'warning_label' in name or
-                  name in ('prepare_best_results',
-                           'drives_label',
-                           'partition_method_label')):
-                attrs = Pango.AttrList()
-                attrs.insert(Pango.AttrWeight(Pango.Weight.BOLD, 0, textlen))
-                widget.set_attributes(attrs)
-            elif 'part_auto_hidden_label' in name or 'part_auto_deleted_label' in name:
-                attrs = Pango.AttrList()
-                attrs.insert(Pango.AttrScale(Pango.SCALE_SMALL, 0, textlen))
-                attrs.insert(Pango.AttrWeight(Pango.Weight.BOLD, 0, textlen))
-                widget.set_attributes(attrs)
-
         elif isinstance(widget, Gtk.Button):
             question = i18n.map_widget_name(prefix, widget.get_name())
             widget.set_label(text)
