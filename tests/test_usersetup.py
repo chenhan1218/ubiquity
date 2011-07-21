@@ -75,3 +75,14 @@ class UserSetupTests(unittest.TestCase):
             ("May only contain lower-case letters,\n"
              "digits, hyphens, and underscores."))
         self.assertEqual(self.ubi_usersetup.check_username('evan'), '')
+
+    def test_on_authentication_toggled(self):
+        self.gtk.login_encrypt.set_active(True)
+        self.gtk.login_auto.set_active(True)
+        self.gtk.on_authentication_toggled(self.gtk.login_auto)
+        self.assertFalse(self.gtk.login_encrypt.get_active())
+
+        self.gtk.login_auto.set_active(True)
+        self.gtk.login_encrypt.set_active(True)
+        self.gtk.on_authentication_toggled(self.gtk.login_encrypt)
+        self.assertTrue(self.gtk.login_pass.get_active())

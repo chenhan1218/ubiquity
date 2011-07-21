@@ -441,7 +441,7 @@ class PageGtk(PageBase):
         elif w == self.login_encrypt and w.get_active():
             # TODO why is this so slow to activate the login_pass radio button
             # when checking encrypted home?
-            self.login_pass.activate()
+            self.login_pass.set_active(True)
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_user'
