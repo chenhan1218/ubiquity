@@ -21,7 +21,8 @@ class UserSetupTests(unittest.TestCase):
         ubi_usersetup = __import__('ubi-usersetup')
         sys.path.pop()
         controller = mock.Mock()
-        self.gtk = ubi_usersetup.PageGtk(controller)
+        self.ubi_usersetup = ubi_usersetup
+        self.gtk = self.ubi_usersetup.PageGtk(controller)
 
     def test_hostname_check(self):
         self.gtk.hostname_ok.show()
@@ -43,3 +44,26 @@ class UserSetupTests(unittest.TestCase):
         Gtk.main()
         self.assertTrue(self.gtk.hostname_error.call_count > 0)
         self.gtk.hostname_error.assert_called_with(error_msg)
+
+    def test_check_hostname(self):
+        self.assertEqual(self.ubi_usersetup.check_hostname('a' * 64),
+            "Must be between 1 and 63 characters long.")
+        self.assertEqual(self.ubi_usersetup.check_hostname('abc123$'),
+            "May only contain letters, digits,\nhyphens, and dots.")
+        self.assertEqual(self.ubi_usersetup.check_hostname('-abc123'),
+            "May not start or end with a hyphen.")
+        self.assertEqual(self.ubi_usersetup.check_hostname('abc123-'),
+            "May not start or end with a hyphen.")
+        self.assertEqual(self.ubi_usersetup.check_hostname('.abc123'),
+            'May not start or end with a dot,\nor contain the sequence "..".')
+        self.assertEqual(self.ubi_usersetup.check_hostname('abc123.'),
+            'May not start or end with a dot,\nor contain the sequence "..".')
+        self.assertEqual(self.ubi_usersetup.check_hostname('abc..123'),
+            'May not start or end with a dot,\nor contain the sequence "..".')
+        self.assertEqual(self.ubi_usersetup.check_hostname(
+            '-abc..123$' + 'a' * 64),
+            ('Must be between 1 and 63 characters long.\n'
+            'May only contain letters, digits,\nhyphens, and dots.\n'
+            'May not start or end with a hyphen.\n'
+            'May not start or end with a dot,\nor contain the sequence "..".'))
+
