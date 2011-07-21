@@ -136,7 +136,7 @@ class PageGtk(plugin.PluginUI):
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == layout:
+            if model.get_value(iterator, 0).decode('utf-8') == layout:
                 path = model.get_path(iterator)
                 self.keyboardlayoutview.get_selection().select_path(path)
                 self.keyboardlayoutview.scroll_to_cell(
@@ -150,7 +150,7 @@ class PageGtk(plugin.PluginUI):
         if iterator is None:
             return None
         else:
-            return unicode(model.get_value(iterator, 0))
+            return model.get_value(iterator, 0).decode('utf-8')
 
     def set_keyboard_variant_choices(self, choices):
         from gi.repository import Gtk, GObject
@@ -173,7 +173,7 @@ class PageGtk(plugin.PluginUI):
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == variant:
+            if model.get_value(iterator, 0).decode('utf-8') == variant:
                 path = model.get_path(iterator)
                 self.keyboardvariantview.get_selection().select_path(path)
                 self.keyboardvariantview.scroll_to_cell(
@@ -187,7 +187,7 @@ class PageGtk(plugin.PluginUI):
         if iterator is None:
             return None
         else:
-            return unicode(model.get_value(iterator, 0))
+            return model.get_value(iterator, 0).decode('utf-8')
 
 def utf8(str):
     if isinstance(str, unicode):
@@ -408,7 +408,7 @@ class Page(plugin.Plugin):
             # for layout choice translation yet
             self.ui.set_keyboard_choices(
                 self.choices_untranslated(question))
-            self.ui.set_keyboard(self.db.get(question))
+            self.ui.set_keyboard(self.db.get(question).decode('utf-8'))
             # Reset these in case we just backed up from the variant
             # question.
             self.store_defaults(True)
@@ -424,7 +424,7 @@ class Page(plugin.Plugin):
                     # If there's only one variant, it is always the same as
                     # the layout name.
                     single_variant = self.db.get(
-                        'keyboard-configuration/layout')
+                        'keyboard-configuration/layout').decode('utf-8')
                     self.ui.set_keyboard_variant_choices([single_variant])
                     self.ui.set_keyboard_variant(single_variant)
             else:
@@ -433,7 +433,7 @@ class Page(plugin.Plugin):
                 self.has_variants = True
                 self.ui.set_keyboard_variant_choices(
                     self.choices_untranslated(question))
-                self.ui.set_keyboard_variant(self.db.get(question))
+                self.ui.set_keyboard_variant(self.db.get(question).decode('utf-8'))
             # keyboard-configuration preseeding is special, and needs to be
             # checked by hand. The seen flag on
             # keyboard-configuration/layout is used internally by
