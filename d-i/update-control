@@ -40,7 +40,7 @@ my @basebd = (
     'libglib2.0-dev',
     'libgstreamer-plugins-base0.10-dev (>= 0.10.23)',
     'libgtk2.0-dev',
-    'libindicator-dev (>= 0.3.19)',
+    'libindicator-dev (>= 0.3.90)',
     'pkg-config',
     'po-debconf (>= 1.0)',
     'python-all-dev (>= 2.6)',
