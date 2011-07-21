@@ -417,7 +417,7 @@ class PageGtk(PageBase):
         self.hostname_timeout_id = GObject.timeout_add(300,
                                         self.hostname_timeout, widget)
 
-    def lookup_result(self, resolver, result):
+    def lookup_result(self, resolver, result, unused):
         from gi.repository import GObject
         try:
             resolver.lookup_by_name_finish(result)
@@ -431,10 +431,10 @@ class PageGtk(PageBase):
     def hostname_timeout(self, widget):
         from gi.repository import Gio
         if self.hostname_ok.get_property('visible'):
-            res = Gio.resolver_get_default()
+            res = Gio.Resolver.get_default()
             hostname = widget.get_text()
             for host in (hostname, '%s.local' % hostname):
-                res.lookup_by_name_async(self.lookup_result, host)
+                res.lookup_by_name_async(host, None, self.lookup_result, None)
 
     def on_authentication_toggled(self, w):
         if w == self.login_auto and w.get_active():
