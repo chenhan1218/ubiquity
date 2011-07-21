@@ -58,20 +58,19 @@ def check_username(username):
     """Returns a newline separated string of reasons why the username is
     invalid."""
     # TODO: i18n
-    e = []
     # Ahem.  We can cheat here by inserting newlines where needed.  Hopefully
     # by the time we translate this, GTK+ will have decent layout management.
     if username:
         if not re.match('[a-z]', username[0]):
-            e.append("Must start with a lower-case letter.")
+            return "Must start with a lower-case letter."
         # Technically both these conditions might hold.  However, the common
         # case seems to be that somebody starts typing their name beginning
         # with an upper-case letter, and it's probably sufficient to just
         # issue the first error in that case.
         elif not re.match('^[-a-z0-9_]+$', username):
-            e.append("May only contain lower-case letters,\n"
-                     "digits, hyphens, and underscores.")
-    return "\n".join(e)
+            return ("May only contain lower-case letters,\n"
+                    "digits, hyphens, and underscores.")
+    return ''
 
 class PageBase(plugin.PluginUI):
     def __init__(self):

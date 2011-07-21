@@ -66,4 +66,12 @@ class UserSetupTests(unittest.TestCase):
             'May only contain letters, digits,\nhyphens, and dots.\n'
             'May not start or end with a hyphen.\n'
             'May not start or end with a dot,\nor contain the sequence "..".'))
+        self.assertEqual(self.ubi_usersetup.check_hostname('abc123'), '')
 
+    def test_check_username(self):
+        self.assertEqual(self.ubi_usersetup.check_username('Evan'),
+            "Must start with a lower-case letter.")
+        self.assertEqual(self.ubi_usersetup.check_username('evan$'),
+            ("May only contain lower-case letters,\n"
+             "digits, hyphens, and underscores."))
+        self.assertEqual(self.ubi_usersetup.check_username('evan'), '')
