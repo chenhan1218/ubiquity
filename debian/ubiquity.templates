@@ -231,7 +231,7 @@ _Description:
 
 Template: ubiquity/text/part_auto_heading_label
 Type: text
-_Description: Installation Type
+_Description: Installation type
 
 Template: ubiquity/text/part_auto_files
 Type: text
