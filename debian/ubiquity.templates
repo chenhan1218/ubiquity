@@ -231,7 +231,7 @@ _Description:
 
 Template: ubiquity/text/part_auto_heading_label
 Type: text
-_Description: Allocate drive space
+_Description: Installation Type
 
 Template: ubiquity/text/part_auto_files
 Type: text

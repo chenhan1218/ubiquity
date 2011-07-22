@@ -1,6 +1,11 @@
 ubiquity (2.7.15) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Remove dead code from debian/oem-config.oem-config.upstart.
+
+  [ Evan Dandrea ]
+  * Change the first partitioning page title to 'Installation Type.'
+    Thanks Matthew Paul Thomas.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Jul 2011 12:22:46 +0100
 
