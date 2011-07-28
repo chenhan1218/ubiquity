@@ -329,6 +329,18 @@ class Wizard(BaseFrontend):
 
         self.customize_installer()
 
+        # Put up the a11y indicator in maybe-ubiquity mode
+        if ('UBIQUITY_GREETER' in os.environ and os.path.exists('/usr/bin/casper-a11y-enable')):
+            try:
+                import appindicator
+                self.indicator = appindicator.Indicator('ubiquity', 'accessibility-directory',
+                    appindicator.CATEGORY_OTHER)
+                self.indicator.set_status(appindicator.STATUS_ACTIVE)
+                self.indicator.set_menu(self.builder.get_object('a11y_indicator_menu'))
+                self.live_installer.connect('key-press-event', self.a11y_profile_keys)
+            except:
+                print >>sys.stderr, "Unable to set up accessibility profile support."
+
     def all_children(self, parent):
         if isinstance(parent, gtk.Container):
             def recurse(x, y):
@@ -522,6 +534,40 @@ class Wizard(BaseFrontend):
 
         if self.thunar_previous:
             self.thunar_set_volmanrc(self.thunar_previous)
+
+    def a11y_profile_keys(self, window, event):
+        if event.state & gtk.gdk.CONTROL_MASK and event.keyval == gtk.gdk.keyval_from_name('h'):
+            self.a11y_profile_high_contrast_activate()
+        elif event.state & gtk.gdk.CONTROL_MASK and event.keyval == gtk.gdk.keyval_from_name('s'):
+            self.a11y_profile_screen_reader_activate()
+
+    def a11y_profile_high_contrast_activate(self, widget=None):
+        subprocess.call(['log-output', '-t', 'ubiquity',
+                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '-d', 'high-contrast'], preexec_fn=misc.drop_all_privileges)
+        os.environ['UBIQUITY_A11Y_PROFILE'] = 'high-contrast'
+
+    def a11y_profile_screen_reader_activate(self, widget=None):
+        subprocess.call(['log-output', '-t', 'ubiquity',
+                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '-d', 'blindness'], preexec_fn=misc.drop_all_privileges)
+        os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
+        if os.path.exists('/usr/bin/orca'):
+            subprocess.Popen(['/usr/bin/orca', '-n'], preexec_fn=misc.drop_all_privileges)
+             
+    def a11y_profile_keyboard_modifiers_activate(self, widget=None):
+        subprocess.call(['log-output', '-t', 'ubiquity',
+                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '-d', 'keyboard-modifiers'], preexec_fn=misc.drop_all_privileges)
+        os.environ['UBIQUITY_A11Y_PROFILE'] = 'keyboard-modifiers'
+
+    def a11y_profile_onscreen_keyboard_activate(self, widget=None):
+        subprocess.call(['log-output', '-t', 'ubiquity',
+                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '-d', 'onscreen-keyboard'], preexec_fn=misc.drop_all_privileges)
+        os.environ['UBIQUITY_A11Y_PROFILE'] = 'onscreen-keyboard'
+        if os.path.exists('/usr/bin/onboard'):
+            subprocess.Popen(['/usr/bin/onboard'], preexec_fn=misc.drop_all_privileges)
 
     def run(self):
         """run the interface."""

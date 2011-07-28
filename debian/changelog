@@ -7,7 +7,14 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   * Change the first partitioning page title to 'Installation Type.'
     Thanks Matthew Paul Thomas.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Jul 2011 12:22:46 +0100
+  [ Luke Yelavich ]
+  * Add support for launching high contrast, screen reader, keyboard modifiers,
+    and onscreen keyboard accessibility profiles in maybe-ubiquity mode, high
+    contrast and screen reader profiles being launcheable either from an
+    indicator, or via keyboard shortcut, the rest of the profiles available
+    via the indicator only
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Fri, 29 Jul 2011 09:12:34 +1000
 
 ubiquity (2.7.14) oneiric; urgency=low
 

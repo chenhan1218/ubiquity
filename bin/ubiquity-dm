@@ -265,9 +265,6 @@ EndSection
         os.environ['SUDO_UID'] = str(self.uid)
         os.environ['SUDO_GID'] = str(self.gid)
         os.environ['GVFS_DISABLE_FUSE' ] = '1'
-        # Share Orbit between ubiquity (running as root) and the non-root GNOME
-        # applications.  This lets ubiquity communicate with ATI-SPI.
-        os.environ['ORBIT_SOCKETDIR'] = '/tmp/orbit-%s' % self.username
 
         ck_open_session(self.uid)
 
@@ -320,14 +317,15 @@ EndSection
                     preexec_fn=self.drop_privileges)
                 accessibility = subp.communicate()[0].rstrip('\n')
             # Accessibility infrastructure
-            if accessibility == 'true':
-                if os.path.exists('/usr/lib/at-spi2-core/at-spi-bus-launcher'):
-                    extras.append(subprocess.Popen(
-                        ['/usr/lib/at-spi2-core/at-spi-bus-launcher',
-                        '--launch-immediately'],
-                        stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
-                    os.environ['GTK_MODULES'] = 'gail:atk-bridge'
+            with open('/proc/cmdline', 'r') as fp:
+                if (accessibility == 'true' or 'maybe-ubiquity' in fp.readline()):
+                    if os.path.exists('/usr/lib/at-spi2-core/at-spi-bus-launcher'):
+                        extras.append(subprocess.Popen(
+                            ['/usr/lib/at-spi2-core/at-spi-bus-launcher',
+                            '--launch-immediately'],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges))
+                        os.environ['GTK_MODULES'] = 'gail:atk-bridge'
 
             # Don't show the background image in v1 accessibility profile. It
             # is not shown in the GNOME desktop after all.

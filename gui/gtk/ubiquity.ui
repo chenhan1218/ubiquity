@@ -885,4 +885,38 @@
       <action-widget response="-5">grub_fail_okbutton</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkMenu" id="a11y_indicator_menu">
+    <child>
+      <object class="GtkMenuItem" id="a11y_high_contrast">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_High Contrast</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="a11y_profile_high_contrast_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="a11y_screen_reader">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Screen Reader</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="a11y_profile_screen_reader_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="a11y_keyboard_modifiers">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Keyboard Modifiers</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="a11y_profile_keyboard_modifiers_activate"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="a11y_onscreen_keyboard">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_On-screen Keyboard</property>
+        <property name="use_underline">True</property>
+        <signal name="activate" handler="a11y_profile_onscreen_keyboard_activate"/>
+      </object>
+    </child>
+  </object>
 </interface>
