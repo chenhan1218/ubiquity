@@ -1003,7 +1003,7 @@ class PageGtk(PageBase):
     @plugin.only_this_page
     def on_partition_list_treeview_key_press_event (self, widget, event):
         from gi.repository import Gdk
-        if event.type != Gdk.KEY_PRESS:
+        if event.type != Gdk.EventType.KEY_PRESS:
             return False
 
         if event.keyval == Gdk.KEY_Delete:
