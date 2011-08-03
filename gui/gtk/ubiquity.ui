@@ -821,6 +821,7 @@
                   <object class="GtkExpander" id="install_details_expander">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+		    <property name="label_fill">True</property>
                     <child>
                       <object class="GtkScrolledWindow" id="install_details_sw">
                         <property name="visible">True</property>

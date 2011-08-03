@@ -669,23 +669,6 @@ class Wizard(BaseFrontend):
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window size.
         self.live_installer.set_resizable(False)
-        # TODO move this into gtkwidgets as a subclass of GtkExpander or use a
-        # GtkFixed.
-        def do_allocate(widget, allocation):
-            child = self.install_details_expander.get_label_widget()
-            a = child.get_allocation()
-            expander_size = widget.style_get_property('expander-size', Gtk.StateType.NORMAL)
-            expander_spacing = widget.style_get_property('expander-spacing', Gtk.StateType.NORMAL)
-            border_width = widget.get_property('border-width')
-            #focus_width = widget.style_get_property('focus-line-width', Gtk.StateType.NORMAL)
-            focus_pad = widget.style_get_property('focus-padding', Gtk.StateType.NORMAL)
-
-            w = allocation.width - 2 * border_width - expander_size - \
-                2 * expander_spacing - 2 * focus_pad # - 2 * focus_width
-            a = (a.x, a.y, w, child.size_request()[1])
-            child.size_allocate(a)
-        self.install_details_expander.connect('size-allocate', do_allocate)
-
         def expand(widget):
             if widget.get_property('expanded'):
                 self.progress_cancel_button.show()
