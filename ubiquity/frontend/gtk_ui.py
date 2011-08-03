@@ -232,16 +232,15 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        # This needs to be done before the GtkBuilder objects are created.
-        #style = Gtk.MenuBar().rc_get_style()
-        #bg = style.bg[Gtk.StateType.NORMAL]
-        #Gtk.rc_parse_string('''
-        #style "ubiquity" {
-        #    GtkProgressBar::min-horizontal-bar-height = 10
-        #    bg[ACTIVE] = "%s"
-        #}
-        #class "GtkProgressBar" style "ubiquity"
-        #''' % bg)
+        # Thin progress bar
+        provider = Gtk.CssProvider()
+        provider.load_from_data(
+            '''GtkProgressBar {
+              -GtkProgressBar-min-horizontal-bar-height : 10
+              }''')
+
+        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
+            provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
