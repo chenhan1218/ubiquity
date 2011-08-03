@@ -891,7 +891,7 @@ class Wizard(BaseFrontend):
             cursor = self.watch
         if self.live_installer.get_parent_window():
             self.live_installer.get_parent_window().set_cursor(cursor)
-            set_root_cursor(cursor)
+        set_root_cursor(cursor)
         self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
