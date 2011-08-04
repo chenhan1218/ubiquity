@@ -315,6 +315,7 @@ class NetworkManagerWidget(Gtk.VBox):
         selection = self.view.get_selection()
         selection.connect('changed', self.changed)
         selection.select_path(0)
+        self.show_all()
     
     def state_changed(self, state):
         self.emit('connection', state)

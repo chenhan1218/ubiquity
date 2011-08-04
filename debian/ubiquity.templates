@@ -1004,7 +1004,10 @@ _Description: Wireless
 
 Template: ubiquity/text/wireless_section_label
 Type: text
-_Description: Please select your wireless network from this list
+_Description:
+ Connecting this computer to a wi-fi network allows you to install
+ third-party software, download updates, automatically detect your timezone,
+ and install full support for your language.
 
 Template: ubiquity/use_nonfree
 Type: boolean
