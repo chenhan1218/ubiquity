@@ -17,8 +17,10 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
     - Start at-spi either when an appropriate accessibility profile is enabled,
       or when maybe-ubiquity mode is enabled
     - Remove references to orbit, as the a11y stack now uses dbus
+  * debian/control: Add python-appindicator as a dependency of
+    ubiquity-frontend-gtk
 
- -- Luke Yelavich <themuso@ubuntu.com>  Fri, 05 Aug 2011 14:18:39 +1000
+ -- Luke Yelavich <themuso@ubuntu.com>  Fri, 05 Aug 2011 14:39:03 +1000
 
 ubiquity (2.7.14) oneiric; urgency=low
 
