@@ -891,6 +891,7 @@
         <property name="visible">True</property>
         <property name="label" translatable="yes">_High Contrast</property>
         <property name="use_underline">True</property>
+        <accelerator key="H" signal="activate" modifiers="GDK_CONTROL_MASK"/>
         <signal name="activate" handler="a11y_profile_high_contrast_activate"/>
       </object>
     </child>
@@ -899,6 +900,7 @@
         <property name="visible">True</property>
         <property name="label" translatable="yes">_Screen Reader</property>
         <property name="use_underline">True</property>
+        <accelerator key="S" signal="activate" modifiers="GDK_CONTROL_MASK"/>
         <signal name="activate" handler="a11y_profile_screen_reader_activate"/>
       </object>
     </child>
