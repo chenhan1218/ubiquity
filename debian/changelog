@@ -13,8 +13,12 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
     contrast and screen reader profiles being launcheable either from an
     indicator, or via keyboard shortcut, the rest of the profiles available
     via the indicator only
+  * bin/ubiquity-dm:
+    - Start at-spi either when an appropriate accessibility profile is enabled,
+      or when maybe-ubiquity mode is enabled
+    - Remove references to orbit, as the a11y stack now uses dbus
 
- -- Luke Yelavich <themuso@ubuntu.com>  Fri, 29 Jul 2011 09:12:34 +1000
+ -- Luke Yelavich <themuso@ubuntu.com>  Fri, 05 Aug 2011 14:18:39 +1000
 
 ubiquity (2.7.14) oneiric; urgency=low
 
