@@ -544,13 +544,13 @@ class Wizard(BaseFrontend):
     def a11y_profile_high_contrast_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
                          '--pass-stdout', '/usr/bin/casper-a11y-enable',
-                         '-d', 'high-contrast'], preexec_fn=misc.drop_all_privileges)
+                         'high-contrast'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'high-contrast'
 
     def a11y_profile_screen_reader_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
                          '--pass-stdout', '/usr/bin/casper-a11y-enable',
-                         '-d', 'blindness'], preexec_fn=misc.drop_all_privileges)
+                         'blindness'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
         if os.path.exists('/usr/bin/orca'):
             subprocess.Popen(['/usr/bin/orca', '-n'], preexec_fn=misc.drop_all_privileges)
@@ -558,13 +558,13 @@ class Wizard(BaseFrontend):
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
                          '--pass-stdout', '/usr/bin/casper-a11y-enable',
-                         '-d', 'keyboard-modifiers'], preexec_fn=misc.drop_all_privileges)
+                         'keyboard-modifiers'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'keyboard-modifiers'
 
     def a11y_profile_onscreen_keyboard_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
                          '--pass-stdout', '/usr/bin/casper-a11y-enable',
-                         '-d', 'onscreen-keyboard'], preexec_fn=misc.drop_all_privileges)
+                         'onscreen-keyboard'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'onscreen-keyboard'
         if os.path.exists('/usr/bin/onboard'):
             subprocess.Popen(['/usr/bin/onboard'], preexec_fn=misc.drop_all_privileges)
