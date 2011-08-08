@@ -80,12 +80,16 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 	gst_object_ref (priv->src);
 	gst_object_ref (priv->testsrc);
 	gst_object_ref (priv->bus);
+	gst_object_ref (priv->camerabin);
+}
 
+void
+ubiquity_webcam_play (UbiquityWebcam *webcam) {
+	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
 	if (gst_element_set_state (priv->camerabin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
 		g_print ("setting camerabin to PLAYING failed\n");
 		//return -1;
 	}
-	gst_object_ref (GST_OBJECT (priv->camerabin));
 }
 
 UbiquityWebcam*

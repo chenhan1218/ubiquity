@@ -50,6 +50,7 @@ struct _UbiquityWebcamClass
 GType ubiquity_webcam_get_type (void) G_GNUC_CONST;
 
 UbiquityWebcam *ubiquity_webcam_new (void);
+void ubiquity_webcam_play (UbiquityWebcam *webcam);
 
 G_END_DECLS
 
