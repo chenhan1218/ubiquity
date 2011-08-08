@@ -7,7 +7,11 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   * Change the first partitioning page title to 'Installation Type.'
     Thanks Matthew Paul Thomas.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Jul 2011 12:22:46 +0100
+  [ Brian Murray ]
+  * Remove _ from Install Now button (LP: #811642)
+  * Instead of sending people to +filebug recommend using apport
+
+ -- Brian Murray <brian@ubuntu.com>  Mon, 08 Aug 2011 14:35:34 -0700
 
 ubiquity (2.7.14) oneiric; urgency=low
 
