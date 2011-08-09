@@ -245,7 +245,6 @@ class NetworkManagerTreeView(Gtk.TreeView):
         if not model.iter_parent(iterator):
             cell.set_property('pixbuf', None)
             return
-        ssid = model[iterator][0]
         strength = model[iterator][2]
         if strength < 30:
             icon = 0

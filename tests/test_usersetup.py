@@ -3,7 +3,6 @@
 
 import unittest
 import mock
-from test import test_support
 from gi.repository import Gtk, GObject
 import sys, os
 

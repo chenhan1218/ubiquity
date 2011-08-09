@@ -77,7 +77,6 @@ class StylizedFrame(Gtk.Alignment):
         c.fill_preserve()
 
     def do_draw(self, c):
-        alloc = self.get_allocation()
         # Background
         self.paint_background(c)
         # Edge

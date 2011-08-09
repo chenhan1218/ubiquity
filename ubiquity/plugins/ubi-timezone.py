@@ -55,10 +55,10 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_translate(self, lang):
         c = self.controller
-        if c.get_string('ubiquity/imported/time-format', lang) == '12-hour':
-            fmt = c.get_string('ubiquity/imported/12-hour', lang)
-        else:
-            fmt = c.get_string('ubiquity/imported/24-hour', lang)
+        #if c.get_string('ubiquity/imported/time-format', lang) == '12-hour':
+        #    fmt = c.get_string('ubiquity/imported/12-hour', lang)
+        #else:
+        #    fmt = c.get_string('ubiquity/imported/24-hour', lang)
         #self.tzmap.set_time_format(fmt)
         inactive = self.controller.get_string(
             'timezone_city_entry_inactive_label', lang)
