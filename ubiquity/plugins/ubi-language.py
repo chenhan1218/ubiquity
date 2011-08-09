@@ -74,8 +74,8 @@ class PageGtk(PageBase):
             ui_file = 'stepLanguage.ui'
             self.only = False
         try:
-            import gtk
-            builder = gtk.Builder()
+            from gi.repository import Gtk
+            builder = Gtk.Builder()
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], ui_file))
             builder.connect_signals(self)
             self.controller.add_builder(builder)
@@ -154,13 +154,13 @@ class PageGtk(PageBase):
         self.network_change()
 
     def network_change(self, state=None):
-        import gobject
+        from gi.repository import GObject
         if state and (state != 4 and state != 3):
             return
         if self.timeout_id:
-            gobject.source_remove(self.timeout_id)
-        self.timeout_id = gobject.timeout_add(300, self.check_returncode)
-        self.timeout_id = gobject.timeout_add(300, self.check_returncode_release_notes)
+            GObject.source_remove(self.timeout_id)
+        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
+        self.timeout_id = GObject.timeout_add(300, self.check_returncode_release_notes)
 
     def check_returncode(self, *args):
         import subprocess
@@ -206,9 +206,9 @@ class PageGtk(PageBase):
         self.controller.dbfilter.ok_handler()
 
     def set_language_choices(self, choices, choice_map):
-        import gtk, gobject
+        from gi.repository import Gtk, GObject
         PageBase.set_language_choices(self, choices, choice_map)
-        list_store = gtk.ListStore(gobject.TYPE_STRING)
+        list_store = Gtk.ListStore.new([GObject.TYPE_STRING])
         for choice in choices:
             list_store.append([choice])
         # Support both iconview and treeview
@@ -220,8 +220,8 @@ class PageGtk(PageBase):
             self.iconview.set_columns(columns)
         else:
             if len(self.treeview.get_columns()) < 1:
-                column = gtk.TreeViewColumn(None, gtk.CellRendererText(), text=0)
-                column.set_sizing(gtk.TREE_VIEW_COLUMN_GROW_ONLY)
+                column = Gtk.TreeViewColumn(None, Gtk.CellRendererText(), text=0)
+                column.set_sizing(Gtk.TreeViewColumnSizing.GROW_ONLY)
                 self.treeview.append_column(column)
                 selection = self.treeview.get_selection()
                 selection.connect('changed',
@@ -234,7 +234,7 @@ class PageGtk(PageBase):
             model = self.iconview.get_model()
             iterator = model.iter_children(None)
             while iterator is not None:
-                if unicode(model.get_value(iterator, 0)) == language:
+                if model.get_value(iterator, 0).decode('utf-8') == language:
                     path = model.get_path(iterator)
                     self.iconview.select_path(path)
                     self.iconview.scroll_to_path(path, True, 0.5, 0.5)
@@ -244,7 +244,7 @@ class PageGtk(PageBase):
             model = self.treeview.get_model()
             iterator = model.iter_children(None)
             while iterator is not None:
-                if unicode(model.get_value(iterator, 0)) == language:
+                if model.get_value(iterator, 0).decode('utf-8') == language:
                     path = model.get_path(iterator)
                     self.treeview.get_selection().select_path(path)
                     self.treeview.scroll_to_cell(
@@ -270,7 +270,7 @@ class PageGtk(PageBase):
         if iterator is None:
             return None
         else:
-            value = unicode(model.get_value(iterator, 0))
+            value = model.get_value(iterator, 0).decode('utf-8')
             return self.language_choice_map[value][1]
 
     def on_language_activated(self, *args, **kwargs):
@@ -285,12 +285,12 @@ class PageGtk(PageBase):
         # strip encoding; we use UTF-8 internally no matter what
         lang = lang.split('.')[0]
         self.controller.translate(lang)
-        import gtk
+        from gi.repository import Gtk
         ltr = i18n.get_string('default-ltr', lang, 'ubiquity/imported')
         if ltr == 'default:RTL':
-            gtk.widget_set_default_direction(gtk.TEXT_DIR_RTL)
+            Gtk.Widget.set_default_direction(Gtk.TextDirection.RTL)
         else:
-            gtk.widget_set_default_direction(gtk.TEXT_DIR_LTR)
+            Gtk.Widget.set_default_direction(Gtk.TextDirection.LTR)
 
         if self.only:
             # The language page for oem-config doesn't have the fancy greeter.
@@ -303,24 +303,24 @@ class PageGtk(PageBase):
         # Set the release name (Ubuntu 10.04) and medium (USB or CD) where
         # necessary.
         w = self.try_install_text_label
-        text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+        text = i18n.get_string(Gtk.Buildable.get_name(w), lang)
         text = text.replace('${RELEASE}', release.name)
         text = text.replace('${MEDIUM}', install_medium)
         w.set_label(text)
 
         # Big buttons.
         for w in (self.try_ubuntu, self.install_ubuntu):
-            text = i18n.get_string(gtk.Buildable.get_name(w), lang)
+            text = i18n.get_string(Gtk.Buildable.get_name(w), lang)
             text = text.replace('${RELEASE}', release.name)
             text = text.replace('${MEDIUM}', install_medium)
             w.get_child().set_markup('<span size="x-large">%s</span>' % text)
 
-        # There doesn't appear to be a way to have a homogeneous layout for a
-        # single row in a GtkTable.
+        # We need to center each button under each image *and* have a homogeous
+        # size between the two buttons.
         self.try_ubuntu.set_size_request(-1, -1)
         self.install_ubuntu.set_size_request(-1, -1)
-        try_w = self.try_ubuntu.size_request()[0]
-        install_w = self.install_ubuntu.size_request()[0]
+        try_w = self.try_ubuntu.size_request().width
+        install_w = self.install_ubuntu.size_request().width
         if try_w > install_w:
             self.try_ubuntu.set_size_request(try_w, -1)
             self.install_ubuntu.set_size_request(try_w, -1)
@@ -330,23 +330,18 @@ class PageGtk(PageBase):
 
         # Make the forward button a consistent size, regardless of its text.
         install_label = i18n.get_string('install_button', lang)
-        reboot_label = i18n.get_string('restart_to_continue', lang)
         next_button = self.controller._wizard.next
         next_label = next_button.get_label()
 
         next_button.set_size_request(-1, -1)
-        next_w = next_button.size_request()[0]
+        next_w = next_button.size_request().width
         next_button.set_label(install_label)
-        install_w = next_button.size_request()[0]
-        next_button.set_label(reboot_label)
-        restart_w = next_button.size_request()[0]
+        install_w = next_button.size_request().width
         next_button.set_label(next_label)
-        if next_w > install_w and next_w > restart_w:
+        if next_w > install_w:
             next_button.set_size_request(next_w, -1)
-        elif install_w > restart_w:
-            next_button.set_size_request(install_w, -1)
         else:
-            next_button.set_size_request(restart_w, -1)
+            next_button.set_size_request(install_w, -1)
 
         self.update_release_notes_label()
         for w in self.page.get_children():

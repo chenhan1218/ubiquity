@@ -40,21 +40,17 @@ class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/timezone_heading_label'
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
-        try:
-            import gtk
-            builder = gtk.Builder()
-            self.controller.add_builder(builder)
-            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
-            builder.connect_signals(self)
-            self.page = builder.get_object('stepLocation')
-            self.city_entry = builder.get_object('timezone_city_entry')
-            self.map_window = builder.get_object('timezone_map_window')
-            self.setup_page()
-            self.timezone = None
-            self.zones = []
-        except Exception, e:
-            self.debug('Could not create timezone page: %s', e)
-            self.page = None
+        from gi.repository import Gtk
+        builder = Gtk.Builder()
+        self.controller.add_builder(builder)
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
+        builder.connect_signals(self)
+        self.page = builder.get_object('stepLocation')
+        self.city_entry = builder.get_object('timezone_city_entry')
+        self.map_window = builder.get_object('timezone_map_window')
+        self.setup_page()
+        self.timezone = None
+        self.zones = []
         self.plugin_widgets = self.page
 
     def plugin_translate(self, lang):
@@ -63,21 +59,22 @@ class PageGtk(plugin.PluginUI):
             fmt = c.get_string('ubiquity/imported/12-hour', lang)
         else:
             fmt = c.get_string('ubiquity/imported/24-hour', lang)
-        self.tzmap.set_time_format(fmt)
+        #self.tzmap.set_time_format(fmt)
         inactive = self.controller.get_string(
             'timezone_city_entry_inactive_label', lang)
-        self.city_entry.set_label(inactive)
+        self.city_entry.set_placeholder_text(inactive)
 
     def set_timezone(self, timezone):
         self.zones = self.controller.dbfilter.build_timezone_list()
-        self.select_city(None, timezone)
+        #loc = self.tzmap.get_loc_for_timezone(timezone)
+        #self.tzmap.set_location(loc)
 
     def get_timezone(self):
         return self.timezone
 
     def select_city(self, unused_widget, city):
+        city = city.get_property('zone')
         loc = self.tzdb.get_loc(city)
-        self.tzmap.select_city(city)
         if not loc:
             self.controller.allow_go_forward(False)
         else:
@@ -88,13 +85,11 @@ class PageGtk(plugin.PluginUI):
 
     def setup_page(self):
         # TODO Put a frame around the completion to add contrast (LP: #605908)
-        import gobject, gtk
-        from ubiquity import timezone_map
+        from gi.repository import Gtk, GObject
+        from gi.repository import TimezoneMap
         self.tzdb = ubiquity.tz.Database()
-        PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
-        self.tzmap = timezone_map.TimezoneMap(self.tzdb,
-                                        os.path.join(PATH, 'pixmaps/timezone'))
-        self.tzmap.connect('city-selected', self.select_city)
+        self.tzmap = TimezoneMap.TimezoneMap()
+        self.tzmap.connect('location-changed', self.select_city)
         self.map_window.add(self.tzmap)
         self.tzmap.show()
 
@@ -110,9 +105,9 @@ class PageGtk(plugin.PluginUI):
                 model = changed.cache[text]
             else:
                 # fetch
-                model = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING,
-                                      gobject.TYPE_STRING, gobject.TYPE_STRING,
-                                      gobject.TYPE_STRING)
+                model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                      GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                      GObject.TYPE_STRING)
                 changed.cache[text] = model
                 # TODO benchmark this
                 results = [(name, self.tzdb.get_loc(city))
@@ -152,11 +147,11 @@ class PageGtk(plugin.PluginUI):
         self.timeout_id = 0
         def queue_entry_changed(entry):
             if self.timeout_id:
-                gobject.source_remove(self.timeout_id)
-            self.timeout_id = gobject.timeout_add(300, changed, entry)
+                GObject.source_remove(self.timeout_id)
+            self.timeout_id = GObject.timeout_add(300, changed, entry)
 
         self.city_entry.connect('changed', queue_entry_changed)
-        completion = gtk.EntryCompletion()
+        completion = Gtk.EntryCompletion()
         self.city_entry.set_completion(completion)
         completion.set_inline_completion(True)
         completion.set_inline_selection(True)
@@ -165,18 +160,18 @@ class PageGtk(plugin.PluginUI):
             # Select on map.
             lat = float(model[iterator][3])
             lon = float(model[iterator][4])
-            self.tzmap.select_coords(lat, lon)
+            self.tzmap.set_coords(lon, lat)
 
             self.city_entry.set_text(model[iterator][0])
             self.city_entry.set_position(-1)
             return True
         completion.connect('match-selected', match_selected)
 
-        def match_func(completion, key, iterator):
+        def match_func(completion, key, iterator, data):
             # We've already determined that it's a match in entry_changed.
             return True
 
-        def data_func(column, cell, model, iterator):
+        def data_func(column, cell, model, iterator, data):
             row = model[iterator]
             if row[1]:
                 # The result came from geonames, and thus has an administrative
@@ -185,10 +180,10 @@ class PageGtk(plugin.PluginUI):
             else:
                 text = '%s <small>(%s)</small>' % (row[0], row[2])
             cell.set_property('markup', text)
-        cell = gtk.CellRendererText()
-        completion.pack_start(cell)
-        completion.set_match_func(match_func)
-        completion.set_cell_data_func(cell, data_func)
+        cell = Gtk.CellRendererText()
+        completion.pack_start(cell, True)
+        completion.set_match_func(match_func, None)
+        completion.set_cell_data_func(cell, data_func, None)
 
 class PageKde(plugin.PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_timezone'
