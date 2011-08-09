@@ -2,8 +2,8 @@ Source: ubiquity
 Section: admin
 Priority: optional
 Maintainer: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
-Uploaders: Colin Watson <cjwatson@ubuntu.com>, Evan Dandrea <evand@ubuntu.com>
-Build-Depends: apt, bf-utf-source, dctrl-tools, debconf (>= 0.5.0), debconf-utils, debhelper (>= 7.4.17), dh-di (>= 3), dpkg-dev (>= 1.14.4), intltool (>= 0.40.0), intltool-debian (>= 0.30+20040212), iso-codes, isoquery, keymapper (>= 0.5.3-7), libbogl-dev, libcheese-gtk-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer4-dev (>= 0.76), libglib2.0-dev, libgstreamer-plugins-base0.10-dev (>= 0.10.23), libgtk2.0-dev, libindicator-dev (>= 0.3.90), libiw-dev (>= 27+28pre9), libparted0-dev (>= 2.2), libxml2-dev (>= 2.6.24), locales, pkg-config, po-debconf (>= 1.0), pyflakes, python-all-dev (>= 2.6.6-3~), python-apt, python-gobject-dev, python-gtk2-dev, python-libxml2, python-mock, python-pyicu, python-scour, python-xklavier, tzdata, wget, xkb-data (>= 0.9), xkb-data-i18n, xvfb
+Uploaders: Colin Watson <cjwatson@ubuntu.com>, Evan Dandrea <ev@ubuntu.com>
+Build-Depends: apt, dctrl-tools, debconf-utils, debhelper (>= 7.0.1), dh-di (>= 3), dpkg-dev (>= 1.14.4), intltool (>= 0.40.0), keymapper (>= 0.5.3-7), libglib2.0-dev, libgstreamer-plugins-base0.10-dev (>= 0.10.23), libgtk-3-dev, libindicator-dev (>= 0.3.90), pkg-config, po-debconf (>= 1.0), pyflakes, python-all-dev (>= 2.6.6-3~), python-apt, python-gobject-dev, python-libxml2, python-mock, python-pyicu, python-scour, python-xklavier, xkb-data (>= 0.9), xkb-data-i18n, xvfb
 Standards-Version: 3.6.2.1
 X-Python-Version: >= 2.6
 Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk
@@ -43,7 +43,7 @@ Description: Ubuntu artwork for Ubiquity live installer
 
 Package: ubiquity-frontend-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, python-gtk2 (>= 2.17.0-0ubuntu2), iso-codes, x-window-manager, gksu, python-libxml2, python-vte, python-webkit, python-xklavier
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, gir1.2-gtk-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-vte-2.90, gir1.2-webkit-3.0, iso-codes, x-window-manager, gksu, python-xklavier, gir1.2-timezonemap-1.0, python-libxml2
 Suggests: gnome-control-center
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.3)
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.3)
@@ -82,7 +82,7 @@ Description: Perform end-user configuration after initial OEM installation
 
 Package: oem-config-gtk
 Architecture: all
-Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-gtk (= ${source:Version}), python-aptdaemon-gtk, aptdaemon
+Depends: ${misc:Depends}, oem-config (= ${source:Version}), ubiquity-frontend-gtk (= ${source:Version}), python-aptdaemon.gtk3widgets, aptdaemon
 Replaces: oem-config (<< 1.0)
 Provides: oem-config-frontend-${mangled-version}
 Description: GTK+ frontend for end-user post-OEM-install configuration

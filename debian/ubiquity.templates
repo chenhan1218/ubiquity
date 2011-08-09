@@ -1008,7 +1008,10 @@ _Description: Wireless
 
 Template: ubiquity/text/wireless_section_label
 Type: text
-_Description: Please select your wireless network from this list
+_Description:
+ Connecting this computer to a wi-fi network allows you to install
+ third-party software, download updates, automatically detect your timezone,
+ and install full support for your language.
 
 Template: ubiquity/use_nonfree
 Type: boolean
@@ -1042,14 +1045,14 @@ _Description: The entire disk will be used:
 Template: ubiquity/text/part_auto_hidden_label
 Type: text
 _Description:
- %d smaller partitions are hidden, use the <a href="">advanced
- partitioning tool</a> for more control
+ <small>%d smaller partitions are hidden, use the <a href="">advanced
+ partitioning tool</a> for more control</small>
 
 Template: ubiquity/text/part_auto_hidden_label_one
 Type: text
 _Description:
- 1 smaller partition is hidden, use the <a href="">advanced
- partitioning tool</a> for more control
+ <small>1 smaller partition is hidden, use the <a href="">advanced
+ partitioning tool</a> for more control</small>
 
 Template: ubiquity/text/part_auto_deleted_label
 Type: text

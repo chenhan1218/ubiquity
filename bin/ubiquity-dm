@@ -334,16 +334,16 @@ EndSection
             with open('/proc/cmdline', 'r') as fp:
                 exists = os.access(background, os.R_OK)
                 if (exists and not 'access=v1' in fp.readline()):
-                    import gtk
-                    pixbuf = gtk.gdk.pixbuf_new_from_file(background)
-                    root = gtk.gdk.get_default_root_window()
+                    from gi.repository import GdkPixbuf, Gdk
+                    pixbuf = GdkPixbuf.Pixbuf.new_from_file(background)
+                    root = Gdk.get_default_root_window()
                     (root_width, root_height) = root.get_size()
                     scaled = pixbuf.scale_simple(root_width, root_height,
-                                                 gtk.gdk.INTERP_BILINEAR)
+                                                 GdkPixbuf.InterpType.BILINEAR)
                     (pixmap, mask) = scaled.render_pixmap_and_mask(0)
                     root.set_back_pixmap(pixmap, False)
                     root.clear()
-                    gtk.gdk.flush()
+                    Gdk.flush()
 
         if self.frontend == 'gtk_ui':
             if gconfd_running and osextras.find_on_path('metacity'):

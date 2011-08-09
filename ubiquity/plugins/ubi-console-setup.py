@@ -36,8 +36,8 @@ class PageGtk(plugin.PluginUI):
         self.controller = controller
         self.current_layout = None
         try:
-            import gtk
-            builder = gtk.Builder()
+            from gi.repository import Gtk
+            builder = Gtk.Builder()
             self.controller.add_builder(builder)
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepKeyboardConf.ui'))
             builder.connect_signals(self)
@@ -57,7 +57,7 @@ class PageGtk(plugin.PluginUI):
         # isinstance(LabelledEntry and just call set_label.  We'll need to
         # properly name the debconf keys though (s/inactive_label//)
         test_label = self.controller.get_string('keyboard_test_label', lang)
-        self.keyboard_test.set_label(test_label)
+        self.keyboard_test.set_placeholder_text(test_label)
 
     @plugin.only_this_page
     def calculate_result(self, w, keymap):
@@ -112,15 +112,15 @@ class PageGtk(plugin.PluginUI):
             self.controller.dbfilter.apply_keyboard(layout, variant)
 
     def set_keyboard_choices(self, choices):
-        import gtk, gobject
-        layouts = gtk.ListStore(gobject.TYPE_STRING)
+        from gi.repository import Gtk, GObject
+        layouts = Gtk.ListStore(GObject.TYPE_STRING)
         self.keyboardlayoutview.set_model(layouts)
         for v in sorted(choices):
             layouts.append([v])
 
         if len(self.keyboardlayoutview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Layout", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            column = Gtk.TreeViewColumn("Layout", Gtk.CellRendererText(), text=0)
+            column.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
             self.keyboardlayoutview.append_column(column)
             selection = self.keyboardlayoutview.get_selection()
             selection.connect('changed',
@@ -136,7 +136,7 @@ class PageGtk(plugin.PluginUI):
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == layout:
+            if model.get_value(iterator, 0).decode('utf-8') == layout:
                 path = model.get_path(iterator)
                 self.keyboardlayoutview.get_selection().select_path(path)
                 self.keyboardlayoutview.scroll_to_cell(
@@ -150,18 +150,18 @@ class PageGtk(plugin.PluginUI):
         if iterator is None:
             return None
         else:
-            return unicode(model.get_value(iterator, 0))
+            return model.get_value(iterator, 0).decode('utf-8')
 
     def set_keyboard_variant_choices(self, choices):
-        import gtk, gobject
-        variants = gtk.ListStore(gobject.TYPE_STRING)
+        from gi.repository import Gtk, GObject
+        variants = Gtk.ListStore(GObject.TYPE_STRING)
         self.keyboardvariantview.set_model(variants)
         for v in sorted(choices):
             variants.append([v])
 
         if len(self.keyboardvariantview.get_columns()) < 1:
-            column = gtk.TreeViewColumn("Variant", gtk.CellRendererText(), text=0)
-            column.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+            column = Gtk.TreeViewColumn("Variant", Gtk.CellRendererText(), text=0)
+            column.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
             self.keyboardvariantview.append_column(column)
             selection = self.keyboardvariantview.get_selection()
             selection.connect('changed',
@@ -173,7 +173,7 @@ class PageGtk(plugin.PluginUI):
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if unicode(model.get_value(iterator, 0)) == variant:
+            if model.get_value(iterator, 0).decode('utf-8') == variant:
                 path = model.get_path(iterator)
                 self.keyboardvariantview.get_selection().select_path(path)
                 self.keyboardvariantview.scroll_to_cell(
@@ -187,7 +187,7 @@ class PageGtk(plugin.PluginUI):
         if iterator is None:
             return None
         else:
-            return unicode(model.get_value(iterator, 0))
+            return model.get_value(iterator, 0).decode('utf-8')
 
 def utf8(str):
     if isinstance(str, unicode):
@@ -408,7 +408,7 @@ class Page(plugin.Plugin):
             # for layout choice translation yet
             self.ui.set_keyboard_choices(
                 self.choices_untranslated(question))
-            self.ui.set_keyboard(self.db.get(question))
+            self.ui.set_keyboard(self.db.get(question).decode('utf-8'))
             # Reset these in case we just backed up from the variant
             # question.
             self.store_defaults(True)
@@ -424,7 +424,7 @@ class Page(plugin.Plugin):
                     # If there's only one variant, it is always the same as
                     # the layout name.
                     single_variant = self.db.get(
-                        'keyboard-configuration/layout')
+                        'keyboard-configuration/layout').decode('utf-8')
                     self.ui.set_keyboard_variant_choices([single_variant])
                     self.ui.set_keyboard_variant(single_variant)
             else:
@@ -433,7 +433,7 @@ class Page(plugin.Plugin):
                 self.has_variants = True
                 self.ui.set_keyboard_variant_choices(
                     self.choices_untranslated(question))
-                self.ui.set_keyboard_variant(self.db.get(question))
+                self.ui.set_keyboard_variant(self.db.get(question).decode('utf-8'))
             # keyboard-configuration preseeding is special, and needs to be
             # checked by hand. The seen flag on
             # keyboard-configuration/layout is used internally by

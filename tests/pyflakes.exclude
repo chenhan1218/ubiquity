@@ -1,7 +1,6 @@
 # Exclude the following from pyflakes failures.
 
-ubiquity/gtkwidgets.py:*: local variable 'offscreen_y' is assigned to but never used
-ubiquity/gtkwidgets.py:*: local variable 'area' is assigned to but never used
 ubiquity/osextras.py:*: 'from ubiquity._osextras import *' used; unable to detect undefined names
 ubiquity/osextras.py:*: 'from _osextras import *' used; unable to detect undefined names
 ubiquity/frontend/gtk_ui.py:*: 'gtkwidgets' imported but unused
+ubiquity/plugins/ubi-wireless.py:*: 'NetworkManagerWidget' imported but unused
