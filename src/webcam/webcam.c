@@ -22,7 +22,7 @@ struct _UbiquityWebcamPrivate
 	GstElement *src;
 	GstElement *testsrc;
 	GstElement *fakevideosink;
-	GstCaps *preview_caps;
+	GstCaps *viewfinder_caps;
 	GstBus *bus;
 };
 
@@ -59,36 +59,56 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 	gtk_box_pack_start (GTK_BOX (self), priv->drawing_area, TRUE, TRUE, 0);
 	gtk_box_pack_start (GTK_BOX (self), priv->button, FALSE, FALSE, 0);
 
-	priv->src = gst_element_factory_make ("wrappercamerabinsrc", NULL);
-	priv->testsrc = gst_element_factory_make ("videotestsrc", NULL);
-	//preview_caps = gst_caps_new_simple ("video/x-raw-rgb", "width", G_TYPE_INT, 320, "height", G_TYPE_INT, 240, NULL);
-	g_object_set (G_OBJECT (priv->testsrc), "is-live", TRUE, "peer-alloc", FALSE, NULL);
-	g_object_set (G_OBJECT (priv->src), "video-src", priv->testsrc, NULL);
 	priv->camerabin = gst_element_factory_make ("camerabin2" , "cam");
+	priv->viewfinder_caps = gst_caps_new_simple ("video/x-raw-rgb",
+		"width", G_TYPE_INT, 320, "height", G_TYPE_INT, 240, NULL);
+	g_object_set (G_OBJECT (priv->camerabin),
+		"viewfinder-caps", priv->viewfinder_caps, NULL);
 	if (!priv->camerabin) {
 		g_print ("Failed to create camerabin.\n");
-		//return -1;
+		return;
 	}
 	g_signal_connect (priv->button, "clicked",
 			G_CALLBACK(button_clicked_cb), priv->camerabin);
-	g_object_set (G_OBJECT (priv->camerabin), "camera-src", priv->src, NULL);
 
 	priv->bus = gst_element_get_bus (priv->camerabin);
 	gst_bus_add_signal_watch (priv->bus);
 	g_signal_connect (priv->bus, "message", G_CALLBACK (message_cb), NULL);
 	gst_bus_set_sync_handler (priv->bus, (GstBusSyncHandler) window_id_cb, NULL);
-	gst_object_ref (priv->src);
-	gst_object_ref (priv->testsrc);
 	gst_object_ref (priv->bus);
 	gst_object_ref (priv->camerabin);
 }
 
 void
+ubiquity_webcam_test (UbiquityWebcam *webcam) {
+	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
+	if (!priv || !priv->camerabin)
+		return;
+	if (priv->src)
+		return;
+	priv->src = gst_element_factory_make ("wrappercamerabinsrc", NULL);
+	priv->testsrc = gst_element_factory_make ("videotestsrc", NULL);
+	g_object_set (G_OBJECT (priv->testsrc), "is-live", TRUE,
+		"peer-alloc", FALSE, NULL);
+	g_object_set (G_OBJECT (priv->src), "video-src", priv->testsrc, NULL);
+	g_object_set (G_OBJECT (priv->camerabin), "camera-src", priv->src, NULL);
+	if (gst_element_set_state (priv->camerabin, GST_STATE_NULL) == GST_STATE_CHANGE_FAILURE) {
+		g_print ("setting camerabin to NULL failed\n");
+		return;
+	}
+	if (gst_element_set_state (priv->camerabin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
+		g_print ("setting camerabin to PLAYING failed\n");
+		return;
+	}
+	gst_object_ref (priv->src);
+	gst_object_ref (priv->testsrc);
+}
+void
 ubiquity_webcam_play (UbiquityWebcam *webcam) {
 	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
 	if (gst_element_set_state (priv->camerabin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
 		g_print ("setting camerabin to PLAYING failed\n");
-		//return -1;
+		return;
 	}
 }
 
@@ -132,7 +152,7 @@ button_clicked_cb (GtkWidget *widget, GstElement *camerabin) {
 	pngenc = gst_element_factory_make ("pngenc", "png");
 	if (!pngenc) {
 		g_print ("Failed to create pngenc.\n");
-		//return -1;
+		return;
 	}
 	g_object_set (G_OBJECT(camerabin), "image-capture-encoder", camerabin, NULL);
 	g_object_set (G_OBJECT(camerabin), "location", "/tmp/photo_%d.jpg", NULL);
@@ -177,7 +197,8 @@ main(int argc, char** argv) {
 	gtk_container_add (GTK_CONTAINER (win), GTK_WIDGET (webcam));
 
 	gtk_widget_show_all (win);
-	gtk_widget_realize (win);
+	ubiquity_webcam_play (webcam);
+	//ubiquity_webcam_test (webcam);
 
 	g_assert (video_window_xid != 0);
 	g_signal_connect (win, "destroy", G_CALLBACK (window_destroy_cb), NULL);
