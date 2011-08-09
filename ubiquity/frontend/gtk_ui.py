@@ -43,7 +43,6 @@ import ConfigParser
 import dbus
 from gi.repository import Gtk, Gdk, GObject
 GObject.threads_init()
-import glib
 
 from ubiquity import filteredcommand, gconftool, i18n, validation, misc
 from ubiquity import gtkwidgets
@@ -545,7 +544,7 @@ class Wizard(BaseFrontend):
 
                 if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                     self.allow_change_step(False)
-                    glib.idle_add(lambda: self.dbfilter.start(auto_process=True))
+                    GObject.idle_add(lambda: self.dbfilter.start(auto_process=True))
 
                 self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
                 Gtk.main()
@@ -1543,7 +1542,7 @@ color : @fg_color
             return quit_decrement()
         def quit_quit():
             # Wait until we're actually out of this main loop
-            glib.idle_add(idle_quit)
+            GObject.idle_add(idle_quit)
             return False
 
         if self.pending_quits == 0:
