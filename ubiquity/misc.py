@@ -563,7 +563,7 @@ def dmimodel():
 def set_indicator_keymaps(locale):
     import libxml2
     import xklavier
-    import gtk
+    from gi.repository import Gdk
     from ubiquity import gconftool
 
     xpath = "//iso_639_3_entry[@part1_code='%s']"
@@ -581,7 +581,7 @@ def set_indicator_keymaps(locale):
     nodes = context.xpathEvalExpression(xpath % lang)
     if nodes:
         code = nodes[0].prop('part2_code')
-        display = gtk.gdk.display_get_default()
+        display = Gdk.Display.get_default()
         engine = xklavier.Engine(display)
         configreg = xklavier.ConfigRegistry(engine)
         configreg.load(False)

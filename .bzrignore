@@ -60,6 +60,11 @@ src/panel/.deps
 src/panel/.libs
 src/panel/Makefile
 src/panel/panel
+src/webcam/.deps
+src/webcam/.libs
+src/webcam/*.la
+src/webcam/*.lo
+src/webcam/Makefile
 ubiquity/.deps
 ubiquity/.libs
 ubiquity/Makefile

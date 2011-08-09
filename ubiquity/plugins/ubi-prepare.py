@@ -120,8 +120,8 @@ class PageGtk(PreparePageBase):
             return
         self.controller = controller
         try:
-            import gtk
-            builder = gtk.Builder()
+            from gi.repository import Gtk
+            builder = Gtk.Builder()
             self.controller.add_builder(builder)
             builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPrepare.ui'))
             builder.connect_signals(self)
@@ -151,12 +151,12 @@ class PageGtk(PreparePageBase):
         self.plugin_widgets = self.page
 
     def network_change(self, state=None):
-        import gobject
+        from gi.repository import GObject
         if state and (state != 4 and state != 3):
             return
         if self.timeout_id:
-            gobject.source_remove(self.timeout_id)
-        self.timeout_id = gobject.timeout_add(300, self.check_returncode)
+            GObject.source_remove(self.timeout_id)
+        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
 
     def enable_download_updates(self, val):
         self.prepare_download_updates.set_sensitive(val)
@@ -187,9 +187,9 @@ class PageGtk(PreparePageBase):
     def plugin_translate(self, lang):
         PreparePageBase.plugin_translate(self, lang)
         release = misc.get_release()
-        import gtk
+        from gi.repository import Gtk
         for widget in [self.prepare_foss_disclaimer]:
-            text = i18n.get_string(gtk.Buildable.get_name(widget), lang)
+            text = i18n.get_string(Gtk.Buildable.get_name(widget), lang)
             text = text.replace('${RELEASE}', release.name)
             widget.set_label(text)
 

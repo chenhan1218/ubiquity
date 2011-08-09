@@ -6,6 +6,10 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Change the first partitioning page title to 'Installation Type.'
     Thanks Matthew Paul Thomas.
+  * Merge PyGI branch. Ubiquity now uses PyGI and GTK+3.
+
+  [ Brian Murray ]
+  * Instead of sending people to +filebug recommend using apport
 
   [ Luke Yelavich ]
   * Add support for launching high contrast, screen reader, keyboard modifiers,
@@ -20,7 +24,7 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   * debian/control: Add python-appindicator as a dependency of
     ubiquity-frontend-gtk
 
- -- Luke Yelavich <themuso@ubuntu.com>  Fri, 05 Aug 2011 14:39:03 +1000
+ -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 
 ubiquity (2.7.14) oneiric; urgency=low
 
