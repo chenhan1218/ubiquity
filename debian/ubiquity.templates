@@ -329,12 +329,11 @@ _Description: Installer crashed
 Template: ubiquity/text/crash_text_label
 Type: text
 _Description:
- We're sorry; the installer crashed. Please file a new bug report at
- https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach your
- details to any existing bug) and a developer will attend to the problem as
- soon as possible. To help the developers understand what went wrong,
- include the following detail in your bug report, and attach the files
- /var/log/syslog and /var/log/partman:
+ We're sorry; the installer crashed. Please file a new bug report using
+ the command 'ubuntu-bug ubiquity' in a terminal. This will gather
+ information about your system and your installation process. The details
+ will be sent to our bug tracker and a developer will attend to the
+ problem as soon as possible. 
 
 Template: ubiquity/text/partition_button_new_label
 Type: text

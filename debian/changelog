@@ -8,7 +8,10 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
     Thanks Matthew Paul Thomas.
   * Merge PyGI branch. Ubiquity now uses PyGI and GTK+3.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Jul 2011 12:22:46 +0100
+  [ Brian Murray ]
+  * Instead of sending people to +filebug recommend using apport
+
+ -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 
 ubiquity (2.7.14) oneiric; urgency=low
 
