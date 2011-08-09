@@ -1540,7 +1540,7 @@ color : @fg_color
             return False
         def idle_quit():
             if self.pending_quits > 1:
-                Gtk.quit_add(0, quit_quit)
+                quit_quit()
             if Gtk.main_level() > 0:
                 Gtk.main_quit()
             return quit_decrement()
