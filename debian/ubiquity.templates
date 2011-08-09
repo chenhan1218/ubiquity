@@ -246,7 +246,7 @@ Template: ubiquity/text/install_button
 Type: text
 # This is used as a button label, and should be translated as an action.
 # Omit the [ ... ] from the translation.
-_Description: Install Now[ action ]
+_Description: _Install Now[ action ]
 
 Template: ubiquity/text/warning_dialog
 Type: title

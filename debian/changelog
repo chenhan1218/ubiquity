@@ -8,10 +8,9 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
     Thanks Matthew Paul Thomas.
 
   [ Brian Murray ]
-  * Remove _ from Install Now button (LP: #811642)
   * Instead of sending people to +filebug recommend using apport
 
- -- Brian Murray <brian@ubuntu.com>  Mon, 08 Aug 2011 14:35:34 -0700
+ -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 
 ubiquity (2.7.14) oneiric; urgency=low
 
