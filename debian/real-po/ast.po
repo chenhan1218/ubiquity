@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-12 17:20+0000\n"
 "Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
@@ -133,13 +133,19 @@ msgstr "Ye dable que quieras <a href=\"update\">anovar esti instalador</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Esto ye un prellanzamientu del instalador de ${RELEASE} live ${MEDIUM}. El "
-"llanzamientu final saldrá con ${RELEASE} n'Abril de 2011."
+"Esto ye un llanzamientu previu del instalador live ${MEDIUM} de ${RELEASE}. "
+"Nun ye una versión final, qu'apaecerá col llanzamientu final de ${RELEASE} "
+"n'ochobre de 2010."
 
 #. Type: text
 #. Description
@@ -1806,6 +1812,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Desaniciando paquetes"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Esto ye un prellanzamientu del instalador de ${RELEASE} live ${MEDIUM}. "
+#~ "El llanzamientu final saldrá con ${RELEASE} n'Abril de 2011."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Namái tomará dalgunos minutos contestar a les entrugues."
 
@@ -1920,15 +1934,6 @@ msgstr "Desaniciando paquetes"
 
 #~ msgid "Continue with installation."
 #~ msgstr "Continúa cola instalación."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Esto ye un llanzamientu previu del instalador live ${MEDIUM} de "
-#~ "${RELEASE}. Nun ye una versión final, qu'apaecerá col llanzamientu final "
-#~ "de ${RELEASE} n'ochobre de 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Determinar el tipu de tecláu"

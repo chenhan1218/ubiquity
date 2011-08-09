@@ -739,7 +739,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkButton" id="next">
-                                    <property name="label">gtk-go-forward</property>
+                                    <property name="label">Continue</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="can_default">True</property>
@@ -748,7 +748,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="use_underline">True</property>
                                     <property name="use_stock">True</property>
-                                    <signal name="clicked" handler="on_next_clicked" swapped="no"/>
+                                    <signal name="clicked" handler="on_next_clicked"/>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-11 06:45+0000\n"
 "Last-Translator: Roman A. aka BasicXP <x12ozmouse@ya.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -132,14 +132,18 @@ msgstr "Вы можете <a href=\"update\">обновить этот уста�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Это предварительный выпуск ${RELEASE} live ${MEDIUM} установщика. Это не "
-"финальный выпуск; он станет таким с финальным выпуском ${RELEASE} в апреле "
-"2011 года."
+"Это предрелиз ${RELEASE} установщика ${MEDIUM}. Это не финальный выпуск; "
+"версия ${RELEASE} выйдет официально в октябре 2010 года."
 
 #. Type: text
 #. Description
@@ -1803,6 +1807,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Удаление пакетов"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Это предварительный выпуск ${RELEASE} live ${MEDIUM} установщика. Это не "
+#~ "финальный выпуск; он станет таким с финальным выпуском ${RELEASE} в "
+#~ "апреле 2011 года."
+
 #~ msgid "Migrate documents and settings"
 #~ msgstr "Перенос документов и настроек"
 
@@ -1921,14 +1934,6 @@ msgstr "Удаление пакетов"
 
 #~ msgid "Scanning files..."
 #~ msgstr "Просмотр файлов..."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Это предрелиз ${RELEASE} установщика ${MEDIUM}. Это не финальный выпуск; "
-#~ "версия ${RELEASE} выйдет официально в октябре 2010 года."
 
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Вопросы займут всего несколько минут."

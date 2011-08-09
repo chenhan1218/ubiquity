@@ -147,6 +147,8 @@ class Install(install_misc.InstallBase):
 
         self.db.progress('START', self.start, self.end, 'ubiquity/install/title')
 
+        self.configure_python()
+
         self.next_region()
         self.db.progress('INFO', 'ubiquity/install/network')
         self.configure_network()
@@ -250,6 +252,99 @@ class Install(install_misc.InstallBase):
         self.copy_logs()
 
         self.db.progress('SET', self.end)
+
+    def configure_python(self):
+        """Byte-compile Python modules.
+
+        To save space, Ubuntu excludes .pyc files from the live filesystem.
+        Recreate them now to restore the appearance of a system installed
+        from .debs."""
+
+        cache = Cache()
+
+        # Python standard library.
+        re_minimal = re.compile('^python\d+\.\d+-minimal$')
+        python_installed = sorted(
+            [pkg[:-8] for pkg in cache.keys()
+                      if re_minimal.match(pkg) and cache[pkg].is_installed])
+        for python in python_installed:
+            re_file = re.compile('^/usr/lib/%s/.*\.py$' % python)
+            files = [f for f in cache['%s-minimal' % python].installed_files
+                       if re_file.match(f) and
+                          not os.path.exists(os.path.join(self.target,
+                                                          '%sc' % f[1:]))]
+            install_misc.chrex(self.target, python,
+                               '/usr/lib/%s/py_compile.py' % python, *files)
+            files = [f for f in cache[python].installed_files
+                       if re_file.match(f) and
+                          not os.path.exists(os.path.join(self.target,
+                                                          '%sc' % f[1:]))]
+            install_misc.chrex(self.target, python,
+                               '/usr/lib/%s/py_compile.py' % python, *files)
+
+        # Modules provided by the core Debian Python packages.
+        default = subprocess.Popen(
+            ['chroot', self.target, 'pyversions', '-d'],
+            stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+        if default:
+            install_misc.chrex(self.target, default, '-m', 'compileall',
+                               '/usr/share/python/')
+        if osextras.find_on_path_root(self.target, 'py3compile'):
+            install_misc.chrex(self.target, 'py3compile', '-p', 'python3',
+                               '/usr/share/python3/')
+
+        def run_hooks(path, *args):
+            for hook in osextras.glob_root(self.target, path):
+                if not os.access(os.path.join(self.target, hook[1:]), os.X_OK):
+                    continue
+                install_misc.chrex(self.target, hook, *args)
+
+        # Public and private modules provided by other packages.
+        install_misc.chroot_setup(self.target)
+        try:
+            if osextras.find_on_path_root(self.target, 'pyversions'):
+                supported = subprocess.Popen(
+                    ['chroot', self.target, 'pyversions', '-s'],
+                    stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+                for python in supported.split():
+                    try:
+                        cachedpython = cache['%s-minimal' % python]
+                    except KeyError:
+                        continue
+                    if not cachedpython.is_installed:
+                        continue
+                    version = cachedpython.installed.version
+                    run_hooks('/usr/share/python/runtime.d/*.rtinstall',
+                              'rtinstall', python, '', version)
+                    run_hooks('/usr/share/python/runtime.d/*.rtupdate',
+                              'pre-rtupdate', python, python)
+                    run_hooks('/usr/share/python/runtime.d/*.rtupdate',
+                              'rtupdate', python, python)
+                    run_hooks('/usr/share/python/runtime.d/*.rtupdate',
+                              'post-rtupdate', python, python)
+
+            if osextras.find_on_path_root(self.target, 'py3versions'):
+                supported = subprocess.Popen(
+                    ['chroot', self.target, 'py3versions', '-s'],
+                    stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+                for python in supported.split():
+                    try:
+                        cachedpython = cache['%s-minimal' % python]
+                    except KeyError:
+                        continue
+                    if not cachedpython.is_installed:
+                        continue
+                    version = cachedpython.installed.version
+                    run_hooks('/usr/share/python3/runtime.d/*.rtinstall',
+                              'rtinstall', python, '', version)
+                    run_hooks('/usr/share/python3/runtime.d/*.rtupdate',
+                              'pre-rtupdate', python, python)
+                    run_hooks('/usr/share/python3/runtime.d/*.rtupdate',
+                              'rtupdate', python, python)
+                    run_hooks('/usr/share/python3/runtime.d/*.rtupdate',
+                              'post-rtupdate', python, python)
+        finally:
+            install_misc.chroot_cleanup(self.target)
 
     def configure_network(self):
         """Automatically configure the network.
@@ -1041,8 +1136,8 @@ class Install(install_misc.InstallBase):
     def install_restricted_extras(self):
         if self.db.get('ubiquity/use_nonfree') == 'true':
             self.db.progress('INFO', 'ubiquity/install/nonfree')
-            package = self.db.get('ubiquity/nonfree_package')
-            self.do_install([package])
+            packages = self.db.get('ubiquity/nonfree_package').split()
+            self.do_install(packages)
             try:
                 install_misc.chrex(self.target,'dpkg-divert', '--package',
                         'ubiquity', '--rename', '--quiet', '--add',
@@ -1238,12 +1333,30 @@ class Install(install_misc.InstallBase):
         # Looking through files for packages to remove is pretty quick, so
         # don't bother with a progress bar for that.
 
-        # Check for packages specific to the live CD.
+        # Check for packages specific to the live CD.  (manifest-desktop is
+        # the old method, which listed all the packages to keep;
+        # manifest-remove is the new method, which lists all the packages to
+        # remove.)
+        manifest_remove = os.path.join(self.casper_path,
+                                       'filesystem.manifest-remove')
         manifest_desktop = os.path.join(self.casper_path,
                                         'filesystem.manifest-desktop')
         manifest = os.path.join(self.casper_path, 'filesystem.manifest')
-        if (os.path.exists(manifest_desktop) and
-            os.path.exists(manifest)):
+        if os.path.exists(manifest_remove) and os.path.exists(manifest):
+            difference = set()
+            manifest_file = open(manifest_remove)
+            for line in manifest_file:
+                if line.strip() != '' and not line.startswith('#'):
+                    difference.add(line.split()[0])
+            manifest_file.close()
+            live_packages = set()
+            manifest_file = open(manifest)
+            for line in manifest_file:
+                if line.strip() != '' and not line.startswith('#'):
+                    live_packages.add(line.split()[0])
+            manifest_file.close()
+            desktop_packages = live_packages - difference
+        elif os.path.exists(manifest_desktop) and os.path.exists(manifest):
             desktop_packages = set()
             manifest_file = open(manifest_desktop)
             for line in manifest_file:

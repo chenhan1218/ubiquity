@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-13 16:26+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
@@ -130,14 +130,18 @@ msgstr "Soovi korral võid <a href=\"update\">uuendada paigaldajat</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"See on  ${RELEASE} live-${MEDIUM} paigaldaja eelväljalse. See ei ole lõplik "
-"väljalase; lõplik paigaldaja tuleb koos ${RELEASE} väljalaskega aprillis "
-"2011."
+"See on ${RELEASE} eelväljalaske paigaldaja live-${MEDIUM}. See ei ole lõplik "
+"väljalase. Lõplik väljalase ${RELEASE} on oktoobris 2010."
 
 #. Type: text
 #. Description
@@ -1789,6 +1793,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "See on  ${RELEASE} live-${MEDIUM} paigaldaja eelväljalse. See ei ole "
+#~ "lõplik väljalase; lõplik paigaldaja tuleb koos ${RELEASE} väljalaskega "
+#~ "aprillis 2011."
+
 #~ msgid "Migrate documents and settings"
 #~ msgstr "Dokumentide ja seadistuste ülekandmine"
 
@@ -1915,14 +1928,6 @@ msgstr "Pakettide eemaldamine"
 
 #~ msgid "Figure Out Keyboard Layout"
 #~ msgstr "Klaviatuuripaigutuse tuvastamine"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "See on ${RELEASE} eelväljalaske paigaldaja live-${MEDIUM}. See ei ole "
-#~ "lõplik väljalase. Lõplik väljalase ${RELEASE} on oktoobris 2010."
 
 #~ msgid "Install alongside other operating systems"
 #~ msgstr "Paigaldatakse teiste operatsioonisüsteemide kõrvale"

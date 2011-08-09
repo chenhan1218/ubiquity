@@ -90,9 +90,9 @@ class PreparePageBase(plugin.PluginUI):
                 if WGET_HASH == h.hexdigest():
                     state = True
             self.prepare_network_connection.set_state(state)
-            self.prepare_download_updates.set_sensitive(state)
+            self.enable_download_updates(state)
             if not state:
-                self.prepare_download_updates.set_active(False)
+                self.set_download_updates(False)
             self.controller.dbfilter.set_online_state(state)
             return False
 
@@ -158,12 +158,15 @@ class PageGtk(PreparePageBase):
             GObject.source_remove(self.timeout_id)
         self.timeout_id = GObject.timeout_add(300, self.check_returncode)
 
+    def enable_download_updates(self, val):
+        self.prepare_download_updates.set_sensitive(val)
+
     def set_download_updates(self, val):
         self.prepare_download_updates.set_active(val)
 
     def get_download_updates(self):
         return self.prepare_download_updates.get_active()
-    
+
     def set_allow_nonfree(self, allow):
         if not allow:
             self.prepare_nonfree_software.set_active(False)
@@ -242,6 +245,9 @@ class PageKde(PreparePageBase):
         if not super(PageKde, self).check_returncode(args):
             self.timer.disconnect(self.timer, SIGNAL("timeout()"),
                 self.check_returncode)
+
+    def enable_download_updates(self, val):
+        self.prepare_download_updates.setEnabled(val)
 
     def set_download_updates(self, val):
         self.prepare_download_updates.setChecked(val)
@@ -334,8 +340,9 @@ class Page(plugin.Plugin):
                 # Install ubuntu-restricted-addons.
                 self.preseed_bool('apt-setup/universe', True)
                 self.preseed_bool('apt-setup/multiverse', True)
-                self.preseed('ubiquity/nonfree_package',
-                    self.ui.restricted_package_name)
+                if self.db.fget('ubiquity/nonfree_package', 'seen') != 'true':
+                    self.preseed('ubiquity/nonfree_package',
+                        self.ui.restricted_package_name)
                 bus = dbus.SystemBus()
                 obj = bus.get_object(JOCKEY, JOCKEY_PATH)
                 i = dbus.Interface(obj, JOCKEY)

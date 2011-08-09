@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-20 13:38+0000\n"
 "Last-Translator: Michael Moroni <michael.moroni@mailoo.org>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
@@ -130,14 +130,19 @@ msgstr "Eble vi volas <a href=\"update\">ĝisdatigi ĉi tiun instalilon</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Ĉi tiu estas antaŭeldono de la ${RELEASE} ${MEDIUM}-vive instalilo. Ĝi ne "
-"estas fina eldono; kiu venos per la lasta eldono de la ${RELEASE} en aprilo "
-"2011."
+"Tio ĉi estas antaŭ-eldono de la viva ${MEDIUM}-instalilo de ${RELEASE}. Ĝi "
+"ne estas definitiva eldono; tiu venos kun la fina eldono de ${RELEASE} en "
+"oktobro 2010"
 
 #. Type: text
 #. Description
@@ -1789,6 +1794,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Forigas pakaĵojn"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Ĉi tiu estas antaŭeldono de la ${RELEASE} ${MEDIUM}-vive instalilo. Ĝi ne "
+#~ "estas fina eldono; kiu venos per la lasta eldono de la ${RELEASE} en "
+#~ "aprilo 2011."
+
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Respondado pri la demandoj probable daŭros nur kelkajn minutojn."
 
@@ -1901,15 +1915,6 @@ msgstr "Forigas pakaĵojn"
 
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Specifi diskpartojn mane (progresinte)"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Tio ĉi estas antaŭ-eldono de la viva ${MEDIUM}-instalilo de ${RELEASE}. "
-#~ "Ĝi ne estas definitiva eldono; tiu venos kun la fina eldono de ${RELEASE} "
-#~ "en oktobro 2010"
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Eltrovi klavarfasonon"

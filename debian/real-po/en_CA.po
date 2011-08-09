@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2010-09-17 17:03+0000\n"
 "Last-Translator: Daniel LeBlanc <danidou@gmail.com>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
@@ -129,11 +129,19 @@ msgstr "You may wish to <a href=\"update\">update this installer</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
+"This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
+"a final release; that will come with the final release of ${RELEASE} in "
+"October 2010."
 
 #. Type: text
 #. Description
@@ -1878,15 +1886,6 @@ msgstr "Removing packages"
 
 #~ msgid "Continue with installation."
 #~ msgstr "Continue with installation."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Figure out keyboard layout"

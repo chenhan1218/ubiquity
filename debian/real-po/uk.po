@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-10 19:19+0000\n"
 "Last-Translator: Сергій Матрунчик (SkyMan) <Unknown>\n"
 "Language-Team: uk <>\n"
@@ -132,14 +132,18 @@ msgstr "Можливо ви хочете <a href=\"update\">оновити це�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Це попередній випуск ${RELEASE} live ${MEDIUM} встановлювача. Це не "
-"фінальний випуск; він стане таким з фінальним випуском $ {RELEASE} в квітні "
-"2011 року."
+"Це предреліз  ${RELEASE} установщика ${MEDIUM}. Це не фінальний реліз; "
+"версія ${RELEASE} вийде офіційно в Жовтні 2010 року."
 
 #. Type: text
 #. Description
@@ -1805,6 +1809,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Це попередній випуск ${RELEASE} live ${MEDIUM} встановлювача. Це не "
+#~ "фінальний випуск; він стане таким з фінальним випуском $ {RELEASE} в "
+#~ "квітні 2011 року."
+
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Вказати розділи вручну (розширено)"
 
@@ -1927,14 +1940,6 @@ msgstr "Вилучення пакунків"
 
 #~ msgid "Step ${INDEX}/${TOTAL}"
 #~ msgstr "Крок ${INDEX} з ${TOTAL}"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Це предреліз  ${RELEASE} установщика ${MEDIUM}. Це не фінальний реліз; "
-#~ "версія ${RELEASE} вийде офіційно в Жовтні 2010 року."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "З’ясувати розкладку клавіатури"

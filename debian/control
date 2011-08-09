@@ -3,9 +3,9 @@ Section: admin
 Priority: optional
 Maintainer: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
 Uploaders: Colin Watson <cjwatson@ubuntu.com>, Evan Dandrea <ev@ubuntu.com>
-Build-Depends: apt, bf-utf-source, dctrl-tools, debconf (>= 0.5.0), debconf-utils, debhelper (>= 7.4.17), dh-di (>= 3), dpkg-dev (>= 1.14.4), intltool (>= 0.40.0), intltool-debian (>= 0.30+20040212), iso-codes, isoquery, keymapper (>= 0.5.3-7), libbogl-dev, libclutter-1.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer4-dev (>= 0.76), libglib2.0-dev, libgstreamer-plugins-base0.10-dev (>= 0.10.23), libgtk2.0-dev, libindicator-dev (>= 0.3.90), libiw-dev (>= 27+28pre9), libparted0-dev (>= 2.2), libxml2-dev (>= 2.6.24), locales, pkg-config, po-debconf (>= 1.0), python-all-dev (>= 2.6), python-apt, python-central (>= 0.5), python-gobject-dev, python-gtk2-dev, python-mock, python-pyicu, python-scour, tzdata, wget, xkb-data (>= 0.9), xkb-data-i18n
+Build-Depends: apt, bf-utf-source, dctrl-tools, debconf (>= 0.5.0), debconf-utils, debhelper (>= 7.4.17), dh-di (>= 3), dpkg-dev (>= 1.14.4), intltool (>= 0.40.0), intltool-debian (>= 0.30+20040212), iso-codes, isoquery, keymapper (>= 0.5.3-7), libbogl-dev, libclutter-1.0-dev, libdebconfclient0-dev (>= 0.68), libdebian-installer4-dev (>= 0.76), libglib2.0-dev, libgstreamer-plugins-base0.10-dev (>= 0.10.23), libgtk2.0-dev, libindicator-dev (>= 0.3.90), libiw-dev (>= 27+28pre9), libparted0-dev (>= 2.2), libxml2-dev (>= 2.6.24), locales, pkg-config, po-debconf (>= 1.0), python-all-dev (>= 2.6), python-apt, python-central (>= 0.5), python-gobject-dev, python-gtk2-dev, python-mock, python-pyicu, python-scour, python-xklavier, tzdata, wget, xkb-data (>= 0.9), xkb-data-i18n, xvfb
 Standards-Version: 3.6.2.1
-XS-Python-Version: current, >= 2.6
+X-Python-Version: >= 2.6
 Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk
 
 Package: ubiquity
@@ -14,7 +14,6 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, debconf (>= 1.4.
 Recommends: grub-pc [any-amd64 any-i386] | grub [any-amd64 any-i386] | grub-efi [any-amd64 any-i386], flash-kernel [armel], uboot-mkimage [armel], uboot-envtools [armel], redboot-tools [armel], yaboot [powerpc], hfsutils [powerpc], dmraid, btrfs-tools
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot, ubiquity-frontend-gtk (<< 2.3.8)
-XB-Python-Version: ${python:Versions}
 Description: Ubuntu live CD installer
  This is a simple live CD installer designed to integrate well with Debian-
  and Ubuntu-based systems, and to reuse code from d-i for ease of
@@ -44,12 +43,11 @@ Description: Ubuntu artwork for Ubiquity live installer
 
 Package: ubiquity-frontend-gtk
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, gir1.2-gtk-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-vte-2.90, gir1.2-webkit-3.0, iso-codes, x-window-manager, gksu, python-xklavier, gir1.2-timezonemap-1.0
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-dbus, gir1.2-gtk-3.0, gir1.2-gdkpixbuf-2.0, gir1.2-vte-2.90, gir1.2-webkit-3.0, iso-codes, x-window-manager, gksu, python-xklavier, gir1.2-timezonemap-1.0, python-libxml2
 Suggests: gnome-control-center
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.3)
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.3)
 Provides: ubiquity-frontend-${mangled-version}, indicator-renderer
-XB-Python-Version: ${python:Versions}
 Description: GTK+ frontend for Ubiquity live installer
  This package provides a GTK+-based user interface frontend for the Ubiquity
  live CD installer.
@@ -58,7 +56,6 @@ Package: ubiquity-frontend-kde
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), python-kde4, kde-window-manager, xauth
 Provides: ubiquity-frontend-${mangled-version}
-XB-Python-Version: ${python:Versions}
 Description: KDE frontend for Ubiquity live installer
  This package provides a KDE-based user interface frontend for the Ubiquity
  live CD installer.
@@ -67,7 +64,6 @@ Package: ubiquity-frontend-debconf
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}, ubiquity (= ${binary:Version}), debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
 Provides: ubiquity-frontend-${mangled-version}
-XB-Python-Version: ${python:Versions}
 Description: debconf frontend for the Ubiquity live installer
  This package provides a debconf-based user interface frontend for the
  Ubiquity live CD installer.

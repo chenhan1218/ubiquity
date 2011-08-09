@@ -43,16 +43,19 @@ my @basebd = (
     'libindicator-dev (>= 0.3.90)',
     'pkg-config',
     'po-debconf (>= 1.0)',
-    'python-all-dev (>= 2.6)',
+    'pyflakes',
+    'python-all-dev (>= 2.6.6-3~)',
     'python-apt',
-    'python-central (>= 0.5)',
     'python-gobject-dev',
     'python-gtk2-dev',
+    'python-libxml2',
     'python-mock',
     'python-pyicu',
     'python-scour',
+    'python-xklavier',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',
+    'xvfb',
 );
 my $basebd = join ', ', @basebd;
 my $parsed = Dpkg::Deps::deps_parse($basebd, reduce_arch => 1);

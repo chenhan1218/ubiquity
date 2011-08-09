@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-11 23:00+0000\n"
 "Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
@@ -125,13 +125,18 @@ msgstr "您可能希望 <a href=\"update\">更新安装程序</a>。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"这是 ${RELEASE} 预发行版 Live ${MEDIUM} 安装程序，并非最终发行版。${RELEASE} "
-"最终发行版将于 2011 年四月发行。"
+"这是${RELEASE} 的 Live ${MEDIUM} 的预览版安装程序，它还不是最终版本， 最终版"
+"会在2010年十月 ${RELEASE} 发布时一并推出。"
 
 #. Type: text
 #. Description
@@ -1728,6 +1733,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "正在删除软件包"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "这是 ${RELEASE} 预发行版 Live ${MEDIUM} 安装程序，并非最终发行"
+#~ "版。${RELEASE} 最终发行版将于 2011 年四月发行。"
+
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "手动指定分区(高级)"
 
@@ -1825,14 +1838,6 @@ msgstr "正在删除软件包"
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "决定键盘布局"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "这是${RELEASE} 的 Live ${MEDIUM} 的预览版安装程序，它还不是最终版本， 最终"
-#~ "版会在2010年十月 ${RELEASE} 发布时一并推出。"
 
 #~ msgid "Use Entire Partition"
 #~ msgstr "使用整个分区"

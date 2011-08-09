@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-03-26 06:32+0000\n"
 "Last-Translator: Ankit Mathur <ankitreloaded@gmail.com>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
@@ -127,13 +127,18 @@ msgstr "आप <a href=\"अद्यतन\">संस्थापक का �
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"यह ${RELEASE} का पूर्व-प्रकाशन लाइव ${MEDIUM} संस्थापक है. यह अन्तिम प्रकाशन नहीं है; "
-"${RELEASE} का अन्तिम प्रकाशन जो कि अप्रैल 2011 में  आएगा."
+"यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का एक "
+"अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"
 
 #. Type: text
 #. Description
@@ -1754,6 +1759,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "यह ${RELEASE} का पूर्व-प्रकाशन लाइव ${MEDIUM} संस्थापक है. यह अन्तिम प्रकाशन नहीं "
+#~ "है; ${RELEASE} का अन्तिम प्रकाशन जो कि अप्रैल 2011 में  आएगा."
+
 #~ msgid "How do you want to partition the disk?"
 #~ msgstr "चुने गये डिस्क को कैसे विभाजन करना चाहते हैं?"
 
@@ -1865,14 +1878,6 @@ msgstr "पैकेज हटा रहा है"
 
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "हस्त विभाजन का उल्लेख करें (उन्नत)"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "यह ${RELEASE} के पूर्व-संस्करण का लाइव ${MEDIUM} का इंस्टालर है.यह ${RELEASE} का "
-#~ "एक अंतिम संस्करण नहीं है जो अक्टूबर 2010 में आएगा"
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "सही कुंजीपटल अभिन्यास का पता लगाएँ"

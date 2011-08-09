@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-11 06:14+0000\n"
 "Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -130,14 +130,18 @@ msgstr "Lahko <a href=\"update\">posodobite ta namestilnik</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"To je predizdaja živega ${MEDIUM}-ja namestilnika ${RELEASE}. To ni končna "
-"različica namestilnika. Ta bo prišla s končno različico ${RELEASE}, ki izide "
-"aprila 2011."
+"To je predizdaja namestilnika živega ${MEDIUM}-ja ${RELEASE}. To ni dokončna "
+"izdaja; ta bo izdana oktobra 2010."
 
 #. Type: text
 #. Description
@@ -1798,6 +1802,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "To je predizdaja živega ${MEDIUM}-ja namestilnika ${RELEASE}. To ni "
+#~ "končna različica namestilnika. Ta bo prišla s končno različico "
+#~ "${RELEASE}, ki izide aprila 2011."
+
 #~ msgid "Ready to install"
 #~ msgstr "Pripravljeno za namestitev"
 
@@ -1897,14 +1910,6 @@ msgstr "Odstranjevanje paketov"
 #~ " Kraj: ${LOCATION}\n"
 #~ " Pomočnik pri prehodu:\n"
 #~ " ${MIGRATE}"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "To je predizdaja namestilnika živega ${MEDIUM}-ja ${RELEASE}. To ni "
-#~ "dokončna izdaja; ta bo izdana oktobra 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Ugotovite razporeditev tipkovnice"

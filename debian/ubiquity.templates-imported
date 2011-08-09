@@ -16,12 +16,6 @@ Type: text
 # sync.
 _Description: _Back
 
-Template: ubiquity/imported/go-forward
-Type: text
-# Translations for this template are imported from GTK. Please keep them in
-# sync.
-_Description: _Forward
-
 Template: ubiquity/imported/ok
 Type: text
 # Translations for this template are imported from GTK. Please keep them in

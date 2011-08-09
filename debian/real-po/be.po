@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-13 09:54+0000\n"
 "Last-Translator: Iryna Nikanchuk <defragbrain@gmail.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -130,11 +130,18 @@ msgstr "Магчыма Вы жадаеце <a href=\"update\">абнавіць �
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
+"Гэта папярэдні выпуск устаноўшчыка ${RELEASE} з ${MEDIUM}. Гэта не фінальны "
+"выпуск; фінальны выпуск ${RELEASE} выйдзе ў кастрычніку 2010."
 
 #. Type: text
 #. Description
@@ -1908,14 +1915,6 @@ msgstr "Выдаленьне пакетаў"
 
 #~ msgid "Install alongside other operating systems"
 #~ msgstr "Усталяваць побач зь іншымі апэрацыйнымі сыстэмамі"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Гэта папярэдні выпуск устаноўшчыка ${RELEASE} з ${MEDIUM}. Гэта не "
-#~ "фінальны выпуск; фінальны выпуск ${RELEASE} выйдзе ў кастрычніку 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Вызначце раскладку клявіятуры"

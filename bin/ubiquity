@@ -45,7 +45,9 @@ def disable_autologin():
     import traceback
 
     # Reverse actions of user-setup-apply.
-    for name in ('/etc/gdm/custom.conf', '/etc/kde4/kdm/kdmrc'):
+    for name in ('/etc/gdm/custom.conf', '/etc/kde4/kdm/kdmrc',
+                 '/etc/lxdm/lxdm.conf', '/etc/xdg/lubuntu/lxdm/lxdm.conf',
+                 '/etc/lightdm/lightdm.conf'):
         if os.path.exists('%s.oem' % name):
             try:
                 os.rename('%s.oem' % name, name)
@@ -337,7 +339,7 @@ def copy_debconf():
     for q in patterns:
         misc.execute_root('debconf-copydb', 'configdb', 'targetdb', '-p', q,
                      '--config=Name:targetdb', '--config=Driver:File',
-                     '--config=Filename:%s' % targetdb)
+                     '--config=Mode:0644', '--config=Filename:%s' % targetdb)
 
 def unmount_target():
     if not TARGET:

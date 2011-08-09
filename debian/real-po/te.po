@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-06 05:23+0000\n"
 "Last-Translator: Arjuna Rao Chavala <arjunaraoc@gmail.com>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
@@ -130,13 +130,18 @@ msgstr "మీరు కావాలంటే దీనిని చదువవ
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"ఇది ఒక  ${RELEASE} ముందు విడుదల అయిన లైవ్  ${MEDIUM} స్థాపకం. ఇది చివరి విడుదల కాదు; "
-"${RELEASE} యొక్క చివరి విడుదల ఏప్రిల్ 2011లో వస్తుంది."
+"ఇది  ${RELEASE} యొక్క ముందు విడుదల అయిన లైవ్  ${MEDIUM} స్థాపకం. ఇది చివరి విడుదల కాదు; "
+"${RELEASE} యొక్క చివరి విడుదల అక్టోబర్ 2010లో వస్తుంది."
 
 #. Type: text
 #. Description
@@ -1756,6 +1761,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "ఇది ఒక  ${RELEASE} ముందు విడుదల అయిన లైవ్  ${MEDIUM} స్థాపకం. ఇది చివరి విడుదల కాదు; "
+#~ "${RELEASE} యొక్క చివరి విడుదల ఏప్రిల్ 2011లో వస్తుంది."
+
 #~ msgid "Install alongside other operating systems"
 #~ msgstr "ఇతర ఆపరేటింగ్ సిస్టంలతో పాటు పక్కపక్కనే స్థాపించండి"
 
@@ -1771,14 +1784,6 @@ msgstr "ప్యాకేజీలు తొలగించబడుతున�
 
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "ప్రశ్నలకు జవాబివ్వడానికి కొన్ని నిముషాలు మాత్రమే పడుతుంది."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "ఇది  ${RELEASE} యొక్క ముందు విడుదల అయిన లైవ్  ${MEDIUM} స్థాపకం. ఇది చివరి విడుదల కాదు; "
-#~ "${RELEASE} యొక్క చివరి విడుదల అక్టోబర్ 2010లో వస్తుంది."
 
 #~ msgid "Figure Out Keyboard Layout"
 #~ msgstr "కీబోర్డు నమూనా గుర్తించు"

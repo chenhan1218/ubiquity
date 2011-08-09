@@ -231,7 +231,7 @@ _Description:
 
 Template: ubiquity/text/part_auto_heading_label
 Type: text
-_Description: Allocate drive space
+_Description: Installation type
 
 Template: ubiquity/text/part_auto_files
 Type: text
@@ -461,6 +461,11 @@ Type: text
 _Description: Go Back
 
 Template: ubiquity/text/continue
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Continue
+
+Template: ubiquity/text/next
 Type: text
 # Translators, this text will appear on a button, so KEEP IT SHORT
 _Description: Continue
@@ -1018,8 +1023,8 @@ Template: ubiquity/nonfree_package
 Type: text
 Default: ubuntu-restricted-addons
 Description: for internal use; can be preseeded
- The package that will be installed when the proprietary extras package is
- installed
+ The package(s) that will be installed when the proprietary extras checkbox
+ is selected.
 
 Template: ubiquity/download_updates
 Type: boolean

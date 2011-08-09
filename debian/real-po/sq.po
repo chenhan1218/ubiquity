@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-09 12:29+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
@@ -131,14 +131,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Ky është një version paraprak i instaluesit ${RELEASE} live ${MEDIUM}. Nuk "
-"është një version përfundimtar; ai do të vijë me versionin përfundimtar të "
-"${RELEASE} në Prill 2011."
+"Ky është një version paraprak i ${RELEASE} me ${MEDIUM} instalues të "
+"drejtpërdrejtë. Nuk është një version final; ky do të vijë me versionin "
+"final të ${RELEASE} në Tetor 2010."
 
 #. Type: text
 #. Description
@@ -1797,6 +1802,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Ky është një version paraprak i instaluesit ${RELEASE} live ${MEDIUM}. "
+#~ "Nuk është një version përfundimtar; ai do të vijë me versionin "
+#~ "përfundimtar të ${RELEASE} në Prill 2011."
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "Përdor hapësirën e lirë të vazhdueshme më të madhe"
 
@@ -1910,15 +1924,6 @@ msgstr "Duke hequr paketat"
 
 #~ msgid "Continue with installation."
 #~ msgstr "Vazhdo me instalimin."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Ky është një version paraprak i ${RELEASE} me ${MEDIUM} instalues të "
-#~ "drejtpërdrejtë. Nuk është një version final; ky do të vijë me versionin "
-#~ "final të ${RELEASE} në Tetor 2010."
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "Gjeni daljen e tastierës"

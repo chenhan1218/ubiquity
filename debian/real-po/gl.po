@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-20 09:36+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -132,14 +132,19 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"Hai unha pre-edición do instalador en vivo ${MEDIUM} da edición ${RELEASE}. "
-"Non é unha edición final; iso será coa edición final de ${RELEASE} en abril "
-"de 2001"
+"Esta é unha versión previa do instalador ${RELEASE} live ${MEDIUM}. Non é "
+"unha versión final, que virá coa distribución de ${RELEASE} en Outubro de "
+"2010."
 
 #. Type: text
 #. Description
@@ -1811,6 +1816,15 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Hai unha pre-edición do instalador en vivo ${MEDIUM} da edición "
+#~ "${RELEASE}. Non é unha edición final; iso será coa edición final de "
+#~ "${RELEASE} en abril de 2001"
+
 #~ msgid "Specify partitions manually (advanced)"
 #~ msgstr "Especificar as particións manualmente (avanzado)"
 
@@ -1915,15 +1929,6 @@ msgstr "Eliminando paquetes"
 
 #~ msgid "Answering the questions should only take a few minutes."
 #~ msgstr "Responder a estas preguntas só lle levará uns minutos."
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "Esta é unha versión previa do instalador ${RELEASE} live ${MEDIUM}. Non é "
-#~ "unha versión final, que virá coa distribución de ${RELEASE} en Outubro de "
-#~ "2010."
 
 #~ msgid "Where do you want to put ${RELEASE}?"
 #~ msgstr "Onde desexa poñer ${RELEASE}?"

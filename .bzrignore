@@ -24,6 +24,7 @@ debian/ubiquity-ubuntu-artwork
 debian/ubiquity-ubuntu-doc
 debian/ubiquity.dirs
 debian/ubiquity.install
+debian/xvfb.log
 debian/*.debhelper*
 debian/*.substvars
 ./Makefile

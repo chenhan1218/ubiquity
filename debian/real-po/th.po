@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-04-10 01:34+0100\n"
+"POT-Creation-Date: 2011-05-31 14:54+0100\n"
 "PO-Revision-Date: 2011-04-12 03:00+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -127,13 +127,18 @@ msgstr "คุณอาจต้องการที่จะ <a href=\"update\
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2011."
+"October 2011."
 msgstr ""
-"นี่เป็นรุ่นก่อนรุ่นจริงของ ${RELEASE} live ${MEDIUM} ติดตั้ง ยังไม่ใช่รุ่นสุดท้ายซึ่งจะมาใน "
-"${RELEASE} ในเมษายน 2554"
+"นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
+"ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
 
 #. Type: text
 #. Description
@@ -1742,6 +1747,14 @@ msgstr ""
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "นี่เป็นรุ่นก่อนรุ่นจริงของ ${RELEASE} live ${MEDIUM} ติดตั้ง ยังไม่ใช่รุ่นสุดท้ายซึ่งจะมาใน "
+#~ "${RELEASE} ในเมษายน 2554"
+
 #~ msgid "Use the largest continuous free space"
 #~ msgstr "ใช้พื้นที่ว่างต่อเนื่องที่ใหญ่ที่สุด"
 
@@ -1853,14 +1866,6 @@ msgstr "กำลังถอดถอนแพกเกจ"
 
 #~ msgid "Once you answer a few questions, this computer will be ready to use."
 #~ msgstr "เพียงคุณตอบคำถามไม่กี่ข้อ คอมพิวเตอร์เครื่องนี้ก็จะพร้อมใช้งาน"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in October 2010."
-#~ msgstr ""
-#~ "นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
-#~ "ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
 
 #~ msgid "Figure out keyboard layout"
 #~ msgstr "ตรวจหาผังแป้นพิมพ์"
