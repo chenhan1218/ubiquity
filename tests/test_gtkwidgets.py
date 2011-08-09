@@ -1,9 +1,9 @@
 #!/usr/bin/python
 
 import unittest
-from ubiquity import segmented_bar, timezone_map, tz
+from ubiquity import segmented_bar
 from test import test_support
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, TimezoneMap
 import sys
 
 class WidgetTests(unittest.TestCase):
@@ -36,10 +36,9 @@ class WidgetTests(unittest.TestCase):
         Gtk.main()
 
     def test_timezone_map(self):
-        tzdb = tz.Database()
-        tzmap = timezone_map.TimezoneMap(tzdb, 'pixmaps/timezone')
+        tzmap = TimezoneMap.TimezoneMap()
         self.win.add(tzmap)
-        tzmap.select_city('America/New_York')
+        #tzmap.select_city('America/New_York')
         self.win.show_all()
         self.win.connect('destroy', Gtk.main_quit)
         GObject.timeout_add(500, Gtk.main_quit)
