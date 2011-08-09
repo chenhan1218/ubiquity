@@ -2,6 +2,9 @@
  * from gi.repository import UbiquityWebcam
  * w = UbiquityWebcam.Webcam()
  */
+#define G_UDEV_API_IS_SUBJECT_TO_CHANGE 1
+#include <gudev/gudev.h>
+
 #include "webcam.h"
 
 static void button_clicked_cb (GtkWidget *widget, GstElement *camerabin);
@@ -103,6 +106,23 @@ ubiquity_webcam_test (UbiquityWebcam *webcam) {
 	gst_object_ref (priv->src);
 	gst_object_ref (priv->testsrc);
 }
+
+gboolean
+ubiquity_webcam_available (void) {
+	GUdevEnumerator *enumerator;
+	GUdevClient *client;
+	GList *devices;
+	guint length;
+  	const gchar *const subsystems[] = {NULL};
+  	client = g_udev_client_new (subsystems);
+	enumerator = g_udev_enumerator_new (client);
+	g_udev_enumerator_add_match_property (enumerator, "ID_V4L_CAPABILITIES", ":capture:");
+	devices = g_udev_enumerator_execute (enumerator);
+	length = g_list_length (devices);
+	g_list_free_full (devices, g_object_unref);
+	return length > 0;
+}
+
 void
 ubiquity_webcam_play (UbiquityWebcam *webcam) {
 	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
@@ -198,7 +218,8 @@ main(int argc, char** argv) {
 
 	gtk_widget_show_all (win);
 	ubiquity_webcam_play (webcam);
-	//ubiquity_webcam_test (webcam);
+	if (!ubiquity_webcam_available ())
+		ubiquity_webcam_test (webcam);
 
 	g_assert (video_window_xid != 0);
 	g_signal_connect (win, "destroy", G_CALLBACK (window_destroy_cb), NULL);
