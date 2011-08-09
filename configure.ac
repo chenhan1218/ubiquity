@@ -24,9 +24,17 @@ AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
 GTK_REQUIRED=2.10.0
+GTK3_REQUIRED=3.1.4
+GIO_REQUIRED=2.5.11
 AM_PATH_PYTHON([2.5])
 
 if test "x$UBIQUITY_NO_GTK" = x; then
+  PKG_CHECK_MODULES(WEBCAM, [gtk+-3.0 >= $GTK3_REQUIRED
+			  gio-2.0 >= $GIO_REQUIRED
+			  gstreamer-0.10
+			  gstreamer-interfaces-0.10])
+  AC_SUBST(WEBCAM_CFLAGS)
+  AC_SUBST(WEBCAM_LIBS)
   PKG_CHECK_MODULES(PANEL, [glib-2.0
 			  gtk+-2.0 >= $GTK_REQUIRED
 			  indicator-0.4
@@ -34,13 +42,17 @@ if test "x$UBIQUITY_NO_GTK" = x; then
   AC_SUBST(PANEL_CFLAGS)
   AC_SUBST(PANEL_LIBS)
   AM_PATH_GTK_2_0([$GTK_REQUIRED])
+  GOBJECT_INTROSPECTION_CHECK([0.6.7])
   AC_CONFIG_FILES(
 	src/Makefile
+	src/webcam/Makefile
 	src/panel/Makefile
 	)
 else
   AC_SUBST(BASE_CFLAGS, [""])
   AC_SUBST(BASE_LIBS, [""])
+  AC_SUBST(WEBCAM_CFLAGS, [""])
+  AC_SUBST(WEBCAM_LIBS, [""])
 fi
 
 

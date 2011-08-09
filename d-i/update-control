@@ -36,7 +36,6 @@ my @basebd = (
     'dpkg-dev (>= 1.14.4)',
     'intltool (>= 0.40.0)',
     'keymapper (>= 0.5.3-7)',
-    'libclutter-1.0-dev',
     'libglib2.0-dev',
     'libgstreamer-plugins-base0.10-dev (>= 0.10.23)',
     'libgtk3.0-dev',

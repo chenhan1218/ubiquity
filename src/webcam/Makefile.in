@@ -15,6 +15,7 @@
 
 @SET_MAKE@
 
+
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkgincludedir = $(includedir)/@PACKAGE@
@@ -34,7 +35,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-subdir = ubiquity
+@HAVE_INTROSPECTION_TRUE@am__append_1 = $(gir_DATA) $(typelib_DATA)
+subdir = src/webcam
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/am-check-python-headers.m4 \
@@ -74,14 +76,16 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(pkgpyexecdir)"
-LTLIBRARIES = $(pkgpyexec_LTLIBRARIES)
-_osextras_la_LIBADD =
-am__osextras_la_OBJECTS = _osextras_la-osextrasmodule.lo
-_osextras_la_OBJECTS = $(am__osextras_la_OBJECTS)
-_osextras_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(_osextras_la_CFLAGS) \
-	$(CFLAGS) $(_osextras_la_LDFLAGS) $(LDFLAGS) -o $@
+am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(girdir)" \
+	"$(DESTDIR)$(typelibdir)"
+LTLIBRARIES = $(lib_LTLIBRARIES)
+am__DEPENDENCIES_1 =
+libwebcam_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+am_libwebcam_la_OBJECTS = webcam.lo
+libwebcam_la_OBJECTS = $(am_libwebcam_la_OBJECTS)
+libwebcam_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(libwebcam_la_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/build/depcomp
 am__depfiles_maybe = depfiles
@@ -95,8 +99,9 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(_osextras_la_SOURCES)
-DIST_SOURCES = $(_osextras_la_SOURCES)
+SOURCES = $(libwebcam_la_SOURCES)
+DIST_SOURCES = $(libwebcam_la_SOURCES)
+DATA = $(gir_DATA) $(typelib_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -272,13 +277,29 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-INCLUDES = $(PYTHON_INCLUDES)
-pkgpyexec_LTLIBRARIES = _osextras.la
-_osextras_la_CFLAGS = -fPIC $(PYTHON_INCLUDES)
-_osextras_la_LDFLAGS = -module -avoid-version \
-		       -export-symbols-regex init_osextras
+CLEANFILES = $(am__append_1)
+AM_CPPFLAGS = $(WEBCAM_CFLAGS)
+AM_LDFLAGS = $(WEBCAM_LIBS)
 
-_osextras_la_SOURCES = osextrasmodule.c
+#pkglib_PROGRAMS = webcam
+lib_LTLIBRARIES = libwebcam.la
+libwebcam_la_SOURCES = webcam.h webcam.c
+libwebcam_la_LDFLAGS = -version-info 0:0:0 -no-undefined \
+	-export-symbols-regex "^[^_].*"
+
+libwebcam_la_LIBADD = $(WEBCAM_LIBS)
+@HAVE_INTROSPECTION_TRUE@INTROSPECTION_SCANNER_ARGS = --add-include-path=$(srcdir)
+@HAVE_INTROSPECTION_TRUE@INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
+@HAVE_INTROSPECTION_TRUE@INTROSPECTION_GIRS = UbiquityWebcam-1.0.gir
+@HAVE_INTROSPECTION_TRUE@introspection_sources = $(libwebcam_la_SOURCES)
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 Gst-0.10
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_CFLAGS = $(INCLUDES) --identifier-prefix=Ubiquity
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_LIBS = libwebcam.la
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_FILES = $(introspection_sources)
+@HAVE_INTROSPECTION_TRUE@girdir = $(datadir)/gir-1.0
+@HAVE_INTROSPECTION_TRUE@gir_DATA = $(INTROSPECTION_GIRS)
+@HAVE_INTROSPECTION_TRUE@typelibdir = $(libdir)/girepository-1.0
+@HAVE_INTROSPECTION_TRUE@typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
 all: all-am
 
 .SUFFIXES:
@@ -292,9 +313,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign ubiquity/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign src/webcam/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign ubiquity/Makefile
+	  $(AUTOMAKE) --foreign src/webcam/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -313,39 +334,39 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-install-pkgpyexecLTLIBRARIES: $(pkgpyexec_LTLIBRARIES)
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(pkgpyexecdir)" || $(MKDIR_P) "$(DESTDIR)$(pkgpyexecdir)"
-	@list='$(pkgpyexec_LTLIBRARIES)'; test -n "$(pkgpyexecdir)" || list=; \
+	test -z "$(libdir)" || $(MKDIR_P) "$(DESTDIR)$(libdir)"
+	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
 	list2=; for p in $$list; do \
 	  if test -f $$p; then \
 	    list2="$$list2 $$p"; \
 	  else :; fi; \
 	done; \
 	test -z "$$list2" || { \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(pkgpyexecdir)'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(pkgpyexecdir)"; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(libdir)'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(libdir)"; \
 	}
 
-uninstall-pkgpyexecLTLIBRARIES:
+uninstall-libLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(pkgpyexec_LTLIBRARIES)'; test -n "$(pkgpyexecdir)" || list=; \
+	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
 	for p in $$list; do \
 	  $(am__strip_dir) \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(pkgpyexecdir)/$$f'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(pkgpyexecdir)/$$f"; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(libdir)/$$f'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(libdir)/$$f"; \
 	done
 
-clean-pkgpyexecLTLIBRARIES:
-	-test -z "$(pkgpyexec_LTLIBRARIES)" || rm -f $(pkgpyexec_LTLIBRARIES)
-	@list='$(pkgpyexec_LTLIBRARIES)'; for p in $$list; do \
+clean-libLTLIBRARIES:
+	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
+	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
 	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
 	  test "$$dir" != "$$p" || dir=.; \
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-_osextras.la: $(_osextras_la_OBJECTS) $(_osextras_la_DEPENDENCIES) 
-	$(_osextras_la_LINK) -rpath $(pkgpyexecdir) $(_osextras_la_OBJECTS) $(_osextras_la_LIBADD) $(LIBS)
+libwebcam.la: $(libwebcam_la_OBJECTS) $(libwebcam_la_DEPENDENCIES) 
+	$(libwebcam_la_LINK) -rpath $(libdir) $(libwebcam_la_OBJECTS) $(libwebcam_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -353,7 +374,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/_osextras_la-osextrasmodule.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/webcam.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -376,18 +397,51 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-_osextras_la-osextrasmodule.lo: osextrasmodule.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_osextras_la_CFLAGS) $(CFLAGS) -MT _osextras_la-osextrasmodule.lo -MD -MP -MF $(DEPDIR)/_osextras_la-osextrasmodule.Tpo -c -o _osextras_la-osextrasmodule.lo `test -f 'osextrasmodule.c' || echo '$(srcdir)/'`osextrasmodule.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/_osextras_la-osextrasmodule.Tpo $(DEPDIR)/_osextras_la-osextrasmodule.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='osextrasmodule.c' object='_osextras_la-osextrasmodule.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(_osextras_la_CFLAGS) $(CFLAGS) -c -o _osextras_la-osextrasmodule.lo `test -f 'osextrasmodule.c' || echo '$(srcdir)/'`osextrasmodule.c
-
 mostlyclean-libtool:
 	-rm -f *.lo
 
 clean-libtool:
 	-rm -rf .libs _libs
+install-girDATA: $(gir_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(girdir)" || $(MKDIR_P) "$(DESTDIR)$(girdir)"
+	@list='$(gir_DATA)'; test -n "$(girdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(girdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(girdir)" || exit $$?; \
+	done
+
+uninstall-girDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(gir_DATA)'; test -n "$(girdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(girdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(girdir)" && rm -f $$files
+install-typelibDATA: $(typelib_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(typelibdir)" || $(MKDIR_P) "$(DESTDIR)$(typelibdir)"
+	@list='$(typelib_DATA)'; test -n "$(typelibdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(typelibdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(typelibdir)" || exit $$?; \
+	done
+
+uninstall-typelibDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(typelib_DATA)'; test -n "$(typelibdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(typelibdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(typelibdir)" && rm -f $$files
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -473,9 +527,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(LTLIBRARIES)
+all-am: Makefile $(LTLIBRARIES) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(pkgpyexecdir)"; do \
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(girdir)" "$(DESTDIR)$(typelibdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -495,6 +549,7 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -505,7 +560,7 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-libtool clean-pkgpyexecLTLIBRARIES \
+clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
 	mostlyclean-am
 
 distclean: distclean-am
@@ -526,13 +581,13 @@ info: info-am
 
 info-am:
 
-install-data-am:
+install-data-am: install-girDATA install-typelibDATA
 
 install-dvi: install-dvi-am
 
 install-dvi-am:
 
-install-exec-am: install-pkgpyexecLTLIBRARIES
+install-exec-am: install-libLTLIBRARIES
 
 install-html: install-html-am
 
@@ -572,24 +627,29 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-pkgpyexecLTLIBRARIES
+uninstall-am: uninstall-girDATA uninstall-libLTLIBRARIES \
+	uninstall-typelibDATA
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-libtool clean-pkgpyexecLTLIBRARIES ctags distclean \
+	clean-libLTLIBRARIES clean-libtool ctags distclean \
 	distclean-compile distclean-generic distclean-libtool \
 	distclean-tags distdir dvi dvi-am html html-am info info-am \
 	install install-am install-data install-data-am install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-info install-info-am install-man \
-	install-pdf install-pdf-am install-pkgpyexecLTLIBRARIES \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
+	install-dvi-am install-exec install-exec-am install-girDATA \
+	install-html install-html-am install-info install-info-am \
+	install-libLTLIBRARIES install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip install-typelibDATA \
+	installcheck installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am uninstall-pkgpyexecLTLIBRARIES
+	tags uninstall uninstall-am uninstall-girDATA \
+	uninstall-libLTLIBRARIES uninstall-typelibDATA
 
+@HAVE_INTROSPECTION_TRUE@-include $(INTROSPECTION_MAKEFILE)
+
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam-1.0.gir: libwebcam.la
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
