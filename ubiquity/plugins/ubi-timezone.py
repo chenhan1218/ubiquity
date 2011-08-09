@@ -54,7 +54,7 @@ class PageGtk(plugin.PluginUI):
         self.plugin_widgets = self.page
 
     def plugin_translate(self, lang):
-        c = self.controller
+        #c = self.controller
         #if c.get_string('ubiquity/imported/time-format', lang) == '12-hour':
         #    fmt = c.get_string('ubiquity/imported/12-hour', lang)
         #else:
