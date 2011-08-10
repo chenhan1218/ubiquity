@@ -48,6 +48,7 @@ my @basebd = (
     'pyflakes',
     'python-all-dev (>= 2.6.6-3~)',
     'python-apt',
+    'python-cairo',
     'python-gobject-dev',
     'python-libxml2',
     'python-mock',
