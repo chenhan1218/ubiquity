@@ -191,7 +191,6 @@ POSUB = @POSUB@
 PYGOBJECT_CODEGEN = @PYGOBJECT_CODEGEN@
 PYGOBJECT_DEFSDIR = @PYGOBJECT_DEFSDIR@
 PYGOBJECT_H2DEF = @PYGOBJECT_H2DEF@
-PYGTK_DEFS_DIR = @PYGTK_DEFS_DIR@
 PYTHON = @PYTHON@
 PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
 PYTHON_INCLUDES = @PYTHON_INCLUDES@
@@ -267,7 +266,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = panel
+SUBDIRS = panel webcam
 all: all-recursive
 
 .SUFFIXES:

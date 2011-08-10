@@ -618,7 +618,6 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
-PYGTK_DEFS_DIR
 PYGOBJECT_H2DEF
 PYGOBJECT_CODEGEN
 PYGOBJECT_DEFSDIR
@@ -14894,18 +14893,21 @@ if test -n "$WEBCAM_CFLAGS"; then
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-3.0 >= \$GTK3_REQUIRED
 			  gio-2.0 >= \$GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10\""; } >&5
+			  gstreamer-interfaces-0.10
+			  gudev-1.0\""; } >&5
   ($PKG_CONFIG --exists --print-errors "gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10") 2>&5
+			  gstreamer-interfaces-0.10
+			  gudev-1.0") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_WEBCAM_CFLAGS=`$PKG_CONFIG --cflags "gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10" 2>/dev/null`
+			  gstreamer-interfaces-0.10
+			  gudev-1.0" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -14920,18 +14922,21 @@ if test -n "$WEBCAM_LIBS"; then
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-3.0 >= \$GTK3_REQUIRED
 			  gio-2.0 >= \$GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10\""; } >&5
+			  gstreamer-interfaces-0.10
+			  gudev-1.0\""; } >&5
   ($PKG_CONFIG --exists --print-errors "gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10") 2>&5
+			  gstreamer-interfaces-0.10
+			  gudev-1.0") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
   pkg_cv_WEBCAM_LIBS=`$PKG_CONFIG --libs "gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10" 2>/dev/null`
+			  gstreamer-interfaces-0.10
+			  gudev-1.0" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -14955,12 +14960,14 @@ fi
 	        WEBCAM_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10" 2>&1`
+			  gstreamer-interfaces-0.10
+			  gudev-1.0" 2>&1`
         else
 	        WEBCAM_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10" 2>&1`
+			  gstreamer-interfaces-0.10
+			  gudev-1.0" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$WEBCAM_PKG_ERRORS" >&5
@@ -14968,7 +14975,8 @@ fi
 	as_fn_error $? "Package requirements (gtk+-3.0 >= $GTK3_REQUIRED
 			  gio-2.0 >= $GIO_REQUIRED
 			  gstreamer-0.10
-			  gstreamer-interfaces-0.10) were not met:
+			  gstreamer-interfaces-0.10
+			  gudev-1.0) were not met:
 
 $WEBCAM_PKG_ERRORS
 
@@ -16012,20 +16020,6 @@ PYGOBJECT_H2DEF="$PYTHON `$PKG_CONFIG --variable=codegendir pygobject-2.0`/h2def
 $as_echo "$PYGOBJECT_H2DEF" >&6; }
 
 
-#*******************************************************************************
-# Check for PYGTK
-#*******************************************************************************
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for pygtk defs" >&5
-$as_echo_n "checking for pygtk defs... " >&6; }
-PYGTK_DEFS_DIR="`$PKG_CONFIG --variable=defsdir pygtk-2.0`"
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $PYGTK_DEFS_DIR" >&5
-$as_echo "$PYGTK_DEFS_DIR" >&6; }
-
-
-
-#*******************************************************************************
 ac_config_files="$ac_config_files Makefile desktop/Makefile pixmaps/Makefile po/Makefile.in ubiquity/Makefile"
 
 cat >confcache <<\_ACEOF
