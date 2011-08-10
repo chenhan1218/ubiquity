@@ -11,6 +11,19 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   [ Brian Murray ]
   * Instead of sending people to +filebug recommend using apport
 
+  [ Luke Yelavich ]
+  * Add support for launching high contrast, screen reader, keyboard modifiers,
+    and onscreen keyboard accessibility profiles in maybe-ubiquity mode, high
+    contrast and screen reader profiles being launcheable either from an
+    indicator, or via keyboard shortcut, the rest of the profiles available
+    via the indicator only
+  * bin/ubiquity-dm:
+    - Start at-spi either when an appropriate accessibility profile is enabled,
+      or when maybe-ubiquity mode is enabled
+    - Remove references to orbit, as the a11y stack now uses dbus
+  * debian/control: Add python-appindicator as a dependency of
+    ubiquity-frontend-gtk
+
  -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 
 ubiquity (2.7.14) oneiric; urgency=low
