@@ -502,9 +502,9 @@ class Wizard(BaseFrontend):
             self.thunar_set_volmanrc(self.thunar_previous)
 
     def a11y_profile_keys(self, window, event):
-        if event.state & gtk.gdk.CONTROL_MASK and event.keyval == gtk.gdk.keyval_from_name('h'):
+        if event.state & Gdk.CONTROL_MASK and event.keyval == Gdk.keyval_from_name('h'):
             self.a11y_profile_high_contrast_activate()
-        elif event.state & gtk.gdk.CONTROL_MASK and event.keyval == gtk.gdk.keyval_from_name('s'):
+        elif event.state & Gdk.CONTROL_MASK and event.keyval == Gdk.keyval_from_name('s'):
             self.a11y_profile_screen_reader_activate()
 
     def a11y_profile_high_contrast_activate(self, widget=None):
