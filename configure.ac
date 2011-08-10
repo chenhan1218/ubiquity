@@ -92,18 +92,6 @@ AC_SUBST(PYGOBJECT_H2DEF)
 AC_MSG_RESULT($PYGOBJECT_H2DEF)
 
 
-#*******************************************************************************
-# Check for PYGTK
-#*******************************************************************************
-
-AC_MSG_CHECKING(for pygtk defs)
-PYGTK_DEFS_DIR="`$PKG_CONFIG --variable=defsdir pygtk-2.0`"
-AC_SUBST(PYGTK_DEFS_DIR)
-AC_MSG_RESULT($PYGTK_DEFS_DIR)
-
-
-
-#*******************************************************************************
 AC_CONFIG_FILES([
 	Makefile
 	desktop/Makefile
