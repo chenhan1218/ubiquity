@@ -304,7 +304,8 @@ class Wizard(BaseFrontend):
                 self.indicator.set_status(appindicator.STATUS_ACTIVE)
                 self.indicator.set_menu(self.builder.get_object('a11y_indicator_menu'))
                 self.live_installer.connect('key-press-event', self.a11y_profile_keys)
-                subprocess.Popen(['/usr/bin/canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
+                if os.path.exists('/usr/bin/canberra-gtk-play'):
+                    subprocess.Popen(['/usr/bin/canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
             except:
                 print >>sys.stderr, "Unable to set up accessibility profile support."
 
