@@ -28,6 +28,9 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   * Enable caret browsing/text cursor movement in the slideshow if the screen
     reader accessibility profile is enabled
 
+  [ Mario Limonciello ]
+  * Fix calls to get_size() in ubiquity-dm from pygi transition.
+
  -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 
 ubiquity (2.7.14) oneiric; urgency=low
