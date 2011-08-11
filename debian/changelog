@@ -23,6 +23,8 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
     - Remove references to orbit, as the a11y stack now uses dbus
   * debian/control: Add python-appindicator as a dependency of
     ubiquity-frontend-gtk
+  * Play the system-ready sound once accessibility profile support code has
+    been run to signal the user that a profile shortcut key can be pressed
 
  -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 
