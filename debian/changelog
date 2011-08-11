@@ -25,6 +25,8 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
     ubiquity-frontend-gtk
   * Play the system-ready sound once accessibility profile support code has
     been run to signal the user that a profile shortcut key can be pressed
+  * Enable caret browsing/text cursor movement in the slideshow if the screen
+    reader accessibility profile is enabled
 
  -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
 

@@ -679,6 +679,8 @@ class Wizard(BaseFrontend):
         s = webview.get_settings()
         s.set_property('enable-file-access-from-file-uris', True)
         s.set_property('enable-default-context-menu', False)
+        if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
+            s.set_property('enable-caret-browsing', True)
         
         webview.connect('new-window-policy-decision-requested',
                         self.on_slideshow_link_clicked)
