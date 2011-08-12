@@ -44,6 +44,7 @@ my @basebd = (
     'libgudev-1.0-dev',
     'libindicator-dev (>= 0.3.90)',
     'liblocale-gettext-perl',
+    'gobject-introspection',
     'pkg-config',
     'po-debconf (>= 1.0)',
     'pyflakes',
