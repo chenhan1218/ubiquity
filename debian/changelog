@@ -7,6 +7,7 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   * Change the first partitioning page title to 'Installation Type.'
     Thanks Matthew Paul Thomas.
   * Merge PyGI branch. Ubiquity now uses PyGI and GTK+3.
+  * Feature Freeze exception (LP: #825274).
 
   [ Brian Murray ]
   * Instead of sending people to +filebug recommend using apport
