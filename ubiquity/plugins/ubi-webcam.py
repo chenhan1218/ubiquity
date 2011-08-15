@@ -48,3 +48,12 @@ class PageGtk(plugin.PluginUI):
         self.page.show_all()
         self.webcam.play()
         return self.page
+
+    def plugin_on_back_clicked(self):
+        self.webcam.stop()
+        return False
+
+    def plugin_on_next_clicked(self):
+        self.webcam.stop()
+        return False
+

@@ -132,6 +132,15 @@ ubiquity_webcam_play (UbiquityWebcam *webcam) {
 	}
 }
 
+void
+ubiquity_webcam_stop (UbiquityWebcam *webcam) {
+	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
+	if (gst_element_set_state (priv->camerabin, GST_STATE_NULL) == GST_STATE_CHANGE_FAILURE) {
+		g_print ("setting camerabin to STOPPED failed\n");
+		return;
+	}
+}
+
 UbiquityWebcam*
 ubiquity_webcam_new (void) {
 	return g_object_new (UBIQUITY_TYPE_WEBCAM, NULL);

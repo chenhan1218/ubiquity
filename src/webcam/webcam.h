@@ -51,6 +51,7 @@ GType ubiquity_webcam_get_type (void) G_GNUC_CONST;
 
 UbiquityWebcam *ubiquity_webcam_new (void);
 void ubiquity_webcam_play (UbiquityWebcam *webcam);
+void ubiquity_webcam_stop (UbiquityWebcam *webcam);
 gboolean ubiquity_webcam_available (void);
 
 G_END_DECLS
