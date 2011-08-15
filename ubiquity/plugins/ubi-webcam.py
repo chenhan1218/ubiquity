@@ -41,7 +41,10 @@ class PageGtk(plugin.PluginUI):
         builder.connect_signals(self)
         self.page = builder.get_object('stepWebcam')
         self.plugin_widgets = self.page
-        w = UbiquityWebcam.Webcam()
-        self.page.add(w)
-        w.show()
-        w.play()
+        self.webcam = UbiquityWebcam.Webcam()
+        self.page.add(self.webcam)
+    
+    def plugin_get_current_page(self):
+        self.page.show_all()
+        self.webcam.play()
+        return self.page
