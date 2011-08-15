@@ -46,9 +46,9 @@ import dbus
 if 'DISPLAY' in os.environ:
     from gi.repository import Gtk, Gdk, GObject
     GObject.threads_init()
+    from ubiquity import gtkwidgets
 
 from ubiquity import filteredcommand, gconftool, i18n, validation, misc
-from ubiquity import gtkwidgets
 from ubiquity.plugin import Plugin
 from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.progressposition
