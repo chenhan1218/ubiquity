@@ -41,8 +41,11 @@ import gettext
 import ConfigParser
 
 import dbus
-from gi.repository import Gtk, Gdk, GObject
-GObject.threads_init()
+
+#in query mode we won't be in X, but import needs to pass
+if 'DISPLAY' in os.environ:
+    from gi.repository import Gtk, Gdk, GObject
+    GObject.threads_init()
 
 from ubiquity import filteredcommand, gconftool, i18n, validation, misc
 from ubiquity import gtkwidgets
