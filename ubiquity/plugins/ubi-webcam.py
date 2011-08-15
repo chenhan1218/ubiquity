@@ -30,7 +30,7 @@ class PageGtk(plugin.PluginUI):
         from gi.repository import Gtk, Gst
         Gst.init(sys.argv)
         from gi.repository import UbiquityWebcam
-        if not UbiquityWebcam.available():
+        if not UbiquityWebcam.available() or 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return
         self.controller = controller
