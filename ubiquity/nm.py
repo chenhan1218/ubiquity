@@ -88,8 +88,6 @@ class NetworkManager:
                 saved_strength = strength
                 saved_path = ap_path
         if not saved_path:
-            # Went away?
-            print 'went away'
             return
 
         obj = dbus.Dictionary(signature='sa{sv}')
@@ -145,7 +143,6 @@ class NetworkManager:
             while iterator:
                 i = self.ssid_in_model(iterator, ssid, security)
                 if i:
-                    print 'props', ssid, strength
                     self.model.set_value(i, 2, strength) 
                 iterator = self.model.iter_next(iterator)
 
