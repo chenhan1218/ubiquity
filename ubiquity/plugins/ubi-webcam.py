@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity import plugin
-import os
+import os, sys
 
 NAME = 'webcam'
 AFTER = 'usersetup'
@@ -27,7 +27,8 @@ WEIGHT = 10
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/webcam_heading_label'
     def __init__(self, controller, *args, **kwargs):
-        from gi.repository import Gtk
+        from gi.repository import Gtk, Gst
+        Gst.init(sys.argv)
         from gi.repository import UbiquityWebcam
         if not UbiquityWebcam.available():
             self.page = None
@@ -39,6 +40,7 @@ class PageGtk(plugin.PluginUI):
             'stepWebcam.ui'))
         builder.connect_signals(self)
         self.page = builder.get_object('stepWebcam')
+        self.plugin_widgets = self.page
         w = UbiquityWebcam.Webcam()
         self.page.add(w)
         w.show()
