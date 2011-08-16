@@ -2,6 +2,8 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Remove dead code from debian/oem-config.oem-config.upstart.
+  * Prefer recent versions of ntfs-3g to ntfsprogs, as ntfsresize has moved
+    to ntfs-3g.
 
   [ Evan Dandrea ]
   * Change the first partitioning page title to 'Installation Type.'
