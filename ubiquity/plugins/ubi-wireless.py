@@ -29,13 +29,10 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.nm import NetworkManagerWidget, wireless_hardware_present
         from gi.repository import Gtk
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if (not wireless_hardware_present() or
+            'UBIQUITY_AUTOMATIC' in os.environ):
             self.page = None
             return
-        if not wireless_hardware_present():
-            pass
-            #self.page = None
-            #return
         self.controller = controller
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
