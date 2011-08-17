@@ -10,6 +10,7 @@ class WidgetTests(unittest.TestCase):
     def setUp(self):
         self.err = None
         def excepthook(exctype, value, tb):
+            # Workaround for http://bugzilla.gnome.org/show_bug.cgi?id=616279
             Gtk.main_quit()
             self.err = exctype, tb
         sys.excepthook = excepthook
