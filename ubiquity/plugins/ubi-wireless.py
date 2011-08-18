@@ -29,7 +29,7 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         from ubiquity import nm
         from gi.repository import Gtk
-        if (not wireless_hardware_present() or
+        if (not nm.wireless_hardware_present() or
             'UBIQUITY_AUTOMATIC' in os.environ):
             self.page = None
             return
@@ -44,7 +44,6 @@ class PageGtk(plugin.PluginUI):
         self.plugin_widgets = self.page
     def state_changed(self, unused, state):
         from ubiquity import nm
-        from gi.repository import Gtk
         if state == nm.NM_STATE_DISCONNECTED or state == nm.NM_STATE_CONNECTED_GLOBAL:
             self.controller._wizard.connecting_spinner.hide()
             self.controller._wizard.connecting_spinner.stop()

@@ -1,4 +1,4 @@
-ubiquity (2.7.15) UNRELEASED; urgency=low
+ubiquity (2.7.15) oneiric; urgency=low
 
   [ Colin Watson ]
   * Remove dead code from debian/oem-config.oem-config.upstart.
@@ -40,7 +40,7 @@ ubiquity (2.7.15) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Fix calls to get_size() in ubiquity-dm from pygi transition.
 
- -- Brian Murray <brian@ubuntu.com>  Tue, 09 Aug 2011 08:04:40 -0700
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 18 Aug 2011 17:56:46 +0100
 
 ubiquity (2.7.14) oneiric; urgency=low
 
