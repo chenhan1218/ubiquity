@@ -1,6 +1,4 @@
-/* -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
- *
- * «panel» - Installer session panel
+/* «panel» - Installer session panel
  *
  * Copyright (C) 2010 Canonical Ltd.
  *

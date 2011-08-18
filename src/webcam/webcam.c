@@ -1,7 +1,33 @@
+/* UbiquityWebcam - a library interface to webcams over GStreamer and V4L2.
+ * 
+ * Copyright (C) 2011 Canonical Ltd.
+ *
+ * Authors:
+ *
+ * - Evan Dandrea <ev@ubuntu.com>
+ *
+ * This file is part of Ubiquity.
+ *
+ * Ubiquity is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free
+ * Software Foundation; either version 2 of the License, or at your option)
+ * any later version.
+ *
+ * Ubiquity is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
+ * Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
 /* LD_LIBRARY_PATH=.libs GI_TYPELIB_PATH=. ipython
  * from gi.repository import UbiquityWebcam
  * w = UbiquityWebcam.Webcam()
  */
+
 #define G_UDEV_API_IS_SUBJECT_TO_CHANGE 1
 #include <gudev/gudev.h>
 
