@@ -11,6 +11,7 @@ NM_AP = 'org.freedesktop.NetworkManager.AccessPoint'
 NM_SETTINGS = 'org.freedesktop.NetworkManager.Settings'
 NM_SETTINGS_CONN = 'org.freedesktop.NetworkManager.Settings.Connection'
 NM_SETTINGS_PATH = '/org/freedesktop/NetworkManager/Settings'
+NM_ERROR_NOSECRETS = 'org.freedesktop.NetworkManager.AgentManager.NoSecrets'
 DEVICE_TYPE_WIFI = 2
 NM_STATE_DISCONNECTED = 20
 NM_STATE_CONNECTING = 40
@@ -103,11 +104,15 @@ class NetworkManager:
             conn_obj = self.bus.get_object(NM, conn)
             props = conn_obj.GetSettings(dbus_interface=NM_SETTINGS_CONN)
             if '802-11-wireless-security' in props:
-                sec = conn_obj.GetSecrets('802-11-wireless-security',
-                                          dbus_interface=NM_SETTINGS_CONN)
-                sec = sec['802-11-wireless-security'].values()[0]
-                ssid = decode_ssid(props['802-11-wireless']['ssid'])
-                self.passphrases_cache[ssid] = sec
+                try:
+                    sec = conn_obj.GetSecrets('802-11-wireless-security',
+                                              dbus_interface=NM_SETTINGS_CONN)
+                    sec = sec['802-11-wireless-security'].values()[0]
+                    ssid = decode_ssid(props['802-11-wireless']['ssid'])
+                    self.passphrases_cache[ssid] = sec
+                except dbus.exceptions.DBusException, e:
+                    if e.get_dbus_name() != NM_ERROR_NOSECRETS:
+                        raise
 
     def ssid_in_model(self, iterator, ssid, security):
         i = self.model.iter_children(iterator)

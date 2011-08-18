@@ -27,7 +27,7 @@ WEIGHT = 12
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/wireless_heading_label'
     def __init__(self, controller, *args, **kwargs):
-        from ubiquity.nm import NetworkManagerWidget, wireless_hardware_present
+        from ubiquity import nm
         from gi.repository import Gtk
         if (not wireless_hardware_present() or
             'UBIQUITY_AUTOMATIC' in os.environ):
@@ -40,5 +40,17 @@ class PageGtk(plugin.PluginUI):
         builder.connect_signals(self)
         self.page = builder.get_object('stepWireless')
         self.nmwidget = builder.get_object('nmwidget')
+        self.nmwidget.connect('connection', self.state_changed)
         self.plugin_widgets = self.page
+    def state_changed(self, unused, state):
+        from ubiquity import nm
+        from gi.repository import Gtk
+        if state == nm.NM_STATE_DISCONNECTED or state == nm.NM_STATE_CONNECTED_GLOBAL:
+            self.controller._wizard.connecting_spinner.hide()
+            self.controller._wizard.connecting_spinner.stop()
+            self.controller._wizard.connecting_label.hide()
+        else:
+            self.controller._wizard.connecting_spinner.show()
+            self.controller._wizard.connecting_spinner.start()
+            self.controller._wizard.connecting_label.show()
 
