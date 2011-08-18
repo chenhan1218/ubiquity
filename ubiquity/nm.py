@@ -302,7 +302,7 @@ class NetworkManagerWidget(Gtk.VBox):
         self.pack_start(self.hbox, False, True, 0)
         password_label = Gtk.Label('Password:')
         self.password_entry.set_visibility(False)
-        self.password_entry.connect('activate', self.connect)
+        self.password_entry.connect('activate', self.connect_to_ap)
         self.display_password = Gtk.CheckButton('Display password')
         self.display_password.connect('toggled', self.display_password_toggled)
         self.hbox.pack_start(password_label, False, True, 0)
@@ -316,7 +316,7 @@ class NetworkManagerWidget(Gtk.VBox):
     def state_changed(self, state):
         self.emit('connection', state)
 
-    def connect(self, *args):
+    def connect_to_ap(self, *args):
         passphrase = self.password_entry.get_text()
         self.view.connect_to_selection(passphrase)
 
