@@ -61,6 +61,7 @@ my @basebd = (
     'python-pyicu',
     'python-scour',
     'python-xklavier',
+    'udev',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',
     'xvfb',
