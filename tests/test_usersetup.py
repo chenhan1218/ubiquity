@@ -39,7 +39,7 @@ class UserSetupTests(unittest.TestCase):
         self.gtk.hostname.set_text(socket.gethostname())
         self.gtk.hostname_error = mock.Mock()
         self.gtk.hostname_timeout(self.gtk.hostname)
-        GObject.timeout_add(1, Gtk.main_quit)
+        GObject.timeout_add(1500, Gtk.main_quit)
         Gtk.main()
         self.assertTrue(self.gtk.hostname_error.call_count > 0)
         self.gtk.hostname_error.assert_called_with(error_msg)
