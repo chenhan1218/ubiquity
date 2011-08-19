@@ -30,7 +30,7 @@ def get_prop(obj, iface, prop):
 def get_vendor_and_model(udi):
     vendor = ''
     model = ''
-    cmd = ['udevadm', 'info', '--path=%s' % udi, '--query=property']
+    cmd = ['/sbin/udevadm', 'info', '--path=%s' % udi, '--query=property']
     with open('/dev/null', 'w') as devnull:
         out = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=devnull)
         out = out.communicate()
@@ -59,6 +59,7 @@ class NetworkManager:
         self.model = model
         self.timeout_id = 0
         self.start(state_changed)
+        self.active_connection = None
 
     def start(self, state_changed=None):
         self.bus = dbus.SystemBus()
@@ -74,6 +75,18 @@ class NetworkManager:
             path_keyword='path')
         self.build_cache()
         self.build_passphrase_cache()
+
+    def get_state(self):
+        return self.manager.state()
+
+    def is_connected(self, device, ap):
+        device_obj = self.bus.get_object(NM, device)
+        connectedap = get_prop(device_obj, NM_DEVICE_WIFI, 'ActiveAccessPoint')
+        if not connectedap:
+            return False
+        connect_obj = self.bus.get_object(NM, connectedap)
+        ssid = decode_ssid(get_prop(connect_obj, NM_AP, 'Ssid'))
+        return ap == ssid
 
     def connect_to_ap(self, device, ap, passphrase=None):
         device_obj = self.bus.get_object(NM, device)
@@ -94,8 +107,12 @@ class NetworkManager:
         obj = dbus.Dictionary(signature='sa{sv}')
         if passphrase:
             obj['802-11-wireless-security'] = { 'psk' : passphrase }
-        self.manager.AddAndActivateConnection(
-            obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path))
+        self.active_connection = self.manager.AddAndActivateConnection(
+            obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path))[1]
+
+    def disconnect_from_ap(self):
+        if self.active_connection is not None:
+            self.manager.DeactivateConnection(self.active_connection)
 
     def build_passphrase_cache(self):
         self.passphrases_cache = {}
@@ -211,8 +228,13 @@ class NetworkManagerTreeView(Gtk.TreeView):
         self.append_column(ssid_column)
         self.set_headers_visible(False)
         self.expand_all()
-        # TODO pre-select existing connection.
         # TODO expand by default
+
+    def get_state(self):
+        return self.wifi_model.get_state()
+
+    def disconnect_from_ap(self):
+        self.wifi_model.disconnect_from_ap()
 
     def row_activated(self, unused, path, column):
         passphrase = None
@@ -278,6 +300,15 @@ class NetworkManagerTreeView(Gtk.TreeView):
             return ''
         return cached
 
+    def is_row_connected(self):
+        model, iterator = self.get_selection().get_selected()
+        ssid = model[iterator][0]
+        parent = model.iter_parent(iterator)
+        if parent and self.wifi_model.is_connected(model[parent][0], ssid):
+            return True
+        else:
+            return False
+
     def connect_to_selection(self, passphrase):
         model, iterator = self.get_selection().get_selected()
         ssid = model[iterator][0]
@@ -291,7 +322,9 @@ GObject.type_register(NetworkManagerTreeView)
 class NetworkManagerWidget(Gtk.VBox):
     __gtype_name__ = 'NetworkManagerWidget'
     __gsignals__ = { 'connection' : (GObject.SignalFlags.RUN_FIRST,
-                                        GObject.TYPE_NONE, (GObject.TYPE_UINT,))}
+                                     GObject.TYPE_NONE, (GObject.TYPE_UINT,)),
+                     'selection_changed' : (GObject.SignalFlags.RUN_FIRST,
+                                            GObject.TYPE_NONE, ())}
     def __init__(self):
         Gtk.VBox.__init__(self)
         self.set_spacing(12)
@@ -313,17 +346,29 @@ class NetworkManagerWidget(Gtk.VBox):
         self.hbox.pack_start(password_label, False, True, 0)
         self.hbox.pack_start(self.password_entry, True, True, 0)
         self.hbox.pack_start(self.display_password, False, True, 0)
-        selection = self.view.get_selection()
-        selection.connect('changed', self.changed)
-        selection.select_path(0)
+        self.hbox.set_sensitive(False)
+        self.selection = self.view.get_selection()
+        self.selection.connect('changed', self.changed)
         self.show_all()
     
+    def get_state(self):
+        return self.view.get_state()
+
+    def is_row_connected(self):
+        return self.view.is_row_connected()
+
+    def select_usable_row(self):
+        self.selection.select_path('0:0')
+
     def state_changed(self, state):
         self.emit('connection', state)
 
     def connect_to_ap(self, *args):
         passphrase = self.password_entry.get_text()
         self.view.connect_to_selection(passphrase)
+
+    def disconnect_from_ap(self):
+        self.view.disconnect_from_ap()
 
     def display_password_toggled(self, *args):
         self.password_entry.set_visibility(self.display_password.get_active())
@@ -342,6 +387,7 @@ class NetworkManagerWidget(Gtk.VBox):
         else:
             self.hbox.set_sensitive(False)
             self.password_entry.set_text('')
+        self.emit('selection_changed')
 
 GObject.type_register(NetworkManagerWidget)
 
