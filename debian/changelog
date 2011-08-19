@@ -1,6 +1,9 @@
 ubiquity (2.7.16) UNRELEASED; urgency=low
 
   * Update translations from Launchpad.
+  * Enable code in console-setup 1.57ubuntu24 to fix default keyboard
+    selection for language/country combinations lacking a proper combined
+    locale (LP: #814448).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Aug 2011 12:15:22 +0100
 

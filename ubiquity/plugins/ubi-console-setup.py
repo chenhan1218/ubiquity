@@ -385,6 +385,7 @@ class Page(plugin.Plugin):
                  '^keyboard-configuration/model', '^keyboard-configuration/altgr$',
                  '^keyboard-configuration/unsupported_'],
                 {'OVERRIDE_ALLOW_PRESEEDING': '1',
+                 'OVERRIDE_USE_DEBCONF_LOCALE': '1',
                  'LC_ALL': di_locale,
                  'PATH': '/usr/lib/ubiquity/console-setup:' +
                          os.environ['PATH']})
