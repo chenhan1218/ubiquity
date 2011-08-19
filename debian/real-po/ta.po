@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2010-08-27 20:34+0000\n"
-"Last-Translator: நவீன் குமார்(கெம்ளின்) <naveenmtp@gmail.com>\n"
+"PO-Revision-Date: 2011-08-04 12:51+0000\n"
+"Last-Translator: Mel C <melwin.a3@gmail.com>\n"
 "Language-Team: Tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:57+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "மேலும் தொடர மீள்தூவக்கம் செய்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "கைமுறை கட்டமைப்பு (உயர்தர)"
 
 #. Type: text
 #. Description
@@ -35,7 +35,7 @@ msgstr ""
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "எங்களுக்கு மிகவும் புத்திசாலி? சில உயர்தர பகிர்வு விருப்பங்களை."
 
 #. Type: text
 #. Description
@@ -50,7 +50,7 @@ msgstr "நிறுவு"
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "நிறுவு (OEM முறை, உற்பத்தியாளர்கள்மட்டுமே)"
 
 #. Type: text
 #. Description
@@ -85,7 +85,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "முயற்சி ${விடுவி}"
 
 #. Type: text
 #. Description
@@ -138,7 +138,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:17001
 msgid "Warning"
-msgstr ""
+msgstr "எச்சரிக்கை"
 
 #. Type: text
 #. Description
@@ -162,7 +162,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Type here to test your keyboard"
-msgstr ""
+msgstr "உங்கள் விசைப்பலகையை சோதனை செய்ய இங்கே தட்டச்சிடவும்"
 
 #. Type: text
 #. Description
@@ -198,19 +198,19 @@ msgstr "நீங்கள் யார்?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Your name:"
-msgstr ""
+msgstr "உங்கள் பெயர்:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Your name"
-msgstr ""
+msgstr "உங்கள் பெயர்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Pick a username:"
-msgstr ""
+msgstr "பயனாளர் பெயர்"
 
 #. Type: text
 #. Description
@@ -222,31 +222,31 @@ msgstr "பயனர் பெயர்"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Choose a password:"
-msgstr ""
+msgstr "கடவுசொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Password"
-msgstr ""
+msgstr "கடவுச்சொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Confirm password"
-msgstr ""
+msgstr "கடவுச்சொல்லை உறுதி செய்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "உங்கள் கடவுச்சொல்லை  மறுயுறுதி செய்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Your computer's name:"
-msgstr ""
+msgstr "உங்கள் கணினி பெயர்"
 
 #. Type: text
 #. Description
@@ -264,37 +264,37 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Short password"
-msgstr ""
+msgstr "சிறிய கடவுச்சொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Weak password"
-msgstr ""
+msgstr "பலனற்ற கடவுச்சொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Fair password"
-msgstr ""
+msgstr "சாதாரண கடவுச்சொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Good password"
-msgstr ""
+msgstr "நல்ல கடவுச்சொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "Strong password"
-msgstr ""
+msgstr "வலுவான கடவுச்சொல்"
 
 #. Type: text
 #. Description
@@ -341,7 +341,7 @@ msgstr ""
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "ஆவணங்கள்"
 
 #. Type: text
 #. Description
@@ -361,13 +361,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Quit the installation?"
-msgstr ""
+msgstr "நிறுவுதலிருந்து வெளியேறுகிறீர்களா?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Do you really want to quit the installation now?"
-msgstr ""
+msgstr "நீங்கள் கண்டிப்பாக தற்பொழுது நிறுவுதலிருந்து வெளியேறுகிறீர்களா?"
 
 #. Type: text
 #. Description
@@ -431,25 +431,25 @@ msgstr "தவிர்க"
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Installation Complete"
-msgstr ""
+msgstr "நிறுவுதல் முடிவடைந்தது"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Continue Testing"
-msgstr ""
+msgstr "ெதாடா்ந்து சாிபாா்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Restart Now"
-msgstr ""
+msgstr "மீள்துவக்கம் செய்க"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "முழுநிறுத்தம் செய்க"
 
 #. Type: text
 #. Description
@@ -483,41 +483,41 @@ msgstr ""
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:72001
 msgid "Add..."
-msgstr ""
+msgstr "சேர்..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:73001
 msgid "Change..."
-msgstr ""
+msgstr "மாற்று..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:74001
 msgid "Delete"
-msgstr ""
+msgstr "நீக்கு"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "Revert"
-msgstr ""
+msgstr "மீட்டல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Recalculating partitions..."
-msgstr ""
+msgstr "பகிர்வுகளை மறுகணக்கீடு செய்கிறது"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:77001
 msgid "Device"
-msgstr ""
+msgstr "சாதனம்"
 
 #. Type: text
 #. Description
@@ -525,7 +525,7 @@ msgstr ""
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:78001
 msgid "Type"
-msgstr ""
+msgstr "வகை"
 
 #. Type: text
 #. Description
@@ -546,7 +546,7 @@ msgstr ""
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:81001
 msgid "Size"
-msgstr ""
+msgstr "உருவளவு"
 
 #. Type: text
 #. Description
@@ -568,7 +568,7 @@ msgstr ""
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:84001
 msgid "unknown"
-msgstr ""
+msgstr "அறியாதது"
 
 #. Type: text
 #. Description
@@ -624,7 +624,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:94001
 msgid "Boot loader"
-msgstr ""
+msgstr "இயக்குதளத் துவக்கி"
 
 #. Type: text
 #. Description
@@ -702,7 +702,7 @@ msgstr ""
 #: ../ubiquity.templates:107001 ../ubiquity.templates:108001
 #: ../ubiquity.templates:109001
 msgid "Installation Failed"
-msgstr ""
+msgstr "நிறுவுதல் தோல்வியுற்றது"
 
 #. Type: error
 #. Description
@@ -1100,25 +1100,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:166001
 msgid "Language"
-msgstr ""
+msgstr "மொழி"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Prepare"
-msgstr ""
+msgstr "தயாா்ெசய்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Timezone"
-msgstr ""
+msgstr "நேரம் மண்டலம்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Keyboard"
-msgstr ""
+msgstr "விசைப்பலகை"
 
 #. Type: text
 #. Description
@@ -1198,7 +1198,7 @@ msgstr ""
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:183001
 msgid "CD"
-msgstr ""
+msgstr "குறுந்தகடு"
 
 #. Type: text
 #. Description
@@ -1222,7 +1222,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:186001 ../ubiquity.templates:187001
 msgid "Installation failed"
-msgstr ""
+msgstr "நிறுவல் தோல்வியடைந்தது"
 
 #. Type: text
 #. Description
@@ -1249,7 +1249,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:190001
 msgid "Wireless"
-msgstr ""
+msgstr "கம்பியில்லா"
 
 #. Type: text
 #. Description
@@ -1313,7 +1313,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:202001
 msgid "Split Largest Partition"
-msgstr ""
+msgstr "பெரிய பகிர்வுவை பிரிக்க"
 
 #. Type: text
 #. Description
@@ -1375,7 +1375,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Layout:"
-msgstr ""
+msgstr "விளக்கப்படம்"
 
 #. Type: text
 #. Description
@@ -1468,7 +1468,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "வேறு ஏதேனும்"
 
 #. Type: text
 #. Description
@@ -1544,7 +1544,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "அைனத்ைதயும் அழித்து மற்றும் மறுபடியும் ஏற்று"
 
 #. Type: text
 #. Description
@@ -1668,39 +1668,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "கேள்விகளுக்கு பதில் அளிப்பதற்கு சில நிமிடங்கள் போதும்."
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "உங்களுக்கு வன் தட்டில் எப்படி இடம் பிரிக்க வேண்டும்?"
-
-#~ msgid "Ready to install"
-#~ msgstr "நிறுவத் தயார்"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "பின்வரும் அமைப்பில் உங்கள் இயங்கு தளம் அமைக்கப் படும்:"
-
-#~ msgid "Advanced Options"
-#~ msgstr "கூடுதல் விருப்பங்கள்"
-
-#~ msgid "Scanning files..."
-#~ msgstr "கோப்புகளை வருடுகிறது."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "கணினியின் பெயர் அமைத்தல்..."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "மிகப்பெரிய தொடர்ந்த  உபயோகம் இல்லாத இடத்தை உபயோகப்படுத்து."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "முழு  வட்டையும் அழித்து உபயோகபடுத்து."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "சில கேள்விகளுக்கு ஒருமுறை பதிலளித்தால்,இந்த கணினியானது உபயோகபடுத்த தாயாரகிவிடும்."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "நீங்களாக வகிர்வை குறிப்பிடுங்கள்.(மேம்பட்ட விருப்பம்)"

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-12 23:33+0000\n"
-"Last-Translator: Yiğit Ateş <yigitates@ceviri.ubuntu-tr.net>\n"
+"PO-Revision-Date: 2011-08-19 08:56+0000\n"
+"Last-Translator: Yiğit Ateş <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -133,19 +133,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Bu, ${RELEASE} çalışan ${MEDIUM} kurulum aracının bir ön sürümüdür. Kararlı "
-"sürüm değildir; bu aracın kararlı sürümü ${RELEASE} ile birlikte Ekim "
-"2010'da gelecektir."
+"Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
+"bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Ekim 2011'de "
+"yayınlanacaktır."
 
 #. Type: text
 #. Description
@@ -541,7 +536,7 @@ msgstr "Sil"
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "Revert"
-msgstr "Geri al"
+msgstr "Geri Al"
 
 #. Type: text
 #. Description
@@ -1564,7 +1559,7 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Belgeler,müzikler ve diğer kişisel dosyalar saklanacak. Bilgisayarınızı her "
+"Belgeler, müzikler ve diğer kişisel dosyalar saklanacak. Bilgisayarınızı her "
 "çalıştırdığınızda, hangi işletim sistemini kullanacağınızı seçebilirsiniz."
 
 #. Type: text
@@ -1808,218 +1803,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
-#~ "bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Nisan 2011'de "
-#~ "yayınlanacaktır."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "En büyük kesintisiz boş alanı kullan"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Bölümleri elle belirt (gelişmiş)"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Belgeleri ve ayarları aktar"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Bu bilgisayarda yüklü işletim sistemi bulunmuyor."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "${RELEASE} sürümünü nereye yerleştirmek istiyorsunuz?"
-
-#~ msgid "Ready to install"
-#~ msgstr "Kuruluma hazır"
-
-#~ msgid "Details"
-#~ msgstr "Ayrıntılar"
-
-#~ msgid "Advanced..."
-#~ msgstr "Gelişmiş..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Gelişmiş Seçenekler"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Yaygınlık araştırması"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Dil: ${LANGUAGE}\n"
-#~ " Klavye düzeni: ${KEYMAP}\n"
-#~ " Ad: ${FULLNAME}\n"
-#~ " Oturum açma adı: ${USERNAME}\n"
-#~ " Konum: ${LOCATION}\n"
-#~ " Aktarım Yardımcısı:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Dosyalar taranıyor..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Yapılandırma uygulanıyor"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Diskin tümünü temizle ve kullan"
-
-#~ msgid "Summary"
-#~ msgstr "Özet"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Kuruluma devam et."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Adım ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Bölümün Tamamını Kullan"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Diskin Tamamını Kullan"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Diğer işletim sistemlerinin yanına kur"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Birkaç soruyu yanıtladıktan sonra bilgisayarınız kullanıma hazır olacak."
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Soruları yanıtlamak, yalnızca birkaç dakikanızı alacaktır."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Klavye Düzenini Denetleyin"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Klavye düzenini denetleyin"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Bu bilgisayarda ${OS} işletim sistemi bulunuyor."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Bu bilgisayarda birden fazla işletim sistemi bulunuyor."
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Diskinizi nasıl bölümlendirmek istiyorsunuz?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr ""
-#~ "Bu işlem, ${SYSTEMS} sistem(ler)ini silecek ve ${RELEASE} sürümünü "
-#~ "yükleyecek."
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "Yeni işletim sisteminiz, aşağıdaki ayarlarla kurulacaktır:"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Önyükleyici kur"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP vekili:"
-
-#~ msgid "Network proxy"
-#~ msgstr "Ağ vekili"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Paket kullanım araştırmasına katıl"
-
-#~ msgid "Port:"
-#~ msgstr "Bağlantı Noktası:"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Bilgisayar adı ayarlanıyor..."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Kurulum için hazır mısınız? Birkaç soruyu yanıtladıktan sonra, çalışan "
-#~ "${MEDIUM} içeriği bu bilgisayara kurulabilir hale gelecektir. Böylelikle "
-#~ "${MEDIUM} olmadan da ${RELEASE} sürümünü tam hızda çalıştırabilirsiniz."
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Hiçbir dosya silinmeyecek. Billgisayar her başlatıldığında hangi işletim "
-#~ "sistemini istediğinizi seçebilirsiniz."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "bu sizin tüm ${OS} programlarınızı, belgelerinizi, fotoğraflarınızı, "
-#~ "müziklerinizi ve diğer dosyalarınızı <b>silecektir.</b>"
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "onun yanında ${DISTRO} yu da yükle"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "bu sizin tüm ${CURDISTRO} programlarınızı, belgelerinizi, "
-#~ "fotoğraflarınızı, müziklerinizi ve diğer dosyalarınızı <b>silecektir.</b>"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "${CURDISTRO}'yu hiçbir önemli belge ve uygulamanızı kaybetmeden "
-#~ "yükseltebilirsiniz."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "${VER} in yanında ${CURDISTRO}yu da yükle"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "Bu bütün programlarınızı, belgelerinizi, resimlerinizi, müzik, ve ${OS} "
-#~ "ve ${CURDISTRO} daki bütün dosyaları <b>silecek</b>"
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Önemli belgelerinizi veya uygulamalarınız kaybetmeden ${CURDISTRO} yu "
-#~ "tekrar yükleyebilirsiniz."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Bu bütün programlarınızı, belgelerinizi, resimlerinizi, müzik, ve işletim "
-#~ "sistemlerindeki bütün diğer dosyaları <b>silecek></b>"
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Dalışa hazır mısınız? Temiz bir kurulum sabit diskinizi tamamen siler ve "
-#~ "${DISTRO} yükler."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Uyarı:</span> Bu işlem sizin tüm ${OS} "
-#~ "program, belge, fotoğraf, müzik ve diğer başka dosyalarınızı silecektir."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr "Hiçbir dosya silinmeyecek.Kurulu yazılım olduğu yerde saklanaca."

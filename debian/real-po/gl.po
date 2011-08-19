@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-20 09:36+0000\n"
+"PO-Revision-Date: 2011-08-19 08:56+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -132,19 +132,11 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Esta é unha versión previa do instalador ${RELEASE} live ${MEDIUM}. Non é "
-"unha versión final, que virá coa distribución de ${RELEASE} en Outubro de "
-"2010."
 
 #. Type: text
 #. Description
@@ -302,7 +294,7 @@ msgstr "Contrasinal moi curto"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Weak password"
-msgstr "Contrasinal débil"
+msgstr "Contrasinal feble"
 
 #. Type: text
 #. Description
@@ -1815,226 +1807,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Hai unha pre-edición do instalador en vivo ${MEDIUM} da edición "
-#~ "${RELEASE}. Non é unha edición final; iso será coa edición final de "
-#~ "${RELEASE} en abril de 2001"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Especificar as particións manualmente (avanzado)"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Este computador non ten ningún sistema operativo instalado."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Este computador ten ${OS} instalado."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Este computador ten varios sistemas operativos instalados."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Isto borrará ${SYSTEMS} e instalará ${RELEASE}."
-
-#~ msgid "Details"
-#~ msgstr "Detalles"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "O seu novo sistema operativo instalarase coas seguintes opcións:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avanzado..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opcións avanzadas"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Concurso de popularidade"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participe na enquisa de uso de paquetes"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proxy HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Porto:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Idioma: ${LANGUAGE}\n"
-#~ " Mapa de teclado: ${KEYMAP}\n"
-#~ " Nome completo: ${FULLNAME}\n"
-#~ " Nome de usuario: ${USERNAME}\n"
-#~ " Localización: ${LOCATION}\n"
-#~ " Asistente de migración:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Analizando ficheiros..."
-
-#~ msgid "Summary"
-#~ msgstr "Resumo"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Como quere particionar o disco?"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Aplicando a configuración"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Logo de responder algunhas preguntas, este computador estará listo para "
-#~ "usar."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Borrar e empregar o disco enteiro"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Está preparado para instalar? Logo de responder unhas cantas preguntas, "
-#~ "os contidos do ${MEDIUM} vivo poden instalarse neste computador e vostede "
-#~ "poderá executar ${RELEASE} a plena velocidade sen o ${MEDIUM}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Preparado para instalar"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalar o cargador de arrinque"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Continuar coa instalación."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Paso ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Usar toda a partición"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Responder a estas preguntas só lle levará uns minutos."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Onde desexa poñer ${RELEASE}?"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proxy de rede"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Asignando o nome ao computador..."
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Usar todo o disco"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Empregar o maior espazo libre contiguo"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalar ao carón dos outros sistemas operativos"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Adiviñar a disposición do teclado"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Adiviñar a disposición do teclado"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrar os documentos e as configuracións"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Isto <b>borrará</b> todos os seu ${OS}, programas, documentos, fotos, "
-#~ "música, e outros ficheiros."
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "Instalar ${DISTRO} ao seu carón"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Non se eliminarán ficheiros. Pode seleccionar que sistema operativo "
-#~ "desexa iniciar cando acenda o seu equipo."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Isto <b>borrará</b> todo ${CURDISTRO}, programas,  documentos, fotos, "
-#~ "música, e outros ficheiros."
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Pode anovar ${CURDISTRO} sen perder ningún dos seus documentos ou "
-#~ "aplicativos importantes."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "Instalar ${DISTRO} ${VER} ao carón de"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "Isto <b>borrará</b> todos os seus programas, documentos, fotos, música, e "
-#~ "outros ficheiros en ${OS} e ${CURDISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Pode reinstalar ${CURDISTRO} sen perder ningún dos seus documentos ou "
-#~ "aplicativos importantes."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Isto <b>borrará</b> todos os seus programas, documentos, fotos, música, e "
-#~ "outros ficheiros importantes en todos os sistemas operativos."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Preparado para dar o paso? Unha instalación limpa borra todos os datos do "
-#~ "disco ríxido e instala ${DISTRO}."
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Aínda dubida? Pode instalar ${DISTRO} ${VER} ao carón da súa copia actual "
-#~ "de ${CURDISTRO}."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Non se eliminará ningún ficheiro. Manterase o software instalado de ser "
-#~ "posíbel."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os seus "
-#~ "programas, documentos, fotos, música, e calquera outro ficheiro de ${OS}."

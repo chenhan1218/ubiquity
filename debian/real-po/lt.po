@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-15 08:51+0000\n"
+"PO-Revision-Date: 2011-08-19 08:56+0000\n"
 "Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -131,18 +131,11 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Tai yra preliminari ${RELEASE} ${MEDIUM} diegimo programa. Tai nėra galutinė "
-"laida; galutinė ${RELEASE} laida bus išleista 2010 m. spalį."
 
 #. Type: text
 #. Description
@@ -1813,153 +1806,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Kaip norite sudalinti diską?"
-
-#~ msgid "Ready to install"
-#~ msgstr "Paruošta įdiegti"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Jūsų naujoji operacinė sistema bus įdiegta naudojant tokius nustatymus:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Išsamiau..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Sudėtingesnės parinktys"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Įdiegti sistemos paleidimo programą"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Populiarumo varžybos"
-
-#~ msgid "Network proxy"
-#~ msgstr "Tinklo proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Prievadas:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Kalba: ${LANGUAGE}\n"
-#~ " Klaviatūros išdėstymas: ${KEYMAP}\n"
-#~ " Vardas, pavardė: ${FULLNAME}\n"
-#~ " Prisijungimo vardas: ${USERNAME}\n"
-#~ " Vieta: ${LOCATION}\n"
-#~ " Duomenų bei nustatymų importavimas:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Peržiūrimi failai..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Nustatomas kompiuterio vardas..."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Naudoti didžiausią ištisinę laisvą vietą"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Pasirinkti skirsnius pačiam (patyrusiems)"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Šioje laikmenoje (kompiuteryje) neaptikta jokia operacinė sistema."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Šiame kompiuteryje yra įdiegta ${OS} operacinė sistema."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Šiame kompiuteryje yra keletas operacinių sistemų."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr ""
-#~ "Dėmesio: šis veiksmas ištrins ${SYSTEMS} OS bei visus duomenis "
-#~ "pasirinktoje laikmenoje ir įdiegs ${RELEASE}."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "Kompiuteris bus paruoštas darbui kai atsakysite į keletą klausimų."
-
-#~ msgid "Summary"
-#~ msgstr "Santrauka"
-
-#~ msgid "Details"
-#~ msgstr "Išsamiau"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Pritaikoma konfigūracija"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Dalyvauti paketų naudojimo apžvalgoje"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Įkelkite turimus dokumentus ir nustatymus"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Ištrinti viską diske - naudoti visą diską"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Tęsti diegimą."
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Atsakymai į šiuos klausimus užtruks tik keletą minučių."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Į kurią vietą norite įdiegti ${RELEASE}?"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Pasiruošę įdiegimui? Atsakykite į kelis klausimus ir ${MEDIUM} turinys "
-#~ "bus įdiegtas į šį kompiuterį, kad galėtumėte naudoti ${RELEASE} visu "
-#~ "greičiu be ${MEDIUM}."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Žingsnis ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Naudoti visą skirsnį"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Naudoti visą diską"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Nustatyti klaviatūros klavišų išdėstymą"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Įdiegti šalia kitų operacinių sistemų"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Jokie failai nebus pašalinti. Galėsite pasirinkti norimą naudoti "
-#~ "operacinę sistemą kompiuterio paleidimo metu."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Jokie failai nebus pašalinti. Esama programinė įranga bus išsaugota, kur "
-#~ "įmanoma."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Dėmesio:</span> Bus pašalintos visos jūsų "
-#~ "${OS} programos, dokumentai, nuotraukos, muzika bei visi kiti failai."

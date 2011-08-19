@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-15 08:56+0000\n"
-"Last-Translator: jmb_kz <Unknown>\n"
+"PO-Revision-Date: 2011-08-19 08:56+0000\n"
+"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
 "Language-Team: Kazakh\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -132,19 +132,14 @@ msgstr "<a href=\"update\">Осы орнатушы бағдарламаны жа
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Бұл ${MEDIUM} орнатылымның ${RELEASE} алдын ала релиз (предрелиз) болып "
-"табылады. Бұл финальный релиз емес; ресми ${RELEASE} нұсқасы 2010 жылының 10 "
-"айының 10 жұлдызында шығады."
+"Бұл ${RELEASE} тірі ${MEDIUM} орнатушының алдын ала шығарылымы. Бұл финалды "
+"шығарылым емес, ${RELEASE} финалды шығарылымы тек 2011 жылдың қазан айында "
+"болады."
 
 #. Type: text
 #. Description
@@ -1808,227 +1803,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Пакеттер жойылуда"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Бұл ${RELEASE} тірі ${MEDIUM} орнатушының алдын ала шығарылымы. Бұл "
-#~ "финалды шығарылым емес, ${RELEASE} финалды шығарылымы тек 2011 жылдың "
-#~ "сәуір айында болады."
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Сұрақтарға жауап беру аз уақыт алады."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Құжаттар мен баптауларды көшіру"
-
-#~ msgid "Ready to install"
-#~ msgstr "Орнатуға дайын"
-
-#~ msgid "Details"
-#~ msgstr "Көбірек білу"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "Операциялық жүйе келесі параметрлермен орнатылатын болады:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Қосымша..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Қосымша параметрлер"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Жегушіні орнату"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Танымалдық рейтингі"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Дестелерді қолдану рейтингін құруға қатысу"
-
-#~ msgid "Network proxy"
-#~ msgstr "Желі проксиі"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP проксиі"
-
-#~ msgid "Port:"
-#~ msgstr "Порты:"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Дискілерді қарау..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Компьютер атын тағайындау..."
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Бұл компьютерде ешқандай операциялық жүйелер орнатылмаған."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Бұл компьютерде ${OS} операциялық жүйе орнатылған."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "${RELEASE}-ды қайда орнатқыңыз келеді?"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Бұл компьютерде бірнеше операциялық жүйелер орнатылған."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Бұл әрекет ${SYSTEMS}-ді жойып, ${RELEASE}-ды орнатады."
-
-#~ msgid "Summary"
-#~ msgstr "Жинақталған ақпарат"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Конфигурацияны қабылдау"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Тіл: ${LANGUAGE}\n"
-#~ " Пернетақта тілі: ${KEYMAP}\n"
-#~ " Аты: ${FULLNAME}\n"
-#~ " Пайдаланушы аты: ${USERNAME}\n"
-#~ " Орналасуы: ${LOCATION}\n"
-#~ " Көшіріп әкелу көмекшісі:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Орнатылым үрдісін бастауға дайынсыз ба? Бірнеше жауапқа жауап беру "
-#~ "арқылы, ${MEDIUM} құрамы компьютерге орнатылып, ${RELEASE} толық қуатымен "
-#~ "${MEDIUM} дискісіз-ақ жұмыс істейтін болады."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Орнатылымды жалғастыру."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Пернетақта тілін анықтау"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Қадам: ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Ағымдағы бөлімді толығымен қолдану"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Ағымдағы дискіні толық қолдану"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Пернетақта тілін таңдау"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Басқа операциялық жүйелер қасында орнату"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Дискті толығымен тазартып, қолдану"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Ең үлкен үзіліссіз бос орынды қолдану"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Бірнеше сұрақтарға жауап бергеніңізден кейін, бұл дербес компьютер "
-#~ "жұмысқа дайын болады."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Диск бөлімдерін өзінше көрсету (кеңейтілген)"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Дискіні бөлу түрінің қайсысын таңдайсыз?"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Бұл ${OS} бағдарламаларын, құжаттарын, фотосуреттерін, өлеңдерін және "
-#~ "басқа да файлдарын <b>жоятын</b> болады."
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "${DISTRO} қасында орнату"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Ешбір файл жойылмайтын болады. Компьютер қосылатын кезде жүктелінетін "
-#~ "операциялық жүйені таңдауыңызға болады."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Бұл ${CURDISTRO} бағдарламаларын, құжаттарын, фотосуреттерін, өлеңдерін "
-#~ "және басқа да файлдарын <b>жоятын</b> болады."
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Сіз ${CURDISTRO}, бағдарламалар мен құжаттарыңыздың жоғалтпай, "
-#~ "жаңартуыңызға болады."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "${DISTRO} ${VER} қасында орнату"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Күдіктеніп, таңдау жасай алмай жатсаңыз, ${DISTRO} ${VER} орнатылған "
-#~ "${CURDISTRO} қасында орнатуыңызға болады."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Ірі өзгерту жасауға дайынсыз ба? Таза орнатылым сіздің қатқыл дискінің "
-#~ "толығымен жойып, ${DISTRO} орнататын болады."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "Бұл ${OS} және ${CURDISTRO} бағдарламаларын, құжаттарын, фотосуреттерін, "
-#~ "өлеңдерін және басқа да файлдарын <b>жоятын</b> болады."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Сіз ${CURDISTRO}, бағдарламалар мен құжаттарыңыздың жоғалтпай, қайта "
-#~ "орнатуыңызға болады."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Бұл сіздің барлық операциялық жүйелеріңіздің бағдарламаларын, құжаттарын, "
-#~ "фотосуреттерін, өлеңдерін және басқа да файлдарын <b>жоятын</b> болады."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Сіздің ешбір файлыңыз жойылмайтын болады. Орнатылған бағдарламалар "
-#~ "мүмкіндігінше сақталынатын болады."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Назар аударыңыз:</span> Бұл әрекет сіздің "
-#~ "${OS} барлық бағдарламаларын, құжаттарын, фотосуреттерін, өлеңдерін және "
-#~ "басқа да файлдарын жоятын болады."

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:57+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -1674,98 +1674,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "प्रश्नहरुको उत्तर दिन केहि मिनट मात्र लाग्नेछ ।"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "सबै भन्दा निरन्तर खाली रहेको स्थान प्रयोग गर्नुहोस्"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "आफैले भागहरू खुलाउनुहोस् (विशिष्ठ)"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "कागजात तथा सेटिङ्गहरु  सार्नुहोस्"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "तपाईँको डिस्कलाई कसरी भाग लगाउन चाहनुहुन्छ ?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "यस कम्प्युटरमा कुनै पनि सञ्चालन प्रणाली(os) रहेको छैन ।"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "यो कम्प्युटरमा ${OS} छ ।"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "यस कम्युटरमा विभिन्न सञ्चालन प्रणालीहरु रहेका छन् ।"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "${RELEASE} कहाँ राख्न चाहनुहुन्छ ?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "यसले ${SYSTEMS} हटाउने छ र ${RELEASE} स्थापना गर्ने छ ।"
-
-#~ msgid "Ready to install"
-#~ msgstr "स्थापनाको लागि तयार"
-
-#~ msgid "Details"
-#~ msgstr "विस्तृत जानकारी"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "तपाईँको नयाँ सञ्चालन प्रणाली निम्न निर्धारणमा स्थापना हुने छ :"
-
-#~ msgid "Advanced..."
-#~ msgstr "गहन..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "उन्नत विकल्पहरू"
-
-#~ msgid "Install boot loader"
-#~ msgstr "बुट लोडर स्थापना गर्नुहोस्"
-
-#~ msgid "Popularity contest"
-#~ msgstr "लोकप्रियता प्रतिश्पर्धा"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "प्याकेज प्रयोग सर्वेक्षणमा भाग लिनुहोस्"
-
-#~ msgid "Network proxy"
-#~ msgstr "सञ्जाल प्रोक्सी"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP प्रोक्सी :"
-
-#~ msgid "Port:"
-#~ msgstr "पोर्ट:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " भाषा: ${LANGUAGE}\n"
-#~ " किबोर्ड ढाँचा: ${KEYMAP}\n"
-#~ " नाम: ${FULLNAME}\n"
-#~ " प्रवेश नाम: ${USERNAME}\n"
-#~ " स्थान: ${LOCATION}\n"
-#~ " सराई सहायक:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "फाइल जाँच्दै ..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "कम्प्युटरको नाम मिलाउदै ...."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "एकपटक तपाईले केही प्रश्नहरूको जवाफ दिएपछि यो कम्प्युटर प्रयोगको लागि योग्य हुनेछ।"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "सम्पूर्ण डिस्क मेट्नुहोस् र प्रयोग गर्नुहोस्"

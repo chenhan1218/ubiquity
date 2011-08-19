@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-12 03:00+0000\n"
+"PO-Revision-Date: 2011-08-19 09:01+0000\n"
 "Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -127,18 +127,13 @@ msgstr "คุณอาจต้องการที่จะ <a href=\"update\
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"นี่เป็นรุ่นก่อนเสถียรของ ${RELEASE} ตัวติดตั้งแบบเล่นสดบน ${MEDIUM} นี่ไม่ใช่รุ่นสุดท้าย "
-"ซึ่งรุ่นสุดท้ายของ ${RELEASE} จะออกในเดือนตุลาคมปี 2010"
+"นี่คือรุ่นก่อนออกจริงของตัวติดตั้ง ${RELEASE} live ${MEDIUM} มันยังไม่ใช่รุ่นเต็ม ซึ่งรุ่นจริงของ "
+"${RELEASE} จะออกในเดือนตุลาคม 2554"
 
 #. Type: text
 #. Description
@@ -179,7 +174,7 @@ msgstr "เลือกผังแป้นพิมพ์ของคุณ:"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Type here to test your keyboard"
-msgstr "พิมพ์ที่นี่ เพื่อทดสอบแป้มพิมพ์ของคุณ (กด Alt+Shift เพื่อสลับภาษา)"
+msgstr "พิมพ์ที่นี่ เพื่อทดสอบแป้นพิมพ์ของคุณ (กด Alt+Shift เพื่อสลับภาษา)"
 
 #. Type: text
 #. Description
@@ -533,7 +528,7 @@ msgstr "กลับคืนค่าเดิม"
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Recalculating partitions..."
-msgstr "กำลังคำนวณพาร์ทิชันอีกครั้ง..."
+msgstr "กำลังคำนวนพาร์ทิชันอีกครั้ง..."
 
 #. Type: text
 #. Description
@@ -1050,7 +1045,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Calculating files to skip copying..."
-msgstr "กำลังคำนวณแฟ้มที่ข้ามการคัดลอก..."
+msgstr "กำลังคำนวนแฟ้มที่ข้ามการคัดลอก..."
 
 #. Type: text
 #. Description
@@ -1533,7 +1528,7 @@ msgstr "ติดตั้ง ${DISTRO} ใน ${OS}"
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr "มีบางอย่างผิดพลาด"
+msgstr "อื่นๆ"
 
 #. Type: text
 #. Description
@@ -1746,198 +1741,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "นี่เป็นรุ่นก่อนรุ่นจริงของ ${RELEASE} live ${MEDIUM} ติดตั้ง ยังไม่ใช่รุ่นสุดท้ายซึ่งจะมาใน "
-#~ "${RELEASE} ในเมษายน 2554"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "ใช้พื้นที่ว่างต่อเนื่องที่ใหญ่ที่สุด"
-
-#~ msgid "Details"
-#~ msgstr "รายละเอียด"
-
-#~ msgid "Advanced..."
-#~ msgstr "ขั้นสูง..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "ตัวเลือกขั้นสูง"
-
-#~ msgid "Install boot loader"
-#~ msgstr "ติดตั้งบูตโหลดเดอร์"
-
-#~ msgid "Port:"
-#~ msgstr "พอร์ต:"
-
-#~ msgid "Summary"
-#~ msgstr "ภาพรวม"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "ลบและใช้พื้นที่ดิสก์ทั้งหมด"
-
-#~ msgid "Continue with installation."
-#~ msgstr "ดำเนินการติดตั้งต่อไป"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "การตอบคำถามใช้เวลาเพียงไม่กี่นาทีเท่านั้น"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "กำหนดพาร์ทิชันเอง (ขั้นสูง)"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "คุณต้องการจัดการพาร์ทิชันดิสก์อย่างไร?"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "เข้าร่วมในการสำรวจการใช้งานแพกเกจ"
-
-#~ msgid "Network proxy"
-#~ msgstr "พร็อกซีเครือข่าย"
-
-#~ msgid "Scanning files..."
-#~ msgstr "กำลังสแกนแฟ้ม..."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "โยกย้ายเอกสารและการปรับแต่ง"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "คอมพิวเตอร์นี้ไม่มีระบบปฎิบัติการติดตั้งอยู่"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "คอมพิวเตอร์นี้มีระบบปฎิบัติการ ${OS} ติดตั้งอยู่"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "คอมพิวเตอร์นี้มีระบบปฏิบัติการที่หลากหลายติดตั้งอยู่"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "คุณต้องการวาง ${RELEASE} ไว้ที่ใด?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "นี่จะเป็นการลบ ${SYSTEMS} และติดตั้ง ${RELEASE}"
-
-#~ msgid "Ready to install"
-#~ msgstr "พร้อมที่จะติดตั้ง"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "ระบบปฏิบัติการใหม่ของคุณจะติดตั้งด้วยการตั้งค่าตามนี้:"
-
-#~ msgid "Popularity contest"
-#~ msgstr "ประกวดความนิยม"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "พร็อกซี HTTP:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " ภาษา: ${LANGUAGE}\n"
-#~ " แป้นพิมพ์: ${KEYMAP}\n"
-#~ " ชื่อ: ${FULLNAME}\n"
-#~ " ชื่อในการเข้าระบบ: ${USERNAME}\n"
-#~ " ตำแหน่ง: ${LOCATION}\n"
-#~ " ผู้ช่วยเหลือในการโอนย้าย:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "กำลังตั้งชื่อเครื่องคอมพิวเตอร์..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "กำลังปรับใช้การตั้งค่า"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "ใช้ทั้งพาร์ทิชัน"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "ใช้ทั้งดิสก์"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "ขั้นตอนที่ ${INDEX}/${TOTAL}"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "เพียงคุณตอบคำถามไม่กี่ข้อ คอมพิวเตอร์เครื่องนี้ก็จะพร้อมใช้งาน"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "ตรวจหาผังแป้นพิมพ์"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "พร้อมที่จะติดตั้งแล้วหรือไม่? เพียงคุณตอบคำถามไม่กี่คำถาม ข้อมูลของ ${MEDIUM} "
-#~ "จะถูกติดตั้งลงบนคอมพิวเตอร์ คุณสามารถเรียกใช้ ${RELEASE} "
-#~ "ได้อย่างเต็มความสามารถโดยไม่ต้องใช้ ${MEDIUM} อีกต่อไป"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "ตรวจหาผังแป้มพิมพ์"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "ติดตั้งคู่กับระบบปฏิบัติการอื่น"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr "นี่จะ<b>ลบ</b> ${OS}, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ทั้งหมดของคุณ"
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "ติดตั้ง ${DISTRO} ไว้คู่กัน"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr "นี่จะ<b>ลบ</b> ${CURDISTRO}, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ทั้งหมด"
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "ติดตั้ง ${DISTRO} ${VER} ไว้คู่กัน"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "นี่จะ<b>ลบ</b> โปรแกรม, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ใน ${OS} และ "
-#~ "${CURDISTRO}"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "นี่จะ<b>ลบ</b> โปรแกรม, เอกสาร, ภาพถ่าย, เพลง, และแฟ้มอื่นๆ ในระบบปฏิบัติการทั้งหมด"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "ไม่มีแฟ้มที่จะลบ คุณสามารถเลือกระบบปฏิบัติการที่คุณต้องการในแต่ละครั้งที่เริ่มคอมพิวเตอร์ได้"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "คุณสามารถปรับรุ่น ${CURDISTRO} โดยไม่สูญเสียเอกสารที่สำคัญหรือโปรแกรมใด ๆ"
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "คุณสามารถติดตั้ง ${CURDISTRO} ใหม่ โดยไม่สูญเสียเอกสารที่สำคัญหรือโปรแกรมใด ๆ"
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr "พร้อมที่จะกระโดดแล้วหรือ? ติดตั้งแบบสะอาดโดยลบฮาร์ดดิสก์ทั้งหมดและติดตั้ง ${DISTRO}"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "ยังติดอยู่ในหน้าต่างอย่างนั้นหรือ? คุณสามารถติดตั้ง ${DISTRO} ${VER} คู่ไปกับสำเนาของ "
-#~ "${CURDISTRO}"

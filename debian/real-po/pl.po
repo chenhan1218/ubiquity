@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-13 18:14+0000\n"
+"PO-Revision-Date: 2011-08-19 09:01+0000\n"
 "Last-Translator: GTriderXC <gtriderxc@yahoo.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -77,7 +77,7 @@ msgid ""
 "from this ${MEDIUM}."
 msgstr ""
 "Można wypróbować ${RELEASE} bez wprowadzania zmian w komputerze, "
-"bezpośrednio z  ${MEDIUM}."
+"uruchamiając system z nośnika ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -131,18 +131,14 @@ msgstr "Można <a href=\"update\">zaktualizować ten instalator</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"To jest wydanie testowe ${RELEASE} instalatora live ${MEDIUM}. Nie jest to "
-"wydanie ostateczne ${RELEASE}, zostanie ogłoszone w październiku 2010."
+"To jest wersja rozwojowa instalatora systemu ${RELEASE} live ${MEDIUM}. "
+"Zauważ, że nie jest ona wiarygodna i stabilna. Właściwe wydanie tej wersji "
+"systemu ${RELEASE} przewidziane jest na październik 2011."
 
 #. Type: text
 #. Description
@@ -202,13 +198,13 @@ msgstr "Wykrywanie układu klawiatury"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Please press one of the following keys:"
-msgstr "Proszę wcisnąć jeden z następujących przycisków:"
+msgstr "Proszę wcisnąć jeden z następujących klawiszy:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Is the following key present on your keyboard?"
-msgstr "Czy ten znak występuje na klawiaturze?"
+msgstr "Czy ten klawisz występuje na klawiaturze?"
 
 #. Type: text
 #. Description
@@ -268,7 +264,7 @@ msgstr "Potwierdź hasło:"
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Your computer's name:"
-msgstr "Nazwa dla tego komputera:"
+msgstr "Nazwa komputera:"
 
 #. Type: text
 #. Description
@@ -361,7 +357,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Allocate drive space"
-msgstr "Przydzielenie miejsca na dysku"
+msgstr "Przydzielenie przestrzeni na dysku"
 
 #. Type: text
 #. Description
@@ -382,25 +378,25 @@ msgstr "Przygotowywanie partycji"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:51001
 msgid "_Install Now[ action ]"
-msgstr "_Zainstaluj teraz"
+msgstr "_Zainstaluj"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Quit the installation?"
-msgstr "Zakończyć instalację?"
+msgstr "Kończenie instalacji"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Do you really want to quit the installation now?"
-msgstr "Na pewno zakończyć proces instalacji?"
+msgstr "Zakończyć proces instalacji?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Bootloader install failed"
-msgstr "Nieudana instalacja programu rozruchowego"
+msgstr "Nie udało się zainstalować programu rozruchowego"
 
 #. Type: text
 #. Description
@@ -424,7 +420,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Continue without a bootloader."
-msgstr "Kontynuuj bez programu rozruchowego."
+msgstr "Kontynuuj bez instalowania programu rozruchowego."
 
 #. Type: text
 #. Description
@@ -433,8 +429,8 @@ msgstr "Kontynuuj bez programu rozruchowego."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Konieczna będzie ręczna instalacja programu rozruchowego w celu uruchomienia "
-"${RELEASE}."
+"W celu uruchomienia ${RELEASE}, konieczna będzie ręczna instalacja programu "
+"rozruchowego."
 
 #. Type: text
 #. Description
@@ -446,7 +442,8 @@ msgstr "Anuluj instalację."
 #. Description
 #: ../ubiquity.templates:60001
 msgid "This may leave your computer unable to boot."
-msgstr "Twój komputer może nie być w stanie uruchomić systemu operacyjnego."
+msgstr ""
+"Możliwe, że komputer nie będzie w stanie uruchomić systemu operacyjnego."
 
 #. Type: text
 #. Description
@@ -464,7 +461,7 @@ msgstr "Pomiń"
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Installation Complete"
-msgstr "Instalacja ukończona"
+msgstr "Instalacja zakończona"
 
 #. Type: text
 #. Description
@@ -476,13 +473,13 @@ msgstr "Kontynuuj testowanie"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Restart Now"
-msgstr "Uruchom ponownie teraz"
+msgstr "Uruchom ponownie komputer"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr "Wyłącz teraz"
+msgstr "Wyłącz komputer"
 
 #. Type: text
 #. Description
@@ -674,8 +671,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Instalacja została ukończona. Można teraz kontynuować testowanie ${RELEASE}, "
-"ale wprowadzane zmiany lub zapisywane dokumenty nie zostaną zachowane."
+"Instalacja została zakończona. Można teraz kontynuować testowanie "
+"${RELEASE}, ale wprowadzane zmiany lub zapisywane dokumenty nie zostaną "
+"zachowane."
 
 #. Type: text
 #. Description
@@ -698,14 +696,14 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Instalacja zakończona. Aby z niej skorzystać, konieczne jest ponowne "
-"uruchomienie komputera."
+"Instalacja została zakończona. Aby zacząć używać zainstalowanego systemu, "
+"konieczne jest ponowne uruchomienie komputera."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Verifying the installation configuration..."
-msgstr "Weryfikowanie skonfigurowania instalacji..."
+msgstr "Weryfikowanie konfiguracji instalacji..."
 
 #. Type: title
 #. Description
@@ -717,7 +715,7 @@ msgstr "Instalowanie systemu"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Finding the distribution to copy..."
-msgstr "Wyszukiwanie dystrybucji do kopiowania..."
+msgstr "Wyszukiwanie dystrybucji do skopiowania..."
 
 #. Type: text
 #. Description
@@ -745,7 +743,7 @@ msgstr "Prawie ukończono kopiowanie plików..."
 #: ../ubiquity.templates:107001 ../ubiquity.templates:108001
 #: ../ubiquity.templates:109001
 msgid "Installation Failed"
-msgstr "Instalacja nie powiodła się"
+msgstr "Nie udało się ukończyć instalacji"
 
 #. Type: error
 #. Description
@@ -827,7 +825,7 @@ msgstr "Plik nie jest zgodny ze źródłem na płycie CD/DVD:"
 #. Description
 #: ../ubiquity.templates:110001
 msgid "Copying installation logs..."
-msgstr "Kopiowanie logów z instalacji..."
+msgstr "Kopiowanie dzienników instalacji..."
 
 #. Type: text
 #. Description
@@ -845,7 +843,7 @@ msgstr "Konfigurowanie lokalizacji..."
 #. Description
 #: ../ubiquity.templates:113001
 msgid "Configuring apt..."
-msgstr "Konfigurowanie apt..."
+msgstr "Konfigurowanie programu apt..."
 
 #. Type: text
 #. Description
@@ -857,7 +855,7 @@ msgstr "Konfigurowanie strefy czasowej..."
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Configuring keyboard..."
-msgstr "Konfigurowanie klawiatury ..."
+msgstr "Konfigurowanie klawiatury..."
 
 #. Type: text
 #. Description
@@ -881,7 +879,7 @@ msgstr "Konfigurowanie sprzętu..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr "Instalacja oprogramowania dostawców pośrednich..."
+msgstr "Instalacja dodatkowego oprogramowania..."
 
 #. Type: text
 #. Description
@@ -893,19 +891,19 @@ msgstr "Konfigurowanie sieci..."
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Configuring boot loader..."
-msgstr "Konfigurowanie programu uruchomieniowego..."
+msgstr "Konfigurowanie programu rozruchowego..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr "Zapisywanie zainstalowanych pakietów"
+msgstr "Zapisywanie zainstalowanych pakietów..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr "Przywracanie poprzednio zainstalowanych pakietów"
+msgstr "Przywracanie poprzednio zainstalowanych pakietów..."
 
 #. Type: text
 #. Description
@@ -923,13 +921,13 @@ msgstr "Sprawdzanie pakietów do zainstalowania..."
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Removing extra packages..."
-msgstr "Usuwanie pakietów dodatkowych..."
+msgstr "Usuwanie dodatkowych pakietów..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Checking for packages to remove..."
-msgstr "Szukanie pakietów do usunięcia..."
+msgstr "Wyszukiwanie pakietów do usunięcia..."
 
 #. Type: text
 #. Description
@@ -953,19 +951,19 @@ msgstr "Pobieranie list pakietów (pozostało ${TIME})..."
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Error installing ${PACKAGE}"
-msgstr "Błąd podczas instalowania ${PACKAGE}"
+msgstr "Błąd instalowania pakietu ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Error removing ${PACKAGE}"
-msgstr "Błąd podczas usuwania ${PACKAGE}"
+msgstr "Błąd usuwania pakietu ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Error while installing packages"
-msgstr "Błąd podczas instalowania pakietów"
+msgstr "Błąd instalowania pakietów"
 
 #. Type: error
 #. Description
@@ -995,18 +993,19 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Może być to spowodowane używaniem starego obrazu instalatora lub też błędem "
-"w jednym z powyższych pakietów. Więcej szczegółów można znaleźć w katalogu /"
-"var/log/syslog. Instalator mimo wszystko spróbuje kontynuować, lecz może "
-"zawieść podczas jednego z dalszych kroków i nie być w stanie dodać lub "
-"usunąć innych pakietów (włącznie z sobą samym) z instalowanego systemu.  "
-"Najpierw należy poszukać nowego obrazu instalatora lub przekazać ten raport"
+"Powodem tego może być używanie starego obrazu instalatora lub błąd w jednym "
+"z powyżej wymienionych pakietów. Więcej szczegółów można znaleźć w pliku "
+"dziennika /var/log/syslog. Instalator mimo wszystko podejmie próbę "
+"kontynuacji, lecz może przerwać podczas jednego z dalszych kroków i nie być "
+"w stanie dodać lub usunąć innych pakietów (włącznie z sobą samym) z "
+"instalowanego systemu. Najpierw należy poszukać nowego obrazu instalatora "
+"lub przekazać ten raport dystrybutorowi oprogramowania."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Error while removing packages"
-msgstr "Błąd podczas usuwania pakietów"
+msgstr "Błąd usuwania pakietów"
 
 #. Type: error
 #. Description
@@ -1018,7 +1017,7 @@ msgstr "Wystąpił błąd podczas usuwania pakietów:"
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Error migrating documents and settings"
-msgstr "Błąd migracji dokumentów i ustawień"
+msgstr "Błąd przenoszenia dokumentów i ustawień"
 
 #. Type: error
 #. Description
@@ -1038,7 +1037,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Error copying network configuration"
-msgstr "Błąd kopiowania konfiguracji sieciowych"
+msgstr "Błąd kopiowania konfiguracji sieci"
 
 #. Type: error
 #. Description
@@ -1056,7 +1055,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr "Błąd przywracania zainstalowanych aplikacji"
+msgstr "Błąd przywracania zainstalowanych programów"
 
 #. Type: error
 #. Description
@@ -1092,13 +1091,13 @@ msgstr "Instalowanie pakietów językowych"
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Pobieranie pakietów językowych (pozost. ${TIME})..."
+msgstr "Pobieranie pakietów językowych (pozostało ${TIME})..."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Failed to unmount partitions"
-msgstr "Odmontowanie partycji nie powiodło się"
+msgstr "Nie udało się odmontować partycji"
 
 #. Type: boolean
 #. Description
@@ -1116,7 +1115,7 @@ msgstr ""
 #: ../ubiquity.templates:154001
 msgid "Please close any applications using these mount points."
 msgstr ""
-"Proszę zamknąć wszystkie programy korzystające z tych punktów montowania."
+"Proszę zakończyć wszystkie programy korzystające z tych punktów montowania."
 
 #. Type: boolean
 #. Description
@@ -1146,8 +1145,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
-"Jeśli partycje nie zostaną powiększone, to instalacja może się nie powieść."
+msgstr "Jeśli partycje nie zostaną powiększone, instalacja może się nie udać."
 
 #. Type: text
 #. Description
@@ -1270,14 +1268,14 @@ msgstr "Instalator napotkał błąd podczas próby zaktualizowania siebie:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:182001
 msgid "USB disk"
-msgstr "Dysk USB"
+msgstr "Nośnik USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:183001
 msgid "CD"
-msgstr "CD"
+msgstr "płyta CD"
 
 #. Type: text
 #. Description
@@ -1305,7 +1303,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:186001 ../ubiquity.templates:187001
 msgid "Installation failed"
-msgstr "Instalacja się nie powiodła."
+msgstr "Nie udało się zakończyć instalacji."
 
 #. Type: text
 #. Description
@@ -1330,7 +1328,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:189001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Przygotowanie do instalacji ${RELEASE}"
+msgstr "Przygotowywanie do instalacji ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1370,7 +1368,7 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Na tym dysku znaleziono mniejsze, ukryte partycje: %d. W celu uzyskania "
+"Na tym nośniku odnaleziono mniejsze, ukryte partycje: %d. W celu uzyskania "
 "większej kontroli użyj <a href=\"\">narzędzia do zaawansowanego "
 "partycjonowania dysków</a>"
 
@@ -1381,7 +1379,7 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Na tym dysku znaleziono jedną mniejszą, ukrytą partycję. W celu uzyskania "
+"Na tym nośniku odnaleziono jedną mniejszą, ukrytą partycję. W celu uzyskania "
 "większej kontroli użyj <a href=\"\">narzędzia do zaawansowanego "
 "partycjonowania dysków</a>"
 
@@ -1393,9 +1391,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Liczba partycji przeznaczonych do usunięcia: %d. Aby uzyskać większą "
-"kontrolę użyj <a href=\"\">narzędzia do zaawansowanego partycjonowania "
-"dysków</a>"
+"Ilość partycji przeznaczonych do usunięcia: %d. Aby uzyskać większą kontrolę "
+"użyj <a href=\"\">narzędzia do zaawansowanego partycjonowania dysków</a>"
 
 #. Type: text
 #. Description
@@ -1448,10 +1445,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"Do wyświetlania treści Flash, odtwarzania plików MP3 i innych mediów, a "
+"Do wyświetlania treści Flash, odtwarzania plików MP3 i innych multimediów, a "
 "także do obsługi niektórych urządzeń bezprzewodowych, ${RELEASE} używa "
-"zastrzeżonego oprogramowania, pochodzącego od osób trzecich. Podlega ono "
-"warunkom licencyjnym podanym w jego dokumentacji, a nie zasadom Open Source."
+"dodatkowego, zastrzeżonego oprogramowania. Oprogramowanie to podlega "
+"warunkom licencyjnym podanym w jego dokumentacji."
 
 #. Type: text
 #. Description
@@ -1467,7 +1464,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Install this third-party software"
-msgstr "Instalacja oprogramowania osób trzecich"
+msgstr "Instalacja dodatkowego oprogramowania"
 
 #. Type: text
 #. Description
@@ -1491,7 +1488,7 @@ msgstr "Wariant:"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Below is an image of your current layout:"
-msgstr "Poniżej jest przedstawiony aktualny układ:"
+msgstr "Poniżej znajduje się obraz bieżącego układu:"
 
 #. Type: text
 #. Description
@@ -1521,7 +1518,7 @@ msgstr "Region:"
 #. Description
 #: ../ubiquity.templates:221001
 msgid "[type here to change]"
-msgstr "[pisz tutaj, aby zmienić]"
+msgstr "[Proszę wpisać tutaj, aby zmienić]"
 
 #. Type: text
 #. Description
@@ -1631,7 +1628,7 @@ msgid ""
 msgstr ""
 "Dokumenty, muzyka oraz wszystkie inne osobiste pliki zostaną zachowane. "
 "Zainstalowane programy zostaną zachowane tam, gdzie będzie to możliwe. "
-"Ustawienia użytkowników systemu ulegną  utracie."
+"Ustawienia użytkowników systemu zostaną utracone."
 
 #. Type: text
 #. Description
@@ -1811,227 +1808,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Usuwanie pakietów"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "To jest wydanie testowe instalatora ${RELEASE} live ${MEDIUM}. Oficjalna "
-#~ "premiera ${RELEASE} przewidziana jest na kwiecień 2011"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Użycie największej ciągłej wolnej przestrzeni"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ręczne określanie partycji (zaawansowane)"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Udzielenie odpowiedzi na pytania zajmie tylko kilka minut."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migracja dokumentów i ustawień"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Zmienić układ partycji na tym dysku?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "W komputerze nie ma zainstalowanego żadnego systemu operacyjnego."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "W komputerze zainstalowany jest ${OS}."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "W komputerze zainstalowanych jest kilka systemów operacyjnych."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Gdzie umieścić ${RELEASE}?"
-
-#~ msgid "Ready to install"
-#~ msgstr "Gotowe do instalacji"
-
-#~ msgid "Details"
-#~ msgstr "Szczegóły"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Nowy system operacyjny zostanie teraz zainstalowany z następującymi "
-#~ "ustawieniami:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Zaawansowane..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Opcje zaawansowane"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Konkurs popularności"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Wzięcie udziału w badaniu popularności wykorzystania pakietów"
-
-#~ msgid "Network proxy"
-#~ msgstr "Pośrednik sieciowy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Pośrednik HTTP:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Język: ${LANGUAGE}\n"
-#~ " Układ klawiatury: ${KEYMAP}\n"
-#~ " Nazwa: ${FULLNAME}\n"
-#~ " Nazwa logowania: ${USERNAME}\n"
-#~ " Położenie: ${LOCATION}\n"
-#~ " Asystent migracji:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Przeglądanie plików..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Ustawianie nazwy komputera..."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "To usunie ${SYSTEMS} i zainstaluje ${RELEASE}."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Zastosowywanie konfiguracji"
-
-#~ msgid "Summary"
-#~ msgstr "Podsumowanie"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Po podaniu odpowiedzi na kilka pytań ten komputer będzie gotowy do użycia."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalacja programu rozruchowego"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Gotowy do instalacji? Po podaniu odpowiedzi na kilka pytań zawartość "
-#~ "płyty live ${MEDIUM} będzie mogła zostać zainstalowana na tym komputerze, "
-#~ "dzięki czemu będzie można uruchomić ${RELEASE} z pełną wydajnością, bez "
-#~ "użycia ${MEDIUM}."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Kontynuuj instalację."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Krok {INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Użycie całej partycji"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Określ układ klawiatury ręcznie"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Użyj cały dysk"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instalacja sąsiadująca z innym systemem operacyjnym"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Wykrywanie układu klawiatury"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Usunięcie zawartości i użycie całej powierzchni dysku"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Ta operacja <b>usunie</b> z ${OS} wszystkie programy, dokumenty, obrazy, "
-#~ "pliki muzyczne oraz inne pliki."
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "Instalacja ${DISTRO} jako kolejnego systemu operacyjnego"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Żadne pliki nie zostaną skasowane. Za każdym razem, przy włączaniu "
-#~ "komputera, wyświetlona zostanie lista wyboru systemów operacyjnych."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Ta operacja <b>usunie</b> ${CURDISTRO} wraz ze wszystkimi programami, "
-#~ "dokumentami, obrazami, muzyką oraz innymi plikami."
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Możliwa jest aktualizacja ${CURDISTRO} z zachowaniem wszystkich "
-#~ "dokumentów oraz zainstalowanych programów."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "Instalacja ${DISTRO} ${VER} sąsiadująca"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Wciąż niezdecydowany? Możliwa jest instalacja ${DISTRO} ${VER} "
-#~ "sąsiadująca z obecną wersją ${CURDISTRO}."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Gotowy do podjęcia stanowczej decyzji? Ta opcja czyści zawartość dysku "
-#~ "oraz instaluje świeżą wersję ${DISTRO}."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "Ta opcja <b>wymaże</b> wszystkie programy, dokumenty, obrazy, muzykę, "
-#~ "oraz inne pliki w obu ${OS} oraz ${CURDISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Możliwa jest ponowna instalacja ${CURDISTRO} bez utraty dokumentów oraz "
-#~ "programów."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Ta opcja <b>wymaże</b> wszystkie dokumenty, obrazy, muzykę oraz inne "
-#~ "pliki, we wszystkich systemach operacyjnych."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Żadne pliki nie zostaną skasowane. Zainstalowane programy zostaną "
-#~ "zachowane o ile będzie to możliwe."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">UWAGA!</span> Ta operacja wymaże wszystkie "
-#~ "programy, dokumenty, zdjęcia, muzykę i inne pliki systemu ${OS}."

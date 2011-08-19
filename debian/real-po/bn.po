@@ -1,33 +1,34 @@
 # Bengali messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-#
+# Ummey Salma <snigdha@ankur.org.bd>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2010-12-07 08:37+0000\n"
+"PO-Revision-Date: 2011-06-01 16:41+0000\n"
 "Last-Translator: Aniruddha Adhikary <Unknown>\n"
-"Language-Team: Bangla <core@BengaLinux.Org>\n"
+"Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
+"X-Language: bn_BD\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "অগ্রসর হতে রিস্টার্ট করুন"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "নিজ হাতে কনফিগারেশন (এ্যাডভান্সড)"
 
 #. Type: text
 #. Description
@@ -36,6 +37,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"আমাদের থেকেও বেশী স্মার্ট? কিছু এ্যাডভান্সড পার্টিশনিং অপশন দিয়ে আপনার হাত ময়লা "
+"করুন।"
 
 #. Type: text
 #. Description
@@ -50,7 +53,7 @@ msgstr "ইনস্টল করুন"
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "ইনস্টল (ওইএম মোড, খালি ম্যানুফাচারার জন্য)"
+msgstr "ইনস্টল (OEM মোড, শুধুমাত্র প্রস্তুতকারকদের জন্য)"
 
 #. Type: text
 #. Description
@@ -73,6 +76,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"আপনি সরাসরি এই ${MEDIUM} থেকে আপনার কম্মিউটারে কোন পরিবর্তন ছাড়াই ${RELEASE} "
+"ব্যবহার করে দেখতে পারেন"
 
 #. Type: text
 #. Description
@@ -82,13 +87,16 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"অথবা, আপনি যদি প্রস্তুত হয়ে থাকেন, তবে আপনি আপনার বর্তমানে অপারেটিং সিস্টেমের "
+"পাশাপাশি (কিংবা পরিবর্তে) ${RELEASE} ইন্সটল করতে পারেন। এই কাজে বেশী সময় লাগার "
+"কথা নয়।"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Try ${RELEASE}"
-msgstr "${RELEASE} ব্যবহার করুন"
+msgstr "${RELEASE} ব্যবহার করে দেখুন"
 
 #. Type: text
 #. Description
@@ -138,6 +146,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
+"ইনস্টলেশন প্রসেস আপনার হার্ড ডিস্কের পার্টিশনের  আকার পরিবর্তন করে বা মুছে দেয়। এ "
+"প্রোগ্রাম চালানোর আগে <b>যেকোনো ডাটার সম্পূর্ণ ব্যাকআপ </b> নেয়ার ব্যাপারে নিশ্চিত "
+"হন।"
 
 #. Type: text
 #. Description
@@ -173,13 +184,13 @@ msgstr "আপনার কীবোর্ড পরীক্ষা করার
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "কীবোর্ডের লেআউট সনাক্ত"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "কীবোর্ডের লেআউট সনাক্ত..."
 
 #. Type: text
 #. Description
@@ -245,7 +256,7 @@ msgstr "পাসওয়ার্ড নিশ্চিত করুন"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Confirm your password:"
-msgstr ""
+msgstr "আপনার পাসওয়ার্ড নিশ্চিত:"
 
 #. Type: text
 #. Description
@@ -271,7 +282,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Passwords do not match"
-msgstr ""
+msgstr "পাসওয়ার্ড মিলে না"
 
 #. Type: text
 #. Description
@@ -352,7 +363,7 @@ msgstr "ড্রাইভের স্পেস বন্টন"
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "ফাইল (${SIZE})"
 
 #. Type: text
 #. Description
@@ -460,7 +471,7 @@ msgstr "রিস্টার্ট করুন"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "এখন বন্ধ"
 
 #. Type: text
 #. Description
@@ -862,7 +873,7 @@ msgstr "হার্ডওয়্যার কনফিগার করা হচ
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "থার্ড পার্টি সফ্টওয়্যার ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -880,13 +891,13 @@ msgstr "বুট লোডার কনফিগার করা হচ্ছ�
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "ইনস্টলকৃত প্যাকেজ সংরক্ষণ করা হচ্ছে..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "পূর্বে ইনস্টলকৃত প্যাকেজ পুনরূদ্ধার করা হচ্ছে..."
 
 #. Type: text
 #. Description
@@ -1010,6 +1021,9 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
+"ডাটা স্থানান্তরের সময় ত্রুটি ঘটে। আরও বিস্তারিত তথ্য পাওয়া যাবে /var/log/syslog। "
+"ইনস্টলেশন চলবে, কিন্তু আপনার অনুরোধকৃত সব নথি এবং সেটিং ইনস্টলকৃত সিস্টেমে স্থানান্তর "
+"করা যায় না।"
 
 #. Type: error
 #. Description
@@ -1025,12 +1039,14 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"নেটওয়ার্ক সেটিং অনুলিপি করার সময় ত্রুটি। ইনস্টলেশন চলবে, কিন্তু নেটওয়ার্ক কনফিগারেশন "
+"ইনস্টলকৃত সিস্টেমে সেট আপ করতে হবে।"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "ইনস্টলকৃত অ্যাপ্লিকেশন পুনরূদ্ধার করার সময় ত্রুটি"
 
 #. Type: error
 #. Description
@@ -1040,6 +1056,8 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"পূর্বে ইনস্টলকৃত অ্যাপ্লিকোেশন পুনরূদ্ধার করার সময় ত্রুটি। ইনস্টলেশন চলবে, কিন্তু কম্পিউটার "
+"রিবুট করার পর কিছু অ্যাপ্লিকেশন নিজহাতে পুনরায় ইনস্টল করতে হবে।"
 
 #. Type: text
 #. Description
@@ -1107,6 +1125,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"আপনি এমন কিছউ পার্টিশন করেছেন যা খুব ছোট। অনুগ্রহ করে নিম্নোক্ত পার্টিশন যতটুকু বড় "
+"করা হবে:"
 
 #. Type: boolean
 #. Description
@@ -1232,7 +1252,7 @@ msgstr "ইন্সটলার আপডেট করার সময় ত্�
 #. Description
 #: ../ubiquity.templates:181001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "ইনস্টলার হালনাগাদ করার সময় যে ত্রুটি ধরা পড়েছে:"
 
 #. Type: text
 #. Description
@@ -1255,6 +1275,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"অনুগ্রহ করে ইনস্টল প্রসেসের জন্য ভাষা নির্বাচন। এ কম্পিউটারের জন্য এ ভাষাই "
+"পূর্বনির্ধারিত ভাষা হবে।"
 
 #. Type: text
 #. Description
@@ -1280,6 +1302,8 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"ইনস্টলারে সমাধানের অযোগ্য ত্রুটি ধরা পড়ে। ডেক্সটপ সেশন চলবে যাতে আপনি সমস্যা সনাক্ত "
+"অথবা পুনরায় ইনস্টল করার চেষ্টা করতে পারেন।"
 
 #. Type: text
 #. Description
@@ -1318,7 +1342,7 @@ msgstr "ড্রাইভ সিলেক্ট করুনঃ"
 #. Description
 #: ../ubiquity.templates:196001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "ড্রাইভার নিচে টেনে নিয়ে ড্রাইভার স্পেস বরাদ্দ:"
 
 #. Type: text
 #. Description
@@ -1334,6 +1358,8 @@ msgid ""
 "%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d অপেক্ষাকৃত ছোট পার্টিশন আড়ালকৃত, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
+"পার্টিশনিং টুল</a> ব্যবহার"
 
 #. Type: text
 #. Description
@@ -1342,6 +1368,8 @@ msgid ""
 "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 অপেক্ষাকৃত ছোট পার্টিশন আড়ালকৃত, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
+"পার্টিশনিং টুল</a> ব্যবহার"
 
 #. Type: text
 #. Description
@@ -1351,6 +1379,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d পার্টিশন মুছে ফেলা হয়েছে, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
+"পার্টিশনিং টুল</a> ব্যবহার"
 
 #. Type: text
 #. Description
@@ -1359,6 +1389,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 পার্টিশন মুছে ফেলা হয়েছে, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
+"পার্টিশনিং টুল</a> ব্যবহার"
 
 #. Type: text
 #. Description
@@ -1481,7 +1513,7 @@ msgstr "[পরিবর্তনের জন্য এখানে লিখ�
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "প্রতিস্থাপন করুন ${OS} দিয়ে ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1491,6 +1523,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">সতর্কীকরণ:</span> এটা আপনার ${OS} সব প্রোগ্রাম, "
+"নথি, ছবি, মিউজিক, এবং অন্য যেকোনো ফাইল সমস্ত মুছে ফেলবে।"
 
 #. Type: text
 #. Description
@@ -1498,7 +1532,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "ইনস্টল ${DISTRO} পাশাপাশি ${OS}"
 
 #. Type: text
 #. Description
@@ -1514,6 +1548,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"সব প্রোগ্রাম, নথি, ছবি, মিউজিক, এবং অন্য যেকোনো ফাইল রাখা হবে। আপনি কম্পিউটার "
+"চালনোর সময় কোন অপারেটিং সিস্টেম চান তা নির্বাচন করতে পারেন।"
 
 #. Type: text
 #. Description
@@ -1521,13 +1557,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "${DISTRO} ইনস্টল ${OS} এ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "অন্য কিছু"
 
 #. Type: text
 #. Description
@@ -1537,13 +1573,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"আপনি নিজে পার্টিশন তৈরি বা পুনরায় আকার দিতে পারেন বা ${DISTRO} এর জন্য বিবিধ "
+"পার্টিশন নির্বাচন করতে পারেন।"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "${CURDISTRO} অপসারণ এবং পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
@@ -1553,6 +1591,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">সতর্কীকরণ:</span> এটা আপনার ${CURDISTRO} সব "
+"প্রোগ্রাম, নথি, ছবি, মিউজিক, এবং অন্য যেকোনো ফাইল সমস্ত মুছে ফেলবে।"
 
 #. Type: text
 #. Description
@@ -1560,7 +1600,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "${CURDISTRO} থেকে ${VER} এ আপগ্রেড"
 
 #. Type: text
 #. Description
@@ -1571,6 +1611,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"নথি, মিউজিক, এবং অন্যান্য ব্যক্তিগত ফাইল রাখা হবে। ইনস্টলকৃত সফ্টওয়্যার যেখানে সম্ভব "
+"রাখা হবে। সিস্টেম-জুড়ে সেটিং বাতিল করা হবে।"
 
 #. Type: text
 #. Description
@@ -1579,7 +1621,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "ইনস্টল ${DISTRO} ${VER} পাশাপাশি ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1589,7 +1631,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "ডিস্ক অপসারণ করে ${DISTRO} ইনস্টল"
 
 #. Type: text
 #. Description
@@ -1598,12 +1640,13 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">সতর্কীকরণ:</span> এটা ডিক্সের সব ফাইল অপসারন করবে।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "সবকিছু মুছে ফেলে পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
@@ -1615,13 +1658,15 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">সতর্কীকরণ:</span> ${OS} এবং ${CURDISTRO} এ সব সব "
+"প্রোগ্রাম, নথি, ছবি, মিউজিক, এবং অন্য যেকোনো ফাইল সমস্ত মুছে ফেলবে।"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "${CURDISTRO} পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
@@ -1631,20 +1676,22 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">সতর্কীকরণ:</span> এটা সব অপারেটিং সিস্টমে সব "
+"প্রোগ্রাম, নথি, ছবি, মিউজিক, এবং অন্য যেকোনো ফাইল সমস্ত মুছে ফেলবে।"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "এগুলোর পাশাপাশি ${DISTRO} ইনস্টল"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "এ কম্পিউটারে বর্তমানে ${OS} আছে। এখন আপনি কি করতে চান?"
 
 #. Type: text
 #. Description
@@ -1654,7 +1701,7 @@ msgstr ""
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
+msgstr "এ কম্পিউটারে বর্তমানে ${OS1} এবং ${OS2} আছে। এখন আপনি কি করতে চান?"
 
 #. Type: text
 #. Description
@@ -1662,7 +1709,7 @@ msgstr ""
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr ""
+msgstr "এ কম্পিউটারে বর্তমানে একাধিক অপারেটিং সিস্টেম আছে। এখন আপনি কি করতে চান?"
 
 #. Type: text
 #. Description
@@ -1671,6 +1718,8 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"এ কম্পিউটারে বর্তমানে কোনো অপারেটিং সিস্টেম সনাক্ত করা যায়নি। এখন আপনি কি করতে "
+"চান?"
 
 #. Type: title
 #. Description
@@ -1712,6 +1761,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
+"আপনি যখন নতুন সিস্টেমে বুট করেন, আপনি যে পাসওয়ার্ড নির্বাচন করেছেন তা দিয়ে 'oem' "
+"ব্যবহারকারী হিসাবে লগইন করতে পারবেন; এ ব্যবহাকরীর 'sudo' ব্যবহার করার প্রসাশনিক "
+"সুবিধা আছে। আপনি আপনার পছন্দমত অতিরিক্ত কিছু পরিবর্তন করতে পারবেন।"
 
 #. Type: text
 #. Description
@@ -1721,139 +1773,12 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"আপনার ইচ্ছামত যখন সিস্টেম কনফিগারকৃত হবে তখন  'oem-config-prepare' চালান। আপনার "
+"জন্য সিস্টেম অস্থায়ী 'oem' মুছে দিবে এবং এন্ড ইউজার পরবর্তিতে বুট করার সময় বিভিন্ন "
+"কনফিগারেশনের জন্য বলা হবে।"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "আপনি কিভাবে ডিস্কটি পার্টিশন করতে চান?"
-
-#~ msgid "Ready to install"
-#~ msgstr "ইনস্টলের জন্য প্রস্তুত"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "আপনার নতুন অপারেটিং সিস্টেম নিম্নোক্ত বৈশিষ্ট্য সমূহ নিয়ে ইনস্টল করা হবে:"
-
-#~ msgid "Install boot loader"
-#~ msgstr "বুট লোডার ইনস্টল করুন"
-
-#~ msgid "Scanning files..."
-#~ msgstr "ফাইলসমূহ পরীক্ষা করা হচ্ছে..."
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "এই কম্পিউটারে কোন অপারেটিং সিস্টেম নেই।"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "এই কম্পিউটারে ${OS} রয়েছে।"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "এই কম্পিউটারে একাধিক অপারেটিং সিস্টেম রয়েছে।"
-
-#~ msgid "Details"
-#~ msgstr "বিস্তারিত"
-
-#~ msgid "Port:"
-#~ msgstr "পোর্ট:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " ভাষা: ${LANGUAGE}\n"
-#~ " কীবোর্ড লেআউট: ${KEYMAP}\n"
-#~ " নাম: ${FULLNAME}\n"
-#~ " লগইন নাম: ${USERNAME}\n"
-#~ " এলাকা: ${LOCATION}\n"
-#~ " মাইগ্রেশন সহকারী::\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Applying configuration"
-#~ msgstr "কনফিগারেশন আরোপ করা হচ্ছে"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "এই প্রশ্নগুলোর উত্তর দিতে মাত্র কয়েক মিনিট সময় লাগবে।"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "বৃহত্তম ধারাবাহিক মুক্ত স্থান ব্যবহার করুন"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "পুরো হার্ড-ডিস্ক মুছে ব্যবহার করুন"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "নিজ হাতে পার্টিশনগুলো নির্ধারণ করুন (দক্ষতর)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "কয়েকটি প্রশ্নের উত্তর দেয়া হলেই এই কম্পিউটারটা ব্যবহারোপযোগী হয়ে যাবে।"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "নথিপত্র বা ডকুমেন্টস্ এবং সেটিংস্ স্থানান্তর করান"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "${RELEASE}কে কোথায় রাখতে চান?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "এটা করলে ${SYSTEMS} মুছে যাবে এবং ${RELEASE} ইনস্টল হবে।"
-
-#~ msgid "Advanced..."
-#~ msgstr "উন্নততর ..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "উন্নততর বিকল্পসমূহ"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "প্যাকেজ ব্যবহার বিষয়ের জরিপে অংশগ্রহণ করুন"
-
-#~ msgid "Popularity contest"
-#~ msgstr "জনপ্রিয়তার প্রতিযোগিতা"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP প্রক্সি:"
-
-#~ msgid "Network proxy"
-#~ msgstr "নেটওয়র্ক প্রক্সি"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "কম্পিউটারের নামকরণ করা হচ্ছে..."
-
-#~ msgid "Summary"
-#~ msgstr "সারসংক্ষেপ"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "ইনস্টল করতে প্রস্তুত? কিছু প্রশ্নের উত্তর দেওয়ার মাধ্যমে আপনি ${RELEASE} লাইভ "
-#~ "${MEDIUM} থেকে ইনস্টল করতে পারবেন। ইসন্টল শেষ করার পর আপনি পূর্ণ গতিতে "
-#~ "${MEDIUM} ছাড়াই উবুন্টু ব্যবহার করতে পারবেন।"
-
-#~ msgid "Continue with installation."
-#~ msgstr "ইন্সটলেশন চালিয়ে যাও"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "অন্য অপারেটিং সিস্টেমের সাথে ইন্সটল করুন"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "কীবোর্ড লেআউট বুঝে নাও"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "সম্পূর্ণ পার্টিশন ব্যবহার কর"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "সম্পূর্ণ ডিস্ক ব্যবহার কর"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "কীবোর্ড লেআউট বুঝে নাও"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "ধাপ ${INDEX}/${TOTAL}"

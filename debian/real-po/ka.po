@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2010-09-09 01:23+0000\n"
-"Last-Translator: Vladimer Sichinava <vsichi@gnome.org>\n"
+"PO-Revision-Date: 2011-06-01 16:37+0000\n"
+"Last-Translator: Giorgi Maghlakelidze <acidlabz@gmail.com>\n"
 "Language-Team: Georgian <aietkolkhi@gmail.com>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -1706,100 +1706,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "ყველაზე დიდი უწყვეტი თავისუფალი ადგილის გამოყენება"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "დანაყოფების მანუალური მითითება (ექსპერტებისთვის)"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "ამ კითხვებზე პასუხს დასჭირდება რამდენიმე წუთი"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "პარამეტრების და დოკუმენტების მიგრირება"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "როგორ გნებავთ დისკის დაყოფა?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "მოცემულ კომპიუტერზე არ მოიძებნა ოპერატიული სისტემა"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "ამ კომპიუტერზე დაყენებულია ${OS}."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "მოცემულ კომპიუტერზე დაყენებულია რამოდენიმე ოპერატიული სისტემა."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "სად გნებავთ ${RELEASE} -ის დაყენება?"
-
-#~ msgid "Ready to install"
-#~ msgstr "მზადაა დაყენებისთვის"
-
-#~ msgid "Details"
-#~ msgstr "დაწვრილებით"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "იწყება თქვენი ახალი ოპერაციული სისტემის დაყენება შემდეგი პარამეტრებით:"
-
-#~ msgid "Advanced..."
-#~ msgstr "დამატებითი..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "დამატებითი პარამეტრები"
-
-#~ msgid "Install boot loader"
-#~ msgstr "მტვირთავი პროგრამის დაყენება"
-
-#~ msgid "Popularity contest"
-#~ msgstr "პოპულარიზაცია"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "პაკეტის პოპულარიზაციაში მონაწილეობა"
-
-#~ msgid "Network proxy"
-#~ msgstr "ქსელის პროქსი"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP პროქსი:"
-
-#~ msgid "Port:"
-#~ msgstr "პორტი:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " ენა: ${LANGUAGE}\n"
-#~ " კლავიატურის განლაგება: ${KEYMAP}\n"
-#~ " სრული სახელი: ${FULLNAME}\n"
-#~ " სისტემური სახელი: ${USERNAME}\n"
-#~ " მდებარეობა: ${LOCATION}\n"
-#~ " მიგრაციის ასისტენტი:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "მიმდინარეობს ფაილების სკანირება..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "კომპიუტერის სახელის მინიჭება..."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "გაეცით პასუხი რამდენიმე კითხვას და თქვენი კომპიუტერი მზად იქნება "
-#~ "გამოყენებისთვის."
-
-#~ msgid "Summary"
-#~ msgstr "შეჯამება"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "წაშლა და სრულიად მთელი დისკის გამოყენება"

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-11 18:15+0000\n"
+"PO-Revision-Date: 2011-08-19 08:54+0000\n"
 "Last-Translator: AJenbo <anders@jenbo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -134,11 +134,6 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
@@ -1814,228 +1809,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjerner pakker"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-"
-#~ "installationsprogram. Det er ikke en endelig udgave; den kommer med den "
-#~ "endelige udgivelse af ${RELEASE} i april 2010."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Angiv partitioner manuelt (avanceret)"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Det tager kun få minutter at svare på spørgsmålene."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Overfør dokumenter og indstillinger"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Hvordan vil du partitionere disken?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Denne computer har ikke noget operativsystem installeret."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Denne computer har ${OS} installeret."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Denne computer har flere operativsystemer installeret."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Hvor vil du placere ${RELEASE}?"
-
-#~ msgid "Ready to install"
-#~ msgstr "Klar til at installere"
-
-#~ msgid "Details"
-#~ msgstr "Detaljer"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Dit nye operativsystem vil nu blive installeret med de følgende "
-#~ "indstillinger:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avanceret..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Avancerede indstillinger"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Installér opstartsindlæser"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Popularitetskonkurrence"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Deltag i kortlægning af pakkeanvendelse"
-
-#~ msgid "Network proxy"
-#~ msgstr "Netværksproxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Sprog: ${LANGUAGE}\\n\n"
-#~ " Tastaturlayout: ${KEYMAP}\\n\n"
-#~ " Navn: ${FULLNAME}\\n\n"
-#~ " Logindnavn: ${USERNAME}\\n\n"
-#~ " Sted: ${LOCATION}\\n\n"
-#~ " Overførselshjælper:\\n\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Skanner filer..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Indstiller computernavn..."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Dette vil slette ${SYSTEMS} og installere ${RELEASE}."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Udfører konfiguration"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Brug det største sammenhængende ledige område på disken"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Når du har besvaret et par spørgsmål, vil denne computer være klar til "
-#~ "brug."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Slet og brug hele disken"
-
-#~ msgid "Summary"
-#~ msgstr "Oversigt"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Klar til at installere? Når du har besvaret et par spørgsmål, kan "
-#~ "indholdet af denne live-${MEDIUM} installeres på denne computer, så du "
-#~ "kan køre ${RELEASE} ved fuld hastighed, uden ${MEDIUM}'en."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Fortsæt med installationen."
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Trin ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Brug hele disken"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Brug hele partitionen"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Gæt tastaturlayout"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Installér side om side med andre styresystemer"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Gæt tastaturlayout"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Dette vil <b>slette</b> alle dine programmer, dokumenter, billeder, musik "
-#~ "og alle andre filer i ${OS}."
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Du kan opgradere ${CURDISTRO} uden at miste dine vigtige dokumenter eller "
-#~ "programmer."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "Installer ${DISTRO} ${VER} side om side"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Stadig overvejende? Du kan installere ${DISTRO} ${VER} side om side med "
-#~ "din eksisterende  kopi af ${CURDISTRO}."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Dette vil <b>slette</b> alle dine programmer, dokumenter, billeder, musik "
-#~ "og alle andre filer i ${CURDISTRO}."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "Dette vil <b>slette</b> alle dine programmer, dokumenter, billeder, musik "
-#~ "og andre filer i både ${OS} og ${CURDISTRO}."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Dette vil <b>slette</b> alle dine programmer, dokumenter, billeder, musik "
-#~ "og andre filer i alle dine nuværende operativsystemer."
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "Installer ${DISTRO} side om side med det"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Ingen filer vil blive slettet. Du kan vælge det operativsystem du ønsker, "
-#~ "hver gang computeren starter."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Klar til at tage springet? En ren installation sletter hele din harddisk "
-#~ "og installerer ${DISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Du kan geninstallere ${CURDISTRO} uden at miste dine vigtige dokumenter "
-#~ "eller programmer."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Ingen filer vil blive slettet. Installeret software vil blive bibeholdt "
-#~ "så vidt muligt."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Advarsel:</span> Dette vil slette alle dine "
-#~ "programmer, dokumenter, billeder, musik samt andre filer i ${OS}."

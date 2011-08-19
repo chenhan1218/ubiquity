@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-11 04:22+0000\n"
+"PO-Revision-Date: 2011-08-19 08:57+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Ubuntu Serbian Translators\n"
 "Language: Serbian (sr)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:57+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -131,18 +131,13 @@ msgstr "Можда желите да <a href=\"update\">ажурирате ов�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Ово је пред-издање пробног ${MEDIUM} ${RELEASE} инсталера. То није коначно "
-"издање; оно ће доћи са коначним ${RELEASE} издањем у Октобру 2010."
+"Ово је пред-издање ${RELEASE} пробног ${MEDIUM} инсталера. Ово није коначно "
+"издање; оно ће доћи са коначним издањем ${RELEASE} у октобру 2011."
 
 #. Type: text
 #. Description
@@ -1809,226 +1804,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Уклањам пакете"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Ово је пред-издање ${RELEASE} пробног ${MEDIUM} инсталера. Ово није "
-#~ "коначно издање; оно ће доћи са коначним издањем ${RELEASE} Априла 2011."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Преузети документа и подешавања"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Како желите да поделите диск?"
-
-#~ msgid "Details"
-#~ msgstr "Детаљи"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Ваш нови оперативни систем ће бити инсталиран са следећим поставкама:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Напредно..."
-
-#~ msgid "Popularity contest"
-#~ msgstr "Такмичење у популарности"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Учествујте у анкети коришћења пакета"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Језик: ${LANGUAGE}\n"
-#~ " Распоред тастатуре: ${KEYMAP}\n"
-#~ " Име: ${FULLNAME}\n"
-#~ " Корисничко име: ${USERNAME}\n"
-#~ " Локација: ${LOCATION}\n"
-#~ " Миграциони асистент:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Постављам име рачунара..."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ручно подешавање партиција (напредно)"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "На овом рачунару је инсталиран ${OS}"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "На овом рачунару је инсталирано више оперативних система."
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Примењујем подешавање"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Чим одговорите на пар питања, овај рачунар ће бити спреман за употребу."
-
-#~ msgid "Summary"
-#~ msgstr "Сажетак"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Инсталирај покретач система"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Напредне могућности"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Претражујем датотеке..."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Ово ће обрисати ${SYSTEMS} и инсталирати ${RELEASE}."
-
-#~ msgid "Network proxy"
-#~ msgstr "Посредник мреже"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Обриши и искористи цео диск"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Наставите инсталацију."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Где желите да инсталирате ${RELEASE}?"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Требаће Вам тек неколико минута да одговорите на питања."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Пронађи распоред тастатуре"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Пронађите распоред тастатуре"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "На овом рачунару нема инсталираних оперативних система."
-
-#~ msgid "Ready to install"
-#~ msgstr "Спремни за инсталацију"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Корак ${INDEX} од ${TOTAL}"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "ХТТП посредник:"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Користи читаву партицију"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Користи читав диск"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Да ли сте спремни за инсталацију? Након што одговорите на неколико "
-#~ "питања, садржај са пробног ${MEDIUM}-а може бити инсталиран на овом "
-#~ "рачунару тако да ћете моћи да користите ${RELEASE} пуном брзином без "
-#~ "употребе ${MEDIUM}-а."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Искористи највећи непрекидан слободан простор"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Инсталирај поред других оперативних система"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Ово ће <b>избрисати</b> све програме, документа, фотографије, музику и "
-#~ "било које друге датотеке вашег оперативног система „${OS}“"
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "Инсталирај „${DISTRO}“ поред њега"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Ниједна датотека неће бити избрисана. Приликом сваког покретања рачунара "
-#~ "моћи ћете да изаберете оперативни систем који желите."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Ово ће <b>избрисати</b> све програме, документа, фотографије, музику и "
-#~ "било коју другу датотеку ваше дистрибуције „${CURDISTRO}“"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Можете да надоградите „${CURDISTRO}“ на новију верзију а да не изгубите "
-#~ "ниједан од ваших важних докумената или програма."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "Инсталирај „${DISTRO}“ ${VER} поред овог"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Још увек се двоумите? Можете да инсталирате „${DISTRO} ${VER}“ поред "
-#~ "вашег већ постојећег примерка дистрибуције „${CURDISTRO}“."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Да ли сте спремни за скок? Чиста инсталација брише читав чврсти диск и "
-#~ "инсталира „${DISTRO}“."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "Ово ће <b>избрисати</b> све ваше програме, документа, фотографије, музику "
-#~ "и остале датотеке како у „${OS}“ тако и у „${CURDISTRO}“."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Можете поново да инсталирате „${CURDISTRO}“ а да не изгубите ниједан од "
-#~ "ваших важних докумената или програма."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "Ово ће <b>избрисати</b> све ваше програме, документа, фотографије, музику "
-#~ "и било коју другу датотеку на свим оперативним системима."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Датотеке неће бити избрисане. Инсталирани програми ће бити задржани тамо "
-#~ "где је то могуће."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Упозорење:</span> Ово ће избрисати све ваше "
-#~ "${OS} програме, документа, фотографије, музику и било које друге датотеке."

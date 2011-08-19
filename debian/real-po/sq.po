@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-09 12:29+0000\n"
+"PO-Revision-Date: 2011-08-19 08:54+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -131,19 +131,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Ky është një version paraprak i ${RELEASE} me ${MEDIUM} instalues të "
-"drejtpërdrejtë. Nuk është një version final; ky do të vijë me versionin "
-"final të ${RELEASE} në Tetor 2010."
+"Ky është një version paraprak i instaluesit të drejtpërdrejtë të ${RELEASE} "
+"live ${MEDIUM}. Nuk është një version përfundimtar; ai do të vijë me "
+"versionin përfundimtar të ${RELEASE} në Tetor 2011."
 
 #. Type: text
 #. Description
@@ -1541,6 +1536,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Kujdes:</span> Kjo do ti fshijë të gjitha ${OS} "
+"programet, dokumentet, fotot, muzikën tuaj dhe çdo skedar tjetër."
 
 #. Type: text
 #. Description
@@ -1564,6 +1561,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Dokumentet, muzika dhe skedarët e tjerë personalë do të mbahen. Ju mund të "
+"zgjidhni cilin sistem operimi dëshironi sa herë që kompjuteri ndizet."
 
 #. Type: text
 #. Description
@@ -1626,6 +1625,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Dokumentet, muzika dhe skedarët e tjerë personalë do të mbahen. Programet e "
+"instaluara do të mbahen kur është e mundur. Parametrat e përgjithshme të "
+"sistemit do të ndryshohen."
 
 #. Type: text
 #. Description
@@ -1691,6 +1693,9 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Kujdes:</span> Kjo do të fshijë të gjitha "
+"programet tuaja, dokumentet, fotot, muzikëm dhe çdo skedar tjetër në të "
+"gjithë sistemet e operimit."
 
 #. Type: text
 #. Description
@@ -1801,164 +1806,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Ky është një version paraprak i instaluesit ${RELEASE} live ${MEDIUM}. "
-#~ "Nuk është një version përfundimtar; ai do të vijë me versionin "
-#~ "përfundimtar të ${RELEASE} në Prill 2011."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Përdor hapësirën e lirë të vazhdueshme më të madhe"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specifiko particionet në mënyrë manuale (e avancuar)"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Përgjigja e pyetjeve do të duhej të zgjasë vetëm disa minuta"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migro dokumentat dhe preferencat"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Si dëshironi të ndani diskun?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Ky kompjuter nuk ka një sistem operativ."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Ky kompjuter nuk ka një ${OS}."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Ky kompjuter ka disa sisteme operative."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Ku dëshironi ta vendosni ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Kjo do të fshijë ${SYSTEMS} dhe do të instalojë ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Gati për instalim"
-
-#~ msgid "Details"
-#~ msgstr "Detajet"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "Sistemi operativ do të instalohet me preferencat që vijojnë:"
-
-#~ msgid "Advanced..."
-#~ msgstr "I Avancuar"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Mundësi të avansuara"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Instalo boot ngarkuesin"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Gara e popullaritetit"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Merr pjesë në vëzhgimin mbi përdorimin e pakove"
-
-#~ msgid "Network proxy"
-#~ msgstr "Proksi rrjeti"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "Proksi HTTP"
-
-#~ msgid "Port:"
-#~ msgstr "Porti:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Gjuha: ${LANGUAGE}\n"
-#~ " Dalja e tastierës: ${KEYMAP}\n"
-#~ " Emri: ${FULLNAME}\n"
-#~ " Emri në hyrje: ${USERNAME}\n"
-#~ " Vendndodhja: ${LOCATION}\n"
-#~ " Asistent Migrimi\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Duke skanuar skedarët..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Duke vendosur emrin e kompjuterit..."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Pasi ju t'i jeni përgjigjur disa pyetjeve, ky kompjuter do jetë gati për "
-#~ "përdorim."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Fshije dhe përdor të gjithë diskun"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Aplikim i konfigurimit"
-
-#~ msgid "Summary"
-#~ msgstr "Përmbledhja"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Gati për instalim? Pasi ju t'i përgjigjeni disa pyetjeve, përmbajtja e "
-#~ "live ${MEDIUM} mund të instalohet në këtë kompjuter kështu që ju mund të "
-#~ "nisni ${RELEASE} me shpejtësi të plotë pa ${MEDIUM}."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Vazhdo me instalimin."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Gjeni daljen e tastierës"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Hap ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Përdor të gjithë Particionin"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Përdor të gjithë Diskun"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Instaloje përkrah sistemeve t; tjera të operimit"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Gjej Daljen e Tastirës"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Asnjë file nuk do të fshihet. Ti mund të zgjedhesh se cilin sistem "
-#~ "operativ do, cdo hërë pasi të ndëzësh kompjuterin."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Asnjë file nuk do të fshihet. Programet e instaluara do të ruhen ku të "
-#~ "jetë e mundur."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Kujdes:</span> Kjo do të fshijë të gjitha "
-#~ "programet e ${OS} tuaj, dokumentet, fotot, muzikën dhe çdo skedar tjetër."

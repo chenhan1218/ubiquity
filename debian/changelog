@@ -1,3 +1,9 @@
+ubiquity (2.7.16) UNRELEASED; urgency=low
+
+  * Update translations from Launchpad.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Aug 2011 12:15:22 +0100
+
 ubiquity (2.7.15) oneiric; urgency=low
 
   [ Colin Watson ]

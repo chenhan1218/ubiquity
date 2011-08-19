@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-13 13:30+0000\n"
-"Last-Translator: helix84 <Unknown>\n"
+"PO-Revision-Date: 2011-08-19 08:58+0000\n"
+"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -130,18 +130,11 @@ msgstr "Môžete <a href=\"update\">aktualizovať tento inštalátor</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Toto je verzia pred vydaním ${RELEASE} inštalátora live ${MEDIUM}. Toto nie "
-"je hotové vydanie, to bude až v hotovom vydaní ${RELEASE} v októbri 2010."
 
 #. Type: text
 #. Description
@@ -1523,7 +1516,7 @@ msgstr "[zmeníte písaním sem]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "Nahrate ${OS} za ${DISTRO}"
+msgstr "Nahradiť ${OS} za ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1800,213 +1793,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňujú sa balíky"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Toto je pre-release ${RELEASE} inštalátora live ${MEDIUM}. Nie je to "
-#~ "finálne vydanie. Finálne vydanie ${RELEASE} bude hotové v apríli 2011."
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Odpovede na otázky vám zaberú len pár minút."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrovať dokumenty a nastavenia"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Ako si želáte rozdeliť disk?"
-
-#~ msgid "Ready to install"
-#~ msgstr "Pripravené na inštaláciu"
-
-#~ msgid "Details"
-#~ msgstr "Podrobnosti"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Váš nový operačný systém sa teraz nainštaluje s nasledujúcimi "
-#~ "nastaveniami:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Pokročilé..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Pokročilé voľby"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Nainštalovať zavádzač"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Prieskum popularity"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Zúčastnite sa prieskumu využívania balíkov"
-
-#~ msgid "Network proxy"
-#~ msgstr "Sieťový proxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Jazyk: ${LANGUAGE}\n"
-#~ " Rozloženie klávesnice: ${KEYMAP}\n"
-#~ " Meno: ${FULLNAME}\n"
-#~ " Prihlasovacie meno: ${USERNAME}\n"
-#~ " Umiestnenie: ${LOCATION}\n"
-#~ " Pomocník pri migrácii:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Prehľadávajú sa súbory..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Nastavuje sa názov počítača..."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Použiť najväčšie súvislé voľné miesto"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Určiť oblasti ručne (pokročilé)"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Tento počítač neobsahuje žiadne iné operačné systémy."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Tento počítač obsahuje ${OS}."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Tento počítač obsahuje niekoľko operačných systémov."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Kam si želáte dať ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Týmto sa zmaže ${SYSTEMS} a nainštaluje ${RELEASE}."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Aplikuje sa nastavenie"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Po zodpovedaní niekoľkých otázok bude počítač pripravený na použitie."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Zmazať a využiť celý disk"
-
-#~ msgid "Summary"
-#~ msgstr "Zhrnutie"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Pokračovať v inštalácii."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Ste pripravení na inštaláciu? Potom, ako zodpoviete niekoľko otázok, sa "
-#~ "obsah tohto live ${MEDIUM} nainštaluje na tento počítač a ${RELEASE} "
-#~ "budete môcť spúšťať v plnej rýchlosti bez tohto ${MEDIUM}."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Zistiť rozloženie klávesnice"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Krok ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Použiť celú oblasť"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Použiť celý disk"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Zistiť rozloženie klávesnice"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Nainštalovať vedľa ďalších operačných systémov"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Týmto sa <b>zmažú</b> všetky vaše programy ${OS}, dokumenty, fotografie, "
-#~ "hudba a ďalšie súbory."
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "Nainštalovať ${DISTRO} vedľa neho"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Žiadne súbory nebudú zmazané. Môžete si zvoliť, ktorý operačný systém "
-#~ "chcete vždy pri štarte počítača."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "Týmto sa <b>zmažú</b> všetky vaše programy ${CURDISTRO}, dokumenty, "
-#~ "fotografie, hudba a ďalšie súbory."
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Môžete aktualizovať ${CURDISTRO} bez straty vašich dôležitých dokumentov "
-#~ "a aplikácií."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "Nainštalovať ${DISTRO} ${VER} vedľa súčasného OS"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr ""
-#~ "Neviete sa rozhodnúť? Môžete Nainštalovať ${DISTRO} ${VER} vedľa vášho "
-#~ "súčasného ${CURDISTRO}."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "Môžete preinštalovať ${CURDISTRO} bez straty vašich dôležitých dokumentov "
-#~ "a aplikácií."
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr ""
-#~ "Ste pripravený vrhnúť sa na to? Čistá inštalácia vymaže váš celý pevný "
-#~ "disk a nainštaluje ${DISTRO}."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "To <b>zmaže</b> všetky vaše programy, dokumenty, fotografie, hudbu a "
-#~ "ďalšie súbory v ${OS} aj v ${CURDISTRO}."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "To <b>zmaže</b> všetky vaše programy, dokumenty, fotografie, hudbu a "
-#~ "ďalšie súbory vo všetkých operačných systémoch."

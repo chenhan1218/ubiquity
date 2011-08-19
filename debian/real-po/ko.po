@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-19 22:39+0000\n"
-"Last-Translator: Sangkeun Park <Unknown>\n"
+"PO-Revision-Date: 2011-08-19 08:58+0000\n"
+"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:57+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -35,7 +35,7 @@ msgstr "수동 설정 (고급)"
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "다른 설정을 원하십니까? 고급 파티션 옵션을 직접 선택하세요."
 
 #. Type: text
 #. Description
@@ -128,18 +128,13 @@ msgstr "<a href=\"update\">이 설치 프로그램을 업데이트</a>하시기�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"이것은 ${RELEASE} 라이브 ${MEDIUM}설치 시험 배포판입니다. ${RELEASE}의 최종 "
-"배포판은 2010년 10월에 발표됩니다."
+"이것은 ${RELEASE}의 라이브 ${MEDIUM} 시험판입니다. 최종 버전이 아닙니다. "
+"${RELEASE}의 최종판은 2011년 10월에 출시됩니다."
 
 #. Type: text
 #. Description
@@ -363,7 +358,7 @@ msgstr "드라이브 공간 할당"
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "(${SIZE}) 파일"
 
 #. Type: text
 #. Description
@@ -1510,7 +1505,7 @@ msgstr "[여기에 변경할 것을 입력하십시오.]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "${OS}를 ${DISTRO}로 대체"
+msgstr "${OS} 운영체제를 ${DISTRO}(으)로 대체"
 
 #. Type: text
 #. Description
@@ -1529,7 +1524,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "${OS}와 함께 ${DISTRO} 설치"
+msgstr "${OS} 운영체제와 함께 ${DISTRO} 설치"
 
 #. Type: text
 #. Description
@@ -1570,7 +1565,7 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"스스로 파티션을 만들거나 크기를 조절, 또는 ${DISTRO}를 위한 두 개의 파티션을 "
+"${DISTRO}(을)를 위해 직접 파티션을 만들거나 크기를 조절하거나 여러 파티션을 "
 "선택할 수 있습니다."
 
 #. Type: text
@@ -1597,7 +1592,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr "${CURDISTRO}를 ${VER}로 업그레이드"
+msgstr "${CURDISTRO}(을)를 ${VER}(으)로 업그레이드"
 
 #. Type: text
 #. Description
@@ -1608,6 +1603,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"문서, 음악, 기타 개인 파일들은 유지됩니다. 설치된 소프트웨어는 가능한 한 유지"
+"됩니다. 시스템 설정이 초기화됩니다."
 
 #. Type: text
 #. Description
@@ -1680,14 +1677,15 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr "그것들과 함께 ${DISTRO} 설치"
+msgstr "추가로 ${DISTRO} 설치"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "이 컴퓨터는 현재 ${OS}를 소유하고 있습니다. 무엇을 하고싶습니까?"
+msgstr ""
+"이 컴퓨터에는 현재 ${OS} 운영체제가 설치되어 있습니다. 무엇을 하시겠습니까?"
 
 #. Type: text
 #. Description
@@ -1698,6 +1696,8 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"이 컴퓨터에는 현재 ${OS1} 운영체제와 ${OS2} 운영체제가 설치되어 있습니다. 무"
+"엇을 하시겠습니까?"
 
 #. Type: text
 #. Description
@@ -1706,6 +1706,7 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"이 컴퓨터에는 현재 여러 운영체제가 설치되어 있습니다. 무엇을 하시겠습니까?"
 
 #. Type: text
 #. Description
@@ -1714,6 +1715,8 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"이 컴퓨터에는 현재 아무런 운영 체제가 설치되어 있지 않습니다. 무엇을 하시겠습"
+"니까?"
 
 #. Type: title
 #. Description
@@ -1776,153 +1779,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "패키지를 제거합니다"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "이것은 ${RELEASE} 예비 배포판 라이브 ${MEDIUM} 설치 프로그램입니다. 최종 "
-#~ "배포판이 아닙니다. ${RELEASE} 최종 배포판은 2011년 4월에 나옵니다."
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "이 컴퓨터에 운영체제가 없습니다."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "이 컴퓨터에 ${OS}가 있습니다."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "이 컴퓨터에 여러개의 운영체제가 있습니다."
-
-#~ msgid "Ready to install"
-#~ msgstr "설치 준비"
-
-#~ msgid "Details"
-#~ msgstr "세부 사항"
-
-#~ msgid "Advanced..."
-#~ msgstr "고급..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "고급 옵션"
-
-#~ msgid "Install boot loader"
-#~ msgstr "부트 로더 설치"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "패키지 사용에 관한 설문 참여"
-
-#~ msgid "Network proxy"
-#~ msgstr "네트워크 프록시"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP 프록시:"
-
-#~ msgid "Port:"
-#~ msgstr "포트:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " 언어: ${LANGUAGE}\n"
-#~ " 키보드 배치: ${KEYMAP}\n"
-#~ " 이름: ${FULLNAME}\n"
-#~ " 로그인 이름: ${USERNAME}\n"
-#~ " 위치: ${LOCATION}\n"
-#~ " 이전 도우미: ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "파일을 찾는 중..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "컴퓨터 이름 설정 중..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "설정 적용중"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "질문에 답하는 시간은 잠깐이면 충분합니다."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "가장 큰 연속된 공간 사용"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "수동으로 파티션 조정(고급)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "몇가지 질문에만 답해주시면, 곧바로 컴퓨터를 사용하실 수 있습니다."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "문서와 설정 가져오기"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "디스크의 파티션을 어떻게 설정하시겠습니까?"
-
-#~ msgid "Popularity contest"
-#~ msgstr "인기도 설문"
-
-#~ msgid "Summary"
-#~ msgstr "요약"
-
-#~ msgid "Continue with installation."
-#~ msgstr "설치 계속"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "설치할 준비가 되셨습니까? 몇가지 질문에 대답하시면, 라이브 ${MEDIUM}의 내"
-#~ "용들이 컴퓨터에 설치되어서 ${MEDIUM}없이도 ${RELEASE}를 최고 속도로 실행"
-#~ "할 수 있습니다."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "키보드 배열 파악"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "전체 ${TOTAL}중 ${INDEX}단계"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "전체 파티션 사용"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "전체 디스크 사용"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "키보드 구성 알아내기"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "다른 운영체제에 더불어 설치하기"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "이전 파티션을 삭제하고 디스크 전체를 사용"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "${RELEASE}을(를) 어디에 저장할까요?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "${SYSTEMS} 이(가) 삭제되고 ${RELEASE} 을(를) 설치할것입니다."
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "새로운 운영체제가 다음 설정과 같이 설치될 것입니다."
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "${OS}의 모든 프로그램, 문서, 사진, 음악 그리고 다른 것들을 <b>삭제</b>할 "
-#~ "것입니다."
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "모든 문서와 프로그램 등을 유지하고 ${CURDISTRO}를 재설치할 수 있습니다."

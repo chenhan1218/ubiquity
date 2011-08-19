@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2010-09-17 17:03+0000\n"
+"PO-Revision-Date: 2011-06-01 16:49+0000\n"
 "Last-Translator: Daniel LeBlanc <danidou@gmail.com>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:57+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -129,19 +129,11 @@ msgstr "You may wish to <a href=\"update\">update this installer</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
-"a final release; that will come with the final release of ${RELEASE} in "
-"October 2010."
 
 #. Type: text
 #. Description
@@ -1771,136 +1763,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Removing packages"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Erase and use the entire disk"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Use the largest continuous free space"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Specify partitions manually (advanced)"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Answering the questions should only take a few minutes."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Once you answer a few questions, this computer will be ready to use."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Migrate documents and settings"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "This computer has no operating systems on it."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Where do you want to put ${RELEASE}?"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "This computer has ${OS} on it."
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "How do you want to partition the disk?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "This will delete ${SYSTEMS} and install ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Ready to install"
-
-#~ msgid "Details"
-#~ msgstr "Details"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "This computer has several operating systems on it."
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Advanced..."
-
-#~ msgid "Install boot loader"
-#~ msgstr "Install boot loader"
-
-#~ msgid "Advanced Options"
-#~ msgstr "Advanced Options"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Participate in the package usage survey"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Popularity contest"
-
-#~ msgid "Network proxy"
-#~ msgstr "Network proxy"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Scanning files..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Setting computer name..."
-
-#~ msgid "Applying configuration"
-#~ msgstr "Applying configuration"
-
-#~ msgid "Summary"
-#~ msgstr "Summary"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Ready to install? Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Continue with installation."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Figure out keyboard layout"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Step ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Use Entire Partition"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Use Entire Disk"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Figure Out Keyboard Layout"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Install alongside other operating systems"

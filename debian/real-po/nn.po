@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-11 00:46+0000\n"
+"PO-Revision-Date: 2011-08-19 08:54+0000\n"
 "Last-Translator: Åsmund Skjæveland <aasmunds@ulrik.uio.no>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -133,18 +133,11 @@ msgstr "Du vil kanskje <a href=\"update\">oppdatera installasjonverktøyet</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Dette er ei forhandsutgåve av ${RELEASE} live ${MEDIUM} installasjon. Det er "
-"ikkje ein endeleg versjon, den kjem fyrst som ${RELEASE} i oktober 2010."
 
 #. Type: text
 #. Description
@@ -1538,6 +1531,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Åtvaring:</span>Dette vil fjerna alle program, "
+"dokument, bilete, musikk, og andre filer som ligg på ${OS}."
 
 #. Type: text
 #. Description
@@ -1561,6 +1556,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Dokument, musikk og andre personlege filer vert tekne vare på. Du vel kva "
+"operativsystem som skal startast kvar gong maskina startar opp."
 
 #. Type: text
 #. Description
@@ -1623,6 +1620,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Dokument, musikk og andre personlege filer vert tekne vare på. Installert "
+"programvare vil takast vare på der det er mogleg. Systeminstillingar vil "
+"slettast."
 
 #. Type: text
 #. Description
@@ -1688,6 +1688,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Åtvaring:</span> Dette vil fjerna alle program, "
+"dokument, bilete, musikk og andre filer i alle operativsystem."
 
 #. Type: text
 #. Description
@@ -1794,166 +1796,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjernar pakkar"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Dette er ei førutgåva av ${RELEASE} live ${MEDIUM}-"
-#~ "installasjonsprogrammet. Det er ikkje ei endeleg utgåve. Den vil koma med "
-#~ "den endelege utgåva av ${RELEASE} i april 2011."
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Det tek berre nokre minutt å svara på spørsmåla."
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Korleis vil du partisjonera harddisken?"
-
-#~ msgid "Advanced..."
-#~ msgstr "Avansert..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Avanserte val"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Installer oppstartslastar"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Popularitetskonkurranse"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Ta del i undersøkinga om bruk av pakker"
-
-#~ msgid "Network proxy"
-#~ msgstr "Nettverksproxy"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-proxy:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Språk: ${LANGUAGE}\n"
-#~ " Tastaturoppsett: ${KEYMAP}\n"
-#~ " Namn: ${FULLNAME}\n"
-#~ " Påloggingsnamn: ${USERNAME}\n"
-#~ " Stad: ${LOCATION}\n"
-#~ " Migreringassistent:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Ser over filer..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Set opp datamaskinnavn..."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Etter at du har svart på nokre spørsmål, er denne maskina klar for bruk."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Slett og bruk heile disken"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Bruk området som har mest samanhengande ledig plass"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Spesifiser partisjonar manuelt (avansert)"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Dette systemet har ikkje noko operativsystem."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Denne maskina har ${OS} installert."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Denne maskina har fleire operativsystem installert."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Slå saman dokument og innstillingar"
-
-#~ msgid "Details"
-#~ msgstr "Detaljar"
-
-#~ msgid "Summary"
-#~ msgstr "Samandrag"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Tek i bruk konfigurasjonen"
-
-#~ msgid "Continue with installation."
-#~ msgstr "Fortsett installasjonen."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Finn ut tastaturutforminga"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Installer attmed andre operativsystem"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Finn ut tastaturutforminga"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Steg ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Bruk heile partisjonen"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Bruk heile disken"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Er du klar til å installera? Når du har svart på nokre spørsmål, vil "
-#~ "innhaldet på ${MEDIUM} verta installert på denne maskina slik at du kan "
-#~ "køyra ${RELEASE} i full fart utan ${MEDIUM}."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Kvar ynskjer du å leggja ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Dette vil sletta ${SYSTEMS} og installera ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Klar til å installera"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Det nye operativsystemet ditt vil no verta installert med desse "
-#~ "innstillingane:"
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">Åtvaring:</span> Dette vil sletta alle "
-#~ "programma, dokumenta, fotografia, musikken, og alle andre filer du har på "
-#~ "${OS}."
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "Ingen filer vert sletta. Du kan velja kva for eit operativsystem du vil "
-#~ "ha når maskina startar opp."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr ""
-#~ "Ingen filer vert sletta. Installert programvare vert teke vare på der det "
-#~ "er mogleg."

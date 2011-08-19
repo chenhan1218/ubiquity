@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -35,7 +35,7 @@ msgstr "Наладзіць уручную (для дасьведчаных ка�
 msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
-msgstr ""
+msgstr "Вам не хапае магчымасьцяў? Паспрабуйце дадатковыя опцыі падзелу."
 
 #. Type: text
 #. Description
@@ -130,18 +130,11 @@ msgstr "Магчыма Вы жадаеце <a href=\"update\">абнавіць �
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Гэта папярэдні выпуск устаноўшчыка ${RELEASE} з ${MEDIUM}. Гэта не фінальны "
-"выпуск; фінальны выпуск ${RELEASE} выйдзе ў кастрычніку 2010."
 
 #. Type: text
 #. Description
@@ -1064,6 +1057,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Узьнікла памылка пад час аднаўленьня раней усталяваных праграмаў. Усталёўка "
+"будзе працягвацца, але Вы павінны самастойна пераўсталяваць некаторыя "
+"праграмы пасьля перазапуску кампутара."
 
 #. Type: text
 #. Description
@@ -1561,6 +1557,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Дакумэнты, музыка ды іншыя прыватныя файлы будуць захаваныя. У Вас будзе "
+"магчымасьць выбіраць патрэбную апэрацыйную сыстэму пад час запуску кампутара."
 
 #. Type: text
 #. Description
@@ -1568,7 +1566,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Усталяваць ${DISTRO} у ${OS}"
 
 #. Type: text
 #. Description
@@ -1584,6 +1582,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Вы зможаце ствараць ці зьмяняць памеры падзелаў самастойна, або выбраць "
+"некалькі падзелаў для ${DISTRO}."
 
 #. Type: text
 #. Description
@@ -1620,6 +1620,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Дакумэнты, музыка ды іншыя прыватныя файлы будуць захаваныя. Усталяваныя "
+"праграмы будуць захаваныя, калі гэта магчыма. Налады карыстальнікаў сыстэмы "
+"будуць згубленыя."
 
 #. Type: text
 #. Description
@@ -1693,7 +1696,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "Усталяваць ${DISTRO} побач зь імі"
 
 #. Type: text
 #. Description
@@ -1793,137 +1796,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Выдаленьне пакетаў"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Ужыць"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Самастойна задаць падзелы"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "Адказы на пытаньні зоймуць усяго некалькі хвілінаў."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Міграцыя дакументаў і настаўленняў"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Хочаш зьмяніць расклад партыцыяў на дыску?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Гэты кампутар ня мае аперацыйнае сістэмы."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "На гэтым кампутары прысутнічае ${OS}."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "На гэтым кампутары прысутнічае некалькі аперацыйных сістэм."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Дзе Вы жадаеце змясціць ${RELEASE}?"
-
-#~ msgid "Ready to install"
-#~ msgstr "Гатовы да ўсталёўкі"
-
-#~ msgid "Details"
-#~ msgstr "Падрабязнасці"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Твая новая аперацыйная сыстэма зараз будзе ўсталяваная з наступнымі "
-#~ "ўсталёўкамі:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Адмысловае..."
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Мова: ${LANGUAGE}\n"
-#~ "Раскладка клявіятуры: ${KEYMAP}\n"
-#~ "Імя: ${FULLNAME}\n"
-#~ "Імя па ўваходзе: ${USERNAME}\n"
-#~ "Месца: ${LOCATION}\n"
-#~ "Асыстэнт міграцыі:\n"
-#~ "${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Сканаваньне файлаў..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Устаноўка назвы кампутара..."
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Гэта выдаліць ${SYSTEMS} і усталюе ${RELEASE}."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Адмысловыя настаўленьні"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Усталяваць пачатковы ладоўшчык"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Рэйтынг папулярнасьці"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Прымаць удзел у стварэньні рэйтынгу пакункаў"
-
-#~ msgid "Network proxy"
-#~ msgstr "Сеткавы проксі"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP-проксі:"
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Ужыць наладкі"
-
-#~ msgid "Summary"
-#~ msgstr "Рэзюмэ"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "Пасьля таго, як вы адкажаце на некалькі пытаньняў, гэты кампутар будзе "
-#~ "гатовы да выкарыстаньня."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Сьцерці ўсё і выкарыстаць дыск цалкам"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Гатовы ды ўсталёўкі? Адкажыце на некалькі пытаньняў, пасьля чаго "
-#~ "зьмесьціва live ${MEDIUM} будзе ўсталявана на гэты кампутар і ${RELEASE} "
-#~ "будзе працаваць на поўную магутнасьць і бяз патрэбы ў ${MEDIUM}."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Працяг усталёўкі."
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Вызначце раскладку клявіятуры"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Усталяваць побач зь іншымі апэрацыйнымі сыстэмамі"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Вызначце раскладку клявіятуры"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Крок ${INDEX} з ${TOTAL}"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Выкарыстаць увесь разьдзел"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Выкарыстаць увесь дыск"

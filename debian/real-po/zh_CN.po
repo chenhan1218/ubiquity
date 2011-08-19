@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-11 23:00+0000\n"
+"PO-Revision-Date: 2011-08-19 09:01+0000\n"
 "Last-Translator: Xhacker Liu <liu.dongyuan@gmail.com>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -125,18 +125,13 @@ msgstr "您可能希望 <a href=\"update\">更新安装程序</a>。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"这是${RELEASE} 的 Live ${MEDIUM} 的预览版安装程序，它还不是最终版本， 最终版"
-"会在2010年十月 ${RELEASE} 发布时一并推出。"
+"这是 ${RELEASE} live ${MEDIUM} 安装程序的预发布版。它不是最终版；程序的最终版"
+"将随 ${RELEASE} 最终版在2011年10月发布。"
 
 #. Type: text
 #. Description
@@ -1732,208 +1727,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在删除软件包"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "这是 ${RELEASE} 预发行版 Live ${MEDIUM} 安装程序，并非最终发行"
-#~ "版。${RELEASE} 最终发行版将于 2011 年四月发行。"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "手动指定分区(高级)"
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "迁移文档和设置"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "这台计算机没有安装操作系统。"
-
-#~ msgid "Details"
-#~ msgstr "详情"
-
-#~ msgid "Advanced..."
-#~ msgstr "高级..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "高级选项"
-
-#~ msgid "Popularity contest"
-#~ msgstr "流行度对比"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "参加软件包使用调查"
-
-#~ msgid "Network proxy"
-#~ msgstr "网络代理"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP 代理："
-
-#~ msgid "Port:"
-#~ msgstr "端口："
-
-#~ msgid "Ready to install"
-#~ msgstr "准备开始安装"
-
-#~ msgid "Scanning files..."
-#~ msgstr "正在扫描文件..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "正在设置计算机名..."
-
-#~ msgid "Summary"
-#~ msgstr "概要"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "您要将 ${RELEASE} 安装在哪里？"
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "清空并使用整个硬盘"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "使用最大的连续空闲空间"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "在回答一些问题以后，这台电脑就可以使用了。"
-
-#~ msgid "Install boot loader"
-#~ msgstr "安装引导程序"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " 语言：${LANGUAGE}\n"
-#~ " 键盘布局：${KEYMAP}\n"
-#~ " 全名：${FULLNAME}\n"
-#~ " 登录名：${USERNAME}\n"
-#~ " 位置：${LOCATION}\n"
-#~ " 迁移助手：\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "这台计算机已安装了 ${OS} 操作系统。"
-
-#~ msgid "Applying configuration"
-#~ msgstr "正在应用设置"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "准备好安装了吗？一旦您完成回答几个问题，这张 Live ${MEDIUM} 上的内容就可以"
-#~ "被安装到这台计算机上。这样您便可以不再需要这张 ${MEDIUM}，并且以全速来运"
-#~ "行 ${RELEASE}。"
-
-#~ msgid "Continue with installation."
-#~ msgstr "继续安装。"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "决定键盘布局"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "使用整个分区"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "使用整个磁盘"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "回答这些问题只需要花费您几分钟的时间。"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "您希望如何对硬盘进行分区？"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "您的新操作系统将采用以下设置进行安装："
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "步骤 ${INDEX}/${TOTAL}"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "查看键盘布局"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "与其他操作系统共存"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all of your ${OS} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "这将会<b>删除</b> ${OS} 中的全部程序、文档、图片、音乐等等所有文件。"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr "不会删除文件。您可以在每次电脑启动的时候选择操作系统。"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your ${CURDISTRO} programs, documents, photos, "
-#~ "music, and any other files."
-#~ msgstr ""
-#~ "将会<b>删除</b> ${CURDISTRO} 中的全部程序、文档、图片、音乐等等所有文件。"
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "您可以升级 ${CURDISTRO} 且不丢失任何重要的文档和程序。"
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "这台计算机安装了多个操作系统。"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "这将会删除 ${SYSTEMS} 并安装 ${RELEASE}。"
-
-#~ msgid ""
-#~ "Ready to take the plunge? A clean install erases your entire hard disk "
-#~ "and installs ${DISTRO}."
-#~ msgstr "要来个大冒险？这会清除您的整个硬盘并安装 ${DISTRO}。"
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "您可以重新安装 ${CURDISTRO} 且不丢失任何重要文档和程序。"
-
-#~ msgid ""
-#~ "Still on the fence? You can install ${DISTRO} ${VER} alongside your "
-#~ "existing copy of ${CURDISTRO}."
-#~ msgstr "还在牢笼里？您可以并存安装 ${DISTRO} ${VER} 且不影响 ${CURDISTRO}。"
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "并存安装 ${DISTRO}"
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "并存安装 ${DISTRO} ${VER}"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "other files in both ${OS} and ${CURDISTRO}."
-#~ msgstr ""
-#~ "这将会<b>删除</b> ${OS} 和 ${CURDISTRO} 中的全部程序、文档、图片、音乐等等"
-#~ "所有文件。"
-
-#~ msgid ""
-#~ "This will <b>erase</b> all your programs, documents, photos, music, and "
-#~ "any other files in all operating systems."
-#~ msgstr ""
-#~ "这将会<b>删除</b>所有系统中的全部程序、文档、图片、音乐等等所有文件。"
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr "不会删除文件。会尽量保留已安装的软件。"
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">注意：</span>这会删除 ${OS} 里面的全部程序、"
-#~ "文档、照片、音乐和其他文件。"

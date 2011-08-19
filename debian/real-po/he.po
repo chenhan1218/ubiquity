@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-04-14 06:15+0000\n"
+"PO-Revision-Date: 2011-08-19 08:56+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:13+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
@@ -129,18 +129,11 @@ msgstr "מומלץ לבצע <a href=\"update\">עדכון של תכנית התק
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"זוהי טרום הפצה של תכנית ההתקנה החיה של ${RELEASE} מ־${MEDIUM}. זוהי אינה "
-"הגרסה העדכנית ביותר; שתושק יחד עם שחרור ${RELEASE} באוקטובר 2010."
 
 #. Type: text
 #. Description
@@ -1773,176 +1766,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "זוהי גרסת טרום הפצה של  ${MEDIUM} ההתקנה החי של ${RELEASE}. זוהי אינה "
-#~ "הגרסה הסופית; שתופיע בגרסה הסופית של ${RELEASE} באפריל 2011."
-
-#~ msgid "Details"
-#~ msgstr "פרטים"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr "מערכת ההפעלה החדשה שלך תותקן כעת עם ההגדרות הבאות:"
-
-#~ msgid "Advanced..."
-#~ msgstr "מתקדם..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "אפשרויות מתקדמות"
-
-#~ msgid "Popularity contest"
-#~ msgstr "תחרות פופולריות"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "במחשב זה לא מותקנות כלל מערכות הפעלה."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "במחשב זה מותקנות מספר מערכות הפעלה"
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "היכן ברצונך להתקין את ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "פעולה זו תמחק את ${SYSTEMS} ותתקין את ${RELEASE}."
-
-#~ msgid "Applying configuration"
-#~ msgstr "החלת התצורה"
-
-#~ msgid "Summary"
-#~ msgstr "תקציר"
-
-#~ msgid "Continue with installation."
-#~ msgstr "המשך בהתקנה."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "מחיקה ושימוש בכונן כולו"
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "שימוש בשטח הפנוי הרציף הגדול ביותר"
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "הגדרת מחיצות ידנית (מתקדם)"
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr "מרגע המענה על מספר שאלות, המחשב יהיה מוכן לשימוש."
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "זיהוי פריסת המקלדת"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "שלב ${INDEX}/${TOTAL}"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "באיזו דרך ברצונך לחלק את הכונן למחיצות?"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "שימוש במחיצה כולה"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "שימוש בכונן כולו"
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "במחשב זה מותקנת ${OS}."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "יבוא תיקיית documents and settings"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "מתווך HTTP:"
-
-#~ msgid "Network proxy"
-#~ msgstr "מתווך רשת"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "השתתפות בסקר השימוש בחבילות"
-
-#~ msgid "Port:"
-#~ msgstr "פתחה:"
-
-#~ msgid "Scanning files..."
-#~ msgstr "קבצים נסרקים..."
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " שפה: ${LANGUAGE}\n"
-#~ " פריסת המקלדת: ${KEYMAP}\n"
-#~ " שם: ${FULLNAME}\n"
-#~ " שם משתמש: ${USERNAME}\n"
-#~ " מיקום: ${LOCATION}\n"
-#~ " מסייע היבוא:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Setting computer name..."
-#~ msgstr "שם המחשב מוגדר..."
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "מוכנים להתקנה? לאחר שתענו על מספר שאלות, ניתן יהיה להתקין את התוכן של ה־"
-#~ "${MEDIUM} למחשב זה כדי שתוכלו להפעיל את ${RELEASE} ללא צורך ב־${MEDIUM}."
-
-#~ msgid "Ready to install"
-#~ msgstr "המערכת מוכנה להתקנה"
-
-#~ msgid "Install boot loader"
-#~ msgstr "התקנת מנהל אתחול"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "זיהוי פריסת המקלדת"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "התקנה לצד מערכות הפעלה אחרות"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr "המענה לשאלות לא ייקח יותר ממספר דקות."
-
-#~ msgid "Install ${DISTRO} alongside it"
-#~ msgstr "התקנת ${DISTRO} במקביל לה"
-
-#~ msgid ""
-#~ "No files will be deleted. You can choose which operating system you want "
-#~ "each time the computer starts up."
-#~ msgstr ""
-#~ "לא יימחקו קבצים כלשהם. באפשרותך לבחור איזו מערכת הפעלה תופעל בכל הפעלה של "
-#~ "המחשב."
-
-#~ msgid ""
-#~ "You can upgrade ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr "ניתן לשדרג את ${CURDISTRO} מבלי לאבד אף מסמך או יישום החשובים לך."
-
-#~ msgid "Install ${DISTRO} ${VER} alongside"
-#~ msgstr "התקנת ${DISTRO} ${VER} לצד"
-
-#~ msgid ""
-#~ "You can reinstall ${CURDISTRO} without losing any of your important "
-#~ "documents or applications."
-#~ msgstr ""
-#~ "ניתן להתקין את ${CURDISTRO} מבלי לאבד אף אחד מהמסכים או מהיישומים החשובים "
-#~ "שלך."
-
-#~ msgid ""
-#~ "No files will be deleted. Installed software will be kept where possible."
-#~ msgstr "לא יימחקו קבצים כלשהם. התוכנות המותקנות יישמרו היכן שניתן."
-
-#~ msgid ""
-#~ "<span foreground=\"darkred\">Warning:</span> This will erase all of your "
-#~ "${OS} programs, documents, photos, music, and any other files."
-#~ msgstr ""
-#~ "<span foreground=\"darkred\">אזהרה:</span> פעולה זאת תמחק את כל התכניות, "
-#~ "המסמכים, התמונות, המוזיקה וכל הקבצים האחרים שבהתקנת ה־${OS} שלך."

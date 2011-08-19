@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-05-31 14:54+0100\n"
-"PO-Revision-Date: 2011-02-10 16:07+0000\n"
-"Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
+"PO-Revision-Date: 2011-08-04 12:35+0000\n"
+"Last-Translator: Gangov <Unknown>\n"
 "Language-Team: American English <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-20 14:12+0000\n"
-"X-Generator: Launchpad (build 12847)\n"
+"X-Launchpad-Export-Date: 2011-08-19 10:56+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Рестартирайте, за да продължите"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Manual configuration (advanced)"
-msgstr ""
+msgstr "Ръчно настройване (за напреднали)"
 
 #. Type: text
 #. Description
@@ -36,6 +36,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
+"Твърде умни сте за нас? Запретнете ръкавите с малко настройки на дяловете за "
+"напреднали."
 
 #. Type: text
 #. Description
@@ -73,7 +75,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Можете да изпробвате ${RELEASE} без да се правят промени на вашия компютър "
+"Можете да пробвате ${RELEASE} без да правите промени по вашия компютър - "
 "директно от този ${MEDIUM}"
 
 #. Type: text
@@ -84,8 +86,9 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Или ако сте готови, можете да инсталирате ${RELEASE} до (или вместо) "
-"настоящата операционна система. Това не би трябвало да отнеме много време."
+"Или ако сте готови, можете да инсталирате ${RELEASE} паралелно с (или "
+"вместо) настоящата ви операционна система. Това не би трябвало да отнеме "
+"много време."
 
 #. Type: text
 #. Description
@@ -129,19 +132,14 @@ msgstr "Можете да <a href=\"update\">актуализирате инст
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2010."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Това е предварително издание на ${RELEASE} live ${MEDIUM} инсталатор. Това "
-"не е окончателното издание; то ще дойде с окончателното издание на "
-"${RELEASE} през октомври 2010."
+"Съществува ранна версия на ${RELEASE} жив ${MEDIUM} инсталатор. Не е финална "
+"версия; тя ще бъде достъпна със последната версия на ${RELEASE} през "
+"Октомври 2011."
 
 #. Type: text
 #. Description
@@ -189,13 +187,13 @@ msgstr "Пишете тук, за да изпробвате вашата кла�
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr ""
+msgstr "Засичане на клавиатурната подредба"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "Засичане на клавиатурната подредба"
 
 #. Type: text
 #. Description
@@ -367,7 +365,7 @@ msgstr "Разпределяне на дисковото пространств�
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:49001
 msgid "Files (${SIZE})"
-msgstr ""
+msgstr "Файлове (${SIZE})"
 
 #. Type: text
 #. Description
@@ -479,7 +477,7 @@ msgstr "Рестартиране"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Shutdown Now"
-msgstr ""
+msgstr "Изключване сега"
 
 #. Type: text
 #. Description
@@ -882,7 +880,7 @@ msgstr "Настройване на хардуера..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "Инсталиране на приложения от трети страни..."
 
 #. Type: text
 #. Description
@@ -900,13 +898,13 @@ msgstr "Настройване на приложението за начално
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "Запазване на инсталираните пакети..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "Възстановяване на предишно инсталирани пакети..."
 
 #. Type: text
 #. Description
@@ -1059,7 +1057,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "Грешка при възстановяване на инсталираните приложения"
 
 #. Type: error
 #. Description
@@ -1069,6 +1067,9 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"Грешка при възстановяването на предишно инсталираните приложения. "
+"Инсталацията ще продължи, но може да се наложи ръчно да преинсталирате някои "
+"програми след като компютърът се рестартира."
 
 #. Type: text
 #. Description
@@ -1529,7 +1530,7 @@ msgstr "[пишете тук за промяна]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:224001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "Замяна на ${OS} с ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1539,6 +1540,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките ви "
+"${OS} програми, документи, снимки, музика и всички останали файлове."
 
 #. Type: text
 #. Description
@@ -1546,7 +1549,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:225001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "Инсталиране на ${DISTRO} заедно с ${OS}"
 
 #. Type: text
 #. Description
@@ -1562,6 +1565,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
+"Документи, музика и всички други лични файлове ще бъдат запазени. При всяко "
+"пускане на компютъра ще можете да избирате операционната система, която "
+"желаете."
 
 #. Type: text
 #. Description
@@ -1569,13 +1575,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:226001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "Инсталиране на ${DISTRO} вътре в ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:227001
 msgid "Something else"
-msgstr ""
+msgstr "Нещо друго"
 
 #. Type: text
 #. Description
@@ -1585,13 +1591,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"Можете да създавате или оразмерявате дялове, или да изберете няколко за "
+"${DISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:228001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "Изтриване на ${CURDISTRO} и преинсталиране"
 
 #. Type: text
 #. Description
@@ -1601,6 +1609,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките ви "
+"${CURDISTRO} програми, документи, снимки, музика и всички останали файлове."
 
 #. Type: text
 #. Description
@@ -1608,7 +1618,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:229001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "Надграждане на ${CURDISTRO} до ${VER}"
 
 #. Type: text
 #. Description
@@ -1619,6 +1629,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"Документи, музика и всякакви други лични файлове ще бъдат запазени. Където е "
+"възможно ще бъдат запазени инсталираните програми. Системните настройки ще "
+"бъдат изчистени."
 
 #. Type: text
 #. Description
@@ -1627,7 +1640,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:230001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "Инсталиране на ${DISTRO} ${VER} заедно с ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1637,7 +1650,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001 ../ubiquity.templates:234001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "Изчистване на диска и инсталиране на ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1646,12 +1659,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">Внимание:</span> Това ще изчисти всички файлове "
+"на диска."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
 msgid "Erase everything and reinstall"
-msgstr ""
+msgstr "Изчистване на всичко и преинсталиране"
 
 #. Type: text
 #. Description
@@ -1663,13 +1678,15 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките ви "
+"програми, документи, снимки, музика и други файлове в ${OS} и в ${CURDISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:233001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "Преинсталиране на ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1679,13 +1696,16 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките ви "
+"програми, документи, снимки, музика и всякакви други файлове във всички "
+"операционни системи."
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "Инсталиране на ${DISTRO} заедно с тях"
 
 #. Type: text
 #. Description
@@ -1693,6 +1713,8 @@ msgstr ""
 #: ../ubiquity.templates:236001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr ""
+"В момента на този компютър има инсталирана операционна система ${OS}. Какво "
+"желаете да правите?"
 
 #. Type: text
 #. Description
@@ -1703,6 +1725,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"На този компютър в момента има ${OS1} и ${OS2}. Какво желаете да правите?"
 
 #. Type: text
 #. Description
@@ -1711,6 +1734,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"На този компютър в момента има множество операционни системи. Какво желаете "
+"да правите?"
 
 #. Type: text
 #. Description
@@ -1719,6 +1744,8 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"На този компютър в момента няма засечени операционни системи. Какво желаете "
+"да правите?"
 
 #. Type: title
 #. Description
@@ -1783,146 +1810,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Премахване на пакети"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Това е предварителна версия на живия инсталатор  ${MEDIUM} на ${RELEASE}. "
-#~ "Това не е финална версия; финалната версия на ${RELEASE} ще е готова през "
-#~ "Април 2011."
-
-#~ msgid "Use the largest continuous free space"
-#~ msgstr "Използване на най-голямото свободно място"
-
-#~ msgid "Answering the questions should only take a few minutes."
-#~ msgstr ""
-#~ "Отговарянето на въпросите би трябвало да отнеме само няколко минути."
-
-#~ msgid "Migrate documents and settings"
-#~ msgstr "Мигриране на документи и настойки"
-
-#~ msgid "How do you want to partition the disk?"
-#~ msgstr "Как желаете да разделите диска?"
-
-#~ msgid "This computer has no operating systems on it."
-#~ msgstr "Този компютър няма операционни системи на него."
-
-#~ msgid "This computer has ${OS} on it."
-#~ msgstr "Този компютър има инсталирана ${OS}."
-
-#~ msgid "This computer has several operating systems on it."
-#~ msgstr "Този компютър има няколко операционни системи."
-
-#~ msgid "Where do you want to put ${RELEASE}?"
-#~ msgstr "Къде искате да инсталирате ${RELEASE}?"
-
-#~ msgid "This will delete ${SYSTEMS} and install ${RELEASE}."
-#~ msgstr "Това ще изтрие ${SYSTEMS} и ще инсталира ${RELEASE}."
-
-#~ msgid "Ready to install"
-#~ msgstr "Готов за инсталация"
-
-#~ msgid "Details"
-#~ msgstr "Подробности"
-
-#~ msgid ""
-#~ "Your new operating system will now be installed with the following "
-#~ "settings:"
-#~ msgstr ""
-#~ "Вашата нова операционна система ще бъде инсталирана със следните "
-#~ "параметри:"
-
-#~ msgid "Advanced..."
-#~ msgstr "Допълнителни..."
-
-#~ msgid "Advanced Options"
-#~ msgstr "Допълнителни опции"
-
-#~ msgid "Install boot loader"
-#~ msgstr "Инсталиране на зареждащата програма"
-
-#~ msgid "Popularity contest"
-#~ msgstr "Състезание по известност"
-
-#~ msgid "Participate in the package usage survey"
-#~ msgstr "Участвайте в проучването за употреба на пакетите"
-
-#~ msgid "Network proxy"
-#~ msgstr "Мрежов сървър-посредник"
-
-#~ msgid "HTTP proxy:"
-#~ msgstr "HTTP посредник:"
-
-#~ msgid "Port:"
-#~ msgstr "Порт:"
-
-#~ msgid ""
-#~ " Language: ${LANGUAGE}\n"
-#~ " Keyboard layout: ${KEYMAP}\n"
-#~ " Name: ${FULLNAME}\n"
-#~ " Login name: ${USERNAME}\n"
-#~ " Location: ${LOCATION}\n"
-#~ " Migration Assistant:\n"
-#~ " ${MIGRATE}"
-#~ msgstr ""
-#~ " Език: ${LANGUAGE}\n"
-#~ " Клавиатурна подредба: ${KEYMAP}\n"
-#~ " Пълно име: ${FULLNAME}\n"
-#~ " Потребителско име: ${USERNAME}\n"
-#~ " Местоположение: ${LOCATION}\n"
-#~ " Асистент за мигрирането:\n"
-#~ " ${MIGRATE}"
-
-#~ msgid "Scanning files..."
-#~ msgstr "Сканиране на файловете..."
-
-#~ msgid "Setting computer name..."
-#~ msgstr "Настройване името на компютъра..."
-
-#~ msgid "Once you answer a few questions, this computer will be ready to use."
-#~ msgstr ""
-#~ "След като отговорите на няколко въпроса, компютърът ще е готов за работа."
-
-#~ msgid "Erase and use the entire disk"
-#~ msgstr "Изтриване и използване на целия диск"
-
-#~ msgid "Summary"
-#~ msgstr "Резюме"
-
-#~ msgid "Applying configuration"
-#~ msgstr "Прилагане на конфигурация"
-
-#~ msgid ""
-#~ "Ready to install?  Once you answer a few questions, the contents of the "
-#~ "live ${MEDIUM} can be installed on this computer so you can run "
-#~ "${RELEASE} at full speed without the ${MEDIUM}."
-#~ msgstr ""
-#~ "Готови за инсталиране?  След като отговорите на няколко въпроса, "
-#~ "съдържанието на ${MEDIUM} ще може да се инсталира на този компютър, така "
-#~ "че да работите с ${RELEASE} с пълните му възможности без ${MEDIUM}."
-
-#~ msgid "Continue with installation."
-#~ msgstr "Продължаване с инсталацията."
-
-#~ msgid "Specify partitions manually (advanced)"
-#~ msgstr "Ръчно задаване на дялове (за напреднали)"
-
-#~ msgid "Install alongside other operating systems"
-#~ msgstr "Инсталиране, запазвайки другите операционни системи"
-
-#~ msgid "Step ${INDEX}/${TOTAL}"
-#~ msgstr "Стъпка ${INDEX}/${TOTAL}"
-
-#~ msgid "Use Entire Disk"
-#~ msgstr "Да се използва целият диск"
-
-#~ msgid "Figure Out Keyboard Layout"
-#~ msgstr "Отгатване на клавиатурната подредба"
-
-#~ msgid "Figure out keyboard layout"
-#~ msgstr "Отгатване на клавиатурната подредба"
-
-#~ msgid "Use Entire Partition"
-#~ msgstr "Да се използва целият дял"
