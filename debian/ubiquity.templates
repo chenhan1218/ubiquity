@@ -464,6 +464,16 @@ Type: text
 # Translators, this text will appear on a button, so KEEP IT SHORT
 _Description: Continue
 
+Template: ubiquity/text/connect
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Connect
+
+Template: ubiquity/text/stop
+Type: text
+# Translators, this text will appear on a button, so KEEP IT SHORT
+_Description: Stop
+
 Template: ubiquity/text/next
 Type: text
 # Translators, this text will appear on a button, so KEEP IT SHORT
