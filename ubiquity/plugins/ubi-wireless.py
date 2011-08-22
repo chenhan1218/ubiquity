@@ -49,8 +49,8 @@ class PageGtk(plugin.PluginUI):
         self.state = self.nmwidget.get_state()
         self.next_normal = True
         self.back_normal = True
-        self.connect_text = self.controller.get_string('ubiquity/text/connect')
-        self.stop_text = self.controller.get_string('ubiquity/text/stop')
+        self.connect_text = None
+        self.stop_text = None
 
     def plugin_translate(self, lang):
         get_s = self.controller.get_string
