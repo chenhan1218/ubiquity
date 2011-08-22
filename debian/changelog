@@ -5,6 +5,8 @@ ubiquity (2.7.16) UNRELEASED; urgency=low
   * Enable code in console-setup 1.57ubuntu24 to fix default keyboard
     selection for language/country combinations lacking a proper combined
     locale (LP: #814448).
+  * Rename libwebcam to libubiwebcam to avoid clashing with the existing
+    libwebcam0 package.
 
   [ Evan Dandrea ]
   * Move noninteractive frontend to PyGI bindings for GObject (LP:

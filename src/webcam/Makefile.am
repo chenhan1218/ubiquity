@@ -5,12 +5,12 @@ AM_LDFLAGS = $(WEBCAM_LIBS)
 
 #pkglib_PROGRAMS = webcam
 
-lib_LTLIBRARIES = libwebcam.la
+lib_LTLIBRARIES = libubiwebcam.la
 
-libwebcam_la_SOURCES = webcam.h webcam.c
-libwebcam_la_LDFLAGS = -version-info 0:0:0 -no-undefined \
+libubiwebcam_la_SOURCES = webcam.h webcam.c
+libubiwebcam_la_LDFLAGS = -version-info 0:0:0 -no-undefined \
 	-export-symbols-regex "^[^_].*"
-libwebcam_la_LIBADD = $(WEBCAM_LIBS)
+libubiwebcam_la_LIBADD = $(WEBCAM_LIBS)
 if HAVE_INTROSPECTION
 -include $(INTROSPECTION_MAKEFILE)
 INTROSPECTION_SCANNER_ARGS = --add-include-path=$(srcdir)
@@ -18,12 +18,12 @@ INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 
 INTROSPECTION_GIRS = UbiquityWebcam-1.0.gir
 
-introspection_sources = $(libwebcam_la_SOURCES)
+introspection_sources = $(libubiwebcam_la_SOURCES)
 
-UbiquityWebcam-1.0.gir: libwebcam.la
+UbiquityWebcam-1.0.gir: libubiwebcam.la
 UbiquityWebcam_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 Gst-0.10
 UbiquityWebcam_1_0_gir_CFLAGS = $(INCLUDES) --identifier-prefix=Ubiquity
-UbiquityWebcam_1_0_gir_LIBS = libwebcam.la
+UbiquityWebcam_1_0_gir_LIBS = libubiwebcam.la
 UbiquityWebcam_1_0_gir_FILES = $(introspection_sources)
 
 girdir = $(datadir)/gir-1.0

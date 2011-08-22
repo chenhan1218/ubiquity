@@ -80,12 +80,12 @@ am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(girdir)" \
 	"$(DESTDIR)$(typelibdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-libwebcam_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
-am_libwebcam_la_OBJECTS = webcam.lo
-libwebcam_la_OBJECTS = $(am_libwebcam_la_OBJECTS)
-libwebcam_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+libubiwebcam_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+am_libubiwebcam_la_OBJECTS = webcam.lo
+libubiwebcam_la_OBJECTS = $(am_libubiwebcam_la_OBJECTS)
+libubiwebcam_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
-	$(libwebcam_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(libubiwebcam_la_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/build/depcomp
 am__depfiles_maybe = depfiles
@@ -99,8 +99,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libwebcam_la_SOURCES)
-DIST_SOURCES = $(libwebcam_la_SOURCES)
+SOURCES = $(libubiwebcam_la_SOURCES)
+DIST_SOURCES = $(libubiwebcam_la_SOURCES)
 DATA = $(gir_DATA) $(typelib_DATA)
 ETAGS = etags
 CTAGS = ctags
@@ -281,19 +281,19 @@ AM_CPPFLAGS = $(WEBCAM_CFLAGS)
 AM_LDFLAGS = $(WEBCAM_LIBS)
 
 #pkglib_PROGRAMS = webcam
-lib_LTLIBRARIES = libwebcam.la
-libwebcam_la_SOURCES = webcam.h webcam.c
-libwebcam_la_LDFLAGS = -version-info 0:0:0 -no-undefined \
+lib_LTLIBRARIES = libubiwebcam.la
+libubiwebcam_la_SOURCES = webcam.h webcam.c
+libubiwebcam_la_LDFLAGS = -version-info 0:0:0 -no-undefined \
 	-export-symbols-regex "^[^_].*"
 
-libwebcam_la_LIBADD = $(WEBCAM_LIBS)
+libubiwebcam_la_LIBADD = $(WEBCAM_LIBS)
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_SCANNER_ARGS = --add-include-path=$(srcdir)
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_GIRS = UbiquityWebcam-1.0.gir
-@HAVE_INTROSPECTION_TRUE@introspection_sources = $(libwebcam_la_SOURCES)
+@HAVE_INTROSPECTION_TRUE@introspection_sources = $(libubiwebcam_la_SOURCES)
 @HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 Gst-0.10
 @HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_CFLAGS = $(INCLUDES) --identifier-prefix=Ubiquity
-@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_LIBS = libwebcam.la
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_LIBS = libubiwebcam.la
 @HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_FILES = $(introspection_sources)
 @HAVE_INTROSPECTION_TRUE@girdir = $(datadir)/gir-1.0
 @HAVE_INTROSPECTION_TRUE@gir_DATA = $(INTROSPECTION_GIRS)
@@ -364,8 +364,8 @@ clean-libLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libwebcam.la: $(libwebcam_la_OBJECTS) $(libwebcam_la_DEPENDENCIES) 
-	$(libwebcam_la_LINK) -rpath $(libdir) $(libwebcam_la_OBJECTS) $(libwebcam_la_LIBADD) $(LIBS)
+libubiwebcam.la: $(libubiwebcam_la_OBJECTS) $(libubiwebcam_la_DEPENDENCIES) 
+	$(libubiwebcam_la_LINK) -rpath $(libdir) $(libubiwebcam_la_OBJECTS) $(libubiwebcam_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -648,7 +648,7 @@ uninstall-am: uninstall-girDATA uninstall-libLTLIBRARIES \
 
 @HAVE_INTROSPECTION_TRUE@-include $(INTROSPECTION_MAKEFILE)
 
-@HAVE_INTROSPECTION_TRUE@UbiquityWebcam-1.0.gir: libwebcam.la
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam-1.0.gir: libubiwebcam.la
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
