@@ -139,6 +139,10 @@ Template: ubiquity/text/userinfo_heading_label
 Type: text
 _Description: Who are you?
 
+Template: ubiquity/text/webcam_heading_label
+Type: text
+_Description: Choose a picture
+
 Template: ubiquity/text/fullname_label
 Type: text
 _Description: Your name:
@@ -219,6 +223,12 @@ _Description: Require my password to log in
 Template: ubiquity/text/login_encrypt
 Type: text
 _Description: Encrypt my home folder
+
+Template: ubiquity/text/webcam_heading
+Type: text
+_Description:
+ This picture wil identify you in the account settings, login screen, and
+ lock screen.
 
 Template: ubiquity/text/ma_text_label
 Type: text

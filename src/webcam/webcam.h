@@ -78,6 +78,7 @@ UbiquityWebcam *ubiquity_webcam_new (void);
 void ubiquity_webcam_play (UbiquityWebcam *webcam);
 void ubiquity_webcam_stop (UbiquityWebcam *webcam);
 gboolean ubiquity_webcam_available (void);
+void ubiquity_webcam_test (UbiquityWebcam *webcam);
 
 G_END_DECLS
 

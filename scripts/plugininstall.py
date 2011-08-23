@@ -158,6 +158,7 @@ class Install(install_misc.InstallBase):
         self.configure_apt()
 
         self.configure_plugins()
+        self.configure_face()
 
         self.next_region()
         self.run_target_config_hooks()
@@ -252,6 +253,13 @@ class Install(install_misc.InstallBase):
         self.copy_logs()
 
         self.db.progress('SET', self.end)
+
+    def configure_face(self):
+        PHOTO_PATH = '/tmp/webcam_photo.png'
+        target_user = self.db.get('passwd/username')
+        if os.path.exists(PHOTO_PATH):
+            shutil.copy2(PHOTO_PATH,
+                os.path.join('/target/home', target_user, '.face'))
 
     def configure_python(self):
         """Byte-compile Python modules.

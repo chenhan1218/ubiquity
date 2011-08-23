@@ -76,6 +76,7 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 	UbiquityWebcamPrivate *priv;
 	priv = self->priv = UBIQUITY_WEBCAM_PRIVATE (self);
 
+	gtk_box_set_spacing (GTK_BOX (self), 1);
 	priv->drawing_area = gtk_drawing_area_new ();
 	gtk_widget_set_size_request (priv->drawing_area, 320, 240);
 	g_signal_connect (priv->drawing_area, "realize",
@@ -83,7 +84,7 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 	gtk_widget_set_double_buffered (priv->drawing_area, FALSE);
 
 	priv->button = gtk_button_new ();
-	gtk_button_set_label (GTK_BUTTON (priv->button), "Go");
+	gtk_button_set_label (GTK_BUTTON (priv->button), "Take Photo");
 
 	gtk_box_pack_start (GTK_BOX (self), priv->drawing_area, TRUE, TRUE, 0);
 	gtk_box_pack_start (GTK_BOX (self), priv->button, FALSE, FALSE, 0);
@@ -102,10 +103,20 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 
 	priv->bus = gst_element_get_bus (priv->camerabin);
 	gst_bus_add_signal_watch (priv->bus);
-	g_signal_connect (priv->bus, "message", G_CALLBACK (message_cb), NULL);
+	g_signal_connect (priv->bus, "message", G_CALLBACK (message_cb), self);
 	gst_bus_set_sync_handler (priv->bus, (GstBusSyncHandler) window_id_cb, NULL);
 	gst_object_ref (priv->bus);
 	gst_object_ref (priv->camerabin);
+    g_signal_new ("image-captured",
+					UBIQUITY_TYPE_WEBCAM,
+					G_SIGNAL_RUN_FIRST,
+					0,
+					NULL,
+					NULL,
+					g_cclosure_marshal_VOID__OBJECT,
+					G_TYPE_NONE, 1,
+					G_TYPE_STRING);
+
 }
 
 void
@@ -121,14 +132,8 @@ ubiquity_webcam_test (UbiquityWebcam *webcam) {
 		"peer-alloc", FALSE, NULL);
 	g_object_set (G_OBJECT (priv->src), "video-src", priv->testsrc, NULL);
 	g_object_set (G_OBJECT (priv->camerabin), "camera-src", priv->src, NULL);
-	if (gst_element_set_state (priv->camerabin, GST_STATE_NULL) == GST_STATE_CHANGE_FAILURE) {
-		g_print ("setting camerabin to NULL failed\n");
-		return;
-	}
-	if (gst_element_set_state (priv->camerabin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
-		g_print ("setting camerabin to PLAYING failed\n");
-		return;
-	}
+	ubiquity_webcam_stop (webcam);
+	ubiquity_webcam_play (webcam);
 	gst_object_ref (priv->src);
 	gst_object_ref (priv->testsrc);
 }
@@ -193,8 +198,8 @@ message_cb (GstBus *bus, GstMessage *msg, gpointer data) {
 	st = gst_message_get_structure (msg);
 	//if (st)
 	//	g_message("name: %s\n", gst_structure_get_name (st));
-	if (st && gst_structure_has_name (st, "image-captured"))
-		g_message ("image captured\n");
+	if (st && gst_structure_has_name (st, "image-done"))
+		g_signal_emit_by_name (data, "image-captured", "/tmp/webcam_photo.jpg");
 	else if (st && gst_structure_has_name (st, "preview-image"))
 		g_message ("preview\n");
 	return TRUE;
@@ -210,7 +215,7 @@ button_clicked_cb (GtkWidget *widget, GstElement *camerabin) {
 		return;
 	}
 	g_object_set (G_OBJECT(camerabin), "image-capture-encoder", camerabin, NULL);
-	g_object_set (G_OBJECT(camerabin), "location", "/tmp/photo_%d.jpg", NULL);
+	g_object_set (G_OBJECT(camerabin), "location", "/tmp/webcam_photo.jpg", NULL);
 	g_object_set (G_OBJECT(camerabin), "post-previews", FALSE, NULL);
 	g_signal_emit_by_name (camerabin, "start-capture", NULL);
 

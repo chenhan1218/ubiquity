@@ -11,6 +11,7 @@ ubiquity (2.7.16) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Move noninteractive frontend to PyGI bindings for GObject (LP:
     #829186).
+  * Make the webcam page match its specified design.
 
   [ Jeremy Bicha ]
   * Allow users to enter their own mount point in the partitoner (LP: #831431)

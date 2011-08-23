@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
 from gi.repository import Gtk, Gdk, GObject, Pango
-import cairo
+from gi.repository import UbiquityWebcam, GdkPixbuf
+import cairo, os
 
 def format_size(size):
     """Format a partition size."""
@@ -359,3 +360,71 @@ class StateBox(StylizedFrame):
         return self.status
 
 GObject.type_register(StateBox)
+
+FACES_PATH = '/usr/share/pixmaps/faces'
+
+class FaceSelector(Gtk.VBox):
+    __gtype_name__ = 'FaceSelector'
+    def __init__(self):
+        Gtk.VBox.__init__(self)
+        self.set_spacing(12)
+
+        vb_left = Gtk.VBox.new(False, 3)
+        # TODO i18n
+        l = Gtk.Label('Take a photo:')
+        vb_left.pack_start(l, False, False, 0)
+        f = Gtk.Frame()
+        self.webcam = UbiquityWebcam.Webcam()
+        self.webcam.connect('image-captured', self.image_captured)
+        f.add(self.webcam)
+        vb_left.add(f)
+
+        vb_right = Gtk.VBox.new(False, 3)
+        # TODO i18n
+        l = Gtk.Label('Or choose an existing picture:')
+        vb_right.pack_start(l, False, False, 0)
+        iv = Gtk.IconView()
+        iv.connect('selection-changed', self.selection_changed)
+        sw = Gtk.ScrolledWindow()
+        sw.set_shadow_type(Gtk.ShadowType.IN)
+        sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        sw.add(iv)
+        vb_right.add(sw)
+
+        hb = Gtk.HBox.new(True, 30)
+        hb.add(vb_left)
+        hb.add(vb_right)
+        self.add(hb)
+
+        self.selected_image = Gtk.Image()
+        self.selected_image.set_size_request(96, 96)
+        self.add(self.selected_image)
+
+        m = Gtk.ListStore(GObject.type_from_name('GdkPixbuf'))
+        iv.set_model(m)
+        iv.set_pixbuf_column(0)
+        for path in os.listdir(FACES_PATH):
+            pb = GdkPixbuf.Pixbuf.new_from_file(
+                                os.path.join(FACES_PATH, path))
+            m.append([pb])
+
+    def webcam_play(self):
+        self.webcam.play()
+
+    def webcam_stop(self):
+        self.webcam.stop()
+
+    def image_captured(self, unused, path):
+        pb = GdkPixbuf.Pixbuf.new_from_file_at_size(path, 96, 96);
+        self.selected_image.set_from_pixbuf(pb)
+
+    def selection_changed(self, iv):
+        selection = iv.get_selected_items()
+        if not selection:
+            return
+        selection = selection[0]
+        m = iv.get_model()
+        self.selected_image.set_from_pixbuf(m[selection][0])
+
+GObject.type_register(FaceSelector)
+

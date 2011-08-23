@@ -30,6 +30,7 @@ class PageGtk(plugin.PluginUI):
         from gi.repository import Gtk, Gst
         Gst.init(sys.argv)
         from gi.repository import UbiquityWebcam
+        from ubiquity import gtkwidgets
         if (not UbiquityWebcam.Webcam.available()
             or 'UBIQUITY_AUTOMATIC' in os.environ):
             self.page = None
@@ -42,19 +43,19 @@ class PageGtk(plugin.PluginUI):
         builder.connect_signals(self)
         self.page = builder.get_object('stepWebcam')
         self.plugin_widgets = self.page
-        self.webcam = UbiquityWebcam.Webcam()
-        self.page.add(self.webcam)
+        self.faceselector = gtkwidgets.FaceSelector()
+        self.page.add(self.faceselector)
     
     def plugin_get_current_page(self):
         self.page.show_all()
-        self.webcam.play()
+        self.faceselector.webcam_play()
         return self.page
 
     def plugin_on_back_clicked(self):
-        self.webcam.stop()
+        self.faceselector.webcam_stop()
         return False
 
     def plugin_on_next_clicked(self):
-        self.webcam.stop()
+        self.faceselector.webcam_stop()
         return False
 
