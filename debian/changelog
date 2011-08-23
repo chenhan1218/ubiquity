@@ -12,6 +12,9 @@ ubiquity (2.7.16) UNRELEASED; urgency=low
   * Move noninteractive frontend to PyGI bindings for GObject (LP:
     #829186).
 
+  [ Jeremy Bicha ]
+  * Allow users to enter their own mount point in the partitoner (LP: #831431)
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Aug 2011 12:15:22 +0100
 
 ubiquity (2.7.15) oneiric; urgency=low
