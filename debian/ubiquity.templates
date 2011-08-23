@@ -227,7 +227,7 @@ _Description: Encrypt my home folder
 Template: ubiquity/text/webcam_heading
 Type: text
 _Description:
- This picture wil identify you in the account settings, login screen, and
+ This picture will identify you in the account settings, login screen, and
  lock screen.
 
 Template: ubiquity/text/ma_text_label
