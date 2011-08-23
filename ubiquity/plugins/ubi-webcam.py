@@ -57,5 +57,6 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_on_next_clicked(self):
         self.faceselector.webcam_stop()
+        self.faceselector.save_to('/var/lib/ubiquity/webcam_photo.png')
         return False
 

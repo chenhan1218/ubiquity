@@ -255,7 +255,7 @@ class Install(install_misc.InstallBase):
         self.db.progress('SET', self.end)
 
     def configure_face(self):
-        PHOTO_PATH = '/tmp/webcam_photo.png'
+        PHOTO_PATH = '/var/lib/ubiquity/webcam_photo.png'
         target_user = self.db.get('passwd/username')
         if os.path.exists(PHOTO_PATH):
             shutil.copy2(PHOTO_PATH,
