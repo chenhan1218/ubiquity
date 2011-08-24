@@ -94,6 +94,15 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 		"width", G_TYPE_INT, 320, "height", G_TYPE_INT, 240, NULL);
 	g_object_set (G_OBJECT (priv->camerabin),
 		"viewfinder-caps", priv->viewfinder_caps, NULL);
+    g_signal_new ("image-captured",
+					UBIQUITY_TYPE_WEBCAM,
+					G_SIGNAL_RUN_FIRST,
+					0,
+					NULL,
+					NULL,
+					g_cclosure_marshal_VOID__OBJECT,
+					G_TYPE_NONE, 1,
+					G_TYPE_STRING);
 	if (!priv->camerabin) {
 		g_print ("Failed to create camerabin.\n");
 		return;
@@ -107,16 +116,6 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 	gst_bus_set_sync_handler (priv->bus, (GstBusSyncHandler) window_id_cb, NULL);
 	gst_object_ref (priv->bus);
 	gst_object_ref (priv->camerabin);
-    g_signal_new ("image-captured",
-					UBIQUITY_TYPE_WEBCAM,
-					G_SIGNAL_RUN_FIRST,
-					0,
-					NULL,
-					NULL,
-					g_cclosure_marshal_VOID__OBJECT,
-					G_TYPE_NONE, 1,
-					G_TYPE_STRING);
-
 }
 
 void

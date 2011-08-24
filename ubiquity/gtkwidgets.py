@@ -2,6 +2,7 @@
 
 from gi.repository import Gtk, Gdk, GObject, Pango
 from gi.repository import UbiquityWebcam, GdkPixbuf
+from ubiquity import misc
 import cairo, os
 
 def format_size(size):
@@ -415,6 +416,10 @@ class FaceSelector(Gtk.VBox):
         self.webcam.stop()
 
     def save_to(self, path):
+        d = os.path.dirname(path)
+        if not os.path.exists(d):
+            with misc.raised_privileges():
+                os.makedirs(d)
         pb = self.selected_image.get_pixbuf()
         pb.savev(path, 'png', [], [])
 
