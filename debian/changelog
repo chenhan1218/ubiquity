@@ -8,6 +8,8 @@ ubiquity (2.7.17) UNRELEASED; urgency=low
     runs (e.g. when repeatedly running tests).
   * Mark the debian/rules tests target as phony, to allow repeated runs more
     easily.
+  * Don't fail gtkwidgets tests if /usr/share/pixmaps/faces doesn't exist
+    (i.e. gnome-control-center-data isn't installed).
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 24 Aug 2011 14:35:09 +0100
 

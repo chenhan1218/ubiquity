@@ -385,10 +385,11 @@ class FaceSelector(Gtk.VBox):
         m = Gtk.ListStore(GObject.type_from_name('GdkPixbuf'))
         iv.set_model(m)
         iv.set_pixbuf_column(0)
-        for path in os.listdir(FACES_PATH):
-            pb = GdkPixbuf.Pixbuf.new_from_file(
-                                os.path.join(FACES_PATH, path))
-            m.append([pb])
+        if os.path.exists(FACES_PATH):
+            for path in os.listdir(FACES_PATH):
+                pb = GdkPixbuf.Pixbuf.new_from_file(
+                                    os.path.join(FACES_PATH, path))
+                m.append([pb])
 
     def webcam_play(self):
         self.webcam.play()
