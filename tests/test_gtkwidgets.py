@@ -75,7 +75,6 @@ ID_MM_CANDIDATE=1
 
 
 from ubiquity import nm
-import mock
 import dbus
 class NetworkManagerTests(unittest.TestCase):
     def setUp(self):
