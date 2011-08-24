@@ -46,7 +46,7 @@ class WidgetTests(unittest.TestCase):
         GObject.timeout_add(500, Gtk.main_quit)
         Gtk.main()
 
-    def test_face_selector_save_to(self, *args):
+    def test_face_selector_save_to(self):
         from gi.repository import GdkPixbuf, Gst
         Gst.init(sys.argv)
         WRITE_TO = '/tmp/nonexistent-directory/windows_square.png'
@@ -58,6 +58,20 @@ class WidgetTests(unittest.TestCase):
         self.assertTrue(os.path.exists(WRITE_TO))
         import shutil
         shutil.rmtree(os.path.dirname(WRITE_TO))
+
+    def test_state_box(self):
+        sb = gtkwidgets.StateBox('foobar')
+        self.assertEqual(sb.get_property('label'), 'foobar')
+        sb.set_property('label', 'barfoo')
+        self.assertEqual(sb.get_property('label'), 'barfoo')
+        sb.set_state(True)
+        self.assertEqual(sb.image.get_stock(),
+                         ('gtk-yes', Gtk.IconSize.LARGE_TOOLBAR))
+        self.assertEqual(sb.get_state(), True)
+        sb.set_state(False)
+        self.assertEqual(sb.image.get_stock(),
+                         ('gtk-no', Gtk.IconSize.LARGE_TOOLBAR))
+        self.assertEqual(sb.get_state(), False)
 
 udevinfo = """
 UDEV_LOG=3
