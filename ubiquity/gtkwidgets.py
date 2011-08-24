@@ -5,25 +5,6 @@ from gi.repository import UbiquityWebcam, GdkPixbuf
 from ubiquity import misc
 import cairo, os
 
-def format_size(size):
-    """Format a partition size."""
-    if size < 1000:
-        unit = 'B'
-        factor = 1
-    elif size < 1000 * 1000:
-        unit = 'kB'
-        factor = 1000
-    elif size < 1000 * 1000 * 1000:
-        unit = 'MB'
-        factor = 1000 * 1000
-    elif size < 1000 * 1000 * 1000 * 1000:
-        unit = 'GB'
-        factor = 1000 * 1000 * 1000
-    else:
-        unit = 'TB'
-        factor = 1000 * 1000 * 1000 * 1000
-    return '%.1f %s' % (float(size) / factor, unit)
-
 def draw_round_rect(c, r, x, y, w, h):
     c.move_to(x+r,y)
     c.line_to(x+w-r,y);   c.curve_to(x+w,y,x+w,y,x+w,y+r)
@@ -279,7 +260,7 @@ class PartitionBox(StylizedFrame):
         self.show_all()
 
     def set_size(self, size):
-        size = format_size(size)
+        size = misc.format_size(size)
         self.size.set_markup('<span size="x-large">%s</span>' % size)
 
     def render_dots(self):
