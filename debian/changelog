@@ -12,6 +12,8 @@ ubiquity (2.7.16) UNRELEASED; urgency=low
   * Move noninteractive frontend to PyGI bindings for GObject (LP:
     #829186).
   * Make the webcam page match its specified design.
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu25.
 
   [ Jeremy Bicha ]
   * Allow users to enter their own mount point in the partitoner (LP: #831431)
