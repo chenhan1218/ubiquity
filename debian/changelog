@@ -1,3 +1,9 @@
+ubiquity (2.7.17) UNRELEASED; urgency=low
+
+  * Make sure the webcam module is built before running tests.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 24 Aug 2011 14:35:09 +0100
+
 ubiquity (2.7.16) oneiric; urgency=low
 
   [ Colin Watson ]
