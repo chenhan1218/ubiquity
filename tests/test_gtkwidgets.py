@@ -47,7 +47,8 @@ class WidgetTests(unittest.TestCase):
         Gtk.main()
 
     def test_face_selector_save_to(self, *args):
-        from gi.repository import GdkPixbuf
+        from gi.repository import GdkPixbuf, Gst
+        Gst.init(sys.argv)
         WRITE_TO = '/tmp/nonexistent-directory/windows_square.png'
         fs = gtkwidgets.FaceSelector()
         fs.selected_image = Gtk.Image()
