@@ -66,6 +66,8 @@ src/webcam/.libs
 src/webcam/*.la
 src/webcam/*.lo
 src/webcam/Makefile
+src/webcam/UbiquityWebcam-1.0.gir
+src/webcam/UbiquityWebcam-1.0.typelib
 ubiquity/.deps
 ubiquity/.libs
 ubiquity/Makefile
