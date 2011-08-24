@@ -302,4 +302,4 @@ binary-arch: tests install-stamp
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: build clean binary-indep binary-arch binary install tests

@@ -6,6 +6,8 @@ ubiquity (2.7.17) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Use a stamp file for 'debian/rules install' to try to avoid duplicate
     runs (e.g. when repeatedly running tests).
+  * Mark the debian/rules tests target as phony, to allow repeated runs more
+    easily.
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 24 Aug 2011 14:35:09 +0100
 
