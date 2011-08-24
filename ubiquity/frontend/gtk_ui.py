@@ -1013,42 +1013,6 @@ color : @fg_color
     def page_name(self, step_index):
         return self.steps.get_nth_page(step_index).get_name()
 
-    def add_history(self, page, widget):
-        history_entry = (page, widget)
-        if self.history:
-            # We may have skipped past child pages of the component.  Remove
-            # the history between the page we're on and the end of the list in
-            # that case.
-            if history_entry in self.history:
-                idx = self.history.index(history_entry)
-                if idx + 1 < len(self.history):
-                    self.history = self.history[:idx+1]
-                    return # The page is now effectively a dup
-            # We may have either jumped backward or forward over pages.
-            # Correct history in that case
-            new_index = self.pages.index(page)
-            old_index = self.pages.index(self.history[-1][0])
-            # First, pop if needed
-            if new_index < old_index:
-                while self.history[-1][0] != page and len(self.history) > 1:
-                    self.pop_history()
-            # Now push fake history if needed
-            i = old_index + 1
-            while i < new_index:
-                for _ in self.pages[i].widgets: # add 1 for each always-on widgets
-                    self.history.append((self.pages[i], None))
-                i += 1
-
-            if history_entry == self.history[-1]:
-                return # Don't add the page if it's a dup
-        self.history.append(history_entry)
-
-    def pop_history(self):
-        if len(self.history) < 2:
-            return self.pagesindex
-        self.history.pop()
-        return self.pages.index(self.history[-1][0])
-
     def toggle_next_button(self, label='gtk-go-forward'):
         if label != 'gtk-go-forward':
             self.next.set_label(self.get_string(label))
