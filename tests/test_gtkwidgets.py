@@ -73,6 +73,14 @@ class WidgetTests(unittest.TestCase):
                          ('gtk-no', Gtk.IconSize.LARGE_TOOLBAR))
         self.assertEqual(sb.get_state(), False)
 
+    def test_gtk_to_cairo_color(self):
+        self.assertEqual(gtkwidgets.gtk_to_cairo_color('white'),
+                         (1.0, 1.0, 1.0))
+        self.assertEqual(gtkwidgets.gtk_to_cairo_color('black'), (0, 0, 0))
+        self.assertEqual(gtkwidgets.gtk_to_cairo_color('green'), (0, 1.0, 0))
+        self.assertEqual(gtkwidgets.gtk_to_cairo_color('red'), (1.0, 0, 0))
+        self.assertEqual(gtkwidgets.gtk_to_cairo_color('blue'), (0, 0, 1.0))
+
 udevinfo = """
 UDEV_LOG=3
 DEVPATH=/devices/pci0000:00/0000:00:1c.1/0000:03:00.0/net/wlan0
