@@ -1,4 +1,4 @@
-ubiquity (2.7.17) UNRELEASED; urgency=low
+ubiquity (2.7.17) oneiric; urgency=low
 
   [ Evan Dandrea ]
   * Make sure the webcam module is built before running tests.
@@ -11,7 +11,7 @@ ubiquity (2.7.17) UNRELEASED; urgency=low
   * Don't fail gtkwidgets tests if /usr/share/pixmaps/faces doesn't exist
     (i.e. gnome-control-center-data isn't installed).
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 24 Aug 2011 14:35:09 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 25 Aug 2011 00:09:32 +0100
 
 ubiquity (2.7.16) oneiric; urgency=low
 
