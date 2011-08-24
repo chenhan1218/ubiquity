@@ -73,8 +73,10 @@ d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
 ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
 	d-i/make-keyboard-names $< > $@
 
-install: DH_OPTIONS=
-install: build ubiquity/keyboard_names.py
+install: install-stamp
+
+install-stamp: DH_OPTIONS=
+install-stamp: build-stamp ubiquity/keyboard_names.py
 	dh_testdir
 	dh_testroot
 	dh_prep
@@ -214,7 +216,9 @@ endif
 		cp desktop/hi$${size}-app-ubiquity.png debian/ubiquity-frontend-kde/usr/share/icons/hicolor/$${size}x$${size}/apps/ubiquity.png; \
 	done
 
-tests: install
+	touch install-stamp
+
+tests: install-stamp
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	CODE=0; env -u LD_PRELOAD LD_LIBRARY_PATH=src/webcam/.libs GI_TYPELIB_PATH=src/webcam xvfb-run -e debian/xvfb.log ./tests/run || CODE=$$?; \
 	echo "xauth/Xrdb output:"; \
@@ -233,7 +237,7 @@ endif
 
 # Build architecture-independent files here.
 binary-indep: DH_OPTIONS=$(BINARY_INDEP_OPTIONS)
-binary-indep: install
+binary-indep: install-stamp
 	dh_testdir
 	dh_testroot
 	dh_installchangelogs
@@ -263,7 +267,7 @@ endif
 
 # Build architecture-dependent files here.
 binary-arch: DH_OPTIONS=$(BINARY_ARCH_OPTIONS)
-binary-arch: tests install
+binary-arch: tests install-stamp
 	dh_testdir
 	dh_testroot
 	dh_installchangelogs

@@ -1,6 +1,11 @@
 ubiquity (2.7.17) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Make sure the webcam module is built before running tests.
+
+  [ Colin Watson ]
+  * Use a stamp file for 'debian/rules install' to try to avoid duplicate
+    runs (e.g. when repeatedly running tests).
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 24 Aug 2011 14:35:09 +0100
 
