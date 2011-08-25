@@ -76,6 +76,8 @@ class UserSetupTests(unittest.TestCase):
         self.assertEqual(self.ubi_usersetup.check_username('evan'), '')
 
     def test_unicode(self):
+        # i18n needs to be imported to register ascii_transliterate
+        from ubiquity import i18n
         heart = u'♥'
         self.gtk.set_fullname(heart)
         self.gtk.set_username(heart)

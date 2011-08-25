@@ -317,7 +317,7 @@ class PageGtk(PageBase):
         if (widget is not None and widget.get_name() == 'fullname' and
             not self.username_edited):
             self.username.handler_block(self.username_changed_id)
-            new_username = unicode(widget.get_text().split(' ')[0])
+            new_username = widget.get_text().split(' ')[0].decode('utf-8')
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.lower()
             self.username.set_text(new_username)
