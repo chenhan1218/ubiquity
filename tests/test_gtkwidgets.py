@@ -185,4 +185,4 @@ class NetworkManagerTests(unittest.TestCase):
         mock_cell.set_property.assert_called_with('text', 'Orange')
         
 if __name__ == '__main__':
-    test_support.run_unittest(WidgetTests)
+    test_support.run_unittest(WidgetTests, NetworkManagerTests)

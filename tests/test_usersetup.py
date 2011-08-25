@@ -1,4 +1,4 @@
-
+# -*- coding: utf8; -*-
 #!/usr/bin/python
 
 import unittest
@@ -74,6 +74,20 @@ class UserSetupTests(unittest.TestCase):
             ("May only contain lower-case letters,\n"
              "digits, hyphens, and underscores."))
         self.assertEqual(self.ubi_usersetup.check_username('evan'), '')
+
+    def test_unicode(self):
+        heart = u'♥'
+        self.gtk.set_fullname(heart)
+        self.gtk.set_username(heart)
+        self.gtk.set_hostname(heart)
+        # Shortcut initialization
+        self.gtk.fullname.set_name('fullname')
+        self.gtk.username.set_name('username')
+        self.gtk.username_edited = False
+        self.gtk.hostname_edited = False
+        self.gtk.info_loop(self.gtk.fullname)
+        self.gtk.info_loop(self.gtk.username)
+
 
     def test_on_authentication_toggled(self):
         self.gtk.login_encrypt.set_active(True)
