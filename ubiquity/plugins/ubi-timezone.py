@@ -83,6 +83,57 @@ class PageGtk(plugin.PluginUI):
             self.timezone = city
             self.controller.allow_go_forward(True)
 
+
+    def changed(self):
+        from gi.repository import Gtk, GObject
+        text = self.city_entry.get_text()
+        if not text:
+            return
+        # TODO if the completion widget has a selection, return?  How do we
+        # determine this?
+        if text in self.changed.cache:
+            model = self.changed.cache[text]
+        else:
+            # fetch
+            model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                  GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                  GObject.TYPE_STRING)
+            self.changed.cache[text] = model
+            # TODO benchmark this
+            results = [(name, self.tzdb.get_loc(city))
+                        for (name, city) in
+                            [(x[0], x[1]) for x in self.zones
+                                if x[0].lower().split('(', 1)[-1] \
+                                                .startswith(text.lower())]]
+            for result in results:
+                # We use name rather than loc.human_zone for i18n.
+                # TODO this looks pretty awful for US results:
+                # United States (New York) (United States)
+                # Might want to match the debconf format.
+                name, loc = result
+                model.append([name, '', loc.human_country,
+                              str(loc.latitude), str(loc.longitude)])
+
+            try:
+                import urllib2, urllib, json
+                opener = urllib2.build_opener()
+                opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
+                url = opener.open(_geoname_url %
+                    (urllib.quote(text), misc.get_release().version))
+                for result in json.loads(url.read()):
+                    model.append([result['name'],
+                                  result['admin1'],
+                                  result['country'],
+                                  result['latitude'],
+                                  result['longitude']])
+            except Exception, e:
+                print 'exception:', e
+                # TODO because we don't return here, we could cache a
+                # result that doesn't include the geonames results because
+                # of a network error.
+        self.city_entry.get_completion().set_model(model)
+    changed.cache = {}
+
     def setup_page(self):
         # TODO Put a frame around the completion to add contrast (LP: #605908)
         from gi.repository import Gtk, GObject
@@ -96,59 +147,11 @@ class PageGtk(plugin.PluginUI):
         def is_separator(m, i):
             return m[i][0] is None
 
-        def changed(entry):
-            text = entry.get_text()
-            if not text:
-                return
-            # TODO if the completion widget has a selection, return?  How do we determine this?
-            if text in changed.cache:
-                model = changed.cache[text]
-            else:
-                # fetch
-                model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
-                                      GObject.TYPE_STRING, GObject.TYPE_STRING,
-                                      GObject.TYPE_STRING)
-                changed.cache[text] = model
-                # TODO benchmark this
-                results = [(name, self.tzdb.get_loc(city))
-                            for (name, city) in
-                                [(x[0], x[1]) for x in self.zones
-                                    if x[0].lower().split('(', 1)[-1] \
-                                                    .startswith(text.lower())]]
-                for result in results:
-                    # We use name rather than loc.human_zone for i18n.
-                    # TODO this looks pretty awful for US results:
-                    # United States (New York) (United States)
-                    # Might want to match the debconf format.
-                    name, loc = result
-                    model.append([name, '', loc.human_country,
-                                  str(loc.latitude), str(loc.longitude)])
-
-                try:
-                    import urllib2, urllib, json
-                    opener = urllib2.build_opener()
-                    opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
-                    url = opener.open(_geoname_url %
-                        (urllib.quote(text), misc.get_release().version))
-                    for result in json.loads(url.read()):
-                        model.append([result['name'],
-                                      result['admin1'],
-                                      result['country'],
-                                      result['latitude'],
-                                      result['longitude']])
-                except Exception, e:
-                    print 'exception:', e
-                    # TODO because we don't return here, we could cache a
-                    # result that doesn't include the geonames results because
-                    # of a network error.
-            entry.get_completion().set_model(model)
-        changed.cache = {}
-
         self.timeout_id = 0
         def queue_entry_changed(entry):
             if self.timeout_id:
                 GObject.source_remove(self.timeout_id)
-            self.timeout_id = GObject.timeout_add(300, changed, entry)
+            self.timeout_id = GObject.timeout_add(300, self.changed, entry)
 
         self.city_entry.connect('changed', queue_entry_changed)
         completion = Gtk.EntryCompletion()
