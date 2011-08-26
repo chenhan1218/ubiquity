@@ -1508,9 +1508,6 @@ color : @fg_color
                 text = option
             if text is None:
                 text = option
-            # Work around PyGTK bug; each button text must actually be a
-            # subtype of str, which unicode isn't.
-            text = str(text)
             buttons.extend((text, len(buttons) / 2 + 1))
         dialog = Gtk.Dialog(title, self.live_installer, Gtk.DialogFlags.MODAL, tuple(buttons))
         vbox = Gtk.VBox()
