@@ -43,6 +43,14 @@ JOCKEY_PATH = '/DeviceDriver'
 WGET_URL = 'http://start.ubuntu.com/connectivity-check.html'
 WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 
+# From dbus-python:
+#  if (timeout_s > ((double)INT_MAX) / 1000.0) {
+#     PyErr_SetString(PyExc_ValueError, "Timeout too long");
+#     return NULL;
+# }
+# timeout_ms = (int)(timeout_s * 1000.0);
+MAX_DBUS_TIMEOUT = INT_MAX / 1000.0
+
 # TODO: This cannot be a non-debconf plugin after all as OEMs may want to
 # preseed the 'install updates' and 'install non-free software' options.  So?
 # Just db_get them.  No need for any other overhead, surely.  Actually, you
@@ -346,7 +354,7 @@ class Page(plugin.Plugin):
                 bus = dbus.SystemBus()
                 obj = bus.get_object(JOCKEY, JOCKEY_PATH)
                 i = dbus.Interface(obj, JOCKEY)
-                i.shutdown()
+                i.shutdown(timeout=MAX_DBUS_TIMEOUT)
                 env = os.environ.copy()
                 env['DEBCONF_DB_REPLACE'] = 'configdb'
                 env['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
