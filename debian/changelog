@@ -1,6 +1,7 @@
 ubiquity (2.7.18) UNRELEASED; urgency=low
 
   * Properly handle unicode around the hostname (LP: #831309).
+  * Properly handle unicode around the timezone entry box (LP: #831533).
 
  -- Evan Dandrea <ev@ubuntu.com>  Thu, 25 Aug 2011 15:50:40 +0100
 

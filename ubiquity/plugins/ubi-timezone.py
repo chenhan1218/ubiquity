@@ -86,7 +86,7 @@ class PageGtk(plugin.PluginUI):
 
     def changed(self):
         from gi.repository import Gtk, GObject
-        text = self.city_entry.get_text()
+        text = self.city_entry.get_text().decode('utf-8')
         if not text:
             return
         # TODO if the completion widget has a selection, return?  How do we

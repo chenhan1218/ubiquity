@@ -21,7 +21,8 @@ class TimezoneTests(unittest.TestCase):
         self.gtk = self.ubi_timezone.PageGtk(controller)
 
     @mock.patch('json.loads')
-    def test_foo(self, json_mock):
+    @mock.patch('urllib2.build_opener')
+    def test_city_entry(self, opener_mock, json_mock):
         json_mock.return_value = []
         self.gtk.set_timezone('America/New_York')
         self.gtk.city_entry.set_text('Eastern')
