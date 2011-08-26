@@ -9,7 +9,6 @@ import unittest
 from ubiquity.frontend import gtk_ui
 import mock
 
-from gi.repository import Gtk
 class TestFrontend(unittest.TestCase):
     @mock.patch('ubiquity.misc.drop_privileges')
     @mock.patch('ubiquity.misc.regain_privileges')

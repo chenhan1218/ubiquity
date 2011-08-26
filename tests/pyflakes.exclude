@@ -4,3 +4,4 @@ ubiquity/osextras.py:*: 'from ubiquity._osextras import *' used; unable to detec
 ubiquity/osextras.py:*: 'from _osextras import *' used; unable to detect undefined names
 ubiquity/frontend/gtk_ui.py:*: 'gtkwidgets' imported but unused
 ubiquity/plugins/ubi-wireless.py:*: 'NetworkManagerWidget' imported but unused
+tests/test_usersetup.py:*: 'i18n' imported but unused

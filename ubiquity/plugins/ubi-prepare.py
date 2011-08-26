@@ -49,6 +49,7 @@ WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 #     return NULL;
 # }
 # timeout_ms = (int)(timeout_s * 1000.0);
+from IN import INT_MAX
 MAX_DBUS_TIMEOUT = INT_MAX / 1000.0
 
 # TODO: This cannot be a non-debconf plugin after all as OEMs may want to
