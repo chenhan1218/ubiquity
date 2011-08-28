@@ -84,7 +84,7 @@ class PageGtk(plugin.PluginUI):
             self.controller.allow_go_forward(True)
 
 
-    def changed(self):
+    def changed(self, entry):
         from gi.repository import Gtk, GObject
         text = self.city_entry.get_text().decode('utf-8')
         if not text:
