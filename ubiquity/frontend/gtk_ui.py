@@ -301,10 +301,10 @@ class Wizard(BaseFrontend):
         # Put up the a11y indicator in maybe-ubiquity mode
         if ('UBIQUITY_GREETER' in os.environ and os.path.exists('/usr/bin/casper-a11y-enable')):
             try:
-                import appindicator
-                self.indicator = appindicator.Indicator('ubiquity', 'accessibility-directory',
-                    appindicator.CATEGORY_OTHER)
-                self.indicator.set_status(appindicator.STATUS_ACTIVE)
+                from gi.repository import AppIndicator3 as AppIndicator
+                self.indicator = AppIndicator.Indicator.new('ubiquity', 'accessibility-directory',
+                    AppIndicator.IndicatorCategory.OTHER)
+                self.indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
                 self.indicator.set_menu(self.builder.get_object('a11y_indicator_menu'))
                 self.live_installer.connect('key-press-event', self.a11y_profile_keys)
                 if os.path.exists('/usr/bin/canberra-gtk-play'):
