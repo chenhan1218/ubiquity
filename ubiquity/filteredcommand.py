@@ -333,7 +333,6 @@ class FilteredCommand(UntrustedBase):
 
     def preseed(self, name, value, seen=True):
         value = misc.debconf_escape(value)
-        value = value.encode("UTF-8", "ignore")
         try:
             self.db.set(name, value)
         except debconf.DebconfError:
