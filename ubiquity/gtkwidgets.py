@@ -398,12 +398,12 @@ class FaceSelector(Gtk.VBox):
         self.webcam.stop()
 
     def save_to(self, path):
-        d = os.path.dirname(path)
-        if not os.path.exists(d):
-            with misc.raised_privileges():
-                os.makedirs(d)
         pb = self.selected_image.get_pixbuf()
-        pb.savev(path, 'png', [], [])
+        d = os.path.dirname(path)
+        with misc.raised_privileges():
+            if not os.path.exists(d):
+                os.makedirs(d)
+            pb.savev(path, 'png', [], [])
 
     def image_captured(self, unused, path):
         pb = GdkPixbuf.Pixbuf.new_from_file_at_size(path, 96, 96);
