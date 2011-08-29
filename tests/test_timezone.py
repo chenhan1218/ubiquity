@@ -25,7 +25,7 @@ class TimezoneTests(unittest.TestCase):
         json_mock.return_value = []
         self.gtk.set_timezone('America/New_York')
         self.gtk.city_entry.set_text('Eastern')
-        self.gtk.changed()
+        self.gtk.changed(self.gtk.city_entry)
         m = self.gtk.city_entry.get_completion().get_model()
         results = []
         expected = (('Eastern', 'United States'), ('Eastern', 'Canada'))
@@ -35,4 +35,4 @@ class TimezoneTests(unittest.TestCase):
         self.assertEqual(set(results), set(expected))
         # unicode, LP: #831533
         self.gtk.city_entry.set_text(u'♥')
-        self.gtk.changed()
+        self.gtk.changed(self.gtk.city_entry)
