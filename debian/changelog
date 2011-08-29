@@ -1,4 +1,4 @@
-ubiquity (2.7.19) UNRELEAED; urgency=low
+ubiquity (2.7.19) UNRELEASED; urgency=low
 
   * Properly handle unicode in calls to preseed (LP: #831455)
   * Properly handle unicode for device and mounpoints name (LP: #833813)
