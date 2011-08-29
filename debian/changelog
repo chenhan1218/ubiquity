@@ -2,7 +2,7 @@ ubiquity (2.7.19) UNRELEASED; urgency=low
 
   [ Stéphane Graber ]
   * Properly handle unicode in calls to preseed (LP: #831455)
-  * Properly handle unicode for device and mounpoints name (LP: #833813)
+  * Properly handle unicode for device and mountpoints name (LP: #833813)
   * Port Ubiquity's accessibility indicator to gobject introspection
   * Fix a minor gobject introspection port issue (Gdk.CONTROL_MASK should
     be Gdk.ModifierType.CONTROL_MASK)
