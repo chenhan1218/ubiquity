@@ -46,7 +46,9 @@ class WidgetTests(unittest.TestCase):
         GObject.timeout_add(500, Gtk.main_quit)
         Gtk.main()
 
-    def test_face_selector_save_to(self):
+    @mock.patch('ubiquity.misc.drop_privileges')
+    @mock.patch('ubiquity.misc.regain_privileges')
+    def test_face_selector_save_to(self, *args):
         from gi.repository import GdkPixbuf, Gst
         Gst.init(sys.argv)
         WRITE_TO = '/tmp/nonexistent-directory/windows_square.png'

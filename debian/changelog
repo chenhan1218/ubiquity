@@ -10,6 +10,8 @@ ubiquity (2.7.19) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Adjust timezone tests for change in timezone changed() signature.
+  * Mock ubiquity.misc.drop_privileges and ubiquity.misc.regain_privileges
+    during test_face_selector_save_to.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Sun, 28 Aug 2011 14:49:31 -0400
 
