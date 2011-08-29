@@ -1,3 +1,10 @@
+ubiquity (2.7.21) UNRELEASED; urgency=low
+
+  * Explicitly bind "activate-link" as it seems to be the only way to actually
+    catch that signal. (LP: #830895)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 29 Aug 2011 15:44:50 -0400
+
 ubiquity (2.7.20) oneiric; urgency=low
 
   * Raise permissions for writing out webcam picture. (LP: #836802)

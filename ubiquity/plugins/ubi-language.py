@@ -89,6 +89,7 @@ class PageGtk(PageBase):
             self.release_notes_url = ''
             self.update_installer = True
             self.release_notes_label = builder.get_object('release_notes_label')
+            self.release_notes_label.connect('activate-link', self.on_link_clicked)
             self.release_notes_found = False
             if self.release_notes_label:
                 if self.controller.oem_config or auto_update.already_updated():
