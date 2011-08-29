@@ -399,6 +399,9 @@ class FaceSelector(Gtk.VBox):
 
     def save_to(self, path):
         pb = self.selected_image.get_pixbuf()
+        if not pb:
+            return False
+
         d = os.path.dirname(path)
         with misc.raised_privileges():
             if not os.path.exists(d):
