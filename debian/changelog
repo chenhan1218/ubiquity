@@ -1,4 +1,4 @@
-ubiquity (2.7.19) UNRELEASED; urgency=low
+ubiquity (2.7.19) oneiric; urgency=low
 
   [ Stéphane Graber ]
   * Properly handle unicode in calls to preseed (LP: #831455)
@@ -17,7 +17,7 @@ ubiquity (2.7.19) UNRELEASED; urgency=low
   * Mock ubiquity.nm.wireless_hardware_present in GTK frontend tests, as it
     may not be able to talk to D-Bus.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Sun, 28 Aug 2011 14:49:31 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 29 Aug 2011 17:26:51 +0100
 
 ubiquity (2.7.18) oneiric; urgency=low
 
