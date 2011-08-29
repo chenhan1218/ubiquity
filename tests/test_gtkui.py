@@ -13,6 +13,7 @@ class TestFrontend(unittest.TestCase):
     @mock.patch('ubiquity.misc.drop_privileges')
     @mock.patch('ubiquity.misc.regain_privileges')
     @mock.patch('ubiquity.misc.execute')
+    @mock.patch('ubiquity.frontend.base.drop_privileges')
     @mock.patch('ubiquity.frontend.gtk_ui.Wizard.customize_installer')
     def test_question_dialog(self, *args):
         ui = gtk_ui.Wizard('test-ubiquity')
