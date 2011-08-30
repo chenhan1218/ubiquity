@@ -1,8 +1,8 @@
-ubiquity (2.7.22) UNRELEASED; urgency=low
+ubiquity (2.7.22) oneiric; urgency=low
 
   * Add back accidentally deleted build_timezone_list call.
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 30 Aug 2011 18:20:14 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 30 Aug 2011 18:34:51 +0100
 
 ubiquity (2.7.21) oneiric; urgency=low
 
