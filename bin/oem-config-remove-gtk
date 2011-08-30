@@ -49,11 +49,10 @@ def _on_finished(dia):
         sys.exit(1)
  
 def _on_transaction(trans):
-    import gtk
     apt_dialog = AptProgressDialog(trans)
     theme = Gtk.IconTheme.get_default()
     apt_dialog.set_icon(theme.load_icon("update-manager", 16, 0))
-    apt_dialog.set_position(gtk.WIN_POS_CENTER_ALWAYS)
+    apt_dialog.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
     apt_dialog.run()
     apt_dialog.connect("finished", _on_finished)
 

@@ -1,3 +1,9 @@
+ubiquity (2.7.24) UNRELEASED; urgency=low
+
+  * Use only gtk3 in oem-config-remove-gtk (2.7.23 was also using gtk2).
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 30 Aug 2011 13:56:55 -0500
+
 ubiquity (2.7.23) oneiric; urgency=low
 
   * Use the correct API for manipulating the finished dialog for oem-
