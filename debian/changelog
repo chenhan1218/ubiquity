@@ -1,9 +1,9 @@
-ubiquity (2.7.23) UNRELEASED; urgency=low
+ubiquity (2.7.23) oneiric; urgency=low
 
   * Use the correct API for manipulating the finished dialog for oem-
     config-remove-gtk.
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 30 Aug 2011 19:02:15 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 30 Aug 2011 19:03:16 +0100
 
 ubiquity (2.7.22) oneiric; urgency=low
 
