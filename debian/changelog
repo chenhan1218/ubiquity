@@ -7,7 +7,7 @@ ubiquity (2.7.21) UNRELEASED; urgency=low
     (LP: #836934)
 
   [ Evan Dandrea ]
-  * Set the timezone location to the default.
+  * Set the timezone location to the default (LP: #830940).
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 29 Aug 2011 15:44:50 -0400
 
