@@ -1,8 +1,9 @@
 ubiquity (2.7.24) UNRELEASED; urgency=low
 
   * Use only gtk3 in oem-config-remove-gtk (2.7.23 was also using gtk2).
+  * Update the directory for the panel to search for indicators.
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 30 Aug 2011 13:56:55 -0500
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Tue, 30 Aug 2011 14:02:05 -0500
 
 ubiquity (2.7.23) oneiric; urgency=low
 
