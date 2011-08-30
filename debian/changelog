@@ -1,4 +1,4 @@
-ubiquity (2.7.21) UNRELEASED; urgency=low
+ubiquity (2.7.21) oneiric; urgency=low
 
   [ Stéphane Graber ]
   * Explicitly bind "activate-link" as it seems to be the only way to actually
@@ -15,7 +15,7 @@ ubiquity (2.7.21) UNRELEASED; urgency=low
   * Automatic update of included source packages: user-setup
     1.28ubuntu19.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 29 Aug 2011 15:44:50 -0400
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 30 Aug 2011 17:16:54 +0100
 
 ubiquity (2.7.20) oneiric; urgency=low
 
