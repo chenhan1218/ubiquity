@@ -12,6 +12,8 @@ ubiquity (2.7.21) UNRELEASED; urgency=low
 
   [ Evan Dandrea ]
   * Set the timezone location to the default (LP: #830940).
+  * Automatic update of included source packages: user-setup
+    1.28ubuntu19.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 29 Aug 2011 15:44:50 -0400
 
