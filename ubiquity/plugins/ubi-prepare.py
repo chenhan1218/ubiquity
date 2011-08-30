@@ -317,15 +317,26 @@ class Page(plugin.Plugin):
         self.ui.set_sufficient_space_text(space)
 
     def min_size(self):
-        # Default to 5 GB
+        # Fallback size to 5 GB
         size = 5 * 1024 * 1024 * 1024
+
+        # Maximal size to 8 GB
+        max_size = 8 * 1024 * 1024 * 1024
+
         try:
             with open('/cdrom/casper/filesystem.size') as fp:
                 size = int(fp.readline())
         except IOError, e:
             self.debug('Could not determine squashfs size: %s' % e)
+
         # TODO substitute into the template for the state box.
         min_disk_size = size * 2 # fudge factor.
+
+        # Set minimum size to 8GB if current minimum size is larger
+        # than 8GB and we still have an extra 20% of free space
+        if min_disk_size > max_size and size * 1.2 < max_size:
+            min_disk_size = max_size
+
         return min_disk_size
 
     def big_enough(self, size):

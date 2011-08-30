@@ -7,6 +7,8 @@ ubiquity (2.7.21) UNRELEASED; urgency=low
     (LP: #836934)
   * Instead of forcing the color on all elements, only do it for elements
     where it's actually required. Fixes weird backgrounds in ComboBoxes (LP: #830923)
+  * Set a maximum install size of 8GB as long as the user still has 20% of free
+    space. (LP: #771401)
 
   [ Evan Dandrea ]
   * Set the timezone location to the default (LP: #830940).
