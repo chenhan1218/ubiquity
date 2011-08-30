@@ -1,9 +1,13 @@
 ubiquity (2.7.21) UNRELEASED; urgency=low
 
+  [ Stéphane Graber ]
   * Explicitly bind "activate-link" as it seems to be the only way to actually
     catch that signal. (LP: #830895)
   * If the user didn't select a photo, just continue without configuring it.
     (LP: #836934)
+
+  [ Evan Dandrea ]
+  * Set the timezone location to the default.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 29 Aug 2011 15:44:50 -0400
 

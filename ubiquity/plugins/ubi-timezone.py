@@ -65,9 +65,7 @@ class PageGtk(plugin.PluginUI):
         self.city_entry.set_placeholder_text(inactive)
 
     def set_timezone(self, timezone):
-        self.zones = self.controller.dbfilter.build_timezone_list()
-        #loc = self.tzmap.get_loc_for_timezone(timezone)
-        #self.tzmap.set_location(loc)
+        self.tzmap.set_timezone(timezone)
 
     def get_timezone(self):
         return self.timezone
