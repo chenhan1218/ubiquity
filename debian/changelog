@@ -1,3 +1,10 @@
+ubiquity (2.7.23) UNRELEASED; urgency=low
+
+  * Use the correct API for manipulating the finished dialog for oem-
+    config-remove-gtk.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 30 Aug 2011 19:02:15 +0100
+
 ubiquity (2.7.22) oneiric; urgency=low
 
   * Add back accidentally deleted build_timezone_list call.
