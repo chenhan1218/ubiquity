@@ -5,6 +5,8 @@ ubiquity (2.7.21) UNRELEASED; urgency=low
     catch that signal. (LP: #830895)
   * If the user didn't select a photo, just continue without configuring it.
     (LP: #836934)
+  * Instead of forcing the color on all elements, only do it for elements
+    where it's actually required. Fixes weird backgrounds in ComboBoxes (LP: #830923)
 
   [ Evan Dandrea ]
   * Set the timezone location to the default (LP: #830940).
