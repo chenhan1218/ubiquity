@@ -1,6 +1,11 @@
 ubiquity (2.7.25) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * /apps/metacity/general/num_workspaces should be an int, not a boolean.
+
+  [ Evan Dandrea ]
+  * Don't try to connect signals on the release notes label in the oem-
+    config version of the language page, as it doesn't exist there.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Aug 2011 10:21:26 +0100
 

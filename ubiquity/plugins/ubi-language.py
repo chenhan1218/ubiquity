@@ -73,61 +73,57 @@ class PageGtk(PageBase):
         else:
             ui_file = 'stepLanguage.ui'
             self.only = False
-        try:
-            from gi.repository import Gtk
-            builder = Gtk.Builder()
-            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], ui_file))
-            builder.connect_signals(self)
-            self.controller.add_builder(builder)
-            self.page = builder.get_object('stepLanguage')
-            self.iconview = builder.get_object('language_iconview')
-            self.treeview = builder.get_object('language_treeview')
-            self.oem_id_entry = builder.get_object('oem_id_entry')
-            if self.controller.oem_config:
-                builder.get_object('oem_id_vbox').show()
+        from gi.repository import Gtk
+        builder = Gtk.Builder()
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], ui_file))
+        builder.connect_signals(self)
+        self.controller.add_builder(builder)
+        self.page = builder.get_object('stepLanguage')
+        self.iconview = builder.get_object('language_iconview')
+        self.treeview = builder.get_object('language_treeview')
+        self.oem_id_entry = builder.get_object('oem_id_entry')
+        if self.controller.oem_config:
+            builder.get_object('oem_id_vbox').show()
 
-            self.release_notes_url = ''
-            self.update_installer = True
-            self.release_notes_label = builder.get_object('release_notes_label')
+        self.release_notes_url = ''
+        self.update_installer = True
+        self.release_notes_label = builder.get_object('release_notes_label')
+        self.release_notes_found = False
+        if self.release_notes_label:
             self.release_notes_label.connect('activate-link', self.on_link_clicked)
-            self.release_notes_found = False
-            if self.release_notes_label:
-                if self.controller.oem_config or auto_update.already_updated():
-                    self.update_installer = False
-                try:
-                    release_notes = open(_release_notes_url_path)
-                    self.release_notes_url = release_notes.read().rstrip('\n')
-                    release_notes.close()
-                    self.release_notes_found = True
-                except (KeyboardInterrupt, SystemExit):
-                    raise
-                except:
-                    pass
-            self.install_ubuntu = builder.get_object('install_ubuntu')
-            self.try_ubuntu = builder.get_object('try_ubuntu')
-            if not self.only:
-                if not 'UBIQUITY_GREETER' in os.environ:
-                    choice_section_vbox = builder.get_object('choice_section_vbox')
-                    choice_section_vbox and choice_section_vbox.hide()
-                else:
-                    def inst(*args):
-                        self.try_ubuntu.set_sensitive(False)
-                        self.controller.go_forward()
-                    self.install_ubuntu.connect('clicked', inst)
-                    self.try_ubuntu.connect('clicked',
-                        self.on_try_ubuntu_clicked)
-                self.try_install_text_label = builder.get_object('try_install_text_label')
-                # We do not want to show the yet to be substituted strings
-                # (${MEDIUM}, etc), so don't show the core of the page until
-                # it's ready.
-                for w in self.page.get_children():
-                    w.hide()
-                if self.update_installer:
-                    self.setup_network_watch()
+            if self.controller.oem_config or auto_update.already_updated():
+                self.update_installer = False
+            try:
+                release_notes = open(_release_notes_url_path)
+                self.release_notes_url = release_notes.read().rstrip('\n')
+                release_notes.close()
+                self.release_notes_found = True
+            except (KeyboardInterrupt, SystemExit):
+                raise
+            except:
+                pass
+        self.install_ubuntu = builder.get_object('install_ubuntu')
+        self.try_ubuntu = builder.get_object('try_ubuntu')
+        if not self.only:
+            if not 'UBIQUITY_GREETER' in os.environ:
+                choice_section_vbox = builder.get_object('choice_section_vbox')
+                choice_section_vbox and choice_section_vbox.hide()
+            else:
+                def inst(*args):
+                    self.try_ubuntu.set_sensitive(False)
+                    self.controller.go_forward()
+                self.install_ubuntu.connect('clicked', inst)
+                self.try_ubuntu.connect('clicked',
+                    self.on_try_ubuntu_clicked)
+            self.try_install_text_label = builder.get_object('try_install_text_label')
+            # We do not want to show the yet to be substituted strings
+            # (${MEDIUM}, etc), so don't show the core of the page until
+            # it's ready.
+            for w in self.page.get_children():
+                w.hide()
+            if self.update_installer:
+                self.setup_network_watch()
 
-        except Exception, e:
-            self.debug('Could not create language page: %s', e)
-            self.page = None
         self.plugin_widgets = self.page
 
     def setup_network_watch(self):
