@@ -1,4 +1,4 @@
-ubiquity (2.7.25) UNRELEASED; urgency=low
+ubiquity (2.7.25) oneiric; urgency=low
 
   [ Colin Watson ]
   * /apps/metacity/general/num_workspaces should be an int, not a boolean.
@@ -14,7 +14,7 @@ ubiquity (2.7.25) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * Properly sort the keyboard list (LP: #770320)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Aug 2011 10:21:26 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Aug 2011 20:52:07 +0100
 
 ubiquity (2.7.24) oneiric; urgency=low
 
