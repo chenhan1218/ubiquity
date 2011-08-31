@@ -2,6 +2,7 @@ ubiquity (2.7.25) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * /apps/metacity/general/num_workspaces should be an int, not a boolean.
+  * Automatic update of included source packages: flash-kernel 2.28ubuntu29.
 
   [ Evan Dandrea ]
   * Don't try to connect signals on the release notes label in the oem-
