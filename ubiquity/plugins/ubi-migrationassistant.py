@@ -103,7 +103,7 @@ class PageGtk(PageBase):
     def ma_set_choices(self, choices):
         from gi.repository import Gtk
 
-        def cell_data_func(unused_column, cell, model, iterator):
+        def cell_data_func(unused_column, cell, model, iterator, unused):
             val = model.get_value(iterator, 1)
             if model.iter_children(iterator):
                 # Windows XP...
