@@ -262,9 +262,9 @@ def apply_keyboard():
     '''Set the keyboard layout to the default layout for the language selected.
     If a user wants a different layout, they can be reasonably expected to
     change it in System -> Preferences -> Keyboard.'''
-    
+
     # Mostly taken from ubi-console-setup.
-    
+
     # We need to get rid of /etc/default/keyboard, or keyboard-configuration
     # will think it's already configured and behave differently. Try to save
     # the old file for interest's sake, but it's not a big deal if we can't.
@@ -295,7 +295,7 @@ def apply_keyboard():
     finally:
         dccomm.stdin.close()
         dccomm.wait()
-    
+
     # Accept all the defaults, given the preseeded language.
     child_env = dict(os.environ)
     child_env['OVERRIDE_ALLOW_PRESEEDING'] = '1'

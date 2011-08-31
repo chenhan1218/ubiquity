@@ -40,14 +40,14 @@ def _on_failure(error):
     dia.hide()
     loop.quit()
     sys.exit(1)
- 
+
 def _on_finished(dia):
     loop.quit()
     if dia._transaction.exit == enums.EXIT_SUCCESS:
         sys.exit(0)
     else:
         sys.exit(1)
- 
+
 def _on_transaction(trans):
     apt_dialog = AptProgressDialog(trans)
     theme = Gtk.IconTheme.get_default()
@@ -58,7 +58,7 @@ def _on_transaction(trans):
 
 def main():
     purge = []
-    for pkg in ('ubiquity', 'ubiquity-casper', 
+    for pkg in ('ubiquity', 'ubiquity-casper',
                 'ubiquity-ubuntu-artwork', 'ubiquity-slideshow-ubuntu',
                 'oem-config-slideshow-ubuntu'):
         if glob.glob('/var/lib/dpkg/info/%s.list' % pkg):

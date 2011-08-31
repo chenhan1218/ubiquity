@@ -298,7 +298,7 @@ EndSection
                 os.path.expanduser('~%s/.gconf' %
                 self.username))
             accessibility = 'false'
-            if (osextras.find_on_path('gconftool-2') and 
+            if (osextras.find_on_path('gconftool-2') and
                osextras.find_on_path('gsettings')):
                 subprocess.call(
                     ['gconftool-2', '--config-source', gconf_dir,
@@ -461,14 +461,14 @@ EndSection
                     subprocess.call(['sh', '-c', error_cmd])
             except debconf.DebconfError:
                 pass
-            
+
             reboot = False
             try:
                 if '--automatic' in program:
                     reboot = db.get('ubiquity/reboot_on_failure') == 'true'
             except debconf.DebconfError:
                 pass
-            
+
             if reboot:
                 question = 'ubiquity/install_failed_reboot'
             else:
