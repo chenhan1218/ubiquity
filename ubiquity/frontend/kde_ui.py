@@ -374,7 +374,6 @@ class Wizard(BaseFrontend):
         else:
             dialog = QtGui.QDialog(self.ui)
             uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
-            dialog.beastie_url.setOpenExternalLinks(True)
             dialog.crash_detail.setText(tbtext)
             dialog.exec_()
             sys.exit(1)

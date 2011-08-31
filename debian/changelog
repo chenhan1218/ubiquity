@@ -1,3 +1,9 @@
+ubiquity (2.7.26) oneiric; urgency=low
+
+  * Fix crash in the KDE crash dialog.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 31 Aug 2011 19:52:33 -0400
+
 ubiquity (2.7.25) oneiric; urgency=low
 
   [ Colin Watson ]
