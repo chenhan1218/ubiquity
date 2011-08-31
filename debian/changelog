@@ -8,6 +8,7 @@ ubiquity (2.7.25) UNRELEASED; urgency=low
     config version of the language page, as it doesn't exist there.
   * Construct a GtkTreeCellDataFunc with the correct number of arguments
     in the migration assistant plugin (LP: #829987).
+  * Don't let the text wrap for the language names in oem-config.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 31 Aug 2011 10:21:26 +0100
 

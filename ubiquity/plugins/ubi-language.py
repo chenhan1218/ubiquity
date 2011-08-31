@@ -206,15 +206,25 @@ class PageGtk(PageBase):
         from gi.repository import Gtk, GObject
         PageBase.set_language_choices(self, choices, choice_map)
         list_store = Gtk.ListStore.new([GObject.TYPE_STRING])
+        longest_length = 0
+        longest = ''
         for choice in choices:
             list_store.append([choice])
+            # Work around the fact that GtkIconView wraps at 50px or the width
+            # of the icon, which is nonexistent here. See adjust_wrap_width ()
+            # in gtkiconview.c for the details.
+            if self.only:
+                length = len(choice)
+                if length > longest_length:
+                    longest_length = length
+                    longest = choice
         # Support both iconview and treeview
         if self.only:
             self.iconview.set_model(list_store)
             self.iconview.set_text_column(0)
-            lang_per_column = self.iconview.get_allocation().height / 50
-            columns = int(round(len(choices) / float(lang_per_column)))
-            self.iconview.set_columns(columns)
+            pad = self.iconview.get_property('item-padding')
+            layout = self.iconview.create_pango_layout(longest)
+            self.iconview.set_item_width(layout.get_pixel_size()[0] + pad * 2)
         else:
             if len(self.treeview.get_columns()) < 1:
                 column = Gtk.TreeViewColumn(None, Gtk.CellRendererText(), text=0)
