@@ -54,6 +54,12 @@ def wireless_hardware_present():
             return True
     return False
 
+def has_connection():
+    bus = dbus.SystemBus()
+    manager = bus.get_object(NM, '/org/freedesktop/NetworkManager')
+    state = get_prop(manager, NM, 'state')
+    return state == NM_STATE_CONNECTED_GLOBAL
+
 class NetworkManager:
     def __init__(self, model, state_changed=None):
         self.model = model

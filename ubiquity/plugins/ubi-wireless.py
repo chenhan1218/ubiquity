@@ -30,7 +30,7 @@ class PageGtk(plugin.PluginUI):
         from ubiquity import nm
         from gi.repository import Gtk
         if ('UBIQUITY_AUTOMATIC' in os.environ
-            or not nm.wireless_hardware_present()):
+            or not nm.wireless_hardware_present() or nm.has_connection()):
             self.page = None
             return
         self.controller = controller

@@ -1,3 +1,10 @@
+ubiquity (2.7.27) UNRELEASED; urgency=low
+
+  * Don't show the wireless page if there's already a network connection
+    (LP: #838549).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 01 Sep 2011 14:53:45 +0100
+
 ubiquity (2.7.26) oneiric; urgency=low
 
   * Fix crash in the KDE crash dialog.
