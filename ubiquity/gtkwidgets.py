@@ -14,7 +14,7 @@ def draw_round_rect(c, r, x, y, w, h):
     c.close_path()
 
 def gtk_to_cairo_color(c):
-    color = Gdk.color_parse(c)[1]
+    color = Gdk.color_parse(c)
     s = 1.0/65535.0
     r = color.red * s
     g = color.green * s

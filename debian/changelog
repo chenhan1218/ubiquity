@@ -1,7 +1,12 @@
 ubiquity (2.7.27) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Don't show the wireless page if there's already a network connection
     (LP: #838549).
+
+  [ Martin Pitt ]
+  * ubiquity/gtkwidgets.py: Fix return value evaluation of Gdk.color_parse()
+    (API was fixed to not return a separate "success" flag any more).
 
  -- Evan Dandrea <ev@ubuntu.com>  Thu, 01 Sep 2011 14:53:45 +0100
 
