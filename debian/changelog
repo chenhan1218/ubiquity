@@ -7,6 +7,9 @@ ubiquity (2.7.27) UNRELEASED; urgency=low
   [ Martin Pitt ]
   * ubiquity/gtkwidgets.py: Fix return value evaluation of Gdk.color_parse()
     (API was fixed to not return a separate "success" flag any more).
+  * ubiquity/misc.py: Disable set_indicator_keymaps() for now. It does not
+    work with either the old (2.28) nor the current (2.90) pygobject, and
+    still uses gconf. (LP: #829186)
 
  -- Evan Dandrea <ev@ubuntu.com>  Thu, 01 Sep 2011 14:53:45 +0100
 

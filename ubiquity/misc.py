@@ -561,6 +561,10 @@ def dmimodel():
     return model
 
 def set_indicator_keymaps(locale):
+    import warnings
+    warnings.warn('set_indicator_keymaps: this function currently does not work')
+    return
+
     import libxml2
     import xklavier
     from gi.repository import Gdk
