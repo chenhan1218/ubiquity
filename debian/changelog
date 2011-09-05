@@ -1,4 +1,4 @@
-ubiquity (2.7.27) UNRELEASED; urgency=low
+ubiquity (2.7.26) oneiric; urgency=low
 
   [ Evan Dandrea ]
   * Don't show the wireless page if there's already a network connection
@@ -11,13 +11,10 @@ ubiquity (2.7.27) UNRELEASED; urgency=low
     work with either the old (2.28) nor the current (2.90) pygobject, and
     still uses gconf. (LP: #829186)
 
- -- Evan Dandrea <ev@ubuntu.com>  Thu, 01 Sep 2011 14:53:45 +0100
-
-ubiquity (2.7.26) oneiric; urgency=low
-
+  [ Stéphane Graber ]
   * Fix crash in the KDE crash dialog.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 31 Aug 2011 19:52:33 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 05 Sep 2011 10:56:43 -0400
 
 ubiquity (2.7.25) oneiric; urgency=low
 
