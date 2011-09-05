@@ -1,3 +1,10 @@
+ubiquity (2.7.27) oneiric; urgency=low
+
+  * Disable test_set_indicator_keymaps as set_indicator_keymaps itself is
+    disabled for now.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 05 Sep 2011 13:47:25 -0400
+
 ubiquity (2.7.26) oneiric; urgency=low
 
   [ Evan Dandrea ]
