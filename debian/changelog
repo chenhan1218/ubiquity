@@ -1,3 +1,10 @@
+ubiquity (2.7.27ubuntu1) UNRELEASED; urgency=low
+
+  * Update stepUserInfo.ui to trigger info_loop() when the hostname is changed.
+    (LP: #828181)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Sep 2011 10:50:34 -0400
+
 ubiquity (2.7.27) oneiric; urgency=low
 
   * Disable test_set_indicator_keymaps as set_indicator_keymaps itself is
