@@ -26,9 +26,9 @@ import os
 import sys
 import glob
 
-from aptdaemon import client, enums
 from aptdaemon.gtk3widgets import AptProgressDialog
 from gi.repository import GObject, Gtk
+from aptdaemon import client, enums
 
 loop = GObject.MainLoop()
 

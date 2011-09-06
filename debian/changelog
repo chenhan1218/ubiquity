@@ -1,7 +1,12 @@
 ubiquity (2.7.27ubuntu1) UNRELEASED; urgency=low
 
+  [ Stéphane Graber ]
   * Update stepUserInfo.ui to trigger info_loop() when the hostname is changed.
     (LP: #828181)
+
+  [ Mario Limonciello ]
+  * Reorder the imports in oem-config-remove-gtk to fix an import error due
+    the fallbacks in aptdaemon.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Sep 2011 10:50:34 -0400
 
