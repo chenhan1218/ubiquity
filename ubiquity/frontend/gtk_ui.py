@@ -391,7 +391,10 @@ class Wizard(BaseFrontend):
             self.crash_detail_label.set_text(tbtext)
             self.crash_dialog.run()
             self.crash_dialog.hide()
-
+            self.live_installer.hide()
+            while Gtk.events_pending():
+                Gtk.main_iteration()
+            misc.execute_root("apport-bug", "ubiquity")
             sys.exit(1)
 
     def thunar_set_volmanrc (self, fields):
@@ -1342,6 +1345,10 @@ color : @fg_color
             # dialog instead.
             self.crash_dialog.run()
             self.crash_dialog.hide()
+            self.live_installer.hide()
+            while Gtk.events_pending():
+                Gtk.main_iteration()
+            misc.execute_root("apport-bug", "ubiquity")
             sys.exit(1)
         if BaseFrontend.debconffilter_done(self, dbfilter):
             self.quit_main_loop()

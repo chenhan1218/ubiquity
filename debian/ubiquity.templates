@@ -339,11 +339,11 @@ _Description: Installer crashed
 Template: ubiquity/text/crash_text_label
 Type: text
 _Description:
- We're sorry; the installer crashed. Please file a new bug report using
- the command 'ubuntu-bug ubiquity' in a terminal. This will gather
- information about your system and your installation process. The details
- will be sent to our bug tracker and a developer will attend to the
- problem as soon as possible. 
+ We're sorry; the installer crashed. After you close this window, we'll
+ allow you to file a bug report using the integrated bug reporting tool.
+ This will gather information about your system and your installation 
+ process. The details will be sent to our bug tracker and a developer 
+ will attend to the problem as soon as possible. 
 
 Template: ubiquity/text/partition_button_new_label
 Type: text
