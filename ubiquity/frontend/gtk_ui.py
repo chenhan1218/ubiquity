@@ -1216,6 +1216,7 @@ color : @fg_color
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
         else:
+            self.find_next_step(self.pages[self.pagesindex].module.__name__)
             self.quit_main_loop()
 
     def process_step(self):
@@ -1251,6 +1252,7 @@ color : @fg_color
             # expect recursive main loops to be exited and
             # debconffilter_done() to be called when the filter exits
         else:
+            self.find_next_step(self.pages[self.pagesindex].module.__name__)
             self.quit_main_loop()
 
     def on_steps_switch_page (self, unused_notebook, unused_page, current):
