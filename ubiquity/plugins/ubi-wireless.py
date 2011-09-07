@@ -21,7 +21,8 @@ from ubiquity import plugin
 import os
 
 NAME = 'wireless'
-AFTER = 'prepare'
+#after prepare for default install, but language for oem install
+AFTER = ['prepare', 'language']
 WEIGHT = 12
 
 class PageGtk(plugin.PluginUI):

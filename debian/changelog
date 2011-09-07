@@ -7,6 +7,8 @@ ubiquity (2.7.28) UNRELEASED; urgency=low
   [ Mario Limonciello ]
   * Reorder the imports in oem-config-remove-gtk to fix an import error due
     the fallbacks in aptdaemon. (LP: #837288)
+  * Show the wireless page after either prepare or language to make sure
+    it shows in both ubiquity and oem-config modes.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Sep 2011 10:50:34 -0400
 
