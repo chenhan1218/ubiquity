@@ -10,6 +10,7 @@ ubiquity (2.7.28) UNRELEASED; urgency=low
   * Show the wireless page after either prepare or language to make sure
     it shows in both ubiquity and oem-config modes.
   * Call out to find_next_step even on non debconf driven pages. (LP: #843237)
+  * Don't assume /target is where the new face is being put.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Sep 2011 10:50:34 -0400
 

@@ -259,7 +259,7 @@ class Install(install_misc.InstallBase):
         target_user = self.db.get('passwd/username')
         if os.path.exists(PHOTO_PATH):
             shutil.copy2(PHOTO_PATH,
-                os.path.join('/target/home', target_user, '.face'))
+                os.path.join(self.target, 'home', target_user, '.face'))
 
     def configure_python(self):
         """Byte-compile Python modules.
