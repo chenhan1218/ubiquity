@@ -713,7 +713,7 @@ color : @dark_fg_color;
 background-color : @dark_bg_color;
 }
 
-GtkEntry, GtkButton, GtkLabel, GtkTreeView row, GtkComboBox *, GtkDrawingArea {
+GtkEntry, GtkButton, GtkLabel, GtkIconView, GtkTreeView row, GtkComboBox *, GtkDrawingArea {
 color : @fg_color
 }''')
         Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),

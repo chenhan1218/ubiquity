@@ -13,6 +13,7 @@ ubiquity (2.7.28) UNRELEASED; urgency=low
   * Don't assume /target is where the new face is being put.
   * When the installer crashes, file a bug using apport-bug rather than
     directing users to a terminal window. (LP: #843933)
+  * Fix the colors in the oem-config language selector. (LP: #838672)
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Sep 2011 10:50:34 -0400
 
