@@ -1,4 +1,4 @@
-ubiquity (2.7.28) UNRELEASED; urgency=low
+ubiquity (2.7.28) oneiric; urgency=low
 
   [ Stéphane Graber ]
   * Update stepUserInfo.ui to trigger info_loop() when the hostname is changed.
@@ -17,7 +17,7 @@ ubiquity (2.7.28) UNRELEASED; urgency=low
   * Automatic update of included source packages: netcfg 1.68ubuntu2,
     user-setup 1.28ubuntu20.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Sep 2011 10:50:34 -0400
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 07 Sep 2011 16:55:46 -0500
 
 ubiquity (2.7.27) oneiric; urgency=low
 
