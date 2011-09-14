@@ -1,6 +1,8 @@
 ubiquity (2.7.28) UNRELEASED; urgency=low
 
   * Add power indicator to the installer panel.
+  * Handle APs going away while trying to query their properties
+    (LP: #838068).
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 12 Sep 2011 16:56:47 +0100
 

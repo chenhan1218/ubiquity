@@ -25,7 +25,13 @@ def decode_ssid(characters):
     return ssid.encode('utf-8')
 
 def get_prop(obj, iface, prop):
-    return obj.Get(iface, prop, dbus_interface=dbus.PROPERTIES_IFACE)
+    try:
+        return obj.Get(iface, prop, dbus_interface=dbus.PROPERTIES_IFACE)
+    except dbus.DBusException, e:
+        if e.get_dbus_name() == 'org.freedesktop.DBus.Error.UnknownMethod':
+            return None
+        else:
+            raise
 
 def get_vendor_and_model(udi):
     vendor = ''
@@ -91,8 +97,11 @@ class NetworkManager:
         if not connectedap:
             return False
         connect_obj = self.bus.get_object(NM, connectedap)
-        ssid = decode_ssid(get_prop(connect_obj, NM_AP, 'Ssid'))
-        return ap == ssid
+        ssid = get_prop(connect_obj, NM_AP, 'Ssid')
+        if ssid:
+            return ap == decode_ssid(ssid)
+        else:
+            return False
 
     def connect_to_ap(self, device, ap, passphrase=None):
         device_obj = self.bus.get_object(NM, device)
@@ -101,12 +110,13 @@ class NetworkManager:
         saved_path = ''
         for ap_path in ap_list:
             ap_obj = self.bus.get_object(NM, ap_path)
-            ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
-            strength = get_prop(ap_obj, NM_AP, 'Strength')
-            if ssid == ap and saved_strength < strength:
-                # Connect to the strongest AP.
-                saved_strength = strength
-                saved_path = ap_path
+            ssid = get_prop(ap_obj, NM_AP, 'Ssid')
+            if ssid:
+                strength = get_prop(ap_obj, NM_AP, 'Strength')
+                if decode_ssid(ssid) == ap and saved_strength < strength:
+                    # Connect to the strongest AP.
+                    saved_strength = strength
+                    saved_path = ap_path
         if not saved_path:
             return
 
@@ -164,15 +174,17 @@ class NetworkManager:
     def properties_changed(self, props, path=None):
         if 'Strength' in props:
             ap_obj = self.bus.get_object(NM, path)
-            ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
-            security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
-            strength = int(props['Strength'])
-            iterator = self.model.get_iter_first()
-            while iterator:
-                i = self.ssid_in_model(iterator, ssid, security)
-                if i:
-                    self.model.set_value(i, 2, strength) 
-                iterator = self.model.iter_next(iterator)
+            ssid = get_prop(ap_obj, NM_AP, 'Ssid')
+            if ssid:
+                ssid = decode_ssid(ssid)
+                security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+                strength = int(props['Strength'])
+                iterator = self.model.get_iter_first()
+                while iterator:
+                    i = self.ssid_in_model(iterator, ssid, security)
+                    if i:
+                        self.model.set_value(i, 2, strength) 
+                    iterator = self.model.iter_next(iterator)
 
     def build_cache(self):
         devices = self.manager.GetDevices()
@@ -189,21 +201,26 @@ class NetworkManager:
                 i = self.model.iter_next(i)
             if not iterator:
                 udi = get_prop(device_obj, NM_DEVICE, 'Udi')
-                vendor, model = get_vendor_and_model(udi)
+                if udi:
+                    vendor, model = get_vendor_and_model(udi)
+                else:
+                    vendor, model = ('', '')
                 iterator = self.model.append(None, [device_path, vendor, model])
             ap_list = device_obj.GetAccessPoints(dbus_interface=NM_DEVICE_WIFI)
             ssids = []
             for ap_path in ap_list:
                 ap_obj = self.bus.get_object(NM, ap_path)
-                ssid = decode_ssid(get_prop(ap_obj, NM_AP, 'Ssid'))
-                strength = int(get_prop(ap_obj, NM_AP, 'Strength'))
-                security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
-                i = self.ssid_in_model(iterator, ssid, security)
-                if not i:
-                    self.model.append(iterator, [ssid, security, strength])
-                else:
-                    self.model.set_value(i, 2, strength) 
-                ssids.append(ssid)
+                ssid = get_prop(ap_obj, NM_AP, 'Ssid')
+                if ssid:
+                    ssid = decode_ssid(ssid)
+                    strength = int(get_prop(ap_obj, NM_AP, 'Strength') or 0)
+                    security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+                    i = self.ssid_in_model(iterator, ssid, security)
+                    if not i:
+                        self.model.append(iterator, [ssid, security, strength])
+                    else:
+                        self.model.set_value(i, 2, strength) 
+                    ssids.append(ssid)
             i = self.model.iter_children(iterator)
             self.prune(i, ssids)
         i = self.model.get_iter_first()
