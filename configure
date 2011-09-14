@@ -15482,7 +15482,7 @@ fi
 
 
 
-  ac_config_files="$ac_config_files src/Makefile src/webcam/Makefile src/panel/Makefile"
+  ac_config_files="$ac_config_files src/Makefile src/wallpaper/Makefile src/webcam/Makefile src/panel/Makefile"
 
 else
   BASE_CFLAGS=""
@@ -17056,6 +17056,7 @@ do
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "po-directories") CONFIG_COMMANDS="$CONFIG_COMMANDS po-directories" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
+    "src/wallpaper/Makefile") CONFIG_FILES="$CONFIG_FILES src/wallpaper/Makefile" ;;
     "src/webcam/Makefile") CONFIG_FILES="$CONFIG_FILES src/webcam/Makefile" ;;
     "src/panel/Makefile") CONFIG_FILES="$CONFIG_FILES src/panel/Makefile" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;

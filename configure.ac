@@ -46,6 +46,7 @@ if test "x$UBIQUITY_NO_GTK" = x; then
   GOBJECT_INTROSPECTION_CHECK([0.6.7])
   AC_CONFIG_FILES(
 	src/Makefile
+	src/wallpaper/Makefile
 	src/webcam/Makefile
 	src/panel/Makefile
 	)

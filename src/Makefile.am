@@ -1,1 +1,1 @@
-SUBDIRS = panel webcam
+SUBDIRS = panel webcam wallpaper
