@@ -5,6 +5,8 @@ ubiquity (2.7.28) UNRELEASED; urgency=low
     (LP: #838068).
   * Use a small C program to set the desktop wallpaper (LP: #830061).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu31, partman-base 151ubuntu1.
 
  -- Evan Dandrea <evand@ubuntu.com>  Mon, 12 Sep 2011 16:56:47 +0100
 
