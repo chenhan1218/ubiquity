@@ -1,4 +1,4 @@
-ubiquity (2.7.28) UNRELEASED; urgency=low
+ubiquity (2.7.29) oneiric; urgency=low
 
   * Add power indicator to the installer panel.
   * Handle APs going away while trying to query their properties
@@ -8,7 +8,7 @@ ubiquity (2.7.28) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel
     2.28ubuntu31, partman-base 151ubuntu1.
 
- -- Evan Dandrea <evand@ubuntu.com>  Mon, 12 Sep 2011 16:56:47 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 15 Sep 2011 10:47:19 +0100
 
 ubiquity (2.7.28) oneiric; urgency=low
 
