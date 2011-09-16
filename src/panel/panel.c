@@ -269,6 +269,8 @@ create_tray(GtkWidget* parent) {
 int
 main(int argc, char* argv[]) {
 	GtkWidget *win;
+	/* Disable global menus */
+	g_unsetenv ("UBUNTU_MENUPROXY");
 	gtk_init(&argc, &argv);
 	win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	g_signal_connect(win, "realize", G_CALLBACK(on_realize), NULL);
