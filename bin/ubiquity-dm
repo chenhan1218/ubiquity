@@ -21,8 +21,6 @@ from ubiquity.misc import create_bool
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
 
-background = '/usr/share/backgrounds/warty-final-ubuntu.png'
-
 def ck_open_session(uid):
     import dbus
     bus = dbus.SystemBus ()
@@ -329,11 +327,14 @@ EndSection
 
             # Set a desktop wallpaper.
             with open('/proc/cmdline', 'r') as fp:
-                exists = os.access(background, os.R_OK)
-                if (exists and not 'access=v1' in fp.readline()):
-                    extras.append(subprocess.Popen(['/usr/lib/ubiquity/wallpaper'],
+                for background in ('/usr/share/backgrounds/edubuntu_default.png',
+                    '/usr/share/backgrounds/warty-final-ubuntu.png'):
+                    exists = os.access(background, os.R_OK)
+                    if (exists and not 'access=v1' in fp.readline()):
+                        extras.append(subprocess.Popen(['/usr/lib/ubiquity/wallpaper', background],
                                 stdin=null, stdout=logfile, stderr=logfile,
                                 preexec_fn=self.drop_privileges))
+                        break
 
         if self.frontend == 'gtk_ui':
             if gconfd_running and osextras.find_on_path('metacity'):

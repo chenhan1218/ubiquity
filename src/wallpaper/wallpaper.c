@@ -14,9 +14,7 @@
 
 #include <gdk/gdkx.h>
 #include <cairo-xlib.h>
-
-#define PATH "/usr/share/backgrounds/warty-final-ubuntu.png"
-
+#include <sys/stat.h>
 
 static cairo_surface_t *
 create_root_surface (GdkScreen *screen)
@@ -66,10 +64,15 @@ int main (int argc, char** argv) {
 	GdkRectangle monitor_geometry;
 	cairo_t *c;
 	cairo_surface_t *surface;
+	struct stat st;
 
 	gdk_init (&argc, &argv);
 
-	background_pixbuf = gdk_pixbuf_new_from_file (PATH, &error);
+	if (argc != 2 || stat(argv[1], &st) != 0) {
+		g_error ("First parameter must be an existing background");
+	}
+	background_pixbuf = gdk_pixbuf_new_from_file (argv[1], &error);
+
 	if (!background_pixbuf) {
 		g_error ("Failed to load background: %s", error->message);
 		return 1;
