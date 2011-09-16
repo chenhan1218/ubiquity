@@ -8,6 +8,7 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * Unset UBUNTU_MENUPROXY so our custom panel doesn't lose its
     indicators (LP: #837287).
+  * Port the panel to GTK3.
 
  -- Harald Sitter <apachelogger@ubuntu.com>  Thu, 15 Sep 2011 12:00:57 -0400
 
