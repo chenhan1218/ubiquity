@@ -13,8 +13,9 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * Change wallpapeer C program to accept a path to a wallpaper as a parameter.
   * Update ubiquity-dm to set the right wallpaper for Edubuntu.
+  * Fix ibus in Ubiquity (LP: #838850)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 16 Sep 2011 13:14:18 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Sun, 18 Sep 2011 18:40:07 -0400
 
 ubiquity (2.7.29) oneiric; urgency=low
 
