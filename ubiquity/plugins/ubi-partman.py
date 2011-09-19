@@ -198,6 +198,10 @@ class PageGtk(PageBase):
         self.part_auto_select_drive.add_attribute(cell, 'markup', 1)
         self.plugin_widgets = self.page_ask
 
+        # GtkBuilder signal mapping is broken (LP: #852054).
+        self.part_auto_hidden_label.connect('activate-link',
+                self.part_auto_hidden_label_activate_link)
+
     def plugin_get_current_page(self):
         if self.current_page == self.page_ask:
             self.plugin_is_install = False
@@ -460,6 +464,7 @@ class PageGtk(PageBase):
     def part_auto_hidden_label_activate_link(self, unused_widget, unused):
         self.custom_partitioning.set_active(True)
         self.controller.go_forward()
+        return True
 
     def set_grub_options(self, default):
         from gi.repository import Gtk, GObject
