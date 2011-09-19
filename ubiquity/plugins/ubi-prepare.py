@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity import plugin
-from ubiquity import misc, osextras, i18n, nm
+from ubiquity import misc, osextras, i18n, nm, upower
 from hashlib import md5
 import os
 import sys
@@ -29,10 +29,6 @@ NAME = 'prepare'
 AFTER = 'language'
 WEIGHT = 11
 OEM = False
-
-UPOWER = 'org.freedesktop.UPower'
-UPOWER_PATH = '/org/freedesktop/UPower'
-PROPS = 'org.freedesktop.DBus.Properties'
 
 NM = 'org.freedesktop.NetworkManager'
 NM_PATH = '/org/freedesktop/NetworkManager'
@@ -59,16 +55,6 @@ MAX_DBUS_TIMEOUT = INT_MAX / 1000.0
 
 class PreparePageBase(plugin.PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
-
-    def setup_power_watch(self):
-        bus = dbus.SystemBus()
-        upower = bus.get_object(UPOWER, UPOWER_PATH)
-        upower = dbus.Interface(upower, PROPS)
-        def power_state_changed():
-            self.prepare_power_source.set_state(
-                upower.Get(UPOWER_PATH, 'OnBattery') == False)
-        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
-        power_state_changed()
 
     def setup_network_watch(self):
         self.timeout_id = None
@@ -139,7 +125,7 @@ class PageGtk(PreparePageBase):
         from dbus.mainloop.glib import DBusGMainLoop
         DBusGMainLoop(set_as_default=True)
         self.prepare_power_source = builder.get_object('prepare_power_source')
-        self.setup_power_watch()
+        upower.setup_power_watch(self.prepare_power_source)
         self.prepare_network_connection = builder.get_object('prepare_network_connection')
         self.setup_network_watch()
         self.plugin_widgets = self.page
@@ -210,7 +196,7 @@ class PageKde(PreparePageBase):
             try:
                 self.prepare_power_source = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_power_source)
-                self.setup_power_watch()
+                upower.setup_power_watch(self.prepare_power_source)
             except Exception, e:
                 # TODO use an inconsistent state?
                 print 'unable to set up power source watch:', e

@@ -1,6 +1,13 @@
 ubiquity (2.7.31) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Build-depend on the GTK3 version of libindicator.
+
+  [ Colin Watson ]
+  * Move setup_power_watch out of the ubi-prepare plugin into a new
+    ubiquity.upower module, allowing us to patch it out more easily while
+    running tests.  Patch ubiquity.nm.add_connection_watch and
+    ubiquity.nm.has_connection in the GTK frontend tests as well.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 19 Sep 2011 21:17:35 +0100
 
