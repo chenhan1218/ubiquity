@@ -1122,7 +1122,6 @@ class Wizard(BaseFrontend):
             # dialog instead.
             dialog = QtGui.QDialog(self.ui)
             uic.loadUi("%s/crashdialog.ui" % UIDIR, dialog)
-            dialog.beastie_url.setOpenExternalLinks(True)
             dialog.exec_()
             sys.exit(1)
         if BaseFrontend.debconffilter_done(self, dbfilter):

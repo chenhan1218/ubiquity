@@ -22,6 +22,10 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
   * gui/qt/stepKeyboardConf.ui
    - Put keyboard variable combobox on separate line (LP: #851160)
 
+  [ Jonathan Riddell ]
+  * kde_ui.py
+   - Fix breakage in debfilter crash dialogue
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Sun, 18 Sep 2011 18:40:07 -0400
 
 ubiquity (2.7.29) oneiric; urgency=low
