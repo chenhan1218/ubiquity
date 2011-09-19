@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:56+0000\n"
-"Last-Translator: Teylo Laundos Aguiar <teylo.aguiar@gmail.com>\n"
+"PO-Revision-Date: 2011-09-16 02:56+0000\n"
+"Last-Translator: André Gondim <Unknown>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -216,10 +216,8 @@ msgstr "Quem é você?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Escolha uma senha:"
+msgstr "Escolha uma figura"
 
 #. Type: text
 #. Description
@@ -349,6 +347,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Esta figura  vai identificá-lo nas configurações da conta, tela de login e "
+"tela de bloqueio."
 
 #. Type: text
 #. Description
@@ -373,10 +373,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Instalação concluída"
+msgstr "Tipo de instalação"
 
 #. Type: text
 #. Description
@@ -516,6 +514,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Lamentamos, o instalador travou. Depois de fechar esta janela, vamos "
+"permitir que você envie um relatório de erro utilizando a ferramenta "
+"integrada de relatórios de erros. Isto irá coletar informações sobre seu "
+"sistema e seu processo de instalação. Os detalhes serão enviados para  nosso "
+"sistema e um desenvolvedor irá atender o problema o mais rapidamente "
+"possível."
 
 #. Type: text
 #. Description
@@ -707,14 +711,14 @@ msgstr "Continuar"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Conectar"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Parar"
 
 #. Type: text
 #. Description
@@ -1376,6 +1380,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Conectar este computador a uma rede sem fio permite a você instalar um "
+"software de terceiros, baixar atualizações, detectar automaticamente o seu "
+"fuso horário, e instalar o suporte completo para seu idioma."
 
 #. Type: text
 #. Description
@@ -1398,30 +1405,23 @@ msgstr "O disco inteiro será usado:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d partições pequenas estão ocultas, use a <a href=\"\">ferramenta de "
-"particionamento avançado</a> para maior controle"
+"<small>%d partições menores estão ocultas, use a <a href=\"\">ferramenta "
+"avançada de particionamento</a> para maior controle</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 partição pequena está oculta, use a <a href=\"\">ferramenta de "
-"particionamento avançado</a> para maior controle"
+"<small>1 partição menor está oculta, use a <a href=\"\">ferramenta avançada "
+"de particionamento</a> para maior controle</small>"
 
 #. Type: text
 #. Description
@@ -1850,8 +1850,33 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Removendo pacotes"
 
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Este é um pré-lançamento live do ${RELEASE} instalador ${MEDIUM}. Não é a "
+#~ "versão final; que virá com a versão final do ${RELEASE} em abril de 2011."
+
 #~ msgid "Allocate drive space"
 #~ msgstr "Alocar espaço da unidade"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d partições pequenas estão ocultas, use a <a href=\"\">ferramenta de "
+#~ "particionamento avançado</a> para maior controle"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 partição pequena está oculta, use a <a href=\"\">ferramenta de "
+#~ "particionamento avançado</a> para maior controle"
+
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Por favor, selecione sua rede sem fio nesta lista"
 
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
@@ -1867,14 +1892,3 @@ msgstr "Removendo pacotes"
 #~ "problema o mais rápido possível. Para ajudar os desenvolvedores a "
 #~ "entenderem o ocorrido, inclua os detalhes a seguir e o conteúdo dos "
 #~ "arquivos /var/log/syslog e /var/log/partman:"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Por favor, selecione sua rede sem fio nesta lista"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Este é um pré-lançamento live do ${RELEASE} instalador ${MEDIUM}. Não é a "
-#~ "versão final; que virá com a versão final do ${RELEASE} em abril de 2011."

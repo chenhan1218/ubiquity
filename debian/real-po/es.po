@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 09:01+0000\n"
-"Last-Translator: Ricardo Pérez López <ricpelo@gmail.com>\n"
+"PO-Revision-Date: 2011-09-16 18:44+0000\n"
+"Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -138,7 +138,7 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
-"Esto es una versión en pruebas del instalador de ${RELEASE} live ${MEDIUM}. "
+"Esta es una versión en pruebas del instalador de ${RELEASE} live ${MEDIUM}. "
 "No es una versión final; esta vendrá con la versión final de ${RELEASE} en "
 "octubre de 2011."
 
@@ -152,7 +152,7 @@ msgid ""
 msgstr ""
 "El proceso de instalación puede borrar o cambiar el tamaño de las "
 "particiones de su disco duro. Asegúrese de <b>hacer una copia de seguridad "
-"completa de todos sus datos valiosos</b> antes de ejecutar este programa."
+"completa de todos sus datos valiosos</b> antes de usar este programa."
 
 #. Type: text
 #. Description
@@ -176,7 +176,7 @@ msgstr "Distribución del teclado"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Choose your keyboard layout:"
-msgstr "Elija el tipo de teclado:"
+msgstr "Elija la distribución del teclado:"
 
 #. Type: text
 #. Description
@@ -200,7 +200,7 @@ msgstr "Detectar distribución del teclado..."
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Please press one of the following keys:"
-msgstr "Pulse alguna de las teclas siguientes:"
+msgstr "Presione alguna de las teclas siguientes:"
 
 #. Type: text
 #. Description
@@ -217,10 +217,8 @@ msgstr "¿Quién es usted?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Introduzca una contraseña:"
+msgstr "Elija una imagen"
 
 #. Type: text
 #. Description
@@ -340,7 +338,7 @@ msgstr "Solicitar mi contraseña para iniciar sesión"
 #. Description
 #: ../ubiquity.templates:47001
 msgid "Encrypt my home folder"
-msgstr "Cifrar mi carpeta principal"
+msgstr "Cifrar mi carpeta personal"
 
 #. Type: text
 #. Description
@@ -349,6 +347,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Esta imagen le identificará en la configuración de cuenta y las pantallas de "
+"inicio de sesión y de bloqueo."
 
 #. Type: text
 #. Description
@@ -357,7 +357,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Seleccione las cuentas que desee importar. Cuando se complete la "
+"Seleccione las cuentas que quiere importar. Cuando se complete la "
 "instalación, podrá disponer de los documentos y configuraciones de esas "
 "cuentas."
 
@@ -368,16 +368,14 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Si no desea importar ninguna cuenta, no seleccione nada y vaya a la "
+"Si no quiere importar ninguna cuenta, no seleccione nada y continúe a la "
 "siguiente página."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Instalación completa"
+msgstr "Tipo de instalación"
 
 #. Type: text
 #. Description
@@ -390,7 +388,7 @@ msgstr "Archivos (${SIZE})"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Prepare partitions"
-msgstr "Preparar particiones"
+msgstr "Preparar las particiones"
 
 #. Type: text
 #. Description
@@ -410,7 +408,7 @@ msgstr "¿Salir de la instalación?"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Do you really want to quit the installation now?"
-msgstr "¿Realmente desea salir de la instalación ahora?"
+msgstr "¿Realmente quiere salir de la instalación ahora?"
 
 #. Type: text
 #. Description
@@ -478,7 +476,7 @@ msgstr "Omitir"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Installation Complete"
-msgstr "Instalación completa"
+msgstr "Instalación terminada"
 
 #. Type: text
 #. Description
@@ -516,6 +514,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Lo sentimos, ocurrió un error en el instalador. Después de que cierre esta "
+"ventana, le permitiremos informar de este error con la herramienta de "
+"informes integrada. Esto recopilará información sobre el sistema y el "
+"proceso de instalación, que será enviada al sistema de seguimiento de "
+"errores donde un desarrollador atenderá el problema lo más pronto posible."
 
 #. Type: text
 #. Description
@@ -536,14 +539,14 @@ msgstr "Añadir..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:75001
 msgid "Change..."
-msgstr "Cambiar…"
+msgstr "Cambiar..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:76001
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Eliminar"
 
 #. Type: text
 #. Description
@@ -600,7 +603,7 @@ msgstr "Tamaño"
 #. this partition is used by data.
 #: ../ubiquity.templates:84001
 msgid "Used"
-msgstr "Usado"
+msgstr "En uso"
 
 #. Type: text
 #. Description
@@ -682,7 +685,7 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "La instalación ha terminado. Puede continuar probando ${RELEASE} ahora pero, "
-"hasta que no reinicie el equipo, cualquier cambio que haga o documento que "
+"mientras no reinicie el equipo, cualquier cambio que haga o documento que "
 "guarde no se conservará."
 
 #. Type: text
@@ -690,7 +693,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:98001
 msgid "Go Back"
-msgstr "Retroceder"
+msgstr "Volver"
 
 #. Type: text
 #. Description
@@ -707,14 +710,14 @@ msgstr "Continuar"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Conectar"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Detener"
 
 #. Type: text
 #. Description
@@ -770,7 +773,7 @@ msgstr "A punto de terminar la copia de archivos..."
 #: ../ubiquity.templates:112001 ../ubiquity.templates:113001
 #: ../ubiquity.templates:114001
 msgid "Installation Failed"
-msgstr "Falló la instalación"
+msgstr "La instalación ha fallado"
 
 #. Type: error
 #. Description
@@ -794,8 +797,8 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Esto se debe a que no hay suficiente espacio en disco para completar la "
-"instalación en la partición seleccionada. Por favor, ejecute el instalador "
-"de nuevo y seleccione una partición más grande en donde instalar."
+"instalación en la partición seleccionada. Por favor, abra el instalador de "
+"nuevo y seleccione una partición más grande en donde instalar."
 
 #. Type: error
 #. Description
@@ -872,7 +875,7 @@ msgstr "Configurando los idiomas del sistema..."
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Configuring apt..."
-msgstr "Configurando apt..."
+msgstr "Configurando APT..."
 
 #. Type: text
 #. Description
@@ -950,7 +953,7 @@ msgstr "Comprobando los paquetes a instalar..."
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Removing extra packages..."
-msgstr "Desinstalando los paquetes extra..."
+msgstr "Desinstalando los paquetes adicionales..."
 
 #. Type: text
 #. Description
@@ -1151,13 +1154,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr "¿Desea que el instalador intente desmontar de nuevo estas particiones?"
+msgstr ""
+"¿Quiere que el instalador intente desmontar de nuevo estas particiones?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:166001
 msgid "Do you want to return to the partitioner?"
-msgstr "¿Desea volver al programa de particionado?"
+msgstr "¿Quiere volver al programa de particionado?"
 
 #. Type: boolean
 #. Description
@@ -1203,7 +1207,7 @@ msgstr "Configuración de red"
 #. Description
 #: ../ubiquity.templates:170001
 msgid "Software selection"
-msgstr "Selección de programas"
+msgstr "Selección de software"
 
 #. Type: text
 #. Description
@@ -1257,13 +1261,13 @@ msgstr "Comprobando actualizaciones del instalador"
 #. Description
 #: ../ubiquity.templates:181001
 msgid "Reading package information"
-msgstr "Leyendo la información del paquete"
+msgstr "Leyendo la información de paquetes"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
 msgid "Updating package information"
-msgstr "Actualizando la información del paquete"
+msgstr "Actualizando la información de paquetes"
 
 #. Type: text
 #. Description
@@ -1377,6 +1381,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Al conectar este equipo a una red inalámbrica podrá instalar software de "
+"terceros, descargar actualizaciones, detectar automáticamente su zona "
+"horaria e instalar soporte completo para su idioma."
 
 #. Type: text
 #. Description
@@ -1399,30 +1406,23 @@ msgstr "Se usará el disco entero:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d particiones más pequeñas están ocultas; use la <a href=\"\">herramienta "
-"avanzada de particionado</a> para tener más control"
+"<small>%d particiones más pequeñas están ocultas, use la <a href="
+"\"\">herramienta de particionado avanzada</a> para mayor control</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 partición más pequeña está oculta; use la <a href=\"\">herramienta "
-"avanzada de particionado</a> para tener más control"
+"<small>1 partición más pequeña está oculta, use la <a href=\"\">herramienta "
+"de particionado avanzada</a> para mayor control</small>"
 
 #. Type: text
 #. Description
@@ -1433,7 +1433,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Se eliminarán %d particiones; use la <a href=\"\">herramienta avanzada de "
-"particionado</a> para tener más control"
+"particionado</a> para mayor control"
 
 #. Type: text
 #. Description
@@ -1443,7 +1443,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Se eliminará 1 partición; use la <a href=\"\">herramienta avanzada de "
-"particionado</a> para tener más control"
+"particionado</a> para mayor control"
 
 #. Type: text
 #. Description
@@ -1462,7 +1462,7 @@ msgstr "Para obtener los mejores resultados, asegúrese que este equipo:"
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:210001
 msgid "has at least ${SIZE} available drive space"
-msgstr "tiene al menos ${SIZE} de espacio de disco disponible"
+msgstr "tiene al menos ${SIZE} de espacio en disco disponible"
 
 #. Type: text
 #. Description
@@ -1846,9 +1846,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Asignar espacio en disco"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1865,6 +1862,9 @@ msgstr "Desinstalando paquetes"
 #~ "siguientes detalles en su informe de fallo, y adjunte los archivos /var/"
 #~ "log/syslog y /var/log/partman:"
 
+#~ msgid "Allocate drive space"
+#~ msgstr "Asignar espacio en disco"
+
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Seleccione su red inalámbrica de esta lista"
 
@@ -1876,3 +1876,17 @@ msgstr "Desinstalando paquetes"
 #~ "Esto es un prelanzamiento del instalador de ${RELEASE} live ${MEDIUM}. No "
 #~ "es un lanzamiento final; este saldrá con el lanzamiento final de "
 #~ "${RELEASE} en abril de 2011."
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d particiones más pequeñas están ocultas; use la <a href="
+#~ "\"\">herramienta avanzada de particionado</a> para tener más control"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 partición más pequeña está oculta; use la <a href=\"\">herramienta "
+#~ "avanzada de particionado</a> para tener más control"

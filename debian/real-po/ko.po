@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -210,10 +210,8 @@ msgstr "당신은 누구입니까?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "비밀번호를 고르세요:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -366,10 +364,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "다 깔림"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1369,30 +1365,19 @@ msgstr "하드 디스크를 모두 쓰기:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d개의 작은 파티션들은 여기에서 보이지 않도록 했습니다. 기타 설정을 위해서는 "
-"<a href=\"\">고급 파티션 도구</a>을 사용하세요."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"하나의 작은 파티션을 여기에서 보이지 않도록 했습니다. 기타 설정을 위해서는 "
-"<a href=\"\">고급 파티션 도구</a>을 사용하세요"
 
 #. Type: text
 #. Description
@@ -1806,9 +1791,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "꾸러미를 지우고 있음"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "드라이브 공간 할당"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1824,8 +1806,22 @@ msgstr "꾸러미를 지우고 있음"
 #~ "리포트에 포함해주시고, /var/log/syslog와 /var/log/partman 을 첨부하여 주십"
 #~ "시오."
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "이 목록에서 무선 네트워크를 고르십시오"
+#~ msgid "Allocate drive space"
+#~ msgstr "드라이브 공간 할당"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d개의 작은 파티션들은 여기에서 보이지 않도록 했습니다. 기타 설정을 위해서"
+#~ "는 <a href=\"\">고급 파티션 도구</a>을 사용하세요."
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "하나의 작은 파티션을 여기에서 보이지 않도록 했습니다. 기타 설정을 위해서"
+#~ "는 <a href=\"\">고급 파티션 도구</a>을 사용하세요"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
@@ -1834,3 +1830,6 @@ msgstr "꾸러미를 지우고 있음"
 #~ msgstr ""
 #~ "이것은 ${RELEASE} 예비 배포판 라이브 ${MEDIUM} 설치 프로그램입니다. 최종 "
 #~ "배포판이 아닙니다. ${RELEASE} 최종 배포판은 2011년 4월에 나옵니다."
+
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "이 목록에서 무선 네트워크를 고르십시오"

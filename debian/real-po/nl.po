@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-11 18:33+0000\n"
-"Last-Translator: rob <linuxned@gmail.com>\n"
+"PO-Revision-Date: 2011-09-18 09:44+0000\n"
+"Last-Translator: Hannie Dumoleyn <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -215,10 +215,8 @@ msgstr "Wie bent u?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Kies een wachtwoord:"
+msgstr "Kies een afbeelding"
 
 #. Type: text
 #. Description
@@ -350,6 +348,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Deze afbeelding identificeert u in de accountinstellingen, aanmeldscherm en "
+"vergrendelscherm."
 
 #. Type: text
 #. Description
@@ -375,10 +375,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Installatie voltooid"
+msgstr "Installatietype"
 
 #. Type: text
 #. Description
@@ -517,6 +515,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Het spijt ons, het installeerprogramma is gecrasht. Na het sluiten van dit "
+"venster kunt u een foutmelding opsturen via het geïntegreerde "
+"foutmeldingsprogramma . Dit zal informatie verzamelen over uw systeem en uw "
+"installatieproces. De gegevens worden verstuurd naar onze ‘bug tracker’ en "
+"dit probleem zal  zo spoedig mogelijk behandeld worden door een ontwikkelaar."
 
 #. Type: text
 #. Description
@@ -708,14 +711,14 @@ msgstr "Verder"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Stoppen"
 
 #. Type: text
 #. Description
@@ -1386,6 +1389,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Door deze computer met een wifi-netwerk te verbinden kunt u software van "
+"derden installeren, updates downloaden, automatisch de tijdzone detecteren "
+"en volledige ondersteuning voor uw taal installeren."
 
 #. Type: text
 #. Description
@@ -1408,30 +1414,19 @@ msgstr "De gehele schijf zal gebruikt worden:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d kleinere partities zijn verborgen, gebruik voor meer mogelijkheden de <a "
-"href=\"\">geavanceerde schijfindeling</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 kleinere partitie is verborgen, gebruik voor meer mogelijkheden de <a href="
-"\"\">geavanceerde schijfindeling</a>"
 
 #. Type: text
 #. Description
@@ -1856,6 +1851,9 @@ msgstr "Pakketten verwijderen"
 #~ msgid "Allocate drive space"
 #~ msgstr "Schijfruimte toewijzen"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Kies uw draadloze netwerk uit deze lijst"
+
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1873,8 +1871,19 @@ msgstr "Pakketten verwijderen"
 #~ "foutenrapport toe te voegen. Voegt u ook de bestanden /var/log/syslog en /"
 #~ "var/log/partman bij."
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Kies uw draadloze netwerk uit deze lijst"
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d kleinere partities zijn verborgen, gebruik voor meer mogelijkheden de "
+#~ "<a href=\"\">geavanceerde schijfindeling</a>"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 kleinere partitie is verborgen, gebruik voor meer mogelijkheden de <a "
+#~ "href=\"\">geavanceerde schijfindeling</a>"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

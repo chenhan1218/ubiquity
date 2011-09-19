@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-12 14:56+0000\n"
+"PO-Revision-Date: 2011-09-16 04:50+0000\n"
 "Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -36,7 +36,7 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"Meie pakutud valikutest ei piisa? Kääri käised üles ja määra kettajaotus ise!"
+"Pakutu ei vasta su nõudmistele? Kääri käised üles ja määra partitsioonid ise!"
 
 #. Type: text
 #. Description
@@ -213,10 +213,8 @@ msgstr "Kes sa oled?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Vali parool:"
+msgstr "Vali pilt"
 
 #. Type: text
 #. Description
@@ -345,6 +343,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"See pilt identifitseerib sind kontoseadetes, sisselogimisaknas ja "
+"lukustusaknas"
 
 #. Type: text
 #. Description
@@ -369,10 +369,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Paigaldamine on lõpule viidud"
+msgstr "Paigalduse tüüp"
 
 #. Type: text
 #. Description
@@ -385,7 +383,7 @@ msgstr "Failid (${SIZE})"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Prepare partitions"
-msgstr "Kettajaotuse ettevalmistamine"
+msgstr "Partitsioonide ettevalmistamine"
 
 #. Type: text
 #. Description
@@ -613,7 +611,7 @@ msgstr "teadmata"
 #. Description
 #: ../ubiquity.templates:87001
 msgid "Create partition"
-msgstr "Loo partitsioon"
+msgstr "Kettajao loomine"
 
 #. Type: text
 #. Description
@@ -651,7 +649,7 @@ msgstr "Loogiline"
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Edit partition"
-msgstr "Muuda partitsiooni"
+msgstr "Kettajao muutmine"
 
 #. Type: text
 #. Description
@@ -699,14 +697,14 @@ msgstr "Jätka"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Ühendu"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Peata"
 
 #. Type: text
 #. Description
@@ -1363,6 +1361,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Arvuti ühendamine raadiovõrku lubab sul paigaldada kolmandate osapoolte "
+"tarkvara, laadida alla uuendusi, määrata automaatselt ajavööndid ja "
+"paigaldada täieliku keeletoetuse"
 
 #. Type: text
 #. Description
@@ -1385,30 +1386,23 @@ msgstr "Kasutatakse kogu ketast:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%s väiksemat partitsiooni on varjatud, nende muutmiseks kasuta <a href="
-"\"\">täpsema partitsioneerimise vahendit</a>"
+"<small>%d väiksemat kettajagu ei näidata, neid saad kasutada <a href="
+"\"\">täpsema partitsioonimise vahendi</a> abil</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"Üks väiksem partitsioon on varjatud, selle muutmiseks kasuta <a href="
-"\"\">täpsema partitsioneerimise vahendit</a>"
+"<small>%d väiksemat kettajagu ei näidata, seda saad kasutada <a href="
+"\"\">täpsema partitsioonimise vahendi</a> abil</small>"
 
 #. Type: text
 #. Description
@@ -1418,8 +1412,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d partitsiooni kustutatakse, üksikasjalikuks juhtimiseks kasuta <a href="
-"\"\">täpsema partitsioneerimise vahendit</a>"
+"%d kettajagu kustutatakse, plaani muuta saad <a href=\"\">täpsema "
+"partitsioonimise vahendi</a> abil"
 
 #. Type: text
 #. Description
@@ -1428,8 +1422,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Üks partitsioon kustutatakse, üksikasjalikuks juhtimiseks kasuta <a href="
-"\"\">täpsema partitsioneerimise vahendit</a>"
+"Üks kettajagu kustutatakse, plaani muuta saad <a href=\"\">täpsema "
+"partitsioonimise vahendi</a> abil"
 
 #. Type: text
 #. Description
@@ -1830,6 +1824,25 @@ msgstr "Pakettide eemaldamine"
 #~ msgid "Allocate drive space"
 #~ msgstr "Kettaruumi määramine"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Palun vali nimekirjast oma raadiovõrgu seade"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%s väiksemat partitsiooni on varjatud, nende muutmiseks kasuta <a href="
+#~ "\"\">täpsema partitsioneerimise vahendit</a>"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "See on  ${RELEASE} live-${MEDIUM} paigaldaja eelväljalse. See ei ole "
+#~ "lõplik väljalase; lõplik paigaldaja tuleb koos ${RELEASE} väljalaskega "
+#~ "aprillis 2011."
+
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1844,14 +1857,9 @@ msgstr "Pakettide eemaldamine"
 #~ "pea, kui võimalik. Et aidata arendajatel vea põhjustest aru saada, lisa "
 #~ "raportile failid /var/log/syslog ja /var/log/partman ning järgnev teave:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Palun vali nimekirjast oma raadiovõrgu seade"
-
 #~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
 #~ msgstr ""
-#~ "See on  ${RELEASE} live-${MEDIUM} paigaldaja eelväljalse. See ei ole "
-#~ "lõplik väljalase; lõplik paigaldaja tuleb koos ${RELEASE} väljalaskega "
-#~ "aprillis 2011."
+#~ "Üks väiksem partitsioon on varjatud, selle muutmiseks kasuta <a href="
+#~ "\"\">täpsema partitsioneerimise vahendit</a>"

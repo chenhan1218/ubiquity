@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:54+0000\n"
-"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
+"PO-Revision-Date: 2011-09-18 08:29+0000\n"
+"Last-Translator: Kentaro Kazuhama <kazken3@gmail.com>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -217,10 +217,8 @@ msgstr "あなたの情報を入力してください"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "パスワードの入力:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -375,10 +373,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "インストールが完了しました"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -709,14 +705,14 @@ msgstr "続ける"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "接続"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #. Type: text
 #. Description
@@ -1396,30 +1392,19 @@ msgstr "ディスク全体を使用する:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d 個の小さなパーティションが表示されていません。高度な設定をするには、<a "
-"href=\"\">拡張パーティショニングツール</a> を利用してください。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 個の小さなパーティションが表示されていません。高度な設定をするには、<a "
-"href=\"\">拡張パーティショニングツール</a> を利用してください。"
 
 #. Type: text
 #. Description
@@ -1840,9 +1825,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "ディスク領域の割り当て"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1860,6 +1842,23 @@ msgstr "パッケージを削除しています"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "このリストから無線ネットワークを選択してください"
+
+#~ msgid "Allocate drive space"
+#~ msgstr "ディスク領域の割り当て"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d 個の小さなパーティションが表示されていません。高度な設定をするには、<a "
+#~ "href=\"\">拡張パーティショニングツール</a> を利用してください。"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 個の小さなパーティションが表示されていません。高度な設定をするには、<a "
+#~ "href=\"\">拡張パーティショニングツール</a> を利用してください。"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

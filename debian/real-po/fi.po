@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-12 13:03+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@gmail.com>\n"
+"PO-Revision-Date: 2011-09-19 07:13+0000\n"
+"Last-Translator: Aleksi Kinnunen <Unknown>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -215,10 +215,8 @@ msgstr "Kuka olet?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Valitse salasana:"
+msgstr "Valitse kuva"
 
 #. Type: text
 #. Description
@@ -347,6 +345,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Tämä kuva esittää sinua käyttäjätilin asetuksissa, kirjautumisnäkymässä ja "
+"näytön ollessa lukittu."
 
 #. Type: text
 #. Description
@@ -371,10 +371,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Asennus on valmis"
+msgstr "Asennustyyppi"
 
 #. Type: text
 #. Description
@@ -512,6 +510,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Pahoittelut, asennusohjelma kaatui. Kun suljet tämän ikkunan, sinulle "
+"tarjoutuu mahdollisuus jättää vikaraportti käyttäen sisään rakennettua "
+"vianraportointityökalua. Tämä kerää tietoja järjestelmästä ja asennuksen "
+"kulusta. Tiedot lähetetään vianseurantajärjestelmäämme, ja asennusohjelman "
+"kehittäjä tutustuu ongelman laatuun niin pian kuin mahdollista."
 
 #. Type: text
 #. Description
@@ -702,14 +705,14 @@ msgstr "Jatka"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Yhdistä"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #. Type: text
 #. Description
@@ -1371,6 +1374,11 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Tietokoneen yhdistäminen langattomaan WLAN-verkkoon mahdollistaa täyden "
+"kielituen asentamisen jo asennusvaiheessa. Lisäksi toimiva verkkoyhteys "
+"mahdollistaa automaattiset päivitysten lataamiset, aikavyöhykkeen "
+"tunnistamisen sekä mahdollisten kolmansien osapuolten sovellusten "
+"asentamisen."
 
 #. Type: text
 #. Description
@@ -1393,30 +1401,23 @@ msgstr "Koko levy käytetään:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d pienempää osiota on piilotettu, käytä <a href=\"\">edistyneempää "
-"osiointityökalua</a> tarkempiin toimenpiteisiin"
+"<small>%s pienempää osiota on piilotettu, käytä <a href=\"\">edistyneempää "
+"osiointityökalua</a> tarkempiin asetuksiin</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"Yksi pienempi osio on piilotettu, käytä <a href=\"\">edistyneempää "
-"osiointityökalua</a> tarkempiin toimenpiteisiin"
+"<small>1 pienempi osio on piilotettu, käytä <a href=\"\">edistyneempää "
+"osiointityökalua</a> tarkempiin asetuksiin</small>"
 
 #. Type: text
 #. Description
@@ -1846,9 +1847,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Varaa levytilaa"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1866,6 +1864,23 @@ msgstr "Poistetaan paketteja"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Valitse langaton verkkosi listasta"
+
+#~ msgid "Allocate drive space"
+#~ msgstr "Varaa levytilaa"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d pienempää osiota on piilotettu, käytä <a href=\"\">edistyneempää "
+#~ "osiointityökalua</a> tarkempiin toimenpiteisiin"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "Yksi pienempi osio on piilotettu, käytä <a href=\"\">edistyneempää "
+#~ "osiointityökalua</a> tarkempiin toimenpiteisiin"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

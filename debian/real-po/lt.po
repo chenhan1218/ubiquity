@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-07 16:45+0000\n"
+"PO-Revision-Date: 2011-09-18 09:23+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -214,10 +214,8 @@ msgstr "Kas jūs esate?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Pasirinkite slaptažodį:"
+msgstr "Pasirinkite paveikslą"
 
 #. Type: text
 #. Description
@@ -373,10 +371,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Įdiegimas baigtas"
+msgstr "Įdiegimo tipas"
 
 #. Type: text
 #. Description
@@ -707,14 +703,14 @@ msgstr "Tęsti"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Prijungti"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Stabdyti"
 
 #. Type: text
 #. Description
@@ -1398,30 +1394,19 @@ msgstr "Bus naudojama visa laikmena:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d mažesni skirsniai yra nerodomi, naudokite <a href=\"\">skirstymo įrankį "
-"patyrusiems</a>, jei norite patys sutvarkyti skirsnius."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 mažesnis skirsnis nerodomas, naudokite <a href=\"\">skirstymo įrankį "
-"patyrusiems</a>, jei norite patys tvarkyti skirsnius."
 
 #. Type: text
 #. Description
@@ -1847,9 +1832,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Šalinami paketai"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Paskirti vietą diske"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1867,3 +1849,20 @@ msgstr "Šalinami paketai"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Pasirinkite savo belaidį tinklą iš šio sąrašo"
+
+#~ msgid "Allocate drive space"
+#~ msgstr "Paskirti vietą diske"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d mažesni skirsniai yra nerodomi, naudokite <a href=\"\">skirstymo "
+#~ "įrankį patyrusiems</a>, jei norite patys sutvarkyti skirsnius."
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 mažesnis skirsnis nerodomas, naudokite <a href=\"\">skirstymo įrankį "
+#~ "patyrusiems</a>, jei norite patys tvarkyti skirsnius."

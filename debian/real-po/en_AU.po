@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:57+0000\n"
-"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
+"PO-Revision-Date: 2011-09-15 13:21+0000\n"
+"Last-Translator: Joel Pickett <jlkpcktt@gmail.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -215,10 +215,8 @@ msgstr "Who are you?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Choose a password:"
+msgstr "Choose a picture"
 
 #. Type: text
 #. Description
@@ -347,6 +345,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"This picture will identify you in the account settings, login screen and "
+"lock screen."
 
 #. Type: text
 #. Description
@@ -371,10 +371,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Installation Complete"
+msgstr "Installation type"
 
 #. Type: text
 #. Description
@@ -512,6 +510,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"We're sorry; the installer crashed. After you close this window, we'll allow "
+"you to file a bug report using the integrated bug reporting tool. This will "
+"gather information about your system and your installation  process. The "
+"details will be sent to our bug tracker and a developer  will attend to the "
+"problem as soon as possible."
 
 #. Type: text
 #. Description
@@ -703,14 +706,14 @@ msgstr "Continue"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Connect"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #. Type: text
 #. Description
@@ -1366,6 +1369,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Connecting this computer to a WiFi network allows you to install third-party "
+"software, download updates, automatically detect your timezone and install "
+"full support for your language."
 
 #. Type: text
 #. Description
@@ -1388,30 +1394,23 @@ msgstr "The entire disk will be used:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d smaller partitions are hidden, use the <a href=\"\">advanced partitioning "
-"tool</a> for more control"
+"<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
+"partitioning tool</a> for more control</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-"tool</a> for more control"
+"<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
+"partitioning tool</a> for more control</small>"
 
 #. Type: text
 #. Description
@@ -1834,9 +1833,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Removing packages"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Allocate drive space"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1851,6 +1847,23 @@ msgstr "Removing packages"
 #~ "problem as soon as possible. To help the developers understand what went "
 #~ "wrong, include the following detail in your bug report, and attach the "
 #~ "files /var/log/syslog and /var/log/partman:"
+
+#~ msgid "Allocate drive space"
+#~ msgstr "Allocate drive space"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Please select your wireless network from this list"

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -214,10 +214,8 @@ msgstr "Ко сте Ви?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Изаберите лозинку:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -371,10 +369,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Инсталација је завршена"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1392,30 +1388,19 @@ msgstr "Биће коришћен читав диск:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d мање партиције су скривене, користите <a href=\"\">напредни алати "
-"партиционисања</a> за бољу контролу"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 мања партиција је скривена, користите <a href=\"\">напредни алати "
-"партиционисања</a> за бољу контролу"
 
 #. Type: text
 #. Description
@@ -1846,6 +1831,31 @@ msgstr "Уклањам пакете"
 #~ msgid "Allocate drive space"
 #~ msgstr "Распоређивање простора на диску"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Изаберите Вашу бежичну мрежу са овог списка"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d мање партиције су скривене, користите <a href=\"\">напредни алати "
+#~ "партиционисања</a> за бољу контролу"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 мања партиција је скривена, користите <a href=\"\">напредни алати "
+#~ "партиционисања</a> за бољу контролу"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Ово је пред-издање ${RELEASE} пробног ${MEDIUM} инсталера. Ово није "
+#~ "коначно издање; оно ће доћи са коначним издањем ${RELEASE} Априла 2011."
+
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1860,14 +1870,3 @@ msgstr "Уклањам пакете"
 #~ "проблемом чим то буде могуће. Да бисте помогли програмерима да боље "
 #~ "разумеју шта је пошло наопако, додајте следеће детаље у Ваш извештај о "
 #~ "грешци и приложите датотеке „/var/log/syslog“ и „/var/log/partman“:"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Изаберите Вашу бежичну мрежу са овог списка"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Ово је пред-издање ${RELEASE} пробног ${MEDIUM} инсталера. Ово није "
-#~ "коначно издање; оно ће доћи са коначним издањем ${RELEASE} Априла 2011."

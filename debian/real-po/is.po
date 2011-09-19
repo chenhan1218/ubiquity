@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -215,10 +215,8 @@ msgstr "Upplýsingar"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Veldu þér lykilorð:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -371,10 +369,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Uppsetningu lokið"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1393,30 +1389,19 @@ msgstr "Allur diskurinn verður notaður:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d litlar disksneiðar eru faldar, notaðu <a href=\"\">ítarlega "
-"disksneiðingartólið</a> fyrir frekari stillingar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 lítil disksneið er falin, notaðu <a href=\"\">ítarlega "
-"disksneiðingartólið</a> fyrir frekari stillingar"
 
 #. Type: text
 #. Description
@@ -1838,9 +1823,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Úthluta plássi á drifi"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1856,9 +1838,6 @@ msgstr "Fjarlægi pakka"
 #~ "við þróun kerfisins að skilja hvað fór úrskeiðis má skrifa skýringu í "
 #~ "villuskýrsluna og bæta við skránum /var/log/syslog og /var/log/partman:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Veldu þráðlaust net af þessum lista"
-
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1867,3 +1846,23 @@ msgstr "Fjarlægi pakka"
 #~ "Þetta er forútgáfa af ${RELEASE} 'live' ${MEDIUM} uppsetningarforritinu. "
 #~ "Þetta er ekki endanleg útgáfa; hún mun koma með ${RELEASE} útgáfunni í "
 #~ "apríl 2011."
+
+#~ msgid "Allocate drive space"
+#~ msgstr "Úthluta plássi á drifi"
+
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Veldu þráðlaust net af þessum lista"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 lítil disksneið er falin, notaðu <a href=\"\">ítarlega "
+#~ "disksneiðingartólið</a> fyrir frekari stillingar"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d litlar disksneiðar eru faldar, notaðu <a href=\"\">ítarlega "
+#~ "disksneiðingartólið</a> fyrir frekari stillingar"

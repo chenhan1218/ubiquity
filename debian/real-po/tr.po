@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:56+0000\n"
-"Last-Translator: Yiğit Ateş <Unknown>\n"
+"PO-Revision-Date: 2011-09-15 15:53+0000\n"
+"Last-Translator: Fatih Dayioglu <fatihdy@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -217,10 +217,8 @@ msgstr "Kimsiniz?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Bir parola seçin:"
+msgstr "Bir resim seçiniz"
 
 #. Type: text
 #. Description
@@ -374,10 +372,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Kurulum Tamamlandı"
+msgstr "Kurulum türü"
 
 #. Type: text
 #. Description
@@ -704,14 +700,14 @@ msgstr "Devam Et"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Bağlan"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Durdur"
 
 #. Type: text
 #. Description
@@ -1393,30 +1389,19 @@ msgstr "Tüm disk kullanılacak:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d daha küçük bölümler gizli, daha fazla denetim için <a href=\"\">gelişmiş "
-"bölümleme aracı</a>nı kullanın"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 daha küçük bölüm gizli, daha fazla denetim için <a href=\"\">gelişmiş "
-"bölümleme aracı</a>nı kullanın"
 
 #. Type: text
 #. Description
@@ -1842,6 +1827,9 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Lütfen listeden kablosuz ağınızı seçin"
+
 #~ msgid "Allocate drive space"
 #~ msgstr "Sürücü alanı ayır"
 
@@ -1860,8 +1848,19 @@ msgstr "Paketler kaldırılıyor"
 #~ "anlayabilmelerine yardım etmek için, lütfen /var/log/syslog ve /var/log/"
 #~ "partman dosyalarını ve şu bilgileri raporunuza ekleyin:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Lütfen listeden kablosuz ağınızı seçin"
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d daha küçük bölümler gizli, daha fazla denetim için <a href="
+#~ "\"\">gelişmiş bölümleme aracı</a>nı kullanın"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 daha küçük bölüm gizli, daha fazla denetim için <a href=\"\">gelişmiş "
+#~ "bölümleme aracı</a>nı kullanın"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

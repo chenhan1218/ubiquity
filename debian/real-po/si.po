@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-15 06:24+0000\n"
-"Last-Translator: Danishka Navin <Unknown>\n"
+"PO-Revision-Date: 2011-09-16 11:09+0000\n"
+"Last-Translator: පසිඳු කාවින්ද <Unknown>\n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -211,10 +211,8 @@ msgstr "ඔබ කවුද?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "මුර පදයක් තෝරන්න:"
+msgstr "පින්තූරයක් තෝරන්න"
 
 #. Type: text
 #. Description
@@ -365,10 +363,8 @@ msgstr "ඔබ කිසිවක් ආයත නොකරන්නේ නම�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "ස්ථාපනය සම්පූර්ණයි"
+msgstr "ස්ථාපනයේ වර්ගය"
 
 #. Type: text
 #. Description
@@ -694,14 +690,14 @@ msgstr "කරගෙන යන්න"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "සම්බන්ධ කරන්න"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "නවත්වන්න"
 
 #. Type: text
 #. Description
@@ -1368,30 +1364,19 @@ msgstr "සම්පූර්ණ තැටියම භාවිත කරන්
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d කුඩා කොටස් සඟවා ඇත, වැඩි පාලනයක් සඳහා <a href=\"\">උසස් කොටස්කරණ මෙවලම</a> භාවිත "
-"කරන්න"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 කුඩා කොටස් සඟවා ඇත, වැඩි පාලනයක් සඳහා <a href=\"\">උසස් කොටස්කරණ මෙවලම</a> භාවිත "
-"කරන්න"
 
 #. Type: text
 #. Description
@@ -1819,3 +1804,17 @@ msgstr "පැකේජ ඉවත්කරමින්"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "කරුණාකර ඔබේ රැහැන් රහිත ජාලය මෙම ලැයිස්තුවෙන් තෝරන්න"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d කුඩා කොටස් සඟවා ඇත, වැඩි පාලනයක් සඳහා <a href=\"\">උසස් කොටස්කරණ මෙවලම</a> "
+#~ "භාවිත කරන්න"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 කුඩා කොටස් සඟවා ඇත, වැඩි පාලනයක් සඳහා <a href=\"\">උසස් කොටස්කරණ මෙවලම</a> "
+#~ "භාවිත කරන්න"

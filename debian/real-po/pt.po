@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -216,10 +216,8 @@ msgstr "Quem é você?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Escolha uma palavra-passe:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -375,10 +373,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Instalação Completa"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1400,30 +1396,19 @@ msgstr "Será usado o disco rígido inteiro:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d partições mais pequenas estão escondidas, use a <a href=\"\">ferramenta "
-"de particionamento avançado</a> para mais controlo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 partição mais pequena está escondida, use a <a href=\"\">ferramenta de "
-"particionamento avançado</a> para mais controlo"
 
 #. Type: text
 #. Description
@@ -1850,6 +1835,29 @@ msgstr "A remover pacotes"
 #~ msgstr "Disponibilizar espaço no disco"
 
 #~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d partições mais pequenas estão escondidas, use a <a href="
+#~ "\"\">ferramenta de particionamento avançado</a> para mais controlo"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 partição mais pequena está escondida, use a <a href=\"\">ferramenta de "
+#~ "particionamento avançado</a> para mais controlo"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Esta é uma versão de pré-lançamento do instalador do ${RELEASE} live "
+#~ "${MEDIUM}. Ainda não é a versão final que virá com o lançamento final do "
+#~ "${RELEASE} em Abril de 2011."
+
+#~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
 #~ "your details to any existing bug) and a developer will attend to the "
@@ -1867,12 +1875,3 @@ msgstr "A remover pacotes"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Por favor seleccione a sua rede sem fios (wireless) desta lista"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Esta é uma versão de pré-lançamento do instalador do ${RELEASE} live "
-#~ "${MEDIUM}. Ainda não é a versão final que virá com o lançamento final do "
-#~ "${RELEASE} em Abril de 2011."

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 "X-Language: bn_BD\n"
 
 #. Type: text
@@ -213,10 +213,8 @@ msgstr "আপনি কে?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "একটি পাসওয়ার্ড চয়ন করুনঃ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -371,10 +369,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "ইনস্টল করা শেষ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1384,30 +1380,19 @@ msgstr "সম্পূর্ণ ড্রাইভ ব্যবহার হব
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d অপেক্ষাকৃত ছোট পার্টিশন আড়ালকৃত, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
-"পার্টিশনিং টুল</a> ব্যবহার"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 অপেক্ষাকৃত ছোট পার্টিশন আড়ালকৃত, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
-"পার্টিশনিং টুল</a> ব্যবহার"
 
 #. Type: text
 #. Description
@@ -1821,9 +1806,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "ড্রাইভের স্পেস বন্টন"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1839,6 +1821,9 @@ msgstr "প্যাকেজসমূহ অপসারণ করা হচ্
 #~ "যেন সহজে সমস্যাটি বুঝতে পারে সেজন্য এই তথ্যগুলো আপনার বাগ রিপোর্টে যুক্ত করুন, "
 #~ "এবং /var/log/syslog এবং /var/log/partman ফাইলগুলি যুক্ত করুন:"
 
+#~ msgid "Allocate drive space"
+#~ msgstr "ড্রাইভের স্পেস বন্টন"
+
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "তালিকা থেকে আপনার বেতার নেটওয়ার্ক বাছাই করুন"
 
@@ -1849,3 +1834,17 @@ msgstr "প্যাকেজসমূহ অপসারণ করা হচ্
 #~ msgstr ""
 #~ "এটা ${RELEASE} লাইভ ${MEDIUM} ইনস্টলারের প্রিরিলিজ। এটা চুড়ান্ত রিলিজ নয়; যা "
 #~ "এপ্রিল 2011 এর ${RELEASE} চুড়ান্ত রিলিজের সাথে আসবে।"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d অপেক্ষাকৃত ছোট পার্টিশন আড়ালকৃত, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
+#~ "পার্টিশনিং টুল</a> ব্যবহার"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 অপেক্ষাকৃত ছোট পার্টিশন আড়ালকৃত, আরও কন্ট্রোলের জন্য <a href=\"\">উচ্চ পর্যায়ের "
+#~ "পার্টিশনিং টুল</a> ব্যবহার"

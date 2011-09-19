@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:59+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"PO-Revision-Date: 2011-09-17 06:49+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -209,10 +209,8 @@ msgstr "您是誰？"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "請設定一組密碼："
+msgstr "選擇圖片"
 
 #. Type: text
 #. Description
@@ -340,7 +338,7 @@ msgstr "將我的家資料夾加密"
 msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
-msgstr ""
+msgstr "這個圖片是用來在帳號設定值、登入畫面、螢幕鎖定出現時來辨識您。"
 
 #. Type: text
 #. Description
@@ -361,10 +359,8 @@ msgstr "如果您不希望匯入任何帳號，請不要選取，並前往下一
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "安裝完成"
+msgstr "安裝類型"
 
 #. Type: text
 #. Description
@@ -397,7 +393,7 @@ msgstr "要退出安裝嗎？"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Do you really want to quit the installation now?"
-msgstr "您確定要現在離開安裝程式？"
+msgstr "真要現在退出安裝？"
 
 #. Type: text
 #. Description
@@ -411,7 +407,7 @@ msgstr "開機載入程式安裝失敗"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr "對不起，發生一個錯誤並且無法將開機載入程式安裝在指定的位置。"
+msgstr "對不起，發生了錯誤。無法將開機載入程式安裝在指定位置。"
 
 #. Type: text
 #. Description
@@ -423,7 +419,7 @@ msgstr "選擇不同的裝置來安裝開機載入程式："
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Continue without a bootloader."
-msgstr "略過開機載入程式並繼續。"
+msgstr "不理開機載入程式並繼續。"
 
 #. Type: text
 #. Description
@@ -431,7 +427,7 @@ msgstr "略過開機載入程式並繼續。"
 #: ../ubiquity.templates:60001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr "您需要要在啟動 ${RELEASE} 之前手動安裝開機載入程式。"
+msgstr "要手動安裝開機載入程式始能啟動 ${RELEASE}。"
 
 #. Type: text
 #. Description
@@ -449,13 +445,13 @@ msgstr "這可能會導致您的電腦無法開機。"
 #. Description
 #: ../ubiquity.templates:63001
 msgid "How would you like to proceed?"
-msgstr "您想要如何處理？"
+msgstr "要如何處理？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Skip"
-msgstr "略過"
+msgstr "不理"
 
 #. Type: title
 #. Description
@@ -499,6 +495,9 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"安裝程式當掉了，很抱歉。在關閉這個視窗後，我們會讓您使用整合的臭蟲回報工具來"
+"提交問題。這會蒐集您系統的相關資訊與安裝程序。詳細內容會傳送至我們的臭蟲追蹤"
+"器，開發者會盡快處理此問題。"
 
 #. Type: text
 #. Description
@@ -583,7 +582,7 @@ msgstr "大小"
 #. this partition is used by data.
 #: ../ubiquity.templates:84001
 msgid "Used"
-msgstr "已使用"
+msgstr "已用"
 
 #. Type: text
 #. Description
@@ -611,7 +610,7 @@ msgstr "建立分割區"
 #. Description
 #: ../ubiquity.templates:88001 ../ubiquity.templates:95001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "新分割區大小，以 MB (1000000 bytes) 為單位："
+msgstr "新分割區大小，以 MB (1000000 位元組) 為單位："
 
 #. Type: text
 #. Description
@@ -689,14 +688,14 @@ msgstr "繼續"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "連接"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #. Type: text
 #. Description
@@ -906,7 +905,7 @@ msgstr "正在儲存已安裝的套件..."
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Restoring previously installed packages..."
-msgstr "正在還原先前安裝的套件..."
+msgstr "正在回存先前安裝的套件..."
 
 #. Type: text
 #. Description
@@ -936,7 +935,7 @@ msgstr "正在檢查是否有套件要移除..."
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "正在下載套件 (剩餘時間 ${TIME})..."
+msgstr "正在下載套件 (剩餘時間為 ${TIME})..."
 
 #. Type: text
 #. Description
@@ -948,7 +947,7 @@ msgstr "正在下載套件清單..."
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "正在下載套件清單 (剩餘時間 ${TIME} )..."
+msgstr "正在下載套件清單 (剩餘時間為 ${TIME} )..."
 
 #. Type: error
 #. Description
@@ -1050,7 +1049,7 @@ msgstr "複製網路設定時發生錯誤。安裝會繼續，但網路須於安
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Error restoring installed applications"
-msgstr "還原安裝的應用程式時發生錯誤"
+msgstr "回存先前安裝的應用程式時發生錯誤"
 
 #. Type: error
 #. Description
@@ -1060,7 +1059,7 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"當還原先前安裝的應用程式時遭遇到錯誤。安裝程序將繼續，但在電腦重新開機後您可"
+"當回存先前安裝的應用程式時遭遇到錯誤。安裝程序將繼續，但在電腦重新開機後您可"
 "能需要手動重新安裝某些應用程式。"
 
 #. Type: text
@@ -1085,7 +1084,7 @@ msgstr "正在安裝語言套件"
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "正在下載語言套件 (還有 ${TIME})..."
+msgstr "正在下載語言套件 (剩餘時間為 ${TIME})..."
 
 #. Type: boolean
 #. Description
@@ -1271,7 +1270,7 @@ msgstr "CD"
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr "請選擇安裝過程中要使用的語言。該語言將設為本電腦的預設語言。"
+msgstr "請選擇安裝程序要使用的語言。該語言會成為本電腦的預設語言。"
 
 #. Type: text
 #. Description
@@ -1279,7 +1278,7 @@ msgstr "請選擇安裝過程中要使用的語言。該語言將設為本電腦
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr "請選擇設定程序要使用的語言。此語言會成為此電腦的預設語言。"
+msgstr "請選擇設定程序要使用的語言。該語言會成為本電腦的預設語言。"
 
 #. Type: text
 #. Description
@@ -1297,7 +1296,7 @@ msgid ""
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
 "安裝程式遭遇到無法補救的錯誤。現在將執行桌面工作階段，這樣一來您可以追查該問"
-"題或嘗試再安裝一次。"
+"題或嘗試再安裝。"
 
 #. Type: text
 #. Description
@@ -1326,6 +1325,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"將本電腦連接至 Wi-Fi 網路可讓您安裝第三方軟體、下載更新、自動偵測您的時區、並"
+"安裝您語言的完整支援。"
 
 #. Type: text
 #. Description
@@ -1348,28 +1349,23 @@ msgstr "整部磁碟將會被使用："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d 較小的分割區將被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+"<small>%d 個較小的分割區已隱藏，請使用<a href=\"\">進階分割工具</a>取得深入控"
+"制</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 個較小的分割區被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+"<small>1 個較小的分割區已隱藏，請使用<a href=\"\">進階分割工具</a>取得深入控"
+"制</small>"
 
 #. Type: text
 #. Description
@@ -1429,8 +1425,8 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} 使用第三方軟體以播放 Flash、MP3 與其他媒體，也用於某些無線硬體裝置"
-"上。此類軟體中某些為封閉源碼軟體。該軟體的授權必須遵循其文件內所包含的許可證"
+"${RELEASE} 使用第三方軟體播放 Flash、MP3 與其他媒體，以及操作某些無線硬體裝"
+"置。此類軟體中某些為封閉源碼軟體。該軟體的授權必須遵循其文件內所包含的許可證"
 "條款。"
 
 #. Type: text
@@ -1440,8 +1436,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"Fluendo MP3 擴充套件包含 MPEG Layer-3 音訊解碼技術，由 Fraunhofer IIS and "
-"Thomson 授權。"
+"Fluendo MP3 擴充套件包含 MPEG Layer-3 音訊解碼技術，由 Fraunhofer IIS 研究所"
+"及 Thomson 公司授權。"
 
 #. Type: text
 #. Description
@@ -1605,8 +1601,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"文件、音樂、其他個人檔案將被保留。安裝的軟體會被保留在可能的位置上。系統全域"
-"的設定會被清除。"
+"文件、音樂及其他個人檔案會保留。安裝的軟體會儘可能保留。系統的全域設定會清"
+"除。"
 
 #. Type: text
 #. Description
@@ -1684,7 +1680,7 @@ msgstr "將 ${DISTRO} 與它們安裝在一起"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:241001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "這臺電腦目前有安裝 ${OS}。您想要怎麼處理？"
+msgstr "本電腦目前有安裝 ${OS}。要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1694,7 +1690,7 @@ msgstr "這臺電腦目前有安裝 ${OS}。您想要怎麼處理？"
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr "這臺電腦目前有安裝 ${OS1} 與 ${OS2}。您想要怎麼處理？"
+msgstr "本電腦目前有安裝 ${OS1} 與 ${OS2}。要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1702,7 +1698,7 @@ msgstr "這臺電腦目前有安裝 ${OS1} 與 ${OS2}。您想要怎麼處理？
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "這臺電腦目前有安裝多種作業系統。您想要怎麼處理？"
+msgstr "本電腦目前安裝有多套作業系統。要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1710,7 +1706,7 @@ msgstr "這臺電腦目前有安裝多種作業系統。您想要怎麼處理？
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "這臺電腦目前未偵測到有作業系統。您想要怎麼處理？"
+msgstr "本電腦目前未偵測到有作業系統。要怎麼處理？"
 
 #. Type: title
 #. Description
@@ -1752,9 +1748,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"當您開機進入新系統時，您可以依使用者「oem」身份與您先前所選的密碼登入；這個 "
-"oem 使用者同時擁有使用 'sudo' 指令的管理特權。您可以將該系統依照您的需求來做"
-"額外調整。"
+"當開機進入新系統，您可以依使用者「oem」身份與您先前所選的密碼登入；這個 oem "
+"使用者同時擁有使用「sudo」指令的管理特權。您可以將該系統依照您的需求來做額外"
+"調整。"
 
 #. Type: text
 #. Description
@@ -1764,8 +1760,8 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"一旦您完成該系統的設定後，請執行 'oem-config-prepare' 指令。此指令會讓系統刪"
-"除臨時的「oem」使用者，並在下次重新開機後詢問使用者一些設定上的問題。"
+"一旦完成系統設定，請執行「oem-config-prepare」指令。此指令會讓系統刪除臨時的"
+"「oem」使用者，並在下次重新開機後詢問使用者一些設定上的問題。"
 
 #. Type: text
 #. Description
@@ -1773,8 +1769,31 @@ msgstr ""
 msgid "Removing packages"
 msgstr "正在移除套件"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "請從此清單內選取您的無線網路"
+
 #~ msgid "Allocate drive space"
 #~ msgstr "分配磁碟機空間"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d 較小的分割區將被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 個較小的分割區被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "這是 ${RELEASE} live ${MEDIUM} 預先發行版本的安裝程式。這不是最終發行版"
+#~ "本；${RELEASE}  的最終發行版將於2011年4月發行。"
 
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
@@ -1789,14 +1808,3 @@ msgstr "正在移除套件"
 #~ "人員將會盡快處理這個問題。為了幫助開發人員瞭解何處發生問題，請附加下面的細"
 #~ "節到您的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /var/log/"
 #~ "partman。"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "請從此清單內選取您的無線網路"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "這是 ${RELEASE} live ${MEDIUM} 預先發行版本的安裝程式。這不是最終發行版"
-#~ "本；${RELEASE}  的最終發行版將於2011年4月發行。"

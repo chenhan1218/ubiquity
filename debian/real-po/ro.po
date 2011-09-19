@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -211,10 +211,8 @@ msgstr "Cine sunteți?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Alegeți o parolă:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -368,10 +366,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Instalare finalizată"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1399,30 +1395,19 @@ msgstr "Se va utiliza întreg discul:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d partiții mai mici sunt ascunse, utilizați a href=\"\">utilitarul avansat "
-"de partiționare</a> pentru control avansat"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"O partiție mai mică este ascunsă, utilizați a href=\"\">utilitarul avansat "
-"de partiționare</a> pentru control avansat"
 
 #. Type: text
 #. Description
@@ -1850,8 +1835,27 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Se elimină pachetele"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Alegeți rețeaua fără fir din această listă"
+
 #~ msgid "Allocate drive space"
 #~ msgstr "Alocă spațiu pe disc"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d partiții mai mici sunt ascunse, utilizați a href=\"\">utilitarul "
+#~ "avansat de partiționare</a> pentru control avansat"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "Aceasta este o versiune de test a programului de instalare live ${MEDIUM} "
+#~ "pentru versiunea ${RELEASE}. Nu este o versiune finală; ea va fi "
+#~ "disponibilă odată cu lansarea versiunii ${RELEASE} în aprilie 2011."
 
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
@@ -1868,14 +1872,9 @@ msgstr "Se elimină pachetele"
 #~ "analizarea problemei, includeți următoarele detalii în raport și atașați "
 #~ "fișierele /var/log/syslog și /var/log/partman:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Alegeți rețeaua fără fir din această listă"
-
 #~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
 #~ msgstr ""
-#~ "Aceasta este o versiune de test a programului de instalare live ${MEDIUM} "
-#~ "pentru versiunea ${RELEASE}. Nu este o versiune finală; ea va fi "
-#~ "disponibilă odată cu lansarea versiunii ${RELEASE} în aprilie 2011."
+#~ "O partiție mai mică este ascunsă, utilizați a href=\"\">utilitarul "
+#~ "avansat de partiționare</a> pentru control avansat"

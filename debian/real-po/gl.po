@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-14 08:42+0000\n"
-"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"PO-Revision-Date: 2011-09-17 21:03+0000\n"
+"Last-Translator: Fran Diéguez <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -216,10 +216,8 @@ msgstr "Quen é vostede?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Escolla un contrasinal:"
+msgstr "Escolla unha imaxe"
 
 #. Type: text
 #. Description
@@ -350,6 +348,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Esta imaxe identificarao na  configuración da conta, a pantalla de acceso e "
+"o bloqueo de pantalla."
 
 #. Type: text
 #. Description
@@ -374,10 +374,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Rematou a instalación"
+msgstr "Tipo de instalación"
 
 #. Type: text
 #. Description
@@ -517,6 +515,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Sentímolo, produciuse un erro no instalador. Despois de que peche esta "
+"xanela, permitirémoslle informar  deste erro coa ferramenta de informes "
+"integrada. Isto recopilará información sobre o sistema y o proceso de "
+"instalación, que será enviado ao sistema de seguemento de erros onde un "
+"desenvolvedor atenderá o problema o máis pronto posíbel."
 
 #. Type: text
 #. Description
@@ -708,14 +711,14 @@ msgstr "Continuar"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Conectar"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Deter"
 
 #. Type: text
 #. Description
@@ -1378,6 +1381,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Ao conectar este equipo a unha rede sen fios poderá instalar software de "
+"terceiros, descargar anovacións, detectar automaticamente o seu fuso horario "
+"e instalar asistencia completa para o seu idioma."
 
 #. Type: text
 #. Description
@@ -1400,30 +1406,23 @@ msgstr "Usarase o disco enteiro:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d particións máis pequenas están ocultas; use a <a href=\"\">ferramenta "
-"avanzada de particionamento</a> para ter máis control"
+"<small>%d particións máis pequeñas están ocultas, use a <a href="
+"\"\">ferramenta de particionado avanzada</a> para maior control</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 partición máis pequena está oculta, use a <a href=\"\">ferramenta avanzada "
-"de particionamento</a> para ter máis control"
+"<small>1 partición máis pequena está oculta, use a <a href=\"\">ferramenta "
+"de particionado avanzada</a> para maior control</small>"
 
 #. Type: text
 #. Description
@@ -1867,9 +1866,6 @@ msgstr "Eliminando paquetes"
 #~ "mal, inclúa o seguinte detalle no seu informe de erro e anexe os "
 #~ "ficheiros /var/log/syslog e máis /var/log/partman:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Seleccione una rede sen fíos nesta lista"
-
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
 #~ "not a final release; that will come with the final release of ${RELEASE} "
@@ -1878,3 +1874,20 @@ msgstr "Eliminando paquetes"
 #~ "Hai unha pre-edición do instalador en vivo ${MEDIUM} da edición "
 #~ "${RELEASE}. Non é unha edición final; iso será coa edición final de "
 #~ "${RELEASE} en abril de 2001"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 partición máis pequena está oculta, use a <a href=\"\">ferramenta "
+#~ "avanzada de particionamento</a> para ter máis control"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d particións máis pequenas están ocultas; use a <a href=\"\">ferramenta "
+#~ "avanzada de particionamento</a> para ter máis control"
+
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Seleccione una rede sen fíos nesta lista"

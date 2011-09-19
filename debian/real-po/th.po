@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 09:01+0000\n"
-"Last-Translator: SiraNokyoongtong <gumaraa@gmail.com>\n"
+"PO-Revision-Date: 2011-09-18 07:40+0000\n"
+"Last-Translator: Manop Pornpeanvichanon(มานพ พรเพียรวิชานนท์) <Unknown>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -209,10 +209,8 @@ msgstr "คุณคือใคร?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "เลือกรหัสผ่าน:"
+msgstr "เลือกภาพ"
 
 #. Type: text
 #. Description
@@ -363,10 +361,8 @@ msgstr "หากคุณไม่ต้องการนำเข้าบั
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "การติดตั้งสมบูรณ์"
+msgstr "แบบการติดตั้ง"
 
 #. Type: text
 #. Description
@@ -691,14 +687,14 @@ msgstr "ดำเนินการต่อ"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "เชื่อมต่อ"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "หยุด"
 
 #. Type: text
 #. Description
@@ -1358,28 +1354,19 @@ msgstr "ดิสก์ทั้งหมดจะถูกใช้:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"พาร์ทิชัน %d ขนาดเล็กได้ถูกซ่อนไว้, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"มี 1 พาร์ทิชันขนาดเล็กถูกซ่อนไว้, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
 
 #. Type: text
 #. Description
@@ -1782,6 +1769,9 @@ msgstr ""
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "กรุณาเลือกเครือข่ายไร้สายจากรายการนี้"
+
 #~ msgid "Allocate drive space"
 #~ msgstr "จัดสรรพื้นที่ว่างบนไดรว์"
 
@@ -1798,8 +1788,17 @@ msgstr "กำลังถอดถอนแพกเกจ"
 #~ "และทางนักพัฒนาจะแก้ไขโดยเร็วที่สุดเท่าที่จะเป็นไปได้ เพื่อช่วยให้นักพัฒนาทราบว่าอะไรผิดพลาด "
 #~ "โปรดแนบแฟ้ม /var/log/syslog และ /var/log/partman ลงในรายละเอียดการแจ้งบัก:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "กรุณาเลือกเครือข่ายไร้สายจากรายการนี้"
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "มี 1 พาร์ทิชันขนาดเล็กถูกซ่อนไว้, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "พาร์ทิชัน %d ขนาดเล็กได้ถูกซ่อนไว้, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

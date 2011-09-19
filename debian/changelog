@@ -19,6 +19,7 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
   * Use the new network-manager interface on the prepare page to disable
     options that need an Internet connection when one is not available
     (LP: #848938).
+  * Update translations from Launchpad.
 
   [ Stéphane Graber ]
   * Change wallpaper C program to accept a path to a wallpaper as a parameter.

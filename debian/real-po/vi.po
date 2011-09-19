@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -212,10 +212,8 @@ msgstr "Bạn là ai?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Chọn mật khẩu:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -368,10 +366,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Hoàn tất Cài đặt"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1383,30 +1379,19 @@ msgstr "Toàn bộ ổ đĩa sẽ được sử dụng:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d các phân vùng nhỏ hơn đã bị ẩn, sử dụng <a href=\"\">công cụ phân vùng "
-"nâng cao</a> để điều chỉnh nhiều hơn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 phân vùng nhỏ hơn bị ẩn, sử dụng <a href=\"\">công cụ phân vùng nâng cao</"
-"a> để điều chỉnh nhiều hơn"
 
 #. Type: text
 #. Description
@@ -1823,9 +1808,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Đang gỡ bỏ các gói"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Phân bổ không gian ổ đĩa"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1842,8 +1824,25 @@ msgstr "Đang gỡ bỏ các gói"
 #~ "tường thuật chi tiết, và gửi kèm các tập tin trong /var/log/syslog và /"
 #~ "var/log/partman:"
 
+#~ msgid "Allocate drive space"
+#~ msgstr "Phân bổ không gian ổ đĩa"
+
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Hãy lựa chọn mạng không dây của bạn từ danh sách này"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d các phân vùng nhỏ hơn đã bị ẩn, sử dụng <a href=\"\">công cụ phân vùng "
+#~ "nâng cao</a> để điều chỉnh nhiều hơn"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 phân vùng nhỏ hơn bị ẩn, sử dụng <a href=\"\">công cụ phân vùng nâng "
+#~ "cao</a> để điều chỉnh nhiều hơn"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

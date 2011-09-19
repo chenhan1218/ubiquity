@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 09:01+0000\n"
+"PO-Revision-Date: 2011-09-17 09:39+0000\n"
 "Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -216,10 +216,8 @@ msgstr "Vem är du?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Välj ett lösenord:"
+msgstr "Välj en bild"
 
 #. Type: text
 #. Description
@@ -348,6 +346,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Denna bild kommer att identifiera dig i kontoinställningarna, på "
+"inloggningsskärmen och när skärmen är låst."
 
 #. Type: text
 #. Description
@@ -373,10 +373,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Installationen är färdig"
+msgstr "Installationstyp"
 
 #. Type: text
 #. Description
@@ -515,6 +513,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Vi är ledsna men installationsprogrammet kraschade. När du har stängt detta "
+"fönster kommer vi låta dig skicka in en felrapport med det integrerade "
+"felrapporteringsverktyget. Detta gör att vi kan samla in information om ditt "
+"system och installationsprocessen. Informationen kommer att skickas till "
+"vårt felhanteringssystem och en utvecklare kommer att undersöka problemet så "
+"snart som möjligt."
 
 #. Type: text
 #. Description
@@ -706,14 +710,14 @@ msgstr "Fortsätt"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Anslut"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Stoppa"
 
 #. Type: text
 #. Description
@@ -1381,6 +1385,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Anslut denna dator till ett trådlöst nätverk för att tillåta installation av "
+"tredjepartsprogram, hämtning av uppdateringar, automatisk identifiering av "
+"tidszoner samt installation av fullständigt stöd för ditt språk."
 
 #. Type: text
 #. Description
@@ -1403,30 +1410,23 @@ msgstr "Hela disken kommer att användas:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d mindre partitioner är dolda. Använd det <a href=\"\">avancerade "
-"partitioneringsverktyget</a> för ytterligare kontroll"
+"<small>%d mindre partitioner är dolda. Använd det <a href=\"\">avancerade "
+"partitioneringsverktyget</a> för ytterligare kontroll</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"En mindre partition är dold. Använd det <a href=\"\">avancerade "
-"partitioneringsverktyget</a> för ytterligare kontroll"
+"<small>En mindre partition är dold. Använd det <a href=\"\">avancerade "
+"partitioneringsverktyget</a> för ytterligare kontroll</small>"
 
 #. Type: text
 #. Description
@@ -1849,9 +1849,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Tar bort paket"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Allokera enhetsutrymme"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1867,8 +1864,25 @@ msgstr "Tar bort paket"
 #~ "din felrapport samt bifoga filerna /var/log/syslog och /var/log/partman "
 #~ "för att hjälpa utvecklarna att förstå vad som gick fel,:"
 
+#~ msgid "Allocate drive space"
+#~ msgstr "Allokera enhetsutrymme"
+
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Välj ditt trådlösa nätverk från denna lista"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d mindre partitioner är dolda. Använd det <a href=\"\">avancerade "
+#~ "partitioneringsverktyget</a> för ytterligare kontroll"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "En mindre partition är dold. Använd det <a href=\"\">avancerade "
+#~ "partitioneringsverktyget</a> för ytterligare kontroll"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

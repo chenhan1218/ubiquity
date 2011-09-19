@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -218,10 +218,8 @@ msgstr "Tko ste vi?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Odaberite lozinku:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -376,10 +374,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Instalacija završena"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1401,30 +1397,19 @@ msgstr "Bit će upotrijebljen cijeli disk:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d manjih particija je skriveno, za veću kontrolu upotrijebite <a href="
-"\"\">alat za napredno particioniranje</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 manja particija je skrivena, za veću kontrolu upotrijebite <a href="
-"\"\">alat za napredno particioniranje</a>"
 
 #. Type: text
 #. Description
@@ -1845,9 +1830,6 @@ msgstr ""
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
 
-#~ msgid "Allocate drive space"
-#~ msgstr "Alokacija diskovnog prostora"
-
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1865,6 +1847,23 @@ msgstr "Uklanjanje paketa"
 
 #~ msgid "Please select your wireless network from this list"
 #~ msgstr "Molim odaberite vašu bežičnu mrežu s popisa"
+
+#~ msgid "Allocate drive space"
+#~ msgstr "Alokacija diskovnog prostora"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d manjih particija je skriveno, za veću kontrolu upotrijebite <a href="
+#~ "\"\">alat za napredno particioniranje</a>"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 manja particija je skrivena, za veću kontrolu upotrijebite <a href="
+#~ "\"\">alat za napredno particioniranje</a>"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

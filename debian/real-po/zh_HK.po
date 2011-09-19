@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-14 15:30+0000\n"
-"Last-Translator: Anthony Wong <anthony.wong@canonical.com>\n"
+"PO-Revision-Date: 2011-09-17 04:56+0000\n"
+"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -209,10 +209,8 @@ msgstr "您是哪位？"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "請設定一組密碼"
+msgstr "選擇圖片"
 
 #. Type: text
 #. Description
@@ -340,7 +338,7 @@ msgstr "將我的個人資料夾加密"
 msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
-msgstr ""
+msgstr "這個圖片是用來在帳號設定值、登入畫面、螢幕鎖定出現時來辨識您。"
 
 #. Type: text
 #. Description
@@ -361,10 +359,8 @@ msgstr "如果您不希望匯入任何帳號，請不要選取，並前往下一
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "安裝完成"
+msgstr "安裝類型"
 
 #. Type: text
 #. Description
@@ -499,6 +495,9 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"我們很抱歉；安裝程式當掉。在您關閉這個視窗後，我們可以讓您使用整合的臭蟲回報"
+"工具來提交臭蟲回報。這會蒐集您系統的相關資訊與安裝程序。詳細內容會被傳送至我"
+"們的臭蟲追蹤器，開發者會盡快處理這個問題。"
 
 #. Type: text
 #. Description
@@ -689,14 +688,14 @@ msgstr "繼續"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "連接"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #. Type: text
 #. Description
@@ -1326,6 +1325,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"將這台電腦連接至 Wi-fi 網絡可讓您安裝第三方軟件、下載更新、自動偵測您的時區、"
+"並安裝您語言的完整支援。"
 
 #. Type: text
 #. Description
@@ -1348,28 +1349,23 @@ msgstr "整部磁碟將會被使用："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d 較小的分割區將被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+"<small>%d 個較小的分割區已隱藏，請使用<a href=\"\">進階分割工具</a>取得深入控"
+"制</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 個較小的分割區被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+"<small>1 個較小的分割區已隱藏，請使用<a href=\"\">進階分割工具</a>取得深入控"
+"制</small>"
 
 #. Type: text
 #. Description
@@ -1776,6 +1772,21 @@ msgstr "移除套件中"
 #~ msgid "Allocate drive space"
 #~ msgstr "分配磁碟機空間"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "請從此清單內選取您的無線網絡"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 個較小的分割區被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d 較小的分割區將被隱藏，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1790,9 +1801,6 @@ msgstr "移除套件中"
 #~ "開發人員瞭解何處發生問題，\r\n"
 #~ "請附加下面的細節到您的錯誤回報中，並且附加以下檔案：/var/log/syslog 和 /"
 #~ "var/log/partman。"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "請從此清單內選取您的無線網絡"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:58+0000\n"
+"PO-Revision-Date: 2011-09-15 14:46+0000\n"
 "Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:25+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:00+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -213,10 +213,8 @@ msgstr "Kdo ste?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "Izberite geslo:"
+msgstr "Izberite sliko"
 
 #. Type: text
 #. Description
@@ -347,6 +345,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Ta slika bo prikazana v nastavitvah računa, prijavnem zaslonu in ob "
+"zaklenjenem zaslonu."
 
 #. Type: text
 #. Description
@@ -371,10 +371,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "Namestitev je končana"
+msgstr "Vrsta namestitve"
 
 #. Type: text
 #. Description
@@ -511,6 +509,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Žal se je namestilnik sesul. Ko boste to okno zaprli, boste lahko poročali "
+"hrošča z vgrajenim orodjem za poročanje hroščev. Orodje bo zbralo podatke o "
+"vašem sistemu in namestitvenem opravilu. Podrobnosti bodo poslane sledilniku "
+"hroščev in razvijalec si bo vaše poročilo ogledal takoj, ko bo mogoče."
 
 #. Type: text
 #. Description
@@ -702,14 +704,14 @@ msgstr "Nadaljuj"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Poveži se"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Zaustavi"
 
 #. Type: text
 #. Description
@@ -1368,6 +1370,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Povezovanje tega računalnika z omrežjem wi-fi vam omogoča namestitev "
+"programov tretjih oseb, prejem posodobitev, samodejno zaznavanje vašega "
+"časovnega pasu in namestitev polne podpore za vaš jezik."
 
 #. Type: text
 #. Description
@@ -1390,30 +1395,23 @@ msgstr "Uporabljen bo celoten disk:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d manjših razdelkov je skritih. Za več nadzora uporabite <a href="
-"\"\">napredno orodje razdeljevanja</a>"
+"<small>%d majhnih razdelkov je skritih. Za več nadzora uporabite <a href="
+"\"\">napredno orodje razdelkov</a>.</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"1 manjši razdelek je skrit. Za več nadzora uporabite <a href=\"\">napredno "
-"orodje razdeljevanja</a>."
+"<small>1 majhen razdelek je skrit. Za več nadzora uporabite <a href="
+"\"\">napredno orodje razdelkov</a>.</small>"
 
 #. Type: text
 #. Description
@@ -1838,6 +1836,32 @@ msgstr "Odstranjevanje paketov"
 #~ msgid "Allocate drive space"
 #~ msgstr "Dodeli prostor na disku"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "Izberite svoje brezžično omrežje s tega seznama"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "1 manjši razdelek je skrit. Za več nadzora uporabite <a href="
+#~ "\"\">napredno orodje razdeljevanja</a>."
+
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d manjših razdelkov je skritih. Za več nadzora uporabite <a href="
+#~ "\"\">napredno orodje razdeljevanja</a>"
+
+#~ msgid ""
+#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#~ "not a final release; that will come with the final release of ${RELEASE} "
+#~ "in April 2011."
+#~ msgstr ""
+#~ "To je predizdaja živega ${MEDIUM}-ja namestilnika ${RELEASE}. To ni "
+#~ "končna različica namestilnika. Ta bo prišla s končno različico "
+#~ "${RELEASE}, ki izide aprila 2011."
+
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1853,15 +1877,3 @@ msgstr "Odstranjevanje paketov"
 #~ "razumeli, kaj je šlo narobe, k svojemu poročilu priložite datoteki /var/"
 #~ "log/syslog in /var/log/partman ter v poročilo vključite naslednje "
 #~ "podrobnosti:"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Izberite svoje brezžično omrežje s tega seznama"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "To je predizdaja živega ${MEDIUM}-ja namestilnika ${RELEASE}. To ni "
-#~ "končna različica namestilnika. Ta bo prišla s končno različico "
-#~ "${RELEASE}, ki izide aprila 2011."

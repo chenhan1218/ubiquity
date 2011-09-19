@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-15 08:03+0000\n"
+"PO-Revision-Date: 2011-09-17 09:26+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 09:24+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
 #. Description
@@ -211,10 +211,8 @@ msgstr "מי הנ״ל?"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a picture"
-msgstr "נא לבחור ססמה:"
+msgstr "נא לבחור תמונה"
 
 #. Type: text
 #. Description
@@ -342,7 +340,7 @@ msgstr "הצפנת תיקיית הבית שלי"
 msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
-msgstr ""
+msgstr "תמונה זו תשמש לך לצורכי זיהוי בהגדרות החשבון, מסך הכניסה ומסך הנעילה."
 
 #. Type: text
 #. Description
@@ -367,10 +365,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
-#, fuzzy
-#| msgid "Installation Complete"
 msgid "Installation type"
-msgstr "ההתקנה הושלמה"
+msgstr "סוג ההתקנה"
 
 #. Type: text
 #. Description
@@ -507,6 +503,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"תכנית ההתקנה קרסה, עמך הסליחה. לאחר סגירת חלון זה נאפשר לך להגיש דיווח על "
+"התקלה באמצעות כלי דיווח השגיאות המובנה. הכלי יאסוף פרטים על אודות המערכת שלך "
+"ועל תהליך ההתקנה. הפרטים יישלחו למערכת מעקב התקלות שלנו ואחד המתכנתים יתפנה "
+"לטיפול בתקלה בהקדם האפשרי."
 
 #. Type: text
 #. Description
@@ -697,14 +697,14 @@ msgstr "המשך"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "התחברות"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "עצירה"
 
 #. Type: text
 #. Description
@@ -1350,6 +1350,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"חיבור מחשב זה לרשת אלחוטית יאפשר לך להתקין תוכנות צד־שלישי, להוריד עדכונים, "
+"לזהות אוטומטית את אזור הזמן שלך ולהתקין תמיכה מלאה בשפה שלך."
 
 #. Type: text
 #. Description
@@ -1372,30 +1374,23 @@ msgstr "ייעשה שימוש בכונן כולו:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#| "partitioning tool</a> for more control"
+#, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"%d מחיצות קטנות יותר מוסתרות, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</a> "
-"לשליטה טובה יותר"
+"‫<small>%d מחיצות קטנות יותר מוסתרות, יש להשתמש ב <a href=\"\">כלי המחיצות "
+"המתקדם</a> לקבלת שליטה טובה יותר</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
-#, fuzzy
-#| msgid ""
-#| "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#| "tool</a> for more control"
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"מחיצה אחת קטנה יותר מוסתרת, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</a> "
-"לשליטה טובה יותר"
+"‫<small>מחיצה אחת קטנה יותר מוסתרת, יש להשתמש ב <a href=\"\">כלי המחיצות "
+"המתקדם</a> לקבלת שליטה טובה יותר</small>"
 
 #. Type: text
 #. Description
@@ -1811,6 +1806,9 @@ msgstr "החבילות מוסרות"
 #~ msgid "Allocate drive space"
 #~ msgstr "הקצאת מקום בכונן"
 
+#~ msgid "Please select your wireless network from this list"
+#~ msgstr "נא לבחור את הרשת האלחוטית שלך מהרשימה שלהלן"
+
 #~ msgid ""
 #~ "We're sorry; the installer crashed. Please file a new bug report at "
 #~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
@@ -1825,8 +1823,19 @@ msgstr "החבילות מוסרות"
 #~ "לסייע למפתחים להבין מהו מקור הבעיה, מומלץ לכלול את הפרטים הבאים בדיווח "
 #~ "התקלה שלך ולהוסיף את הקבצים ‎/var/log/syslog ו־‎/var/log/partman:"
 
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "נא לבחור את הרשת האלחוטית שלך מהרשימה שלהלן"
+#~ msgid ""
+#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
+#~ "partitioning tool</a> for more control"
+#~ msgstr ""
+#~ "%d מחיצות קטנות יותר מוסתרות, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</"
+#~ "a> לשליטה טובה יותר"
+
+#~ msgid ""
+#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
+#~ "tool</a> for more control"
+#~ msgstr ""
+#~ "מחיצה אחת קטנה יותר מוסתרת, יש להשתמש ב<a href=\"\">כלי המחיצות המתקדם</"
+#~ "a> לשליטה טובה יותר"
 
 #~ msgid ""
 #~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
