@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity import plugin
-from ubiquity import misc, osextras, i18n
+from ubiquity import misc, osextras, i18n, nm
 from hashlib import md5
 import os
 import sys
@@ -71,16 +71,10 @@ class PreparePageBase(plugin.PluginUI):
         power_state_changed()
 
     def setup_network_watch(self):
-        # TODO abstract so we can support connman.
-        bus = dbus.SystemBus()
-        bus.add_signal_receiver(self.network_change, 'DeviceNoLongerActive',
-                                NM, NM, NM_PATH)
-        bus.add_signal_receiver(self.network_change, 'StateChange',
-                                NM, NM, NM_PATH)
         self.timeout_id = None
         self.wget_retcode = None
         self.wget_proc = None
-        self.network_change()
+        nm.add_connection_watch(self.network_change)
 
     @plugin.only_this_page
     def check_returncode(self, *args):
@@ -98,12 +92,15 @@ class PreparePageBase(plugin.PluginUI):
                 h.update(self.wget_proc.stdout.read())
                 if WGET_HASH == h.hexdigest():
                     state = True
-            self.prepare_network_connection.set_state(state)
-            self.enable_download_updates(state)
-            if not state:
-                self.set_download_updates(False)
-            self.controller.dbfilter.set_online_state(state)
+            self.set_state(state)
             return False
+
+    def set_state(self, state):
+        self.prepare_network_connection.set_state(state)
+        self.enable_download_updates(state)
+        if not state:
+            self.set_download_updates(False)
+        self.controller.dbfilter.set_online_state(state)
 
     def set_sufficient_space(self, state):
         if not state:
@@ -128,40 +125,29 @@ class PageGtk(PreparePageBase):
             self.page = None
             return
         self.controller = controller
-        try:
-            from gi.repository import Gtk
-            builder = Gtk.Builder()
-            self.controller.add_builder(builder)
-            builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPrepare.ui'))
-            builder.connect_signals(self)
-            self.page = builder.get_object('stepPrepare')
-            self.prepare_download_updates = builder.get_object('prepare_download_updates')
-            self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
-            self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
-            self.prepare_foss_disclaimer = builder.get_object('prepare_foss_disclaimer')
-            self.prepare_foss_disclaimer_extra = builder.get_object('prepare_foss_disclaimer_extra_label')
-            # TODO we should set these up and tear them down while on this page.
-            try:
-                from dbus.mainloop.glib import DBusGMainLoop
-                DBusGMainLoop(set_as_default=True)
-                self.prepare_power_source = builder.get_object('prepare_power_source')
-                self.setup_power_watch()
-            except Exception, e:
-                # TODO use an inconsistent state?
-                print 'unable to set up power source watch:', e
-            try:
-                self.prepare_network_connection = builder.get_object('prepare_network_connection')
-                self.setup_network_watch()
-            except Exception, e:
-                print 'unable to set up network connection watch:', e
-        except Exception, e:
-            self.debug('Could not create prepare page: %s', e)
-            self.page = None
+        from gi.repository import Gtk
+        builder = Gtk.Builder()
+        self.controller.add_builder(builder)
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPrepare.ui'))
+        builder.connect_signals(self)
+        self.page = builder.get_object('stepPrepare')
+        self.prepare_download_updates = builder.get_object('prepare_download_updates')
+        self.prepare_nonfree_software = builder.get_object('prepare_nonfree_software')
+        self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
+        self.prepare_foss_disclaimer = builder.get_object('prepare_foss_disclaimer')
+        self.prepare_foss_disclaimer_extra = builder.get_object('prepare_foss_disclaimer_extra_label')
+        from dbus.mainloop.glib import DBusGMainLoop
+        DBusGMainLoop(set_as_default=True)
+        self.prepare_power_source = builder.get_object('prepare_power_source')
+        self.setup_power_watch()
+        self.prepare_network_connection = builder.get_object('prepare_network_connection')
+        self.setup_network_watch()
         self.plugin_widgets = self.page
 
-    def network_change(self, state=None):
+    def network_change(self, online=False):
         from gi.repository import GObject
-        if state and (state != 4 and state != 3):
+        if not online:
+            self.set_state(False)
             return
         if self.timeout_id:
             GObject.source_remove(self.timeout_id)
@@ -240,9 +226,10 @@ class PageKde(PreparePageBase):
             self.page = None
         self.plugin_widgets = self.page
 
-    def network_change(self, state=None):
+    def network_change(self, online=False):
         from PyQt4.QtCore import QTimer, SIGNAL
-        if state and (state != 4 and state != 3):
+        if not online:
+            self.set_state(False)
             return
         QTimer.singleShot(300, self.check_returncode)
         self.timer = QTimer(self.page)

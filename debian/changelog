@@ -16,6 +16,9 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
     time, so ensure that the placeholder text isn't so long as to create
     the installer window to grow excessively large before partitioning
     is reached (LP: #837406).
+  * Use the new network-manager interface on the prepare page to disable
+    options that need an Internet connection when one is not available
+    (LP: #848938).
 
   [ Stéphane Graber ]
   * Change wallpaper C program to accept a path to a wallpaper as a parameter.

@@ -66,6 +66,15 @@ def has_connection():
     state = get_prop(manager, NM, 'state')
     return state == NM_STATE_CONNECTED_GLOBAL
 
+def add_connection_watch(func):
+    print 'now adding connection watch'
+    def connection_cb(state):
+        print 'connection changed', state == NM_STATE_CONNECTED_GLOBAL
+        func(state == NM_STATE_CONNECTED_GLOBAL)
+    bus = dbus.SystemBus()
+    bus.add_signal_receiver(connection_cb, 'StateChanged', NM, NM)
+    func(has_connection())
+
 class NetworkManager:
     def __init__(self, model, state_changed=None):
         self.model = model
