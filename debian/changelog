@@ -14,7 +14,7 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
     GtkBuilder signal mapping appears to be broken (LP: #852054).
 
   [ Stéphane Graber ]
-  * Change wallpapeer C program to accept a path to a wallpaper as a parameter.
+  * Change wallpaper C program to accept a path to a wallpaper as a parameter.
   * Update ubiquity-dm to set the right wallpaper for Edubuntu.
   * Fix ibus in Ubiquity (LP: #838850)
 
