@@ -20,6 +20,8 @@ ubiquity (2.7.10) UNRELEASED; urgency=low
     options that need an Internet connection when one is not available
     (LP: #848938).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu32.
 
   [ Stéphane Graber ]
   * Change wallpaper C program to accept a path to a wallpaper as a parameter.
