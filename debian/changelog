@@ -1,3 +1,9 @@
+ubiquity (2.7.31) UNRELEASED; urgency=low
+
+  * Build-depend on the GTK3 version of libindicator.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 19 Sep 2011 21:17:35 +0100
+
 ubiquity (2.7.30) oneiric; urgency=low
 
   [ Harald Sitter ]
