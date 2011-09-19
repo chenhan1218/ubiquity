@@ -702,8 +702,8 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
 
-        self.live_installer.set_default_icon_from_file('/usr/share/pixmaps/'
-                                                       'ubiquity.png')
+        self.live_installer.set_default_icon_from_file(os.path.join(PIXMAPS,
+                                                        'ubiquity.png'))
         provider = Gtk.CssProvider()
         provider.load_from_data('''#live_installer,
 #page_title,
