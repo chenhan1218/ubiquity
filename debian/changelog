@@ -8,6 +8,8 @@ ubiquity (2.7.31) UNRELEASED; urgency=low
     ubiquity.upower module, allowing us to patch it out more easily while
     running tests.  Patch ubiquity.nm.add_connection_watch and
     ubiquity.nm.has_connection in the GTK frontend tests as well.
+  * Automatic update of included source packages: apt-setup 1:0.49ubuntu9,
+    netcfg 1.68ubuntu4.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 19 Sep 2011 21:17:35 +0100
 
