@@ -17,14 +17,14 @@ class TestFrontend(unittest.TestCase):
                     'ubiquity.frontend.base.drop_privileges',
                     'ubiquity.frontend.gtk_ui.Wizard.customize_installer',
                     'ubiquity.nm.wireless_hardware_present',
-                    'ubiquity.nm.add_connection_watch',
-                    'ubiquity.nm.has_connection',
+                    'ubiquity.misc.add_connection_watch',
+                    'ubiquity.misc.has_connection',
                     'ubiquity.upower.setup_power_watch'):
             patcher = mock.patch(obj)
             patcher.start()
             self.addCleanup(patcher.stop)
-            if obj in ('ubiquity.nm.wireless_hardware_present',
-                       'ubiquity.nm.has_connection'):
+            if obj in ('ubiquity.misc.wireless_hardware_present',
+                       'ubiquity.misc.has_connection'):
                 patcher.return_value = False
 
     def test_question_dialog(self):

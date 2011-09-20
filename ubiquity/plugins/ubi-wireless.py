@@ -17,7 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity import plugin
+from ubiquity import plugin, misc
 import os
 
 NAME = 'wireless'
@@ -31,7 +31,7 @@ class PageGtk(plugin.PluginUI):
         from ubiquity import nm
         from gi.repository import Gtk
         if ('UBIQUITY_AUTOMATIC' in os.environ
-            or not nm.wireless_hardware_present() or nm.has_connection()):
+            or not nm.wireless_hardware_present() or misc.has_connection()):
             self.page = None
             return
         self.controller = controller
