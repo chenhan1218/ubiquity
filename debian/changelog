@@ -1,10 +1,10 @@
-ubiquity (2.7.33) UNRELEASED; urgency=low
+ubiquity (2.7.33) oneiric; urgency=low
 
   * Move watching Internet connectivity to the frontends themselves,
     which then ask each plugin to act accordingly (LP: #854706).
   * Update translations from Launchpad.
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 20 Sep 2011 17:11:41 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 20 Sep 2011 19:22:01 +0100
 
 ubiquity (2.7.32) oneiric; urgency=low
 
