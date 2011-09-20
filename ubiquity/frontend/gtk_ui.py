@@ -41,6 +41,7 @@ import gettext
 import ConfigParser
 
 import dbus
+import debconf
 
 #in query mode we won't be in X, but import needs to pass
 if 'DISPLAY' in os.environ:
@@ -215,6 +216,7 @@ class Wizard(BaseFrontend):
         self.finished_installing = False
         self.finished_pages = False
         self.parallel_db = None
+        self.timeout_id = None
 
         # To get a "busy mouse":
         self.watch = Gdk.Cursor.new(Gdk.CursorType.WATCH)
@@ -297,6 +299,7 @@ class Wizard(BaseFrontend):
         self.translate_widgets(reget=True)
 
         self.customize_installer()
+        misc.add_connection_watch(self.network_change)
 
         # Put up the a11y indicator in maybe-ubiquity mode
         if ('UBIQUITY_GREETER' in os.environ and os.path.exists('/usr/bin/casper-a11y-enable')):
@@ -396,6 +399,31 @@ class Wizard(BaseFrontend):
                 Gtk.main_iteration()
             misc.execute_root("apport-bug", "ubiquity")
             sys.exit(1)
+
+    def network_change(self, online=False):
+        from gi.repository import GObject
+        if not online:
+            self.set_online_state(False)
+            return
+        if self.timeout_id:
+            GObject.source_remove(self.timeout_id)
+        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
+
+    def set_online_state(self, state):
+        for p in self.pages:
+            if hasattr(p.ui, 'plugin_set_online_state'):
+                p.ui.plugin_set_online_state(state)
+        try:
+            # We maintain this state in debconf so that plugins, specficially
+            # the timezone plugin and apt-setup, can be told to not hit the
+            # Internet.
+            if state:
+                val = 'true'
+            else:
+                val = 'false'
+            self.custom_title = self.db.set('ubiquity/online', val)
+        except debconf.DebconfError:
+            print >>sys.stderr, 'Could not set online state'
 
     def thunar_set_volmanrc (self, fields):
         previous = {}

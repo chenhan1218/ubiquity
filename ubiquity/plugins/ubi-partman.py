@@ -495,6 +495,9 @@ class PageGtk(PageBase):
     def set_autopartition_heading(self, heading):
         self.part_ask_heading.set_label(heading)
 
+    def plugin_set_online_state(self, state):
+        self.reuse_partition.set_sensitive(state)
+
     def set_autopartition_options(self, options, extra_options):
         # TODO Need to select a radio button when resize isn't around.
         self.extra_options = extra_options
@@ -1724,9 +1727,6 @@ class Page(plugin.Plugin):
         '''Takes the current Ubuntu version on disk and the release we're about
         to install as parameters.'''
 
-        if self.db.get('ubiquity/online') != 'true':
-            self.debug('Not online, so not showing the upgrade option.')
-            return None
         # TODO: verify that ubuntu is the same partition as one of the ones
         #       offered in the reuse options.
         release = misc.get_release()

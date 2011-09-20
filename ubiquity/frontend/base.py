@@ -22,15 +22,19 @@
 import sys
 import os
 import syslog
-
 import debconf
+import subprocess
 from ubiquity.debconfcommunicator import DebconfCommunicator
 from ubiquity.misc import drop_privileges, execute_root
 from ubiquity import i18n
 from ubiquity import plugin_manager
+from hashlib import md5
 
 # Lots of intentionally unused arguments here (abstract methods).
 __pychecker__ = 'no-argsused'
+
+WGET_URL = 'http://start.ubuntu.com/connectivity-check.html'
+WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 
 class Controller:
     def __init__(self, wizard):
@@ -86,6 +90,8 @@ class BaseFrontend:
         self.resize_choice = None
         self.manual_choice = None
         self.locale = None
+        self.wget_retcode = None
+        self.wget_proc = None
 
         # Drop privileges so we can run the frontend as a regular user, and
         # thus talk to a11y applications running as a regular user.
@@ -437,3 +443,25 @@ class BaseFrontend:
                 locale_choice = ll
 
         return locale_choice
+
+    def check_returncode(self, *args):
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', WGET_URL, '--timeout=15', '-O', '-'],
+                stdout=subprocess.PIPE)
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            state = False
+            if self.wget_retcode == 0:
+                h = md5()
+                h.update(self.wget_proc.stdout.read())
+                if WGET_HASH == h.hexdigest():
+                    state = True
+            self.set_online_state(state)
+            return False
+
+    def set_online_state(self, state):
+        pass
+

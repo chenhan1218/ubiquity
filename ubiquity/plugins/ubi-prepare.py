@@ -18,26 +18,19 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from ubiquity import plugin
-from ubiquity import misc, osextras, i18n, nm, upower
-from hashlib import md5
+from ubiquity import misc, osextras, i18n, upower
 import os
 import sys
-import subprocess
 import dbus
+import subprocess
 
 NAME = 'prepare'
 AFTER = 'language'
 WEIGHT = 11
 OEM = False
 
-NM = 'org.freedesktop.NetworkManager'
-NM_PATH = '/org/freedesktop/NetworkManager'
-
 JOCKEY = 'com.ubuntu.DeviceDriver'
 JOCKEY_PATH = '/DeviceDriver'
-
-WGET_URL = 'http://start.ubuntu.com/connectivity-check.html'
-WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
 
 # From dbus-python:
 #  if (timeout_s > ((double)INT_MAX) / 1000.0) {
@@ -56,37 +49,11 @@ MAX_DBUS_TIMEOUT = INT_MAX / 1000.0
 class PreparePageBase(plugin.PluginUI):
     plugin_title = 'ubiquity/text/prepare_heading_label'
 
-    def setup_network_watch(self):
-        self.timeout_id = None
-        self.wget_retcode = None
-        self.wget_proc = None
-        nm.add_connection_watch(self.network_change)
-
-    @plugin.only_this_page
-    def check_returncode(self, *args):
-        if self.wget_retcode is not None or self.wget_proc is None:
-            self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15', '-O', '-'],
-                stdout=subprocess.PIPE)
-        self.wget_retcode = self.wget_proc.poll()
-        if self.wget_retcode is None:
-            return True
-        else:
-            state = False
-            if self.wget_retcode == 0:
-                h = md5()
-                h.update(self.wget_proc.stdout.read())
-                if WGET_HASH == h.hexdigest():
-                    state = True
-            self.set_state(state)
-            return False
-
-    def set_state(self, state):
+    def plugin_set_online_state(self, state):
         self.prepare_network_connection.set_state(state)
         self.enable_download_updates(state)
         if not state:
             self.set_download_updates(False)
-        self.controller.dbfilter.set_online_state(state)
 
     def set_sufficient_space(self, state):
         if not state:
@@ -127,17 +94,7 @@ class PageGtk(PreparePageBase):
         self.prepare_power_source = builder.get_object('prepare_power_source')
         upower.setup_power_watch(self.prepare_power_source)
         self.prepare_network_connection = builder.get_object('prepare_network_connection')
-        self.setup_network_watch()
         self.plugin_widgets = self.page
-
-    def network_change(self, online=False):
-        from gi.repository import GObject
-        if not online:
-            self.set_state(False)
-            return
-        if self.timeout_id:
-            GObject.source_remove(self.timeout_id)
-        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
 
     def enable_download_updates(self, val):
         self.prepare_download_updates.set_sensitive(val)
@@ -203,7 +160,6 @@ class PageKde(PreparePageBase):
             try:
                 self.prepare_network_connection = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_network_connection)
-                self.setup_network_watch()
             except Exception, e:
                 print 'unable to set up network connection watch:', e
         except Exception, e:
@@ -211,22 +167,6 @@ class PageKde(PreparePageBase):
             self.debug('Could not create prepare page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
-
-    def network_change(self, online=False):
-        from PyQt4.QtCore import QTimer, SIGNAL
-        if not online:
-            self.set_state(False)
-            return
-        QTimer.singleShot(300, self.check_returncode)
-        self.timer = QTimer(self.page)
-        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
-        self.timer.start(300)
-
-    def check_returncode(self, *args):
-        from PyQt4.QtCore import SIGNAL
-        if not super(PageKde, self).check_returncode(args):
-            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
-                self.check_returncode)
 
     def enable_download_updates(self, val):
         self.prepare_download_updates.setEnabled(val)
@@ -345,8 +285,3 @@ class Page(plugin.Plugin):
                 env['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
                 subprocess.Popen(['/usr/share/jockey/jockey-backend', '--timeout=120'], env=env)
         plugin.Plugin.ok_handler(self)
-
-    def set_online_state(self, state):
-        # We maintain this state in debconf so that plugins, specficially the
-        # timezone plugin and apt-setup, can be told to not hit the Internet.
-        self.preseed_bool('ubiquity/online', state)

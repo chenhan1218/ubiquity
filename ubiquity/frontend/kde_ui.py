@@ -209,6 +209,8 @@ class Wizard(BaseFrontend):
         self.ui.steps_widget.setVisible(False)
         self.ui.content_widget.setVisible(False)
 
+        misc.add_connection_watch(self.network_change)
+
         if 'UBIQUITY_GREETER' in os.environ:
             self.ui.minimize_button.hide()
 
@@ -377,6 +379,38 @@ class Wizard(BaseFrontend):
             dialog.crash_detail.setText(tbtext)
             dialog.exec_()
             sys.exit(1)
+
+    def network_change(self, online=False):
+        from PyQt4.QtCore import QTimer, SIGNAL
+        if not online:
+            self.set_online_state(False)
+            return
+        QTimer.singleShot(300, self.check_returncode)
+        self.timer = QTimer(self.ui)
+        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
+        self.timer.start(300)
+
+    def check_returncode(self, *args):
+        from PyQt4.QtCore import SIGNAL
+        if not BaseFrontend.check_returncode(self, args):
+            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
+                self.check_returncode)
+
+    def set_online_state(self, state):
+        for p in self.pages:
+            if hasattr(p.ui, 'plugin_set_online_state'):
+                p.ui.plugin_set_online_state(state)
+        try:
+            # We maintain this state in debconf so that plugins, specficially
+            # the timezone plugin and apt-setup, can be told to not hit the
+            # Internet.
+            if state:
+                val = 'true'
+            else:
+                val = 'false'
+            self.custom_title = self.db.set('ubiquity/online', val)
+        except debconf.DebconfError:
+            print >>sys.stderr, 'Could not set online state'
 
     # Disable the KDE media notifier to avoid problems during partitioning.
     def disable_volume_manager(self):

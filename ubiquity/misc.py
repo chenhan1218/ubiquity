@@ -596,4 +596,32 @@ def set_indicator_keymaps(locale):
     # Use the system default if no other keymaps can be determined.
     gconftool.set_list(gconf_key, 'string', '')
 
+NM = 'org.freedesktop.NetworkManager'
+NM_STATE_CONNECTED_GLOBAL = 70
+
+def get_prop(obj, iface, prop):
+    import dbus
+    try:
+        return obj.Get(iface, prop, dbus_interface=dbus.PROPERTIES_IFACE)
+    except dbus.DBusException, e:
+        if e.get_dbus_name() == 'org.freedesktop.DBus.Error.UnknownMethod':
+            return None
+        else:
+            raise
+
+def has_connection():
+    import dbus
+    bus = dbus.SystemBus()
+    manager = bus.get_object(NM, '/org/freedesktop/NetworkManager')
+    state = get_prop(manager, NM, 'state')
+    return state == NM_STATE_CONNECTED_GLOBAL
+
+def add_connection_watch(func):
+    import dbus
+    def connection_cb(state):
+        func(state == NM_STATE_CONNECTED_GLOBAL)
+    bus = dbus.SystemBus()
+    bus.add_signal_receiver(connection_cb, 'StateChanged', NM, NM)
+    func(has_connection())
+
 # vim:ai:et:sts=4:tw=80:sw=4:

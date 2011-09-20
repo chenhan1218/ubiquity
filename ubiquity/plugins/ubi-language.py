@@ -67,6 +67,9 @@ class PageGtk(PageBase):
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
+        self.timeout_id = None
+        self.wget_retcode = None
+        self.wget_proc = None
         if self.controller.oem_user_config:
             ui_file = 'stepLanguageOnly.ui'
             self.only = True
@@ -121,77 +124,7 @@ class PageGtk(PageBase):
             # it's ready.
             for w in self.page.get_children():
                 w.hide()
-            if self.update_installer:
-                self.setup_network_watch()
-
         self.plugin_widgets = self.page
-
-    def setup_network_watch(self):
-        import dbus
-        from dbus.mainloop.glib import DBusGMainLoop
-        try:
-            DBusGMainLoop(set_as_default=True)
-            bus = dbus.SystemBus()
-            bus.add_signal_receiver(self.network_change,
-                                    'DeviceNoLongerActive',
-                                    'org.freedesktop.NetworkManager',
-                                    'org.freedesktop.NetworkManager',
-                                    '/org/freedesktop/NetworkManager')
-            bus.add_signal_receiver(self.network_change, 'StateChange',
-                                    'org.freedesktop.NetworkManager',
-                                    'org.freedesktop.NetworkManager',
-                                    '/org/freedesktop/NetworkManager')
-        except dbus.DBusException:
-            return
-        self.timeout_id = None
-        self.wget_retcode = None
-        self.wget_proc = None
-        self.wget_retcode_release_notes = None
-        self.wget_proc_release_notes = None
-        self.network_change()
-
-    def network_change(self, state=None):
-        from gi.repository import GObject
-        if state and (state != 4 and state != 3):
-            return
-        if self.timeout_id:
-            GObject.source_remove(self.timeout_id)
-        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
-        self.timeout_id = GObject.timeout_add(300, self.check_returncode_release_notes)
-
-    def check_returncode(self, *args):
-        import subprocess
-        if self.wget_retcode is not None or self.wget_proc is None:
-            self.wget_proc = subprocess.Popen(
-                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
-        self.wget_retcode = self.wget_proc.poll()
-        if self.wget_retcode is None:
-            return True
-        else:
-            if self.wget_retcode == 0:
-                self.update_installer = True
-            else:
-                self.update_installer = False
-            self.update_release_notes_label()
-            return False
-
-    def check_returncode_release_notes(self, *args):
-        import subprocess
-        if not self.release_notes_url:
-            return False
-        if self.wget_retcode_release_notes is not None or self.wget_proc_release_notes is None:
-            self.wget_proc_release_notes = subprocess.Popen(
-                ['wget', '-q', self.release_notes_url, '--timeout=15', '-O', '/dev/null'])
-        self.wget_retcode_release_notes = self.wget_proc_release_notes.poll()
-        if self.wget_retcode_release_notes is None:
-            return True
-        else:
-            if self.wget_retcode_release_notes == 0:
-                self.release_notes_found = True
-            else:
-                self.release_notes_found = False
-            self.update_release_notes_label()
-            return False
 
     @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
@@ -354,6 +287,33 @@ class PageGtk(PageBase):
         for w in self.page.get_children():
             w.show()
 
+    def plugin_set_online_state(self, state):
+        from gi.repository import GObject
+        if self.release_notes_label:
+            if self.timeout_id:
+                GObject.source_remove(self.timeout_id)
+            if state:
+                self.release_notes_label.show()
+                self.timeout_id = GObject.timeout_add(300, self.check_returncode)
+            else:
+                self.release_notes_label.hide()
+
+    def check_returncode(self, *args):
+        import subprocess
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            if self.wget_retcode == 0:
+                self.update_installer = True
+            else:
+                self.update_installer = False
+            self.update_release_notes_label()
+            return False
+
     def update_release_notes_label(self):
         print "update_release_notes_label()"
         lang = self.get_language()
@@ -411,6 +371,8 @@ class PageKde(PageBase):
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
+        self.wget_retcode = None
+        self.wget_proc = None
         if self.controller.oem_user_config:
             self.only = True
         else:
@@ -468,7 +430,6 @@ class PageKde(PageBase):
 
             if self.only:
                 self.page.alpha_warning_label.hide()
-            self.setup_network_watch()
             # We do not want to show the yet to be substituted strings
             # (${MEDIUM}, etc), so don't show the core of the page until
             # it's ready.
@@ -483,75 +444,6 @@ class PageKde(PageBase):
             self.page = None
 
         self.plugin_widgets = self.page
-
-    #FIXME these three functions duplicate lots from GTK page above and from ubi-prepare.py
-    def setup_network_watch(self):
-        import dbus
-        try:
-            bus = dbus.SystemBus()
-            bus.add_signal_receiver(self.network_change,
-                                    'DeviceNoLongerActive',
-                                    'org.freedesktop.NetworkManager',
-                                    'org.freedesktop.NetworkManager',
-                                    '/org/freedesktop/NetworkManager')
-            bus.add_signal_receiver(self.network_change, 'StateChange',
-                                    'org.freedesktop.NetworkManager',
-                                    'org.freedesktop.NetworkManager',
-                                    '/org/freedesktop/NetworkManager')
-        except dbus.DBusException:
-            return
-        self.timeout_id = None
-        self.wget_retcode = None
-        self.wget_proc = None
-        self.wget_retcode_release_notes = None
-        self.wget_proc_release_notes = None
-        self.network_change()
-
-    def network_change(self, state=None):
-        from PyQt4.QtCore import QTimer, SIGNAL
-        if state and (state != 4 and state != 3):
-            return
-        QTimer.singleShot(300, self.check_returncode)
-        self.timer = QTimer(self.page)
-        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode)
-        self.timer.connect(self.timer, SIGNAL("timeout()"), self.check_returncode_release_notes)
-        self.timer.start(300)
-
-    def check_returncode(self, *args):
-        import subprocess
-        from PyQt4.QtCore import SIGNAL
-        if self.wget_retcode is not None or self.wget_proc is None:
-            self.wget_proc = subprocess.Popen(
-                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
-        self.wget_retcode = self.wget_proc.poll()
-        if self.wget_retcode is None:
-            return True
-        else:
-            if self.wget_retcode == 0:
-                self.update_installer = True
-            else:
-                self.update_installer = False
-            self.update_release_notes_label()
-            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
-                self.check_returncode)
-
-    def check_returncode_release_notes(self, *args):
-        import subprocess
-        from PyQt4.QtCore import SIGNAL
-        if self.wget_retcode_release_notes is not None or self.wget_proc_release_notes is None:
-            self.wget_proc_release_notes = subprocess.Popen(
-                ['wget', '-q', self.release_notes_url, '--timeout=15', '-O', '/dev/null'])
-        self.wget_retcode_release_notes = self.wget_proc_release_notes.poll()
-        if self.wget_retcode_release_notes is None:
-            return True
-        else:
-            if self.wget_retcode_release_notes == 0:
-                self.release_notes_found = True
-            else:
-                self.release_notes_found = False
-            self.update_release_notes_label()
-            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
-                self.check_returncode_release_notes)
 
     @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
@@ -646,6 +538,38 @@ class PageKde(PageBase):
         for w in self.widgetHidden:
             w.show()
         self.widgetHidden = []
+
+    def plugin_set_online_state(self, state):
+        from PyQt4.QtCore import QTimer, SIGNAL
+        if self.page.release_notes_label:
+            if state:
+                self.page.release_notes_label.show()
+                QTimer.singleShot(300, self.check_returncode)
+                self.timer = QTimer(self.page)
+                self.timer.connect(self.timer, SIGNAL("timeout()"),
+                    self.check_returncode)
+                self.timer.start(300)
+            else:
+                self.page.release_notes_label.hide()
+
+    def check_returncode(self, *args):
+        import subprocess
+        from PyQt4.QtCore import SIGNAL
+        if self.wget_retcode is not None or self.wget_proc is None:
+            self.wget_proc = subprocess.Popen(
+                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
+        self.wget_retcode = self.wget_proc.poll()
+        if self.wget_retcode is None:
+            return True
+        else:
+            if self.wget_retcode == 0:
+                self.update_installer = True
+            else:
+                self.update_installer = False
+            self.update_release_notes_label()
+            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
+                self.check_returncode)
+
 
     def update_release_notes_label(self):
         lang = self.selected_language()
