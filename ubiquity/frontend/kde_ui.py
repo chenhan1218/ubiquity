@@ -397,6 +397,7 @@ class Wizard(BaseFrontend):
                 self.check_returncode)
 
     def set_online_state(self, state):
+        import debconf
         for p in self.pages:
             if hasattr(p.ui, 'plugin_set_online_state'):
                 p.ui.plugin_set_online_state(state)
