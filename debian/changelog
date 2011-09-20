@@ -2,6 +2,7 @@ ubiquity (2.7.33) UNRELEASED; urgency=low
 
   * Move watching Internet connectivity to the frontends themselves,
     which then ask each plugin to act accordingly (LP: #854706).
+  * Update translations from Launchpad.
 
  -- Evan Dandrea <ev@ubuntu.com>  Tue, 20 Sep 2011 17:11:41 +0100
 

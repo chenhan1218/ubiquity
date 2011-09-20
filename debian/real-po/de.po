@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-09 12:15+0000\n"
+"PO-Revision-Date: 2011-09-20 10:21+0000\n"
 "Last-Translator: Hendrik Knackstedt <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
 "X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
@@ -221,7 +221,7 @@ msgstr "Wer sind Sie?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Wählen Sie ein Bild"
 
 #. Type: text
 #. Description
@@ -353,6 +353,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Dieses Bild repräsentiert Sie in den Kontoeinstellungen, dem "
+"Anmeldebildschirm sowie bei gesperrtem Bildschirm."
 
 #. Type: text
 #. Description
@@ -379,7 +381,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Installationsart"
 
 #. Type: text
 #. Description
@@ -521,6 +523,13 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Es tut uns leid; das Installationsprogramm ist abgestürzt. Nachdem Sie "
+"dieses Fenster geschlossen haben, werden wir Ihnen die Möglichkeit geben, "
+"einen Fehlerbericht über das integrierte Werkzeug zur "
+"Fehlerberichterstattung abzugeben. Dieses wird Informationen über Ihr System "
+"sowie Ihren Installationsvorgang sammeln, welche anschließend an unser "
+"Fehlerdatenbank gesendet werden und ein Entwickler wird sich dem Problem so "
+"schnell wie möglich annehmen."
 
 #. Type: text
 #. Description
@@ -712,14 +721,14 @@ msgstr "Weiter"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Verbinden"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Anhalten"
 
 #. Type: text
 #. Description
@@ -1395,6 +1404,10 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Das Verbinden dieses Rechners mit einem Funknetzwerk erlaubt es Ihnen, "
+"Anwendungen von Drittanbietern zu installieren, Aktualisierungen "
+"herunterzuladen, Ihre Zeitzone automatisch zu ermitteln und eine "
+"vollständige Sprachunterstützung zu installieren."
 
 #. Type: text
 #. Description
@@ -1424,6 +1437,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d kleinere Partitionen werden versteckt, verwenden Sie das <a href="
+"\"\">erweiterte Partitionierungswerkzeug</a> für weitere Optionen</small>"
 
 #. Type: text
 #. Description
@@ -1432,6 +1447,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 kleinere Partition wird versteckt, verwenden Sie das <a href="
+"\"\">erweiterte Partitionierungswerkzeug</a> für weitere Optionen</small>"
 
 #. Type: text
 #. Description

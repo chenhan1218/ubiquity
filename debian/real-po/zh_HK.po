@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-17 04:56+0000\n"
+"PO-Revision-Date: 2011-09-20 17:13+0000\n"
 "Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 18:01+0000\n"
+"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
 "X-Generator: Launchpad (build 13980)\n"
 
 #. Type: text
@@ -156,7 +156,7 @@ msgstr "警告"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Where are you?"
-msgstr "您在哪裡?"
+msgstr "您在哪裏?"
 
 #. Type: text
 #. Description
@@ -393,7 +393,7 @@ msgstr "離開安裝程式？"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Do you really want to quit the installation now?"
-msgstr "您確定要現在離開安裝程式？"
+msgstr "你真的想現在退出安裝嗎？"
 
 #. Type: text
 #. Description
