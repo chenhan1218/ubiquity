@@ -41,7 +41,6 @@ import gettext
 import ConfigParser
 
 import dbus
-import debconf
 
 #in query mode we won't be in X, but import needs to pass
 if 'DISPLAY' in os.environ:
@@ -413,17 +412,6 @@ class Wizard(BaseFrontend):
         for p in self.pages:
             if hasattr(p.ui, 'plugin_set_online_state'):
                 p.ui.plugin_set_online_state(state)
-        try:
-            # We maintain this state in debconf so that plugins, specficially
-            # the timezone plugin and apt-setup, can be told to not hit the
-            # Internet.
-            if state:
-                val = 'true'
-            else:
-                val = 'false'
-            self.custom_title = self.db.set('ubiquity/online', val)
-        except debconf.DebconfError:
-            print >>sys.stderr, 'Could not set online state'
 
     def thunar_set_volmanrc (self, fields):
         previous = {}

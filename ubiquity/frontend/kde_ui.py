@@ -397,21 +397,9 @@ class Wizard(BaseFrontend):
                 self.check_returncode)
 
     def set_online_state(self, state):
-        import debconf
         for p in self.pages:
             if hasattr(p.ui, 'plugin_set_online_state'):
                 p.ui.plugin_set_online_state(state)
-        try:
-            # We maintain this state in debconf so that plugins, specficially
-            # the timezone plugin and apt-setup, can be told to not hit the
-            # Internet.
-            if state:
-                val = 'true'
-            else:
-                val = 'false'
-            self.custom_title = self.db.set('ubiquity/online', val)
-        except debconf.DebconfError:
-            print >>sys.stderr, 'Could not set online state'
 
     # Disable the KDE media notifier to avoid problems during partitioning.
     def disable_volume_manager(self):
