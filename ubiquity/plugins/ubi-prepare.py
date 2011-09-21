@@ -92,7 +92,10 @@ class PageGtk(PreparePageBase):
         from dbus.mainloop.glib import DBusGMainLoop
         DBusGMainLoop(set_as_default=True)
         self.prepare_power_source = builder.get_object('prepare_power_source')
-        upower.setup_power_watch(self.prepare_power_source)
+        if upower.has_battery():
+            upower.setup_power_watch(self.prepare_power_source)
+        else:
+            self.prepare_power_source.hide()
         self.prepare_network_connection = builder.get_object('prepare_network_connection')
         self.plugin_widgets = self.page
 
@@ -152,8 +155,11 @@ class PageKde(PreparePageBase):
             # TODO we should set these up and tear them down while on this page.
             try:
                 self.prepare_power_source = StateBox(self.page)
-                self.page.vbox1.addWidget(self.prepare_power_source)
-                upower.setup_power_watch(self.prepare_power_source)
+                if upower.has_battery():
+                    upower.setup_power_watch(self.prepare_power_source)
+                    self.page.vbox1.addWidget(self.prepare_power_source)
+                else:
+                    self.prepare_power_source.hide()
             except Exception, e:
                 # TODO use an inconsistent state?
                 print 'unable to set up power source watch:', e
