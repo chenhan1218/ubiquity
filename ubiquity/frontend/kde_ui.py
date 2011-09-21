@@ -209,8 +209,6 @@ class Wizard(BaseFrontend):
         self.ui.steps_widget.setVisible(False)
         self.ui.content_widget.setVisible(False)
 
-        misc.add_connection_watch(self.network_change)
-
         if 'UBIQUITY_GREETER' in os.environ:
             self.ui.minimize_button.hide()
 
@@ -352,6 +350,8 @@ class Wizard(BaseFrontend):
 
         self.ui.progressBar.hide()
         self.ui.progressCancel.hide()
+
+        misc.add_connection_watch(self.network_change)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
