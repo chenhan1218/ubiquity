@@ -1,11 +1,12 @@
-ubiquity (2.7.35) UNRELEASED; urgency=low
+ubiquity (2.7.35) oneiric; urgency=low
 
+  [ Evan Dandrea ]
   * Don't show the battery warning when the system is not battery
     powered (LP: #848000).
   * Move network watch initialization for the KDE frontend to the
     correct place (LP: #855763).
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 21 Sep 2011 16:38:44 +0100
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Sep 2011 15:52:42 -0400
 
 ubiquity (2.7.34) oneiric; urgency=low
 
