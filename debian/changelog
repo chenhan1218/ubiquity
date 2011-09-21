@@ -2,6 +2,8 @@ ubiquity (2.7.34) UNRELEASED; urgency=low
 
   * Disable setting the ubiquity/online debconf question for now. We're
     not actually using it for anything yet (LP: #855277).
+  * Disable the power indicator as it's causing g-s-d to spawn, which
+    races against our own spawning of it (LP: #854717).
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 21 Sep 2011 09:35:13 +0100
 

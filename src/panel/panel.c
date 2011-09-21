@@ -204,8 +204,6 @@ static const char* indicators[] = {
 	// Bluetooth
 	"/usr/lib/indicators3/6/libapplication.so",
 	"/usr/lib/indicators3/6/libsoundmenu.so",
-	// Reboot, shut down, ...
-	"/usr/lib/indicators3/6/libpower.so",
 	NULL
 };
 
