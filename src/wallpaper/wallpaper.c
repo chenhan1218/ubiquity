@@ -15,6 +15,7 @@
 #include <gdk/gdkx.h>
 #include <cairo-xlib.h>
 #include <sys/stat.h>
+#include <gtk/gtk.h>
 
 static cairo_surface_t *
 create_root_surface (GdkScreen *screen)
@@ -66,7 +67,7 @@ int main (int argc, char** argv) {
 	cairo_surface_t *surface;
 	struct stat st;
 
-	gdk_init (&argc, &argv);
+	gtk_init (&argc, &argv);
 
 	if (argc != 2 || stat(argv[1], &st) != 0) {
 		g_error ("First parameter must be an existing background");
@@ -95,5 +96,6 @@ int main (int argc, char** argv) {
 		gdk_flush ();
 		XClearWindow (GDK_SCREEN_XDISPLAY (screen), RootWindow (GDK_SCREEN_XDISPLAY (screen), i));
 	}
+	gtk_main ();
 	return 0;
 }
