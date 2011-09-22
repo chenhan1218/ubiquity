@@ -328,17 +328,12 @@ class PageGtk(PageBase):
             if self.release_notes_found and self.update_installer:
                 text = i18n.get_string('release_notes_label', lang)
                 self.release_notes_label.set_markup(text)
-                self.release_notes_label.show()
             elif self.release_notes_found:
                 text = i18n.get_string('release_notes_only', lang)
                 self.release_notes_label.set_markup(text)
-                self.release_notes_label.show()
             elif self.update_installer:
                 text = i18n.get_string('update_installer_only', lang)
                 self.release_notes_label.set_markup(text)
-                self.release_notes_label.show()
-            else:
-                self.release_notes_label.hide()
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
@@ -584,17 +579,12 @@ class PageKde(PageBase):
             if self.release_notes_found and self.update_installer:
                 text = i18n.get_string('release_notes_label', lang)
                 self.page.release_notes_label.setText(text)
-                self.page.release_notes_label.show()
             elif self.release_notes_found:
                 text = i18n.get_string('release_notes_only', lang)
                 self.page.release_notes_label.setText(text)
-                self.page.release_notes_label.show()
             elif self.update_installer:
                 text = i18n.get_string('update_installer_only', lang)
                 self.page.release_notes_label.setText(text)
-                self.page.release_notes_label.show()
-            else:
-                self.page.release_notes_label.hide()
 
     def set_oem_id(self, text):
         return self.page.oem_id_entry.setText(text)

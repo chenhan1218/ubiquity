@@ -1,3 +1,10 @@
+ubiquity (2.7.36) UNRELEASED; urgency=low
+
+  * Showing and hiding the release notes and update the instaler links
+    are now handled in the Internet connectivity callback (LP: #856213).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 22 Sep 2011 12:52:30 +0100
+
 ubiquity (2.7.35) oneiric; urgency=low
 
   [ Evan Dandrea ]
