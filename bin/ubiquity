@@ -455,6 +455,10 @@ def main(oem_config):
     parser.add_option('-b', '--no-bootloader', dest='bootloader',
                       action='store_true',
                       help='Do not install a bootloader.')
+    parser.add_option('--ldtp', dest='ldtp',
+                      action='store_true',
+                      help='Name widgets in ATK by their GtkBuilder names,' \
+                           'to support LDTP testing.')
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -489,6 +493,9 @@ def main(oem_config):
         os.environ['UBIQUITY_OEM_USER_CONFIG'] = '1'
         global TARGET
         TARGET = ''
+
+    if options.ldtp:
+        os.environ['UBIQUITY_LDTP'] = '1'
 
     acquire_lock()
 

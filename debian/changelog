@@ -1,3 +1,10 @@
+ubiquity (2.7.37) UNRELEASED; urgency=low
+
+  * Only set the ATK widget names to their GtkBuilder counterparts when
+    --ldtp is set (LP: #781385)
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 26 Sep 2011 11:02:46 +0100
+
 ubiquity (2.7.36) oneiric; urgency=low
 
   * Showing and hiding the release notes and update the instaler links
