@@ -30,6 +30,8 @@ console output
 
 script
     [ -f /var/lib/oem-config/run ]
+
+    frontend=
     type oem-config-firstboot >/dev/null 2>&1 || exit 0
 
     debug=
@@ -43,6 +45,10 @@ script
 	    # mode.
 	    boot=casper|single)
 		exit 0
+		;;
+	    ubiquity/frontend=*)
+		frontend="${x#*=}"
+		export FRONTEND=$frontend
 		;;
 	esac
     done
