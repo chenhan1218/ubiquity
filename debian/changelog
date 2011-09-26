@@ -3,6 +3,8 @@ ubiquity (2.7.37) UNRELEASED; urgency=low
   * Only set the ATK widget names to their GtkBuilder counterparts when
     --ldtp is set (LP: #781385)
   * Provide a means of preseeding an oem-config frontend (LP: #820514).
+  * Terminate the updates download process before we get to
+    remove_extras (LP: #743359).
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 26 Sep 2011 11:02:46 +0100
 
