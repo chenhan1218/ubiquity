@@ -45,6 +45,9 @@
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
                 <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
+				<accessibility>
+					<relation type="labelled-by" target="resize_use_free_title"/>
+				</accessibility>
                 <child>
                   <object class="GtkHBox" id="hbox1">
                     <property name="visible">True</property>
@@ -124,6 +127,10 @@
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
                 <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
+				<accessibility>
+					<relation type="labelled-by" target="replace_partition_title"/>
+				</accessibility>
+
                 <child>
                   <object class="GtkHBox" id="hbox5">
                     <property name="visible">True</property>
@@ -202,6 +209,10 @@
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
                 <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
+				<accessibility>
+					<relation type="labelled-by" target="reuse_partition_title"/>
+				</accessibility>
+
                 <child>
                   <object class="GtkHBox" id="hbox2">
                     <property name="visible">True</property>
@@ -281,6 +292,10 @@
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
                 <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
+				<accessibility>
+					<relation type="labelled-by" target="use_device_title"/>
+				</accessibility>
+
                 <child>
                   <object class="GtkHBox" id="hbox3">
                     <property name="visible">True</property>
@@ -379,6 +394,10 @@
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
                 <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
+				<accessibility>
+					<relation type="labelled-by" target="custom_partitioning_title"/>
+				</accessibility>
+
                 <child>
                   <object class="GtkHBox" id="hbox4">
                     <property name="visible">True</property>

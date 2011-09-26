@@ -124,17 +124,6 @@ class PageGtk(PageBase):
         self.custom_partitioning_title = builder.get_object('custom_partitioning_title')
         self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
 
-        # Ask page accessibility
-        from gi.repository import Atk
-        LABELLED_BY = Atk.RelationType.LABELLED_BY
-        LABEL_FOR = Atk.RelationType.LABEL_FOR
-        for x in ('use_device', 'replace_partition', 'reuse_partition',
-                  'resize_use_free', 'custom_partitioning'):
-            opt = getattr(self, x).get_accessible()
-            title = getattr(self, '%s_title' % x).get_accessible()
-            title.add_relationship(LABEL_FOR, opt)
-            opt.add_relationship(LABELLED_BY, title)
-
         # Advanced page
         self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
         self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
