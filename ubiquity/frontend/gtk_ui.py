@@ -171,9 +171,9 @@ class Wizard(BaseFrontend):
             """Make a widget callable by the toplevel."""
             if not isinstance(widget, Gtk.Widget):
                 return
+            name = Gtk.Buildable.get_name(widget)
+            widget.set_name(name)
             if 'UBIQUITY_LDTP' in os.environ:
-                name = Gtk.Buildable.get_name(widget)
-                widget.set_name(name)
                 atk_desc = widget.get_accessible()
                 atk_desc.set_name(name)
             self.all_widgets.add(widget)
