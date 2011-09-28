@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-20 13:41+0000\n"
+"PO-Revision-Date: 2011-09-22 19:05+0000\n"
 "Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -75,8 +75,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"コンピュータに変更を加えることなく ${MEDIUM} から直接 ${RELEASE} を試すことが"
-"できます。"
+"コンピューターに変更を加えることなく ${MEDIUM} から直接 ${RELEASE} を試すこと"
+"ができます。"
 
 #. Type: text
 #. Description
@@ -218,7 +218,7 @@ msgstr "あなたの情報を入力してください"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "写真を選択"
 
 #. Type: text
 #. Description
@@ -236,13 +236,13 @@ msgstr "あなたの名前"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Pick a username:"
-msgstr "ユーザ名の入力:"
+msgstr "ユーザー名の入力:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Username"
-msgstr "ユーザ名"
+msgstr "ユーザー名"
 
 #. Type: text
 #. Description
@@ -272,13 +272,13 @@ msgstr "パスワードの確認:"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Your computer's name:"
-msgstr "コンピュータの名前:"
+msgstr "コンピューターの名前:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "The name it uses when it talks to other computers."
-msgstr "他のコンピュータと通信するときに使用する名前です。"
+msgstr "他のコンピューターと通信するときに使用する名前です。"
 
 #. Type: text
 #. Description
@@ -349,6 +349,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"この写真はアカウントの設定/ログイン画面/画面のロックであなたを識別するための"
+"ものです。"
 
 #. Type: text
 #. Description
@@ -457,7 +459,7 @@ msgstr "インストールをキャンセルします。"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "This may leave your computer unable to boot."
-msgstr "このままではコンピュータがブートできないかもしれません。"
+msgstr "このままではコンピューターが起動できないかもしれません。"
 
 #. Type: text
 #. Description
@@ -684,8 +686,8 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "インストールが完了しました。このまま ${RELEASE} の試用を続けることもできます"
-"が、コンピュータを再起動するまでは、なにか変更を行ったり文書を保存してもデー"
-"タは残りません。"
+"が、コンピューターを再起動するまでは、なにか変更を行ったり文書を保存しても"
+"データは残りません。"
 
 #. Type: text
 #. Description
@@ -908,7 +910,7 @@ msgstr "ハードウェアを設定しています..."
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Installing third-party software..."
-msgstr "サードパーティ製のソフトウェアをインストールしています..."
+msgstr "サードパーティのソフトウェアをインストールしています..."
 
 #. Type: text
 #. Description
@@ -1239,7 +1241,7 @@ msgstr "ディスクのセットアップ"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "User Info"
-msgstr "ユーザ情報"
+msgstr "ユーザー情報"
 
 #. Type: text
 #. Description
@@ -1316,8 +1318,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"インストール時に利用する言語を選択してください。この言語はこのコンピュータの"
-"デフォルトの言語として設定されます。"
+"インストール時に利用する言語を選択してください。この言語はこのコンピューター"
+"のデフォルトの言語として設定されます。"
 
 #. Type: text
 #. Description
@@ -1326,8 +1328,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"設定作業で利用する言語を選択してください。この言語はこのコンピュータのデフォ"
-"ルトの言語として設定されます。"
+"設定作業で利用する言語を選択してください。この言語はこのコンピューターのデ"
+"フォルトの言語として設定されます。"
 
 #. Type: text
 #. Description
@@ -1374,6 +1376,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"このコンピューターをwi-fiネットワークに接続すると、サードパーティのソフトウェ"
+"アのインストールやアップデータのダウンロード、タイムゾーンの自動検出、利用す"
+"る言語を完全にサポートするソフトのインストールが可能になります。"
 
 #. Type: text
 #. Description
@@ -1401,6 +1406,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d個の小さなパーティションが隠されています。詳細な設定を行うには<a "
+"href=\"\">拡張パーティションツール</a>を利用してください</small>"
 
 #. Type: text
 #. Description
@@ -1409,6 +1416,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1個の小さなパーティションが隠されています。詳細な設定を行うには<a "
+"href=\"\">拡張パーティションツール</a>を利用してください</small>"
 
 #. Type: text
 #. Description
@@ -1441,7 +1450,7 @@ msgstr "最大パーティションを分割"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "For best results, please ensure that this computer:"
-msgstr "正常にインストールするためコンピュータを確認してください:"
+msgstr "正常にインストールするためコンピューターを確認してください:"
 
 #. Type: text
 #. Description
@@ -1491,7 +1500,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Install this third-party software"
-msgstr "サードパーティー・ソフトウェアをインストールする"
+msgstr "サードパーティーのソフトウェアをインストールする"
 
 #. Type: text
 #. Description
@@ -1613,8 +1622,8 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"${DISTRO} 用に、自分で複数のパーティションの作成・サイズ変更を行うことも、任"
-"意に選択することもできます。"
+"${DISTRO} 向けに、自分でパーティションの作成やサイズ変更を行ったり、複数の"
+"パーティションを選択することもできます。"
 
 #. Type: text
 #. Description
@@ -1806,10 +1815,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"新しいシステムで起動した時に、'oem'ユーザとして最初に選択したパスワードでログ"
-"インすることができます。このユーザは'sudo'を使うことで管理に必要な特権を扱う"
-"ことができます。これにより、必要な追加や変更をシステムに加えることができま"
-"す。"
+"新しいシステムで起動した時に、'oem'ユーザーとして最初に選択したパスワードでロ"
+"グインすることができます。このユーザーは'sudo'を使うことで管理に必要な特権を"
+"扱うことができます。これにより、必要な追加や変更をシステムに加えることができ"
+"ます。"
 
 #. Type: text
 #. Description
@@ -1820,8 +1829,8 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "システムを満足のいく状態に設定したら、'oem-config-prepare' を実行してくださ"
-"い。この操作により一時的に作成した 'oem' ユーザが削除され、次にPCが起動する際"
-"にエンドユーザにいくつかの設定に関する質問を行います。"
+"い。この操作により一時的に作成した 'oem' ユーザーが削除され、次回のコンピュー"
+"ター起動時にエンドユーザーに色々な設定に関する質問を行います。"
 
 #. Type: text
 #. Description

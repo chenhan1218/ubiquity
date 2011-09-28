@@ -9,6 +9,7 @@ ubiquity (2.7.37) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.57ubuntu26, grub-installer 1.68ubuntu2, hw-detect 1.81ubuntu3,
     netcfg 1.68ubuntu5, partman-base 151ubuntu2.
+  * Update translations from Launchpad.
 
   [ Colin Watson ]
   * Install new files from grub-installer >= 1.66.

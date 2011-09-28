@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:56+0000\n"
-"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
+"PO-Revision-Date: 2011-09-27 08:06+0000\n"
+"Last-Translator: Vu Do Quynh <vdquynh@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:57+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -136,6 +136,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
+"Đây là bản phát tán trước của trình cài đặt ${RELEASE} live ${MEDIUM}. Đây "
+"chưa phải là bản phát tán cuối cùng; bản phát tán cuối cùng sẽ được phát "
+"cùng phiên bản chính thức của ${RELEASE} vào tháng 10/2011."
 
 #. Type: text
 #. Description
@@ -213,7 +216,7 @@ msgstr "Bạn là ai?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Chọn một ảnh"
 
 #. Type: text
 #. Description
@@ -342,6 +345,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Ảnh này sẽ được dùng cùng trình thiết lập tài khoản, màn hình đăng nhập, và "
+"bảo vệ màn hình."
 
 #. Type: text
 #. Description
@@ -367,7 +372,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Loại cài đặt"
 
 #. Type: text
 #. Description
@@ -503,6 +508,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Rất tiếc; trình cài đặt đã sụp đổ. Sau khi đóng cửa sổ này, bạn sẽ có cơ hội "
+"báo cáo tình trạng gặp lỗi bởi trình báo cáo lỗi. Việc đó sẽ thu tập thông "
+"tin về hệ thống máy tính của bạn cũng như về quá trình cài đặt. Những thông "
+"tin đó sẽ được gửi đến trình quản lỹ lỗi của chúng tôi và mộ lập trình viên "
+"của chúng tôi sẽ tìm cách giải quyết vấn đề khi nào có điều kiện."
 
 #. Type: text
 #. Description
@@ -694,14 +704,14 @@ msgstr "Tiếp tục"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Kết nối"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Dừng"
 
 #. Type: text
 #. Description
@@ -1357,6 +1367,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Kết nối máy tính này vào một mạng không dây sẽ cho phép cài đặt phần mềm, "
+"tải các gói cập nhật, tự động xác định mũi giờ và cài đặt toàn bộ sự hỗ trợ "
+"ngôn ngữ của bạn."
 
 #. Type: text
 #. Description
@@ -1384,6 +1397,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d phân vùng nhỏ hơn đang bị che giấu, dùng <a href=\"\">công cụ phan "
+"vùng cao cấp (advanced partitioning tool)</a> để kiểm soát thêm</small>"
 
 #. Type: text
 #. Description
@@ -1392,6 +1407,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 phân vùng nhỏ hơn đang bị che giấu, dùng <a href=\"\">công cụ phan "
+"vùng cao cấp (advanced partitioning tool)</a> để kiểm soát thêm</small>"
 
 #. Type: text
 #. Description

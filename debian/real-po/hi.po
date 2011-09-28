@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:54+0000\n"
-"Last-Translator: Ankit Mathur <ankitreloaded@gmail.com>\n"
+"PO-Revision-Date: 2011-09-25 06:19+0000\n"
+"Last-Translator: Ashutosh Kumar Singh <Unknown>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -208,7 +208,7 @@ msgstr "आप कौन है?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "एक चित्र का चयन करें"
 
 #. Type: text
 #. Description
@@ -361,7 +361,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "स्थापना का प्ररूप"
 
 #. Type: text
 #. Description
@@ -497,6 +497,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"हमें खेद है; इंस्टॉलर क्रैश हो गया है। इस विंडो को बंद करने के बाद, हम आपको समन्वित बग "
+"रिपोर्टिंग टूल की मदद से बग रिपोर्ट फ़ाइल करने देंगे। यह आपके सिस्टम और इंसटॉलेशन प्रक्रिया "
+"के बारे में जानकारी इकट्ठा करेगा। जानकारी हमारे बग ट्रैकर को भेज दिया जाएगा और जल्द से "
+"जल्द डेवलपर समस्या का समाधान करेगा।"
 
 #. Type: text
 #. Description
@@ -688,14 +692,14 @@ msgstr "आगे बढ़ें"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "संयोजन करें"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "रोकें"
 
 #. Type: text
 #. Description
@@ -838,7 +842,7 @@ msgstr "संस्थापना के लॉग का नकल हो र
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Configuring target system..."
-msgstr "लक्षि"
+msgstr "लक्षित तंत्र का विन्यास प्रगती में..."
 
 #. Type: text
 #. Description
@@ -1059,7 +1063,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "स्थापित अनुप्रयोगों को बहाल करने में त्रुटि"
 
 #. Type: error
 #. Description
@@ -1069,6 +1073,8 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"एक त्रुटि पहले से स्थापित अनुप्रयोगों को बहाल करते हुए हो गई। स्थापना जारी है, लेकिन आपको "
+"स्वयं कंप्यूटर रिबूट करने के बाद कुछ अनुप्रयोगों की पुनर्स्थापना करनी पड़ सकती है।"
 
 #. Type: text
 #. Description
@@ -1645,6 +1651,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">चेतावनी:</span> यह डिस्क पर किन्ही सभी फाइलो को "
+"नष्ट कर देगा।"
 
 #. Type: text
 #. Description

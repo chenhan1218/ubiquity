@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-08 09:05+0000\n"
+"PO-Revision-Date: 2011-09-23 06:43+0000\n"
 "Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:04+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:57+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -188,13 +188,13 @@ msgstr "Tutaj można wprowadzać znaki, aby przetestować klawiaturę"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout"
-msgstr "Wykrywanie układu klawiatury"
+msgstr "Wykryj układ klawiatury"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout..."
-msgstr "Wykryj układ klawiatury..."
+msgstr "Wykrywanie układu klawiatury..."
 
 #. Type: text
 #. Description
@@ -218,7 +218,7 @@ msgstr "Tożsamość użytkownika"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Wybierz obraz"
 
 #. Type: text
 #. Description
@@ -350,6 +350,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Ten obraz będzie wyświetlany w preferencjach konta użytkownika, ekranie "
+"logowania i po zablokowaniu ekranu."
 
 #. Type: text
 #. Description
@@ -375,7 +377,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Rodzaj instalacji"
 
 #. Type: text
 #. Description
@@ -517,6 +519,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Przepraszamy; instalator uległ awarii. Po zamknięciu tego okna, będzie "
+"możliwość wypełnienia raportu o błędzie, używając narzędzia do zgłaszania "
+"błędów. Podczas tego procesu zgromadzone zostaną informacje o systemie i "
+"procesie instalacji. Raport zostanie przesłany do systemu zgłaszania błędów "
+"oraz twórców oprogramowania, którzy postarają się jak najszybciej rozwiązać "
+"ten problem."
 
 #. Type: text
 #. Description
@@ -707,14 +715,14 @@ msgstr "Naprzód"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Połącz"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Zatrzymaj"
 
 #. Type: text
 #. Description
@@ -1372,6 +1380,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Połączenie tego komputera z siecią bezprzewodową, umożliwi zainstalowanie "
+"dodatkowego oprogramowania, pobranie uaktualnień, wykrycie strefy czasowej "
+"oraz zainstalowanie pełnej obsługi rodzimego języka."
 
 #. Type: text
 #. Description

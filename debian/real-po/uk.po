@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-25 10:28+0000\n"
-"Last-Translator: Загорія Сергій <xintx.ua@gmail.com>\n"
+"PO-Revision-Date: 2011-09-23 12:58+0000\n"
+"Last-Translator: Alex Ivanov aka 'SchiFFer' <Unknown>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -213,7 +213,7 @@ msgstr "Хто ви?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Оберіть зображення"
 
 #. Type: text
 #. Description
@@ -367,7 +367,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Тип встановлення"
 
 #. Type: text
 #. Description

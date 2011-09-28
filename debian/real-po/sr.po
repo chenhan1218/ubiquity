@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-20 08:24+0000\n"
-"Last-Translator: Предраг Љубеновић <Unknown>\n"
+"PO-Revision-Date: 2011-09-25 20:48+0000\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Ubuntu Serbian Translators\n"
 "Language: Serbian (sr)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -215,7 +215,7 @@ msgstr "Ко сте Ви?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Изаберите слику"
 
 #. Type: text
 #. Description
@@ -345,6 +345,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Ова слика ће вас одређивати у подешавањима налога, екрану пријављивања, и "
+"екрану закључавања."
 
 #. Type: text
 #. Description
@@ -370,7 +372,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Врста инсталације"
 
 #. Type: text
 #. Description
@@ -508,6 +510,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Жао нам је; инсталер се урушио. Када затворите овај прозор, омогућићемо вам "
+"да попуните извештај о грешци користећи уграђени алат за извештавање о "
+"грешци. Ово ће прикупити информације о вашем систему и о вашем процесу "
+"инсталације. Детаљи ће бити послата нашем пратиоцу грешака и програмер ће се "
+"позабавити проблемом чим то буде било могуће."
 
 #. Type: text
 #. Description
@@ -699,7 +706,7 @@ msgstr "Настави"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Повежи се"
 
 #. Type: text
 #. Description
@@ -1366,6 +1373,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Повезивање овог рачунара на бежичну мрежу ће вам омогућити инсталирање "
+"софтвера трећих страна, преузимање ажурирања, самостално одређивање ваше "
+"временске зоне, и инсталирање пуне подршке за ваш језик."
 
 #. Type: text
 #. Description
@@ -1393,6 +1403,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d мање партиције су скривене, користите <a href=\"\">напредни алат "
+"за партиционисање</a> за већу контролу</small>"
 
 #. Type: text
 #. Description
@@ -1401,6 +1413,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>Једна мања партиција је скривена, користите <a href=\"\">напредни "
+"алат за партиционисање</a> за већу контролу</small>"
 
 #. Type: text
 #. Description

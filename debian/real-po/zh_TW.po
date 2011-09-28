@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-20 16:38+0000\n"
-"Last-Translator: fetag <cool.fire@msa.hinet.net>\n"
+"PO-Revision-Date: 2011-09-24 10:52+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:05+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -73,7 +73,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"您可以不對您的電腦做出任何變更，就能透過此 ${MEDIUM} 直接嘗試 ${RELEASE}。"
+"您可以不對您的電腦做出任何變更，就能透過此 ${MEDIUM} 直接試用 ${RELEASE}。"
 
 #. Type: text
 #. Description
@@ -107,8 +107,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"您可能希望閱讀<a href=\"release-notes\">發行備註</a>或是<a href=\"update\">更"
-"新本安裝程式</a>。"
+"您可能會希望閱讀<a href=\"release-notes\">發行備註</a>或是<a href=\"update\">"
+"更新本安裝程式</a>。"
 
 #. Type: text
 #. Description
@@ -156,7 +156,7 @@ msgstr "警告"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Where are you?"
-msgstr "您在哪裡?"
+msgstr "您在哪裡？"
 
 #. Type: text
 #. Description
@@ -393,7 +393,7 @@ msgstr "要退出安裝嗎？"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Do you really want to quit the installation now?"
-msgstr "真要現在退出安裝？"
+msgstr "確定要現在退出安裝？"
 
 #. Type: text
 #. Description
@@ -1049,7 +1049,7 @@ msgstr "複製網路設定時發生錯誤。安裝會繼續，但網路須於安
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Error restoring installed applications"
-msgstr "回存先前安裝的應用程式時發生錯誤"
+msgstr "還原已安裝應用程式時發生錯誤"
 
 #. Type: error
 #. Description
@@ -1059,7 +1059,7 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"當回存先前安裝的應用程式時遭遇到錯誤。安裝程序將繼續，但在電腦重新開機後您可"
+"當還原先前安裝的應用程式時遭遇到錯誤。安裝程序將繼續，但在電腦重新開機後您可"
 "能需要手動重新安裝某些應用程式。"
 
 #. Type: text
@@ -1098,7 +1098,7 @@ msgstr "未能卸載分割區"
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
-msgstr "安裝程式要對分割區進行修改但不成功，因無法卸載以下分割區："
+msgstr "安裝程式要對分割區進行修改但不成功，起因於無法卸載以下分割區："
 
 #. Type: boolean
 #. Description
@@ -1116,7 +1116,7 @@ msgstr "是否讓安裝程式再嘗試卸載這些分割區？"
 #. Description
 #: ../ubiquity.templates:166001
 msgid "Do you want to return to the partitioner?"
-msgstr "是否回到磁碟分割程式？"
+msgstr "是否要回到磁碟分割程式？"
 
 #. Type: boolean
 #. Description
@@ -1295,7 +1295,7 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"安裝程式遭遇到無法補救的錯誤。現在將執行桌面工作階段，這樣一來您可以追查該問"
+"安裝程式遭遇到無法補救的錯誤。現在將執行桌面作業階段，這樣一來您可以追查該問"
 "題或嘗試再安裝。"
 
 #. Type: text
@@ -1315,7 +1315,7 @@ msgstr "正在準備安裝 ${RELEASE}"
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Wireless"
-msgstr "無線"
+msgstr "無線網路"
 
 #. Type: text
 #. Description
@@ -1344,7 +1344,7 @@ msgstr "藉由拖曳下方的分隔棒來分配磁碟機空間："
 #. Description
 #: ../ubiquity.templates:202001
 msgid "The entire disk will be used:"
-msgstr "整部磁碟將會被使用："
+msgstr "會使用整部磁碟："
 
 #. Type: text
 #. Description
@@ -1354,8 +1354,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d 個較小的分割區已隱藏，請使用<a href=\"\">進階分割工具</a>取得深入控"
-"制</small>"
+"<small>已隱藏%d個較小的分割區，請以<a href=\"\">進階分割工具</a>取得深入控制"
+"</small>"
 
 #. Type: text
 #. Description
@@ -1364,8 +1364,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>1 個較小的分割區已隱藏，請使用<a href=\"\">進階分割工具</a>取得深入控"
-"制</small>"
+"<small>已隱藏 1 個較小的分割區，請以<a href=\"\">進階分割工具</a>進行深入控制"
+"</small>"
 
 #. Type: text
 #. Description
@@ -1374,7 +1374,7 @@ msgstr ""
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
-msgstr "%d 分割區將被刪除，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+msgstr "會刪除 %d 個分割區，請以<a href=\"\">進階分割工具</a>進行深入控制"
 
 #. Type: text
 #. Description
@@ -1382,7 +1382,7 @@ msgstr "%d 分割區將被刪除，使用<a href=\"\">進階分割工具</a>來�
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
-msgstr "1 個分割區將被刪除，使用<a href=\"\">進階分割工具</a>來進行更多控制"
+msgstr "會刪除 1 個分割區，請以<a href=\"\">進階分割工具</a>進行深入控制"
 
 #. Type: text
 #. Description
@@ -1394,7 +1394,7 @@ msgstr "切割最大的分割區"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "For best results, please ensure that this computer:"
-msgstr "為了取得最佳的結果，請確認此電腦："
+msgstr "為了達到最佳的結果，請確認此電腦："
 
 #. Type: text
 #. Description
@@ -1425,9 +1425,9 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} 使用第三方軟體播放 Flash、MP3 與其他媒體，以及操作某些無線硬體裝"
-"置。此類軟體中某些為封閉源碼軟體。該軟體的授權必須遵循其文件內所包含的許可證"
-"條款。"
+"${RELEASE} 使用第三方軟體播放 Flash、MP3 與其他媒體，也用於某些無線硬體裝置。"
+"此類軟體中某些為封閉源碼軟體。該軟體的授權必須遵循其文件內所包含的許可證條"
+"款。"
 
 #. Type: text
 #. Description
@@ -1436,14 +1436,14 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
 msgstr ""
-"Fluendo MP3 擴充套件包含 MPEG Layer-3 音訊解碼技術，由 Fraunhofer IIS 研究所"
-"及 Thomson 公司授權。"
+"Fluendo MP3 擴充套件包含 MPEG Layer-3 音訊解碼技術，由 Fraunhofer IIS 研究機"
+"構及 Thomson 公司授權。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Install this third-party software"
-msgstr "安裝此第三方軟體"
+msgstr "安裝這個第三方軟體"
 
 #. Type: text
 #. Description
@@ -1514,7 +1514,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\"警告：</span>這會刪除您所有的 ${OS} 程式、文件、"
+"<span foreground=\"darkred\">警告：</span>這會刪除您所有的 ${OS} 程式、文件、"
 "音樂，以及任何其他檔案。"
 
 #. Type: text
@@ -1635,7 +1635,7 @@ msgstr "<span foreground=\"darkred\">警告：</span>這會刪除磁碟上的所
 #. Description
 #: ../ubiquity.templates:237001
 msgid "Erase everything and reinstall"
-msgstr "清除任何資料並重新安裝"
+msgstr "清除所有資料並重新安裝"
 
 #. Type: text
 #. Description
@@ -1647,8 +1647,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">警告：</span>這會刪除您在 ${OS} 與 ${CURDISTRO} "
-"上的所有程式、文件、相片、音樂，以及任何其他檔案。"
+"<span foreground=\"darkred\">警告：</span>這會刪除您 ${OS} 與 ${CURDISTRO} 的"
+"所有程式、文件、相片、音樂，以及任何其他檔案。"
 
 #. Type: text
 #. Description
@@ -1680,7 +1680,7 @@ msgstr "將 ${DISTRO} 與它們安裝在一起"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:241001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "本電腦目前有安裝 ${OS}。要怎麼處理？"
+msgstr "本電腦目前有安裝 ${OS}。請問要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1690,7 +1690,7 @@ msgstr "本電腦目前有安裝 ${OS}。要怎麼處理？"
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr "本電腦目前有安裝 ${OS1} 與 ${OS2}。要怎麼處理？"
+msgstr "本電腦目前有安裝 ${OS1} 與 ${OS2}。請問要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1698,7 +1698,7 @@ msgstr "本電腦目前有安裝 ${OS1} 與 ${OS2}。要怎麼處理？"
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
-msgstr "本電腦目前安裝有多套作業系統。要怎麼處理？"
+msgstr "本電腦目前安裝有多套作業系統。請問要怎麼處理？"
 
 #. Type: text
 #. Description
@@ -1706,7 +1706,7 @@ msgstr "本電腦目前安裝有多套作業系統。要怎麼處理？"
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
-msgstr "本電腦目前未偵測到有作業系統。要怎麼處理？"
+msgstr "本電腦目前未偵測到有作業系統。請問要怎麼處理？"
 
 #. Type: title
 #. Description

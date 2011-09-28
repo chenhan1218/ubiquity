@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:58+0000\n"
-"Last-Translator: Michael Moroni <michael.moroni@mailoo.org>\n"
+"PO-Revision-Date: 2011-09-20 19:20+0000\n"
+"Last-Translator: Patrick (Petriko) Oudejans <Unknown>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-20 18:04+0000\n"
-"X-Generator: Launchpad (build 13980)\n"
+"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #. Type: text
 #. Description
@@ -215,7 +215,7 @@ msgstr "Kiu vi estas?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Elektu bildon"
 
 #. Type: text
 #. Description
@@ -344,6 +344,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Ĉi tiu bildo identigas vin en la kontagordoj, ensalutekrano kaj malŝlosa "
+"ekrano."
 
 #. Type: text
 #. Description
@@ -369,7 +371,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Instala speco"
 
 #. Type: text
 #. Description
@@ -506,6 +508,16 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Ni tre bedaŭras; la instalilo kolapsis. Ferminte ĉi tiun fenestron, vi "
+"rajtas sendi cimraportaĵon per la integrita cimraportilo. Tiu akiros "
+"informojn pri via sistemo kaj la instalprocezo. La detaloj estos sendataj al "
+"nia cimspurilo kaj programisto traktos la problemon kiom eble plej baldaŭe."
+"\r\n"
+"We're sorry; the installer crashed. After you close this window, we'll allow "
+"you to file a bug report using the integrated bug reporting tool. This will "
+"gather information about your system and your installation process. The "
+"details will be sent to our bug tracker and a developer will attend to the "
+"problem as soon as possible."
 
 #. Type: text
 #. Description
@@ -696,14 +708,14 @@ msgstr "Daŭrigi"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Konekti"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Ĉesi"
 
 #. Type: text
 #. Description
@@ -1357,6 +1369,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Konektinte ĉi tiun komputilon al sendrata reto vi povos instali komercan "
+"programaron, elŝuti ĝisdatigojn, aŭtomate detektigi vian tempozonon, kaj "
+"instali plenan subtenon por via lingvo."
 
 #. Type: text
 #. Description
@@ -1384,6 +1399,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d malpli grandaj subdiskoj estas kaŝataj, uzu la <a href="
+"\"\">porprogresantan dispartigilon</a> por pli da ebloj</small>"
 
 #. Type: text
 #. Description
@@ -1392,6 +1409,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 malpli granda subdisko estas kaŝata, uzu la <a href="
+"\"\">porprogresantan dispartigilon</a> por pli da ebloj</small>"
 
 #. Type: text
 #. Description
