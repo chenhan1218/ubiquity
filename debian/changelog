@@ -1,4 +1,4 @@
-ubiquity (2.7.37) UNRELEASED; urgency=low
+ubiquity (2.7.37) oneiric; urgency=low
 
   [ Evan Dandrea ]
   * Only set the ATK widget names to their GtkBuilder counterparts when
@@ -14,7 +14,7 @@ ubiquity (2.7.37) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Install new files from grub-installer >= 1.66.
 
- -- Evan Dandrea <ev@ubuntu.com>  Mon, 26 Sep 2011 11:02:46 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 28 Sep 2011 12:15:46 +0100
 
 ubiquity (2.7.36) oneiric; urgency=low
 
