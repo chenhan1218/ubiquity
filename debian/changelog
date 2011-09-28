@@ -1,9 +1,14 @@
 ubiquity (2.7.38) UNRELEASED; urgency=low
 
+  [ Mario Limonciello ]
   * Preseed a bootloader target if one hasn't been set but running in 
     automatic mode. (LP: #861465)
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Wed, 28 Sep 2011 16:34:48 -0500
+  [ Adam Conrad ]
+  * Allow fallback from oem-config-slideshow to ubiquity-slideshow for
+    cases where the former doesn't exist.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Wed, 28 Sep 2011 16:43:42 -0600
 
 ubiquity (2.7.37) oneiric; urgency=low
 

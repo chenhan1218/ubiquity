@@ -782,7 +782,7 @@ color : @fg_color
             self.shutdown_button.hide()
 
         # Parse the slideshow size early to prevent the window from growing
-        if self.oem_user_config:
+        if self.oem_user_config and os.path.exists('/usr/share/oem-config-slideshow'):
             self.slideshow = '/usr/share/oem-config-slideshow'
         else:
             self.slideshow = '/usr/share/ubiquity-slideshow'
