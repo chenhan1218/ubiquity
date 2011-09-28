@@ -110,7 +110,7 @@ class PageGtk(plugin.PluginUI):
     def geoname_cb(self, session, message, text):
         import syslog
         import json
-        from gi.repository import Soup
+        from gi.repository import Gtk, GObject, Soup
 
         # fetch
         model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
