@@ -52,6 +52,8 @@ class PageGtk(plugin.PluginUI):
         self.timezone = None
         self.zones = []
         self.plugin_widgets = self.page
+        self.geoname_cache = {}
+        self.geoname_session = None
 
     def plugin_translate(self, lang):
         #c = self.controller
@@ -84,54 +86,70 @@ class PageGtk(plugin.PluginUI):
 
 
     def changed(self, entry):
-        from gi.repository import Gtk, GObject
+        import urllib
+        from gi.repository import Soup
+
         text = self.city_entry.get_text().decode('utf-8')
         if not text:
             return
         # TODO if the completion widget has a selection, return?  How do we
         # determine this?
-        if text in self.changed.cache:
-            model = self.changed.cache[text]
+        if text in self.geoname_cache:
+            model = self.geoname_cache[text]
+            self.city_entry.get_completion().set_model(model)
         else:
-            # fetch
-            model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
-                                  GObject.TYPE_STRING, GObject.TYPE_STRING,
-                                  GObject.TYPE_STRING)
-            self.changed.cache[text] = model
-            # TODO benchmark this
-            results = [(name, self.tzdb.get_loc(city))
-                        for (name, city) in
-                            [(x[0], x[1]) for x in self.zones
-                                if x[0].lower().split('(', 1)[-1] \
-                                                .startswith(text.lower())]]
-            for result in results:
-                # We use name rather than loc.human_zone for i18n.
-                # TODO this looks pretty awful for US results:
-                # United States (New York) (United States)
-                # Might want to match the debconf format.
-                name, loc = result
-                model.append([name, '', loc.human_country,
-                              str(loc.latitude), str(loc.longitude)])
+            if self.geoname_session is None:
+                self.geoname_session = Soup.SessionAsync()
+            url = _geoname_url % (urllib.quote(text),
+                                  misc.get_release().version)
+            message = Soup.Message.new('GET', url)
+            message.request_headers.append('User-agent', 'Ubiquity/1.0')
+            self.geoname_session.abort()
+            self.geoname_session.queue_message(message, self.geoname_cb, text)
 
-            try:
-                import urllib2, urllib, json
-                opener = urllib2.build_opener()
-                opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
-                url = opener.open(_geoname_url %
-                    (urllib.quote(text), misc.get_release().version))
-                for result in json.loads(url.read()):
-                    model.append([result['name'],
-                                  result['admin1'],
-                                  result['country'],
-                                  result['latitude'],
-                                  result['longitude']])
-            except Exception, e:
-                print 'exception:', e
-                # TODO because we don't return here, we could cache a
-                # result that doesn't include the geonames results because
-                # of a network error.
+    def geoname_cb(self, session, message, text):
+        import syslog
+        import json
+        from gi.repository import Soup
+
+        # fetch
+        model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
+                              GObject.TYPE_STRING, GObject.TYPE_STRING,
+                              GObject.TYPE_STRING)
+        # TODO benchmark this
+        results = [(name, self.tzdb.get_loc(city))
+                    for (name, city) in
+                        [(x[0], x[1]) for x in self.zones
+                            if x[0].lower().split('(', 1)[-1] \
+                                            .startswith(text.lower())]]
+        for result in results:
+            # We use name rather than loc.human_zone for i18n.
+            # TODO this looks pretty awful for US results:
+            # United States (New York) (United States)
+            # Might want to match the debconf format.
+            name, loc = result
+            model.append([name, '', loc.human_country,
+                          str(loc.latitude), str(loc.longitude)])
+
+        if message.status_code == Soup.KnownStatusCode.CANCELLED:
+            # Silently ignore cancellation.
+            pass
+        elif message.status_code != Soup.KnownStatusCode.OK:
+            # Log but otherwise ignore failures.
+            syslog.syslog('Geoname lookup for "%s" failed: %d %s' %
+                          (text, message.status_code, message.reason_phrase))
+        else:
+            for result in json.loads(message.response_body.data):
+                model.append([result['name'],
+                              result['admin1'],
+                              result['country'],
+                              result['latitude'],
+                              result['longitude']])
+
+            # Only cache positive results.
+            self.geoname_cache[text] = model
+
         self.city_entry.get_completion().set_model(model)
-    changed.cache = {}
 
     def setup_page(self):
         # TODO Put a frame around the completion to add contrast (LP: #605908)

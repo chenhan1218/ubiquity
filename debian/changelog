@@ -1,3 +1,10 @@
+ubiquity (2.7.38) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Fetch geoname data asynchronously (LP: #837217).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Sep 2011 13:43:44 +0100
+
 ubiquity (2.7.37) oneiric; urgency=low
 
   [ Evan Dandrea ]
