@@ -32,7 +32,6 @@ warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
 import apt_pkg
 from apt.cache import Cache
 import signal
-import errno
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
