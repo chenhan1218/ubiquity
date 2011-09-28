@@ -158,7 +158,7 @@ class Install(install_misc.InstallBase):
 
         if self.update_proc:
             try:
-                os.kill(self.update_proc, signal.SIGTERM)
+                os.killpg(self.update_proc, signal.SIGTERM)
                 syslog.syslog('Terminated ubiquity update process.')
             except OSError, e:
                 if e.errno != errno.ESRCH:
