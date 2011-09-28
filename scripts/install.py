@@ -31,6 +31,8 @@ import warnings
 warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
 import apt_pkg
 from apt.cache import Cache
+import signal
+import errno
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -121,7 +123,7 @@ class Install(install_misc.InstallBase):
             if self.db.get('ubiquity/download_updates') == 'true':
                 cmd = ['/usr/share/ubiquity/update-apt-cache']
                 self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
-                                                    stdout=subprocess.PIPE)
+                                                    stdout=subprocess.PIPE).pid
             try:
                 self.copy_all()
             except EnvironmentError, e:
@@ -155,7 +157,12 @@ class Install(install_misc.InstallBase):
             self.umount_source()
 
         if self.update_proc:
-            self.update_proc.terminate()
+            try:
+                os.kill(self.update_proc, signal.SIGTERM)
+                syslog.syslog('Terminated ubiquity update process.')
+            except OSError, e:
+                if e.errno != errno.ESRCH:
+                    raise
 
     def find_cd_kernel(self):
         """Find the boot kernel on the CD, if possible."""
