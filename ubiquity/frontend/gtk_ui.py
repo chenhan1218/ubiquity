@@ -41,6 +41,8 @@ import gettext
 import ConfigParser
 
 import dbus
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default=True)
 
 #in query mode we won't be in X, but import needs to pass
 if 'DISPLAY' in os.environ:

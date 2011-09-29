@@ -89,8 +89,6 @@ class PageGtk(PreparePageBase):
         self.prepare_sufficient_space = builder.get_object('prepare_sufficient_space')
         self.prepare_foss_disclaimer = builder.get_object('prepare_foss_disclaimer')
         self.prepare_foss_disclaimer_extra = builder.get_object('prepare_foss_disclaimer_extra_label')
-        from dbus.mainloop.glib import DBusGMainLoop
-        DBusGMainLoop(set_as_default=True)
         self.prepare_power_source = builder.get_object('prepare_power_source')
         if upower.has_battery():
             upower.setup_power_watch(self.prepare_power_source)
