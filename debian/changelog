@@ -14,6 +14,8 @@ ubiquity (2.7.38) UNRELEASED; urgency=low
     it (LP: #743359).
   * Don't rely on the DBus main loop being set in the prepare plugin
     before it's used elsewhere.
+  * Pressing enter in the keyboard test entry should proceed to the next
+    page (LP: #862309).
 
  -- Adam Conrad <adconrad@ubuntu.com>  Wed, 28 Sep 2011 16:43:42 -0600
 
