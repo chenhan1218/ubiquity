@@ -121,8 +121,10 @@ class Install(install_misc.InstallBase):
             # imagine.  Have those spin until the lock is released.
             if self.db.get('ubiquity/download_updates') == 'true':
                 cmd = ['/usr/share/ubiquity/update-apt-cache']
+                def subprocess_setup():
+                    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
                 self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
-                                                    stdout=subprocess.PIPE).pid
+                    stdout=subprocess.PIPE, prexec_fn=subprocess_setup).pid
             try:
                 self.copy_all()
             except EnvironmentError, e:
@@ -157,7 +159,7 @@ class Install(install_misc.InstallBase):
 
         if self.update_proc:
             try:
-                os.killpg(self.update_proc, signal.SIGTERM)
+                os.kill(self.update_proc, signal.SIGTERM)
                 syslog.syslog('Terminated ubiquity update process.')
             except OSError, e:
                 if e.errno != errno.ESRCH:

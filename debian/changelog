@@ -8,6 +8,11 @@ ubiquity (2.7.38) UNRELEASED; urgency=low
   * Allow fallback from oem-config-slideshow to ubiquity-slideshow for
     cases where the former doesn't exist.
 
+  [ Evan Dandrea ]
+  * Use the default signal handler for SIGPIPE, hopefully fixing the
+    child processes of update-apt-cache not getting killed along with
+    it (LP: #743359).
+
  -- Adam Conrad <adconrad@ubuntu.com>  Wed, 28 Sep 2011 16:43:42 -0600
 
 ubiquity (2.7.37) oneiric; urgency=low
