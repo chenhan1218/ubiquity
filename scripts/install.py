@@ -124,7 +124,7 @@ class Install(install_misc.InstallBase):
                 def subprocess_setup():
                     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
                 self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
-                    stdout=subprocess.PIPE, prexec_fn=subprocess_setup).pid
+                    stdout=subprocess.PIPE, preexec_fn=subprocess_setup).pid
             try:
                 self.copy_all()
             except EnvironmentError, e:
