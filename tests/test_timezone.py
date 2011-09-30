@@ -19,10 +19,26 @@ class TimezoneTests(unittest.TestCase):
         controller.dbfilter = self.ubi_timezone.Page(None, db=db)
         self.gtk = self.ubi_timezone.PageGtk(controller)
 
+    @mock.patch('gi.repository.Soup.SessionAsync')
+    @mock.patch('gi.repository.Soup.Message')
     @mock.patch('json.loads')
-    @mock.patch('urllib2.build_opener')
-    def test_city_entry(self, opener_mock, json_mock):
+    def test_city_entry(self, json_mock, *args):
+        from gi.repository import GObject
+
+        # Patch GObject.timeout_add_seconds to call the supplied function
+        # immediately rather than waiting for the interval to expire.
+        def side_effect_factory(real_method):
+            def side_effect(interval, function, data):
+                function(data)
+            return side_effect
+
         json_mock.return_value = []
+        real_method = GObject.timeout_add_seconds
+        method = mock.patch('gi.repository.GObject.timeout_add_seconds')
+        timeout_mock = method.start()
+        timeout_mock.side_effect = side_effect_factory(real_method)
+        self.addCleanup(method.stop)
+
         self.gtk.set_timezone('America/New_York')
         self.gtk.city_entry.set_text('Eastern')
         self.gtk.changed(self.gtk.city_entry)

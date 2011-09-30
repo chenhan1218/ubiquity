@@ -52,6 +52,9 @@ class PageGtk(plugin.PluginUI):
         self.timezone = None
         self.zones = []
         self.plugin_widgets = self.page
+        self.geoname_cache = {}
+        self.geoname_session = None
+        self.geoname_timeout_id = None
 
     def plugin_translate(self, lang):
         #c = self.controller
@@ -84,54 +87,95 @@ class PageGtk(plugin.PluginUI):
 
 
     def changed(self, entry):
-        from gi.repository import Gtk, GObject
+        import urllib
+        from gi.repository import Gtk, GObject, Soup
+
         text = self.city_entry.get_text().decode('utf-8')
         if not text:
             return
         # TODO if the completion widget has a selection, return?  How do we
         # determine this?
-        if text in self.changed.cache:
-            model = self.changed.cache[text]
+        if text in self.geoname_cache:
+            model = self.geoname_cache[text]
+            self.city_entry.get_completion().set_model(model)
         else:
-            # fetch
             model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
                                   GObject.TYPE_STRING, GObject.TYPE_STRING,
                                   GObject.TYPE_STRING)
-            self.changed.cache[text] = model
-            # TODO benchmark this
-            results = [(name, self.tzdb.get_loc(city))
-                        for (name, city) in
-                            [(x[0], x[1]) for x in self.zones
-                                if x[0].lower().split('(', 1)[-1] \
-                                                .startswith(text.lower())]]
-            for result in results:
-                # We use name rather than loc.human_zone for i18n.
-                # TODO this looks pretty awful for US results:
-                # United States (New York) (United States)
-                # Might want to match the debconf format.
-                name, loc = result
-                model.append([name, '', loc.human_country,
-                              str(loc.latitude), str(loc.longitude)])
 
-            try:
-                import urllib2, urllib, json
-                opener = urllib2.build_opener()
-                opener.addheaders = [('User-agent', 'Ubiquity/1.0')]
-                url = opener.open(_geoname_url %
-                    (urllib.quote(text), misc.get_release().version))
-                for result in json.loads(url.read()):
-                    model.append([result['name'],
-                                  result['admin1'],
-                                  result['country'],
-                                  result['latitude'],
-                                  result['longitude']])
-            except Exception, e:
-                print 'exception:', e
-                # TODO because we don't return here, we could cache a
-                # result that doesn't include the geonames results because
-                # of a network error.
+            if self.geoname_session is None:
+                self.geoname_session = Soup.SessionAsync()
+            url = _geoname_url % (urllib.quote(text.encode('UTF-8')),
+                                  misc.get_release().version)
+            message = Soup.Message.new('GET', url)
+            message.request_headers.append('User-agent', 'Ubiquity/1.0')
+            self.geoname_session.abort()
+            if self.geoname_timeout_id is not None:
+                GObject.source_remove(self.geoname_timeout_id)
+            self.geoname_timeout_id = \
+                GObject.timeout_add_seconds(2, self.geoname_timeout,
+                                            (text, model))
+            self.geoname_session.queue_message(message, self.geoname_cb,
+                                               (text, model))
+
+    def geoname_add_tzdb(self, text, model):
+        if len(model):
+            # already added
+            return
+
+        # TODO benchmark this
+        results = [(name, self.tzdb.get_loc(city))
+                    for (name, city) in
+                        [(x[0], x[1]) for x in self.zones
+                            if x[0].lower().split('(', 1)[-1] \
+                                            .startswith(text.lower())]]
+        for result in results:
+            # We use name rather than loc.human_zone for i18n.
+            # TODO this looks pretty awful for US results:
+            # United States (New York) (United States)
+            # Might want to match the debconf format.
+            name, loc = result
+            model.append([name, '', loc.human_country,
+                          str(loc.latitude), str(loc.longitude)])
+
+    def geoname_timeout(self, user_data):
+        text, model = user_data
+        self.geoname_add_tzdb(text, model)
+        self.geoname_timeout_id = None
         self.city_entry.get_completion().set_model(model)
-    changed.cache = {}
+        return False
+
+    def geoname_cb(self, session, message, user_data):
+        import syslog
+        import json
+        from gi.repository import GObject, Soup
+
+        text, model = user_data
+
+        if self.geoname_timeout_id is not None:
+            GObject.source_remove(self.geoname_timeout_id)
+            self.geoname_timeout_id = None
+        self.geoname_add_tzdb(text, model)
+
+        if message.status_code == Soup.KnownStatusCode.CANCELLED:
+            # Silently ignore cancellation.
+            pass
+        elif message.status_code != Soup.KnownStatusCode.OK:
+            # Log but otherwise ignore failures.
+            syslog.syslog('Geoname lookup for "%s" failed: %d %s' %
+                          (text, message.status_code, message.reason_phrase))
+        else:
+            for result in json.loads(message.response_body.data):
+                model.append([result['name'],
+                              result['admin1'],
+                              result['country'],
+                              result['latitude'],
+                              result['longitude']])
+
+            # Only cache positive results.
+            self.geoname_cache[text] = model
+
+        self.city_entry.get_completion().set_model(model)
 
     def setup_page(self):
         # TODO Put a frame around the completion to add contrast (LP: #605908)
