@@ -1,4 +1,4 @@
-ubiquity (2.7.39) UNRELEASED; urgency=low
+ubiquity (2.8.0) UNRELEASED; urgency=low
 
   * Fix SSID UTF-8 decoding, and replace any still-invalid characters with
     the Unicode replacement character just in case (LP: #839143).
