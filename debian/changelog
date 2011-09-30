@@ -1,3 +1,10 @@
+ubiquity (2.7.39) UNRELEASED; urgency=low
+
+  * Fix SSID UTF-8 decoding, and replace any still-invalid characters with
+    the Unicode replacement character just in case (LP: #839143).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 30 Sep 2011 14:47:57 +0100
+
 ubiquity (2.7.38) oneiric; urgency=low
 
   [ Mario Limonciello ]

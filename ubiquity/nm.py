@@ -22,7 +22,7 @@ NM_STATE_CONNECTED_GLOBAL = 70
 
 def decode_ssid(characters):
     ssid = ''.join([str(char) for char in characters])
-    return ssid.encode('utf-8')
+    return ssid.decode('utf-8', 'replace')
 
 def get_prop(obj, iface, prop):
     try:
