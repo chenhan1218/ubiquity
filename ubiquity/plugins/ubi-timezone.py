@@ -54,6 +54,7 @@ class PageGtk(plugin.PluginUI):
         self.plugin_widgets = self.page
         self.geoname_cache = {}
         self.geoname_session = None
+        self.geoname_timeout_id = None
 
     def plugin_translate(self, lang):
         #c = self.controller
@@ -87,7 +88,7 @@ class PageGtk(plugin.PluginUI):
 
     def changed(self, entry):
         import urllib
-        from gi.repository import Soup
+        from gi.repository import Gtk, GObject, Soup
 
         text = self.city_entry.get_text().decode('utf-8')
         if not text:
@@ -98,6 +99,10 @@ class PageGtk(plugin.PluginUI):
             model = self.geoname_cache[text]
             self.city_entry.get_completion().set_model(model)
         else:
+            model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                  GObject.TYPE_STRING, GObject.TYPE_STRING,
+                                  GObject.TYPE_STRING)
+
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
             url = _geoname_url % (urllib.quote(text),
@@ -105,17 +110,19 @@ class PageGtk(plugin.PluginUI):
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
             self.geoname_session.abort()
-            self.geoname_session.queue_message(message, self.geoname_cb, text)
+            if self.geoname_timeout_id is not None:
+                GObject.source_remove(self.geoname_timeout_id)
+            self.geoname_timeout_id = \
+                GObject.timeout_add_seconds(2, self.geoname_timeout,
+                                            (text, model))
+            self.geoname_session.queue_message(message, self.geoname_cb,
+                                               (text, model))
 
-    def geoname_cb(self, session, message, text):
-        import syslog
-        import json
-        from gi.repository import Gtk, GObject, Soup
+    def geoname_add_tzdb(self, text, model):
+        if len(model):
+            # already added
+            return
 
-        # fetch
-        model = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
-                              GObject.TYPE_STRING, GObject.TYPE_STRING,
-                              GObject.TYPE_STRING)
         # TODO benchmark this
         results = [(name, self.tzdb.get_loc(city))
                     for (name, city) in
@@ -130,6 +137,25 @@ class PageGtk(plugin.PluginUI):
             name, loc = result
             model.append([name, '', loc.human_country,
                           str(loc.latitude), str(loc.longitude)])
+
+    def geoname_timeout(self, user_data):
+        text, model = user_data
+        self.geoname_add_tzdb(text, model)
+        self.geoname_timeout_id = None
+        self.city_entry.get_completion().set_model(model)
+        return False
+
+    def geoname_cb(self, session, message, user_data):
+        import syslog
+        import json
+        from gi.repository import GObject, Soup
+
+        text, model = user_data
+
+        if self.geoname_timeout_id is not None:
+            GObject.source_remove(self.geoname_timeout_id)
+            self.geoname_timeout_id = None
+        self.geoname_add_tzdb(text, model)
 
         if message.status_code == Soup.KnownStatusCode.CANCELLED:
             # Silently ignore cancellation.
