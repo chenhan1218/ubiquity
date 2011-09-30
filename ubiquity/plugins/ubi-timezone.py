@@ -105,7 +105,7 @@ class PageGtk(plugin.PluginUI):
 
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
-            url = _geoname_url % (urllib.quote(text),
+            url = _geoname_url % (urllib.quote(text.encode('UTF-8')),
                                   misc.get_release().version)
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
