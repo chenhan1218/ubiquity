@@ -1,4 +1,4 @@
-ubiquity (2.7.38) UNRELEASED; urgency=low
+ubiquity (2.7.38) oneiric; urgency=low
 
   [ Mario Limonciello ]
   * Preseed a bootloader target if one hasn't been set but running in 
@@ -7,6 +7,9 @@ ubiquity (2.7.38) UNRELEASED; urgency=low
   [ Adam Conrad ]
   * Allow fallback from oem-config-slideshow to ubiquity-slideshow for
     cases where the former doesn't exist.
+  * Automatic update of included source packages: console-setup
+    1.57ubuntu27, flash-kernel 2.28ubuntu34, grub-installer 1.68ubuntu4,
+    netcfg 1.68ubuntu6.  Fixes FTBFS.
 
   [ Evan Dandrea ]
   * Use the default signal handler for SIGPIPE, hopefully fixing the
