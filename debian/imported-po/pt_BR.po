@@ -6,7 +6,7 @@
 # Alex Camacho Castilho <gnomebr@uol.com.br>, 2004.
 # Afonso Celso Medina <medina@maua.br>, 2004, 2005.
 # Raphael Higino <In Memoriam>, 2006.
-# Og Maciel <ogmaciel@gnome.org>, 2007.
+# Og Maciel <ogmaciel@gnome.org>, 2007, 2011.
 # Pedro Vaz Mello de Medeiros <pedrovmm@gmail.com>, 2007.
 # Henrique P Machado <zehrique@gmail.com>, 2008.
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-12 16:01+0000\n"
-"PO-Revision-Date: 2011-03-31 17:36-0300\n"
-"Last-Translator: Gabriel F. Vilar <cogumm@gmail.com>\n"
+"PO-Revision-Date: 2011-09-13 22:42-0300\n"
+"Last-Translator: Antonio Fernandes C. Neto <fernandesn@gnome.org>\n"
 "Language-Team: Português Brasileiro <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"

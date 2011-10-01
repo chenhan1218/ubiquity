@@ -1,31 +1,25 @@
-# translation of gtk+.HEAD.po to Español
-# Copyright © 1999-2002, 2006, 2007, 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gtk+ package.
-#
-# Pablo Saratxaga <srtxg@chanae.alphanet.ch>, 1998-2000.
-# José Antonio Salgueiro A. <joseantsa@eresmas.net>, 2001.
-# Carlos Perelló Marín <carlos@gnome-db.org>, 2002.
-# Germán Poo-Caamaño <gpoo@ubiobio.cl>, 2002.
-# Pablo Gonzalo del Campo <pablodc@bigfoot.com>, 2002, 2003.
-# Juan Manuel García Molina <juanma_gm@wanadoo.es>, 2003.
-# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2003 - 2006.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
-#
+# English (British) translation
+# Copyright (C) 2004 GTK+'s COPYRIGHT HOLDER
+# This file is distributed under the same licence as the gtk+ package.
+# Abigail Brady <morwen@evilmagic.org>, Gareth Owen <gowen72@yahoo.com> 2004
+# Bruce Cowan <bruce@bcowan.me.uk>, 2009, 2010, 2011.
+# Philip Withnall <philip@tecnocode.co.uk>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gtk+.master\n"
+"Project-Id-Version: gtk+\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2010-03-12 16:01+0000\n"
-"PO-Revision-Date: 2011-09-13 17:28+0200\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-09-19 13:10+0100\n"
+"Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
+"Language-Team: British English <en@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1-beta1\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
 
 #. Type: text
 #. Description
@@ -34,7 +28,7 @@ msgstr ""
 #: ../ubiquity.templates-imported:1001
 msgctxt "Stock label"
 msgid "_Cancel"
-msgstr "_Cancelar"
+msgstr "_Cancel"
 
 #. Type: text
 #. Description
@@ -43,7 +37,7 @@ msgstr "_Cancelar"
 #: ../ubiquity.templates-imported:2001
 msgctxt "Stock label"
 msgid "_Close"
-msgstr "_Cerrar"
+msgstr "_Close"
 
 #. Type: text
 #. Description
@@ -52,7 +46,7 @@ msgstr "_Cerrar"
 #: ../ubiquity.templates-imported:3001
 msgctxt "Stock label, navigation"
 msgid "_Back"
-msgstr "A_trás"
+msgstr "_Back"
 
 #. Type: text
 #. Description
@@ -61,7 +55,7 @@ msgstr "A_trás"
 #: ../ubiquity.templates-imported:5001
 msgctxt "Stock label"
 msgid "_OK"
-msgstr "_Aceptar"
+msgstr "_OK"
 
 #. Type: text
 #. Description
@@ -70,7 +64,7 @@ msgstr "_Aceptar"
 #: ../ubiquity.templates-imported:6001
 msgctxt "Stock label"
 msgid "_Quit"
-msgstr "_Salir"
+msgstr "_Quit"
 
 #. Type: text
 #. Description
@@ -79,7 +73,7 @@ msgstr "_Salir"
 #: ../ubiquity.templates-imported:7001
 msgctxt "Stock label"
 msgid "_Yes"
-msgstr "_Sí"
+msgstr "_Yes"
 
 #. Type: text
 #. Description
