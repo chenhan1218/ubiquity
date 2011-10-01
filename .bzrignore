@@ -71,3 +71,4 @@ ubiquity/frontend/crashdialog.py
 ubiquity/keyboard_names.py
 ubiquity/*.la
 ubiquity/*.lo
+d-i/sources.list.local
