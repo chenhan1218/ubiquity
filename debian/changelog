@@ -1,3 +1,9 @@
+ubiquity (2.8.1) UNRELEASED; urgency=low
+
+  * Build-depend on gir1.2-soup-2.4 for timezone tests.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 01 Oct 2011 22:03:04 +0100
+
 ubiquity (2.8.0) oneiric; urgency=low
 
   * Fix SSID UTF-8 decoding, and replace any still-invalid characters with
