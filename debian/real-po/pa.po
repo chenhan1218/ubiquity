@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
-"X-Generator: Launchpad (build 14049)\n"
+"X-Launchpad-Export-Date: 2011-10-01 21:24+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #. Type: text
 #. Description
@@ -1714,9 +1714,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ਪੈਕੇਜ ਹਟਾਏ ਜਾ ਰਹੇ ਹਨ"
-
-#~ msgid "Allocate drive space"
-#~ msgstr "ਡਰਾਇਵ ਥਾਂ ਦਿਓ"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "ਇਸ ਲਿਸਟ ਤੋਂ ਆਪਣੇ ਬੇਤਾਰ ਨੈੱਟਵਰਕ ਚੁਣੋ ਜੀ"

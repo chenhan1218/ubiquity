@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-08-19 08:56+0000\n"
-"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
+"PO-Revision-Date: 2011-10-01 09:17+0000\n"
+"Last-Translator: Rafael Neri <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
-"X-Generator: Launchpad (build 14049)\n"
+"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #. Type: text
 #. Description
@@ -140,6 +140,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
+"Exista uma pré-versão do instalador ${RELEASE} live ${MEDIUM}. Não é a "
+"versão final; esta só virá na versão final de ${RELEASE} em Outubro de 2011."
 
 #. Type: text
 #. Description
@@ -217,7 +219,7 @@ msgstr "Quem é você?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Escolha uma imagem"
 
 #. Type: text
 #. Description
@@ -349,6 +351,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Esta imagem vai identificá-lo nas configurações da conta, ecrã de início de "
+"sessão, e ecrã de bloqueio."
 
 #. Type: text
 #. Description
@@ -374,7 +378,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Tipo de instalação"
 
 #. Type: text
 #. Description
@@ -513,6 +517,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Lamentamos, mas o instalador encerrou. Depois de fechar esta janela, terá a "
+"possibilidade de enviar um relatório de erro utilizando a ferramenta "
+"integrada de relatórios de erros. Isto irá coletar informações sobre seu "
+"sistema e seu processo de instalação. Os detalhes serão enviados para nosso "
+"sistema e um gestor irá atender o problema o mais rapidamente possível."
 
 #. Type: text
 #. Description
@@ -704,14 +713,14 @@ msgstr "Continuar"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Ligar"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Parar"
 
 #. Type: text
 #. Description
@@ -1373,6 +1382,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Conectar este computador a uma rede sem fio permite-lhe instalar um software "
+"de terceiros, transferir atualizações, detetar automaticamente o seu fuso "
+"horário, e instalar o suporte completo para o seu idioma."
 
 #. Type: text
 #. Description
@@ -1401,6 +1413,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d partições menores estão ocultas, use a <a href=\"\">ferramenta "
+"avançada de particionamento</a> para maior controle</small>"
 
 #. Type: text
 #. Description
@@ -1409,6 +1423,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 partição menor está oculta, use a <a href=\"\">ferramenta avançada "
+"de particionamento</a> para maior controle</small>"
 
 #. Type: text
 #. Description
@@ -1830,48 +1846,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A remover pacotes"
-
-#~ msgid "Allocate drive space"
-#~ msgstr "Disponibilizar espaço no disco"
-
-#~ msgid ""
-#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#~ "partitioning tool</a> for more control"
-#~ msgstr ""
-#~ "%d partições mais pequenas estão escondidas, use a <a href="
-#~ "\"\">ferramenta de particionamento avançado</a> para mais controlo"
-
-#~ msgid ""
-#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#~ "tool</a> for more control"
-#~ msgstr ""
-#~ "1 partição mais pequena está escondida, use a <a href=\"\">ferramenta de "
-#~ "particionamento avançado</a> para mais controlo"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Esta é uma versão de pré-lançamento do instalador do ${RELEASE} live "
-#~ "${MEDIUM}. Ainda não é a versão final que virá com o lançamento final do "
-#~ "${RELEASE} em Abril de 2011."
-
-#~ msgid ""
-#~ "We're sorry; the installer crashed. Please file a new bug report at "
-#~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
-#~ "your details to any existing bug) and a developer will attend to the "
-#~ "problem as soon as possible. To help the developers understand what went "
-#~ "wrong, include the following detail in your bug report, and attach the "
-#~ "files /var/log/syslog and /var/log/partman:"
-#~ msgstr ""
-#~ "Pedimos desculpa, ocorreu um erro fatal no instalador. Por favor reporte "
-#~ "este erro em https://launchpad.net/ubuntu/+source/ubiquity/+filebug (não "
-#~ "anexe os seus detalhes a um relatório já existente) para que alguém da "
-#~ "equipa de desenvolvimento resolva este problema o mais rapidamente "
-#~ "possível. Para ajudar os programadores a entender o problema, anexe os "
-#~ "ficheiros /var/log/syslog e /var/log/partman e inclua as seguintes "
-#~ "informações:"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Por favor seleccione a sua rede sem fios (wireless) desta lista"

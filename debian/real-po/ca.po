@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-20 19:29+0000\n"
-"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
+"PO-Revision-Date: 2011-10-01 06:18+0000\n"
+"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
-"X-Generator: Launchpad (build 14049)\n"
+"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #. Type: text
 #. Description
@@ -136,6 +136,10 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
+"Aquesta és una versió en desenvolupament de l'instal·lador en ${MEDIUM} "
+"autònom del sistema operatiu ${RELEASE}. No és una versió final, la qual "
+"estarà disponible amb l'alliberament del sistema operatiu ${RELEASE} a "
+"l'octubre de 2011."
 
 #. Type: text
 #. Description
@@ -213,7 +217,7 @@ msgstr "Qui sou?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Trieu una imatge"
 
 #. Type: text
 #. Description
@@ -342,6 +346,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Aquesta imatge us identificarà en els paràmetres del compte, a la pantalla "
+"d'entrada i a la pantalla de blocatge."
 
 #. Type: text
 #. Description
@@ -368,7 +374,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Tipus d'instal·lació"
 
 #. Type: text
 #. Description
@@ -508,6 +514,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Ens sap greu, però l'instal·lador ha fallat. Després que tanqueu aquesta "
+"finestra, podreu escriure un informe d'error utilitzant l'eina d'informació "
+"d'errors integrada. Aquesta recopilarà informació sobre el sistema i el "
+"procés d'instal·lació. La informació s'enviarà al nostre sistema de "
+"seguiment d'errors i un desenvolupador s'ocuparà del problema el més aviat "
+"possible."
 
 #. Type: text
 #. Description
@@ -1372,6 +1384,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Si connecteu aquest ordinador a una xarxa sense fil podreu instal·lar "
+"programari de tercers, baixar actualitzacions, detectar automàticament la "
+"zona horària i instal·lar una compatibilitat completa per al vostre idioma."
 
 #. Type: text
 #. Description
@@ -1399,6 +1414,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>Hi ha %d particions més petites ocultes. Utilitzeu l'<a href="
+"\"\">eina de partiment avançada</a> per tenir-ne més control</small>"
 
 #. Type: text
 #. Description
@@ -1407,6 +1424,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>Hi ha una partició més petita oculta. Utilitzeu l'<a href=\"\">eina "
+"de partiment avançada</a> per tenir-ne més control</small>"
 
 #. Type: text
 #. Description
@@ -1834,47 +1853,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
-
-#~ msgid ""
-#~ "We're sorry; the installer crashed. Please file a new bug report at "
-#~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
-#~ "your details to any existing bug) and a developer will attend to the "
-#~ "problem as soon as possible. To help the developers understand what went "
-#~ "wrong, include the following detail in your bug report, and attach the "
-#~ "files /var/log/syslog and /var/log/partman:"
-#~ msgstr ""
-#~ "Ho sentim: l'instal·lador ha fallat. Seria recomanable que informéssiu "
-#~ "d'aquest error a https://launchpad.net/ubuntu/+source/ubiquity/+filebug "
-#~ "(sense adjuntar els detalls a cap informe ja existent), de manera que els "
-#~ "desenvolupadors se'n puguin ocupar el més aviat possible. Hauríeu "
-#~ "d'incloure els detalls següents a l'informe perquè pugui ser útil, així "
-#~ "com adjuntar-hi els fitxers /var/log/syslog i /var/log/partman:"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "Seleccioneu la xarxa sense fils d'aquesta llista"
-
-#~ msgid "Allocate drive space"
-#~ msgstr "Reserva espai de disc"
-
-#~ msgid ""
-#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#~ "partitioning tool</a> for more control"
-#~ msgstr ""
-#~ "Hi ha %d particions menors ocultes. Utilitzeu l'<a href=\"\">eina de "
-#~ "partiment avançat</a> per tenir-ne més control"
-
-#~ msgid ""
-#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#~ "tool</a> for more control"
-#~ msgstr ""
-#~ "Hi ha una partició menor oculta. Utilitzeu l'<a href=\"\">eina de "
-#~ "partiment avançat</a> per tenir-ne més control"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "Aquesta és una versió en desenvolupament de l'instal·lador ${MEDIUM} "
-#~ "autònom en ${RELEASE}. No és una versió final, la qual estarà disponible "
-#~ "amb l'alliberament de ${RELEASE} a l'abril de 2011."

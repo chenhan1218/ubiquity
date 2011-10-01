@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 09:56+0000\n"
-"X-Generator: Launchpad (build 14049)\n"
+"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #. Type: text
 #. Description
@@ -1784,37 +1784,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "පැකේජ ඉවත්කරමින්"
-
-#~ msgid "Allocate drive space"
-#~ msgstr "ධාවක ඉඩ වෙන්කරන්න"
-
-#~ msgid ""
-#~ "We're sorry; the installer crashed. Please file a new bug report at "
-#~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
-#~ "your details to any existing bug) and a developer will attend to the "
-#~ "problem as soon as possible. To help the developers understand what went "
-#~ "wrong, include the following detail in your bug report, and attach the "
-#~ "files /var/log/syslog and /var/log/partman:"
-#~ msgstr ""
-#~ "සමාවන්න; ස්ථාපකය බිඳ වැටිනි. කරුණාකර නව දෝශ වාර්ථාවක් ගොනු කරන්න https://launchpad."
-#~ "net/ubuntu/+source/ubiquity/+filebug (පවතින දෝශයකට ඔබේ දත්ත එක් නොකරන්න) "
-#~ "සංවර්ධකයෙක් හැකි විගස දෝශය නිරාකරණය කරනු ඇත. දෝශය කුමක්දැයි සංවර්ධකයන්ට හඳුනාගැනීමට "
-#~ "සහය වීම සඳහා, පහත තොරතුරු ඔබේ වාර්ථාවට එක් කර /var/log/syslog හා /var/log/"
-#~ "partman ගොනුද අමුණන්න:"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "කරුණාකර ඔබේ රැහැන් රහිත ජාලය මෙම ලැයිස්තුවෙන් තෝරන්න"
-
-#~ msgid ""
-#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#~ "partitioning tool</a> for more control"
-#~ msgstr ""
-#~ "%d කුඩා කොටස් සඟවා ඇත, වැඩි පාලනයක් සඳහා <a href=\"\">උසස් කොටස්කරණ මෙවලම</a> "
-#~ "භාවිත කරන්න"
-
-#~ msgid ""
-#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#~ "tool</a> for more control"
-#~ msgstr ""
-#~ "1 කුඩා කොටස් සඟවා ඇත, වැඩි පාලනයක් සඳහා <a href=\"\">උසස් කොටස්කරණ මෙවලම</a> "
-#~ "භාවිත කරන්න"

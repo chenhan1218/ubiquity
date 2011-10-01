@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 09:57+0000\n"
-"X-Generator: Launchpad (build 14049)\n"
+"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #. Type: text
 #. Description
@@ -1770,42 +1770,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
-
-#~ msgid "Please select your wireless network from this list"
-#~ msgstr "กรุณาเลือกเครือข่ายไร้สายจากรายการนี้"
-
-#~ msgid "Allocate drive space"
-#~ msgstr "จัดสรรพื้นที่ว่างบนไดรว์"
-
-#~ msgid ""
-#~ "We're sorry; the installer crashed. Please file a new bug report at "
-#~ "https://launchpad.net/ubuntu/+source/ubiquity/+filebug (do not attach "
-#~ "your details to any existing bug) and a developer will attend to the "
-#~ "problem as soon as possible. To help the developers understand what went "
-#~ "wrong, include the following detail in your bug report, and attach the "
-#~ "files /var/log/syslog and /var/log/partman:"
-#~ msgstr ""
-#~ "เราขออภัย; โปรแกรมติดตั้งเกิดการขัดข้อง โปรดแจ้งบักที่ https://launchpad.net/ubuntu/"
-#~ "+source/ubiquity/+filebug (ไม่ต้องแนบรายละเอียดของคุณลงในบักที่มีอยู่แล้ว) "
-#~ "และทางนักพัฒนาจะแก้ไขโดยเร็วที่สุดเท่าที่จะเป็นไปได้ เพื่อช่วยให้นักพัฒนาทราบว่าอะไรผิดพลาด "
-#~ "โปรดแนบแฟ้ม /var/log/syslog และ /var/log/partman ลงในรายละเอียดการแจ้งบัก:"
-
-#~ msgid ""
-#~ "1 smaller partition is hidden, use the <a href=\"\">advanced partitioning "
-#~ "tool</a> for more control"
-#~ msgstr ""
-#~ "มี 1 พาร์ทิชันขนาดเล็กถูกซ่อนไว้, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
-
-#~ msgid ""
-#~ "%d smaller partitions are hidden, use the <a href=\"\">advanced "
-#~ "partitioning tool</a> for more control"
-#~ msgstr ""
-#~ "พาร์ทิชัน %d ขนาดเล็กได้ถูกซ่อนไว้, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2011."
-#~ msgstr ""
-#~ "นี่เป็นรุ่นก่อนรุ่นจริงของ ${RELEASE} live ${MEDIUM} ติดตั้ง ยังไม่ใช่รุ่นสุดท้ายซึ่งจะมาใน "
-#~ "${RELEASE} ในเมษายน 2554"
