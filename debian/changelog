@@ -4,6 +4,9 @@ ubiquity (2.8.0) UNRELEASED; urgency=low
     the Unicode replacement character just in case (LP: #839143).
   * GTK frontend:
     - Fetch geoname data asynchronously (LP: #837217).
+  * Always start oem-config with LANG=en_US.UTF-8; this doesn't affect
+    translations since we use debconf for those, but forces Qt to use UTF-8
+    encoding for text fields (LP: #837042).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 30 Sep 2011 14:47:57 +0100
 
