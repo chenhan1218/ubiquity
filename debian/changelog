@@ -1,4 +1,4 @@
-ubiquity (2.8.0) UNRELEASED; urgency=low
+ubiquity (2.8.0) oneiric; urgency=low
 
   * Fix SSID UTF-8 decoding, and replace any still-invalid characters with
     the Unicode replacement character just in case (LP: #839143).
@@ -8,7 +8,7 @@ ubiquity (2.8.0) UNRELEASED; urgency=low
     translations since we use debconf for those, but forces Qt to use UTF-8
     encoding for text fields (LP: #837042).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 30 Sep 2011 14:47:57 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 01 Oct 2011 20:44:44 +0100
 
 ubiquity (2.7.38) oneiric; urgency=low
 
