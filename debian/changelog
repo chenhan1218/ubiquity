@@ -7,6 +7,9 @@ ubiquity (2.8.2) UNRELEASED; urgency=low
   * Run only those parts of oem-config-prepare that require root access as
     root; in particular displaying confirmation dialogs is now done as the
     calling user, which avoids KDE confusion (LP: #856418).
+  * Go back to killing update-apt-cache's process group, but this time make
+    sure that it's in a separate process group and make more of an effort to
+    ensure that it terminates (LP: #743359).
 
   [ Stéphane Graber ]
   * Set gsettings keys in ubiquity-dm instead of gconf for these that

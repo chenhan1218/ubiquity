@@ -123,6 +123,7 @@ class Install(install_misc.InstallBase):
                 cmd = ['/usr/share/ubiquity/update-apt-cache']
                 def subprocess_setup():
                     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+                    os.setpgid(0, 0)
                 self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
                     stdout=subprocess.PIPE, preexec_fn=subprocess_setup).pid
             try:
@@ -158,12 +159,22 @@ class Install(install_misc.InstallBase):
             self.umount_source()
 
         if self.update_proc:
-            try:
-                os.kill(self.update_proc, signal.SIGTERM)
-                syslog.syslog('Terminated ubiquity update process.')
-            except OSError, e:
-                if e.errno != errno.ESRCH:
-                    raise
+            for i in range(10):
+                try:
+                    os.killpg(self.update_proc, signal.SIGTERM)
+                except OSError, e:
+                    if e.errno == errno.ESRCH:
+                        break
+                    else:
+                        raise
+                time.sleep(1)
+            else:
+                try:
+                    os.killpg(self.update_proc, signal.SIGKILL)
+                except OSError, e:
+                    if e.errno != errno.ESRCH:
+                        raise
+            syslog.syslog('Terminated ubiquity update process.')
 
     def find_cd_kernel(self):
         """Find the boot kernel on the CD, if possible."""
