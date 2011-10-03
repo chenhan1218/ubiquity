@@ -89,7 +89,13 @@ def set(schema, key, value, user = None):
     if not user:
         user = os.getenv("SUDO_USER", os.getenv("USER", "root"))
 
-    subprocess.call(['sudo', '-u', user, 'gsettings', 'set', schema, key, value],
+    # Convert booleans
+    if value == False:
+        value = "false"
+    if value == True:
+        value = "true"
+
+    subprocess.call(['sudo', '-u', user, 'gsettings', 'set', schema, key, str(value)],
                      preexec_fn=misc.drop_all_privileges)
 
 def set_list(schema, key, values, user = None):
