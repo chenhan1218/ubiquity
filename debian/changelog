@@ -10,6 +10,7 @@ ubiquity (2.8.2) UNRELEASED; urgency=low
   * Go back to killing update-apt-cache's process group, but this time make
     sure that it's in a separate process group and make more of an effort to
     ensure that it terminates (LP: #743359).
+  * Update translations from Launchpad.
 
   [ Stéphane Graber ]
   * Set gsettings keys in ubiquity-dm instead of gconf for these that
