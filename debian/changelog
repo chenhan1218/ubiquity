@@ -13,8 +13,11 @@ ubiquity (2.8.2) UNRELEASED; urgency=low
   * Update translations from Launchpad.
 
   [ Stéphane Graber ]
-  * Set gsettings keys in ubiquity-dm instead of gconf for these that
-    have been migrated.
+  * Make ubiquity also update gsettings (LP: #800760)
+    - Add a new gsettings module similar to the gconftool one
+    - Update ubiquity-dm for gconf to gsettings migration
+    - Get PROXY configuration from gsettings
+    - Update gtk_ui to set/restore gsettings values
   * Update copy_network_config to work with Network Manager now storing
     everything system wide.
 
