@@ -42,7 +42,7 @@ def get(schema, key, user = None):
         return
 
     if not user:
-        user = os.getenv("USER", "root")
+        user = os.getenv("SUDO_USER", getenv("USER", "root"))
 
     subp = subprocess.Popen(['sudo', '-u', user, 'gsettings', 'get', schema, key],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -87,7 +87,7 @@ def set(schema, key, value, user = None):
         return
 
     if not user:
-        user = os.getenv("USER", "root")
+        user = os.getenv("SUDO_USER", getenv("USER", "root"))
 
     subprocess.call(['sudo', '-u', user, 'gsettings', 'set', schema, key, value],
                      preexec_fn=misc.drop_all_privileges)
@@ -104,7 +104,7 @@ def unset(schema, key, user = None):
         return
 
     if not user:
-        user = os.getenv("USER", "root")
+        user = os.getenv("SUDO_USER", getenv("USER", "root"))
 
     subprocess.call(['sudo', '-u', user, 'gsettings', 'reset', schema, key],
                      preexec_fn=misc.drop_all_privileges)
