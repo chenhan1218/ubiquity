@@ -1353,6 +1353,7 @@ class Page(plugin.Plugin):
         self.bad_auto_size = False
         self.description_cache = {}
         self.local_progress = False
+        self.swap_size = 0
 
         self.install_bootloader = False
         if (self.db.get('ubiquity/install_bootloader') == 'true' and
@@ -1360,6 +1361,15 @@ class Page(plugin.Plugin):
             arch, subarch = archdetect()
             if arch in ('amd64', 'i386'):
                 self.install_bootloader = True
+
+        filesystem_size = 5 * 1024 * 1024 * 1024 # 5GB
+        try:
+            with open('/cdrom/casper/filesystem.size') as fp:
+                filesystem_size = int(fp.readline())
+        except IOError:
+            self.debug('Could not determine filesystem size.')
+        fudge = 200 * 1024 * 1024 # 200 MB
+        self.installation_size = filesystem_size + fudge
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
@@ -1639,6 +1649,9 @@ class Page(plugin.Plugin):
                 self.resize_max_size = int(value)
             elif key == 'PATH':
                 self.resize_path = value
+            elif key == 'SWAPSIZE':
+                # Provided in megabytes.
+                self.swap_size = int(value) * 1024 * 1024
 
     def error(self, priority, question):
         if question == 'partman-partitioning/impossible_resize':
@@ -2037,14 +2050,7 @@ class Page(plugin.Plugin):
                     parted.select_disk(dev)
                     size = int(parted.partition_info(p_id)[2])
                     key = biggest_free[0][2]
-                    filesystem_size = 5 * 1024 * 1024 * 1024 # 5GB
-                    try:
-                        with open('/cdrom/casper/filesystem.size') as fp:
-                            filesystem_size = int(fp.readline())
-                    except IOError:
-                        self.debug('Could not determine filesystem size.')
-                    fudge = 200 * 1024 * 1024 # 200 MB
-                    if size > filesystem_size + fudge:
+                    if size > self.installation_size:
                         self.extra_options['biggest_free'] = (key, size)
 
                 # TODO: Add misc.find_in_os_prober(info[5]) ...and size?
@@ -2593,8 +2599,6 @@ class Page(plugin.Plugin):
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
                 if self.auto_state is not None:
-                    if 'resize' not in self.extra_options:
-                        self.extra_options['resize'] = {}
                     p_id = self.translate_to_c(self.autopartition_question,
                                                self.auto_state[1])
                     p_id = p_id.rsplit('//')[1]
@@ -2605,9 +2609,37 @@ class Page(plugin.Plugin):
                         parted.select_disk(disk)
                         size = int(parted.partition_info(p_id)[2])
                         fs   = parted.partition_info(p_id)[4]
-                    self.extra_options['resize'][disk] = \
-                        (self.auto_state[1], self.resize_min_size, self.resize_max_size,
-                            self.resize_pref_size, self.resize_path, size, fs)
+
+                    # The resize path will use the selected size as the amount
+                    # of space to create *all* the needed partitions, currently
+                    # / and swap. Make sure everything will fit.
+                    real_min_size = self.resize_min_size + self.swap_size
+
+                    # The installation is bigger than the minimum value we
+                    # would normally present.
+                    if real_min_size < self.installation_size:
+                        self.resize_min_size = (
+                            self.installation_size + self.swap_size)
+                        # Readjust the preferred size.
+                        self.resize_pref_size = (self.resize_min_size +
+                            (self.resize_max_size - self.resize_min_size) / 2)
+
+                    too_big = False
+                    if self.resize_min_size > self.resize_max_size:
+                        # We wont fit here, so don't use this partition.
+                        error = '%s is too small' % self.resize_path
+                        self.debug(error, self.resize_path)
+                        too_big = True
+
+                    needed_space = self.swap_size + self.installation_size
+                    if not too_big and self.resize_max_size > needed_space:
+                        if 'resize' not in self.extra_options:
+                            self.extra_options['resize'] = {}
+                        self.extra_options['resize'][disk] = \
+                            (self.auto_state[1], self.resize_min_size,
+                             self.resize_max_size, self.resize_pref_size,
+                             self.resize_path, size, fs)
+
                     # Back up to autopartitioning question.
                     self.succeeded = False
                     return False
