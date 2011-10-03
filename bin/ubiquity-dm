@@ -17,6 +17,7 @@ import ubiquity.frontend
 import pwd
 
 from ubiquity import osextras
+from ubiquity import gsettings
 from ubiquity.misc import create_bool
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
@@ -295,9 +296,9 @@ EndSection
             gconf_dir = ('xml:readwrite:%s' %
                 os.path.expanduser('~%s/.gconf' %
                 self.username))
-            accessibility = 'false'
+            accessibility = False
             if (osextras.find_on_path('gconftool-2') and
-               osextras.find_on_path('gsettings')):
+               gsettings._gsettings_exists()):
                 # Set number of workspaces to 1 in metacity
                 # (still using gconf, GNOME: #621204)
                 subprocess.call(
@@ -312,21 +313,14 @@ EndSection
                     ('org.gnome.desktop.lockdown', 'disable-lock-screen', 'true'),
                     ('org.gnome.desktop.lockdown', 'disable-user-switching', 'true'),
                 ]
-                for gs_path, gs_key, gs_value in gsettings_keys:
-                    subprocess.call(
-                        ['gsettings', 'set', gs_path, gs_key, gs_value],
-                        stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges)
+                for gs_schema, gs_key, gs_value in gsettings_keys:
+                    gsettings.set(gs_schema, gs_key, gs_value, self.username)
 
-                subp = subprocess.Popen(
-                    ['gsettings', 'get', 'org.gnome.desktop.interface',
-                    'toolkit-accessibility'],
-                    stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                    preexec_fn=self.drop_privileges)
-                accessibility = subp.communicate()[0].rstrip('\n')
+                accessibility = gsettings.get('org.gnome.desktop.interface',
+                    'toolkit-accessibility', self.username)
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
-                if (accessibility == 'true' or 'maybe-ubiquity' in fp.readline()):
+                if (accessibility == True or 'maybe-ubiquity' in fp.readline()):
                     if os.path.exists('/usr/lib/at-spi2-core/at-spi-bus-launcher'):
                         extras.append(subprocess.Popen(
                             ['/usr/lib/at-spi2-core/at-spi-bus-launcher',
@@ -400,7 +394,7 @@ EndSection
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
             # Accessibility tools
-            if accessibility == 'true':
+            if accessibility == True:
                 with open('/proc/cmdline', 'r') as fp:
                     if 'access=m2' in fp.readline():
                         if osextras.find_on_path('onboard'):
