@@ -50,7 +50,7 @@ if 'DISPLAY' in os.environ:
     GObject.threads_init()
     from ubiquity import gtkwidgets
 
-from ubiquity import filteredcommand, gconftool, i18n, validation, misc
+from ubiquity import filteredcommand, gconftool, gsettings, i18n, validation, misc
 from ubiquity.plugin import Plugin
 from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.progressposition
@@ -196,6 +196,7 @@ class Wizard(BaseFrontend):
         # declare attributes
         self.all_widgets = set()
         self.gconf_previous = {}
+        self.gsettings_previous = {}
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'quit', 'back', 'next',
                                    'warning_dialog', 'warning_dialog_label',
@@ -462,40 +463,42 @@ class Wizard(BaseFrontend):
                           self.gconf_previous[terminal_key])
 
     def disable_logout_indicator(self):
-        logout_key = '/apps/indicator-session/suppress_logout_menuitem'
-        self.gconf_previous[logout_key] = gconftool.get(logout_key)
-        if self.gconf_previous[logout_key] != 'true':
-            gconftool.set(logout_key, 'bool', 'true')
+        gs_schema = 'com.canonical.indicator.session'
+        gs_key = 'suppress-logout-menuitem'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = gsettings.get(gs_schema, gs_key)
+        self.gsettings_previous[gs_previous] = gs_value
+
+        if gs_value != True:
+            gsettings.set(gs_schema, gs_key, True)
+
         atexit.register(self.enable_logout_indicator)
 
     def enable_logout_indicator(self):
-        logout_key = '/apps/indicator-session/suppress_logout_menuitem'
-        if self.gconf_previous[logout_key] == '':
-            gconftool.unset(logout_key)
-        elif self.gconf_previous[logout_key] != 'true':
-            gconftool.set(logout_key, 'bool',
-                          self.gconf_previous[logout_key])
+        gs_schema = 'com.canonical.indicator.session'
+        gs_key = 'suppress-logout-menuitem'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = self.gsettings_previous[gs_previous]
+
+        gsettings.set(gs_schema, gs_key, gs_value)
 
     # Disable gnome-volume-manager automounting to avoid problems during
     # partitioning.
     def disable_volume_manager(self):
-        gvm_root = '/desktop/gnome/volume_manager'
-        gvm_automount_drives = '%s/automount_drives' % gvm_root
-        gvm_automount_media = '%s/automount_media' % gvm_root
-        volumes_visible = '/apps/nautilus/desktop/volumes_visible'
-        media_automount = '/apps/nautilus/preferences/media_automount'
-        media_automount_open = '/apps/nautilus/preferences/media_automount_open'
-        media_autorun_never = '/apps/nautilus/preferences/media_autorun_never'
-        for gconf_key in (gvm_automount_drives, gvm_automount_media,
-                          volumes_visible,
-                          media_automount, media_automount_open):
-            self.gconf_previous[gconf_key] = gconftool.get(gconf_key)
-            if self.gconf_previous[gconf_key] != 'false':
-                gconftool.set(gconf_key, 'bool', 'false')
-        for gconf_key in (media_autorun_never,):
-            self.gconf_previous[gconf_key] = gconftool.get(gconf_key)
-            if self.gconf_previous[gconf_key] != 'true':
-                gconftool.set(gconf_key, 'bool', 'true')
+        volumes_visible = ('org.gnome.nautilus.desktop', 'volumes-visible', False)
+        media_automount = ('org.gnome.desktop.media-handling', 'automount', False)
+        media_automount_open = ('org.gnome.desktop.media-handling', 'automount-open', False)
+        media_autorun_never = ('org.gnome.desktop.media-handling', 'autorun-never', True)
+        for keys in (volumes_visible, media_automount, media_automount_open, media_autorun_never):
+            gs_schema = keys[0]
+            gs_key = keys[1]
+            gs_wantedvalue = keys[2]
+            gs_previous = '%s/%s' % (gs_schema, gs_key)
+            gs_value = gsettings.get(gs_schema, gs_key)
+            self.gsettings_previous[gs_previous] = gs_value
+
+            if gs_value != gs_wantedvalue:
+                gsettings.set(gs_schema, gs_key, gs_wantedvalue)
 
         self.thunar_previous = self.thunar_set_volmanrc(
             {'AutomountDrives': 'FALSE', 'AutomountMedia': 'FALSE'})
@@ -503,27 +506,17 @@ class Wizard(BaseFrontend):
         atexit.register(self.enable_volume_manager)
 
     def enable_volume_manager(self):
-        gvm_root = '/desktop/gnome/volume_manager'
-        gvm_automount_drives = '%s/automount_drives' % gvm_root
-        gvm_automount_media = '%s/automount_media' % gvm_root
-        volumes_visible = '/apps/nautilus/desktop/volumes_visible'
-        media_automount = '/apps/nautilus/preferences/media_automount'
-        media_automount_open = '/apps/nautilus/preferences/media_automount_open'
-        media_autorun_never = '/apps/nautilus/preferences/media_autorun_never'
-        for gconf_key in (gvm_automount_drives, gvm_automount_media,
-                          volumes_visible,
-                          media_automount, media_automount_open):
-            if self.gconf_previous[gconf_key] == '':
-                gconftool.unset(gconf_key)
-            elif self.gconf_previous[gconf_key] != 'false':
-                gconftool.set(gconf_key, 'bool',
-                              self.gconf_previous[gconf_key])
-        for gconf_key in (media_autorun_never,):
-            if self.gconf_previous[gconf_key] == '':
-                gconftool.unset(gconf_key)
-            elif self.gconf_previous[gconf_key] != 'true':
-                gconftool.set(gconf_key, 'bool',
-                              self.gconf_previous[gconf_key])
+        volumes_visible = ('org.gnome.nautilus.desktop', 'volumes-visible')
+        media_automount = ('org.gnome.desktop.media-handling', 'automount')
+        media_automount_open = ('org.gnome.desktop.media-handling', 'automount-open')
+        media_autorun_never = ('org.gnome.desktop.media-handling', 'autorun-never')
+        for keys in (volumes_visible, media_automount, media_automount_open, media_autorun_never):
+            gs_schema = keys[0]
+            gs_key = keys[1]
+            gs_previous = '%s/%s' % (gs_schema, gs_key)
+            gs_value = self.gsettings_previous[gs_previous]
+
+            gsettings.set(gs_schema, gs_key, gs_value)
 
         if self.thunar_previous:
             self.thunar_set_volmanrc(self.thunar_previous)
@@ -834,13 +827,18 @@ color : @fg_color
 
     def lockdown_environment(self):
         atexit.register(self.unlock_environment)
-        for key in ('/apps/indicator-session/suppress_logout_menuitem',
-                    '/apps/indicator-session/suppress_logout_restart_menuitem',
-                    '/apps/indicator-session/suppress_restart_menuitem',
-                    '/apps/indicator-session/suppress_shutdown_menuitem',
-                    '/desktop/gnome/lockdown/disable_user_switching'):
-            self.gconf_previous[key] = gconftool.get(key)
-            gconftool.set(key, 'bool', 'true')
+        for key in (('com.canonical.indicator.session', 'suppress-logout-menuitem'),
+                    ('com.canonical.indicator.session', 'suppress-logout-restart-shutdown'),
+                    ('com.canonical.indicator.session', 'suppress-restart-menuitem'),
+                    ('com.canonical.indicator.session', 'suppress-shutdown-menuitem'),
+                    ('org.gnome.desktop.lockdown','disable-user-switching')):
+            gs_schema = keys[0]
+            gs_key = keys[1]
+            gs_previous = '%s/%s' % (gs_schema, gs_key)
+            gs_value = gsettings.get(gs_schema, gs_key)
+            self.gsettings_previous[gs_previous] = gs_value
+
+            gsettings.set(schema, key, True)
 
         self.quit.hide()
         f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | Gdk.WMFunction.MOVE
@@ -852,16 +850,19 @@ color : @fg_color
 
     def unlock_environment(self):
         syslog.syslog('Reverting lockdown of the desktop environment.')
-        for key in ('/apps/indicator-session/suppress_logout_menuitem',
-                    '/apps/indicator-session/suppress_logout_restart_menuitem',
-                    '/apps/indicator-session/suppress_restart_menuitem',
-                    '/apps/indicator-session/suppress_shutdown_menuitem',
-                    '/desktop/gnome/lockdown/disable_user_switching'):
-            if key in self.gconf_previous:
-                if self.gconf_previous[key] == '':
-                    gconftool.unset(key)
-                else:
-                    gconftool.set(key, 'bool', self.gconf_previous[key])
+        for key in (('com.canonical.indicator.session', 'suppress-logout-menuitem'),
+                    ('com.canonical.indicator.session', 'suppress-logout-restart-shutdown'),
+                    ('com.canonical.indicator.session', 'suppress-restart-menuitem'),
+                    ('com.canonical.indicator.session', 'suppress-shutdown-menuitem'),
+                    ('org.gnome.desktop.lockdown','disable-user-switching')):
+            gs_schema = keys[0]
+            gs_key = keys[1]
+            gs_previous = '%s/%s' % (gs_schema, gs_key)
+
+            if gs_previous in self.gsettings_previous:
+                gs_value = self.gsettings_previous[gs_previous]
+                gsettings.set(gs_schema, gs_key, gs_value)
+
         if not self.oem_user_config:
             self.quit.show()
         f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | \
