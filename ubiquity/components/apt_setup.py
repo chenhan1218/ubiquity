@@ -20,31 +20,30 @@
 import debconf
 
 from ubiquity.filteredcommand import FilteredCommand
-from ubiquity import gconftool
+from ubiquity import gsettings
 
 class AptSetup(FilteredCommand):
-    def _gconf_http_proxy(self):
-        if gconftool.get('/system/http_proxy/use_http_proxy') != 'true':
+    def _gsettings_http_proxy(self):
+        if gsettings.get('org.gnome.system.proxy', 'mode') == 'none':
             return None
 
-        host = gconftool.get('/system/http_proxy/host')
+        host = gsettings.get('org.gnome.system.proxy.http', 'host')
         if host == '':
             return None
-        port = gconftool.get('/system/http_proxy/port')
+        port = str(gsettings.get('org.gnome.system.proxy.http', 'port'))
         if port == '':
             port = '8080'
 
-        auth = gconftool.get('/system/http_proxy/use_authentication')
-        if auth == 'true':
-            user = gconftool.get('/system/http_proxy/authentication_user')
-            password = gconftool.get(
-                '/system/http_proxy/authentication_password')
+        auth = gsettings.get('org.gnome.system.proxy.http', 'use-authentication')
+        if auth == True:
+            user = gsettings.get('org.gnome.system.proxy.http', 'authentication-user')
+            password = gsettings.get('org.gnome.system.proxy.http', 'authentication-password')
             return 'http://%s:%s@%s:%s/' % (host, port, user, password)
         else:
             return 'http://%s:%s/' % (host, port)
 
-    def _gconf_no_proxy(self):
-        return ','.join(gconftool.get_list('/system/http_proxy/ignore_hosts'))
+    def _gsettings_no_proxy(self):
+        return ','.join(gsettings.get_list('org.gnome.system.proxy', 'ignore-hosts'))
 
     def prepare(self):
         env = {}
@@ -55,10 +54,10 @@ class AptSetup(FilteredCommand):
             chosen_http_proxy = None
 
         if not chosen_http_proxy:
-            http_proxy = self._gconf_http_proxy()
+            http_proxy = self._gsettings_http_proxy()
             if http_proxy is not None:
                 self.preseed('mirror/http/proxy', http_proxy)
-                no_proxy = self._gconf_no_proxy()
+                no_proxy = self._gsettings_no_proxy()
                 if no_proxy:
                     env['no_proxy'] = no_proxy
 
