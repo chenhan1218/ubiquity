@@ -570,6 +570,7 @@ def set_indicator_keymaps(locale):
     from gi.repository import Gdk
     from ubiquity import gconftool
 
+    # FIXME: Code below needs porting to gsettings (not done yet as the function is disabled)
     xpath = "//iso_639_3_entry[@part1_code='%s']"
     gconf_key = '/desktop/gnome/peripherals/keyboard/kbd/layouts'
     variants = []
