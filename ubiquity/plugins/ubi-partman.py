@@ -29,7 +29,7 @@ from ubiquity import parted_server
 from ubiquity import misc
 from ubiquity import osextras
 from ubiquity.install_misc import archdetect
-from collections import namedtuple
+from collections import namedtuple, OrderedDict
 
 NAME = 'partman'
 AFTER = 'prepare'
@@ -2091,7 +2091,7 @@ class Page(plugin.Plugin):
 
         elif question == 'partman-auto/select_disk':
             if self.auto_state is not None:
-                disks = {}
+                disks = OrderedDict()
                 choices = self.choices(question)
                 choices_c = self.choices_untranslated(question)
                 with misc.raised_privileges():
