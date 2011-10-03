@@ -1471,6 +1471,10 @@ class Install(install_misc.InstallBase):
         # configuration already exists on the target
         if os.path.exists(source_nm) and os.path.exists(target_nm):
             for network in os.listdir(source_nm):
+                # Skip LTSP live
+                if network == "LTSP":
+                    continue
+
                 source_network = os.path.join(source_nm, network)
                 target_network = os.path.join(target_nm, network)
 
