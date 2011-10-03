@@ -1,5 +1,6 @@
 ubiquity (2.8.2) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Preserve ordering of disks returned by partman-auto rather than
     shuffling them based on dictionary ordering (LP: #770711).  This uses
     collections.OrderedDict, which requires Python >= 2.7.
@@ -7,7 +8,11 @@ ubiquity (2.8.2) UNRELEASED; urgency=low
     root; in particular displaying confirmation dialogs is now done as the
     calling user, which avoids KDE confusion (LP: #856418).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 03 Oct 2011 10:53:28 +0100
+  [ Stéphane Graber ]
+  * Set gsettings keys in ubiquity-dm instead of gconf for these that
+    have been migrated.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 03 Oct 2011 13:04:26 -0400
 
 ubiquity (2.8.1) oneiric; urgency=low
 

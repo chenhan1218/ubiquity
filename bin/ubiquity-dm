@@ -298,16 +298,26 @@ EndSection
             accessibility = 'false'
             if (osextras.find_on_path('gconftool-2') and
                osextras.find_on_path('gsettings')):
+                # Set number of workspaces to 1 in metacity
+                # (still using gconf, GNOME: #621204)
                 subprocess.call(
                     ['gconftool-2', '--config-source', gconf_dir,
                      '--type', 'int', '--set',
-                     '/apps/metacity/general/num_workspaces', '1',
-                     '--type', 'int', '--set',
-                     '/desktop/gnome/lockdown/disable_user_switching', 'true',
-                     '--type', 'boolean', '--set',
-                     '/desktop/gnome/lockdown/disable_lock_screen', 'true'],
+                     '/apps/metacity/general/num_workspaces', '1',],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges)
+
+                # Set gsettings keys
+                gsettings_keys = [
+                    ('org.gnome.desktop.lockdown', 'disable-lock-screen', 'true'),
+                    ('org.gnome.desktop.lockdown', 'disable-user-switching', 'true'),
+                ]
+                for gs_path, gs_key, gs_value in gsettings_keys:
+                    subprocess.call(
+                        ['gsettings', 'set', gs_path, gs_key, gs_value],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges)
+
                 subp = subprocess.Popen(
                     ['gsettings', 'get', 'org.gnome.desktop.interface',
                     'toolkit-accessibility'],
