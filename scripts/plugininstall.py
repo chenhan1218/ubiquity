@@ -1464,55 +1464,20 @@ class Install(install_misc.InstallBase):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             return
 
-        if 'SUDO_USER' in os.environ:
-            casper_user = os.path.expanduser('~%s' % os.environ['SUDO_USER'])
-        else:
-            casper_user = os.path.expanduser('~')
-        target_user = self.db.get('passwd/username')
-
-        # GTK
-        homedir = '/home/%s' % target_user
-        target_keyrings = os.path.join(self.target, homedir[1:],
-                                       '.gnome2/keyrings')
+        source_nm = "/etc/NetworkManager/system-connections/"
+        target_nm = "/target/etc/NetworkManager/system-connections/"
 
         # Sanity checks.  We don't want to do anything if a network
-        # configuration already exists, which will be the case if the user
-        # selected to install without formatting.
-        if os.path.exists(target_keyrings):
-            return
-        config_source = 'xml:readwrite:%s/.gconf' % homedir
-        subp = subprocess.Popen(['chroot', self.target, 'sudo', '-i', '-n',
-            '-u', target_user, '--', 'gconftool-2', '--direct',
-            '--config-source', config_source, '--dir-exists',
-            '/system/networking'], close_fds=True)
-        subp.communicate()
-        if subp.returncode == 0:
-            return
+        # configuration already exists on the target
+        if os.path.exists(source_nm) and os.path.exists(target_nm):
+            for network in os.listdir(source_nm):
+                source_network = os.path.join(source_nm, network)
+                target_network = os.path.join(target_nm, network)
 
-        from ubiquity import gconftool
-        if gconftool.dump('/system/networking', os.path.join(self.target,
-                          'tmp/live-network-config')):
-            # Ick.
-            subprocess.call(['log-output', '-t', 'ubiquity', 'chroot',
-                self.target, 'sudo', '-i', '-n', '-u', target_user, '--',
-                'gconftool-2', '--direct', '--config-source', config_source,
-                '--load', '/tmp/live-network-config'], close_fds=True)
-            os.remove('/target/tmp/live-network-config')
-            source_keyrings = os.path.join(casper_user, '.gnome2/keyrings')
-            if os.path.exists(source_keyrings):
-                # We could just figure out what $HOME is and stat it as an
-                # alternative.
-                uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
-                    target_user, '--', 'id', '-u'],
-                    stdout=subprocess.PIPE).communicate()[0].strip('\n')
-                gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
-                    target_user, '--', 'id', '-g'],
-                    stdout=subprocess.PIPE).communicate()[0].strip('\n')
-                uid = int(uid)
-                gid = int(gid)
-                self.copy_tree(source_keyrings, target_keyrings, uid, gid)
+                if os.path.exists(target_network):
+                    continue
 
-        # KDE TODO
+                shutil.copy(source_network, target_network)
 
     def recache_apparmor(self):
         """Generate an apparmor cache in /etc/apparmor.d/cache to speed up boot

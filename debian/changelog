@@ -15,8 +15,10 @@ ubiquity (2.8.2) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * Set gsettings keys in ubiquity-dm instead of gconf for these that
     have been migrated.
+  * Update copy_network_config to work with Network Manager now storing
+    everything system wide.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 03 Oct 2011 13:04:26 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 03 Oct 2011 13:30:23 -0400
 
 ubiquity (2.8.1) oneiric; urgency=low
 
