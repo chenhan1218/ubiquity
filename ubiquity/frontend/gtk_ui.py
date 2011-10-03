@@ -832,13 +832,13 @@ color : @fg_color
                     ('com.canonical.indicator.session', 'suppress-restart-menuitem'),
                     ('com.canonical.indicator.session', 'suppress-shutdown-menuitem'),
                     ('org.gnome.desktop.lockdown','disable-user-switching')):
-            gs_schema = keys[0]
-            gs_key = keys[1]
+            gs_schema = key[0]
+            gs_key = key[1]
             gs_previous = '%s/%s' % (gs_schema, gs_key)
             gs_value = gsettings.get(gs_schema, gs_key)
             self.gsettings_previous[gs_previous] = gs_value
 
-            gsettings.set(schema, key, True)
+            gsettings.set(gs_schema, gs_key, True)
 
         self.quit.hide()
         f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | Gdk.WMFunction.MOVE
@@ -855,8 +855,8 @@ color : @fg_color
                     ('com.canonical.indicator.session', 'suppress-restart-menuitem'),
                     ('com.canonical.indicator.session', 'suppress-shutdown-menuitem'),
                     ('org.gnome.desktop.lockdown','disable-user-switching')):
-            gs_schema = keys[0]
-            gs_key = keys[1]
+            gs_schema = key[0]
+            gs_key = key[1]
             gs_previous = '%s/%s' % (gs_schema, gs_key)
 
             if gs_previous in self.gsettings_previous:
