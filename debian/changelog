@@ -1,4 +1,4 @@
-ubiquity (2.8.2) UNRELEASED; urgency=low
+ubiquity (2.8.2) oneiric; urgency=low
 
   [ Colin Watson ]
   * Preserve ordering of disks returned by partman-auto rather than
@@ -21,7 +21,7 @@ ubiquity (2.8.2) UNRELEASED; urgency=low
   * Update copy_network_config to work with Network Manager now storing
     everything system wide.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 03 Oct 2011 13:30:23 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 03 Oct 2011 17:31:46 -0400
 
 ubiquity (2.8.1) oneiric; urgency=low
 
