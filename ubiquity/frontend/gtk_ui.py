@@ -466,6 +466,9 @@ class Wizard(BaseFrontend):
         gs_schema = 'com.canonical.indicator.session'
         gs_key = 'suppress-logout-menuitem'
         gs_previous = '%s/%s' % (gs_schema, gs_key)
+        if gs_previous in self.gsettings_previous:
+            return
+
         gs_value = gsettings.get(gs_schema, gs_key)
         self.gsettings_previous[gs_previous] = gs_value
 
@@ -494,6 +497,9 @@ class Wizard(BaseFrontend):
             gs_key = keys[1]
             gs_wantedvalue = keys[2]
             gs_previous = '%s/%s' % (gs_schema, gs_key)
+            if gs_previous in self.gsettings_previous:
+                continue
+
             gs_value = gsettings.get(gs_schema, gs_key)
             self.gsettings_previous[gs_previous] = gs_value
 
@@ -835,6 +841,9 @@ color : @fg_color
             gs_schema = key[0]
             gs_key = key[1]
             gs_previous = '%s/%s' % (gs_schema, gs_key)
+            if gs_previous in self.gsettings_previous:
+                continue
+
             gs_value = gsettings.get(gs_schema, gs_key)
             self.gsettings_previous[gs_previous] = gs_value
 

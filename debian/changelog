@@ -3,8 +3,9 @@ ubiquity (2.8.3) UNRELEASED; urgency=low
   * Skip LTSP from the list of networks to copy to the target.
     This is a temporary network created by Edubuntu's LTSP live.
   * Fix PROXY url as the gsettings host key already contains http://
+  * Only disable set the gsettings keys once in gtk_ui (LP: #657086)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 04 Oct 2011 10:01:43 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 04 Oct 2011 10:44:03 -0400
 
 ubiquity (2.8.2) oneiric; urgency=low
 
