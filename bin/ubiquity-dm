@@ -530,6 +530,10 @@ EndSection
                     raise
             processes -= done
         signal.alarm(0)
+
+        # Clear the console so we don't see upstart messages on switch
+        subprocess.Popen(['clear'])
+
         kill_if_exists(server.pid, signal.SIGTERM)
         server.wait()
 
