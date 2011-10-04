@@ -5,8 +5,9 @@ ubiquity (2.8.3) UNRELEASED; urgency=low
   * Fix PROXY url as the gsettings host key already contains http://
   * Only disable set the gsettings keys once in gtk_ui (LP: #657086)
   * Properly handle keys in gsettings that are empty/not set.
+  * Don't crash when the no-proxy list is empty. (LP: #867620)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 04 Oct 2011 12:51:41 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 04 Oct 2011 12:52:27 -0400
 
 ubiquity (2.8.2) oneiric; urgency=low
 

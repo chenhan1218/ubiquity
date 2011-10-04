@@ -46,7 +46,9 @@ class AptSetup(FilteredCommand):
             return '%s:%s/' % (host, port)
 
     def _gsettings_no_proxy(self):
-        return ','.join(gsettings.get_list('org.gnome.system.proxy', 'ignore-hosts'))
+        ignore_list = gsettings.get_list('org.gnome.system.proxy', 'ignore-hosts')
+        if ignore_list:
+            return ','.join(gsettings.get_list('org.gnome.system.proxy', 'ignore-hosts'))
 
     def prepare(self):
         env = {}
