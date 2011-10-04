@@ -24,7 +24,7 @@ from ubiquity import gsettings
 
 class AptSetup(FilteredCommand):
     def _gsettings_http_proxy(self):
-        if gsettings.get('org.gnome.system.proxy', 'mode') == 'none':
+        if gsettings.get('org.gnome.system.proxy', 'mode') in ('none', None):
             return None
 
         host = gsettings.get('org.gnome.system.proxy.http', 'host')
