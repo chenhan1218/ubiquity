@@ -34,6 +34,9 @@ class AptSetup(FilteredCommand):
         if port == '':
             port = '8080'
 
+        if not host.startswith("http://"):
+            host = "http://%s" % host
+
         auth = gsettings.get('org.gnome.system.proxy.http', 'use-authentication')
         if auth == True:
             user = gsettings.get('org.gnome.system.proxy.http', 'authentication-user')
