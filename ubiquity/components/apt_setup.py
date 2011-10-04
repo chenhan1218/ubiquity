@@ -38,9 +38,9 @@ class AptSetup(FilteredCommand):
         if auth == True:
             user = gsettings.get('org.gnome.system.proxy.http', 'authentication-user')
             password = gsettings.get('org.gnome.system.proxy.http', 'authentication-password')
-            return 'http://%s:%s@%s:%s/' % (host, port, user, password)
+            return '%s:%s@%s:%s/' % (host, port, user, password)
         else:
-            return 'http://%s:%s/' % (host, port)
+            return '%s:%s/' % (host, port)
 
     def _gsettings_no_proxy(self):
         return ','.join(gsettings.get_list('org.gnome.system.proxy', 'ignore-hosts'))
