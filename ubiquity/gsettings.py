@@ -49,6 +49,9 @@ def get(schema, key, user = None):
                             preexec_fn=misc.drop_all_privileges)
     value = subp.communicate()[0].rstrip('\n')
 
+    if not value:
+        return
+
     # If it's a list, it should be accessed through get_list()
     if value.startswith('['):
         return value
@@ -72,7 +75,7 @@ def get_list(schema, key, user = None):
         return
 
     value = get(schema, key, user)
-    if not value.startswith("[") or not value.endswith("]"):
+    if not value or not value.startswith("[") or not value.endswith("]"):
         return
 
     try:
