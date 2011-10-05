@@ -17,8 +17,10 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * Update ubiquity-dm to export self.username as SUDO_USER.
     Make gsettings work properly later on during the install.
+  * Whenever we call wget, set --tries=1 instead of the default
+    of 20.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 05 Oct 2011 12:17:34 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 05 Oct 2011 17:19:37 -0400
 
 ubiquity (2.8.3) oneiric; urgency=low
 
