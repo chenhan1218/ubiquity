@@ -4,6 +4,7 @@ tailor.state.old
 tailor.state.journal
 ./build-stamp
 ./install-stamp
+./build-locale
 debian/build
 debian/files
 debian/oem-config
@@ -55,6 +56,9 @@ src/panel/.deps
 src/panel/.libs
 src/panel/Makefile
 src/panel/panel
+src/wallpaper/.libs
+src/wallpaper/wallpaper
+src/wallpaper/Makefile
 src/webcam/.deps
 src/webcam/.libs
 src/webcam/*.la
