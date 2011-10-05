@@ -55,6 +55,10 @@ class PageGtk(plugin.PluginUI):
         self.geoname_cache = {}
         self.geoname_session = None
         self.geoname_timeout_id = None
+        self.online = False
+
+    def plugin_set_online_state(self, state):
+        self.online = state
 
     def plugin_translate(self, lang):
         #c = self.controller
@@ -252,6 +256,10 @@ class PageKde(plugin.PluginUI):
             self.page = None
 
         self.plugin_widgets = self.page
+        self.online = False
+
+    def plugin_set_online_state(self, state):
+        self.online = state
 
     @plugin.only_this_page
     def refresh_timezones(self):
@@ -347,10 +355,18 @@ class PageDebconf(plugin.PluginUI):
 
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
+        self.online = False
+
+    def plugin_set_online_state(self, state):
+        self.online = state
 
 class PageNoninteractive(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
+        self.online = False
+
+    def plugin_set_online_state(self, state):
+        self.online = state
 
     def set_timezone(self, timezone):
         """Set the current selected timezone."""
@@ -362,6 +378,11 @@ class PageNoninteractive(plugin.PluginUI):
 
 class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
+        # TODO: This can go away once we have the ability to abort wget/rdate
+        if not self.ui.online:
+            self.preseed('tzsetup/geoip_server', '')
+            self.preseed('clock-setup/ntp', 'false')
+
         clock_script = '/usr/share/ubiquity/clock-setup'
         env = {'PATH': '/usr/share/ubiquity:' + os.environ['PATH']}
 

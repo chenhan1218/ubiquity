@@ -20,8 +20,10 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
     Make gsettings work properly later on during the install.
   * Whenever we call wget, set --tries=1 instead of the default
     of 20.
+  * If we think we're offline, don't try to contact geoip or run
+    rdate. (LP: #868668)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 05 Oct 2011 17:19:37 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 05 Oct 2011 17:53:28 -0400
 
 ubiquity (2.8.3) oneiric; urgency=low
 
