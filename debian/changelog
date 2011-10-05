@@ -1,10 +1,15 @@
 ubiquity (2.8.4) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Handle the keyboard query window closed callback being fired twice
     (LP: #865493).
   * Allow focusing of labels when we're in the screen reader
     acessibility profile, so that Orca can read them
     (LP: #856782, LP: #856773).
+
+  [ Colin Watson ]
+  * Don't install duplicate copies of console-setup-apply,
+    localechooser-apply, and netcfg-wrapper.
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 05 Oct 2011 09:58:55 +0100
 

@@ -684,7 +684,7 @@ class Page(plugin.Plugin):
 class Install(plugin.InstallPlugin):
     def prepare(self, unfiltered=False):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
-            return (['/usr/lib/ubiquity/localechooser-apply'], [])
+            return (['/usr/share/ubiquity/localechooser-apply'], [])
         else:
             return (['sh', '-c',
                      '/usr/lib/ubiquity/localechooser/post-base-installer ' +

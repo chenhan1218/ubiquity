@@ -44,7 +44,6 @@ d-i/source/clock-setup/set-date-epoch sbin
 
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
-scripts/console-setup-apply usr/lib/ubiquity
 
 # debian-installer-utils
 d-i/source/debian-installer-utils/block-attr bin
@@ -69,11 +68,9 @@ d-i/source/localechooser/translation-check usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/localechooser/usr/share/localechooser/languagelist.data.gz usr/lib/ubiquity/localechooser
 d-i/source/localechooser/regionmap usr/lib/ubiquity/localechooser
 d-i/source/localechooser/debian/short-tmp/shortlists usr/lib/ubiquity/localechooser
-scripts/localechooser-apply usr/lib/ubiquity
 
 # netcfg
 d-i/source/netcfg/netcfg usr/lib/ubiquity/netcfg
-scripts/netcfg-wrapper usr/lib/ubiquity
 
 # partconf
 d-i/source/partconf/debian/partconf-*/* .
