@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-27 13:18+0000\n"
-"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
+"PO-Revision-Date: 2011-10-03 21:17+0000\n"
+"Last-Translator: Nicolas Delvaux <Unknown>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2011-10-05 22:57+0000\n"
+"X-Generator: Launchpad (build 14085)\n"
 
 #. Type: text
 #. Description
@@ -36,8 +36,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"Trop simpliste ? Mettez les mains dans le cambouis pour gérer précisément "
-"les options de partitionnement."
+"Trop simple pour vous ? Mettez les mains dans le cambouis grâce à les "
+"options de partitionnement avancées."
 
 #. Type: text
 #. Description
@@ -52,7 +52,7 @@ msgstr "Installation"
 #. Description
 #: ../ubiquity.templates:7001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Installer (mode OEM, pour les constructeurs seulement)"
+msgstr "Installer (mode OEM, uniquement pour les intégrateurs)"
 
 #. Type: text
 #. Description

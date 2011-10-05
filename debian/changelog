@@ -14,6 +14,7 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
   * Don't install duplicate copies of console-setup-apply,
     localechooser-apply, and netcfg-wrapper.
   * Bump fallback Ubuntu version number in ubi-language to 11.10.
+  * Update translations from Launchpad.
 
   [ Stéphane Graber ]
   * Update ubiquity-dm to export self.username as SUDO_USER.

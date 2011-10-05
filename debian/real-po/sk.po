@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-10-02 21:59+0000\n"
-"Last-Translator: helix84 <Unknown>\n"
+"PO-Revision-Date: 2011-10-05 20:17+0000\n"
+"Last-Translator: Peter Mráz <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-03 17:22+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2011-10-05 22:57+0000\n"
+"X-Generator: Launchpad (build 14085)\n"
 
 #. Type: text
 #. Description
@@ -63,7 +63,7 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Inštalujete systém v režime pre výrobcov. Zadajte prosím jednoznačný názov "
-"pre túto dávku systémov. Tento sa názov uloží na inštalovanom systéme a môže "
+"pre túto dávku systémov. Tento názov sa uloží na inštalovanom systéme a môže "
 "byť nápomocný pri riešení problémov."
 
 #. Type: text
@@ -202,7 +202,7 @@ msgstr "Prosím, stlačte jeden z nasledovných klávesov:"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Is the following key present on your keyboard?"
-msgstr "Je nasledovný kláves dostupný na vašom systéme?"
+msgstr "Je nasledovný kláves dostupný na vašej klávesnici?"
 
 #. Type: text
 #. Description
@@ -268,7 +268,7 @@ msgstr "Potvrďte svoje heslo:"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Your computer's name:"
-msgstr "Názov vášho počtača:"
+msgstr "Názov vášho počítača:"
 
 #. Type: text
 #. Description
@@ -425,7 +425,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Vyberte iné zariadenie, na ktoré chcete nainštalovať zavádzač systému;"
+msgstr "Vyberte iné zariadenie, na ktoré chcete nainštalovať zavádzač systému:"
 
 #. Type: text
 #. Description
@@ -511,7 +511,7 @@ msgstr ""
 "Ľutujeme, inštalátor havaroval. Potom,  ako zatvoríte toto okno vám umožníme "
 "zaslať hlásenie chyby prostredníctvom integrovaného nástroja  na hlásenie "
 "chýb. Ten zhromaždí informácie o vašom systéme a procese inštalácie. "
-"Podrobnosti budú odoslané do nášlo nástroja na sledovanie chýb a vývojár sa "
+"Podrobnosti budú odoslané do nášho nástroja na sledovanie chýb a vývojár sa "
 "bude problému čo najskôr venovať."
 
 #. Type: text
@@ -678,9 +678,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Inštalácia bolo dokončená. Teraz môžete pokračovať v skúšaní ${RELEASE}, ale "
-"pokým nereštartujete svoj počítač, žiadne zmeny, ktoré vykonáte ani "
-"dokumenty, ktoré uložíte sa nezachovajú."
+"Inštalácia bola dokončená. Teraz môžete pokračovať v skúšaní ${RELEASE}, ale "
+"pokým nereštartujete svoj počítač, nezachovajú sa žiadne zmeny, ktoré "
+"vykonáte, ani dokumenty, ktoré uložíte."
 
 #. Type: text
 #. Description
@@ -1058,7 +1058,7 @@ msgid ""
 msgstr ""
 "Pri migrácii dát nastala chyba. Podrobnosti nájdete v adresári /var/log/"
 "syslog. Inštalácia bude pokračovať, ale niektoré alebo všetky dokumenty a "
-"nastavenia nebude nemusia byť prenesené do nainštalovaného systému"
+"nastavenia nemusia byť prenesené do nainštalovaného systému"
 
 #. Type: error
 #. Description

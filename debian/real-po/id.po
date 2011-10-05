@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-30 18:09+0000\n"
+"PO-Revision-Date: 2011-10-03 17:51+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2011-10-05 22:56+0000\n"
+"X-Generator: Launchpad (build 14085)\n"
 
 #. Type: text
 #. Description
@@ -218,7 +218,7 @@ msgstr "Siapakah Anda?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Pilih suatu gambar"
 
 #. Type: text
 #. Description
@@ -348,6 +348,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Gambar ini akan mengidentifikasi Anda pada pengaturan akun, layar log masuk, "
+"dan penguncian layar."
 
 #. Type: text
 #. Description
@@ -373,7 +375,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Installation type"
-msgstr ""
+msgstr "Jenis instalasi"
 
 #. Type: text
 #. Description
@@ -512,6 +514,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Maaf, installer crash. Setelah Anda menutup jendela ini, Anda akan dapat "
+"melaporkan kutu memakai perkakas pelaporan kutu terintegrasi. Ini akan "
+"mengumpulkan informasi tentang sistem Anda dan proses instalasi Anda. "
+"Rincian akan dikirim ke pelacak kutu kami dan seorang pengembang akan "
+"memeriksa masalah sesegera mungkin."
 
 #. Type: text
 #. Description
@@ -703,14 +710,14 @@ msgstr "Lanjutkan"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:100001
 msgid "Connect"
-msgstr ""
+msgstr "Sambung"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:101001
 msgid "Stop"
-msgstr ""
+msgstr "Stop"
 
 #. Type: text
 #. Description
@@ -1370,6 +1377,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Menyambungkan komputer ini ke jaringan wi-fi memungkinkan Anda memasang "
+"perangkat lunak pihak ketiga, mengunduh pemutakhiran, mendeteksi zona waktu "
+"Anda secara otomatis, dan memasang dukungan penuh atas bahasa Anda."
 
 #. Type: text
 #. Description
@@ -1397,6 +1407,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d partisi yang lebih kecil tersembunyi, gunakan <a href="
+"\"\">perkakas pemartisian tingkat lanjut</a> untuk pengendalian lebih</small>"
 
 #. Type: text
 #. Description
@@ -1405,6 +1417,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 partisi yang lebih kecil tersembunyi, gunakan <a href=\"\">perkakas "
+"pemartisian tingkat lanjut</a> untuk pengendalian lebih</small>"
 
 #. Type: text
 #. Description

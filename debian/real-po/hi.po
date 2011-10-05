@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-25 06:19+0000\n"
-"Last-Translator: Ashutosh Kumar Singh <Unknown>\n"
+"PO-Revision-Date: 2011-10-04 17:50+0000\n"
+"Last-Translator: Anupam Jain <Unknown>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2011-10-05 22:57+0000\n"
+"X-Generator: Launchpad (build 14085)\n"
 
 #. Type: text
 #. Description
@@ -132,6 +132,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2011."
 msgstr ""
+"यह ${RELEASE} लाईव ${MEDIUM} संस्थापक का एक पूर्व रिलीज है. यह एक अंतिम रिलीज नहीं "
+"है, जो कि अक्टूबर 2011 में अंतिम रिलीज के साथ ${RELEASE} आ जाएगा."
 
 #. Type: text
 #. Description
@@ -336,7 +338,7 @@ msgstr "मेरे गृह फोल्डर का गूढीकरण �
 msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
-msgstr ""
+msgstr "यह तस्वीर खाता सेटिंग्स, लॉगिन स्क्रीन, और ताला स्क्रीन में आपको पहचानेगा."
 
 #. Type: text
 #. Description
@@ -1604,6 +1606,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">चेतावनी:</span> यह आपके सभी ${CURDISTRO} "
+"प्रोग्रामो, दस्तावेजो, तस्वीरोँ, संगीत तथा अन्य सभी फाइलो को नष्ट कर देगा."
 
 #. Type: text
 #. Description
@@ -1670,6 +1674,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">चेतावनी:</span> यह ${OS} व ${CURDISTRO} में आपके सभी "
+"प्रोग्रामो, दस्तावेजो, तस्वीरोँ, संगीत तथा अन्य फाइलो को नष्ट कर देगा."
 
 #. Type: text
 #. Description
@@ -1686,6 +1692,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">चेतावनी:</span> यह सभी ऑपरेटिंग सिस्टमो में आपके सभी "
+"प्रोग्रामो, दस्तावेजो, तस्वीरोँ, संगीत तथा अन्य फाइलो को नष्ट कर देगा."
 
 #. Type: text
 #. Description

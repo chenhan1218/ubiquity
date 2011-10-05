@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2011-09-15 10:43+0100\n"
-"PO-Revision-Date: 2011-09-26 09:51+0000\n"
+"PO-Revision-Date: 2011-10-03 20:04+0000\n"
 "Last-Translator: Vojtěch Trefný <vojtech.trefny@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2011-10-05 22:56+0000\n"
+"X-Generator: Launchpad (build 14085)\n"
 
 #. Type: text
 #. Description
@@ -345,6 +345,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Tento obrázek vás bude identifikovat v nastavení účtu, na přihlašovací "
+"obrazovce a při uzamčení obrazovky."
 
 #. Type: text
 #. Description
@@ -1100,7 +1102,7 @@ msgstr "Počítání souborů pro přeskočení kopírování..."
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Ready when you are..."
-msgstr ""
+msgstr "Připraven, pokud jste i vy..."
 
 #. Type: title
 #. Description
