@@ -14,7 +14,11 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
   * Don't install duplicate copies of console-setup-apply,
     localechooser-apply, and netcfg-wrapper.
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 05 Oct 2011 09:58:55 +0100
+  [ Stéphane Graber ]
+  * Update ubiquity-dm to export self.username as SUDO_USER.
+    Make gsettings work properly later on during the install.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 05 Oct 2011 12:17:34 -0400
 
 ubiquity (2.8.3) oneiric; urgency=low
 

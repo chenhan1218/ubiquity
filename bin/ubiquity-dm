@@ -98,6 +98,7 @@ class DM:
                           self.username)
             self.username = 'root'
             self.uid, self.gid = 0, 0
+        os.environ['SUDO_USER'] = self.username
         self.homedir = pwd.getpwnam(self.username)[5]
         self.uid = int(self.uid)
         self.gid = int(self.gid)
