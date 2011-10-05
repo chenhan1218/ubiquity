@@ -2,6 +2,9 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
 
   * Handle the keyboard query window closed callback being fired twice
     (LP: #865493).
+  * Allow focusing of labels when we're in the screen reader
+    acessibility profile, so that Orca can read them
+    (LP: #856782, LP: #856773).
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 05 Oct 2011 09:58:55 +0100
 

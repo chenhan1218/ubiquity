@@ -186,8 +186,16 @@ class Wizard(BaseFrontend):
             # selectable labels in the focus chain, and I can't seem to turn
             # this off in glade and have it stick. Accordingly, make sure
             # labels are unfocusable here.
+            label = None
             if isinstance(widget, Gtk.Label):
-                widget.set_property('can-focus', False)
+                label = widget
+            elif isinstance(widget, gtkwidgets.StateBox):
+                label = widget.label
+
+            # If we're runing Orca, we want to be able to read labels.
+            if label:
+                label.set_property('can-focus', self.screen_reader)
+                label.set_selectable(self.screen_reader)
 
         BaseFrontend.__init__(self, distro)
         self.previous_excepthook = sys.excepthook
@@ -220,6 +228,7 @@ class Wizard(BaseFrontend):
         self.finished_pages = False
         self.parallel_db = None
         self.timeout_id = None
+        self.screen_reader = False
 
         # To get a "busy mouse":
         self.watch = Gdk.Cursor.new(Gdk.CursorType.WATCH)
@@ -227,6 +236,11 @@ class Wizard(BaseFrontend):
         atexit.register(set_root_cursor)
 
         self.laptop = misc.execute("laptop-detect")
+
+        # Are we running alongside Orca?
+        with open('/proc/cmdline') as fp:
+            if 'access=v3' in fp.read():
+                self.screen_reader = True
 
         # set default language
         self.locale = i18n.reset_locale(self)
