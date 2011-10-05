@@ -78,9 +78,8 @@ class PageGtk(plugin.PluginUI):
         self.calculate_closed()
 
     def calculate_closed(self, *args):
-        self.query.destroy()
-        # FIXME greyablebin has some interesting side effects.
-        #self.controller._wizard.overlay.set_property('greyed', False)
+        if self.query:
+            self.query.destroy()
         self.query = None
 
     def calculate_clicked(self, *args):

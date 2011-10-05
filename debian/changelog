@@ -1,3 +1,10 @@
+ubiquity (2.8.4) UNRELEASED; urgency=low
+
+  * Handle the keyboard query window closed callback being fired twice
+    (LP: #865493).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Wed, 05 Oct 2011 09:58:55 +0100
+
 ubiquity (2.8.3) oneiric; urgency=low
 
   * Skip LTSP from the list of networks to copy to the target.
