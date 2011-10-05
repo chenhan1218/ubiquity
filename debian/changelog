@@ -6,6 +6,9 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
   * Allow focusing of labels when we're in the screen reader
     acessibility profile, so that Orca can read them
     (LP: #856782, LP: #856773).
+  * Make sure we account for the size of the installation and swap
+    partition when calculating the bounds for the partition resizer
+    (LP: #769350).
 
   [ Colin Watson ]
   * Don't install duplicate copies of console-setup-apply,
