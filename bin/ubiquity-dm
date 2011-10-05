@@ -532,8 +532,11 @@ EndSection
         signal.alarm(0)
 
         # Clear the console so we don't see boot-time messages on switch
-        vthandle = open('/dev/tty' + self.vt[2:], 'r+')
-        subprocess.call(['clear'], stdin=vthandle, stdout=vthandle)
+        try:
+            vthandle = open('/dev/tty' + self.vt[2:], 'r+')
+            subprocess.call(['clear'], stdin=vthandle, stdout=vthandle)
+        except IOError:
+            pass
 
         kill_if_exists(server.pid, signal.SIGTERM)
         server.wait()
