@@ -302,7 +302,7 @@ class PageGtk(PageBase):
         import subprocess
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
-                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
+                ['wget', '-q', _wget_url, '--timeout=15', '--tries=1', '-O', '/dev/null'])
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
             return True
@@ -552,7 +552,7 @@ class PageKde(PageBase):
         from PyQt4.QtCore import SIGNAL
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
-                ['wget', '-q', _wget_url, '--timeout=15', '-O', '/dev/null'])
+                ['wget', '-q', _wget_url, '--timeout=15', '--tries=1', '-O', '/dev/null'])
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
             return True
