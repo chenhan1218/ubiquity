@@ -21,6 +21,8 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
     LANGUAGE/LC_MESSAGES/LC_CTYPE/LC_COLLATE to something reflecting the
     language (LP: #590108).  This roughly matches the behaviour of
     language-selector.
+  * Automatic update of included source packages: localechooser 2.37ubuntu2,
+    partman-partitioning 81ubuntu3.
 
   [ Stéphane Graber ]
   * Update ubiquity-dm to export self.username as SUDO_USER.

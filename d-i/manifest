@@ -9,7 +9,7 @@ flash-kernel 2.28ubuntu34
 grub-installer 1.68ubuntu4
 hw-detect 1.81ubuntu3
 kboot-installer 0.0.1ubuntu9
-localechooser 2.37ubuntu1
+localechooser 2.37ubuntu2
 migration-assistant 0.6.10
 netcfg 1.68ubuntu6
 partconf 1.37
@@ -23,7 +23,7 @@ partman-efi 24ubuntu2
 partman-ext3 64ubuntu1
 partman-jfs 34
 partman-newworld 25
-partman-partitioning 81ubuntu2
+partman-partitioning 81ubuntu3
 partman-reiserfs 51
 partman-target 73ubuntu1
 partman-uboot 4
