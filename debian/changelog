@@ -15,6 +15,12 @@ ubiquity (2.8.4) UNRELEASED; urgency=low
     localechooser-apply, and netcfg-wrapper.
   * Bump fallback Ubuntu version number in ubi-language to 11.10.
   * Update translations from Launchpad.
+  * For cases where selecting a different location may imply a different
+    dialect of the language, i.e. Portuguese and Chinese, take care to set
+    LANG to something reflecting the location and
+    LANGUAGE/LC_MESSAGES/LC_CTYPE/LC_COLLATE to something reflecting the
+    language (LP: #590108).  This roughly matches the behaviour of
+    language-selector.
 
   [ Stéphane Graber ]
   * Update ubiquity-dm to export self.username as SUDO_USER.
