@@ -1,3 +1,12 @@
+ubiquity (2.8.6) UNRELEASED; urgency=low
+
+  * Don't crash if the user selects the wireless card header and presses
+    next (LP: #838048).
+  * If the user selects a wireless card header, the next button text
+    should not be 'Connect.'
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 10 Oct 2011 16:43:25 +0100
+
 ubiquity (2.8.5) oneiric; urgency=low
 
   * Disable alpha warning for release.

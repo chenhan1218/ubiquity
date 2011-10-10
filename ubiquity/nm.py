@@ -317,8 +317,16 @@ class NetworkManagerTreeView(Gtk.TreeView):
             return ''
         return cached
 
+    def is_row_an_ap(self):
+        model, iterator = self.get_selection().get_selected()
+        if iterator is None:
+            return False
+        return model.iter_parent(iterator) is not None
+        
     def is_row_connected(self):
         model, iterator = self.get_selection().get_selected()
+        if iterator is None:
+            return False
         ssid = model[iterator][0]
         parent = model.iter_parent(iterator)
         if parent and self.wifi_model.is_connected(model[parent][0], ssid):
@@ -370,6 +378,9 @@ class NetworkManagerWidget(Gtk.VBox):
     
     def get_state(self):
         return self.view.get_state()
+
+    def is_row_an_ap(self):
+        return self.view.is_row_an_ap()
 
     def is_row_connected(self):
         return self.view.is_row_connected()
