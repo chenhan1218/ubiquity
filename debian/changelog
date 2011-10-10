@@ -4,6 +4,8 @@ ubiquity (2.8.6) UNRELEASED; urgency=low
     next (LP: #838048).
   * If the user selects a wireless card header, the next button text
     should not be 'Connect.'
+  * Don't copy the wireless configuration if this is an OEM install (LP:
+    #870177).
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 10 Oct 2011 16:43:25 +0100
 
