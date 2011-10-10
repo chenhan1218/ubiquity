@@ -69,8 +69,7 @@ class PageGtk(plugin.PluginUI):
         self.use_wireless.set_active(True)
         assert self.state is not None
         frontend = self.controller._wizard
-        if self.state not in (nm.NM_STATE_DISCONNECTED,
-                              nm.NM_STATE_CONNECTED_GLOBAL):
+        if self.state == nm.NM_STATE_CONNECTING:
             frontend.translate_widget(frontend.next)
             self.next_normal = True
         else:
@@ -123,7 +122,7 @@ class PageGtk(plugin.PluginUI):
         frontend = self.controller._wizard
         if not self.use_wireless.get_active():
             return
-        if state in (nm.NM_STATE_DISCONNECTED, nm.NM_STATE_CONNECTED_GLOBAL):
+        if state != nm.NM_STATE_CONNECTING:
             frontend.connecting_spinner.hide()
             frontend.connecting_spinner.stop()
             frontend.connecting_label.hide()

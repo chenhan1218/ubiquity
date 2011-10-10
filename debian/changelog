@@ -8,6 +8,7 @@ ubiquity (2.8.6) UNRELEASED; urgency=low
     (LP: #870177).
   * Make sure the connecting spinner goes away before leaving the
     wireless page.
+  * Account for the 'asleep' network-manager state.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 10 Oct 2011 16:43:25 +0100
 
