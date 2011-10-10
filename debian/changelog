@@ -6,6 +6,8 @@ ubiquity (2.8.6) UNRELEASED; urgency=low
     should not be 'Connect.'
   * Don't copy the wireless configuration if this is an OEM install
     (LP: #870177).
+  * Make sure the connecting spinner goes away before leaving the
+    wireless page.
 
  -- Evan Dandrea <ev@ubuntu.com>  Mon, 10 Oct 2011 16:43:25 +0100
 

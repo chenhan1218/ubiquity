@@ -101,6 +101,9 @@ class PageGtk(plugin.PluginUI):
             self.nmwidget.disconnect_from_ap()
             return True
         else:
+            frontend.connecting_spinner.hide()
+            frontend.connecting_spinner.stop()
+            frontend.connecting_label.hide()
             return False
 
     def plugin_on_next_clicked(self):
@@ -109,6 +112,9 @@ class PageGtk(plugin.PluginUI):
             self.nmwidget.connect_to_ap()
             return True
         else:
+            frontend.connecting_spinner.hide()
+            frontend.connecting_spinner.stop()
+            frontend.connecting_label.hide()
             return False
 
     def state_changed(self, unused, state):
