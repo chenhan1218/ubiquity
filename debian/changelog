@@ -1,3 +1,10 @@
+ubiquity (2.8.7) UNRELEASED; urgency=low
+
+  * If oem-config/enable doesn't exist, assume it's not set
+    (LP: #872119).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 11 Oct 2011 09:06:14 +0100
+
 ubiquity (2.8.6) oneiric; urgency=low
 
   * Don't crash if the user selects the wireless card header and presses

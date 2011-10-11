@@ -1463,8 +1463,11 @@ class Install(install_misc.InstallBase):
     def copy_network_config(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             return
-        if self.db.get('oem-config/enable') == 'true':
-            return
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                return
+        except debconf.DebconfError:
+            pass
 
         source_nm = "/etc/NetworkManager/system-connections/"
         target_nm = "/target/etc/NetworkManager/system-connections/"
