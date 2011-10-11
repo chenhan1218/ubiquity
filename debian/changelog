@@ -1,9 +1,9 @@
-ubiquity (2.8.7) UNRELEASED; urgency=low
+ubiquity (2.8.7) oneiric; urgency=low
 
   * If oem-config/enable doesn't exist, assume it's not set
     (LP: #872119).
 
- -- Evan Dandrea <ev@ubuntu.com>  Tue, 11 Oct 2011 09:06:14 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Tue, 11 Oct 2011 09:08:21 +0100
 
 ubiquity (2.8.6) oneiric; urgency=low
 
