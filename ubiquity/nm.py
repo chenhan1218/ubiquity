@@ -244,8 +244,43 @@ class NetworkManagerTreeView(Gtk.TreeView):
 
         self.append_column(ssid_column)
         self.set_headers_visible(False)
+        self.setup_row_expansion_handling(model)
+
+    def setup_row_expansion_handling(self, model):
+        """
+        If the user collapses a row, save that state. If all the APs go away
+        and then return, such as when the user toggles the wifi kill switch,
+        the UI should keep the row collapsed if it already was, or expand it.
+        """
         self.expand_all()
-        # TODO expand by default
+        self.rows_changed_id = None
+        def queue_rows_changed(*args):
+            if self.rows_changed_id:
+                GObject.source_remove(self.rows_changed_id)
+            self.rows_changed_id = GObject.idle_add(self.rows_changed)
+        model.connect('row-inserted', queue_rows_changed)
+        model.connect('row-deleted', queue_rows_changed)
+
+        self.user_collapsed = {}
+        def collapsed(self, iterator, path, collapse):
+            udi = model[iterator][0]
+            self.user_collapsed[udi] = collapse
+        self.connect('row-collapsed', collapsed, True)
+        self.connect('row-expanded', collapsed, False)
+
+    def rows_changed(self, *args):
+        model = self.get_model()
+        i = model.get_iter_first()
+        while i:
+            udi = model[i][0]
+            try:
+                if not self.user_collapsed[udi]:
+                    path = model.get_path(i)
+                    self.expand_row(path, False)
+            except KeyError:
+                path = model.get_path(i)
+                self.expand_row(path, False)
+            i = model.iter_next(i)
 
     def get_state(self):
         return self.wifi_model.get_state()
