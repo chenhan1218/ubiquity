@@ -1033,6 +1033,23 @@ _Description:
  third-party software, download updates, automatically detect your timezone,
  and install full support for your language.
 
+Template: ubiquity/text/wireless_password_label
+Type: text
+_Description: Password:
+
+Template: ubiquity/text/wireless_display_password
+Type: text
+_Description: Display password
+
+Template: ubiquity/text/no_wireless
+Type: text
+_Description:
+ I don't want to connect to a wi-fi network right now
+
+Template: ubiquity/text/use_wireless
+Type: text
+_Description: Connect to this network
+
 Template: ubiquity/use_nonfree
 Type: boolean
 Default: false

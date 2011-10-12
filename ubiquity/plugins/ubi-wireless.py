@@ -55,6 +55,10 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_translate(self, lang):
         get_s = self.controller.get_string
+        label_text = get_s('ubiquity/text/wireless_password_label')
+        display_text = get_s('ubiquity/text/wireless_display_password')
+        self.nmwidget.translate(label_text, display_text)
+
         self.connect_text = get_s('ubiquity/text/connect', lang)
         self.stop_text = get_s('ubiquity/text/stop', lang)
         frontend = self.controller._wizard

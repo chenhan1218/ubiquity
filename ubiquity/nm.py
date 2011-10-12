@@ -398,18 +398,22 @@ class NetworkManagerWidget(Gtk.VBox):
         self.add(scrolled_window)
         self.hbox = Gtk.HBox(spacing=6)
         self.pack_start(self.hbox, False, True, 0)
-        password_label = Gtk.Label('Password:')
+        self.password_label = Gtk.Label('Password:')
         self.password_entry.set_visibility(False)
         self.password_entry.connect('activate', self.connect_to_ap)
         self.display_password = Gtk.CheckButton('Display password')
         self.display_password.connect('toggled', self.display_password_toggled)
-        self.hbox.pack_start(password_label, False, True, 0)
+        self.hbox.pack_start(self.password_label, False, True, 0)
         self.hbox.pack_start(self.password_entry, True, True, 0)
         self.hbox.pack_start(self.display_password, False, True, 0)
         self.hbox.set_sensitive(False)
         self.selection = self.view.get_selection()
         self.selection.connect('changed', self.changed)
         self.show_all()
+
+    def translate(self, password_label_text, display_password_text):
+        self.password_label.set_label(password_label_text)
+        self.display_password.set_label(display_password_text)
     
     def get_state(self):
         return self.view.get_state()

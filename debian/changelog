@@ -2,6 +2,7 @@ ubiquity (2.8.8) UNRELEASED; urgency=low
 
   * Expand the list of wireless networks under each card automatically,
     unless the user has explicitly collapsed the row.
+  * Translate the entire wireless networking page.
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 12 Oct 2011 11:58:10 +0100
 
