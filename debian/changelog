@@ -5,6 +5,8 @@ ubiquity (2.8.8) UNRELEASED; urgency=low
   * Translate the entire wireless networking page.
   * Don't show the picture taking page when running in an oem-config
     install.
+  * Don't show the wireless page if a wireless connection was made after
+    ubiquity started (LP: #873000).
 
  -- Evan Dandrea <ev@ubuntu.com>  Wed, 12 Oct 2011 11:58:10 +0100
 

@@ -30,8 +30,7 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         from ubiquity import nm
         from gi.repository import Gtk
-        if ('UBIQUITY_AUTOMATIC' in os.environ
-            or not nm.wireless_hardware_present() or misc.has_connection()):
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
             return
         self.controller = controller
@@ -52,6 +51,7 @@ class PageGtk(plugin.PluginUI):
         self.back_normal = True
         self.connect_text = None
         self.stop_text = None
+        self.skip = False
 
     def plugin_translate(self, lang):
         get_s = self.controller.get_string
@@ -98,6 +98,16 @@ class PageGtk(plugin.PluginUI):
             self.next_normal = True
             self.controller.allow_go_forward(True)
         
+    def plugin_set_online_state(self, online):
+        self.skip = online
+
+    def plugin_skip_page(self):
+        from ubiquity import nm
+        if not nm.wireless_hardware_present():
+            return True
+        else:
+            return self.skip
+
     def plugin_on_back_clicked(self):
         frontend = self.controller._wizard
         if frontend.back.get_label() == self.stop_text:

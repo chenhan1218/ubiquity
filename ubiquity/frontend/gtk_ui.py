@@ -613,28 +613,34 @@ class Wizard(BaseFrontend):
             if self.current_page is None:
                 return self.returncode
 
-            if not self.pages[self.pagesindex].filter_class:
+            page = self.pages[self.pagesindex]
+            skip = False
+            if hasattr(page.ui, 'plugin_skip_page'):
+                if page.ui.plugin_skip_page():
+                    skip = True
+
+            if not skip and not page.filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
                 self.dbfilter_status = None
-                if self.set_page(self.pages[self.pagesindex].module.NAME):
+                if self.set_page(page.module.NAME):
                     self.run_main_loop()
-            else:
+            elif not skip:
                 old_dbfilter = self.dbfilter
-                if issubclass(self.pages[self.pagesindex].filter_class, Plugin):
-                    ui = self.pages[self.pagesindex].ui
+                if issubclass(page.filter_class, Plugin):
+                    ui = page.ui
                 else:
                     ui = None
                 self.start_debconf()
-                self.dbfilter = self.pages[self.pagesindex].filter_class(self, ui=ui)
+                self.dbfilter = page.filter_class(self, ui=ui)
 
                 if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                     self.allow_change_step(False)
                     GObject.idle_add(lambda: self.dbfilter.start(auto_process=True))
 
-                self.pages[self.pagesindex].controller.dbfilter = self.dbfilter
+                page.controller.dbfilter = self.dbfilter
                 Gtk.main()
-                self.pages[self.pagesindex].controller.dbfilter = None
+                page.controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
                 if self.current_page is not None and not self.backup:
