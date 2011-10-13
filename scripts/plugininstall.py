@@ -257,9 +257,18 @@ class Install(install_misc.InstallBase):
     def configure_face(self):
         PHOTO_PATH = '/var/lib/ubiquity/webcam_photo.png'
         target_user = self.db.get('passwd/username')
+        uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
+            target_user, '--', 'id', '-u'], stdout=subprocess.PIPE)
+        uid = uid.communicate()[0].strip('\n')
+        gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
+            target_user, '--', 'id', '-g'], stdout=subprocess.PIPE)
+        gid = gid.communicate()[0].strip('\n')
+        uid = int(uid)
+        gid = int(gid)
         if os.path.exists(PHOTO_PATH):
-            shutil.copy2(PHOTO_PATH,
-                os.path.join(self.target, 'home', target_user, '.face'))
+            targetpath = os.path.join(self.target, 'home', target_user, '.face')
+            shutil.copy2(PHOTO_PATH, targetpath)
+            os.lchown(targetpath, uid, gid)
 
     def configure_python(self):
         """Byte-compile Python modules.
