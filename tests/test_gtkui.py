@@ -6,7 +6,6 @@ os.environ['UBIQUITY_PLUGIN_PATH'] = 'ubiquity/plugins'
 os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
 
 import unittest
-from ubiquity.frontend import gtk_ui
 import mock
 
 class TestFrontend(unittest.TestCase):
@@ -17,9 +16,12 @@ class TestFrontend(unittest.TestCase):
                     'ubiquity.frontend.base.drop_privileges',
                     'ubiquity.frontend.gtk_ui.Wizard.customize_installer',
                     'ubiquity.nm.wireless_hardware_present',
+                    'ubiquity.nm.NetworkManager.start',
+                    'ubiquity.nm.NetworkManager.get_state',
                     'ubiquity.misc.add_connection_watch',
                     'ubiquity.misc.has_connection',
-                    'ubiquity.upower.setup_power_watch'):
+                    'ubiquity.upower.setup_power_watch',
+                    'dbus.mainloop.glib.DBusGMainLoop'):
             patcher = mock.patch(obj)
             patcher.start()
             self.addCleanup(patcher.stop)
@@ -28,6 +30,7 @@ class TestFrontend(unittest.TestCase):
                 patcher.return_value = False
 
     def test_question_dialog(self):
+        from ubiquity.frontend import gtk_ui
         ui = gtk_ui.Wizard('test-ubiquity')
         with mock.patch('gi.repository.Gtk.Dialog.run') as run:
             run.return_value = 0
@@ -41,6 +44,7 @@ class TestFrontend(unittest.TestCase):
 
     def test_pages_fit_on_a_netbook(self):
         from gi.repository import Gtk, GObject
+        from ubiquity.frontend import gtk_ui
         ui = gtk_ui.Wizard('test-ubiquity')
         ui.set_page(1)
         ui.translate_pages()

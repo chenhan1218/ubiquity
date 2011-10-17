@@ -1,8 +1,15 @@
-ubiquity (2.9.1) UNRELEASED; urgency=low
+ubiquity (2.9.2) UNRELEASED; urgency=low
 
   * Re-enable alpha warning for precise.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 17 Oct 2011 12:44:46 +0100
+
+ubiquity (2.9.1) oneiric; urgency=low
+
+  * Prevent ubiquity from trying to connect to DBus in the gtkui tests
+    with the most recent changes.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 17 Oct 2011 15:58:16 +0100
 
 ubiquity (2.9.0) precise; urgency=low
 
