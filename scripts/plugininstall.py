@@ -1072,7 +1072,8 @@ class Install(install_misc.InstallBase):
         except debconf.DebconfError:
             inst_langpacks = False
         if inst_langpacks:
-            self.langpacks = self.select_language_packs()
+            self.select_language_packs()
+            recorded = install_misc.query_recorded_installed()
 
         try:
             extra_packages = self.db.get('oem-config/extra_packages')
@@ -1087,7 +1088,7 @@ class Install(install_misc.InstallBase):
                 return
 
         if inst_langpacks:
-            extra_packages += self.langpacks
+            extra_packages += recorded
 
         save_replace = None
         save_override = None

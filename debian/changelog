@@ -1,3 +1,10 @@
+ubiquity (2.9.3) UNRELEASED; urgency=low
+
+  * When installing oem extras, query for all packages marked to be installed
+    via plugins, not just langpacks.
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 17 Oct 2011 17:52:27 -0500
+
 ubiquity (2.9.2) precise; urgency=low
 
   * Re-enable alpha warning for precise.
