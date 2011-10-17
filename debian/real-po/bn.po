@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-09-15 10:43+0100\n"
+"POT-Creation-Date: 2011-10-17 12:45+0100\n"
 "PO-Revision-Date: 2011-09-25 06:36+0000\n"
 "Last-Translator: Zenat Rahnuma <Unknown>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -131,10 +131,15 @@ msgstr "আপনি ইচ্ছে করলে <a href=\"update\">এই ই�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:16001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"October 2011."
+"April 2012."
 msgstr ""
 "এটি একটি ${RELEASE} লাইভ ${MEDIUM} ইনস্টলার এর প্রাক রিলিজ। এটি একটি চূড়ান্ত "
 "রিলিজ নয়; অক্টোবর ২০১১ তে ${RELEASE} এর চূড়ান্ত রিলিজের সাথে এটি আসবে।"
@@ -1178,7 +1183,7 @@ msgstr "সিস্টেম কনফিগারেশন"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:168001 ../ubiquity.templates:227001
+#: ../ubiquity.templates:168001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "স্বাগতম"
 
@@ -1370,25 +1375,55 @@ msgstr ""
 
 #. Type: text
 #. Description
+#: ../ubiquity.templates:197001
+#, fuzzy
+#| msgid "Password"
+msgid "Password:"
+msgstr "পাসওয়ার্ড"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:198001
+#, fuzzy
+#| msgid "Weak password"
+msgid "Display password"
+msgstr "দুর্বল পাসওয়ার্ড"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:199001
+msgid "I don't want to connect to a wi-fi network right now"
+msgstr ""
+
+#. Type: text
+#. Description
 #: ../ubiquity.templates:200001
+#, fuzzy
+#| msgid "is connected to the Internet"
+msgid "Connect to this network"
+msgstr "ইন্টারনেটের সঙ্গে সংযুক্ত"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:204001
 msgid "Select drive:"
 msgstr "ড্রাইভ সিলেক্ট করুনঃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:205001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "ড্রাইভার নিচে টেনে নিয়ে ড্রাইভার স্পেস বরাদ্দ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:206001
 msgid "The entire disk will be used:"
 msgstr "সম্পূর্ণ ড্রাইভ ব্যবহার হবেঃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:207001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1399,7 +1434,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:208001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1409,7 +1444,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:209001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1420,7 +1455,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:210001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1430,39 +1465,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:211001
 msgid "Split Largest Partition"
 msgstr "বৃহত্তম পার্টিশন ভাগ কর"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:213001
 msgid "For best results, please ensure that this computer:"
 msgstr "সর্বোত্তম ফলাফলের জন্য নিশ্চিত করুন যে এই কম্পিউটারেঃ"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:214001
 msgid "has at least ${SIZE} available drive space"
 msgstr "কমপক্ষে ${SIZE} ড্রাইভ স্পেস আছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:215001
 msgid "is plugged in to a power source"
 msgstr "বৈদ্যুতিক উৎসের সঙ্গে সংযুক্ত"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:216001
 msgid "is connected to the Internet"
 msgstr "ইন্টারনেটের সঙ্গে সংযুক্ত"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:217001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1475,7 +1510,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:218001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1485,37 +1520,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:219001
 msgid "Install this third-party software"
 msgstr "এই ৩য় পক্ষের সফটওয়্যার ইন্সটল কর"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:220001
 msgid "Download updates while installing"
 msgstr "ইন্সটলের সাথে সাথে আপডেট ডাউনলোড কর"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:224001
 msgid "Layout:"
 msgstr "লেআউট:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:225001
 msgid "Variant:"
 msgstr "ভেরিয়েন্টঃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:226001
 msgid "Below is an image of your current layout:"
 msgstr "আপনার ব্যবহৃত বর্তমান লেআউটটির একটি ছবি দেখানো হচ্ছে:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:227001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1527,19 +1562,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:228001
 msgid "Time Zone:"
 msgstr "সময় অঞ্চল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:229001
 msgid "Region:"
 msgstr "এলাকা:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:230001
 msgid "[type here to change]"
 msgstr "[পরিবর্তনের জন্য এখানে লিখুন]"
 
@@ -1547,14 +1582,14 @@ msgstr "[পরিবর্তনের জন্য এখানে লিখ�
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:233001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "প্রতিস্থাপন করুন ${OS} দিয়ে ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:233001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1566,7 +1601,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:234001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "ইনস্টল ${DISTRO} পাশাপাশি ${OS}"
 
@@ -1578,8 +1613,8 @@ msgstr "ইনস্টল ${DISTRO} পাশাপাশি ${OS}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001 ../ubiquity.templates:231001
-#: ../ubiquity.templates:235001 ../ubiquity.templates:240001
+#: ../ubiquity.templates:234001 ../ubiquity.templates:235001
+#: ../ubiquity.templates:239001 ../ubiquity.templates:244001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1591,20 +1626,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "${DISTRO} ইনস্টল ${OS} এ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:236001
 msgid "Something else"
 msgstr "অন্য কিছু"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:232001
+#: ../ubiquity.templates:236001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1615,14 +1650,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:237001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "${CURDISTRO} অপসারণ এবং পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:237001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1634,7 +1669,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:238001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "${CURDISTRO} থেকে ${VER} এ আপগ্রেড"
 
@@ -1642,7 +1677,7 @@ msgstr "${CURDISTRO} থেকে ${VER} এ আপগ্রেড"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001 ../ubiquity.templates:238001
+#: ../ubiquity.templates:238001 ../ubiquity.templates:242001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1655,7 +1690,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:239001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "ইনস্টল ${DISTRO} ${VER} পাশাপাশি ${CURDISTRO}"
 
@@ -1665,13 +1700,13 @@ msgstr "ইনস্টল ${DISTRO} ${VER} পাশাপাশি ${CURDISTRO
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:236001 ../ubiquity.templates:239001
+#: ../ubiquity.templates:240001 ../ubiquity.templates:243001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "ডিস্ক অপসারণ করে ${DISTRO} ইনস্টল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:240001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1680,7 +1715,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:241001
 msgid "Erase everything and reinstall"
 msgstr "সবকিছু মুছে ফেলে পুনরায় ইনস্টল"
 
@@ -1688,7 +1723,7 @@ msgstr "সবকিছু মুছে ফেলে পুনরায় ইন�
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:241001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1700,13 +1735,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:242001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:243001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1718,14 +1753,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:244001
 msgid "Install ${DISTRO} alongside them"
 msgstr "এগুলোর পাশাপাশি ${DISTRO} ইনস্টল"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:245001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "এ কম্পিউটারে বর্তমানে ${OS} আছে। এখন আপনি কি করতে চান?"
 
@@ -1733,7 +1768,7 @@ msgstr "এ কম্পিউটারে বর্তমানে ${OS} আছ
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:246001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1741,7 +1776,7 @@ msgstr "এ কম্পিউটারে বর্তমানে ${OS1} এ�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:247001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1749,7 +1784,7 @@ msgstr "এ কম্পিউটারে বর্তমানে একাধ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:248001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
