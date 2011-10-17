@@ -1,4 +1,4 @@
-ubiquity (2.8.8) UNRELEASED; urgency=low
+ubiquity (2.9.0) precise; urgency=low
 
   * Expand the list of wireless networks under each card automatically,
     unless the user has explicitly collapsed the row.
@@ -10,7 +10,7 @@ ubiquity (2.8.8) UNRELEASED; urgency=low
   * Ensure that the user picture is owned by the target user
     (LP: #872966).
 
- -- Evan Dandrea <ev@ubuntu.com>  Wed, 12 Oct 2011 11:58:10 +0100
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 17 Oct 2011 10:34:51 +0100
 
 ubiquity (2.8.7) oneiric; urgency=low
 
