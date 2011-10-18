@@ -1441,7 +1441,9 @@ class Install(install_misc.InstallBase):
 
         if oem_remove_extras:
             installed = (desktop_packages | keep - regular - recursive)
-            p = os.path.join(self.target, '/var/lib/ubiquity/installed-packages')
+            if not os.path.exists(os.path.join(self.target, 'var/lib/ubiquity')):
+                os.makedirs(os.path.join(self.target, 'var/lib/ubiquity'))
+            p = os.path.join(self.target, 'var/lib/ubiquity/installed-packages')
             with open(p, 'w') as fp:
                 for line in installed:
                     print >>fp, line

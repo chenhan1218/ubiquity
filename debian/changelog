@@ -2,6 +2,7 @@ ubiquity (2.9.3) UNRELEASED; urgency=low
 
   * When installing oem extras, query for all packages marked to be installed
     via plugins, not just langpacks.
+  * Properly build the manifest used for remove oem extras.
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 17 Oct 2011 17:52:27 -0500
 
