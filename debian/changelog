@@ -8,6 +8,7 @@ ubiquity (2.9.3) UNRELEASED; urgency=low
   [ Colin Watson ]
   * ubiquity depends on wget (LP: #877187).
   * ubiquity-frontend-gtk depends on python-gobject-cairo (LP: #877223).
+  * ubiquity depends on grub-common on amd64 and i386 (LP: #877230).
 
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 17 Oct 2011 17:52:27 -0500
 
