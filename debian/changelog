@@ -10,6 +10,9 @@ ubiquity (2.9.3) UNRELEASED; urgency=low
   * ubiquity-frontend-gtk depends on python-gobject-cairo (LP: #877223).
   * ubiquity depends on grub-common on amd64 and i386 (LP: #877230).
 
+  [ Evan Dandrea ]
+  * Add missing template for the connecting label.
+
  -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 17 Oct 2011 17:52:27 -0500
 
 ubiquity (2.9.2) precise; urgency=low
