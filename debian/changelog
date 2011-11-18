@@ -9,6 +9,8 @@ ubiquity (2.9.3) UNRELEASED; urgency=low
   * ubiquity depends on wget (LP: #877187).
   * ubiquity-frontend-gtk depends on python-gobject-cairo (LP: #877223).
   * ubiquity depends on grub-common on amd64 and i386 (LP: #877230).
+  * Remove /usr/lib/libubiwebcam.la.  Nothing uses this, and its
+    dependency_libs entries don't match current reality.
 
   [ Evan Dandrea ]
   * Add missing template for the connecting label.
