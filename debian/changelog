@@ -1,4 +1,4 @@
-ubiquity (2.9.3) UNRELEASED; urgency=low
+ubiquity (2.9.3) precise; urgency=low
 
   [ Mario Limonciello ]
   * When installing oem extras, query for all packages marked to be installed
@@ -25,7 +25,7 @@ ubiquity (2.9.3) UNRELEASED; urgency=low
   * debian/control: We are using GI for the a11y indicator, so depend on
     gir1.2-appindicator3-0.1 instead of python-appindicator
 
- -- Mario Limonciello <Mario_Limonciello@Dell.com>  Mon, 17 Oct 2011 17:52:27 -0500
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 Nov 2011 22:32:45 +0000
 
 ubiquity (2.9.2) precise; urgency=low
 
