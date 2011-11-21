@@ -11,6 +11,12 @@ ubiquity (2.9.3) UNRELEASED; urgency=low
   * ubiquity depends on grub-common on amd64 and i386 (LP: #877230).
   * Remove /usr/lib/libubiwebcam.la.  Nothing uses this, and its
     dependency_libs entries don't match current reality.
+  * Automatic update of included source packages: apt-setup 1:0.55ubuntu1,
+    base-installer 1.122ubuntu1, choose-mirror 2.39ubuntu1, clock-setup
+    0.109ubuntu1, console-setup 1.70ubuntu1, debian-installer-utils
+    1.87ubuntu1, hw-detect 1.87ubuntu1, localechooser 2.38ubuntu1,
+    partman-ext3 66ubuntu1, partman-partitioning 83ubuntu1, partman-target
+    76ubuntu1, user-setup 1.39ubuntu2.
 
   [ Evan Dandrea ]
   * Add missing template for the connecting label.
