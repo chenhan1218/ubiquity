@@ -86,7 +86,7 @@ class TestFrontend(unittest.TestCase):
                 # Pulled straight from debconf when the installation medium is
                 # already mounted.
                 'part_advanced_warning_message',
-                # These are caculated and set inside info_loop in the user
+                # These are calculated and set inside info_loop in the user
                 # setup page.
                 'password_strength', 'hostname_error_label',
                 'password_error_label', 'username_error_label',
