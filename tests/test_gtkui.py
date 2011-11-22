@@ -56,6 +56,7 @@ class TestFrontend(unittest.TestCase):
         self.assertLessEqual(alloc.height, 500)
 
     def test_interface_translated(self):
+        import subprocess
         from ubiquity.frontend import gtk_ui
         from gi.repository import Gtk
         ui = gtk_ui.Wizard('test-ubiquity')
@@ -98,6 +99,13 @@ class TestFrontend(unittest.TestCase):
                 # title. If it is not set or not found, the title is hidden.
                 'page_title',
                 ]
+            deb_host_arch = subprocess.Popen(
+                ['dpkg-architecture', '-qDEB_HOST_ARCH'],
+                stdout=subprocess.PIPE).communicate()[0].strip()
+            if deb_host_arch not in ('amd64', 'i386'):
+                # grub-installer not available, but this template won't be
+                # displayed anyway.
+                whitelist.append('grub_device_label')
             missing_translations = set(missing_translations) - set(whitelist)
             missing_translations = list(missing_translations)
             if missing_translations:

@@ -1,3 +1,12 @@
+ubiquity (2.9.4) UNRELEASED; urgency=low
+
+  * Whitelist grub_device_label in test_interface_translated on non-x86
+    architectures; grub-installer will be unavailable to supply the
+    translations, but that doesn't matter since the template won't be
+    displayed anyway.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 22 Nov 2011 00:30:01 +0000
+
 ubiquity (2.9.3) precise; urgency=low
 
   [ Mario Limonciello ]
