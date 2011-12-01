@@ -1,3 +1,10 @@
+ubiquity (2.9.6) UNRELEASED; urgency=low
+
+  * Build-depend/depend on python-gi-cairo/python-gi-dev rather than
+    python-gobject-cairo/python-gobject-dev.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 01 Dec 2011 14:06:38 +0000
+
 ubiquity (2.9.5) precise; urgency=low
 
   * Automatic update of included source packages: console-setup 1.70ubuntu2,
