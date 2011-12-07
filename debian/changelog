@@ -1,4 +1,4 @@
-ubiquity (2.9.6) UNRELEASED; urgency=low
+ubiquity (2.9.6) precise; urgency=low
 
   * Build-depend/depend on python-gi-cairo/python-gi-dev rather than
     python-gobject-cairo/python-gobject-dev.
@@ -8,7 +8,7 @@ ubiquity (2.9.6) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel 2.28ubuntu35,
     hw-detect 1.88ubuntu1, localechooser 2.39ubuntu1, partman-uboot 5.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 01 Dec 2011 14:06:38 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Dec 2011 16:22:40 +0000
 
 ubiquity (2.9.5) precise; urgency=low
 
