@@ -137,6 +137,7 @@ def update(frontend):
         stopped_debconf = False
     try:
         # install the updates
+        os.environ['DPKG_UNTRANSLATED_MESSAGES'] = '1'
         fixer = apt.ProblemResolver(cache)
         for pkg in updates:
             cache[pkg].markInstall(autoFix=False)

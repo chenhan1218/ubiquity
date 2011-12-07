@@ -647,6 +647,7 @@ class Install(install_misc.InstallBase):
                     break
 
 if __name__ == '__main__':
+    os.environ['DPKG_UNTRANSLATED_MESSAGES'] = '1'
     if not os.path.exists('/var/lib/ubiquity'):
         os.makedirs('/var/lib/ubiquity')
     osextras.unlink_force('/var/lib/ubiquity/install.trace')
