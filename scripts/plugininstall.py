@@ -966,7 +966,7 @@ class Install(install_misc.InstallBase):
                                 self.db.set('grub-installer/bootdev', response)
                         else:
                             break
-                elif (arch == 'armel' and
+                elif (arch in ('armel', 'armhf') and
                       subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x', 'omap')):
                     from ubiquity.components import flash_kernel
                     dbfilter = flash_kernel.FlashKernel(None, self.db)

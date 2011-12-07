@@ -125,7 +125,7 @@ class TestPage(unittest.TestCase):
         pairs = [('partman-basicfilesystems/fat_mountpoint', 'ntfs'),
                  ('partman-basicfilesystems/mountpoint', 'ext4')]
         try:
-            # We cannot test uboot if we're not running on armel.
+            # We cannot test uboot if we're not running on armel/armhf.
             self.page.description('partman-uboot/mountpoint')
             pairs.append(('partman-uboot/mountpoint', 'uboot'))
         except debconf.DebconfError:

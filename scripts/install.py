@@ -268,7 +268,7 @@ class Install(install_misc.InstallBase):
             else:
                 keep.add('grub')
                 keep.add('grub-pc')
-        elif (arch == 'armel' and
+        elif (arch in ('armel', 'armhf') and
               subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x', 'omap')):
             keep.add('flash-kernel')
             if subarch == 'dove':

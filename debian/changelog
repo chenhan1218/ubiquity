@@ -2,6 +2,7 @@ ubiquity (2.9.6) UNRELEASED; urgency=low
 
   * Build-depend/depend on python-gi-cairo/python-gi-dev rather than
     python-gobject-cairo/python-gobject-dev.
+  * Add armhf support.
   * Automatic update of included source packages: flash-kernel 2.28ubuntu35,
     hw-detect 1.88ubuntu1, localechooser 2.39ubuntu1, partman-uboot 5.
 
