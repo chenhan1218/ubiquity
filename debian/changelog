@@ -1,3 +1,9 @@
+ubiquity (2.9.7) UNRELEASED; urgency=low
+
+  * Add a few armhf -> armel symlinks to fix the armhf build.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Dec 2011 17:58:31 +0000
+
 ubiquity (2.9.6) precise; urgency=low
 
   * Build-depend/depend on python-gi-cairo/python-gi-dev rather than
