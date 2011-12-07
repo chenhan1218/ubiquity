@@ -338,7 +338,7 @@ class PageGtk(PageBase):
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
     def part_ask_option_changed (self, unused_widget):
-        '''The use has selected one of the automatic partitioning options.'''
+        '''The user has selected one of the automatic partitioning options.'''
         about_to_install = False
 
         if (self.reuse_partition.get_active() or
