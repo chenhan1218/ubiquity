@@ -5,11 +5,11 @@ choose-mirror 2.39ubuntu1
 clock-setup 0.109ubuntu1
 console-setup 1.70ubuntu2
 debian-installer-utils 1.87ubuntu1
-flash-kernel 2.28ubuntu34
+flash-kernel 2.28ubuntu35
 grub-installer 1.68ubuntu4
-hw-detect 1.87ubuntu1
+hw-detect 1.88ubuntu1
 kboot-installer 0.0.1ubuntu9
-localechooser 2.38ubuntu1
+localechooser 2.39ubuntu1
 migration-assistant 0.6.10
 netcfg 1.68ubuntu7
 partconf 1.37
@@ -26,7 +26,7 @@ partman-newworld 25
 partman-partitioning 83ubuntu1
 partman-reiserfs 51
 partman-target 76ubuntu1
-partman-uboot 4
+partman-uboot 5
 partman-xfs 48
 preseed 1.49ubuntu1
 tzsetup 1:0.26ubuntu10
