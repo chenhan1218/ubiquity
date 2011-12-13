@@ -1,3 +1,13 @@
+ubiquity (2.9.8) UNRELEASED; urgency=low
+
+  * GTK frontend:
+    - Some automatic partitioning options change the text on the next button
+      to "Install Now".  Make sure that this works even when changing to the
+      automatic partitioning page with one of those options automatically
+      selected (LP: #766265).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 13 Dec 2011 18:11:11 +0000
+
 ubiquity (2.9.7) precise; urgency=low
 
   * Add a few armhf -> armel symlinks to fix the armhf build.

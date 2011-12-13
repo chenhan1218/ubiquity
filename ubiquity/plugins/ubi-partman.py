@@ -193,7 +193,7 @@ class PageGtk(PageBase):
 
     def plugin_get_current_page(self):
         if self.current_page == self.page_ask:
-            self.plugin_is_install = False
+            self.plugin_is_install = self.part_ask_option_is_install()
         else:
             self.plugin_is_install = True
         return self.current_page
@@ -337,16 +337,19 @@ class PageGtk(PageBase):
             hidden = self.controller.get_string('part_auto_hidden_label')
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
-    def part_ask_option_changed (self, unused_widget):
-        '''The user has selected one of the automatic partitioning options.'''
-        about_to_install = False
-
+    def part_ask_option_is_install(self):
         if (self.reuse_partition.get_active() or
             self.replace_partition.get_active()):
-            about_to_install = True
+            return True
         elif (self.resize_use_free.get_active() and
             'biggest_free' in self.extra_options):
-            about_to_install = True
+            return True
+        else:
+            return False
+
+    def part_ask_option_changed (self, unused_widget):
+        '''The user has selected one of the automatic partitioning options.'''
+        about_to_install = self.part_ask_option_is_install()
 
         if 'wubi' in self.extra_options and self.resize_use_free.get_active():
             self.controller.toggle_next_button('restart_to_continue')
