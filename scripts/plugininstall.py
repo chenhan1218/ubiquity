@@ -37,6 +37,7 @@ import debconf
 import warnings
 warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
 import apt_pkg
+import pwd
 from apt.cache import Cache
 
 sys.path.insert(0, '/usr/lib/ubiquity')
@@ -1527,7 +1528,13 @@ class Install(install_misc.InstallBase):
 
         # we don't use copy_network_config casper user trick as it's not and not
         # ubuntu in install mode
-        casper_user = 'ubuntu'
+        try:
+            casper_user = pwd.getpwuid(999).pw_name
+        except KeyError:
+            # We're on a weird system where the casper user isn't uid 999
+            # just stop there
+            return
+
         casper_user_home = os.path.expanduser('~%s' % casper_user)
         casper_user_wallpaper_cache_dir = os.path.join(casper_user_home,
                                                        '.cache', 'wallpaper')

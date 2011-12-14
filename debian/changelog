@@ -1,12 +1,18 @@
 ubiquity (2.9.8) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * GTK frontend:
     - Some automatic partitioning options change the text on the next button
       to "Install Now".  Make sure that this works even when changing to the
       automatic partitioning page with one of those options automatically
       selected (LP: #766265).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 13 Dec 2011 18:11:11 +0000
+  [ Stéphane Graber ]
+  * Use username associated with uid 999 rather than hardcoding 'ubuntu'
+    in Ubiquity. This is important now that casper sets the username and
+    hostname based on media name. (LP: #290351)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 14 Dec 2011 17:02:12 -0500
 
 ubiquity (2.9.7) precise; urgency=low
 
