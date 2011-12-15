@@ -1,5 +1,5 @@
 apt-setup 1:0.55ubuntu1
-base-installer 1.122ubuntu1
+base-installer 1.122ubuntu3
 bterm-unifont 1.2
 choose-mirror 2.39ubuntu1
 clock-setup 0.109ubuntu1
@@ -13,10 +13,10 @@ localechooser 2.39ubuntu1
 migration-assistant 0.6.10
 netcfg 1.68ubuntu7
 partconf 1.37
-partman-auto 93ubuntu17
+partman-auto 93ubuntu18
 partman-auto-loop 0ubuntu20
 partman-base 151ubuntu3
-partman-basicfilesystems 71ubuntu1
+partman-basicfilesystems 71ubuntu2
 partman-basicmethods 48
 partman-btrfs 6ubuntu1
 partman-efi 24ubuntu2

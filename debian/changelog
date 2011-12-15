@@ -6,6 +6,9 @@ ubiquity (2.9.8) UNRELEASED; urgency=low
       to "Install Now".  Make sure that this works even when changing to the
       automatic partitioning page with one of those options automatically
       selected (LP: #766265).
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu3, partman-auto 93ubuntu18, partman-basicfilesystems
+    71ubuntu2.
 
   [ Stéphane Graber ]
   * Use username associated with uid 999 rather than hardcoding 'ubuntu'
