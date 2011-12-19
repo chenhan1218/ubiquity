@@ -1,8 +1,11 @@
 import subprocess
+
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
 DBusGMainLoop(set_as_default=True)
 from gi.repository import Gtk, GObject
+
+from ubiquity.misc import utf8
 
 NM = 'org.freedesktop.NetworkManager'
 NM_DEVICE = 'org.freedesktop.NetworkManager.Device'
@@ -22,7 +25,7 @@ NM_STATE_CONNECTED_GLOBAL = 70
 
 def decode_ssid(characters):
     ssid = ''.join([str(char) for char in characters])
-    return ssid.decode('utf-8', 'replace')
+    return utf8(ssid, errors='replace')
 
 def get_prop(obj, iface, prop):
     try:

@@ -12,6 +12,13 @@ import contextlib
 
 from ubiquity import osextras
 
+def utf8(s, errors="strict"):
+    """Decode a string as UTF-8 if it isn't already Unicode."""
+    if isinstance(s, unicode):
+        return s
+    else:
+        return unicode(s, "utf-8", errors)
+
 def is_swap(device):
     swap = False
     fp = None
@@ -352,7 +359,7 @@ def find_in_os_prober(device):
         else:
             syslog.syslog('Device %s not found in os-prober output' % str(device))
             ret = ''
-        return unicode(ret, 'utf-8', 'replace')
+        return utf8(ret, errors='replace')
     except (KeyboardInterrupt, SystemExit):
         pass
     except:

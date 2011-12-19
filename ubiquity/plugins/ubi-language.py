@@ -174,7 +174,7 @@ class PageGtk(PageBase):
             model = self.iconview.get_model()
             iterator = model.iter_children(None)
             while iterator is not None:
-                if model.get_value(iterator, 0).decode('utf-8') == language:
+                if misc.utf8(model.get_value(iterator, 0)) == language:
                     path = model.get_path(iterator)
                     self.iconview.select_path(path)
                     self.iconview.scroll_to_path(path, True, 0.5, 0.5)
@@ -184,7 +184,7 @@ class PageGtk(PageBase):
             model = self.treeview.get_model()
             iterator = model.iter_children(None)
             while iterator is not None:
-                if model.get_value(iterator, 0).decode('utf-8') == language:
+                if misc.utf8(model.get_value(iterator, 0)) == language:
                     path = model.get_path(iterator)
                     self.treeview.get_selection().select_path(path)
                     self.treeview.scroll_to_cell(
@@ -210,7 +210,7 @@ class PageGtk(PageBase):
         if iterator is None:
             return None
         else:
-            value = model.get_value(iterator, 0).decode('utf-8')
+            value = misc.utf8(model.get_value(iterator, 0))
             return self.language_choice_map[value][1]
 
     def on_language_activated(self, *args, **kwargs):

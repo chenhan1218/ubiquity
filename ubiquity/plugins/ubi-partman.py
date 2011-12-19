@@ -313,7 +313,7 @@ class PageGtk(PageBase):
         if not i:
             return None
         m = self.part_auto_select_drive.get_model()
-        val = unicode(m.get_value(i, 0), 'utf-8', 'replace')
+        val = misc.utf8(m.get_value(i, 0), errors='replace')
 
         partman_id = self.extra_options['use_device'][1][val][0]
         disk_id = partman_id.rsplit('/', 1)[1]
@@ -439,7 +439,7 @@ class PageGtk(PageBase):
         if not i:
             return
         m = self.part_auto_select_drive.get_model()
-        val = unicode(m.get_value(i, 0), 'utf-8', 'replace')
+        val = misc.utf8(m.get_value(i, 0), errors='replace')
         size = self.extra_options['use_device'][1][val][1]
         self.partitionbox.set_size(size)
 
@@ -564,7 +564,7 @@ class PageGtk(PageBase):
             disk = m.get_value(i, 0)
             choice = self.extra_options['use_device'][0]
             # Is the encoding necessary?
-            return choice, unicode(disk, 'utf-8', 'replace')
+            return choice, misc.utf8(disk, errors='replace')
         
         else:
             raise AssertionError("Couldn't get autopartition choice")
@@ -1409,7 +1409,7 @@ class Page(plugin.Plugin):
         try:
             snoop = open('/var/lib/partman/snoop')
             for line in snoop:
-                line = unicode(line.rstrip('\n'), 'utf-8', 'replace')
+                line = misc.utf8(line.rstrip('\n'), errors='replace')
                 fields = line.split('\t', 1)
                 if len(fields) == 2:
                     (key, option) = fields

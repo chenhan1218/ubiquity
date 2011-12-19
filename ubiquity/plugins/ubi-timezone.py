@@ -94,7 +94,7 @@ class PageGtk(plugin.PluginUI):
         import urllib
         from gi.repository import Gtk, GObject, Soup
 
-        text = self.city_entry.get_text().decode('utf-8')
+        text = misc.utf8(self.city_entry.get_text())
         if not text:
             return
         # TODO if the completion widget has a selection, return?  How do we

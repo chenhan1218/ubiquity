@@ -153,7 +153,7 @@ class PageGtk(plugin.PluginUI):
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if model.get_value(iterator, 0).decode('utf-8') == layout:
+            if misc.utf8(model.get_value(iterator, 0)) == layout:
                 path = model.get_path(iterator)
                 self.keyboardlayoutview.get_selection().select_path(path)
                 self.keyboardlayoutview.scroll_to_cell(
@@ -167,7 +167,7 @@ class PageGtk(plugin.PluginUI):
         if iterator is None:
             return None
         else:
-            return model.get_value(iterator, 0).decode('utf-8')
+            return misc.utf8(model.get_value(iterator, 0))
 
     def set_keyboard_variant_choices(self, choices):
         from gi.repository import Gtk, GObject
@@ -190,7 +190,7 @@ class PageGtk(plugin.PluginUI):
             return
         iterator = model.iter_children(None)
         while iterator is not None:
-            if model.get_value(iterator, 0).decode('utf-8') == variant:
+            if misc.utf8(model.get_value(iterator, 0)) == variant:
                 path = model.get_path(iterator)
                 self.keyboardvariantview.get_selection().select_path(path)
                 self.keyboardvariantview.scroll_to_cell(
@@ -204,12 +204,7 @@ class PageGtk(plugin.PluginUI):
         if iterator is None:
             return None
         else:
-            return model.get_value(iterator, 0).decode('utf-8')
-
-def utf8(str):
-    if isinstance(str, unicode):
-        return str
-    return unicode(str, 'utf-8')
+            return misc.utf8(model.get_value(iterator, 0))
 
 class PageKde(plugin.PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_keyboard'
@@ -243,7 +238,7 @@ class PageKde(plugin.PluginUI):
         if layout is not None:
             #skip updating keyboard if not using display
             if self.keyboardDisplay:
-                ly = keyboard_names.lang[l]['layouts'][utf8(layout)]
+                ly = keyboard_names.lang[l]['layouts'][misc.utf8(layout)]
                 self.keyboardDisplay.setLayout(ly)
 
                 #no variants, force update by setting none
@@ -264,7 +259,7 @@ class PageKde(plugin.PluginUI):
             ly = keyboard_names.lang[l]['layouts'][layout]
             if variant and ly in keyboard_names.lang[l]['variants']:
                 variantMap = keyboard_names.lang[l]['variants'][ly]
-                var = variantMap[utf8(variant)]
+                var = variantMap[misc.utf8(variant)]
 
             self.keyboardDisplay.setVariant(var)
 
@@ -275,7 +270,8 @@ class PageKde(plugin.PluginUI):
         from PyQt4.QtCore import QString
         self.page.keyboard_layout_combobox.clear()
         for choice in sorted(choices):
-            self.page.keyboard_layout_combobox.addItem(QString(utf8(choice)))
+            self.page.keyboard_layout_combobox.addItem(QString(
+                misc.utf8(choice)))
 
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
@@ -283,14 +279,15 @@ class PageKde(plugin.PluginUI):
     @plugin.only_this_page
     def set_keyboard (self, layout):
         from PyQt4.QtCore import QString
-        index = self.page.keyboard_layout_combobox.findText(QString(utf8(layout)))
+        index = self.page.keyboard_layout_combobox.findText(QString(
+            misc.utf8(layout)))
 
         if index > -1:
             self.page.keyboard_layout_combobox.setCurrentIndex(index)
 
         if self.keyboardDisplay:
             l = self.controller.dbfilter.get_locale()
-            ly = keyboard_names.lang[l]['layouts'][utf8(layout)]
+            ly = keyboard_names.lang[l]['layouts'][misc.utf8(layout)]
             self.keyboardDisplay.setLayout(ly)
 
     def get_keyboard(self):
@@ -303,12 +300,14 @@ class PageKde(plugin.PluginUI):
         from PyQt4.QtCore import QString
         self.page.keyboard_variant_combobox.clear()
         for choice in sorted(choices):
-            self.page.keyboard_variant_combobox.addItem(QString(utf8(choice)))
+            self.page.keyboard_variant_combobox.addItem(QString(
+                misc.utf8(choice)))
 
     @plugin.only_this_page
     def set_keyboard_variant(self, variant):
         from PyQt4.QtCore import QString
-        index = self.page.keyboard_variant_combobox.findText(QString(utf8(variant)))
+        index = self.page.keyboard_variant_combobox.findText(QString(
+            misc.utf8(variant)))
 
         if index > -1:
             self.page.keyboard_variant_combobox.setCurrentIndex(index)
@@ -319,7 +318,7 @@ class PageKde(plugin.PluginUI):
             layout = keyboard_names.lang[l]['layouts'][self.get_keyboard()]
             if variant and layout in keyboard_names.lang[l]['variants']:
                 variantMap = keyboard_names.lang[l]['variants'][layout]
-                var = variantMap[utf8(variant)]
+                var = variantMap[misc.utf8(variant)]
 
             self.keyboardDisplay.setVariant(var)
 
@@ -426,7 +425,7 @@ class Page(plugin.Plugin):
             # for layout choice translation yet
             self.ui.set_keyboard_choices(
                 self.choices_untranslated(question))
-            self.ui.set_keyboard(self.db.get(question).decode('utf-8'))
+            self.ui.set_keyboard(misc.utf8(self.db.get(question)))
             # Reset these in case we just backed up from the variant
             # question.
             self.store_defaults(True)
@@ -441,8 +440,8 @@ class Page(plugin.Plugin):
                 else:
                     # If there's only one variant, it is always the same as
                     # the layout name.
-                    single_variant = self.db.get(
-                        'keyboard-configuration/layout').decode('utf-8')
+                    single_variant = misc.utf8(self.db.get(
+                        'keyboard-configuration/layout'))
                     self.ui.set_keyboard_variant_choices([single_variant])
                     self.ui.set_keyboard_variant(single_variant)
             else:
@@ -451,7 +450,7 @@ class Page(plugin.Plugin):
                 self.has_variants = True
                 self.ui.set_keyboard_variant_choices(
                     self.choices_untranslated(question))
-                self.ui.set_keyboard_variant(self.db.get(question).decode('utf-8'))
+                self.ui.set_keyboard_variant(misc.utf8(self.db.get(question)))
             # keyboard-configuration preseeding is special, and needs to be
             # checked by hand. The seen flag on
             # keyboard-configuration/layout is used internally by

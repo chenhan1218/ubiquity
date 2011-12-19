@@ -27,7 +27,7 @@
 import os, re
 
 from ubiquity import validation
-from ubiquity.misc import execute, execute_root, dmimodel
+from ubiquity.misc import execute, execute_root, dmimodel, utf8
 from ubiquity import plugin
 import debconf
 
@@ -42,7 +42,7 @@ def check_hostname(hostname):
     e = []
     # Ahem.  We can cheat here by inserting newlines where needed.  Hopefully
     # by the time we translate this, GTK+ will have decent layout management.
-    for result in validation.check_hostname(hostname.decode('utf-8')):
+    for result in validation.check_hostname(utf8(hostname)):
         if result == validation.HOSTNAME_LENGTH:
             e.append("Must be between 1 and 63 characters long.")
         elif result == validation.HOSTNAME_BADCHAR:
@@ -317,7 +317,7 @@ class PageGtk(PageBase):
         if (widget is not None and widget.get_name() == 'fullname' and
             not self.username_edited):
             self.username.handler_block(self.username_changed_id)
-            new_username = widget.get_text().split(' ')[0].decode('utf-8')
+            new_username = utf8(widget.get_text().split(' ')[0])
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.lower()
             self.username.set_text(new_username)

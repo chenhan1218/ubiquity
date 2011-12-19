@@ -218,7 +218,7 @@ def get_string(name, lang, prefix=None):
         else:
             text = translations[question]['c']
 
-    return unicode(text, 'utf-8', 'replace')
+    return misc.utf8(text, errors='replace')
 
 
 # Based on code by Walter Dörwald:
@@ -255,7 +255,7 @@ def get_languages(current_language_index=-1, only_installable=False):
     language_display_map = {}
     i = 0
     for line in languagelist:
-        line = unicode(line, 'utf-8')
+        line = misc.utf8(line)
         if line == '' or line == '\n':
             continue
         code, name, trans = line.strip(u'\n').split(u':')[1:]
@@ -322,7 +322,7 @@ def default_locales():
     languagelist = open('/usr/lib/ubiquity/localechooser/languagelist')
     defaults = {}
     for line in languagelist:
-        line = unicode(line, 'utf-8')
+        line = misc.utf8(line)
         if line == '' or line == '\n':
             continue
         bits = line.strip(u'\n').split(u';')
