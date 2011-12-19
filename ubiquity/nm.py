@@ -167,7 +167,7 @@ class NetworkManager:
         if self.timeout_id:
             GObject.source_remove(self.timeout_id)
         self.timeout_id = GObject.timeout_add(500, self.build_cache)
-            
+
     def properties_changed(self, props, path=None):
         if 'Strength' in props:
             ap_obj = self.bus.get_object(NM, path)
@@ -180,7 +180,7 @@ class NetworkManager:
                 while iterator:
                     i = self.ssid_in_model(iterator, ssid, security)
                     if i:
-                        self.model.set_value(i, 2, strength) 
+                        self.model.set_value(i, 2, strength)
                     iterator = self.model.iter_next(iterator)
 
     def build_cache(self):
@@ -216,7 +216,7 @@ class NetworkManager:
                     if not i:
                         self.model.append(iterator, [ssid, security, strength])
                     else:
-                        self.model.set_value(i, 2, strength) 
+                        self.model.set_value(i, 2, strength)
                     ssids.append(ssid)
             i = self.model.iter_children(iterator)
             self.prune(i, ssids)
@@ -360,7 +360,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
         if iterator is None:
             return False
         return model.iter_parent(iterator) is not None
-        
+
     def is_row_connected(self):
         model, iterator = self.get_selection().get_selected()
         if iterator is None:
@@ -378,7 +378,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
         parent = model.iter_parent(iterator)
         if parent:
             self.wifi_model.connect_to_ap(model[parent][0], ssid, passphrase)
-            
+
 
 GObject.type_register(NetworkManagerTreeView)
 
@@ -417,7 +417,7 @@ class NetworkManagerWidget(Gtk.VBox):
     def translate(self, password_label_text, display_password_text):
         self.password_label.set_label(password_label_text)
         self.display_password.set_label(display_password_text)
-    
+
     def get_state(self):
         return self.view.get_state()
 

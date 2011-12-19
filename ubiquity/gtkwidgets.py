@@ -31,7 +31,7 @@ class StylizedFrame(Gtk.Alignment):
                    0, GObject.constants.G_MAXINT, 1,
                    GObject.PARAM_READWRITE),
     }
-    
+
     def __init__(self):
         Gtk.Alignment.__init__(self)
         self.radius = 10
@@ -89,7 +89,7 @@ class ResizeWidget(Gtk.HPaned):
                        'be resized to', 1, GObject.constants.G_MAXUINT64,
                        100, GObject.PARAM_READWRITE)
     }
-    
+
     def do_get_property(self, prop):
         return getattr(self, prop.name.replace('-', '_'))
 
@@ -194,7 +194,7 @@ class PartitionBox(StylizedFrame):
         'extra'     : (GObject.TYPE_STRING, 'Extra Text', None, '',
                        GObject.PARAM_READWRITE),
     }
-    
+
     def do_get_property(self, prop):
         if prop.name == 'title':
             return self.ostitle.get_text()
@@ -298,7 +298,7 @@ class StateBox(StylizedFrame):
         'label'  : (GObject.TYPE_STRING, 'Label', None, 'label',
                     GObject.PARAM_READWRITE),
     }
-    
+
     def do_get_property(self, prop):
         if prop.name == 'label':
             return self.label.get_text()
@@ -309,7 +309,7 @@ class StateBox(StylizedFrame):
             self.label.set_text(value)
             return
         setattr(self, prop.name, value)
-    
+
     def __init__(self, text=''):
         StylizedFrame.__init__(self)
         alignment = Gtk.Alignment()
@@ -319,7 +319,7 @@ class StateBox(StylizedFrame):
         self.image = Gtk.Image()
         self.image.set_from_stock(Gtk.STOCK_YES, Gtk.IconSize.LARGE_TOOLBAR)
         self.label = Gtk.Label(label=text)
-        
+
         self.label.set_alignment(0, 0.5)
         hbox.pack_start(self.image, False, True, 0)
         hbox.pack_start(self.label, True, True, 0)

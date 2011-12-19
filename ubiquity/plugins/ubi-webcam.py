@@ -46,7 +46,7 @@ class PageGtk(plugin.PluginUI):
         self.plugin_widgets = self.page
         self.faceselector = gtkwidgets.FaceSelector()
         self.page.add(self.faceselector)
-    
+
     def plugin_get_current_page(self):
         self.page.show_all()
         self.faceselector.webcam_play()

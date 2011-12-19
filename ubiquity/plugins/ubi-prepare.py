@@ -181,7 +181,7 @@ class PageKde(PreparePageBase):
     def get_download_updates(self):
         from PyQt4.QtCore import Qt
         return self.prepare_download_updates.checkState() == Qt.Checked
-    
+
     def set_allow_nonfree(self, allow):
         if not allow:
             self.prepare_nonfree_software.setChecked(False)

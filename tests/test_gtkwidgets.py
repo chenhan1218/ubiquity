@@ -185,6 +185,6 @@ class NetworkManagerTests(unittest.TestCase):
         i = self.model.append(iterator, ['Orange', True, 0])
         tv.data_func(None, mock_cell, self.model, i, None)
         mock_cell.set_property.assert_called_with('text', 'Orange')
-        
+
 if __name__ == '__main__':
     test_support.run_unittest(WidgetTests, NetworkManagerTests)

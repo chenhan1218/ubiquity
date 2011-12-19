@@ -402,7 +402,7 @@ class PageGtk(PageBase):
             self.hostname_error_label.hide()
 
         self.controller.allow_go_forward(complete)
-    
+
     def on_username_changed(self, widget):
         self.username_edited = (widget.get_text() != '')
 
@@ -548,7 +548,7 @@ class PageKde(PageBase):
 
     def set_encrypt_home(self, value):
         self.page.login_encrypt.setChecked(value)
-    
+
     def set_force_encrypt_home(self, value):
         self.page.login_encrypt.setDisabled(value)
         self.page.login_auto.setDisabled(value)
@@ -723,7 +723,7 @@ class Page(plugin.Plugin):
         except debconf.DebconfError:
             empty = False
         self.ui.set_allow_password_empty(empty)
-        
+
         # We need to call info_loop as we switch to the page so the next button
         # gets disabled.
         self.ui.info_loop(None)

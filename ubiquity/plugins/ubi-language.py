@@ -191,7 +191,7 @@ class PageGtk(PageBase):
                         path, use_align=True, row_align=0.5)
                     break
                 iterator = model.iter_next(iterator)
-        
+
         if not self.only and 'UBIQUITY_GREETER' in os.environ:
             self.try_ubuntu.set_sensitive(True)
             self.install_ubuntu.set_sensitive(True)
@@ -382,7 +382,7 @@ class PageKde(PageBase):
             if not self.controller.oem_config:
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
-            
+
             def inst(*args):
                 self.page.try_ubuntu.setEnabled(False)
                 self.controller.go_forward()
@@ -492,7 +492,7 @@ class PageKde(PageBase):
             self.combobox.addItem("C")
         else:
             self.combobox.setCurrentIndex(index)
-        
+
         if not self.only and 'UBIQUITY_GREETER' in os.environ:
             self.page.try_ubuntu.setEnabled(True)
             self.page.install_ubuntu.setEnabled(True)
@@ -528,7 +528,7 @@ class PageKde(PageBase):
                 text = text.replace('${MEDIUM}', install_medium)
                 text = text.replace('Ubuntu', 'Kubuntu')
                 widget.setText(text)
-                
+
         self.update_release_notes_label()
         for w in self.widgetHidden:
             w.show()

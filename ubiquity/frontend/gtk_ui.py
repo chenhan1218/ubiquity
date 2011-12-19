@@ -66,7 +66,7 @@ PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
 
 # Define global pixmaps location
 PIXMAPS = os.environ.get('PIXMAPS', False) or '/usr/share/pixmaps'
- 
+
 # Define ui path
 UIDIR = os.environ.get('UBIQUITY_GLADE', False) or os.path.join(PATH, 'gtk')
 os.environ['UBIQUITY_GLADE'] = UIDIR
@@ -262,7 +262,7 @@ class Wizard(BaseFrontend):
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
-        
+
         self.builders = [self.builder]
         self.pages = []
         self.pagesindex = 0
@@ -560,7 +560,7 @@ class Wizard(BaseFrontend):
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
         if os.path.exists('/usr/bin/orca'):
             subprocess.Popen(['/usr/bin/orca', '-n'], preexec_fn=misc.drop_all_privileges)
-             
+
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
                          '--pass-stdout', '/usr/bin/casper-a11y-enable',
@@ -725,7 +725,7 @@ class Wizard(BaseFrontend):
         s.set_property('enable-default-context-menu', False)
         if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
             s.set_property('enable-caret-browsing', True)
-        
+
         webview.connect('new-window-policy-decision-requested',
                         self.on_slideshow_link_clicked)
 
@@ -822,7 +822,7 @@ color : @fg_color
 
         # set initial bottom bar status
         self.allow_go_backward(False)
-        
+
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""
         if os.path.exists('/usr/bin/gnome-screensaver-command'):

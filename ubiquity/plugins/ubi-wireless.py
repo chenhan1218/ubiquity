@@ -97,7 +97,7 @@ class PageGtk(plugin.PluginUI):
             frontend.translate_widget(frontend.next)
             self.next_normal = True
             self.controller.allow_go_forward(True)
-        
+
     def plugin_set_online_state(self, online):
         self.skip = online
 

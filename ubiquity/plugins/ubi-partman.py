@@ -197,7 +197,7 @@ class PageGtk(PageBase):
         else:
             self.plugin_is_install = True
         return self.current_page
-    
+
     def configure_wubi_and_reboot(self):
         self.controller.allow_change_step(False)
         device = self.extra_options['wubi']
@@ -236,7 +236,7 @@ class PageGtk(PageBase):
                 title = self.use_device_title.get_text()
             self.controller._wizard.page_title.set_markup(
                 '<span size="xx-large">%s</span>' % title)
-            
+
             if resize and 'wubi' in self.extra_options:
                 self.configure_wubi_and_reboot()
                 return True
@@ -565,7 +565,7 @@ class PageGtk(PageBase):
             choice = self.extra_options['use_device'][0]
             # Is the encoding necessary?
             return choice, misc.utf8(disk, errors='replace')
-        
+
         else:
             raise AssertionError("Couldn't get autopartition choice")
 

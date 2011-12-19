@@ -373,7 +373,7 @@ def find_in_os_prober(device):
 def os_prober():
     global _os_prober_oslist
     global _os_prober_called
-    
+
     if not _os_prober_called:
         _os_prober_called = True
         subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
@@ -438,7 +438,7 @@ def get_release_name():
     warnings.warn('get_release_name() is deprecated, '
                   'use get_release().name instead.',
                   category=DeprecationWarning)
-    
+
     if not get_release_name.release_name:
         fp = None
         try:

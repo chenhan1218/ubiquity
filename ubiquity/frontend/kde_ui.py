@@ -123,7 +123,7 @@ class Controller(ubiquity.frontend.base.Controller):
 
     def allow_go_backward(self, allowed):
         self._wizard.allow_go_backward(allowed)
-    
+
     def allow_change_step(self, allowed):
         self._wizard.allow_change_step(allowed)
 
