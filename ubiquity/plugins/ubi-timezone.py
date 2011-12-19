@@ -617,14 +617,19 @@ class Page(plugin.Plugin):
             # HM (Heard and McDonald Islands).  Both are uninhabited.
             locs = []
         for location in locs:
-            tz_format.setTimeZone(PyICU.TimeZone.createTimeZone(location.zone))
-            translated = tz_format.format(now)
+            timezone = PyICU.TimeZone.createTimeZone(location.zone)
+            if timezone.getID() == 'Etc/Unknown':
+                translated = None
+            else:
+                tz_format.setTimeZone(timezone)
+                translated = tz_format.format(now)
             # Check if PyICU had a valid translation for this timezone.  If it
             # doesn't, the returned string will look like GMT+0002 or somesuch.
             # Sometimes the GMT is translated (like in Chinese), so we check
             # for the number part.  PyICU does not indicate a 'translation
             # failure' like this in any way...
-            if re.search('.*[-+][0-9][0-9]:?[0-9][0-9]$', translated):
+            if (translated is None or
+                re.search('.*[-+][0-9][0-9]:?[0-9][0-9]$', translated)):
                 # Wasn't something that PyICU understood...
                 name = self.get_fallback_translation_for_tz(country_code, location.zone)
                 rv.append((name, location.zone))

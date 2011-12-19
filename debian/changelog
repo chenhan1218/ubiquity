@@ -1,3 +1,10 @@
+ubiquity (2.9.10) UNRELEASED; urgency=low
+
+  * Handle interface change in ICU 4.8: unknown time zones result in
+    TimeZone instances with ID "Etc/Unknown" rather than "GMT".
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 19 Dec 2011 16:44:50 +0000
+
 ubiquity (2.9.9) precise; urgency=low
 
   * Cope with pygobject returning unicode objects rather than UTF-8-encoded
