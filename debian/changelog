@@ -2,6 +2,7 @@ ubiquity (2.9.10) UNRELEASED; urgency=low
 
   * Handle interface change in ICU 4.8: unknown time zones result in
     TimeZone instances with ID "Etc/Unknown" rather than "GMT".
+  * Import icu rather than PyICU, preferred as of python-pyicu 1.0.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 19 Dec 2011 16:44:50 +0000
 

@@ -239,7 +239,7 @@ codecs.register_error('ascii_transliterate', ascii_transliterate)
 # Returns a tuple of (current language, sorted choices, display map).
 def get_languages(current_language_index=-1, only_installable=False):
     import gzip
-    import PyICU
+    import icu
 
     current_language = "English"
 
@@ -298,7 +298,7 @@ def get_languages(current_language_index=-1, only_installable=False):
         # language for its collation rules (languages frequently have
         # custom sorting).  This at least gives us common sorting rules,
         # like stripping accents.
-        collator = PyICU.Collator.createInstance(PyICU.Locale('C'))
+        collator = icu.Collator.createInstance(icu.Locale('C'))
     except:
         collator = None
 

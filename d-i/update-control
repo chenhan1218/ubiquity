@@ -59,7 +59,7 @@ my @basebd = (
     'python-gi-dev',
     'python-libxml2',
     'python-mock',
-    'python-pyicu',
+    'python-pyicu (>= 1.0)',
     'python-scour',
     'python-xklavier',
     'udev',

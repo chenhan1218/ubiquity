@@ -22,7 +22,7 @@ import time
 import re
 
 import debconf
-import PyICU
+import icu
 
 from ubiquity import plugin
 from ubiquity import i18n
@@ -397,9 +397,9 @@ class Page(plugin.Plugin):
         self.tzdb = ubiquity.tz.Database()
         self.multiple = False
         try:
-            # Strip .UTF-8 from locale, PyICU doesn't parse it
+            # Strip .UTF-8 from locale, icu doesn't parse it
             locale = os.environ['LANG'].rsplit('.', 1)[0]
-            self.collator = PyICU.Collator.createInstance(PyICU.Locale(locale))
+            self.collator = icu.Collator.createInstance(icu.Locale(locale))
         except:
             self.collator = None
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -606,7 +606,7 @@ class Page(plugin.Plugin):
         if 'LANG' not in os.environ:
             return [] # ?!
         locale = os.environ['LANG'].rsplit('.', 1)[0]
-        tz_format = PyICU.SimpleDateFormat('VVVV', PyICU.Locale(locale))
+        tz_format = icu.SimpleDateFormat('VVVV', icu.Locale(locale))
         now = time.time()*1000
         rv = []
         try:
@@ -617,20 +617,20 @@ class Page(plugin.Plugin):
             # HM (Heard and McDonald Islands).  Both are uninhabited.
             locs = []
         for location in locs:
-            timezone = PyICU.TimeZone.createTimeZone(location.zone)
+            timezone = icu.TimeZone.createTimeZone(location.zone)
             if timezone.getID() == 'Etc/Unknown':
                 translated = None
             else:
                 tz_format.setTimeZone(timezone)
                 translated = tz_format.format(now)
-            # Check if PyICU had a valid translation for this timezone.  If it
+            # Check if icu had a valid translation for this timezone.  If it
             # doesn't, the returned string will look like GMT+0002 or somesuch.
             # Sometimes the GMT is translated (like in Chinese), so we check
-            # for the number part.  PyICU does not indicate a 'translation
+            # for the number part.  icu does not indicate a 'translation
             # failure' like this in any way...
             if (translated is None or
                 re.search('.*[-+][0-9][0-9]:?[0-9][0-9]$', translated)):
-                # Wasn't something that PyICU understood...
+                # Wasn't something that icu understood...
                 name = self.get_fallback_translation_for_tz(country_code, location.zone)
                 rv.append((name, location.zone))
             else:
