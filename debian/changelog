@@ -1,4 +1,4 @@
-ubiquity (2.9.10) UNRELEASED; urgency=low
+ubiquity (2.9.10) precise; urgency=low
 
   * Handle interface change in ICU 4.8: unknown time zones result in
     TimeZone instances with ID "Etc/Unknown" rather than "GMT".
@@ -6,7 +6,7 @@ ubiquity (2.9.10) UNRELEASED; urgency=low
   * Automatic update of included source packages: partman-basicfilesystems
     71ubuntu3, partman-btrfs 7ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 19 Dec 2011 16:44:50 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Dec 2011 17:59:53 +0000
 
 ubiquity (2.9.9) precise; urgency=low
 
