@@ -16,9 +16,9 @@ partconf 1.37
 partman-auto 93ubuntu18
 partman-auto-loop 0ubuntu20
 partman-base 151ubuntu3
-partman-basicfilesystems 71ubuntu2
+partman-basicfilesystems 71ubuntu3
 partman-basicmethods 48
-partman-btrfs 6ubuntu1
+partman-btrfs 7ubuntu1
 partman-efi 24ubuntu2
 partman-ext3 66ubuntu1
 partman-jfs 34
