@@ -4,6 +4,7 @@ ubiquity (2.9.11) UNRELEASED; urgency=low
     - Use Python 3-style print functions.
     - Use "except Exception as e" syntax rather than the old-style "except
       Exception, e".
+    - Use reduce from functools rather than relying on the builtin.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2012 01:26:33 +0000
 

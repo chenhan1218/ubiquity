@@ -25,6 +25,8 @@ import codecs
 import os
 import locale
 import sys
+from functools import reduce
+
 from ubiquity import misc, im_switch
 
 # if 'just_country' is True, only the country is changing

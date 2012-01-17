@@ -41,6 +41,7 @@ import syslog
 import atexit
 import gettext
 import ConfigParser
+from functools import reduce
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop

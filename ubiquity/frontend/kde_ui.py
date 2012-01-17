@@ -33,6 +33,7 @@ import syslog
 import atexit
 import signal
 import dbus
+from functools import reduce
 
 # kde gui specifics
 from PyQt4 import QtCore, QtGui, uic
