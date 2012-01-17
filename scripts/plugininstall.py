@@ -1041,7 +1041,7 @@ class Install(install_misc.InstallBase):
                     self.db.progress('STOP')
                     self.nested_progress_end()
                     return
-            except SystemError, e:
+            except SystemError as e:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
@@ -1136,7 +1136,7 @@ class Install(install_misc.InstallBase):
             cmd += extra_packages
             try:
                 subprocess.check_call(cmd)
-            except subprocess.CalledProcessError, e:
+            except subprocess.CalledProcessError as e:
                 if e.returncode != 30:
                     cache = Cache()
                     brokenpkgs = install_misc.broken_packages(cache)

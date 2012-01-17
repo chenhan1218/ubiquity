@@ -160,15 +160,15 @@ class PageKde(PreparePageBase):
                     self.page.vbox1.addWidget(self.prepare_power_source)
                 else:
                     self.prepare_power_source.hide()
-            except Exception, e:
+            except Exception as e:
                 # TODO use an inconsistent state?
                 print('unable to set up power source watch:', e)
             try:
                 self.prepare_network_connection = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_network_connection)
-            except Exception, e:
+            except Exception as e:
                 print('unable to set up network connection watch:', e)
-        except Exception, e:
+        except Exception as e:
             print("Could not create prepare page:", str(e), file=sys.stderr)
             self.debug('Could not create prepare page: %s', e)
             self.page = None
@@ -245,7 +245,7 @@ class Page(plugin.Plugin):
         try:
             with open('/cdrom/casper/filesystem.size') as fp:
                 size = int(fp.readline())
-        except IOError, e:
+        except IOError as e:
             self.debug('Could not determine squashfs size: %s' % e)
 
         # TODO substitute into the template for the state box.

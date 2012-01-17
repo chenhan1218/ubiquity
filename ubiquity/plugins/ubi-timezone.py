@@ -253,7 +253,7 @@ class PageKde(plugin.PluginUI):
             self.tzmap.zoneChanged.connect(self.mapZoneChanged)
             self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
             self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
 
@@ -566,7 +566,7 @@ class Page(plugin.Plugin):
                 for name, code in choices.items():
                     if code == country:
                         return name
-        except debconf.DebconfError, e:
+        except debconf.DebconfError as e:
             print("Couldn't get country name for %s: %s" % (country, e))
         return None
 
@@ -582,7 +582,7 @@ class Page(plugin.Plugin):
                 for name, code in zones.items():
                     if code == city:
                         return name
-        except debconf.DebconfError, e:
+        except debconf.DebconfError as e:
             print("Couldn't get city name for %s: %s" % (tz, e))
         return None
 

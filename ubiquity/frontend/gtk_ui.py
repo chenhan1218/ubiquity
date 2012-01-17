@@ -379,7 +379,7 @@ class Wizard(BaseFrontend):
             if hasattr(p.ui, 'plugin_translate'):
                 try:
                     p.ui.plugin_translate(lang or self.locale)
-                except Exception, e:
+                except Exception as e:
                     print('Could not translate page (%s): %s' %
                           (p.module.NAME, str(e)), file=sys.stderr)
 

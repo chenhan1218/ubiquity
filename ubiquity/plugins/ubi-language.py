@@ -436,7 +436,7 @@ class PageKde(PageBase):
                     self.widgetHidden.append(w)
                     w.hide()
 
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create language page: %s', e)
             self.page = None
 

@@ -376,7 +376,7 @@ def acquire_lock():
     lock = open(LOCKFILE, 'w')
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    except IOError, e:
+    except IOError as e:
         if e.errno in (errno.EACCES, errno.EAGAIN, errno.EWOULDBLOCK):
             print("Ubiquity is already running!")
             sys.exit(1)
@@ -504,7 +504,7 @@ def main(oem_config):
 
     try:
         os.makedirs('/var/log/installer')
-    except OSError, e:
+    except OSError as e:
         # be happy if someone already created the path
         if e.errno != errno.EEXIST:
             raise
@@ -540,7 +540,7 @@ def main(oem_config):
                 print("Ubiquity %s (oem-config)" % VERSION, file=sys.stderr)
             else:
                 print("Ubiquity %s" % VERSION, file=sys.stderr)
-        except (IOError, OSError), err:
+        except (IOError, OSError) as err:
             if err.errno != errno.EACCES:
                 raise
 

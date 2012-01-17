@@ -161,7 +161,7 @@ class DM:
         null = open('/dev/null', 'w')
         try:
             os.makedirs('/var/log/installer')
-        except OSError, e:
+        except OSError as e:
             # be happy if someone already created the path
             if e.errno != errno.EEXIST:
                 raise
@@ -501,7 +501,7 @@ EndSection
         def kill_if_exists(pid, signum):
             try:
                 os.kill(pid, signum)
-            except OSError, e:
+            except OSError as e:
                 if e.errno != errno.ESRCH:
                     raise
 
@@ -527,7 +527,7 @@ EndSection
                 try:
                     process.wait()
                     done.add(process)
-                except OSError, e:
+                except OSError as e:
                     if e.errno == errno.EINTR:
                         continue
                     raise

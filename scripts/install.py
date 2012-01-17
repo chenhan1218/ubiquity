@@ -130,7 +130,7 @@ class Install(install_misc.InstallBase):
                     stdout=subprocess.PIPE, preexec_fn=subprocess_setup).pid
             try:
                 self.copy_all()
-            except EnvironmentError, e:
+            except EnvironmentError as e:
                 if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
                                errno.ENOTDIR, errno.EROFS):
                     if e.filename is None:
@@ -164,7 +164,7 @@ class Install(install_misc.InstallBase):
             for i in range(10):
                 try:
                     os.killpg(self.update_proc, signal.SIGTERM)
-                except OSError, e:
+                except OSError as e:
                     if e.errno == errno.ESRCH:
                         break
                     else:
@@ -173,7 +173,7 @@ class Install(install_misc.InstallBase):
             else:
                 try:
                     os.killpg(self.update_proc, signal.SIGKILL)
-                except OSError, e:
+                except OSError as e:
                     if e.errno != errno.ESRCH:
                         raise
             syslog.syslog('Terminated ubiquity update process.')
@@ -396,7 +396,7 @@ class Install(install_misc.InstallBase):
                 if stat.S_ISLNK(st.st_mode):
                     try:
                         os.unlink(targetpath)
-                    except OSError, e:
+                    except OSError as e:
                         if e.errno == errno.ENOENT:
                             pass
                         elif e.errno == errno.EISDIR:

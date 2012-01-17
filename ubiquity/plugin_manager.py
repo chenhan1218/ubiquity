@@ -35,7 +35,7 @@ def load_plugins():
         modname = os.path.splitext(modfile)[0]
         try:
             modules.append(__import__(modname))
-        except Exception, e:
+        except Exception as e:
             print('Could not import plugin %s: %s' % (modname, e),
                   file=sys.stderr)
     del sys.path[0]

@@ -51,7 +51,7 @@ class PageGtk(PageBase):
             self.controller.add_builder(builder)
             self.page = builder.get_object('stepWarning')
             self.alpha_warning_label = builder.get_object('alpha_warning_label')
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create warning page: %s', e)
             self.page = None
         # We do not want to show the yet to be substituted strings

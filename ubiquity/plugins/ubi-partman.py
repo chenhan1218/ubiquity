@@ -399,7 +399,7 @@ class PageGtk(PageBase):
         try:
             dev, partnum = re.search(r'(.*\D)(\d+)$', resize_path).groups()
             dev = '%s%d' % (dev, int(partnum) + 1)
-        except Exception, e:
+        except Exception as e:
             dev = 'unknown'
             self.debug('Could not determine new partition number: %s', e)
             self.debug('extra_options: %s' % str(self.extra_options))

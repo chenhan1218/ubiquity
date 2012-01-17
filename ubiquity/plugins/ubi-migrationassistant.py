@@ -57,7 +57,7 @@ class PageGtk(PageBase):
             builder.connect_signals(self)
             self.page = builder.get_object('stepMigrationAssistant')
             self.matreeview = builder.get_object('matreeview')
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
@@ -319,7 +319,7 @@ class Page(plugin.Plugin):
                     self.db.set('migration-assistant/%s/users' % part, '')
                 # Prune out partitions that do not have any users.
                 self.db.set('migration-assistant/partitions', ", ".join(ret))
-            except debconf.DebconfError, e:
+            except debconf.DebconfError as e:
                 for line in str(e).split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 self.db.set('migration-assistant/partitions', '')

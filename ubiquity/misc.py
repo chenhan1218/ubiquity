@@ -484,7 +484,7 @@ def execute(*args):
 
     try:
         status = subprocess.call(log_args)
-    except IOError, e:
+    except IOError as e:
         syslog.syslog(syslog.LOG_ERR, ' '.join(log_args))
         syslog.syslog(syslog.LOG_ERR,
                       "OS error(%s): %s" % (e.errno, e.strerror))
@@ -611,7 +611,7 @@ def get_prop(obj, iface, prop):
     import dbus
     try:
         return obj.Get(iface, prop, dbus_interface=dbus.PROPERTIES_IFACE)
-    except dbus.DBusException, e:
+    except dbus.DBusException as e:
         if e.get_dbus_name() == 'org.freedesktop.DBus.Error.UnknownMethod':
             return None
         else:

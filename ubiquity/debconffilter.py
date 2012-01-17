@@ -138,7 +138,7 @@ class DebconfFilter:
                     self.toreadpos = 0
                     return ret
                 self.toread += text
-            except OSError, (err, _):
+            except OSError as (err, _):
                 if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
                     return None
                 else:
@@ -431,7 +431,7 @@ class DebconfFilter:
             # properly skipped over in multi-stage backups.
             if command == 'INPUT':
                 self.next_go_backup = False
-        except debconf.DebconfError, e:
+        except debconf.DebconfError as e:
             self.reply(*e.args)
 
         return True

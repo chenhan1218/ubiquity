@@ -49,7 +49,7 @@ class PageGtk(plugin.PluginUI):
             self.calculate_keymap_button = builder.get_object('deduce_layout')
             self.keyboard_test = builder.get_object('keyboard_test')
             self.calculate_keymap_button.connect('clicked', self.calculate_clicked)
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
@@ -228,7 +228,7 @@ class PageKde(plugin.PluginUI):
             #not when we are populating the combo box
             self.page.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
             self.page.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page

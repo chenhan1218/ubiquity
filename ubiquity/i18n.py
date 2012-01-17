@@ -41,7 +41,7 @@ def reset_locale(frontend, just_country=False):
         os.environ['LANGUAGE'] = di_locale
         try:
             locale.setlocale(locale.LC_ALL, '')
-        except locale.Error, e:
+        except locale.Error as e:
             print('locale.setlocale failed: %s (LANG=%s)' % (e, di_locale),
                   file=sys.stderr)
         if not just_country:

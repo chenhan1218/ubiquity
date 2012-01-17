@@ -752,7 +752,7 @@ class InstallBase:
                 self.db.progress('STOP')
                 self.nested_progress_end()
                 return
-            except SystemError, e:
+            except SystemError as e:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
