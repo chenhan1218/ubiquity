@@ -19,6 +19,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import errno
@@ -371,12 +373,12 @@ class Install(install_misc.InstallBase):
             with open('/proc/sys/vm/dirty_writeback_centisecs') as dwc:
                 dirty_writeback_centisecs = int(dwc.readline())
             with open('/proc/sys/vm/dirty_writeback_centisecs', 'w') as dwc:
-                print >>dwc, '3000\n'
+                print('3000\n', file=dwc)
         if os.path.exists('/proc/sys/vm/dirty_expire_centisecs'):
             with open('/proc/sys/vm/dirty_expire_centisecs') as dec:
                 dirty_expire_centisecs = int(dec.readline())
             with open('/proc/sys/vm/dirty_expire_centisecs', 'w') as dec:
-                print >>dec, '6000\n'
+                print('6000\n', file=dec)
 
         old_umask = os.umask(0)
         for dirpath, dirnames, filenames in os.walk(self.source):
@@ -468,10 +470,10 @@ class Install(install_misc.InstallBase):
         # Revert to previous kernel flush times.
         if dirty_writeback_centisecs is not None:
             with open('/proc/sys/vm/dirty_writeback_centisecs', 'w') as dwc:
-                print >>dwc, dirty_writeback_centisecs
+                print(dirty_writeback_centisecs, file=dwc)
         if dirty_expire_centisecs is not None:
             with open('/proc/sys/vm/dirty_expire_centisecs', 'w') as dec:
-                print >>dec, dirty_expire_centisecs
+                print(dirty_expire_centisecs, file=dec)
 
         # Try some possible locations for the kernel we used to boot. This
         # lets us save a couple of megabytes of CD space.

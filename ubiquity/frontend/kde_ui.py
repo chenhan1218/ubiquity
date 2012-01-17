@@ -24,6 +24,8 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import traceback
@@ -365,9 +367,9 @@ class Wizard(BaseFrontend):
                       "Exception in KDE frontend (invoking crash handler):")
         for line in tbtext.split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
-        print >>sys.stderr, ("Exception in KDE frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
+        print("Exception in KDE frontend (invoking crash handler):",
+              file=sys.stderr)
+        print(tbtext, file=sys.stderr)
 
         self.post_mortem(exctype, excvalue, exctb)
 
@@ -625,8 +627,8 @@ class Wizard(BaseFrontend):
                 try:
                     p.ui.plugin_translate(lang or self.locale)
                 except Exception, e:
-                    print >>sys.stderr, 'Could not translate page (%s): %s' \
-                                        % (p.module.NAME, str(e))
+                    print('Could not translate page (%s): %s' %
+                          (p.module.NAME, str(e)), file=sys.stderr)
 
     # translates widget text based on the object names
     # widgets is a list of (widget, prefix) pairs
@@ -724,8 +726,8 @@ class Wizard(BaseFrontend):
             widget.setWindowTitle(text)
 
         else:
-            print "WARNING: unknown widget: " + name
-            print "Type: ", type(widget)
+            print("WARNING: unknown widget: " + name)
+            print("Type: ", type(widget))
 
     def allow_change_step(self, allowed):
         if allowed:

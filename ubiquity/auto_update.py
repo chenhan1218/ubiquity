@@ -18,6 +18,8 @@
 
 # Update the installer from the network.
 
+from __future__ import print_function
+
 import sys
 import os
 import syslog
@@ -120,7 +122,7 @@ def update(frontend):
             lambda pkg: pkg in cache and cache[pkg].isUpgradable,
             UBIQUITY_PKGS)
     except IOError, e:
-        print "ERROR: cache.update() returned: '%s'" % e
+        print("ERROR: cache.update() returned: '%s'" % e)
         updates = []
 
     if not updates:

@@ -21,6 +21,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import subprocess
 import os
 import debconf
@@ -108,9 +110,9 @@ def chroot_setup(target, x11=False):
 
     policy_rc_d = os.path.join(target, 'usr/sbin/policy-rc.d')
     f = open(policy_rc_d, 'w')
-    print >>f, """\
+    print("""\
 #!/bin/sh
-exit 101"""
+exit 101""", file=f)
     f.close()
     os.chmod(policy_rc_d, 0755)
 
@@ -118,11 +120,11 @@ exit 101"""
     if os.path.exists(start_stop_daemon):
         os.rename(start_stop_daemon, '%s.REAL' % start_stop_daemon)
     f = open(start_stop_daemon, 'w')
-    print >>f, """\
+    print("""\
 #!/bin/sh
 echo 1>&2
 echo 'Warning: Fake start-stop-daemon called, doing nothing.' 1>&2
-exit 0"""
+exit 0""", file=f)
     f.close()
     os.chmod(start_stop_daemon, 0755)
 
@@ -130,11 +132,11 @@ exit 0"""
     if os.path.exists(initctl):
         os.rename(initctl, '%s.REAL' % initctl)
         f = open(initctl, 'w')
-        print >>f, """\
+        print("""\
 #!/bin/sh
 echo 1>&2
 echo 'Warning: Fake initctl called, doing nothing.' 1>&2
-exit 0"""
+exit 0""", file=f)
         f.close()
         os.chmod(initctl, 0755)
 
@@ -200,7 +202,7 @@ def record_installed(pkgs):
     record = open(record_file, "a")
 
     for pkg in pkgs:
-        print >>record, pkg
+        print(pkg, file=record)
 
     record.close()
 
@@ -222,7 +224,7 @@ def record_removed(pkgs, recursive=False):
     record = open(record_file, "a")
 
     for pkg in pkgs:
-        print >>record, pkg, str(recursive).lower()
+        print(pkg, str(recursive).lower(), file=record)
 
     record.close()
 
@@ -432,7 +434,7 @@ def excepthook(exctype, excvalue, exctb):
     for line in tbtext.split('\n'):
         syslog.syslog(syslog.LOG_ERR, line)
     tbfile = open('/var/lib/ubiquity/install.trace', 'w')
-    print >>tbfile, tbtext
+    print(tbtext, file=tbfile)
     tbfile.close()
 
     sys.exit(1)
@@ -895,7 +897,7 @@ class InstallBase:
                     os.makedirs(os.path.dirname(langpacks_file))
                 with open(langpacks_file, 'w') as langpacks:
                     for pkg in to_install:
-                        print >>langpacks, pkg
+                        print(pkg, file=langpacks)
                 return []
             else:
                 return to_install

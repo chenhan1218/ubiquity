@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import debconf
 
@@ -315,7 +317,7 @@ class PageGtk(PageBase):
             return False
 
     def update_release_notes_label(self):
-        print "update_release_notes_label()"
+        print("update_release_notes_label()")
         lang = self.get_language()
         if not lang:
             return

@@ -1,3 +1,10 @@
+ubiquity (2.9.11) UNRELEASED; urgency=low
+
+  * Begin porting to Python 3:
+    - Use Python 3-style print functions.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2012 01:26:33 +0000
+
 ubiquity (2.9.10) precise; urgency=low
 
   * Handle interface change in ICU 4.8: unknown time zones result in

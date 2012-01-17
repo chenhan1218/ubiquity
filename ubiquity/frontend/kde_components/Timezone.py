@@ -1,5 +1,7 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
+from __future__ import print_function
+
 from PyQt4 import QtCore, QtGui
 
 import datetime
@@ -43,7 +45,7 @@ class TimezoneMap(QtGui.QWidget):
         zonePixmaps = {}
 
         for zone in zones:
-            #print '%s/timezone_%s.png' % (self.imagePath, zone)
+            #print('%s/timezone_%s.png' % (self.imagePath, zone))
             zonePixmaps[zone] = QtGui.QPixmap('%s/timezone_%s.png' % (self.imagePath, zone))
 
         #load the timezones from database

@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import datetime
 import time
@@ -240,7 +242,7 @@ class _Database(object):
                 pass
 
             # If not found, oh well, just warn and move on.
-            print >> sys.stderr, 'Could not understand timezone', tz
+            print('Could not understand timezone', tz, file=sys.stderr)
             self.tz_to_loc[tz] = None # save it for the future
             return None
 

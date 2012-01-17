@@ -3,6 +3,8 @@
 # Wrapper script to run Ubiquity as root using the appropriate privilege
 # escalation method for the frontend.
 
+from __future__ import print_function
+
 import sys
 import os
 import syslog
@@ -147,7 +149,7 @@ def main():
         pass
 
     if 'UBIQUITY_WRAPPER_DEBUG' in os.environ:
-        print >>sys.stderr, toexec
+        print(toexec, file=sys.stderr)
     os.execvp(toexec[0], toexec)
     sys.exit(127)
 

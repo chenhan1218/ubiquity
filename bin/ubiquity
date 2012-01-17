@@ -14,6 +14,8 @@ Once it has the info, partitioning, format, copy the distro to the disk
 and configure everything.
 '''
 
+from __future__ import print_function
+
 import sys
 import os
 import errno
@@ -171,7 +173,7 @@ def start_debconf():
             osextras.unlink_force(os.environ['DEBCONF_SYSTEMRC'])
         return
 
-    print >>sys.stderr, "debconf_ui selected; starting debconf frontend"
+    print("debconf_ui selected; starting debconf frontend", file=sys.stderr)
 
     if 'DEBCONF_USE_CDEBCONF' not in os.environ:
         # This is rather unsatisfactory. Perhaps it would be better to
@@ -187,9 +189,9 @@ def start_debconf():
                 line.rstrip('\n') and not line.startswith('#')):
                 state = 1
             elif state == 1 and not line.rstrip('\n'):
-                print >>debconfrc_file, 'Reshow: true'
+                print('Reshow: true', file=debconfrc_file)
                 state = 2
-            print >>debconfrc_file, line,
+            print(line, end="", file=debconfrc_file)
         orig_debconfrc.close()
         debconfrc_file.close()
         os.environ['DEBCONF_SYSTEMRC'] = debconfrc
@@ -232,7 +234,7 @@ def install(frontend=None, query=False):
                              ', '.join(frontends))
     os.environ['UBIQUITY_FRONTEND'] = chosen
     if query:
-        print >> sys.__stdout__, os.environ['UBIQUITY_FRONTEND']
+        print(os.environ['UBIQUITY_FRONTEND'], file=sys.__stdout__)
         sys.exit(0)
 
     unmount_target()
@@ -376,12 +378,12 @@ def acquire_lock():
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except IOError, e:
         if e.errno in (errno.EACCES, errno.EAGAIN, errno.EWOULDBLOCK):
-            print "Ubiquity is already running!"
+            print("Ubiquity is already running!")
             sys.exit(1)
         raise
     atexit.register(release_lock)
     fcntl.fcntl(lock, fcntl.F_SETFD, fcntl.FD_CLOEXEC)
-    print >>lock, os.getpid()
+    print(os.getpid(), file=lock)
     lock.flush()
     os.fsync(lock.fileno())
 
@@ -392,14 +394,15 @@ def acquire_lock():
             ['debconf-communicate', '-fnoninteractive', 'ubiquity'],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
         try:
-            print >>test_debconf.stdin, 'VERSION 2.0'
+            print('VERSION 2.0', file=test_debconf.stdin)
             test_debconf.stdout.readline()
         except IOError:
             pass
         test_debconf.stdin.close()
         if test_debconf.wait() != 0:
-            print "Debconf database is locked!"
-            print "This may be because a package management program is running."
+            print("Debconf database is locked!")
+            print("This may be because a package management program is "
+                  "running.")
             sys.exit(1)
 
 def run_oem_hooks():
@@ -512,7 +515,7 @@ def main(oem_config):
     else:
         syslog.syslog("Ubiquity %s" % VERSION)
     version_file = open('/var/log/installer/version', 'w')
-    print >>version_file, 'ubiquity %s' % VERSION
+    print('ubiquity %s' % VERSION, file=version_file)
     version_file.close()
 
     if 'UBIQUITY_DEBUG' in os.environ:
@@ -534,9 +537,9 @@ def main(oem_config):
             os.close(log)
             sys.stderr = os.fdopen(2, 'a', 1)
             if oem_config:
-                print >>sys.stderr, "Ubiquity %s (oem-config)" % VERSION
+                print("Ubiquity %s (oem-config)" % VERSION, file=sys.stderr)
             else:
-                print >>sys.stderr, "Ubiquity %s" % VERSION
+                print("Ubiquity %s" % VERSION, file=sys.stderr)
         except (IOError, OSError), err:
             if err.errno != errno.EACCES:
                 raise

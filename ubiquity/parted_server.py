@@ -20,6 +20,8 @@
 # Simple bindings to allow Python programs to talk to parted_server.
 # I don't recommend attempting to use these outside Ubiquity.
 
+from __future__ import print_function
+
 import os
 import shutil
 
@@ -57,7 +59,7 @@ class PartedServer(object):
 
     def log(self, *args):
         f = open(logfile, 'a')
-        print >>f, 'ubiquity:', ' '.join(args)
+        print('ubiquity:', ' '.join(args), file=f)
         f.close()
 
     def write_line(self, *args):

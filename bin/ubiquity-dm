@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+from __future__ import print_function
+
 import os
 import sys
 import subprocess
@@ -50,7 +52,7 @@ def set_locale():
         return
 
     default_locale = open('/etc/default/locale', 'w')
-    print >>default_locale, 'LANG="%s"' % locale
+    print('LANG="%s"' % locale, file=default_locale)
     default_locale.close()
 
     environment = open('/etc/environment')
@@ -60,16 +62,16 @@ def set_locale():
     seen_lang = False
     for line in environment_lines:
         if line.startswith('LANG='):
-            print >>environment, 'LANG="%s"' % locale
+            print('LANG="%s"' % locale, file=environment)
             seen_lang = True
         else:
-            print >>environment, line.rstrip('\n')
+            print(line.rstrip('\n'), file=environment)
     if not seen_lang:
-        print >>environment, 'LANG="%s"' % locale
+        print('LANG="%s"' % locale, file=environment)
     environment.close()
 
     locale_gen = open('/etc/locale.gen', 'w')
-    print >>locale_gen, '%s UTF-8' % locale
+    print('%s UTF-8' % locale, file=locale_gen)
     locale_gen.close()
 
     logfile = open('/var/log/installer/dm', 'a')
@@ -210,7 +212,7 @@ class DM:
 
                 if not os.path.exists(xorg_conf_failsafe):
                     xorg_conf_failsafe_file = open(xorg_conf_failsafe, 'w')
-                    print >>xorg_conf_failsafe_file, '''\
+                    print('''\
 Section "Device"
 	Identifier	"Configured Video Device"
 	Driver		"%s"
@@ -225,7 +227,7 @@ Section "Screen"
 	Monitor		"Configured Monitor"
 	Device		"Configured Video Device"
 EndSection
-''' % driver
+''' % driver, file=xorg_conf_failsafe_file)
                     xorg_conf_failsafe_file.close()
 
             server = subprocess.Popen(

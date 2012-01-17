@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import re
 import subprocess
 import codecs
@@ -40,8 +42,8 @@ def reset_locale(frontend, just_country=False):
         try:
             locale.setlocale(locale.LC_ALL, '')
         except locale.Error, e:
-            print >>sys.stderr, 'locale.setlocale failed: %s (LANG=%s)' % \
-                                (e, di_locale)
+            print('locale.setlocale failed: %s (LANG=%s)' % (e, di_locale),
+                  file=sys.stderr)
         if not just_country:
             misc.execute_root('fontconfig-voodoo',
                                 '--auto', '--force', '--quiet')

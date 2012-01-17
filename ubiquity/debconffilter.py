@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import fcntl
@@ -112,8 +114,8 @@ class DebconfFilter:
             import time
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
-            print >>sys.stderr, "%s debconf (%s): %s" % (time_str, key,
-                                                         ' '.join(args))
+            print("%s debconf (%s): %s" % (time_str, key, ' '.join(args)),
+                  file=sys.stderr)
 
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().

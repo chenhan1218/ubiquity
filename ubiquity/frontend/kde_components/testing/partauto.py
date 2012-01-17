@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import sys
 import os
 
@@ -59,6 +61,6 @@ if __name__ == "__main__":
     win.setupChoices(choices, extra_options, resize_choice, manual_choice,
                      biggest_free_choice)
 
-    print win.getChoice()
+    print(win.getChoice())
 
     sys.exit(app.exec_())

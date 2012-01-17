@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import time
 import re
@@ -565,7 +567,7 @@ class Page(plugin.Plugin):
                     if code == country:
                         return name
         except debconf.DebconfError, e:
-            print "Couldn't get country name for %s: %s" % (country, e)
+            print("Couldn't get country name for %s: %s" % (country, e))
         return None
 
     def get_city_name_from_tzdata(self, tz):
@@ -581,7 +583,7 @@ class Page(plugin.Plugin):
                     if code == city:
                         return name
         except debconf.DebconfError, e:
-            print "Couldn't get city name for %s: %s" % (tz, e)
+            print("Couldn't get city name for %s: %s" % (tz, e))
         return None
 
     def get_fallback_translation_for_tz(self, country, tz):
