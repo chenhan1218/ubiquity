@@ -138,8 +138,8 @@ class DebconfFilter:
                     self.toreadpos = 0
                     return ret
                 self.toread += text
-            except OSError as (err, _):
-                if err == errno.EAGAIN or err == errno.EWOULDBLOCK:
+            except OSError as e:
+                if e.errno in (errno.EAGAIN, errno.EWOULDBLOCK):
                     return None
                 else:
                     raise
