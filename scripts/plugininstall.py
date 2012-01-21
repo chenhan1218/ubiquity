@@ -1281,7 +1281,7 @@ class Install(install_misc.InstallBase):
         keep.add('oem-config')
 
         cache = Cache()
-        remove = set([pkg for pkg in cache.keys() if cache[pkg].is_installed])
+        remove = {pkg for pkg in cache.keys() if cache[pkg].is_installed}
         # Keep packages we explicitly installed.
         keep |= install_misc.query_recorded_installed()
         remove -= install_misc.expand_dependencies_simple(cache, keep, remove)

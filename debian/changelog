@@ -9,6 +9,7 @@ ubiquity (2.9.11) UNRELEASED; urgency=low
     - Use open() rather than file().
     - Import configparser rather than ConfigParser if available.
     - Use input() rather than raw_input() when running under Python 3.
+    - Use set comprehensions.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2012 01:26:33 +0000
 

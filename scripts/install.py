@@ -297,9 +297,9 @@ class Install(install_misc.InstallBase):
 
         # Consider only packages that don't have a prerm, and which can
         # therefore have their files removed without any preliminary work.
-        difference = set([
+        difference = {
             x for x in difference
-            if not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x)])
+            if not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x)}
 
         confirmed_remove = set()
         for pkg in sorted(difference):
