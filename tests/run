@@ -20,6 +20,14 @@ sys.path.insert(0, '.')
 # Build dependencies for the tests.
 subprocess.check_call(['tests/build'])
 
+# Set up linker and gobject-introspection paths.
+if 'LD_LIBRARY_PATH' in os.environ:
+    os.environ['LD_LIBRARY_PATH'] = (
+        'src/webcam/.libs:%s' % os.environ['LD_LIBRARY_PATH'])
+else:
+    os.environ['LD_LIBRARY_PATH'] = 'src/webcam/.libs'
+os.environ['GI_TYPELIB_PATH'] = 'src/webcam'
+
 # Parts borrowed from jockey.
 
 if len(sys.argv) > 1 and sys.argv[1] == 'coverage':

@@ -213,7 +213,7 @@ endif
 
 tests: install-stamp
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	CODE=0; env -u LD_PRELOAD LD_LIBRARY_PATH=src/webcam/.libs GI_TYPELIB_PATH=src/webcam xvfb-run -e debian/xvfb.log ./tests/run || CODE=$$?; \
+	CODE=0; env -u LD_PRELOAD xvfb-run -e debian/xvfb.log ./tests/run || CODE=$$?; \
 	echo "xauth/Xrdb output:"; \
 	cat debian/xvfb.log; \
 	rm -f debian/xvfb.log; \
