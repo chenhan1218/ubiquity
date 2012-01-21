@@ -180,7 +180,7 @@ class Location(object):
 
         # Grab md5sum of the timezone file for later comparison
         try:
-            tz_file = file(os.path.join('/usr/share/zoneinfo', self.zone) ,'rb')
+            tz_file = open(os.path.join('/usr/share/zoneinfo', self.zone), 'rb')
             self.md5sum = hashlib.md5(tz_file.read()).digest()
             tz_file.close()
         except IOError:
@@ -230,7 +230,7 @@ class _Database(object):
             return self.tz_to_loc[tz]
         except:
             try:
-                tz_file = file(os.path.join('/usr/share/zoneinfo', tz) ,'rb')
+                tz_file = open(os.path.join('/usr/share/zoneinfo', tz), 'rb')
                 md5sum = hashlib.md5(tz_file.read()).digest()
                 tz_file.close()
 

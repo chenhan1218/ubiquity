@@ -193,7 +193,7 @@ class Wizard(BaseFrontend):
         misc.drop_privileges_save()
         try:
             self.app = kdeui.KApplication()
-            self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
+            self.app.setStyleSheet(open(os.path.join(UIDIR, "style.qss")).read())
         finally:
             misc.regain_privileges_save()
 
@@ -205,7 +205,7 @@ class Wizard(BaseFrontend):
         # handle smaller screens (old school eee pc
         if (QtGui.QApplication.desktop().screenGeometry().height() < 560):
             self.ui.main_frame.setFixedHeight(470)
-            self.ui.main_frame.setStyleSheet(file(os.path.join(UIDIR, "style_small.qss")).read())
+            self.ui.main_frame.setStyleSheet(open(os.path.join(UIDIR, "style_small.qss")).read())
 
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
