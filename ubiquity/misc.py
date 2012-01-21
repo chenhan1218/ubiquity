@@ -260,7 +260,7 @@ def mount_info(path):
     fsname = ''
     fstype = ''
     writable = ''
-    with contextlib.closing(open('/proc/mounts')) as fp:
+    with open('/proc/mounts') as fp:
         for line in fp:
             line = line.split()
             if line[1] == path:
