@@ -40,7 +40,10 @@ import traceback
 import syslog
 import atexit
 import gettext
-import ConfigParser
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
 from functools import reduce
 
 import dbus
@@ -444,7 +447,7 @@ class Wizard(BaseFrontend):
             thunar_dir = os.path.expanduser('~/.config/Thunar')
         if os.path.isdir(thunar_dir):
             thunar_volmanrc = '%s/volmanrc' % thunar_dir
-            parser = ConfigParser.RawConfigParser()
+            parser = configparser.RawConfigParser()
             parser.optionxform = str # case-sensitive
             parser.read(thunar_volmanrc)
             if not parser.has_section('Configuration'):
@@ -813,7 +816,7 @@ color : @fg_color
             self.slideshow = '/usr/share/ubiquity-slideshow'
         if os.path.exists(self.slideshow):
             try:
-                cfg = ConfigParser.ConfigParser()
+                cfg = configparser.ConfigParser()
                 cfg.read(os.path.join(self.slideshow, 'slideshow.conf'))
                 config_width = int(cfg.get('Slideshow','width'))
                 config_height = int(cfg.get('Slideshow','height'))
