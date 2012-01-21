@@ -150,9 +150,7 @@ class PartedServer(object):
 
     # Get all disk identifiers (subdirectories of /var/lib/partman/devices).
     def disks(self):
-        disks = os.listdir(devices)
-        disks.sort()
-        return disks
+        return sorted(os.listdir(devices))
 
     # This is stateful in a slightly ugly way, but it corresponds well to
     # the shell interface.
