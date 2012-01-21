@@ -607,8 +607,8 @@ class Install(install_misc.InstallBase):
             assert self.mountpoints
 
             misc.execute('mount', '-t', 'unionfs', '-o',
-                         'dirs=' + ':'.join(map(lambda x: '%s=ro' % x,
-                                                self.mountpoints)),
+                         'dirs=' + ':'.join(['%s=ro' % x
+                                             for x in self.mountpoints]),
                          'unionfs', self.source)
             self.mountpoints.append(self.source)
 

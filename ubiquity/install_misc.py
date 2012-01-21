@@ -789,7 +789,7 @@ class InstallBase:
                 apt_out = subprocess.Popen(
                     ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
                     stdout=subprocess.PIPE).communicate()[0].rstrip().split('\n')
-                langpacks = map(lambda x: x.split('-')[2].strip(), apt_out)
+                langpacks = [x.split('-')[2].strip() for x in apt_out]
                 all_langpacks = True
             else:
                 langpacks = langpack_db.replace(',', '').split()

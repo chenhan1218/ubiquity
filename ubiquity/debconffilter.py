@@ -422,7 +422,7 @@ class DebconfFilter:
 
         try:
             if not self.escaping:
-                params = map(misc.debconf_escape, params)
+                params = [misc.debconf_escape(param) for param in params]
             data = self.db.command(command, *params)
             self.reply(0, data)
 
