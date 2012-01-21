@@ -26,7 +26,9 @@
 
 from __future__ import print_function
 
-import os, re
+import os
+import re
+import sys
 
 from ubiquity import validation
 from ubiquity.misc import execute, execute_root, dmimodel, utf8
@@ -654,7 +656,10 @@ class PageNoninteractive(PageBase):
     def username_error(self, msg):
         """The selected username was bad."""
         print('\nusername error: %s' % msg, file=self.console)
-        self.username = raw_input('Username: ')
+        if sys.version >= '3':
+            self.username = input('Username: ')
+        else:
+            self.username = raw_input('Username: ')
 
     def password_error(self, msg):
         """The selected password was bad."""
