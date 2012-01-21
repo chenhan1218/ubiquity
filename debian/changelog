@@ -10,6 +10,7 @@ ubiquity (2.9.11) UNRELEASED; urgency=low
     - Import configparser rather than ConfigParser if available.
     - Use input() rather than raw_input() when running under Python 3.
     - Use set comprehensions.
+    - Import quote from urllib.parse rather than urllib if available.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Jan 2012 01:26:33 +0000
 

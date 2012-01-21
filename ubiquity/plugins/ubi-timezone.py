@@ -93,7 +93,10 @@ class PageGtk(plugin.PluginUI):
 
 
     def changed(self, entry):
-        import urllib
+        try:
+            from urllib.parse import quote
+        except ImportError:
+            from urllib import quote
         from gi.repository import Gtk, GObject, Soup
 
         text = misc.utf8(self.city_entry.get_text())
@@ -111,7 +114,7 @@ class PageGtk(plugin.PluginUI):
 
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
-            url = _geoname_url % (urllib.quote(text.encode('UTF-8')),
+            url = _geoname_url % (quote(text.encode('UTF-8')),
                                   misc.get_release().version)
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
