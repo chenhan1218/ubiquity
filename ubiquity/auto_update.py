@@ -118,9 +118,8 @@ def update(frontend):
         cache_progress = CacheProgressDebconfProgressAdapter(frontend)
         cache = apt.Cache(cache_progress)
         cache_progress.really_done()
-        updates = filter(
-            lambda pkg: pkg in cache and cache[pkg].isUpgradable,
-            UBIQUITY_PKGS)
+        updates = [pkg for pkg in UBIQUITY_PKGS
+                   if pkg in cache and cache[pkg].isUpgradable]
     except IOError as e:
         print("ERROR: cache.update() returned: '%s'" % e)
         updates = []

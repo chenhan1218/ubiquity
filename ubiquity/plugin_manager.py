@@ -29,7 +29,8 @@ PLUGIN_PATH = (os.environ.get('UBIQUITY_PLUGIN_PATH', False)
 
 def load_plugins():
     modules = []
-    modfiles = filter(lambda x: fnmatch.fnmatch(x,'*.py'), os.listdir(PLUGIN_PATH))
+    modfiles = [x for x in os.listdir(PLUGIN_PATH)
+                if fnmatch.fnmatch(x, '*.py')]
     sys.path.insert(0, PLUGIN_PATH)
     for modfile in modfiles:
         modname = os.path.splitext(modfile)[0]

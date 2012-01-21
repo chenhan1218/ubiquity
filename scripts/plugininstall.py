@@ -604,7 +604,8 @@ class Install(install_misc.InstallBase):
 
         if os.path.isdir(hookdir):
             # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
-            hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
+            hooks = [entry for entry in os.listdir(hookdir)
+                     if '.' not in entry]
             self.db.progress('START', 0, len(hooks), 'ubiquity/install/title')
             self.db.progress('INFO', 'ubiquity/install/target_hooks')
             for hookentry in hooks:

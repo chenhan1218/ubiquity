@@ -297,9 +297,9 @@ class Install(install_misc.InstallBase):
 
         # Consider only packages that don't have a prerm, and which can
         # therefore have their files removed without any preliminary work.
-        difference = set(filter(
-            lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
-            difference))
+        difference = set([
+            x for x in difference
+            if not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x)])
 
         confirmed_remove = set()
         for pkg in sorted(difference):
@@ -505,9 +505,8 @@ class Install(install_misc.InstallBase):
             raise install_misc.InstallStepError("No source device found for %s" % fsfile)
 
         dev = ''
-        sysloops = filter(lambda x: x.startswith(blockdev_prefix),
-                          os.listdir('/sys/block'))
-        sysloops.sort()
+        sysloops = sorted([x for x in os.listdir('/sys/block')
+                           if x.startswith(blockdev_prefix)])
         for sysloop in sysloops:
             try:
                 sysloopf = open(os.path.join('/sys/block', sysloop, 'size'))

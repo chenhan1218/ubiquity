@@ -412,7 +412,7 @@ def run_oem_hooks():
 
     if os.path.isdir(hookdir):
         # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
-        hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
+        hooks = [entry for entry in os.listdir(hookdir) if '.' not in entry]
         child_env = dict(os.environ)
         child_env['DEBIAN_FRONTEND'] = 'noninteractive'
         if 'DEBIAN_HAS_FRONTEND' in child_env:

@@ -1790,8 +1790,8 @@ class Page(plugin.Plugin):
                 if system and system != 'swap':
                     if not system.startswith('Windows Recovery'):
                         operating_systems.append(system)
-        ubuntu_systems = filter(lambda x: x.lower().find('buntu') != -1,
-                                operating_systems)
+        ubuntu_systems = [x for x in operating_systems
+                          if x.lower().find('buntu') != -1]
         return (operating_systems, ubuntu_systems)
 
     def calculate_autopartitioning_options(self, operating_systems,
