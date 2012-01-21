@@ -1,3 +1,10 @@
+ubiquity (2.9.11) UNRELEASED; urgency=low
+
+  * Drop backports of saved ID handling functions from os, now that we
+    require Python 2.7.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 21 Jan 2012 02:41:10 +0000
+
 ubiquity (2.9.10) precise; urgency=low
 
   * Handle interface change in ICU 4.8: unknown time zones result in

@@ -51,7 +51,7 @@ my @basebd = (
     'pkg-config',
     'po-debconf (>= 1.0)',
     'pyflakes',
-    'python-all-dev (>= 2.6.6-3~)',
+    'python-all (>= 2.6.6-3~)',
     'python-apt',
     'python-cairo',
     'python-dbus',

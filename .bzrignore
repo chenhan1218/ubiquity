@@ -66,13 +66,8 @@ src/webcam/*.lo
 src/webcam/Makefile
 src/webcam/UbiquityWebcam-1.0.gir
 src/webcam/UbiquityWebcam-1.0.typelib
-ubiquity/.deps
-ubiquity/.libs
-ubiquity/Makefile
 ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
 ubiquity/frontend/crashdialog.py
 ubiquity/keyboard_names.py
-ubiquity/*.la
-ubiquity/*.lo
 d-i/sources.list.local
