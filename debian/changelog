@@ -1,11 +1,16 @@
 ubiquity (2.9.11) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Drop backports of saved ID handling functions from os, now that we
     require Python 2.7.
   * Remove an unnecessary use of contextlib.closing.
   * Simplify PartedServer.disks.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 21 Jan 2012 02:41:10 +0000
+  [ Stéphane Graber ]
+  * gtk_ui.py: Update rendering of GtkComboBox following light-themes update
+    (was dark text on dark background, now light text on dark background)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 23 Jan 2012 17:42:59 -0500
 
 ubiquity (2.9.10) precise; urgency=low
 
