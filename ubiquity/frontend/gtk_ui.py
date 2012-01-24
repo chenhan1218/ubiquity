@@ -407,6 +407,17 @@ class Wizard(BaseFrontend):
 
         if os.path.exists('/usr/share/apport/apport-gtk'):
             self.previous_excepthook(exctype, excvalue, exctb)
+            # In live session mode, update-notifier will pick up the crash
+            # report; in only-ubiquity mode we need to bring up the UI
+            # ourselves
+            with open('/proc/cmdline') as fp:
+                if 'only-ubiquity' in fp.read():
+		    # we need to drop privileges, we cannot run GTK programs
+                    # with non-matching real/effective u/gid
+                    os.setresgid(os.getegid(), os.getegid(), os.getegid())
+                    os.setresuid(os.geteuid(), os.geteuid(), os.geteuid())
+                    misc.execute('/usr/share/apport/apport-gtk')
+            sys.exit(1)
         else:
             self.crash_detail_label.set_text(tbtext)
             self.crash_dialog.run()
