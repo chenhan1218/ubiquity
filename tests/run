@@ -7,6 +7,21 @@ import subprocess
 import fnmatch
 
 
+# Set up linker and gobject-introspection paths.  If we change the linker
+# path, we must re-exec ourselves.
+
+ld_library_path = os.environ.get('LD_LIBRARY_PATH')
+if ld_library_path is None:
+    ld_library_path = []
+else:
+    ld_library_path = ld_library_path.split(':')
+if 'src/webcam/.libs' not in ld_library_path:
+    ld_library_path.insert(0, 'src/webcam/.libs')
+    os.environ['LD_LIBRARY_PATH'] = ':'.join(ld_library_path)
+    os.execv(sys.argv[0], sys.argv)
+
+os.environ['GI_TYPELIB_PATH'] = 'src/webcam'
+
 def find_files(directory, pattern):
     for root, dirs, files in os.walk(directory):
         for basename in files:
@@ -19,14 +34,6 @@ sys.path.insert(0, '.')
 
 # Build dependencies for the tests.
 subprocess.check_call(['tests/build'])
-
-# Set up linker and gobject-introspection paths.
-if 'LD_LIBRARY_PATH' in os.environ:
-    os.environ['LD_LIBRARY_PATH'] = (
-        'src/webcam/.libs:%s' % os.environ['LD_LIBRARY_PATH'])
-else:
-    os.environ['LD_LIBRARY_PATH'] = 'src/webcam/.libs'
-os.environ['GI_TYPELIB_PATH'] = 'src/webcam'
 
 # Parts borrowed from jockey.
 
