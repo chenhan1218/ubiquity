@@ -414,8 +414,7 @@ class Wizard(BaseFrontend):
                 if 'only-ubiquity' in fp.read():
 		    # we need to drop privileges, we cannot run GTK programs
                     # with non-matching real/effective u/gid
-                    os.setresgid(os.getegid(), os.getegid(), os.getegid())
-                    os.setresuid(os.geteuid(), os.geteuid(), os.geteuid())
+                    misc.drop_all_privileges()
                     misc.execute('/usr/share/apport/apport-gtk')
             sys.exit(1)
         else:
