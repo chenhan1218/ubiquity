@@ -5,6 +5,7 @@ ubiquity (2.9.11) UNRELEASED; urgency=low
     require Python 2.7.
   * Remove an unnecessary use of contextlib.closing.
   * Simplify PartedServer.disks.
+  * Add tests for ubiquity.osextras.
 
   [ Stéphane Graber ]
   * gtk_ui.py: Update rendering of GtkComboBox following light-themes update
