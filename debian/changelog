@@ -1,3 +1,9 @@
+ubiquity (2.9.11) precise; urgency=low
+
+  * no change rebuild for libindicator7
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 25 Jan 2012 10:05:15 -0500
+
 ubiquity (2.9.10) precise; urgency=low
 
   * Handle interface change in ICU 4.8: unknown time zones result in
