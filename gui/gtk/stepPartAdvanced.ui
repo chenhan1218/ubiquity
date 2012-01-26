@@ -184,6 +184,9 @@
                           <object class="GtkComboBox" id="partition_create_use_combo">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_use_label"/>
+                            </accessibility>
                             <signal name="changed" handler="on_partition_create_use_combo_changed" swapped="no"/>
                           </object>
                           <packing>
@@ -219,6 +222,9 @@
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_place_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -239,6 +245,9 @@
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
                             <property name="group">partition_create_place_beginning</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_place_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">2</property>
@@ -259,6 +268,9 @@
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_type_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -277,6 +289,9 @@
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
                             <property name="group">partition_create_type_primary</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_type_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">2</property>
@@ -296,6 +311,9 @@
                             <property name="adjustment">adjustment1</property>
                             <property name="climb_rate">5</property>
                             <property name="numeric">True</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_size_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -310,6 +328,9 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="has_entry">True</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_create_mount_label"/>
+                            </accessibility>
                             <child internal-child="entry">
                               <object class="GtkEntry" id="combobox-entry4">
                                 <property name="can_focus">True</property>
@@ -493,6 +514,9 @@
                           <object class="GtkComboBox" id="partition_edit_use_combo">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_edit_use_label"/>
+                            </accessibility>
                             <signal name="changed" handler="on_partition_edit_use_combo_changed" swapped="no"/>
                           </object>
                           <packing>
@@ -529,6 +553,9 @@
                             <property name="adjustment">adjustment2</property>
                             <property name="climb_rate">5</property>
                             <property name="numeric">True</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_edit_size_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -558,6 +585,9 @@
                             <property name="receives_default">False</property>
                             <property name="use_action_appearance">False</property>
                             <property name="draw_indicator">True</property>
+                            <accessibility>
+                              <relation type="labelled-by" target="partition_edit_format_label"/>
+                            </accessibility>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -576,6 +606,9 @@
                             <child internal-child="entry">
                               <object class="GtkEntry" id="combobox-entry3">
                                 <property name="can_focus">True</property>
+                                <accessibility>
+                                  <relation type="labelled-by" target="partition_edit_mount_label"/>
+                                </accessibility>
                               </object>
                             </child>
                           </object>
@@ -869,6 +902,9 @@
               <object class="GtkComboBox" id="grub_device_entry">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <accessibility>
+                  <relation type="labelled-by" target="grub_device_label"/>
+                </accessibility>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext1"/>
                   <attributes>

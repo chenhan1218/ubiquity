@@ -16,6 +16,9 @@ ubiquity (2.9.11) UNRELEASED; urgency=low
     a crash, as there is no update-notifier running to pick it up.
     (LP: #712677)
 
+  [ Luke Yelavich ]
+  * Add label relationships in the advanced partitioning and user info steps
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 23 Jan 2012 17:42:59 -0500
 
 ubiquity (2.9.10) precise; urgency=low
