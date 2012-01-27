@@ -11,7 +11,7 @@ hw-detect 1.88ubuntu1
 kboot-installer 0.0.1ubuntu9
 localechooser 2.39ubuntu1
 migration-assistant 0.6.10
-netcfg 1.68ubuntu7
+netcfg 1.68ubuntu8
 partconf 1.37
 partman-auto 93ubuntu18
 partman-auto-loop 0ubuntu20
