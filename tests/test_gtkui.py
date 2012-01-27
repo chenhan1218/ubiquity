@@ -21,13 +21,16 @@ class TestFrontend(unittest.TestCase):
                     'ubiquity.misc.add_connection_watch',
                     'ubiquity.misc.has_connection',
                     'ubiquity.upower.setup_power_watch',
-                    'dbus.mainloop.glib.DBusGMainLoop'):
+                    'dbus.mainloop.glib.DBusGMainLoop',
+                    'gi.repository.UbiquityWebcam.Webcam.available'):
             patcher = mock.patch(obj)
             patcher.start()
             self.addCleanup(patcher.stop)
             if obj in ('ubiquity.misc.wireless_hardware_present',
                        'ubiquity.misc.has_connection'):
                 patcher.return_value = False
+            elif obj == 'gi.repository.UbiquityWebcam.Webcam.available':
+                patcher.return_value = True
 
     def test_question_dialog(self):
         from ubiquity.frontend import gtk_ui
@@ -46,14 +49,14 @@ class TestFrontend(unittest.TestCase):
         from gi.repository import Gtk, GObject
         from ubiquity.frontend import gtk_ui
         ui = gtk_ui.Wizard('test-ubiquity')
-        ui.set_page(1)
         ui.translate_pages()
-        GObject.timeout_add(250, Gtk.main_quit)
-        Gtk.main()
-        alloc = ui.live_installer.get_allocation()
-        print alloc.height
-        self.assertLessEqual(alloc.width, 640)
-        self.assertLessEqual(alloc.height, 500)
+        for page in ui.pages:
+            ui.set_page(page.module.NAME)
+            GObject.timeout_add(250, Gtk.main_quit)
+            Gtk.main()
+            alloc = ui.live_installer.get_allocation()
+            self.assertLessEqual(alloc.width, 640)
+            self.assertLessEqual(alloc.height, 500)
 
     def test_interface_translated(self):
         import subprocess
