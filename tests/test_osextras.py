@@ -70,4 +70,5 @@ class OsextrasTests(unittest.TestCase):
             expected_files.append(os.path.join("/dir", inner_file))
             self.create_empty_file(os.path.join(inner_dir, inner_file))
         self.assertEqual(
-            expected_files, list(osextras.glob_root(self.temp_dir, "/dir/*")))
+            sorted(expected_files),
+            sorted(osextras.glob_root(self.temp_dir, "/dir/*")))

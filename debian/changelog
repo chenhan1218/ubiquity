@@ -1,3 +1,9 @@
+ubiquity (2.9.13) UNRELEASED; urgency=low
+
+  * Make test_osextras reliable across architectures (sort lists).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 27 Jan 2012 23:09:56 +0000
+
 ubiquity (2.9.12) precise; urgency=low
 
   [ Colin Watson ]
