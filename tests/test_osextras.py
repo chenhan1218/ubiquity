@@ -20,7 +20,7 @@ class OsextrasTests(unittest.TestCase):
         except OSError, e:
             if e.errno != errno.EEXIST:
                 raise
-        with open(path, "w") as f:
+        with open(path, "w"):
             pass
         if mode is not None:
             os.chmod(path, mode)

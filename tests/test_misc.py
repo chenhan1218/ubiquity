@@ -221,7 +221,7 @@ class PrivilegeTests(unittest.TestCase):
     @mock.patch('os.setreuid')
     def test_drop_all_privileges(self, *args):
         pwd.getpwuid.return_value.pw_dir = 'fakeusr'
-        with EnvironmentVarGuard() as env:
+        with EnvironmentVarGuard():
             os.environ['SUDO_UID'] = '1000'
             os.environ['SUDO_GID'] = '1000'
             misc.drop_all_privileges()
