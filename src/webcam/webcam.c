@@ -28,6 +28,8 @@
  * w = UbiquityWebcam.Webcam()
  */
 
+#include <assert.h>
+
 #define G_UDEV_API_IS_SUBJECT_TO_CHANGE 1
 #include <gudev/gudev.h>
 
@@ -74,7 +76,9 @@ drawing_area_realized_cb (GtkWidget *widget, gpointer data) {
 static void
 ubiquity_webcam_init (UbiquityWebcam *self) {
 	UbiquityWebcamPrivate *priv;
-	gint width = 180, height = 135;
+	gint width = 172, height = 129;
+
+	assert (width * 3 == height * 4); /* 4x3 ratio */
 
 	priv = self->priv = UBIQUITY_WEBCAM_PRIVATE (self);
 
