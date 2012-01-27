@@ -382,7 +382,15 @@ class Install(install_misc.InstallBase):
         if self.target != '/':
             for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
                 if os.path.exists(path):
-                    shutil.copy2(path, os.path.join(self.target, path[1:]))
+                    targetpath = os.path.join(self.target, path[1:])
+                    st = os.lstat(path)
+                    if stat.S_ISLNK(st.st_mode):
+                        if os.path.lexists(targetpath):
+                            os.unlink(targetpath)
+                        linkto = os.readlink(path)
+                        os.symlink(linkto, targetpath)
+                    else:
+                        shutil.copy2(path, os.path.join(self.target, path[1:]))
 
         try:
             hostname = self.db.get('netcfg/get_hostname')
