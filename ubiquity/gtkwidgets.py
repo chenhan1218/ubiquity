@@ -349,6 +349,7 @@ class FaceSelector(Gtk.VBox):
     __gtype_name__ = 'FaceSelector'
     def __init__(self):
         Gtk.VBox.__init__(self)
+        self.set_homogeneous(False)
         self.set_spacing(12)
 
         vb_left = Gtk.VBox.new(False, 3)

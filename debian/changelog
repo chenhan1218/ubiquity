@@ -7,6 +7,8 @@ ubiquity (2.9.11) UNRELEASED; urgency=low
   * Simplify PartedServer.disks.
   * Add tests for ubiquity.osextras.
   * Cope with /etc/resolv.conf being a symlink (LP: #922640).
+  * Scale down the webcam page a bit so that it works on netbook screens
+    (LP: #869239).
 
   [ Stéphane Graber ]
   * gtk_ui.py: Update rendering of GtkComboBox following light-themes update

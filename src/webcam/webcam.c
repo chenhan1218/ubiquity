@@ -74,11 +74,13 @@ drawing_area_realized_cb (GtkWidget *widget, gpointer data) {
 static void
 ubiquity_webcam_init (UbiquityWebcam *self) {
 	UbiquityWebcamPrivate *priv;
+	gint width = 180, height = 135;
+
 	priv = self->priv = UBIQUITY_WEBCAM_PRIVATE (self);
 
 	gtk_box_set_spacing (GTK_BOX (self), 1);
 	priv->drawing_area = gtk_drawing_area_new ();
-	gtk_widget_set_size_request (priv->drawing_area, 320, 240);
+	gtk_widget_set_size_request (priv->drawing_area, width, height);
 	g_signal_connect (priv->drawing_area, "realize",
 			G_CALLBACK(drawing_area_realized_cb), NULL);
 	gtk_widget_set_double_buffered (priv->drawing_area, FALSE);
@@ -91,7 +93,8 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 
 	priv->camerabin = gst_element_factory_make ("camerabin2" , "cam");
 	priv->viewfinder_caps = gst_caps_new_simple ("video/x-raw-rgb",
-		"width", G_TYPE_INT, 320, "height", G_TYPE_INT, 240, NULL);
+		"width", G_TYPE_INT, width,
+		"height", G_TYPE_INT, height, NULL);
 	g_object_set (G_OBJECT (priv->camerabin),
 		"viewfinder-caps", priv->viewfinder_caps, NULL);
     g_signal_new ("image-captured",
