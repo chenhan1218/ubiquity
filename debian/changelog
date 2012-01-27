@@ -1,4 +1,4 @@
-ubiquity (2.9.11) precise; urgency=low
+ubiquity (2.9.12) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Drop backports of saved ID handling functions from os, now that we
@@ -27,6 +27,12 @@ ubiquity (2.9.11) precise; urgency=low
   * Add label relationships in the advanced partitioning and user info steps
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 27 Jan 2012 18:40:22 +0000
+
+ubiquity (2.9.11) precise; urgency=low
+
+  * no change rebuild for libindicator7
+
+ -- Ken VanDine <ken.vandine@canonical.com>  Wed, 25 Jan 2012 10:05:15 -0500
 
 ubiquity (2.9.10) precise; urgency=low
 
