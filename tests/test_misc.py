@@ -37,6 +37,19 @@ _proc_mounts = [
     'rw,nosuid,nodev,relatime,user_id=1000,group_id=1000 0 0',
 ]
 
+
+class EnvironmentVarGuard(test_support.EnvironmentVarGuard):
+    """Stronger version of test_support.EnvironmentVarGuard.
+
+    This class restores os.environ even if something within its context
+    manipulates os.environ directly.
+    """
+
+    def __init__(self):
+        test_support.EnvironmentVarGuard.__init__(self)
+        self._environ = self._environ.copy()
+
+
 class MiscTests(unittest.TestCase):
 
     def setUp(self):
@@ -186,9 +199,9 @@ class PrivilegeTests(unittest.TestCase):
     @mock.patch('os.seteuid')
     @mock.patch('os.setgroups')
     def test_drop_privileges(self, *args):
-        with test_support.EnvironmentVarGuard():
-            os.environ['SUDO_UID'] = '1000'
-            os.environ['SUDO_GID'] = '1000'
+        with test_support.EnvironmentVarGuard() as env:
+            env['SUDO_UID'] = '1000'
+            env['SUDO_GID'] = '1000'
             misc.drop_privileges()
         os.seteuid.assert_called_once_with(1000)
         os.setegid.assert_called_once_with(1000)
@@ -208,7 +221,7 @@ class PrivilegeTests(unittest.TestCase):
     @mock.patch('os.setreuid')
     def test_drop_all_privileges(self, *args):
         pwd.getpwuid.return_value.pw_dir = 'fakeusr'
-        with test_support.EnvironmentVarGuard():
+        with EnvironmentVarGuard() as env:
             os.environ['SUDO_UID'] = '1000'
             os.environ['SUDO_GID'] = '1000'
             misc.drop_all_privileges()

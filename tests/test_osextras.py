@@ -46,8 +46,8 @@ class OsextrasTests(unittest.TestCase):
         inner_bin = os.path.join(chroot, self.temp_dir[1:], "bin")
         self.create_empty_file(os.path.join(outer_bin, "executable"), 0o755)
         self.create_empty_file(os.path.join(inner_bin, "executable"), 0o755)
-        with test_support.EnvironmentVarGuard():
-            os.environ['PATH'] = outer_bin
+        with test_support.EnvironmentVarGuard() as env:
+            env['PATH'] = outer_bin
             self.assertTrue(osextras.find_on_path_root(chroot, "executable"))
 
     def test_unlink_force_unlinks_existing(self):
