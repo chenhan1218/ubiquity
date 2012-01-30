@@ -1,8 +1,8 @@
-ubiquity (2.9.14) UNRELEASED; urgency=low
+ubiquity (2.9.14) precise; urgency=low
 
   * src/panel/panel.c: Update indicator ABI to 7. (LP: #922052)
 
- -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 30 Jan 2012 10:53:29 +0100
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 30 Jan 2012 10:26:07 +0000
 
 ubiquity (2.9.13) precise; urgency=low
 
