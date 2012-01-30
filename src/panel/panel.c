@@ -200,10 +200,10 @@ on_realize(GtkWidget *win, gpointer data) {
 }
 
 static const char* indicators[] = {
-	"/usr/lib/indicators3/6/libsession.so",
+	"/usr/lib/indicators3/7/libsession.so",
 	// Bluetooth
-	"/usr/lib/indicators3/6/libapplication.so",
-	"/usr/lib/indicators3/6/libsoundmenu.so",
+	"/usr/lib/indicators3/7/libapplication.so",
+	"/usr/lib/indicators3/7/libsoundmenu.so",
 	NULL
 };
 

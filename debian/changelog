@@ -1,3 +1,9 @@
+ubiquity (2.9.14) UNRELEASED; urgency=low
+
+  * src/panel/panel.c: Update indicator ABI to 7. (LP: #922052)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 30 Jan 2012 10:53:29 +0100
+
 ubiquity (2.9.13) precise; urgency=low
 
   * Make test_osextras reliable across architectures (sort lists).
