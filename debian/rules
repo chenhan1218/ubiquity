@@ -60,7 +60,7 @@ clean: check
 	$(MAKE) -C d-i clean
 	dh_auto_clean
 	dh_clean
-	rm -rf build-locale
+	rm -rf build-locale tests/partman-tree
 
 	$(MAKE) -C d-i check
 

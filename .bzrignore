@@ -66,6 +66,11 @@ src/webcam/*.lo
 src/webcam/Makefile
 src/webcam/UbiquityWebcam-1.0.gir
 src/webcam/UbiquityWebcam-1.0.typelib
+tests/config.dat*
+tests/debconf-stamp
+tests/debconfdb
+tests/partman-tree
+tests/templates.dat*
 ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
 ubiquity/frontend/crashdialog.py
