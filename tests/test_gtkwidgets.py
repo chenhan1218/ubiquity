@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8; -*-
 
 import unittest
 from ubiquity import segmented_bar, gtkwidgets
@@ -125,6 +126,16 @@ class NetworkManagerTests(unittest.TestCase):
                 dbus.Byte(97), dbus.Byte(116), dbus.Byte(116), dbus.Byte(101),
                 dbus.Byte(114), dbus.Byte(115), dbus.Byte(101), dbus.Byte(97)]
         self.assertEqual(nm.decode_ssid(ssid), 'Ubuntu-Battersea')
+
+    def test_decode_ssid_utf8(self):
+        ssid = [dbus.Byte(82), dbus.Byte(195), dbus.Byte(169), dbus.Byte(115),
+                dbus.Byte(101), dbus.Byte(97), dbus.Byte(117)]
+        self.assertEqual(nm.decode_ssid(ssid), u'Réseau')
+
+    def test_decode_ssid_latin1(self):
+        ssid = [dbus.Byte(82), dbus.Byte(233), dbus.Byte(115), dbus.Byte(101),
+                dbus.Byte(97), dbus.Byte(117)]
+        self.assertEqual(nm.decode_ssid(ssid), u'R\ufffdseau')
 
     def test_ssid_in_model(self):
         iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])

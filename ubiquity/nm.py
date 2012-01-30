@@ -24,7 +24,7 @@ NM_STATE_CONNECTED_GLOBAL = 70
 # TODO: DBus exceptions.  Catch 'em all.
 
 def decode_ssid(characters):
-    ssid = ''.join([str(char) for char in characters])
+    ssid = ''.join([chr(int(char)) for char in characters])
     return utf8(ssid, errors='replace')
 
 def get_prop(obj, iface, prop):
