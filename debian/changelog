@@ -7,6 +7,8 @@ ubiquity (2.9.16) UNRELEASED; urgency=low
     debugging so it helps to be able to start ubiquity at the very least.
   * Configure the target system to disable installation of Recommends if
     base-installer/install-recommends is preseeded to false (LP: #918401).
+  * Automatic update of included source packages: flash-kernel 2.28ubuntu39,
+    partman-auto 93ubuntu19.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Feb 2012 15:59:49 +0000
 
