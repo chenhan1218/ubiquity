@@ -630,6 +630,12 @@ def add_connection_watch(func):
         func(state == NM_STATE_CONNECTED_GLOBAL)
     bus = dbus.SystemBus()
     bus.add_signal_receiver(connection_cb, 'StateChanged', NM, NM)
-    func(has_connection())
+    try:
+        func(has_connection())
+    except dbus.DBusException:
+        # We can't talk to NM, so no idea.  Wild guess: we're connected
+        # using ssh with X forwarding, and are therefore connected.  This
+        # allows us to proceed with a minimum of complaint.
+        func(True)
 
 # vim:ai:et:sts=4:tw=80:sw=4:

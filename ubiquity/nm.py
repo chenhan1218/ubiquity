@@ -56,7 +56,10 @@ def wireless_hardware_present():
     # the hardware switch is off.
     bus = dbus.SystemBus()
     manager = bus.get_object(NM, '/org/freedesktop/NetworkManager')
-    devices = manager.GetDevices()
+    try:
+        devices = manager.GetDevices()
+    except dbus.DBusException:
+        return False
     for device_path in devices:
         device_obj = bus.get_object(NM, device_path)
         if get_prop(device_obj, NM_DEVICE, 'DeviceType') == DEVICE_TYPE_WIFI:

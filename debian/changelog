@@ -1,6 +1,10 @@
 ubiquity (2.9.16) UNRELEASED; urgency=low
 
   * Bump fallback Ubuntu version number in ubi-language to 12.04.
+  * Behave a little more usefully when running over ssh with X forwarding
+    such that ubiquity is unable to talk to NetworkManager.  This
+    configuration isn't actually supported, but is occasionally useful for
+    debugging so it helps to be able to start ubiquity at the very least.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Feb 2012 15:59:49 +0000
 

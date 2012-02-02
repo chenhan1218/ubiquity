@@ -28,9 +28,17 @@ WEIGHT = 12
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/wireless_heading_label'
     def __init__(self, controller, *args, **kwargs):
-        from ubiquity import nm
+        import dbus
+        from ubiquity import misc, nm
         from gi.repository import Gtk
         if 'UBIQUITY_AUTOMATIC' in os.environ:
+            self.page = None
+            return
+        # Check whether we can talk to NM at all (e.g. debugging ubiquity
+        # over ssh with X forwarding).
+        try:
+            misc.has_connection()
+        except dbus.DBusException:
             self.page = None
             return
         self.controller = controller
