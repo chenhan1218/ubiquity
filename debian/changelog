@@ -1,4 +1,4 @@
-ubiquity (2.9.16) UNRELEASED; urgency=low
+ubiquity (2.9.16) precise; urgency=low
 
   * Bump fallback Ubuntu version number in ubi-language to 12.04.
   * Behave a little more usefully when running over ssh with X forwarding
@@ -10,7 +10,7 @@ ubiquity (2.9.16) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel 2.28ubuntu39,
     partman-auto 93ubuntu19.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 01 Feb 2012 15:59:49 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Feb 2012 14:53:26 +0000
 
 ubiquity (2.9.15) precise; urgency=low
 
