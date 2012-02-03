@@ -2,6 +2,10 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
 
   * Don't display "Ready when you are..." when the installer isn't actually
     waiting for user actions.
+  * When waiting for user actions, just hide the progress bar and associated
+    widgets rather than displaying "Ready when you are...", to avoid
+    confusion associated with a progress bar being displayed when the system
+    is in fact waiting for user input (LP: #670409, #925427).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
 

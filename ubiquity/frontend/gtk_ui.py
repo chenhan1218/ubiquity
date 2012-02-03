@@ -1428,6 +1428,11 @@ color : @fg_color
         if finished_step == last_page and not self.backup:
             self.finished_pages = True
             if self.finished_installing or self.oem_user_config:
+                self.debconf_progress_info('')
+                # thaw container size
+                self.progress_section.set_size_request(-1, -1)
+                self.install_details_expander.show()
+                self.install_progress.show()
                 self.progress_section.show()
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
@@ -1466,7 +1471,12 @@ color : @fg_color
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
             else:
-                self.debconf_progress_info('ubiquity/install/waiting')
+                # temporarily freeze container size
+                allocation = self.progress_section.get_allocation()
+                self.progress_section.set_size_request(
+                    allocation.width, allocation.height)
+                self.install_details_expander.hide()
+                self.install_progress.hide()
 
         elif finished_step == 'ubiquity.components.plugininstall':
             self.installing = False

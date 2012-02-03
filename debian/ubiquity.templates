@@ -779,10 +779,6 @@ Template: ubiquity/install/blacklist
 Type: text
 _Description: Calculating files to skip copying...
 
-Template: ubiquity/install/waiting
-Type: text
-_Description: Ready when you are...
-
 Template: ubiquity/langpacks/title
 Type: title
 _Description: Installing language packs

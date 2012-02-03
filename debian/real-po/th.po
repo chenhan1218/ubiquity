@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2011-11-21 22:29+0000\n"
+"POT-Creation-Date: 2012-02-03 14:34+0000\n"
 "PO-Revision-Date: 2011-09-26 00:44+0000\n"
 "Last-Translator: Manop Pornpeanvichanon(มานพ พรเพียรวิชานนท์) <Unknown>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -48,7 +48,7 @@ msgstr "ปรับแต่งพาร์ทิชั่นด้วยตั
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:178001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:177001
 msgid "Install"
 msgstr "ติดตั้ง"
 
@@ -1084,33 +1084,27 @@ msgstr ""
 msgid "Calculating files to skip copying..."
 msgstr "กำลังคำนวนแฟ้มที่ข้ามการคัดลอก..."
 
-#. Type: text
-#. Description
-#: ../ubiquity.templates:149001
-msgid "Ready when you are..."
-msgstr "พร้อมเมื่อคุณพร้อม..."
-
 #. Type: title
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:149001
 msgid "Installing language packs"
 msgstr "กำลังติดตั้งชุดภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:151001
+#: ../ubiquity.templates:150001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "กำลังดาวน์โหลดชุดภาษา (ต้องใช้เวลาอีก ${TIME})..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:159001
 msgid "Failed to unmount partitions"
 msgstr "การเลิกเมานท์พาร์ทิชันไม่สำเร็จ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:159001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1120,25 +1114,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:159001
 msgid "Please close any applications using these mount points."
 msgstr "โปรดปิดโปรแกรมใดๆ ที่กำลังใช้จุดเมานท์เหล่านี้"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:159001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "คุณต้องการให้โปรแกรมติดตั้งลองยกเลิกเมานท์พาร์ทิชั่นเหล่านี้อีกหรือไม่?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:166001
 msgid "Do you want to return to the partitioner?"
 msgstr "คุณต้องการกลับไปยังตัวจัดพาร์ติชันหรือไม่?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:166001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1146,7 +1140,7 @@ msgstr "บางพาร์ทิชันที่สร้างไว้ม
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:167001
+#: ../ubiquity.templates:166001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1154,7 +1148,7 @@ msgstr "หากคุณไม่กลับไปที่โปรแกร
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:167001
 msgid "System Configuration"
 msgstr "ตั้งค่าระบบ"
 
@@ -1162,129 +1156,129 @@ msgstr "ตั้งค่าระบบ"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:169001 ../ubiquity.templates:232001
+#: ../ubiquity.templates:168001 ../ubiquity.templates:231001
 msgid "Welcome"
 msgstr "ยินดีต้อนรับ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:170001
+#: ../ubiquity.templates:169001
 msgid "Network configuration"
 msgstr "ตั้งค่าเครือข่าย"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:171001
+#: ../ubiquity.templates:170001
 msgid "Software selection"
 msgstr "เลือกซอฟต์แวร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:172001
+#: ../ubiquity.templates:171001
 msgid "Language"
 msgstr "ภาษา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:173001
+#: ../ubiquity.templates:172001
 msgid "Prepare"
 msgstr "เตรียมการ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001
+#: ../ubiquity.templates:173001
 msgid "Timezone"
 msgstr "เขตเวลา"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:174001
 msgid "Keyboard"
 msgstr "แป้นพิมพ์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:175001
 msgid "Disk Setup"
 msgstr "ตั้งค่าดิสก์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:176001
 msgid "User Info"
 msgstr "ข้อมูลผู้ใช้"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:178001
 msgid "installation process"
 msgstr "ขั้นตอนการติดตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:180001
 msgid "Checking for installer updates"
 msgstr "กำลังตรวจสอบการปรับปรุงโปรแกรมติตตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:181001
 msgid "Reading package information"
 msgstr "กำลังอ่านข้อมูลแพกเกจ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:182001
 msgid "Updating package information"
 msgstr "กำลังปรับข้อมูลแพกเกจ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:183001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${INDEX} แฟ้ม จาก ${TOTAL} ที่ความเร็ว ${SPEED}/s"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:184001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${INDEX} แฟ้ม จาก ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:185001
 msgid "Installing update"
 msgstr "กำลังติดตั้งการปรับปรุง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "Error updating installer"
 msgstr "การติดตั้งการปรับปรุงผิดพลาด"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:186001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "เกิดข้อผิดพลาดที่โปรแกรมติดตั้งในขณะกำลังพยายามปรับปรุงตัวเอง:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:187001
 msgid "USB disk"
 msgstr "ดิสก์ USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:188001
 msgid "CD"
 msgstr "ซีดี"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:189001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1292,7 +1286,7 @@ msgstr "กรุณาเลือกภาษาที่ใช้ในกร
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:190001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1302,13 +1296,13 @@ msgstr "โปรดเลือกภาษาที่จะใช้ในก
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001 ../ubiquity.templates:193001
+#: ../ubiquity.templates:191001 ../ubiquity.templates:192001
 msgid "Installation failed"
 msgstr "การติดตั้งล้มเหลว"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:191001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1318,26 +1312,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:192001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "โปรแกรมติดตั้งพบข้อผิดพลาดที่ไม่สามารถกู้ได้และจะเริ่มใหม่เดี๋ยวนี้"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:194001
 msgid "Preparing to install ${RELEASE}"
 msgstr "กำลังเตรียมที่จะติดตั้ง ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:195001
 msgid "Wireless"
 msgstr "ไร้สาย"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:196001
 msgid ""
 "Connecting this computer to a wi-fi network allows you to install third-"
 "party software, download updates, automatically detect your timezone, and "
@@ -1348,7 +1342,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:197001
 #, fuzzy
 #| msgid "Password"
 msgid "Password:"
@@ -1356,7 +1350,7 @@ msgstr "รหัสผ่าน"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:198001
 #, fuzzy
 #| msgid "Weak password"
 msgid "Display password"
@@ -1364,13 +1358,13 @@ msgstr "รหัสผ่านไม่ปลอดภัย"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:199001
 msgid "I don't want to connect to a wi-fi network right now"
 msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:200001
 #, fuzzy
 #| msgid "is connected to the Internet"
 msgid "Connect to this network"
@@ -1378,25 +1372,25 @@ msgstr "การเชื่อมต่อกับอินเทอร์เ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:204001
 msgid "Select drive:"
 msgstr "เลือกไดรว์:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:205001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "จัดสรรพื้นที่ว่างบนไดรว์ด้วยการลากตัวแบ่งข้างล่าง:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:206001
 msgid "The entire disk will be used:"
 msgstr "ดิสก์ทั้งหมดจะถูกใช้:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:207001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1405,7 +1399,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:208001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1413,7 +1407,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:209001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1422,7 +1416,7 @@ msgstr "พาร์ทิชัน %d จะถูกลบ, ใช้ <a href=
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:210001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1430,39 +1424,39 @@ msgstr "มี 1 พาร์ทิชันจะถูกลบ, ใช้ <a 
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:211001
 msgid "Split Largest Partition"
 msgstr "แบ่งจากพาร์ทิชันใหญ่ที่สุด"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:213001
 msgid "For best results, please ensure that this computer:"
 msgstr "เพื่อผลลัพธ์ที่ดีกว่า โปรดตรวจสอบความเรียบร้อยของคอมพิวเตอร์นี้:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:214001
 msgid "has at least ${SIZE} available drive space"
 msgstr "มีพื้นที่ว่างดิสก์เหลืออยู่ ${SIZE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:215001
 msgid "is plugged in to a power source"
 msgstr "การเชื่อมต่อเข้ากับแหล่งจ่ายพลังงาน"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:216001
 msgid "is connected to the Internet"
 msgstr "การเชื่อมต่อกับอินเทอร์เน็ต"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:217001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1475,7 +1469,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:218001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Thomson."
@@ -1485,37 +1479,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:219001
 msgid "Install this third-party software"
 msgstr "ติดตั้งซอฟต์แวร์นี้"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:220001
 msgid "Download updates while installing"
 msgstr "ดาวน์โหลดส่วนปรับปรุงขณะทำการติดตั้ง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:224001
 msgid "Layout:"
 msgstr "ผัง:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:225001
 msgid "Variant:"
 msgstr "ตัวแปร:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:226001
 msgid "Below is an image of your current layout:"
 msgstr "ข้างล่างนี้เป็นภาพของผังปัจจุบัน:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:227001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1526,19 +1520,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:228001
 msgid "Time Zone:"
 msgstr "เขตเวลา:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:229001
 msgid "Region:"
 msgstr "ภูมิภาค:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:230001
 msgid "[type here to change]"
 msgstr "[พิมพ์ที่นี่เพื่อเปลี่ยน]"
 
@@ -1546,14 +1540,14 @@ msgstr "[พิมพ์ที่นี่เพื่อเปลี่ยน]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:233001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "แทนที่ ${OS} ด้วย ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:233001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1565,7 +1559,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:234001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "ติดตั้ง ${DISTRO} คู่กับ ${OS}"
 
@@ -1577,8 +1571,8 @@ msgstr "ติดตั้ง ${DISTRO} คู่กับ ${OS}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001 ../ubiquity.templates:236001
-#: ../ubiquity.templates:240001 ../ubiquity.templates:245001
+#: ../ubiquity.templates:234001 ../ubiquity.templates:235001
+#: ../ubiquity.templates:239001 ../ubiquity.templates:244001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1590,20 +1584,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:235001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "ติดตั้ง ${DISTRO} ใน ${OS}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:236001
 msgid "Something else"
 msgstr "อื่นๆ"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:236001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1612,14 +1606,14 @@ msgstr "คุณสามารถสร้างหรือปรับขน
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:237001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "ลบ ${CURDISTRO} และติดตั้งใหม่"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:237001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1631,7 +1625,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:238001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "ปรับปรุง ${CURDISTRO} เป็น ${VER}"
 
@@ -1639,7 +1633,7 @@ msgstr "ปรับปรุง ${CURDISTRO} เป็น ${VER}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001 ../ubiquity.templates:243001
+#: ../ubiquity.templates:238001 ../ubiquity.templates:242001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1652,7 +1646,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:239001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "ติดตั้ง ${DISTRO} ${VER} คู่กับ ${CURDISTRO}"
 
@@ -1662,13 +1656,13 @@ msgstr "ติดตั้ง ${DISTRO} ${VER} คู่กับ ${CURDISTRO}"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:241001 ../ubiquity.templates:244001
+#: ../ubiquity.templates:240001 ../ubiquity.templates:243001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "ลบดิสก์และติดตั้ง ${DISTRO}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:240001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1676,7 +1670,7 @@ msgstr "<span foreground=\"darkred\">คำเตือน:</span> ทุกแ�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
 msgid "Erase everything and reinstall"
 msgstr "ลบทุกอย่างและติดตั้งใหม่"
 
@@ -1684,7 +1678,7 @@ msgstr "ลบทุกอย่างและติดตั้งใหม่
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:241001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1696,13 +1690,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:242001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "ติดตั้ง ${CURDISTRO} ใหม่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:243001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1714,14 +1708,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:244001
 msgid "Install ${DISTRO} alongside them"
 msgstr "ติดตั้ง ${DISTRO} ไว้คู่กับมัน"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:245001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "คอมพิวเตอร์นี้มี ${OS} อยู่แล้ว คุณต้องการจะทำอย่างไร?"
 
@@ -1729,7 +1723,7 @@ msgstr "คอมพิวเตอร์นี้มี ${OS} อยู่แ�
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:246001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1737,7 +1731,7 @@ msgstr "คอมพิวเตอร์นี้มี ${OS1} และ ${OS2}
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:247001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1745,7 +1739,7 @@ msgstr "คอมพิวเตอร์นี้มีหลายระบบ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:248001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
@@ -1811,3 +1805,6 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
+
+#~ msgid "Ready when you are..."
+#~ msgstr "พร้อมเมื่อคุณพร้อม..."
