@@ -1194,6 +1194,8 @@ class Wizard(BaseFrontend):
             if self.finished_pages:
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
+            else:
+                self.debconf_progress_info('ubiquity/install/waiting')
 
         elif finished_step == 'ubiquity.components.plugininstall':
             self.installing = False

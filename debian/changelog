@@ -1,3 +1,10 @@
+ubiquity (2.9.17) UNRELEASED; urgency=low
+
+  * Don't display "Ready when you are..." when the installer isn't actually
+    waiting for user actions.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
+
 ubiquity (2.9.16) precise; urgency=low
 
   * Bump fallback Ubuntu version number in ubi-language to 12.04.

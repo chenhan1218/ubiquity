@@ -153,7 +153,6 @@ class Install(install_misc.InstallBase):
                     sys.exit(3)
                 else:
                     raise
-        self.db.progress('INFO', 'ubiquity/install/waiting')
 
         if self.source == '/var/lib/ubiquity/source':
             self.umount_source()
