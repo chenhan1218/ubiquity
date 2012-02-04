@@ -852,7 +852,7 @@ class InstallBase:
                 toplevel_pkg = get_cache_pkg(cache, toplevel)
                 if toplevel_pkg and toplevel_pkg.is_installed:
                     to_install.append(toplevel)
-        if all_langpacks and osextras.find_on_path('check-language-support'):
+        if all_langpacks and checker:
             check_lang = subprocess.Popen(
                 ['check-language-support', '-a', '--show-installed'],
                 stdout=subprocess.PIPE)
