@@ -27,8 +27,6 @@ import subprocess
 import time
 import syslog
 import debconf
-import warnings
-warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
 import apt_pkg
 from apt.cache import Cache
 import signal

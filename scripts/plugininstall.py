@@ -34,8 +34,6 @@ import traceback
 import syslog
 import gzip
 import debconf
-import warnings
-warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
 import apt_pkg
 import pwd
 from apt.cache import Cache

@@ -11,6 +11,7 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
   * Restore finish-install's title after installing the oem-config frontend
     (LP: #925155).
   * Avoid duplicate call to osextras.find_on_path('check-language-support').
+  * Stop filtering warnings from the apt module which are no longer emitted.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
 
