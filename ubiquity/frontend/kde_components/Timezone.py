@@ -1,10 +1,11 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
+import datetime
+import math
+
 from PyQt4 import QtCore, QtGui
 
-import datetime
 import ubiquity.tz
-import math
 
 #contains information about a geographical timezone city
 class City:

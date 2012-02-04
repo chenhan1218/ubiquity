@@ -24,12 +24,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import os, re
+import os
+import re
+
+import debconf
 
 from ubiquity import validation
 from ubiquity.misc import execute, execute_root, dmimodel, utf8
 from ubiquity import plugin
-import debconf
 
 NAME = 'usersetup'
 AFTER = 'console_setup'

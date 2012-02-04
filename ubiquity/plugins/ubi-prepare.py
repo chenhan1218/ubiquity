@@ -17,12 +17,15 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from IN import INT_MAX
+import os
+import subprocess
+import sys
+
+import dbus
+
 from ubiquity import plugin
 from ubiquity import misc, osextras, i18n, upower
-import os
-import sys
-import dbus
-import subprocess
 
 NAME = 'prepare'
 AFTER = 'language'
@@ -38,7 +41,6 @@ JOCKEY_PATH = '/DeviceDriver'
 #     return NULL;
 # }
 # timeout_ms = (int)(timeout_s * 1000.0);
-from IN import INT_MAX
 MAX_DBUS_TIMEOUT = INT_MAX / 1000.0
 
 # TODO: This cannot be a non-debconf plugin after all as OEMs may want to

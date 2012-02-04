@@ -18,6 +18,7 @@
 
 import syslog
 import os
+
 import debconf
 
 from ubiquity import plugin

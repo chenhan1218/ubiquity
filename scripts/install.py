@@ -26,10 +26,11 @@ import stat
 import subprocess
 import time
 import syslog
+import signal
+
 import debconf
 import apt_pkg
 from apt.cache import Cache
-import signal
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 

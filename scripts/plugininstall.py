@@ -33,9 +33,10 @@ import fcntl
 import traceback
 import syslog
 import gzip
+import pwd
+
 import debconf
 import apt_pkg
-import pwd
 from apt.cache import Cache
 
 sys.path.insert(0, '/usr/lib/ubiquity')

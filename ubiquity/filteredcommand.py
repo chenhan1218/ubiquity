@@ -27,7 +27,6 @@ import subprocess
 import debconf
 
 from ubiquity.debconffilter import DebconfFilter
-
 from ubiquity import misc
 
 # We identify as this to debconf.

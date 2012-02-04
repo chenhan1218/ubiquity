@@ -1,9 +1,12 @@
 #!/usr/bin/python
 
+import os
+
+import cairo
 from gi.repository import Gtk, Gdk, GObject, Pango
 from gi.repository import UbiquityWebcam, GdkPixbuf
+
 from ubiquity import misc
-import cairo, os
 
 def draw_round_rect(c, r, x, y, w, h):
     c.move_to(x+r,y)

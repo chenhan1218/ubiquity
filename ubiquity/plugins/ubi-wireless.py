@@ -17,8 +17,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from ubiquity import plugin
 import os
+
+from ubiquity import plugin
 
 NAME = 'wireless'
 #after prepare for default install, but language for oem install

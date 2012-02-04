@@ -1,4 +1,5 @@
 from gi.repository import Gtk, GObject, Gdk
+
 from ubiquity import keyboard_detector
 
 class Keyrow(Gtk.HBox):
