@@ -8,6 +8,8 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
     is in fact waiting for user input (LP: #670409, #925427).
   * Mark file descriptors used for communication with parted_server
     FD_CLOEXEC.
+  * Restore finish-install's title after installing the oem-config frontend
+    (LP: #925155).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
 
