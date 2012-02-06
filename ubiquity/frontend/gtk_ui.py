@@ -412,7 +412,7 @@ class Wizard(BaseFrontend):
             # ourselves
             with open('/proc/cmdline') as fp:
                 if 'only-ubiquity' in fp.read():
-		    # we need to drop privileges, we cannot run GTK programs
+                    # we need to drop privileges, we cannot run GTK programs
                     # with non-matching real/effective u/gid
                     misc.drop_all_privileges()
                     misc.execute('/usr/share/apport/apport-gtk')
