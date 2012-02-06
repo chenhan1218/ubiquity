@@ -165,7 +165,7 @@ load_module (const gchar * name, GtkWidget * menu)
     /* Build the object for the module */
     IndicatorObject * io = indicator_object_new_from_file(name);
 
-    /* Connect to it's signals */
+    /* Connect to its signals */
     g_signal_connect(G_OBJECT(io), INDICATOR_OBJECT_SIGNAL_ENTRY_ADDED,   G_CALLBACK(entry_added),    menu);
     g_signal_connect(G_OBJECT(io), INDICATOR_OBJECT_SIGNAL_ENTRY_REMOVED, G_CALLBACK(entry_removed),  menu);
     /* Work on the entries */
