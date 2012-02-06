@@ -56,6 +56,7 @@ src/panel/.deps
 src/panel/.libs
 src/panel/Makefile
 src/panel/panel
+src/wallpaper/.deps
 src/wallpaper/.libs
 src/wallpaper/wallpaper
 src/wallpaper/Makefile
