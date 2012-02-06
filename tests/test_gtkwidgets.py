@@ -8,6 +8,12 @@ from gi.repository import Gtk, GObject, TimezoneMap
 import sys, os
 import mock
 
+
+class MockController(object):
+    def get_string(self, name, lang=None, prefix=None):
+        return "%s: %s" % (lang, name)
+
+
 class WidgetTests(unittest.TestCase):
     def setUp(self):
         self.err = None
@@ -53,7 +59,7 @@ class WidgetTests(unittest.TestCase):
         from gi.repository import GdkPixbuf, Gst
         Gst.init(sys.argv)
         WRITE_TO = '/tmp/nonexistent-directory/windows_square.png'
-        fs = gtkwidgets.FaceSelector()
+        fs = gtkwidgets.FaceSelector(None)
         fs.selected_image = Gtk.Image()
         pb = GdkPixbuf.Pixbuf.new_from_file('pixmaps/windows_square.png')
         fs.selected_image.set_from_pixbuf(pb)
@@ -61,6 +67,16 @@ class WidgetTests(unittest.TestCase):
         self.assertTrue(os.path.exists(WRITE_TO))
         import shutil
         shutil.rmtree(os.path.dirname(WRITE_TO))
+
+    def test_face_selector_translated(self):
+        fs = gtkwidgets.FaceSelector(MockController())
+        fs.translate('zz')
+        self.assertEqual('zz: webcam_photo_label', fs.photo_label.get_text())
+        self.assertEqual(
+            'zz: webcam_existing_label', fs.existing_label.get_text())
+        self.assertEqual(
+            'zz: webcam_take_button',
+            fs.webcam.get_property('take-button').get_label())
 
     def test_state_box(self):
         sb = gtkwidgets.StateBox('foobar')

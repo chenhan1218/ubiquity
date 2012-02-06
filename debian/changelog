@@ -13,6 +13,7 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
   * Avoid duplicate call to osextras.find_on_path('check-language-support').
   * Stop filtering warnings from the apt module which are no longer emitted.
   * PEP-8 import ordering.
+  * Make the "Choose a picture" page translatable (LP: #892384).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
 

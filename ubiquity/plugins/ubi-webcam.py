@@ -46,7 +46,7 @@ class PageGtk(plugin.PluginUI):
         builder.connect_signals(self)
         self.page = builder.get_object('stepWebcam')
         self.plugin_widgets = self.page
-        self.faceselector = gtkwidgets.FaceSelector()
+        self.faceselector = gtkwidgets.FaceSelector(controller)
         self.page.add(self.faceselector)
 
     def plugin_get_current_page(self):
@@ -63,3 +63,5 @@ class PageGtk(plugin.PluginUI):
         self.faceselector.save_to('/var/lib/ubiquity/webcam_photo.png')
         return False
 
+    def plugin_translate(self, lang):
+        self.faceselector.translate(lang)

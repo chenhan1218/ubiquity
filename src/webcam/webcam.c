@@ -30,6 +30,9 @@
 
 #include <assert.h>
 
+#include <glib-object.h>
+#include <gtk/gtk.h>
+
 #define G_UDEV_API_IS_SUBJECT_TO_CHANGE 1
 #include <gudev/gudev.h>
 
@@ -57,13 +60,41 @@ struct _UbiquityWebcamPrivate
 	GstBus *bus;
 };
 
+enum {
+	PROP_0,
+	PROP_BUTTON
+};
+
 static gulong video_window_xid = 0;
+
+static void
+ubiquity_webcam_get_property (GObject *object, guint prop_id, GValue *value,
+			      GParamSpec *pspec) {
+	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (object);
+
+	switch (prop_id) {
+		case PROP_BUTTON:
+			g_value_set_object (value, (GObject *) priv->button);
+			break;
+	}
+}
 
 static void
 ubiquity_webcam_class_init (UbiquityWebcamClass *klass) {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 	GtkVBoxClass *vbox_class = GTK_VBOX_CLASS (klass);
+
+	object_class->get_property = ubiquity_webcam_get_property;
+
+	g_object_class_install_property (
+		object_class, PROP_BUTTON,
+		g_param_spec_object (
+			"take-button", "'Take Photo' button",
+			"The button that may be pressed to take a photo",
+			GTK_TYPE_WIDGET,
+			G_PARAM_READABLE | G_PARAM_STATIC_NAME |
+			G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
 
 	g_type_class_add_private (klass, sizeof (UbiquityWebcamPrivate));
 }

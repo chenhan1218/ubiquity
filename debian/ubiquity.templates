@@ -147,6 +147,18 @@ Template: ubiquity/text/webcam_heading_label
 Type: text
 _Description: Choose a picture
 
+Template: ubiquity/text/webcam_photo_label
+Type: text
+_Description: Take a photo:
+
+Template: ubiquity/text/webcam_existing_label
+Type: text
+_Description: Or choose an existing picture:
+
+Template: ubiquity/text/webcam_take_button
+Type: text
+_Description: Take Photo
+
 Template: ubiquity/text/fullname_label
 Type: text
 _Description: Your name:
