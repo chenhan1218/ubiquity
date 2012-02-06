@@ -19,6 +19,7 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
     suite about four seconds faster.
   * Fix sys.path mishandling in test suite.
   * Mark WPA2-only access points as secure.
+  * Add initial tests for wireless page.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
 
