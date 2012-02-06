@@ -177,7 +177,8 @@ class NetworkManager:
             ssid = get_prop(ap_obj, NM_AP, 'Ssid')
             if ssid:
                 ssid = decode_ssid(ssid)
-                security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+                security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
+                            get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
                 strength = int(props['Strength'])
                 iterator = self.model.get_iter_first()
                 while iterator:
@@ -214,7 +215,8 @@ class NetworkManager:
                 if ssid:
                     ssid = decode_ssid(ssid)
                     strength = int(get_prop(ap_obj, NM_AP, 'Strength') or 0)
-                    security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+                    security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
+                                get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
                     i = self.ssid_in_model(iterator, ssid, security)
                     if not i:
                         self.model.append(iterator, [ssid, security, strength])
