@@ -81,8 +81,7 @@ def set_root_cursor(cursor=None):
     win = Gdk.get_default_root_window()
     if win:
         win.set_cursor(cursor)
-    while Gtk.events_pending():
-        Gtk.main_iteration()
+    gtkwidgets.refresh()
 
 class Controller(ubiquity.frontend.base.Controller):
     def add_builder(self, builder):
@@ -422,8 +421,7 @@ class Wizard(BaseFrontend):
             self.crash_dialog.run()
             self.crash_dialog.hide()
             self.live_installer.hide()
-            while Gtk.events_pending():
-                Gtk.main_iteration()
+            self.refresh()
             misc.execute_root("apport-bug", "ubiquity")
             sys.exit(1)
 
@@ -664,8 +662,7 @@ class Wizard(BaseFrontend):
                 if self.backup:
                     self.pagesindex = self.pop_history()
 
-            while Gtk.events_pending():
-                Gtk.main_iteration()
+            self.refresh()
 
         # There's still work to do (postinstall).  Let's keep the user
         # entertained.
@@ -1405,8 +1402,7 @@ color : @fg_color
             self.crash_dialog.run()
             self.crash_dialog.hide()
             self.live_installer.hide()
-            while Gtk.events_pending():
-                Gtk.main_iteration()
+            self.refresh()
             misc.execute_root("apport-bug", "ubiquity")
             sys.exit(1)
         if BaseFrontend.debconffilter_done(self, dbfilter):
@@ -1608,8 +1604,7 @@ color : @fg_color
             return options[response - 1]
 
     def refresh (self):
-        while Gtk.events_pending():
-            Gtk.main_iteration()
+        gtkwidgets.refresh()
 
     # Run the UI's main loop until it returns control to us.
     def run_main_loop (self):

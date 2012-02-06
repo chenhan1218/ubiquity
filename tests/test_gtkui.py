@@ -46,14 +46,12 @@ class TestFrontend(unittest.TestCase):
             self.assertEqual(ret, u'♥')
 
     def test_pages_fit_on_a_netbook(self):
-        from gi.repository import Gtk, GObject
         from ubiquity.frontend import gtk_ui
         ui = gtk_ui.Wizard('test-ubiquity')
         ui.translate_pages()
         for page in ui.pages:
             ui.set_page(page.module.NAME)
-            GObject.timeout_add(250, Gtk.main_quit)
-            Gtk.main()
+            ui.refresh()
             alloc = ui.live_installer.get_allocation()
             self.assertLessEqual(alloc.width, 640)
             self.assertLessEqual(alloc.height, 500)

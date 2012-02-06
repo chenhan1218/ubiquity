@@ -382,7 +382,6 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         self.assertIn('manual', options)
         self.assertItemsEqual(self.manual, options['manual'])
 
-from gi.repository import Gtk, GObject
 class TestPageGtk(unittest.TestCase):
     def setUp(self):
         # FIXME Not sure why this is needed.
@@ -391,9 +390,9 @@ class TestPageGtk(unittest.TestCase):
         self.gtk = ubi_partman.PageGtk(controller)
 
     def test_advanced_page_link(self):
+        from ubiquity import gtkwidgets
         self.gtk.part_auto_hidden_label.emit('activate-link', '')
-        GObject.timeout_add(500, Gtk.main_quit)
-        Gtk.main()
+        gtkwidgets.refresh()
         self.gtk.controller.go_forward.assert_called_once_with()
 
 if __name__ == '__main__':

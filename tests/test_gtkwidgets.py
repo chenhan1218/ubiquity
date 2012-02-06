@@ -4,7 +4,7 @@
 import unittest
 from ubiquity import segmented_bar, gtkwidgets
 from test import test_support
-from gi.repository import Gtk, GObject, TimezoneMap
+from gi.repository import Gtk, TimezoneMap
 import sys, os
 import mock
 
@@ -41,8 +41,7 @@ class WidgetTests(unittest.TestCase):
         sb.remove_all()
         self.assertEqual(sb.segments, [])
         self.win.show_all()
-        GObject.timeout_add(500, Gtk.main_quit)
-        Gtk.main()
+        gtkwidgets.refresh()
 
     def test_timezone_map(self):
         tzmap = TimezoneMap.TimezoneMap()
@@ -50,8 +49,7 @@ class WidgetTests(unittest.TestCase):
         #tzmap.select_city('America/New_York')
         self.win.show_all()
         self.win.connect('destroy', Gtk.main_quit)
-        GObject.timeout_add(500, Gtk.main_quit)
-        Gtk.main()
+        gtkwidgets.refresh()
 
     @mock.patch('ubiquity.misc.drop_privileges')
     @mock.patch('ubiquity.misc.regain_privileges')
