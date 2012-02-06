@@ -17,6 +17,7 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
   * Make the "run all pending GTK events" function accessible from
     ubiquity.gtkwidgets, and use it in the test suite.  This makes the test
     suite about four seconds faster.
+  * Fix sys.path mishandling in test suite.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
 

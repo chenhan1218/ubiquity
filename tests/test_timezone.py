@@ -12,7 +12,7 @@ class TimezoneTests(unittest.TestCase):
     def setUp(self):
         sys.path.insert(0, 'ubiquity/plugins')
         self.ubi_timezone = __import__('ubi-timezone')
-        sys.path.pop()
+        sys.path.pop(0)
         db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(db.shutdown)
         controller = mock.Mock()

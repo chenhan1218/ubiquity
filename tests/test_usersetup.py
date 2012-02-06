@@ -18,7 +18,7 @@ class UserSetupTests(unittest.TestCase):
             self.addCleanup(patcher.stop)
         sys.path.insert(0, 'ubiquity/plugins')
         ubi_usersetup = __import__('ubi-usersetup')
-        sys.path.pop()
+        sys.path.pop(0)
         controller = mock.Mock()
         self.ubi_usersetup = ubi_usersetup
         self.gtk = self.ubi_usersetup.PageGtk(controller)

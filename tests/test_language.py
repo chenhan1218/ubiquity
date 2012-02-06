@@ -30,7 +30,7 @@ class LanguageTests(unittest.TestCase):
 
         sys.path.insert(0, 'ubiquity/plugins')
         ubi_language = __import__('ubi-language')
-        sys.path.pop()
+        sys.path.pop(0)
 
         controller = mock.Mock()
         controller.oem_user_config = True
