@@ -1,5 +1,6 @@
 ubiquity (2.9.17) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Don't display "Ready when you are..." when the installer isn't actually
     waiting for user actions.
   * When waiting for user actions, just hide the progress bar and associated
@@ -21,7 +22,11 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
   * Mark WPA2-only access points as secure.
   * Add initial tests for wireless page.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 03 Feb 2012 11:40:34 +0000
+  [ Brian Murray ]
+  * ubiquity/gtk_ui.py: in the crash handler also call apport directly if in
+    the maybe-ubiquity mode (LP: #901381)
+
+ -- Brian Murray <brian@ubuntu.com>  Wed, 08 Feb 2012 11:54:07 -0800
 
 ubiquity (2.9.16) precise; urgency=low
 
