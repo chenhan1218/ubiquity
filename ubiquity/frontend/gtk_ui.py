@@ -409,8 +409,13 @@ class Wizard(BaseFrontend):
             # In live session mode, update-notifier will pick up the crash
             # report; in only-ubiquity mode we need to bring up the UI
             # ourselves
+            # update-notifier doesn't work on overlayfs so also run if using
+            # maybe-ubiquity
+
+            # FIXME: Revert the check to maybe-ubiquity once inotify on
+            # overlayfs is fixed (crash will then be detected by update-notifier)
             with open('/proc/cmdline') as fp:
-                if 'only-ubiquity' in fp.read():
+                if 'ubiquity' in fp.read():
                     # we need to drop privileges, we cannot run GTK programs
                     # with non-matching real/effective u/gid
                     misc.drop_all_privileges()
