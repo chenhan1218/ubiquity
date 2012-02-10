@@ -94,7 +94,7 @@ set_strut (GtkWindow *gtk_window,
   XChangeProperty (display, window, net_wm_strut_partial,
                    XA_CARDINAL, 32, PropModeReplace,
                    (guchar *) &struts, 12);
-  gdk_error_trap_pop ();
+  gdk_error_trap_pop_ignored ();
 }
 
 /* Stolen from indicator-loader.c in unity. */
