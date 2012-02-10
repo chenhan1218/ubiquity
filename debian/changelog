@@ -21,6 +21,8 @@ ubiquity (2.9.17) UNRELEASED; urgency=low
   * Fix sys.path mishandling in test suite.
   * Mark WPA2-only access points as secure.
   * Add initial tests for wireless page.
+  * Automatic update of included source packages: choose-mirror 2.39ubuntu3,
+    netcfg 1.68ubuntu11.
 
   [ Brian Murray ]
   * ubiquity/gtk_ui.py: in the crash handler also call apport directly if in
