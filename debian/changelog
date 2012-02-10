@@ -1,3 +1,10 @@
+ubiquity (2.9.18) UNRELEASED; urgency=low
+
+  * Convert from deprecated GtkHBox/GtkVBox to GtkBox, and from
+    GtkHButtonBox to GtkButtonBox.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Feb 2012 20:45:00 +0000
+
 ubiquity (2.9.17) precise; urgency=low
 
   [ Colin Watson ]

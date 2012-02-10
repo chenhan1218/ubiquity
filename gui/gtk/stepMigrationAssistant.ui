@@ -2,9 +2,10 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkVBox" id="stepMigrationAssistant">
+  <object class="GtkBox" id="stepMigrationAssistant">
     <property name="visible">True</property>
     <property name="border_width">6</property>
+    <property name="orientation">vertical</property>
     <child>
       <object class="GtkLabel" id="ma_text_label">
         <property name="width_request">600</property>

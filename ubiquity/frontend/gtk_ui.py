@@ -1591,7 +1591,8 @@ color : @fg_color
                 text = option
             buttons.extend((text, len(buttons) / 2 + 1))
         dialog = Gtk.Dialog(title, self.live_installer, Gtk.DialogFlags.MODAL, tuple(buttons))
-        vbox = Gtk.VBox()
+        vbox = Gtk.Box()
+        vbox.set_orientation(Gtk.Orientation.VERTICAL)
         vbox.set_border_width(5)
         label = Gtk.Label(label=msg)
         label.set_line_wrap(True)

@@ -62,14 +62,14 @@ typedef struct _UbiquityWebcamPrivate UbiquityWebcamPrivate;
 
 struct _UbiquityWebcam
 {
-  GtkVBox parent;
+  GtkBox parent;
 
   UbiquityWebcamPrivate *priv;
 };
 
 struct _UbiquityWebcamClass
 {
-  GtkVBoxClass parent_class;
+  GtkBoxClass parent_class;
 };
 
 GType ubiquity_webcam_get_type (void) G_GNUC_CONST;

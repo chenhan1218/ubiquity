@@ -179,11 +179,11 @@ class ResizeWidget(Gtk.HPaned):
 
 GObject.type_register(ResizeWidget)
 
-class DiskBox(Gtk.HBox):
+class DiskBox(Gtk.Box):
     __gtype_name__ = 'DiskBox'
 
     def add(self, partition, size):
-        Gtk.HBox.add(self, partition, expand=False)
+        Gtk.Box.add(self, partition, expand=False)
         partition.set_size_request(size, -1)
 
     def clear(self):
@@ -231,7 +231,8 @@ class PartitionBox(StylizedFrame):
         # 5 px between the extra heading and the size
         # 12 px below the bottom-most element
         StylizedFrame.__init__(self)
-        vbox = Gtk.VBox()
+        vbox = Gtk.Box()
+        vbox.set_orientation(Gtk.Orientation.VERTICAL)
         self.logo = Gtk.Image.new_from_icon_name(icon_name,
                                                  Gtk.IconSize.DIALOG)
         align = Gtk.Alignment.new(0.5, 0.5, 0.5, 0.5)
@@ -321,7 +322,7 @@ class StateBox(StylizedFrame):
         StylizedFrame.__init__(self)
         alignment = Gtk.Alignment()
         alignment.set_padding(7, 7, 15, 15)
-        hbox = Gtk.HBox()
+        hbox = Gtk.Box()
         hbox.set_spacing(10)
         self.image = Gtk.Image()
         self.image.set_from_stock(Gtk.STOCK_YES, Gtk.IconSize.LARGE_TOOLBAR)
@@ -352,24 +353,27 @@ GObject.type_register(StateBox)
 
 FACES_PATH = '/usr/share/pixmaps/faces'
 
-class FaceSelector(Gtk.VBox):
+class FaceSelector(Gtk.Box):
     __gtype_name__ = 'FaceSelector'
     def __init__(self, controller):
-        Gtk.VBox.__init__(self)
+        Gtk.Box.__init__(self)
+        self.set_orientation(Gtk.Orientation.VERTICAL)
         self.set_homogeneous(False)
         self.set_spacing(12)
         self.controller = controller
 
-        vb_left = Gtk.VBox.new(False, 3)
+        vb_left = Gtk.Box(False, 3)
+        vb_left.set_orientation(Gtk.Orientation.VERTICAL)
         self.photo_label = Gtk.Label('Take a photo:')
         vb_left.pack_start(self.photo_label, False, False, 0)
         f = Gtk.Frame()
         self.webcam = UbiquityWebcam.Webcam()
         self.webcam.connect('image-captured', self.image_captured)
         f.add(self.webcam)
-        vb_left.add(f)
+        vb_left.pack_start(f, True, True, 0)
 
-        vb_right = Gtk.VBox.new(False, 3)
+        vb_right = Gtk.Box(False, 3)
+        vb_right.set_orientation(Gtk.Orientation.VERTICAL)
         self.existing_label = Gtk.Label('Or choose an existing picture:')
         vb_right.pack_start(self.existing_label, False, False, 0)
         iv = Gtk.IconView()
@@ -378,16 +382,16 @@ class FaceSelector(Gtk.VBox):
         sw.set_shadow_type(Gtk.ShadowType.IN)
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         sw.add(iv)
-        vb_right.add(sw)
+        vb_right.pack_start(sw, True, True, 0)
 
-        hb = Gtk.HBox.new(True, 30)
-        hb.add(vb_left)
-        hb.add(vb_right)
-        self.add(hb)
+        hb = Gtk.Box(True, 30)
+        hb.pack_start(vb_left, True, True, 0)
+        hb.pack_start(vb_right, True, True, 0)
+        self.pack_start(hb, True, True, 0)
 
         self.selected_image = Gtk.Image()
         self.selected_image.set_size_request(96, 96)
-        self.add(self.selected_image)
+        self.pack_start(self.selected_image, True, True, 0)
 
         m = Gtk.ListStore(GObject.type_from_name('GdkPixbuf'))
         iv.set_model(m)

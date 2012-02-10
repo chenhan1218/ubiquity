@@ -1195,7 +1195,8 @@ class PageGtk(PageBase):
         i = 0
         if not self.segmented_bar_vbox:
             sw = Gtk.ScrolledWindow()
-            self.segmented_bar_vbox = Gtk.VBox()
+            self.segmented_bar_vbox = Gtk.Box()
+            self.segmented_bar_vbox.set_orientation(Gtk.Orientation.VERTICAL)
             sw.add_with_viewport(self.segmented_bar_vbox)
             sw.get_child().set_shadow_type(Gtk.ShadowType.NONE)
             sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.NEVER)
@@ -1209,7 +1210,8 @@ class PageGtk(PageBase):
                 dev = disk_cache[item]['device']
                 self.partition_bars[dev] = segmented_bar.SegmentedBar()
                 partition_bar = self.partition_bars[dev]
-                self.segmented_bar_vbox.add(partition_bar)
+                self.segmented_bar_vbox.pack_start(
+                    partition_bar, True, True, 0)
                 total_size[dev] = 0.0
             else:
                 partition_tree_model.append([item, partition_cache[item]])

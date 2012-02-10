@@ -104,7 +104,7 @@ entry_added (IndicatorObject * io, IndicatorObjectEntry * entry, gpointer user_d
     g_debug("Signal: Entry Added");
 
     GtkWidget * menuitem = gtk_menu_item_new();
-    GtkWidget * hbox = gtk_hbox_new(FALSE, 3);
+    GtkWidget * hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
 
     if (entry->image != NULL) {
         gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(entry->image), FALSE, FALSE, 0);
@@ -268,7 +268,7 @@ main(int argc, char* argv[]) {
 			g_error("Unable to load module");
 		}
 	}
-	GtkWidget* hbox = gtk_hbox_new(FALSE, 3);
+	GtkWidget* hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 3);
 	gtk_container_add(GTK_CONTAINER(win), hbox);
 	gtk_box_pack_end(GTK_BOX(hbox), menubar, FALSE, FALSE, 0);
 	g_signal_connect_after(menubar, "draw", G_CALLBACK(on_draw), NULL);

@@ -387,14 +387,15 @@ class NetworkManagerTreeView(Gtk.TreeView):
 
 GObject.type_register(NetworkManagerTreeView)
 
-class NetworkManagerWidget(Gtk.VBox):
+class NetworkManagerWidget(Gtk.Box):
     __gtype_name__ = 'NetworkManagerWidget'
     __gsignals__ = { 'connection' : (GObject.SignalFlags.RUN_FIRST,
                                      GObject.TYPE_NONE, (GObject.TYPE_UINT,)),
                      'selection_changed' : (GObject.SignalFlags.RUN_FIRST,
                                             GObject.TYPE_NONE, ())}
     def __init__(self):
-        Gtk.VBox.__init__(self)
+        Gtk.Box.__init__(self)
+        self.set_orientation(Gtk.Orientation.VERTICAL)
         self.set_spacing(12)
         self.password_entry = Gtk.Entry()
         self.view = NetworkManagerTreeView(self.password_entry,
@@ -403,8 +404,8 @@ class NetworkManagerWidget(Gtk.VBox):
         scrolled_window.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scrolled_window.set_shadow_type(Gtk.ShadowType.IN)
         scrolled_window.add(self.view)
-        self.add(scrolled_window)
-        self.hbox = Gtk.HBox(spacing=6)
+        self.pack_start(scrolled_window, True, True, 0)
+        self.hbox = Gtk.Box(spacing=6)
         self.pack_start(self.hbox, False, True, 0)
         self.password_label = Gtk.Label('Password:')
         self.password_entry.set_visibility(False)

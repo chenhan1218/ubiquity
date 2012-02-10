@@ -42,7 +42,7 @@ static void button_clicked_cb (GtkWidget *widget, GstElement *camerabin);
 static gboolean message_cb (GstBus *bus, GstMessage *msg, gpointer data);
 static GstBusSyncReply window_id_cb (GstBus *bus, GstMessage *msg, gpointer data);
 
-G_DEFINE_TYPE (UbiquityWebcam, ubiquity_webcam, GTK_TYPE_VBOX)
+G_DEFINE_TYPE (UbiquityWebcam, ubiquity_webcam, GTK_TYPE_BOX)
 
 #define UBIQUITY_WEBCAM_PRIVATE(o) \
 	(G_TYPE_INSTANCE_GET_PRIVATE ((o), UBIQUITY_TYPE_WEBCAM, UbiquityWebcamPrivate))
@@ -83,7 +83,7 @@ static void
 ubiquity_webcam_class_init (UbiquityWebcamClass *klass) {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-	GtkVBoxClass *vbox_class = GTK_VBOX_CLASS (klass);
+	GtkBoxClass *box_class = GTK_BOX_CLASS (klass);
 
 	object_class->get_property = ubiquity_webcam_get_property;
 
@@ -113,6 +113,8 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 
 	priv = self->priv = UBIQUITY_WEBCAM_PRIVATE (self);
 
+	gtk_orientable_set_orientation (GTK_ORIENTABLE (self),
+					GTK_ORIENTATION_VERTICAL);
 	gtk_box_set_spacing (GTK_BOX (self), 1);
 	priv->drawing_area = gtk_drawing_area_new ();
 	gtk_widget_set_size_request (priv->drawing_area, width, height);

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkVBox" id="stepWebcam">
+  <object class="GtkBox" id="stepWebcam">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="border_width">20</property>
+    <property name="orientation">vertical</property>
     <property name="spacing">6</property>
     <child>
       <object class="GtkLabel" id="webcam_heading">
