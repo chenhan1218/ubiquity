@@ -2,6 +2,7 @@ ubiquity (2.9.18) UNRELEASED; urgency=low
 
   * Convert from deprecated GtkHBox/GtkVBox to GtkBox, and from
     GtkHButtonBox to GtkButtonBox.
+  * Use g_object_unref instead of deprecated gdk_pixbuf_unref.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Feb 2012 20:45:00 +0000
 

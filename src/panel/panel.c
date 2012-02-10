@@ -228,7 +228,7 @@ on_draw(GtkWidget *widget, cairo_t *cr, gpointer userdata) {
 		gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
 		cairo_pattern_set_extend(cairo_get_source(cr), CAIRO_EXTEND_REPEAT);
 		cairo_paint(cr);
-		gdk_pixbuf_unref(pixbuf);
+		g_object_unref(pixbuf);
 	} else {
 		g_warning("Could not find background image.");
 	}
