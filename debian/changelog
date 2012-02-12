@@ -13,6 +13,7 @@ ubiquity (2.9.18) UNRELEASED; urgency=low
   * Use a mock resolver during usersetup tests to avoid failing in certain
     network setups.
   * Use mock.patch.object instead of deprecated mock.patch_object.
+  * Silence annoying warnings from dmidecode during the test suite.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Feb 2012 20:45:00 +0000
 

@@ -534,9 +534,13 @@ def create_bool(text):
 @raise_privileges
 def dmimodel():
     model = ''
+    kwargs = {}
+    if os.geteuid() != 0:
+        # Silence annoying warnings during the test suite.
+        kwargs['stderr'] = open('/dev/null', 'w')
     try:
         proc = subprocess.Popen(['dmidecode', '--string',
-            'system-manufacturer'], stdout=subprocess.PIPE)
+            'system-manufacturer'], stdout=subprocess.PIPE, **kwargs)
         manufacturer = proc.communicate()[0]
         if not manufacturer:
             return
@@ -565,6 +569,9 @@ def dmimodel():
             return
     except Exception:
         syslog.syslog(syslog.LOG_ERR, 'Unable to determine the model from DMI')
+    finally:
+        if 'stderr' in kwargs:
+            kwargs['stderr'].close()
     return model
 
 def set_indicator_keymaps(locale):
