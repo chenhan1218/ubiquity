@@ -8,6 +8,8 @@ ubiquity (2.9.18) UNRELEASED; urgency=low
   * webcam: Warn when trying to get unknown properties.
   * webcam: Fix header typo: UBIQUITY_GET_CLASS ->
     UBIQUITY_WEBCAM_GET_CLASS.
+  * Upgrade to Automake 1.11.3, involving using pkglibexec_PROGRAMS instead
+    of pkglib_PROGRAMS.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Feb 2012 20:45:00 +0000
 
