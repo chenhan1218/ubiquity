@@ -52,6 +52,13 @@ po/stamp-it
 po/*.gmo
 pixmaps/Makefile
 src/Makefile
+src/mockresolver/.deps
+src/mockresolver/.libs
+src/mockresolver/*.la
+src/mockresolver/*.lo
+src/mockresolver/Makefile
+src/mockresolver/UbiquityMockResolver-1.0.gir
+src/mockresolver/UbiquityMockResolver-1.0.typelib
 src/panel/.deps
 src/panel/.libs
 src/panel/Makefile

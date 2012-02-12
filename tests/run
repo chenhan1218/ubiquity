@@ -17,10 +17,11 @@ else:
     ld_library_path = ld_library_path.split(':')
 if 'src/webcam/.libs' not in ld_library_path:
     ld_library_path.insert(0, 'src/webcam/.libs')
+    ld_library_path.insert(1, 'src/mockresolver/.libs')
     os.environ['LD_LIBRARY_PATH'] = ':'.join(ld_library_path)
     os.execv(sys.argv[0], sys.argv)
 
-os.environ['GI_TYPELIB_PATH'] = 'src/webcam'
+os.environ['GI_TYPELIB_PATH'] = 'src/webcam:src/mockresolver'
 
 def find_files(directory, pattern):
     for root, dirs, files in os.walk(directory):

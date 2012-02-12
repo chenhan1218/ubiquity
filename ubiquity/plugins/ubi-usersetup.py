@@ -162,7 +162,10 @@ class PageBase(plugin.PluginUI):
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/userinfo_heading_label'
     def __init__(self, controller, *args, **kwargs):
+        from gi.repository import Gio, Gtk
+
         PageBase.__init__(self, *args, **kwargs)
+        self.resolver = Gio.Resolver.get_default()
         self.controller = controller
         self.username_changed_id = None
         self.hostname_changed_id = None
@@ -170,7 +173,6 @@ class PageGtk(PageBase):
         self.hostname_edited = False
         self.hostname_timeout_id = 0
 
-        from gi.repository import Gtk
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
         builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepUserInfo.ui'))
@@ -430,12 +432,11 @@ class PageGtk(PageBase):
             self.hostname_ok.hide()
 
     def hostname_timeout(self, widget):
-        from gi.repository import Gio
         if self.hostname_ok.get_property('visible'):
-            res = Gio.Resolver.get_default()
             hostname = widget.get_text()
             for host in (hostname, '%s.local' % hostname):
-                res.lookup_by_name_async(host, None, self.lookup_result, None)
+                self.resolver.lookup_by_name_async(
+                    host, None, self.lookup_result, None)
 
     def on_authentication_toggled(self, w):
         if w == self.login_auto and w.get_active():

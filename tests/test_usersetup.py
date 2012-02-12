@@ -1,12 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf8; -*-
 
+import os
+import sys
 import unittest
+
+from gi.repository import UbiquityMockResolver
 import mock
-from gi.repository import Gtk, GObject
-import sys, os
+
+from ubiquity import gtkwidgets
 
 os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
+
 
 class UserSetupTests(unittest.TestCase):
     def setUp(self):
@@ -24,23 +29,24 @@ class UserSetupTests(unittest.TestCase):
         self.gtk = self.ubi_usersetup.PageGtk(controller)
 
     def test_hostname_check(self):
+        self.gtk.resolver = UbiquityMockResolver.MockResolver(
+            hostname='myhostname')
         self.gtk.hostname_ok.show()
         self.gtk.hostname.set_text('ahostnamethatdoesntexistonthenetwork')
         self.gtk.hostname_error = mock.Mock()
         self.gtk.hostname_timeout(self.gtk.hostname)
-        GObject.timeout_add(1, Gtk.main_quit)
-        Gtk.main()
+        gtkwidgets.refresh()
         self.assertEqual(self.gtk.hostname_error.call_count, 0)
 
     def test_hostname_check_exists(self):
-        import socket
         error_msg = 'That name already exists on the network.'
+        self.gtk.resolver = UbiquityMockResolver.MockResolver(
+            hostname='myhostname')
         self.gtk.hostname_ok.show()
-        self.gtk.hostname.set_text(socket.gethostname())
+        self.gtk.hostname.set_text('myhostname')
         self.gtk.hostname_error = mock.Mock()
         self.gtk.hostname_timeout(self.gtk.hostname)
-        GObject.timeout_add(1500, Gtk.main_quit)
-        Gtk.main()
+        gtkwidgets.refresh()
         self.assertTrue(self.gtk.hostname_error.call_count > 0)
         self.gtk.hostname_error.assert_called_with(error_msg)
 

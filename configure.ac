@@ -45,12 +45,17 @@ if test "x$UBIQUITY_NO_GTK" = x; then
 			  x11])
   AC_SUBST(WALLPAPER_CFLAGS)
   AC_SUBST(WALLPAPER_LIBS)
+  PKG_CHECK_MODULES(MOCK_RESOLVER, [glib-2.0
+			  gio-2.0])
+  AC_SUBST(MOCK_RESOLVER_CFLAGS)
+  AC_SUBST(MOCK_RESOLVER_LIBS)
   GOBJECT_INTROSPECTION_CHECK([0.6.7])
   AC_CONFIG_FILES(
 	src/Makefile
 	src/wallpaper/Makefile
 	src/webcam/Makefile
 	src/panel/Makefile
+	src/mockresolver/Makefile
 	)
 else
   AC_SUBST(WEBCAM_CFLAGS, [""])

@@ -629,6 +629,8 @@ INTROSPECTION_GIRDIR
 INTROSPECTION_GENERATE
 INTROSPECTION_COMPILER
 INTROSPECTION_SCANNER
+MOCK_RESOLVER_LIBS
+MOCK_RESOLVER_CFLAGS
 WALLPAPER_LIBS
 WALLPAPER_CFLAGS
 PANEL_LIBS
@@ -834,7 +836,9 @@ WEBCAM_LIBS
 PANEL_CFLAGS
 PANEL_LIBS
 WALLPAPER_CFLAGS
-WALLPAPER_LIBS'
+WALLPAPER_LIBS
+MOCK_RESOLVER_CFLAGS
+MOCK_RESOLVER_LIBS'
 
 
 # Initialize some variables set by options.
@@ -1507,6 +1511,10 @@ Some influential environment variables:
               C compiler flags for WALLPAPER, overriding pkg-config
   WALLPAPER_LIBS
               linker flags for WALLPAPER, overriding pkg-config
+  MOCK_RESOLVER_CFLAGS
+              C compiler flags for MOCK_RESOLVER, overriding pkg-config
+  MOCK_RESOLVER_LIBS
+              linker flags for MOCK_RESOLVER, overriding pkg-config
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -15087,6 +15095,108 @@ fi
 
 
 
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for MOCK_RESOLVER" >&5
+$as_echo_n "checking for MOCK_RESOLVER... " >&6; }
+
+if test -n "$MOCK_RESOLVER_CFLAGS"; then
+    pkg_cv_MOCK_RESOLVER_CFLAGS="$MOCK_RESOLVER_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0
+			  gio-2.0\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0
+			  gio-2.0") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_MOCK_RESOLVER_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0
+			  gio-2.0" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$MOCK_RESOLVER_LIBS"; then
+    pkg_cv_MOCK_RESOLVER_LIBS="$MOCK_RESOLVER_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0
+			  gio-2.0\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0
+			  gio-2.0") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_MOCK_RESOLVER_LIBS=`$PKG_CONFIG --libs "glib-2.0
+			  gio-2.0" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        MOCK_RESOLVER_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "glib-2.0
+			  gio-2.0" 2>&1`
+        else
+	        MOCK_RESOLVER_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "glib-2.0
+			  gio-2.0" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$MOCK_RESOLVER_PKG_ERRORS" >&5
+
+	as_fn_error $? "Package requirements (glib-2.0
+			  gio-2.0) were not met:
+
+$MOCK_RESOLVER_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables MOCK_RESOLVER_CFLAGS
+and MOCK_RESOLVER_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details." "$LINENO" 5
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables MOCK_RESOLVER_CFLAGS
+and MOCK_RESOLVER_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details" "$LINENO" 5; }
+else
+	MOCK_RESOLVER_CFLAGS=$pkg_cv_MOCK_RESOLVER_CFLAGS
+	MOCK_RESOLVER_LIBS=$pkg_cv_MOCK_RESOLVER_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+
+
+
 
 
                 # Check whether --enable-introspection was given.
@@ -15179,7 +15289,7 @@ fi
 
 
 
-  ac_config_files="$ac_config_files src/Makefile src/wallpaper/Makefile src/webcam/Makefile src/panel/Makefile"
+  ac_config_files="$ac_config_files src/Makefile src/wallpaper/Makefile src/webcam/Makefile src/panel/Makefile src/mockresolver/Makefile"
 
 else
   WEBCAM_CFLAGS=""
@@ -16243,6 +16353,7 @@ do
     "src/wallpaper/Makefile") CONFIG_FILES="$CONFIG_FILES src/wallpaper/Makefile" ;;
     "src/webcam/Makefile") CONFIG_FILES="$CONFIG_FILES src/webcam/Makefile" ;;
     "src/panel/Makefile") CONFIG_FILES="$CONFIG_FILES src/panel/Makefile" ;;
+    "src/mockresolver/Makefile") CONFIG_FILES="$CONFIG_FILES src/mockresolver/Makefile" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "desktop/Makefile") CONFIG_FILES="$CONFIG_FILES desktop/Makefile" ;;
     "pixmaps/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/Makefile" ;;
