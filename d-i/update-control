@@ -58,7 +58,7 @@ my @basebd = (
     'python-gi-cairo',
     'python-gi-dev',
     'python-libxml2',
-    'python-mock',
+    'python-mock (>= 0.7.0)',
     'python-pyicu (>= 1.0)',
     'python-scour',
     'python-xklavier',

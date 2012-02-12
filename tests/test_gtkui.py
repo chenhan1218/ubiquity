@@ -62,7 +62,7 @@ class TestFrontend(unittest.TestCase):
         from gi.repository import Gtk
         ui = gtk_ui.Wizard('test-ubiquity')
         missing_translations = []
-        with mock.patch_object(ui, 'translate_widget') as translate_widget:
+        with mock.patch.object(ui, 'translate_widget') as translate_widget:
             def side_effect(widget, lang=None, prefix=None):
                 label  = isinstance(widget, Gtk.Label)
                 button = isinstance(widget, Gtk.Button)
