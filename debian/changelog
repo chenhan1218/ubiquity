@@ -6,6 +6,8 @@ ubiquity (2.9.18) UNRELEASED; urgency=low
   * Use gdk_error_trap_pop_ignored rather than gdk_error_trap_pop when
     ignoring errors.
   * webcam: Warn when trying to get unknown properties.
+  * webcam: Fix header typo: UBIQUITY_GET_CLASS ->
+    UBIQUITY_WEBCAM_GET_CLASS.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 10 Feb 2012 20:45:00 +0000
 
