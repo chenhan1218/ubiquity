@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf8; -*-
 
+import os
+import sys
 import unittest
+
+from gi.repository import Gtk
 import mock
-import sys, os
 
 from ubiquity import i18n
-from gi.repository import Gtk
 
 os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
 

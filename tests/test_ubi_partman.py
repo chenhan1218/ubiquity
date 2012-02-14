@@ -1,17 +1,20 @@
 #!/usr/bin/python
 
 
+import os
+import sys
+from test import test_support
 import unittest
+
+import debconf
 # These tests require Mock 0.7.0
 import mock
-from test import test_support
-import sys
-import os
+
+from ubiquity import misc
+
 sys.path.insert(0, 'ubiquity/plugins')
 ubi_partman = __import__('ubi-partman')
 sys.path.pop(0)
-from ubiquity import misc
-import debconf
 
 os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
 

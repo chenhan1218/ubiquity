@@ -1,12 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8; -*-
 
-import unittest
-from ubiquity import segmented_bar, gtkwidgets
+import os
+import sys
 from test import test_support
+import unittest
+
 from gi.repository import Gtk, TimezoneMap
-import sys, os
 import mock
+
+from ubiquity import segmented_bar, gtkwidgets
 
 
 class MockController(object):

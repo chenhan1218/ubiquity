@@ -1,15 +1,15 @@
 #!/usr/bin/python
 
-
-import unittest
-# These tests require Mock 0.7.0
-import mock
-from test import test_support
-from ubiquity import misc
-
+import grp
 import os
 import pwd
-import grp
+from test import test_support
+import unittest
+
+# These tests require Mock 0.7.0
+import mock
+
+from ubiquity import misc
 
 _proc_swaps = [
     'Filename\t\t\t\tType\t\tSize\tUsed\tPriority',

@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf8; -*-
 
+import os
+import sys
 import unittest
-import mock
-import sys, os
+
 import debconf
+import mock
 
 os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
 

@@ -2,11 +2,12 @@
 # -*- coding: utf-8; -*-
 
 import os
+import unittest
+
+import mock
+
 os.environ['UBIQUITY_PLUGIN_PATH'] = 'ubiquity/plugins'
 os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
-
-import unittest
-import mock
 
 class TestFrontend(unittest.TestCase):
     def setUp(self):
