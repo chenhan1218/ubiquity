@@ -428,7 +428,11 @@ class Install(install_misc.InstallBase):
                     directory_times.append((targetpath, st.st_atime, st.st_mtime))
                 # os.utime() sets timestamp of target, not link
                 elif not stat.S_ISLNK(st.st_mode):
-                    os.utime(targetpath, (st.st_atime, st.st_mtime))
+                    try:
+                        os.utime(targetpath, (st.st_atime, st.st_mtime))
+                    except Exception:
+                        # We can live with timestamps being wrong.
+                        pass
 
                 if int((copied_size * 90) / total_size) != copy_progress:
                     copy_progress = int((copied_size * 90) / total_size)
@@ -458,7 +462,7 @@ class Install(install_misc.InstallBase):
             (directory, atime, mtime) = dirtime
             try:
                 os.utime(directory, (atime, mtime))
-            except OSError:
+            except Exception:
                 # I have no idea why I've been getting lots of bug reports
                 # about this failing, but I really don't care. Ignore it.
                 pass
@@ -484,7 +488,11 @@ class Install(install_misc.InstallBase):
             os.lchown(target_kernel, 0, 0)
             os.chmod(target_kernel, 0644)
             st = os.lstat(kernel)
-            os.utime(target_kernel, (st.st_atime, st.st_mtime))
+            try:
+                os.utime(target_kernel, (st.st_atime, st.st_mtime))
+            except Exception:
+                # We can live with timestamps being wrong.
+                pass
 
         os.umask(old_umask)
 

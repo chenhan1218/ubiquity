@@ -14,6 +14,7 @@ ubiquity (2.9.19) UNRELEASED; urgency=low
       directory to the symlink target (LP: #188976);
     - if all else fails, copy a non-directory over an existing non-empty
       directory by moving the target aside to a backup location.
+  * Ignore all failures to set timestamps (LP: #411307, #654929).
   * Update translations from Launchpad.
   * Update imported translations from gtk+3.0 3.3.14-0ubuntu2 and
     gnome-panel 1:3.3.5-0ubuntu2.

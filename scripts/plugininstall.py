@@ -1355,7 +1355,11 @@ class Install(install_misc.InstallBase):
                     directory_times.append((targetpath, st.st_atime, st.st_mtime))
                 # os.utime() sets timestamp of target, not link
                 elif not stat.S_ISLNK(st.st_mode):
-                    os.utime(targetpath, (st.st_atime, st.st_mtime))
+                    try:
+                        os.utime(targetpath, (st.st_atime, st.st_mtime))
+                    except Exception:
+                        # We can live with timestamps being wrong.
+                        pass
 
         # Apply timestamps to all directories now that the items within them
         # have been copied.
@@ -1363,7 +1367,7 @@ class Install(install_misc.InstallBase):
             (directory, atime, mtime) = dirtime
             try:
                 os.utime(directory, (atime, mtime))
-            except OSError:
+            except Exception:
                 # I have no idea why I've been getting lots of bug reports
                 # about this failing, but I really don't care. Ignore it.
                 pass
