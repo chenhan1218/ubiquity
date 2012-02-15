@@ -1327,10 +1327,13 @@ class Install(install_misc.InstallBase):
                 sourcepath = os.path.join(source, relpath)
                 targetpath = os.path.join(target, relpath)
                 st = os.lstat(sourcepath)
+
+                # Remove the target if necessary and if we can.
+                install_misc.remove_target(source, target, relpath, st)
+
+                # Now actually copy source to target.
                 mode = stat.S_IMODE(st.st_mode)
                 if stat.S_ISLNK(st.st_mode):
-                    if os.path.lexists(targetpath):
-                        os.unlink(targetpath)
                     linkto = os.readlink(sourcepath)
                     os.symlink(linkto, targetpath)
                 elif stat.S_ISDIR(st.st_mode):
@@ -1345,7 +1348,6 @@ class Install(install_misc.InstallBase):
                 elif stat.S_ISSOCK(st.st_mode):
                     os.mknod(targetpath, stat.S_IFSOCK | mode)
                 elif stat.S_ISREG(st.st_mode):
-                    osextras.unlink_force(targetpath)
                     install_misc.copy_file(self.db, sourcepath, targetpath, True)
 
                 os.lchown(targetpath, uid, gid)
