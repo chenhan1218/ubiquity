@@ -17,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
@@ -136,18 +136,11 @@ msgstr "మీరు కావాలంటే దీనిని చదువవ
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"ఇది ${RELEASE} యొక్క ప్రాథమిక విడుదల  యొక్క లైవ్ ${MEDIUM} ఇన్స్టాలర్. ఇది పరిపూర్ణ విడుదల "
-"కాదు;  పరిపూర్ణ ${RELEASE} అక్టోబరు 2011 లో విడుదల అవుతుంది."
 
 #. Type: text
 #. Description
@@ -235,10 +228,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "చిత్రం పెట్టు"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1377,18 +1368,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "సంకేతపదం"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "బలహీనమైన సంకేతపదం"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1399,10 +1386,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "అంతర్జాలానికి అనుసంధానమైనది"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1852,6 +1837,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "సిద్ధంగా ఉంది మీరుఎపుడైతే..."

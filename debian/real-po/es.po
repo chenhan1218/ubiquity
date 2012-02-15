@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-16 18:44+0000\n"
+"PO-Revision-Date: 2012-02-10 19:39+0000\n"
 "Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Conectando…"
 
 #. Type: text
 #. Description
@@ -42,8 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"¿Demasiado listo para nosotros? Modifique sus particiones con algunas "
-"opciones avanzadas."
+"¿Demasiado listo para nosotros? Ensúciese las manos con algunas opciones "
+"avanzadas  de particionado."
 
 #. Type: text
 #. Description
@@ -139,19 +139,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Esta es una versión en pruebas del instalador de ${RELEASE} live ${MEDIUM}. "
-"No es una versión final; esta vendrá con la versión final de ${RELEASE} en "
-"octubre de 2011."
+"Este es un prelanzamiento del instalador ${MEDIUM} live de ${RELEASE}. No es "
+"una versión final, que llegará con el lanzamiento final de ${RELEASE} en "
+"abril de 2012."
 
 #. Type: text
 #. Description
@@ -235,21 +230,19 @@ msgstr "Elija una imagen"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Tome una foto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Elija una imagen"
+msgstr "O elija una imagen existente:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Capturar foto"
 
 #. Type: text
 #. Description
@@ -1413,32 +1406,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Contraseña"
+msgstr "Contraseña:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Contraseña débil"
+msgstr "Mostrar contraseña"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "No deseo conectarme a una red wi-fi en este momento"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "está conectado a Internet"
+msgstr "Conectarse a esta red"
 
 #. Type: text
 #. Description
@@ -1900,6 +1887,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Cuando usted esté listo..."

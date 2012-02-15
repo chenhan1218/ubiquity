@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-10-03 21:17+0000\n"
-"Last-Translator: Nicolas Delvaux <Unknown>\n"
+"PO-Revision-Date: 2012-02-12 18:30+0000\n"
+"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-05 22:57+0000\n"
-"X-Generator: Launchpad (build 14085)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Connexion en cours..."
 
 #. Type: text
 #. Description
@@ -42,8 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"Trop simple pour vous ? Mettez les mains dans le cambouis grâce à les "
-"options de partitionnement avancées."
+"Trop simple pour vous ? Mettez les mains dans le cambouis grâce aux options "
+"de partitionnement avancées."
 
 #. Type: text
 #. Description
@@ -68,9 +68,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Vous effectuez l'installation en mode revendeur informatique. Veuillez "
-"saisir un nom unique pour ce lot de systèmes. Ce nom sera sauvegardé sur le "
-"système installé et pourra être utilisé pour les rapports d'anomalies."
+"Vous êtes en train  d'effectuer l'installation en mode constructeur. Merci "
+"de renseigner un nom unique pour ce lot de systèmes. Ce nom sera sauvegardé "
+"sur le système pour aider aux rapport de bogues."
 
 #. Type: text
 #. Description
@@ -117,9 +117,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Vous pouvez éventuellement <a href=\"update\">mettre à jour cet "
-"installateur</a> ou lire les <a href=\"release-notes\">notes de publication</"
-"a>."
+"Vous pouvez éventuellement lire les <a href=\"release-notes\">notes de "
+"publication</a> ou  <a href=\"update\">mettre à jour cet installateur</a>."
 
 #. Type: text
 #. Description
@@ -142,19 +141,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Ceci est une pré-version de l'installateur live ${MEDIUM} ${RELEASE}. Ce "
-"n'est pas une version finale : la version finale sera disponible en Octobre "
-"2011."
+"Ceci est une version de développement de l'installateur live ${MEDIUM} de  "
+"${RELEASE}. Ceci n'est pas la version finale; celle-ci sera disponible lors "
+"de la sortie officielle de ${RELEASE} en avril 2012."
 
 #. Type: text
 #. Description
@@ -164,10 +158,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Le processus d'installation aura peut-être besoin de redimensionner ou "
-"d'effacer des partitions sur votre disque dur. Assurez-vous de <b>faire une "
-"sauvegarde complète de toutes les données importantes</b> avant d'exécuter "
-"ce programme."
+"Le processus d'installation va peut-être redimensionner ou effacer des "
+"partitions sur votre disque dur. Assurez-vous de <b>faire une sauvegarde "
+"complète de toutes les données importantes</b> avant d'exécuter ce programme."
 
 #. Type: text
 #. Description
@@ -179,7 +172,7 @@ msgstr "Avertissement"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "Emplacement géographique"
+msgstr "Où vous trouvez-vous ?"
 
 #. Type: text
 #. Description
@@ -191,7 +184,7 @@ msgstr "Disposition du clavier"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
-msgstr "Choisissez votre disposition de clavier :"
+msgstr "Indiquez la disposition de votre clavier :"
 
 #. Type: text
 #. Description
@@ -239,21 +232,19 @@ msgstr "Choisissez une image"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Prendre une photo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Choisissez une image"
+msgstr "Ou choisir une image existante:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Prendre une Photo"
 
 #. Type: text
 #. Description
@@ -1404,7 +1395,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:197001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Préparation de l'installation de ${RELEASE}"
+msgstr "Préparation de l'installation d' ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1428,32 +1419,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Mot de passe"
+msgstr "Mot de passe :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Mot de passe trop faible"
+msgstr "Afficher le mot de passe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Je ne souhaite pas me connecter à un réseau hi-fi pour le moment"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "est connecté à l'Internet"
+msgstr "Se connecter à ce réseau"
 
 #. Type: text
 #. Description
@@ -1921,6 +1906,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Suppression des paquets"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Quand vous voulez..."

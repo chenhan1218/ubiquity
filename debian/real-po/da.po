@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -140,19 +140,11 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Dette er en præudgivelse af ${RELEASE} live${MEDIUM}-installationsprogram. "
-"Det er ikke en endelig udgave; den kommer med den endelige udgivelse af "
-"${RELEASE} i oktober 2010."
 
 #. Type: text
 #. Description
@@ -241,10 +233,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Vælg et billede"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1416,18 +1406,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Adgangskode"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Svag adgangskode"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1438,10 +1424,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "er sluttet til internettet"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1901,6 +1885,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjerner pakker"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Klar, når du er..."

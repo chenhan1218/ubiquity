@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-22 14:45+0000\n"
+"PO-Revision-Date: 2011-12-27 07:39+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:24+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Povezujem se..."
 
 #. Type: text
 #. Description
@@ -137,19 +137,13 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Ovo je pred-izdanje izdanja ${RELEASE} live ${MEDIUM} instalatora. Ovo nije "
-"finalno izdanje koje će se pojaviti zajedno sa finalnom verzijom ${RELEASE}-"
-"a u oktobru 2011."
+"Ovo je predizdanje ${RELEASE} živog ${MEDIUM} instalera. To nije finalna "
+"verzija koja će doći s finalnom verzijom ${RELEASE} u aprilu 2012."
 
 #. Type: text
 #. Description
@@ -238,10 +232,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Iyaberite sliku"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1407,32 +1399,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Šifra"
+msgstr "Lozinka:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Slaba lozinka"
+msgstr "Prikaži lozinku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Ne želim se prijaviti na bežičnu mrežu u ovom trenutku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "je priljučen na Internet"
+msgstr "Poveži se na ovu mrežu"
 
 #. Type: text
 #. Description
@@ -1892,6 +1878,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Spreman dok vi ..."

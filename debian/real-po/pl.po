@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-23 06:43+0000\n"
-"Last-Translator: Piotr Sokół <Unknown>\n"
+"PO-Revision-Date: 2011-12-18 07:45+0000\n"
+"Last-Translator: Michał Kozal <panaut0lordv@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Łączenie..."
 
 #. Type: text
 #. Description
@@ -139,19 +139,13 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"To jest wersja rozwojowa instalatora systemu ${RELEASE} live ${MEDIUM}. Nie "
-"jest ona wersją stabilną. Właściwe wydanie tej wersji systemu ${RELEASE} "
-"przewidziane jest na październik 2011."
+"To jest wersja testowa instalatora ${RELEASE} live ${MEDIUM}. Stabilne "
+"wydanie ${RELEASE} nastąpi w kwietniu 2012."
 
 #. Type: text
 #. Description
@@ -175,7 +169,7 @@ msgstr "Ostrzeżenie"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "Położenie użytkownika"
+msgstr "Lokalizacja użytkownika"
 
 #. Type: text
 #. Description
@@ -229,7 +223,7 @@ msgstr "Tożsamość użytkownika"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a picture"
-msgstr "Wybierz obraz"
+msgstr "Wybór obrazu"
 
 #. Type: text
 #. Description
@@ -240,10 +234,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Wybierz obraz"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -381,7 +373,7 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
-"Ten obraz będzie wyświetlany w preferencjach konta użytkownika, ekranie "
+"Wskazany obraz będzie wyświetlany w preferencjach konta użytkownika, ekranie "
 "logowania i po zablokowaniu ekranu."
 
 #. Type: text
@@ -401,8 +393,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Proszę przejść do następnego etapu instalacji, jeśli żadne konta nie mają "
-"zostać zaimportowane."
+"Proszę przejść do następnego etapu instalacji, jeśli nie ma potrzeby "
+"importowania żadnego z kont."
 
 #. Type: text
 #. Description
@@ -625,7 +617,7 @@ msgstr "Punkt montowania"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:86001
 msgid "Format?"
-msgstr "Sformatować?"
+msgstr "Formatowanie"
 
 #. Type: text
 #. Description
@@ -668,7 +660,7 @@ msgstr "Utwórz partycję"
 #. Description
 #: ../ubiquity.templates:92001 ../ubiquity.templates:99001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "Rozmiar nowej partycji w megabajtach (1000000 bajtów):"
+msgstr "Rozmiar nowej partycji wyrażony w megabajtach (1000000 bajtów):"
 
 #. Type: text
 #. Description
@@ -704,7 +696,7 @@ msgstr "Modyfikowanie partycji"
 #. Description
 #: ../ubiquity.templates:98001
 msgid "Edit a partition"
-msgstr "Modyfikacja partycji"
+msgstr "Modyfikowanie partycji"
 
 #. Type: text
 #. Description
@@ -885,7 +877,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:118001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Następujący plik nie jest zgodny ze źródłem na płycie CD/DVD:"
+msgstr ""
+"Następujący plik nie jest zgodny z plikiem źródłowym, pochodzącym z płyty CD/"
+"DVD:"
 
 #. Type: text
 #. Description
@@ -945,7 +939,7 @@ msgstr "Konfigurowanie sprzętu..."
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Installing third-party software..."
-msgstr "Instalacja dodatkowego oprogramowania..."
+msgstr "Instalowanie dodatkowego oprogramowania..."
 
 #. Type: text
 #. Description
@@ -1005,7 +999,7 @@ msgstr "Pobieranie pakietów (pozostało ${TIME})..."
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Downloading package lists..."
-msgstr "Pobieranie listy pakietów ..."
+msgstr "Pobieranie list pakietów..."
 
 #. Type: text
 #. Description
@@ -1321,7 +1315,7 @@ msgstr "Błąd aktualizacji instalatora"
 #. Description
 #: ../ubiquity.templates:189001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Instalator napotkał błąd podczas próby zaktualizowania siebie:"
+msgstr "Wystąpił błąd podczas próby zaktualizowania instalatora:"
 
 #. Type: text
 #. Description
@@ -1344,7 +1338,7 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Proszę wybrać język procesu instalacji. Język ten będzie ustawiony jako "
+"Proszę wybrać język procesu instalacji. Wskazany język zostanie użyty jako "
 "domyślny dla tego komputera."
 
 #. Type: text
@@ -1354,8 +1348,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Proszę wybrać język do użycia w procesie konfiguracji. Ten język zostanie "
-"użyty jako domyślny dla tego komputera."
+"Proszę wybrać język procesu konfiguracji. Wskazany język zostanie użyty jako "
+"domyślny dla tego komputera."
 
 #. Type: text
 #. Description
@@ -1412,32 +1406,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Hasło"
+msgstr "Hasło:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Słabe hasło"
+msgstr "Wyświetl hasło"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Nie łącz teraz z siecią wi-fi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "jest podłączony do sieci Internet"
+msgstr "Połącz z tą siecią"
 
 #. Type: text
 #. Description
@@ -1465,6 +1453,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d mniejszych partycji jest ukrytych, skorzystaj z <a href="
+"\"\">zaawansowanego partycjonowania</a> aby uzyskać większą kontrolę</small>"
 
 #. Type: text
 #. Description
@@ -1473,6 +1463,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>Jedna mniejsza partycja jest ukryta, skorzystaj z <a href="
+"\"\">zaawansowanego partycjonowania</a> aby uzyskać większą kontrolę</small>"
 
 #. Type: text
 #. Description
@@ -1483,8 +1475,8 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Ilość partycji przeznaczonych do usunięcia: %d. Proszę użyć <a href="
-"\"\">narzędzia do zaawansowanego partycjonowania dysków</a>, aby uzyskać "
-"więcej możliwości konfiguracji."
+"\"\">narzędzia do zaawansowanego partycjonowania dysków</a>,\r\n"
+"aby uzyskać więcej możliwości konfiguracji."
 
 #. Type: text
 #. Description
@@ -1494,8 +1486,8 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "Jedna partycja zostanie usunięta. Proszę użyć <a href=\"\">narzędzia do "
-"zaawansowanego partycjonowania dysków</a>, aby uzyskać więcej możliwości "
-"konfiguracji."
+"zaawansowanego partycjonowania dysków</a>,\r\n"
+"aby uzyskać więcej możliwości konfiguracji."
 
 #. Type: text
 #. Description
@@ -1507,26 +1499,26 @@ msgstr "Podziel największą partycję"
 #. Description
 #: ../ubiquity.templates:216001
 msgid "For best results, please ensure that this computer:"
-msgstr "Najlepsze rezultaty instalacji zostaną uzyskane, gdy ten komputer:"
+msgstr "Najlepsze rezultaty instalacji zostaną uzyskane, jeśli ten komputer:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:217001
 msgid "has at least ${SIZE} available drive space"
-msgstr "dysponuje przynajmniej ${SIZE} wolnej przestrzeni na dysku"
+msgstr "dysponuje przynajmniej ${SIZE} wolnej przestrzeni na dysku,"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
 msgid "is plugged in to a power source"
-msgstr "jest podłączony do źródła zasilania"
+msgstr "jest podłączony do źródła zasilania,"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "is connected to the Internet"
-msgstr "jest podłączony do sieci Internet"
+msgstr "jest podłączony do sieci Internet."
 
 #. Type: text
 #. Description
@@ -1593,7 +1585,7 @@ msgid ""
 msgstr ""
 "Proszę wybrać swoją lokalizację, aby system mógł dobrać odpowiednie "
 "konwencje wyświetlania informacji, pobierać aktualizacje z lokalnych "
-"serwerów i ustawić poprawny czas lokalny."
+"serwerów i ustawić prawidłowy czas lokalny."
 
 #. Type: text
 #. Description
@@ -1699,7 +1691,7 @@ msgid ""
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">UWAGA!</span> Trwale usuwa wszystkie programy, "
-"dokumenty, zdjęcia, muzykę i inne pliki systemu ${CURDISTRO}."
+"dokumenty, obrazy, muzykę oraz inne pliki systemu ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1719,7 +1711,7 @@ msgid ""
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 "Zachowuje dokumenty, muzykę oraz wszystkie inne osobiste pliki. Zachowuje "
-"programy w przypadku, gdy będzie taka możliwość Porzuca ustawienia "
+"programy w przypadku, gdy będzie taka możliwość. Porzuca ustawienia "
 "użytkowników systemu."
 
 #. Type: text
@@ -1755,7 +1747,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:244001
 msgid "Erase everything and reinstall"
-msgstr "Wyczyść wszystko i zainstaluj ponownie"
+msgstr "Wyczyszczenie dysku i ponowne zainstalowanie"
 
 #. Type: text
 #. Description
@@ -1768,7 +1760,7 @@ msgid ""
 "${CURDISTRO}."
 msgstr ""
 "<span foreground=\"darkred\">UWAGA!</span> Trwale usuwa wszystkie programy, "
-"dokumenty, zdjęcia, muzykę i inne pliki systemów ${OS} oraz ${CURDISTRO}."
+"dokumenty, obrazy, muzykę i inne pliki systemów ${OS} oraz ${CURDISTRO}."
 
 #. Type: text
 #. Description
@@ -1786,7 +1778,7 @@ msgid ""
 "systems."
 msgstr ""
 "<span foreground=\"darkred\">UWAGA!</span> Trwale usuwa wszystkie programy, "
-"dokumenty, obrazy, muzykę oraz inne pliki WSZYSTKICH systemów operacyjnych!"
+"dokumenty, obrazy, muzykę oraz inne pliki wszystkich systemów operacyjnych!"
 
 #. Type: text
 #. Description
@@ -1896,6 +1888,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Usuwanie pakietów"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Gotów..."

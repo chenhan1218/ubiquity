@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-17 09:26+0000\n"
+"PO-Revision-Date: 2011-12-14 11:43+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "בהליכי התחברות..."
 
 #. Type: text
 #. Description
@@ -135,18 +135,13 @@ msgstr "מומלץ לבצע <a href=\"update\">עדכון של תכנית התק
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"זוהי הפצה טרומית של ${RELEASE} על גבי  מדיה מסוג ${MEDIUM} חיה. זוהי אינה "
-"הגרסה הסופית שתושק יחד עם הפצת ${RELEASE} באוקטובר 2011."
+"זוהי הפצה טרומית של תכנית ההתקנה של ${RELEASE} ב־${MEDIUM}. זוהי איננה הגרסה "
+"הסופית; שתושק יחד עם הגרסה הסופית של ${RELEASE} באפריל 2012."
 
 #. Type: text
 #. Description
@@ -234,10 +229,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "נא לבחור תמונה"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1381,32 +1374,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "ססמה"
+msgstr "ססמה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "ססמה חלשה"
+msgstr "הצגת ססמה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "אעדיף שלא להתחבר לרשת WiFi כעת"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "מחובר לאינטרנט"
+msgstr "התחברות לרשת זו"
 
 #. Type: text
 #. Description
@@ -1857,6 +1844,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "ממתינים לפקודתך..."

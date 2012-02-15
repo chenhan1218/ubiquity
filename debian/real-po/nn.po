@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-08-19 08:54+0000\n"
-"Last-Translator: Åsmund Skjæveland <aasmunds@ulrik.uio.no>\n"
+"PO-Revision-Date: 2011-10-21 17:28+0000\n"
+"Last-Translator: Andreas N. <Unknown>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:24+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
@@ -221,7 +221,7 @@ msgstr "Kven er du?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Vel eit bilete"
 
 #. Type: text
 #. Description
@@ -368,6 +368,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Dette biletet vil brukast på innloggingsskjermen, låsskjermen og i "
+"kontoinnstillingane."
 
 #. Type: text
 #. Description
@@ -393,7 +395,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Installation type"
-msgstr ""
+msgstr "Installasjonstype"
 
 #. Type: text
 #. Description
@@ -530,6 +532,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Installasjonsprogrammet krasja. Når du lèt att dette vindauget, vil du kunne "
+"senda inn ein feilrapport med feilrapporteringverktøyet. Dette vil samla inn "
+"informasjon om systemet ditt og installasjonsprosessen. Detaljane vil "
+"sendast til feilmeldingstenesta, og ein utviklar vil ta hand om problemet så "
+"snart som mogleg."
 
 #. Type: text
 #. Description
@@ -720,14 +727,14 @@ msgstr "Hald fram"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:104001
 msgid "Connect"
-msgstr ""
+msgstr "Kopla til"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:105001
 msgid "Stop"
-msgstr ""
+msgstr "Stopp"
 
 #. Type: text
 #. Description
@@ -1384,22 +1391,21 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Ved å kopla denne datamaskina til eit trådlaust nettverk vil du kunne "
+"installera tredjepartsprogram, lasta ned oppdateringar, oppdaga tidssona "
+"automatisk og installera fullstendig støtte for språket ditt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Passord"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Svakt passord"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1410,10 +1416,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "er kopla til internett"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1441,6 +1445,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d mindre partisjonar er gøymde - bruk <a href=\"\">avansert "
+"partisjoneringsverktøy</a> for meir kontroll</small>"
 
 #. Type: text
 #. Description
@@ -1449,6 +1455,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 mindre partisjon er gøymd - bruk <a href=\"\">avansert "
+"partisjoneringsverktøy</a> for meir kontroll</small>"
 
 #. Type: text
 #. Description
@@ -1867,6 +1875,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjernar pakkar"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Klar når du er det …"

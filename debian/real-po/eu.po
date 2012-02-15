@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-08-19 09:01+0000\n"
-"Last-Translator: Evan Dandrea <evan.dandrea@canonical.com>\n"
+"PO-Revision-Date: 2012-02-01 22:27+0000\n"
+"Last-Translator: Ander González <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Konektatzen..."
 
 #. Type: text
 #. Description
@@ -142,6 +142,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
+"Honakoa ${RELEASE} live ${MEDIUM} instalatzailearen aurre-argitaratze "
+"bertsio bat da. Ez da azken bertsioa; ${RELEASE}(r)en azken bertsioa 2012ko "
+"apirilean iritsiko da."
 
 #. Type: text
 #. Description
@@ -159,7 +162,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Warning"
-msgstr "Kontuz"
+msgstr "Abisua"
 
 #. Type: text
 #. Description
@@ -219,7 +222,7 @@ msgstr "Nor zara?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a picture"
-msgstr ""
+msgstr "Hautatu irudia"
 
 #. Type: text
 #. Description
@@ -366,6 +369,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Irudi honek identifikatuko zaitu kontuaren ezarpenetan, saioa hasteko "
+"pantailan eta pantaila blokeatzerakoan."
 
 #. Type: text
 #. Description
@@ -391,7 +396,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Installation type"
-msgstr ""
+msgstr "Instalazio-mota"
 
 #. Type: text
 #. Description
@@ -530,6 +535,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Sentitzen dugu; instalatzaileak huts egin du. Leiho hau ixtean errore-"
+"txosten bat idaztea ahalbidetuko zaizu erroreak jakinarazteko tresnarekin. "
+"Honek sistemaren eta instalazio-prozesuaren informazioa bilduko du. "
+"Xehetasunak gure errore-jarraipenerako tresnara bidaliko dira eta garatzaile "
+"batek arazoa ahalik lasterren aztertuko du."
 
 #. Type: text
 #. Description
@@ -721,14 +731,14 @@ msgstr "Jarraitu"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:104001
 msgid "Connect"
-msgstr ""
+msgstr "Konektatu"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:105001
 msgid "Stop"
-msgstr ""
+msgstr "Gelditu"
 
 #. Type: text
 #. Description
@@ -1310,14 +1320,14 @@ msgstr "Instalatzailea errore bat aurkitu du eguneratzen saiatu denean:"
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:190001
 msgid "USB disk"
-msgstr "USB diskoa"
+msgstr "USB disko"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:191001
 msgid "CD"
-msgstr "CDa"
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1386,36 +1396,33 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Ordenagailua haririk gabeko sare batera konektatuz hirugarrengoen softwarea "
+"instalatu, eguneraketak deskargatu, ordu-eremua automatikoki detektatu eta "
+"zure hizkuntzarako sostengu osoa instalatu ahalko duzu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Pasahitza"
+msgstr "Pasahitza:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Pasahitz ahula"
+msgstr "Erakutsi pasahitza"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Ez dut haririk gabeko sarera konektatzerik nahi une honetan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "Internetera konektatuta dagoela"
+msgstr "Konektatu sare honetara"
 
 #. Type: text
 #. Description
@@ -1427,7 +1434,7 @@ msgstr "Hautatu diskoa:"
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr "Esleiku lekua diskoan ondorengo bereizlea mugituz:"
+msgstr "Esleitu lekua diskoan ondorengo bereizlea mugituz:"
 
 #. Type: text
 #. Description
@@ -1443,6 +1450,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d partizio txikiago ezkutatuta daude, erabili <a href=\"\">partizio-"
+"tresna aurreratua</a> kontrol gehiagorako</small>"
 
 #. Type: text
 #. Description
@@ -1451,6 +1460,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>partizio txikiago 1 ezkutatuta dago, erabili <a href=\"\">partizio-"
+"tresna aurreratua</a> kontrol gehiagorako</small>"
 
 #. Type: text
 #. Description
@@ -1875,6 +1886,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Zu prest zaudenean..."

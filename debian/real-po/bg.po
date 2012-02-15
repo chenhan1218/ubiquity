@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
@@ -138,19 +138,11 @@ msgstr "Можете да <a href=\"update\">актуализирате инст
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Съществува ранна версия на ${RELEASE} жив ${MEDIUM} инсталатор. Не е финална "
-"версия; тя ще бъде достъпна със последната версия на ${RELEASE} през "
-"Октомври 2011."
 
 #. Type: text
 #. Description
@@ -239,10 +231,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Изберете снимка"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1407,18 +1397,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Парола"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Слаба парола"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1429,10 +1415,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "е свързан към Интернет"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1897,6 +1881,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Премахване на пакети"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Готов, когато и вие сте..."

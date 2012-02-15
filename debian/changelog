@@ -3,6 +3,7 @@ ubiquity (2.9.19) UNRELEASED; urgency=low
   * Install pixmaps/windows_square.png in ubiquity-frontend-gtk.
   * Make it possible to run the test suite against installed packages, and
     add a DEP-8 control file for this.
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2012 02:40:42 +0000
 

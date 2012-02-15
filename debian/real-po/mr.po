@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2010-04-25 06:32+0000\n"
-"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
+"PO-Revision-Date: 2011-10-14 07:34+0000\n"
+"Last-Translator: Amit pal <Unknown>\n"
 "Language-Team: Marathi, janabhaaratii, C-DAC, Mumbai, India "
 "<janabhaaratii@cdacmumbai.in>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:24+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
@@ -28,7 +28,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "चालू ठेवण्या साठी रीस्टार्ट करा"
 
 #. Type: text
 #. Description
@@ -51,13 +51,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:180001
 msgid "Install"
-msgstr "इन्स्टाल करा"
+msgstr "स्थापना करा"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "स्थापना (OEM प्रणाली, निर्मात्यांसाठी फक्त)"
 
 #. Type: text
 #. Description
@@ -145,7 +145,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Warning"
-msgstr ""
+msgstr "चेतावणी"
 
 #. Type: text
 #. Description
@@ -157,13 +157,13 @@ msgstr "आपण कुठे आहात?"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Keyboard layout"
-msgstr "कळपट्टी प्रकार"
+msgstr "कळफलक मांडणी"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
-msgstr ""
+msgstr "आपल्या कळफलक(keyboard) मांडणीची निवड करा"
 
 #. Type: text
 #. Description
@@ -181,7 +181,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Detect Keyboard Layout..."
-msgstr ""
+msgstr "कळफलक मांडणीचा शोध ......"
 
 #. Type: text
 #. Description
@@ -229,13 +229,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Your name:"
-msgstr ""
+msgstr "आपले नाव:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Your name"
-msgstr ""
+msgstr "आपले नाव:"
 
 #. Type: text
 #. Description
@@ -247,7 +247,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Username"
-msgstr ""
+msgstr "वापरकर्त्याचे नाव"
 
 #. Type: text
 #. Description

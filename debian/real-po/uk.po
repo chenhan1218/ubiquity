@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-23 12:58+0000\n"
-"Last-Translator: Alex Ivanov aka 'SchiFFer' <Unknown>\n"
+"PO-Revision-Date: 2012-02-11 07:03+0000\n"
+"Last-Translator: Maxim <kontact.cat@gmail.com>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "З’єднання..."
 
 #. Type: text
 #. Description
@@ -143,6 +143,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
+"Це  попередній випуск програми встановлення для завантажувального ${MEDIUM} "
+"${RELEASE}. Фінальний випуск буде доступний у фінальному випуску ${RELEASE} "
+"в квітні 2012 р."
 
 #. Type: text
 #. Description
@@ -225,21 +228,19 @@ msgstr "Оберіть зображення"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Сфотографувати:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Оберіть зображення"
+msgstr "Або виберіть існуючу фотографію:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Сфотографувати"
 
 #. Type: text
 #. Description
@@ -368,6 +369,8 @@ msgid ""
 "This picture will identify you in the account settings, login screen, and "
 "lock screen."
 msgstr ""
+"Це зображення ідентифікуватиме Вас в налаштуваннях облікового запису та на "
+"екранах входу і блокування."
 
 #. Type: text
 #. Description
@@ -532,6 +535,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Ми вибачаємося, але встановлювач зазнав аварії. Після того як Ви закриєте це "
+"вікно, ми дамо Вам можливість надіслати нам файл зі звітом про помилку за "
+"допомогою вбудованого засобу звіту помилок. Він збере інформацію про Вашу "
+"систему та процес встановлення. Подробиці будуть надіслані до нашої сиситеми "
+"обробки помилок і розробник за першої ж нагоди зверне увагу на проблему."
 
 #. Type: text
 #. Description
@@ -723,14 +731,14 @@ msgstr "Продовжити"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:104001
 msgid "Connect"
-msgstr ""
+msgstr "З'єднатися"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:105001
 msgid "Stop"
-msgstr ""
+msgstr "Стоп"
 
 #. Type: text
 #. Description
@@ -1386,36 +1394,33 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Під’єднання цього комп’ютера до мережі wi-fi допускає встановлення "
+"стороннього програмного забезпечення, завантаження оновлень, автоматичне "
+"визначення Вашого часового поясу та встановлення повної підтримки Вашої мови."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Пароль"
+msgstr "Пароль:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Слабкий пароль"
+msgstr "Показувати пароль"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Я не хочу під'єднуватися до wi-fi мережі зараз"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "під'єднаний до Інтернету"
+msgstr "Під'єднатися до цієї мережі"
 
 #. Type: text
 #. Description
@@ -1443,6 +1448,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d менші розділи приховано, скористайтеся <a href=\"\">альтернативним "
+"засобом розмітки</a> для розширення можливостей</small>"
 
 #. Type: text
 #. Description
@@ -1451,6 +1458,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 менший розділ приховано, скористайтеся <a href=\"\">альтернативним "
+"засобом розмітки</a> для розширення можливостей</small>"
 
 #. Type: text
 #. Description
@@ -1873,6 +1882,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Готовий, коли ви..."

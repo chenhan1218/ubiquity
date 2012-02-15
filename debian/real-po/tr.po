@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-27 20:01+0000\n"
-"Last-Translator: alp eren özalp <Unknown>\n"
+"PO-Revision-Date: 2012-02-14 21:10+0000\n"
+"Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:24+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Bağlanıyor..."
 
 #. Type: text
 #. Description
@@ -139,18 +139,13 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
 "Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
-"bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Ekim 2011'de "
+"bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Nisan 2012'de "
 "yayınlanacaktır."
 
 #. Type: text
@@ -235,21 +230,19 @@ msgstr "Bir resim seçiniz"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Bir resim çek:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Bir resim seçiniz"
+msgstr "Ya da var olan bir resmi seç:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Resim Çek"
 
 #. Type: text
 #. Description
@@ -542,6 +535,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Üzgünüz; yükleyici çöktü. Bu pencereyi kapattıktan sonra bütünleşik hata "
+"raporlama aracıyla bir hata raporu oluşturmanızı sağlayacağız. Bu sisteminiz "
+"ve yükleme süreciniz hakkında bilgi toplayacak. Ayrıntılar hata takipçimize "
+"gönderilecek ve bir geliştirici sorunu olabilecek en çabuk şekilde "
+"düzeltmeye çalışacak."
 
 #. Type: text
 #. Description
@@ -1401,32 +1399,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Parola"
+msgstr "Parola:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Zayıf parola"
+msgstr "Şifreyi göster"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Bir wi-fi ağına şu anda bağlanmak istemiyorum"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "internete bağlı"
+msgstr "Bu ağa bağlan"
 
 #. Type: text
 #. Description
@@ -1890,6 +1882,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Hazır..."

@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-17 21:03+0000\n"
+"PO-Revision-Date: 2012-02-13 01:50+0000\n"
 "Last-Translator: Fran Diéguez <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:25+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Conectando…"
 
 #. Type: text
 #. Description
@@ -52,7 +52,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:180001
 msgid "Install"
-msgstr "Instalar"
+msgstr "Instalación"
 
 #. Type: text
 #. Description
@@ -138,19 +138,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Isto é unha versión en probas do instalador de ${RELEASE} live ${MEDIUM}. "
-"Non é unha versión final; esta virá coa versión final de ${RELEASE} en "
-"octubro de 2011."
+"Este é un pre-lanzamento do instalador ${MEDIUM} live de ${RELEASE}. Non é "
+"unha versión final; que virá co lanzamento final de ${RELEASE} en abril do "
+"2012."
 
 #. Type: text
 #. Description
@@ -234,21 +229,19 @@ msgstr "Escolla unha imaxe"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Tome unha foto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Escolla unha imaxe"
+msgstr "Ou escolla unha imaxe existente:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Capturar foto"
 
 #. Type: text
 #. Description
@@ -399,8 +392,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Se non é a súa intención importar ningunha conta, non seleccione nada e vaia "
-"á páxina seguinte."
+"Se non ten intención de importar ningunha conta non seleccione nada e vaia á "
+"páxina seguinte."
 
 #. Type: text
 #. Description
@@ -455,7 +448,7 @@ msgid ""
 "at the specified location."
 msgstr ""
 "Sentímolo, produciuse un erro e non foi posíbel instalar o xestor de "
-"arrinque na localización indicada."
+"arrinque no lugar indicado."
 
 #. Type: text
 #. Description
@@ -548,7 +541,7 @@ msgid ""
 msgstr ""
 "Sentímolo, produciuse un erro no instalador. Despois de que peche esta "
 "xanela, permitirémoslle informar  deste erro coa ferramenta de informes "
-"integrada. Isto recopilará información sobre o sistema y o proceso de "
+"integrada. Isto recopilará información sobre o sistema e o proceso de "
 "instalación, que será enviado ao sistema de seguemento de erros onde un "
 "desenvolvedor atenderá o problema o máis pronto posíbel."
 
@@ -725,7 +718,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:102001
 msgid "Go Back"
-msgstr "Volver atrás"
+msgstr "Recuar"
 
 #. Type: text
 #. Description
@@ -885,7 +878,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:118001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "O seguinte ficheiro non coincide coa copia orixinal no CD/DVD:"
+msgstr "O seguinte ficheiro non coincide coa copia orixinal do CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1131,7 +1124,7 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"produciuse un erro ao restaurar os aplicativos instalados previamente. A "
+"Produciuse un erro ao restaurar os aplicativos instalados previamente. A "
 "instalación continuará, mais deberá reinstalar manualmente algúns "
 "aplicativos despois de reiniciar o equipo."
 
@@ -1263,7 +1256,7 @@ msgstr "Teclado"
 #. Description
 #: ../ubiquity.templates:178001
 msgid "Disk Setup"
-msgstr "Configuración de disco"
+msgstr "Configuración dos discos"
 
 #. Type: text
 #. Description
@@ -1413,32 +1406,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Contrasinal"
+msgstr "Contrasinal:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Contrasinal feble"
+msgstr "Mostrar o contrasinal"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Non desexo conectarme a una rede wifi neste momento"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "está conectado a Internet"
+msgstr "Conectarse a esta rede"
 
 #. Type: text
 #. Description
@@ -1743,7 +1730,7 @@ msgstr "Instalar ${DISTRO} ${VER} a carón de ${CURDISTRO}"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:243001 ../ubiquity.templates:246001
 msgid "Erase disk and install ${DISTRO}"
-msgstr "Brorar o disco e instalar ${DISTRO}"
+msgstr "Borrar o disco e instalar ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1902,6 +1889,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Cando vostede estea listo..."

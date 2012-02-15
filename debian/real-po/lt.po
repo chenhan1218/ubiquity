@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-10-01 12:03+0000\n"
-"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
+"PO-Revision-Date: 2012-02-10 20:31+0000\n"
+"Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Jungiamasi..."
 
 #. Type: text
 #. Description
@@ -144,6 +144,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
+"Tai yra dar neišleista ${RELEASE} „live ${MEDIUM}“ įdiegimo programa. Tai "
+"dar ne galutinė laida; ji bus išleista kartu su galutine ${RELEASE} laida "
+"2012 m. balandį."
 
 #. Type: text
 #. Description
@@ -227,21 +230,19 @@ msgstr "Pasirinkite paveikslėlį"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Fotografuokite:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Pasirinkite paveikslėlį"
+msgstr "Arba pasirinkite esamą paveikslą:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Fotografuoti"
 
 #. Type: text
 #. Description
@@ -539,6 +540,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Atsiprašome, įdiegimo programa užstrigo. Kai užversite šį langą, leisime "
+"jums pranešti apie klaidą naudojant integruotą pranešimo apie klaidą įrankį. "
+"Jis surinks informaciją apie jūsų sistemą ir jūsų įdiegimo procesą. Išsami "
+"informacija bus nusiųsta į mūsų klaidų sekimo sistemą ir kūrėjas pasirūpins "
+"problema kaip galima greičiau."
 
 #. Type: text
 #. Description
@@ -1402,32 +1408,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Slaptažodis"
+msgstr "Slaptažodis:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Silpnas slaptažodis"
+msgstr "Rodyti slaptažodį"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Aš dabar nenoriu prisijungti prie belaidžio tinklo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "yra prijungtas prie interneto"
+msgstr "Jungtis prie šio tinklo"
 
 #. Type: text
 #. Description
@@ -1893,6 +1893,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Sistema bus pasirengusi, kai jūs būsite pasirengę..."

@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-20 17:13+0000\n"
-"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
+"PO-Revision-Date: 2011-12-28 02:36+0000\n"
+"Last-Translator: Anthony Wong <anthony.wong@canonical.com>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "正在連接..."
 
 #. Type: text
 #. Description
@@ -133,18 +133,13 @@ msgstr "您可能會希望<a href=\"update\">更新本安裝程式</a>。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"這是 ${RELEASE} live ${MEDIUM} 預先發行版本的安裝程式。這不是最終發行版本；"
-"${RELEASE} 的最終發行版將於 2011 年 10 月發行。"
+"這是 ${RELEASE} live ${MEDIUM} 安裝程式的預先發行版。這不是最終發行版"
+"本，${RELEASE} 的最終版將會在2012年4月發行。"
 
 #. Type: text
 #. Description
@@ -232,10 +227,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "選擇圖片"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1356,32 +1349,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "密碼"
+msgstr "密碼："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "密碼強度不足"
+msgstr "顯示密碼"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "我現在還不想連上 wi-fi 無線網路"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "有連接至互聯網"
+msgstr "連接至此網路"
 
 #. Type: text
 #. Description
@@ -1823,6 +1810,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "移除套件中"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "我已準備就緒，就等您了⋯"

@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:24+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
@@ -1324,18 +1324,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "ਪਾਸਵਰਡ"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "ਕਮਜ਼ੋਰ ਪਾਸਵਰਡ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1346,10 +1342,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "ਇੰਟਰਨੈੱਟ ਨਾਲ ਕੁਨੈਕਟ ਕੀਤਾ ਹੋਇਆ ਹੈ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1762,6 +1756,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ਪੈਕੇਜ ਹਟਾਏ ਜਾ ਰਹੇ ਹਨ"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "ਤਿਆਰ ਰਹੋ, ਜਦੋਂ ਤੁਸੀਂ..."

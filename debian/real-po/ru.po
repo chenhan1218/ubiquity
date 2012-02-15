@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-06 12:22+0000\n"
-"PO-Revision-Date: 2011-09-15 13:41+0000\n"
-"Last-Translator: Nikita Putko <Unknown>\n"
+"PO-Revision-Date: 2012-02-12 10:31+0000\n"
+"Last-Translator: Vyacheslav Sharmanov <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-01 21:26+0000\n"
-"X-Generator: Launchpad (build 14071)\n"
+"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Подключение…"
 
 #. Type: text
 #. Description
@@ -138,18 +138,14 @@ msgstr "Вы можете <a href=\"update\">обновить этот уста�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2011."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Это предварительный выпуск Live-${MEDIUM} программы установки ${RELEASE}. "
-"Это не финальный выпуск; он состоится в октябре 2011 года."
+"Это предварительный выпуск программы установки для загрузочного ${MEDIUM} "
+"${RELEASE}. Финальный выпуск будет доступен в финальном выпуске ${RELEASE} в "
+"апреле 2012 г."
 
 #. Type: text
 #. Description
@@ -232,21 +228,19 @@ msgstr "Выберите изображение"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Сделайте фотографию:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Or choose an existing picture:"
-msgstr "Выберите изображение"
+msgstr "Или выберите существующее изображение:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Сделать фотографию"
 
 #. Type: text
 #. Description
@@ -1240,7 +1234,7 @@ msgstr "Подготовка"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Timezone"
-msgstr "Часовой пояс"
+msgstr "Часовая зона"
 
 #. Type: text
 #. Description
@@ -1401,32 +1395,26 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:200001
-#, fuzzy
-#| msgid "Password"
 msgid "Password:"
-msgstr "Пароль"
+msgstr "Пароль:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:201001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Display password"
-msgstr "Слабый пароль"
+msgstr "Отображать пароль"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "На данный момент я не хочу подключатся к wifi-сети"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
-#, fuzzy
-#| msgid "is connected to the Internet"
 msgid "Connect to this network"
-msgstr "подключен к Интернету"
+msgstr "Подключиться к этой сети"
 
 #. Type: text
 #. Description
@@ -1586,13 +1574,13 @@ msgid ""
 msgstr ""
 "Выберите ваше местоположение для того, чтобы система могла верно отображать "
 "единицы измерения для вашей страны, получать обновления с ближайших к вам "
-"серверов и отображать время в вашем часовом поясе."
+"серверов и отображать время в вашей часовой зоне."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Time Zone:"
-msgstr "Часовой пояс:"
+msgstr "Часовая зона:"
 
 #. Type: text
 #. Description
@@ -1794,8 +1782,8 @@ msgstr "Установить ${DISTRO} рядом с ними"
 #: ../ubiquity.templates:248001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr ""
-"На этому компьютере в данный момент установленна система ${OS}. Что вы "
-"желаете сделать?"
+"На этом компьютере в данный момент установлена система ${OS}. Что вы желаете "
+"сделать?"
 
 #. Type: text
 #. Description
@@ -1806,7 +1794,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
-"На этому компьютере в данный момент установленны ${OS1} и ${OS2}. Что вы "
+"На этом компьютере в данный момент установлены ${OS1} и ${OS2}. Что вы "
 "желаете сделать?"
 
 #. Type: text
@@ -1816,7 +1804,7 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
-"На этому компьютере в данный момент установленно несколько систем. Что вы "
+"На этом компьютере в данный момент установлено несколько систем. Что вы "
 "желаете сделать?"
 
 #. Type: text
@@ -1826,7 +1814,7 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
-"На этому компьютере в данный момент не установленно систем. Что вы желаете "
+"На этом компьютере в данный момент не установлено систем. Что вы желаете "
 "сделать?"
 
 #. Type: title
@@ -1892,6 +1880,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Удаление пакетов"
-
-#~ msgid "Ready when you are..."
-#~ msgstr "Когда вы будете готовы..."
