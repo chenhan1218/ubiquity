@@ -1,3 +1,9 @@
+ubiquity (2.9.19) UNRELEASED; urgency=low
+
+  * Install pixmaps/windows_square.png in ubiquity-frontend-gtk.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 Feb 2012 02:40:42 +0000
+
 ubiquity (2.9.18) precise; urgency=low
 
   * Convert from deprecated GtkHBox/GtkVBox to GtkBox, and from
