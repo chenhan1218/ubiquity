@@ -3,6 +3,17 @@ ubiquity (2.9.19) UNRELEASED; urgency=low
   * Install pixmaps/windows_square.png in ubiquity-frontend-gtk.
   * Make it possible to run the test suite against installed packages, and
     add a DEP-8 control file for this.
+  * Refactor copy_all to be more robust, handle some more cases, and be
+    testable and tested.  It can now:
+    - copy a directory over an existing non-directory (LP: #891711);
+    - copy device nodes and sockets over existing non-directories
+      (LP: #495217);
+    - handle all cases of copying a non-directory over an existing empty
+      directory;
+    - copy a symlink over a non-empty directory by attempting to move the
+      directory to the symlink target (LP: #188976);
+    - if all else fails, copy a non-directory over an existing non-empty
+      directory by moving the target aside to a backup location.
   * Update translations from Launchpad.
   * Update imported translations from gtk+3.0 3.3.14-0ubuntu2 and
     gnome-panel 1:3.3.5-0ubuntu2.

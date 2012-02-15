@@ -21,11 +21,13 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import errno
 import fcntl
 from hashlib import md5
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import syslog
@@ -605,6 +607,78 @@ def get_remove_list(cache, to_remove, recursive=False):
         to_remove -= removed
         all_removed |= removed
     return all_removed
+
+def remove_target(source_root, target_root, relpath, st_source):
+    """Remove a target file if necessary and if we can.
+
+    On the whole, we can assume that partman-target has arranged to clear
+    out the areas of the filesystem we're installing to.  However, in edge
+    cases it's possible that there is still some detritus left over, and we
+    want to steer a reasonable course between cavalierly destroying data and
+    crashing.  So, we remove non-directories and empty directories that are
+    in our way, but if a non-empty directory is in our way then we move it
+    aside (adding .bak suffixes until we find something unused) instead.
+    """
+    targetpath = os.path.join(target_root, relpath)
+    try:
+        st_target = os.lstat(targetpath)
+    except OSError:
+        # The target does not exist.  Boring.
+        return
+
+    if stat.S_ISDIR(st_source.st_mode) and stat.S_ISDIR(st_target.st_mode):
+        # One directory is as good as another, so we don't need to remove an
+        # existing directory just in order to create another one.
+        return
+
+    if not stat.S_ISDIR(st_target.st_mode):
+        # Installing over a non-directory is easy; just remove it.
+        osextras.unlink_force(targetpath)
+        return
+
+    try:
+        # Is it an empty directory?  That's easy too.
+        os.rmdir(targetpath)
+        return
+    except OSError, e:
+        if e.errno not in (errno.ENOTEMPTY, errno.EEXIST):
+            raise
+
+    # If we've got this far, then we must be trying to install a
+    # non-directory over an existing non-empty directory.  The slightly
+    # easier case is if it's a symlink, and if the prospective symlink
+    # target hasn't been copied yet or is empty; in that case, we should try
+    # to move the existing directory to the symlink target.
+    if stat.S_ISLNK(st_source.st_mode):
+        sourcepath = os.path.join(source_root, relpath)
+        linkto = os.path.join(
+            os.path.dirname(relpath), os.readlink(sourcepath))
+        if linkto.startswith('/'):
+            linkto = linkto[1:]
+        linktarget = os.path.join(target_root, linkto)
+        try:
+            os.rmdir(linktarget)
+        except OSError:
+            pass
+        if not os.path.exists(linktarget):
+            try:
+                os.makedirs(os.path.dirname(linktarget))
+            except OSError, e:
+                if e.errno != errno.EEXIST:
+                    raise
+            shutil.move(targetpath, linktarget)
+            return
+
+    # We're installing a non-directory over an existing non-empty directory,
+    # and we have no better strategy.  Move the existing directory to a
+    # backup location.
+    backuppath = targetpath + '.bak'
+    while True:
+        if not os.path.exists(backuppath):
+            os.rename(targetpath, backuppath)
+            break
+        else:
+            backuppath = backuppath + '.bak'
 
 def copy_file(db, sourcepath, targetpath, md5_check):
     sourcefh = None
