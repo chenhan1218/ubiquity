@@ -1,20 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf8; -*-
 
-import os
-import sys
 import unittest
 
 import debconf
 import mock
 
-os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
+from ubiquity import plugin_manager
 
 class TimezoneTests(unittest.TestCase):
     def setUp(self):
-        sys.path.insert(0, 'ubiquity/plugins')
-        self.ubi_timezone = __import__('ubi-timezone')
-        sys.path.pop(0)
+        self.ubi_timezone = plugin_manager.load_plugin('ubi-timezone')
         db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(db.shutdown)
         controller = mock.Mock()

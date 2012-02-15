@@ -6,9 +6,6 @@ import unittest
 
 import mock
 
-os.environ['UBIQUITY_PLUGIN_PATH'] = 'ubiquity/plugins'
-os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
-
 class TestFrontend(unittest.TestCase):
     def setUp(self):
         for obj in ('ubiquity.misc.drop_privileges',
@@ -46,6 +43,12 @@ class TestFrontend(unittest.TestCase):
                                      options=(u'♥', u'£'))
             self.assertEqual(ret, u'♥')
 
+    # TODO: I'm not entirely sure this makes sense, but the numbers are
+    # currently rather unstable and seem to depend quite a lot on the theme.
+    # This may have something to do with pixmaps not being set up properly
+    # when testing against a build tree.
+    @unittest.skipIf('UBIQUITY_TEST_INSTALLED' in os.environ,
+                     'only testable against a build tree')
     def test_pages_fit_on_a_netbook(self):
         from ubiquity.frontend import gtk_ui
         ui = gtk_ui.Wizard('test-ubiquity')

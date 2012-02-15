@@ -62,7 +62,9 @@ class WidgetTests(unittest.TestCase):
         WRITE_TO = '/tmp/nonexistent-directory/windows_square.png'
         fs = gtkwidgets.FaceSelector(None)
         fs.selected_image = Gtk.Image()
-        pb = GdkPixbuf.Pixbuf.new_from_file('pixmaps/windows_square.png')
+        PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
+        png = os.path.join(PATH, 'pixmaps', 'windows_square.png')
+        pb = GdkPixbuf.Pixbuf.new_from_file(png)
         fs.selected_image.set_from_pixbuf(pb)
         fs.save_to(WRITE_TO)
         self.assertTrue(os.path.exists(WRITE_TO))

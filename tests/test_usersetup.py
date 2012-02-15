@@ -1,16 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf8; -*-
 
-import os
-import sys
 import unittest
 
 from gi.repository import UbiquityMockResolver
 import mock
 
-from ubiquity import gtkwidgets
-
-os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
+from ubiquity import gtkwidgets, plugin_manager
 
 
 class UserSetupTests(unittest.TestCase):
@@ -21,9 +17,7 @@ class UserSetupTests(unittest.TestCase):
             patcher = mock.patch(obj)
             patcher.start()
             self.addCleanup(patcher.stop)
-        sys.path.insert(0, 'ubiquity/plugins')
-        ubi_usersetup = __import__('ubi-usersetup')
-        sys.path.pop(0)
+        ubi_usersetup = plugin_manager.load_plugin('ubi-usersetup')
         controller = mock.Mock()
         self.ubi_usersetup = ubi_usersetup
         self.gtk = self.ubi_usersetup.PageGtk(controller)

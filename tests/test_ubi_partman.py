@@ -2,7 +2,6 @@
 
 
 import os
-import sys
 from test import test_support
 import unittest
 
@@ -10,13 +9,9 @@ import debconf
 # These tests require Mock 0.7.0
 import mock
 
-from ubiquity import misc
+from ubiquity import misc, plugin_manager
 
-sys.path.insert(0, 'ubiquity/plugins')
-ubi_partman = __import__('ubi-partman')
-sys.path.pop(0)
-
-os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
+ubi_partman = plugin_manager.load_plugin('ubi-partman')
 
 def question_has_variables(question, lookup_variables):
     existing_variables = []

@@ -5,23 +5,9 @@ import os
 import sys
 import subprocess
 import fnmatch
+import optparse
+import shutil
 
-
-# Set up linker and gobject-introspection paths.  If we change the linker
-# path, we must re-exec ourselves.
-
-ld_library_path = os.environ.get('LD_LIBRARY_PATH')
-if ld_library_path is None:
-    ld_library_path = []
-else:
-    ld_library_path = ld_library_path.split(':')
-if 'src/webcam/.libs' not in ld_library_path:
-    ld_library_path.insert(0, 'src/webcam/.libs')
-    ld_library_path.insert(1, 'src/mockresolver/.libs')
-    os.environ['LD_LIBRARY_PATH'] = ':'.join(ld_library_path)
-    os.execv(sys.argv[0], sys.argv)
-
-os.environ['GI_TYPELIB_PATH'] = 'src/webcam:src/mockresolver'
 
 def find_files(directory, pattern):
     for root, dirs, files in os.walk(directory):
@@ -30,37 +16,102 @@ def find_files(directory, pattern):
                 filename = os.path.join(root, basename)
                 yield filename
 
-os.environ['DEBCONF_SYSTEMRC'] = 'tests/debconf.conf'
-sys.path.insert(0, '.')
 
-# Build dependencies for the tests.
-subprocess.check_call(['tests/build'])
+usage = '%prog [options]'
+parser = optparse.OptionParser(usage=usage)
+parser.add_option('--coverage', dest='coverage',
+                  default=False, action='store_true',
+                  help='Produce coverage report')
+parser.add_option('--installed', dest='installed',
+                  default=False, action='store_true',
+                  help='Test installed package')
+options, args = parser.parse_args()
+
+extra_modules = []
+if not options.installed:
+    extra_modules.append('webcam')
+extra_modules.append('mockresolver')
+
+# Set up linker and gobject-introspection paths.  If we change the linker
+# path, we must re-exec ourselves.
+
+re_exec = False
+ld_library_path = os.environ.get('LD_LIBRARY_PATH')
+if ld_library_path is None:
+    ld_library_path = []
+else:
+    ld_library_path = ld_library_path.split(':')
+for extra_module in reversed(extra_modules):
+    libdir = 'src/%s/.libs' % extra_module
+    if libdir not in ld_library_path:
+        ld_library_path.insert(0, libdir)
+        re_exec = True
+if re_exec:
+    os.environ['LD_LIBRARY_PATH'] = ':'.join(ld_library_path)
+    os.execv(sys.argv[0], sys.argv)
+
+os.environ['GI_TYPELIB_PATH'] = ':'.join(
+    ['src/%s' % extra_module for extra_module in extra_modules])
+
+if options.installed:
+    import atexit
+    import re
+    import tempfile
+
+    sys.path.insert(0, '/usr/lib/ubiquity')
+
+    os.environ['UBIQUITY_TEST_INSTALLED'] = '1'
+
+    # The tree must have been built already.  (Once mockresolver is
+    # implemented in Python, this requirement should go away.)
+
+    tempdir = tempfile.mkdtemp(prefix='ubiquity')
+    atexit.register(shutil.rmtree, tempdir)
+    with open('tests/debconf.conf') as conf_in:
+        with open(os.path.join(tempdir, 'debconf.conf'), 'w') as conf_out:
+            for line in conf_in:
+                conf_out.write(re.sub('tests/', '%s/' % tempdir, line))
+    for debconf_file in ('config.dat', 'templates.dat'):
+        shutil.copy2(
+            os.path.join('tests', debconf_file),
+            os.path.join(tempdir, debconf_file))
+    os.environ['DEBCONF_SYSTEMRC'] = os.path.join(tempdir, 'debconf.conf')
+else:
+    sys.path.insert(0, '.')
+
+    try:
+        del os.environ['UBIQUITY_TEST_INSTALLED']
+    except KeyError:
+        pass
+
+    os.environ['UBIQUITY_PATH'] = '.'
+    os.environ['UBIQUITY_PLUGIN_PATH'] = 'ubiquity/plugins'
+    os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
+
+    # Build dependencies for the tests.
+    subprocess.check_call(['tests/build'])
+
+    os.environ['DEBCONF_SYSTEMRC'] = 'tests/debconf.conf'
 
 # Parts borrowed from jockey.
 
-if len(sys.argv) > 1 and sys.argv[1] == 'coverage':
+if options.coverage:
     from coverage import coverage
     cov = coverage()
     cov.start()
-    use_coverage = True
-    sys.argv = sys.argv[0:1] + sys.argv[2:]
-else:
-    use_coverage = False
 
-if len(sys.argv) > 1:
-    filter = sys.argv[1]
-    sys.argv = sys.argv[0:1] + sys.argv[2:]
+if args:
+    test_filter = args[0]
 else:
-    filter = ''
+    test_filter = ''
 
 tests = [t[:-3] for t in os.listdir('tests')
-         if t.startswith('test_') and t.endswith('.py') and filter in t]
+         if t.startswith('test_') and t.endswith('.py') and test_filter in t]
 tests.sort()
 suite = unittest.TestLoader().loadTestsFromNames(tests)
 res = unittest.TextTestRunner(verbosity=2).run(suite)
-if use_coverage:
+if options.coverage:
     if os.path.exists('tests/coverage'):
-        import shutil
         shutil.rmtree('tests/coverage')
     cov.stop()
     from itertools import chain

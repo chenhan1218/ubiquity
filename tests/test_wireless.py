@@ -1,14 +1,10 @@
 #! /usr/bin/python
 
-import os
-import sys
 import unittest
 
 import mock
 
-from ubiquity import gtkwidgets, nm
-
-os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
+from ubiquity import gtkwidgets, nm, plugin_manager
 
 class WirelessTests(unittest.TestCase):
     @mock.patch('ubiquity.nm.NetworkManager.start')
@@ -18,9 +14,7 @@ class WirelessTests(unittest.TestCase):
         has_connection.return_value = True
         get_state.return_value = nm.NM_STATE_DISCONNECTED
 
-        sys.path.insert(0, 'ubiquity/plugins')
-        self.ubi_wireless = __import__('ubi-wireless')
-        sys.path.pop(0)
+        self.ubi_wireless = plugin_manager.load_plugin('ubi-wireless')
 
         self.gtk = self.ubi_wireless.PageGtk(mock.Mock())
         self.nmwidget = self.gtk.nmwidget
