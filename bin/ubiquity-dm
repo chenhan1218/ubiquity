@@ -349,10 +349,12 @@ EndSection
                 wm_cmd = ['matchbox-window-manager']
             elif osextras.find_on_path('openbox-lubuntu'):
                 wm_cmd = ['openbox-lubuntu']
+            elif osextras.find_on_path('openbox'):
+                wm_cmd = ['openbox']
             else:
                 raise MissingProgramError('No window manager found (tried '
                     'metacity, xfwm4, matchbox-window-manager, '
-                    'openbox-lubuntu)')
+                    'openbox-lubuntu, openbox)')
             wm = subprocess.Popen(wm_cmd,
                 stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges)
@@ -382,7 +384,7 @@ EndSection
                 extras.append(proc)
 
             if os.path.exists('/usr/lib/ubiquity/panel') and "xfwm4" not in wm_cmd:
-                if  "openbox-lubuntu" not in wm_cmd:
+                if "openbox-lubuntu" not in wm_cmd and "openbox" not in wm_cmd:
                     extras.append(subprocess.Popen(
                         ['/usr/lib/ubiquity/panel'],
                         stdin=null, stdout=logfile, stderr=logfile,
