@@ -5,6 +5,7 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
   * Fix some more uses of deprecated python-apt APIs.
   * ubiquity-dm: Try openbox after openbox-lubuntu (LP: #888107).
   * Thomson SA is now called Technicolor SA (LP: #856992).
+  * Limit maximum length of username editing widgets to 32 (LP: #831319).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Feb 2012 00:46:24 +0000
 
