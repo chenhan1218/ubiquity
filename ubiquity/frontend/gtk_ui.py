@@ -315,7 +315,6 @@ class Wizard(BaseFrontend):
         self.translate_widgets(reget=True)
 
         self.customize_installer()
-        misc.add_connection_watch(self.network_change)
 
         # Put up the a11y indicator in maybe-ubiquity mode
         if ('UBIQUITY_GREETER' in os.environ and os.path.exists('/usr/bin/casper-a11y-enable')):
@@ -834,6 +833,8 @@ color : @fg_color
 
         # set initial bottom bar status
         self.allow_go_backward(False)
+
+        misc.add_connection_watch(self.network_change)
 
     def poke_screensaver(self):
         """Attempt to make sure that the screensaver doesn't kick in."""

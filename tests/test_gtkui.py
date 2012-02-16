@@ -16,7 +16,6 @@ class TestFrontend(unittest.TestCase):
                     'ubiquity.nm.wireless_hardware_present',
                     'ubiquity.nm.NetworkManager.start',
                     'ubiquity.nm.NetworkManager.get_state',
-                    'ubiquity.misc.add_connection_watch',
                     'ubiquity.misc.has_connection',
                     'ubiquity.upower.setup_power_watch',
                     'dbus.mainloop.glib.DBusGMainLoop',
