@@ -561,7 +561,7 @@ def get_remove_list(cache, to_remove, recursive=False):
             if cachedpkg is not None and cachedpkg.is_installed:
                 apt_error = False
                 try:
-                    cachedpkg.mark_delete(autoFix=False, purge=True)
+                    cachedpkg.mark_delete(auto_fix=False, purge=True)
                 except SystemError:
                     apt_error = True
                 if apt_error:
@@ -581,8 +581,8 @@ def get_remove_list(cache, to_remove, recursive=False):
                             if cachedpkg2 is not None:
                                 broken_removed_inner.add(pkg2)
                                 try:
-                                    cachedpkg2.mark_delete(autoFix=False,
-                                                          purge=True)
+                                    cachedpkg2.mark_delete(auto_fix=False,
+                                                           purge=True)
                                 except SystemError:
                                     apt_error = True
                                     break

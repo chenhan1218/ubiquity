@@ -88,42 +88,42 @@ class Install(install_misc.InstallBase):
             self.target = '/'
             return
 
-        apt_pkg.InitConfig()
-        apt_pkg.Config.set("Dir", self.target)
-        apt_pkg.Config.set("Dir::State::status",
+        apt_pkg.init_config()
+        apt_pkg.config.set("Dir", self.target)
+        apt_pkg.config.set("Dir::State::status",
                            os.path.join(self.target, 'var/lib/dpkg/status'))
-        apt_pkg.Config.set("APT::GPGV::TrustedKeyring",
+        apt_pkg.config.set("APT::GPGV::TrustedKeyring",
                            os.path.join(self.target, 'etc/apt/trusted.gpg'))
 
         # Keep this in sync with configure_apt.
         # TODO cjwatson 2011-03-03: consolidate this.
         try:
             if self.db.get('base-installer/install-recommends') == 'false':
-                apt_pkg.Config.set("APT::Install-Recommends", "false")
+                apt_pkg.config.set("APT::Install-Recommends", "false")
         except debconf.DebconfError:
             pass
-        apt_pkg.Config.set("APT::Authentication::TrustCDROM", "true")
-        apt_pkg.Config.set("Acquire::gpgv::Options::",
+        apt_pkg.config.set("APT::Authentication::TrustCDROM", "true")
+        apt_pkg.config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
         try:
             if self.db.get('debian-installer/allow_unauthenticated') == 'true':
-                apt_pkg.Config.set("APT::Get::AllowUnauthenticated", "true")
-                apt_pkg.Config.set(
+                apt_pkg.config.set("APT::Get::AllowUnauthenticated", "true")
+                apt_pkg.config.set(
                     "Aptitude::CmdLine::Ignore-Trust-Violations", "true")
         except debconf.DebconfError:
             pass
-        apt_pkg.Config.set("APT::CDROM::NoMount", "true")
-        apt_pkg.Config.set("Acquire::cdrom::mount", "/cdrom")
-        apt_pkg.Config.set("Acquire::cdrom::/cdrom/::Mount", "true")
-        apt_pkg.Config.set("Acquire::cdrom::/cdrom/::UMount", "true")
-        apt_pkg.Config.set("Acquire::cdrom::AutoDetect", "false")
-        apt_pkg.Config.set("Dir::Media::MountPath", "/cdrom")
+        apt_pkg.config.set("APT::CDROM::NoMount", "true")
+        apt_pkg.config.set("Acquire::cdrom::mount", "/cdrom")
+        apt_pkg.config.set("Acquire::cdrom::/cdrom/::Mount", "true")
+        apt_pkg.config.set("Acquire::cdrom::/cdrom/::UMount", "true")
+        apt_pkg.config.set("Acquire::cdrom::AutoDetect", "false")
+        apt_pkg.config.set("Dir::Media::MountPath", "/cdrom")
 
-        apt_pkg.Config.set("DPkg::Options::", "--root=%s" % self.target)
+        apt_pkg.config.set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
-        apt_pkg.Config.clear("DPkg::Pre-Install-Pkgs")
-        apt_pkg.InitSystem()
+        apt_pkg.config.clear("DPkg::Pre-Install-Pkgs")
+        apt_pkg.init_system()
 
         use_restricted = True
         try:
@@ -685,7 +685,7 @@ class Install(install_misc.InstallBase):
         kern = install_misc.get_cache_pkg(cache, pkg)
         if kern is None:
             return None
-        pkc = cache._depcache.GetCandidateVer(kern._pkg)
+        pkc = cache._depcache.get_candidate_ver(kern._pkg)
         if 'Depends' in pkc.depends_list:
             dependencies = pkc.depends_list['Depends']
         else:
