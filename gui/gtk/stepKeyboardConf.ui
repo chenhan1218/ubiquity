@@ -135,7 +135,7 @@
             <property name="yscale">0</property>
             <child>
               <object class="GtkButton" id="deduce_layout">
-                <property name="label" translatable="yes">Figure out keyboard layout</property>
+                <property name="label" translatable="yes">Detect Keyboard Layout</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
