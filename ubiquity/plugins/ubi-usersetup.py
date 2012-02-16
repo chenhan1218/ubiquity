@@ -30,7 +30,7 @@ import re
 import debconf
 
 from ubiquity import validation
-from ubiquity.misc import execute, execute_root, dmimodel, utf8
+from ubiquity import misc
 from ubiquity import plugin
 
 NAME = 'usersetup'
@@ -42,7 +42,7 @@ def check_hostname(hostname):
     invalid."""
     # TODO: i18n
     e = []
-    for result in validation.check_hostname(utf8(hostname)):
+    for result in validation.check_hostname(misc.utf8(hostname)):
         if result == validation.HOSTNAME_LENGTH:
             e.append("Must be between 1 and 63 characters long.")
         elif result == validation.HOSTNAME_BADCHAR:
@@ -72,11 +72,11 @@ def check_username(username):
 
 class PageBase(plugin.PluginUI):
     def __init__(self):
-        self.suffix = dmimodel()
+        self.suffix = misc.dmimodel()
         if self.suffix:
             self.suffix = '-%s' % self.suffix
         else:
-            if execute("laptop-detect"):
+            if misc.execute("laptop-detect"):
                 self.suffix = '-laptop'
             else:
                 self.suffix = '-desktop'
@@ -221,8 +221,8 @@ class PageGtk(PageBase):
             self.hostname_edited = True
             self.login_vbox.hide()
             # The UserSetup component takes care of preseeding passwd/user-uid.
-            execute_root('apt-install', 'oem-config-gtk',
-                                        'oem-config-slideshow-ubuntu')
+            misc.execute_root('apt-install', 'oem-config-gtk',
+                                             'oem-config-slideshow-ubuntu')
 
         self.plugin_widgets = self.page
 
@@ -317,7 +317,7 @@ class PageGtk(PageBase):
         if (widget is not None and widget.get_name() == 'fullname' and
             not self.username_edited):
             self.username.handler_block(self.username_changed_id)
-            new_username = utf8(widget.get_text().split(' ')[0])
+            new_username = misc.utf8(widget.get_text().split(' ')[0])
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.lower()
             self.username.set_text(new_username)
@@ -474,7 +474,7 @@ class PageKde(PageBase):
             self.page.hostname.setText('oem%s' % self.suffix)
 
             # The UserSetup component takes care of preseeding passwd/user-uid.
-            execute_root('apt-install', 'oem-config-kde')
+            misc.execute_root('apt-install', 'oem-config-kde')
 
         iconLoader = KIconLoader()
         warningIcon = iconLoader.loadIcon("dialog-warning", KIconLoader.Desktop)
