@@ -1154,7 +1154,7 @@ Template: ubiquity/text/prepare_foss_disclaimer_extra_label
 Type: text
 _Description:
  Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed
- from Fraunhofer IIS and Thomson.
+ from Fraunhofer IIS and Technicolor SA.
 
 Template: ubiquity/text/prepare_nonfree_software
 Type: text

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-06 12:22+0000\n"
+"POT-Creation-Date: 2012-02-16 03:33+0000\n"
 "PO-Revision-Date: 2011-09-16 11:09+0000\n"
 "Last-Translator: පසිඳු කාවින්ද <Unknown>\n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
@@ -1487,9 +1487,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
+#, fuzzy
+#| msgid ""
+#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
+#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
-"from Fraunhofer IIS and Thomson."
+"from Fraunhofer IIS and Technicolor SA."
 msgstr ""
 "Fluendo MP3 ප්ලගිනය විසින් Fraunhofer IIS හා Thomson වෙත ලියාපදිංචි කල MPEG ලේයර්-3 "
 "ශ්‍රව්‍ය විකේතන තාක්‍ෂණයක් භාවිත කරයි."
