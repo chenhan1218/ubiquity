@@ -335,9 +335,25 @@ class Install(install_misc.InstallBase):
         self.db.progress('INFO', 'ubiquity/install/copying')
 
         fs_size = os.path.join(self.casper_path, 'filesystem.size')
-        assert os.path.exists(fs_size), "Missing filesystem.size."
-        with open(fs_size) as total_size_fp:
-            total_size = int(total_size_fp.readline())
+        if os.path.exists(fs_size):
+            with open(fs_size) as total_size_fp:
+                total_size = int(total_size_fp.readline())
+        else:
+            # Fallback in case an Ubuntu derivative forgets to put
+            # /casper/filesystem.size on the CD, or to account for things
+            # like CD->USB transformation tools that don't copy this file.
+            # This is slower than just reading the size from a file, but
+            # better than crashing.
+            #
+            # Obviously doing os.walk() twice is inefficient, but I'd rather
+            # not suck the list into ubiquity's memory, and I'm guessing
+            # that the kernel's dentry cache will avoid most of the slowness
+            # anyway.
+            total_size = 0
+            for dirpath, dirnames, filenames in os.walk(self.source):
+                for name in dirnames + filenames:
+                    fqpath = os.path.join(dirpath, name)
+                    total_size += os.lstat(fqpath).st_size
 
         # Progress bar handling:
         # We sample progress every half-second (assuming time.time() gives
