@@ -185,11 +185,11 @@ class DM:
 
         servercommand.extend([self.vt, self.display])
 
-        for attempt in ('main', 'failsafe'):
+        for attempt in ('main', 'fbdev', 'vesa'):
             command = list(servercommand)
             if attempt == 'main' and self.force_failsafe:
                 continue
-            elif attempt == 'failsafe':
+            elif attempt != 'main':
                 # TODO cjwatson 2010-02-11: This is a bodge.  The
                 # duplication is nasty, but fortunately bullet-proof X
                 # actually turns out not to be very complicated nowadays.
@@ -199,17 +199,14 @@ class DM:
                 # is working on doing that, but is blocked on a couple of
                 # Upstart bugs; once all that's resolved, we should back
                 # this out.
-                if os.path.exists('/dev/fb0'):
-                    driver = 'fbdev'
-                else:
-                    driver = 'vesa'
+                if attempt == 'fbdev' and not os.path.exists('/dev/fb0'):
+                    continue
                 xorg_conf_failsafe = '/etc/X11/xorg.conf.failsafe'
                 command.extend(['-config', xorg_conf_failsafe])
-                command.extend(['-logfile', '/var/log/Xorg.failsafe.log'])
+                command.extend(['-logfile', '/var/log/Xorg.%s.log' % attempt])
 
-                if not os.path.exists(xorg_conf_failsafe):
-                    xorg_conf_failsafe_file = open(xorg_conf_failsafe, 'w')
-                    print >>xorg_conf_failsafe_file, '''\
+                xorg_conf_failsafe_file = open(xorg_conf_failsafe, 'w')
+                print >>xorg_conf_failsafe_file, '''\
 Section "Device"
 	Identifier	"Configured Video Device"
 	Driver		"%s"
@@ -224,8 +221,8 @@ Section "Screen"
 	Monitor		"Configured Monitor"
 	Device		"Configured Video Device"
 EndSection
-''' % driver
-                    xorg_conf_failsafe_file.close()
+''' % attempt
+                xorg_conf_failsafe_file.close()
 
             server = subprocess.Popen(
                 command, stdin=null, stdout=logfile, stderr=logfile,
@@ -252,7 +249,7 @@ EndSection
                 if plymouth_running:
                     subprocess.call(['plymouth', 'quit', '--retain-splash'])
             except XStartupError:
-                if attempt == 'failsafe':
+                if attempt == 'vesa':
                     raise
 
             if self.server_started:

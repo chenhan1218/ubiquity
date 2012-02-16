@@ -1,5 +1,6 @@
 ubiquity (2.9.20) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Restore old fallback code in case /cdrom/casper/filesystem.size doesn't
     exist (LP: #557388).
   * Fix some more uses of deprecated python-apt APIs.
@@ -13,6 +14,11 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
     where it's useful to see the UIs constructed by the test suite.
   * Stop manually inserting newlines in hostname and username errors.  GTK+
     3 seems to do a reasonable job of wrapping these by itself now.
+
+  [ Mario Limonciello ]
+  * Have two separate failsafe attempts for 'fbdev' and 'vesa'.  It's
+    possible that /dev/fb0 will exist but be backed by a VGA framebuffer
+    causing X to exit non-zero.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Feb 2012 00:46:24 +0000
 
