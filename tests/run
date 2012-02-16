@@ -25,7 +25,16 @@ parser.add_option('--coverage', dest='coverage',
 parser.add_option('--installed', dest='installed',
                   default=False, action='store_true',
                   help='Test installed package')
+parser.add_option('--no-xvfb', dest='xvfb',
+                  default=True, action='store_false',
+                  help="Don't run tests under Xvfb")
 options, args = parser.parse_args()
+
+if options.xvfb:
+    argv = list(sys.argv)
+    argv.insert(1, '--no-xvfb')
+    argv.insert(0, 'xvfb-run')
+    os.execvp('xvfb-run', argv)
 
 extra_modules = []
 if not options.installed:

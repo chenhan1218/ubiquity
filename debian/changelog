@@ -8,6 +8,9 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
   * Limit maximum length of username editing widgets to 32 (LP: #831319).
   * UTF-8-encode the syslog message when a geoname lookup fails, since it
     might include non-ASCII characters entered by the user (LP: #928891).
+  * Run test suite under xvfb-run by default when running it from the
+    command line.  'tests/run --no-xvfb' inhibits this behaviour for cases
+    where it's useful to see the UIs constructed by the test suite.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Feb 2012 00:46:24 +0000
 
