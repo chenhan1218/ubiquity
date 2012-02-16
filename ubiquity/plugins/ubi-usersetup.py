@@ -42,17 +42,15 @@ def check_hostname(hostname):
     invalid."""
     # TODO: i18n
     e = []
-    # Ahem.  We can cheat here by inserting newlines where needed.  Hopefully
-    # by the time we translate this, GTK+ will have decent layout management.
     for result in validation.check_hostname(utf8(hostname)):
         if result == validation.HOSTNAME_LENGTH:
             e.append("Must be between 1 and 63 characters long.")
         elif result == validation.HOSTNAME_BADCHAR:
-            e.append("May only contain letters, digits,\nhyphens, and dots.")
+            e.append("May only contain letters, digits, hyphens, and dots.")
         elif result == validation.HOSTNAME_BADHYPHEN:
             e.append("May not start or end with a hyphen.")
         elif result == validation.HOSTNAME_BADDOTS:
-            e.append('May not start or end with a dot,\n'
+            e.append('May not start or end with a dot, '
                      'or contain the sequence "..".')
     return "\n".join(e)
 
@@ -60,8 +58,6 @@ def check_username(username):
     """Returns a newline separated string of reasons why the username is
     invalid."""
     # TODO: i18n
-    # Ahem.  We can cheat here by inserting newlines where needed.  Hopefully
-    # by the time we translate this, GTK+ will have decent layout management.
     if username:
         if not re.match('[a-z]', username[0]):
             return "Must start with a lower-case letter."
@@ -70,7 +66,7 @@ def check_username(username):
         # with an upper-case letter, and it's probably sufficient to just
         # issue the first error in that case.
         elif not re.match('^[-a-z0-9_]+$', username):
-            return ("May only contain lower-case letters,\n"
+            return ("May only contain lower-case letters, "
                     "digits, hyphens, and underscores.")
     return ''
 

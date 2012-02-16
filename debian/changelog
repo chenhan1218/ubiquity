@@ -11,6 +11,8 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
   * Run test suite under xvfb-run by default when running it from the
     command line.  'tests/run --no-xvfb' inhibits this behaviour for cases
     where it's useful to see the UIs constructed by the test suite.
+  * Stop manually inserting newlines in hostname and username errors.  GTK+
+    3 seems to do a reasonable job of wrapping these by itself now.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Feb 2012 00:46:24 +0000
 

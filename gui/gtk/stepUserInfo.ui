@@ -423,6 +423,7 @@
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">&lt;small&gt;&lt;span color="darkred"&gt;You must enter a name&lt;/span&gt;&lt;/small&gt;</property>
                     <property name="use_markup">True</property>
+                    <property name="wrap">True</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
