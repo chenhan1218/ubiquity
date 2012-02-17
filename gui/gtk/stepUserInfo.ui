@@ -19,12 +19,10 @@
       </packing>
     </child>
     <child>
-      <object class="GtkTable" id="userinfo_table">
+      <object class="GtkGrid" id="userinfo_table">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="border_width">20</property>
-        <property name="n_rows">6</property>
-        <property name="n_columns">2</property>
         <property name="column_spacing">6</property>
         <property name="row_spacing">6</property>
         <child>
@@ -34,9 +32,6 @@
             <property name="xalign">1</property>
             <property name="label" translatable="yes">Your name:</property>
           </object>
-          <packing>
-            <property name="y_options"></property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel" id="username_label">
@@ -47,9 +42,8 @@
             <property name="justify">right</property>
           </object>
           <packing>
+            <property name="left_attach">0</property>
             <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -61,9 +55,8 @@
             <property name="justify">right</property>
           </object>
           <packing>
+            <property name="left_attach">0</property>
             <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -75,9 +68,8 @@
             <property name="justify">right</property>
           </object>
           <packing>
+            <property name="left_attach">0</property>
             <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -148,10 +140,7 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -196,10 +185,7 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">3</property>
-            <property name="bottom_attach">4</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -256,10 +242,7 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">4</property>
-            <property name="bottom_attach">5</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -300,12 +283,10 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="hbox4">
+          <object class="GtkBox" id="username_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="spacing">6</property>
@@ -342,6 +323,7 @@
             </child>
             <child>
               <object class="GtkLabel" id="username_error_label">
+                <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">&lt;small&gt;&lt;span color="darkred"&gt;You must enter a username&lt;/span&gt;&lt;/small&gt;</property>
@@ -357,10 +339,7 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">2</property>
-            <property name="bottom_attach">3</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -373,13 +352,12 @@
             </child>
           </object>
           <packing>
+            <property name="left_attach">0</property>
             <property name="top_attach">5</property>
-            <property name="bottom_attach">6</property>
-            <property name="y_options">GTK_FILL</property>
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box2">
+          <object class="GtkBox" id="hostname_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
@@ -457,10 +435,7 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="right_attach">2</property>
             <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-            <property name="y_options"></property>
           </packing>
         </child>
         <child>
@@ -478,9 +453,8 @@
             </child>
           </object>
           <packing>
+            <property name="left_attach">0</property>
             <property name="top_attach">1</property>
-            <property name="bottom_attach">2</property>
-            <property name="y_options"></property>
           </packing>
         </child>
       </object>

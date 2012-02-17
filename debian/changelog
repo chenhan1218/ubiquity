@@ -14,6 +14,8 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
     where it's useful to see the UIs constructed by the test suite.
   * Stop manually inserting newlines in hostname and username errors.  GTK+
     3 seems to do a reasonable job of wrapping these by itself now.
+  * Port the user page from GtkTable to GtkGrid, so that we get sensible
+    height-for-width geometry management (LP: #830933).
 
   [ Mario Limonciello ]
   * Have two separate failsafe attempts for 'fbdev' and 'vesa'.  It's
