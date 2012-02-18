@@ -38,37 +38,35 @@ AFTER = 'console_setup'
 WEIGHT = 10
 
 def check_hostname(hostname):
-    """Returns a newline separated string of reasons why the hostname is
-    invalid."""
-    # TODO: i18n
-    e = []
+    """Returns a list of reasons why the hostname is invalid."""
+    errors = []
     for result in validation.check_hostname(misc.utf8(hostname)):
         if result == validation.HOSTNAME_LENGTH:
-            e.append("Must be between 1 and 63 characters long.")
+            errors.append('hostname_error_length')
         elif result == validation.HOSTNAME_BADCHAR:
-            e.append("May only contain letters, digits, hyphens, and dots.")
+            errors.append('hostname_error_badchar')
         elif result == validation.HOSTNAME_BADHYPHEN:
-            e.append("May not start or end with a hyphen.")
+            errors.append('hostname_error_badhyphen')
         elif result == validation.HOSTNAME_BADDOTS:
-            e.append('May not start or end with a dot, '
-                     'or contain the sequence "..".')
-    return "\n".join(e)
+            errors.append('hostname_error_baddots')
+    return errors
 
 def check_username(username):
-    """Returns a newline separated string of reasons why the username is
-    invalid."""
-    # TODO: i18n
+    """Returns a list of reasons why the username is invalid."""
     if username:
         if not re.match('[a-z]', username[0]):
-            return "Must start with a lower-case letter."
+            return ['username_error_badfirstchar']
         # Technically both these conditions might hold.  However, the common
         # case seems to be that somebody starts typing their name beginning
         # with an upper-case letter, and it's probably sufficient to just
         # issue the first error in that case.
         elif not re.match('^[-a-z0-9_]+$', username):
-            return ("May only contain lower-case letters, "
-                    "digits, hyphens, and underscores.")
-    return ''
+            return ['username_error_badchar']
+    return []
+
+def make_error_string(controller, errors):
+    """Returns a newline-separated string of translated error reasons."""
+    return "\n".join([controller.get_string(error) for error in errors])
 
 class PageBase(plugin.PluginUI):
     def __init__(self):
@@ -342,9 +340,9 @@ class PageGtk(PageBase):
 
         text = self.username.get_text()
         if text:
-            error_msg = check_username(text)
-            if error_msg:
-                self.username_error(error_msg)
+            errors = check_username(text)
+            if errors:
+                self.username_error(make_error_string(self.controller, errors))
                 complete = False
             else:
                 self.username_ok.show()
@@ -388,9 +386,9 @@ class PageGtk(PageBase):
         txt = self.hostname.get_text()
         self.hostname_ok.show()
         if txt:
-            error_msg = check_hostname(txt)
-            if error_msg:
-                self.hostname_error(error_msg)
+            errors = check_hostname(txt)
+            if errors:
+                self.hostname_error(make_error_string(self.controller, errors))
                 complete = False
                 self.hostname_ok.hide()
             else:
@@ -774,11 +772,11 @@ class Page(plugin.Plugin):
         hostname = self.ui.get_hostname()
 
         # check if the hostname had errors
-        error_msg = check_hostname(hostname)
+        errors = check_hostname(hostname)
 
         # showing warning message is error is set
-        if len(error_msg) != 0:
-            self.ui.hostname_error(error_msg)
+        if errors:
+            self.ui.hostname_error(make_error_string(self.controller, errors))
             self.done = False
             self.enter_ui_loop()
             return

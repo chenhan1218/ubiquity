@@ -9,6 +9,10 @@ import mock
 from ubiquity import gtkwidgets, plugin_manager
 
 
+def mock_get_string(name, lang=None, prefix=None):
+    return "%s: %s" % (lang, name)
+
+
 class UserSetupTests(unittest.TestCase):
     def setUp(self):
         for obj in ('ubiquity.misc.execute',
@@ -19,6 +23,7 @@ class UserSetupTests(unittest.TestCase):
             self.addCleanup(patcher.stop)
         ubi_usersetup = plugin_manager.load_plugin('ubi-usersetup')
         controller = mock.Mock()
+        controller.oem_config = False
         self.ubi_usersetup = ubi_usersetup
         self.gtk = self.ubi_usersetup.PageGtk(controller)
 
@@ -44,40 +49,37 @@ class UserSetupTests(unittest.TestCase):
         self.assertTrue(self.gtk.hostname_error.call_count > 0)
         self.gtk.hostname_error.assert_called_with(error_msg)
 
+    def assertHostnameErrors(self, errors, hostname):
+        self.assertEqual(errors, self.ubi_usersetup.check_hostname(hostname))
+
     def test_check_hostname(self):
-        self.assertEqual(self.ubi_usersetup.check_hostname('a' * 64),
-            "Must be between 1 and 63 characters long.")
-        self.assertEqual(self.ubi_usersetup.check_hostname('abc123$'),
-            "May only contain letters, digits, hyphens, and dots.")
-        self.assertEqual(self.ubi_usersetup.check_hostname('-abc123'),
-            "May not start or end with a hyphen.")
-        self.assertEqual(self.ubi_usersetup.check_hostname('abc123-'),
-            "May not start or end with a hyphen.")
-        self.assertEqual(self.ubi_usersetup.check_hostname('.abc123'),
-            'May not start or end with a dot, or contain the sequence "..".')
-        self.assertEqual(self.ubi_usersetup.check_hostname('abc123.'),
-            'May not start or end with a dot, or contain the sequence "..".')
-        self.assertEqual(self.ubi_usersetup.check_hostname('abc..123'),
-            'May not start or end with a dot, or contain the sequence "..".')
-        self.assertEqual(self.ubi_usersetup.check_hostname(
-            '-abc..123$' + 'a' * 64),
-            ('Must be between 1 and 63 characters long.\n'
-            'May only contain letters, digits, hyphens, and dots.\n'
-            'May not start or end with a hyphen.\n'
-            'May not start or end with a dot, or contain the sequence "..".'))
-        self.assertEqual(self.ubi_usersetup.check_hostname('abc123'), '')
+        self.assertHostnameErrors(['hostname_error_length'], 'a' * 64)
+        self.assertHostnameErrors(['hostname_error_badchar'], 'abc123$')
+        self.assertHostnameErrors(['hostname_error_badhyphen'], '-abc123')
+        self.assertHostnameErrors(['hostname_error_badhyphen'], 'abc123-')
+        self.assertHostnameErrors(['hostname_error_baddots'], '.abc123')
+        self.assertHostnameErrors(['hostname_error_baddots'], 'abc123.')
+        self.assertHostnameErrors(['hostname_error_baddots'], 'abc..123')
+        self.assertHostnameErrors([
+            'hostname_error_length',
+            'hostname_error_badchar',
+            'hostname_error_badhyphen',
+            'hostname_error_baddots',
+            ], '-abc..123$' + 'a' * 64)
+        self.assertHostnameErrors([], 'abc123')
+
+    def assertUsernameErrors(self, errors, username):
+        self.assertEqual(errors, self.ubi_usersetup.check_username(username))
 
     def test_check_username(self):
-        self.assertEqual(self.ubi_usersetup.check_username('Evan'),
-            "Must start with a lower-case letter.")
-        self.assertEqual(self.ubi_usersetup.check_username('evan$'),
-            ("May only contain lower-case letters, "
-             "digits, hyphens, and underscores."))
-        self.assertEqual(self.ubi_usersetup.check_username('evan'), '')
+        self.assertUsernameErrors(['username_error_badfirstchar'], 'Evan')
+        self.assertUsernameErrors(['username_error_badchar'], 'evan$')
+        self.assertUsernameErrors([], 'evan')
 
     def test_unicode(self):
         # i18n needs to be imported to register ascii_transliterate
         from ubiquity import i18n
+        self.gtk.controller.get_string = mock_get_string
         heart = u'♥'
         self.gtk.set_fullname(heart)
         self.gtk.set_username(heart)
@@ -89,7 +91,6 @@ class UserSetupTests(unittest.TestCase):
         self.gtk.hostname_edited = False
         self.gtk.info_loop(self.gtk.fullname)
         self.gtk.info_loop(self.gtk.username)
-
 
     def test_on_authentication_toggled(self):
         self.gtk.login_encrypt.set_active(True)

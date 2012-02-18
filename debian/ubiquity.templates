@@ -175,6 +175,14 @@ Template: ubiquity/text/username_inactive_label
 Type: text
 _Description: Username
 
+Template: ubiquity/text/username_error_badfirstchar
+Type: text
+_Description: Must start with a lower-case letter.
+
+Template: ubiquity/text/username_error_badchar
+Type: text
+_Description: May only contain lower-case letters, digits, hyphens, and underscores.
+
 Template: ubiquity/text/password_label
 Type: text
 _Description: Choose a password:
@@ -198,6 +206,22 @@ _Description: Your computer's name:
 Template: ubiquity/text/hostname_extra_label
 Type: text
 _Description: The name it uses when it talks to other computers.
+
+Template: ubiquity/text/hostname_error_length
+Type: text
+_Description: Must be between 1 and 63 characters long.
+
+Template: ubiquity/text/hostname_error_badchar
+Type: text
+_Description: May only contain letters, digits, hyphens, and dots.
+
+Template: ubiquity/text/hostname_error_badhyphen
+Type: text
+_Description: May not start or end with a hyphen.
+
+Template: ubiquity/text/hostname_error_baddots
+Type: text
+_Description: May not start or end with a dot, or contain the sequence "..".
 
 # TODO Get rid of this by filtering out the password?
 Template: ubiquity/text/password_debug_warning_label

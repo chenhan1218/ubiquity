@@ -16,6 +16,7 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
     3 seems to do a reasonable job of wrapping these by itself now.
   * Port the user page from GtkTable to GtkGrid, so that we get sensible
     height-for-width geometry management (LP: #830933).
+  * Internationalise hostname and username validation errors (LP: #784825).
 
   [ Mario Limonciello ]
   * Have two separate failsafe attempts for 'fbdev' and 'vesa'.  It's
