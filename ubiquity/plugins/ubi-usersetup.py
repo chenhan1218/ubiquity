@@ -222,6 +222,7 @@ class PageGtk(PageBase):
             misc.execute_root('apt-install', 'oem-config-gtk',
                                              'oem-config-slideshow-ubuntu')
 
+        self.resolver_ok = True
         self.plugin_widgets = self.page
 
     def plugin_translate(self, lang):
@@ -426,11 +427,27 @@ class PageGtk(PageBase):
             self.hostname_ok.hide()
 
     def hostname_timeout(self, widget):
-        if self.hostname_ok.get_property('visible'):
+        if self.hostname_ok.get_property('visible') and self.resolver_ok :
             hostname = widget.get_text()
             for host in (hostname, '%s.local' % hostname):
                 self.resolver.lookup_by_name_async(
                     host, None, self.lookup_result, None)
+
+    def detect_bogus_result(self, hostname = 'xyzzy_does_not_exist'):
+        # bug 760884
+        # On networks where DNS fakes a response for unknown hosts,
+        # don't display a warning for hostnames that already exist.
+        self.resolver.lookup_by_name_async(
+            hostname, None, self.bogus_lookup_result, None)
+
+    def bogus_lookup_result(self, resolver, result, unused):
+        from gi.repository import GObject
+        try:
+            resolver.lookup_by_name_finish(result)
+        except GObject.GError:
+            self.resolver_ok = True
+        else:
+            self.resolver_ok = False
 
     def on_authentication_toggled(self, w):
         if w == self.login_auto and w.get_active():
