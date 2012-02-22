@@ -1,4 +1,4 @@
-ubiquity (2.9.20) UNRELEASED; urgency=low
+ubiquity (2.9.20) precise; urgency=low
 
   [ Colin Watson ]
   * Restore old fallback code in case /cdrom/casper/filesystem.size doesn't
@@ -26,8 +26,10 @@ ubiquity (2.9.20) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * Use the Xubuntu wallpaper when available. (LP: #936572)
   * Detect bogus DNS servers and ignore them. (LP: #760884)
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu5, choose-mirror 2.39ubuntu4.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 21 Feb 2012 21:04:51 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 21 Feb 2012 21:09:02 -0500
 
 ubiquity (2.9.19) precise; urgency=low
 
