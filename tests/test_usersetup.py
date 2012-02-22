@@ -49,6 +49,18 @@ class UserSetupTests(unittest.TestCase):
         self.assertTrue(self.gtk.hostname_error.call_count > 0)
         self.gtk.hostname_error.assert_called_with(error_msg)
 
+    def test_hostname_check_bogus_dns(self):
+        self.gtk.resolver = UbiquityMockResolver.MockResolver(
+            hostname='myhostname')
+        self.gtk.detect_bogus_result('myhostname')
+        gtkwidgets.refresh()
+        self.gtk.hostname_ok.show()
+        self.gtk.hostname.set_text('myhostname')
+        self.gtk.hostname_error = mock.Mock()
+        self.gtk.hostname_timeout(self.gtk.hostname)
+        gtkwidgets.refresh()
+        self.assertEqual(self.gtk.hostname_error.call_count, 0)
+
     def assertHostnameErrors(self, errors, hostname):
         self.assertEqual(errors, self.ubi_usersetup.check_hostname(hostname))
 
