@@ -393,6 +393,13 @@ EndSection
                     ['nm-applet'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
+
+            if osextras.find_on_path('ibus-daemon'):
+                extras.append(subprocess.Popen(
+                    ['ibus-daemon'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
+
             # Accessibility tools
             if accessibility == True:
                 with open('/proc/cmdline', 'r') as fp:
