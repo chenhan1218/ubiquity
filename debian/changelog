@@ -1,4 +1,4 @@
-ubiquity (2.9.21) UNRELEASED; urgency=low
+ubiquity (2.9.21) precise; urgency=low
 
   [ Stéphane Graber ]
   * Get ubiquity-dm to spawn ibus-daemon when using the GTK frontend.
@@ -7,7 +7,7 @@ ubiquity (2.9.21) UNRELEASED; urgency=low
   [ Evan Dandrea ]
   * We're in beta now.
 
- -- Evan Dandrea <ev@ubuntu.com>  Thu, 23 Feb 2012 13:41:42 +0000
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 23 Feb 2012 15:13:41 +0000
 
 ubiquity (2.9.20) precise; urgency=low
 
