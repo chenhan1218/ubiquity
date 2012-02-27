@@ -3,8 +3,11 @@ ubiquity (2.9.22) UNRELEASED; urgency=low
   * ubi-partman:
     - Avoid crash when calling contextual menu on a partition list item.
       (LP: #936115)
+    - Add logic to parse the current and new version number and only
+      allow reusing an existing install if the target is older than the
+      media. (LP: #898278)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 27 Feb 2012 10:03:43 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 27 Feb 2012 11:13:58 -0500
 
 ubiquity (2.9.21) precise; urgency=low
 

@@ -1755,10 +1755,24 @@ class Page(plugin.Plugin):
                 else:
                     # "Windows (or Mac, ...) and an older version of Ubuntu are
                     # present" case
-                    # TODO: Verify that the version is in fact older.
+
+                    # Only allow reuse with newer install media
+                    # also block reuse when invalid version number or codename
+                    try:
+                        current_version = re.split(".*([0-9]{2}\.[0-9]{2}).*", ubuntu)
+                        new_version = re.split(".*([0-9]{2}\.[0-9]{2}).*", release.version)
+
+                        if len(current_version) < 2 or len(new_version) < 2:
+                            return None
+
+                        if float(current_version[1]) >= float(new_version[1]):
+                            return None
+                    except ValueError:
+                        return None
+
                     q = 'ubiquity/partitioner/ubuntu_upgrade'
                     self.db.subst(q, 'CURDISTRO', ubuntu)
-                    self.db.subst(q, 'VER', release.version)
+                    self.db.subst(q, 'VER', "%s %s" % (release.name, release.version))
                     title = self.description(q)
                     desc = self.extended_description(q)
                     return PartitioningOption(title, desc)
