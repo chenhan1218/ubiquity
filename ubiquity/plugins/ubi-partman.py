@@ -731,7 +731,7 @@ class PageGtk(PageBase):
         else:
             button = 0
             time = 0
-        partition_list_menu.popup(None, None, None, button, time)
+        partition_list_menu.popup(None, None, None, None, button, time)
 
     @plugin.only_this_page
     def partman_create_dialog (self, devpart, partition):

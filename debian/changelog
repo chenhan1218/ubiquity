@@ -1,3 +1,11 @@
+ubiquity (2.9.22) UNRELEASED; urgency=low
+
+  * ubi-partman:
+    - Avoid crash when calling contextual menu on a partition list item.
+      (LP: #936115)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 27 Feb 2012 10:03:43 -0500
+
 ubiquity (2.9.21) precise; urgency=low
 
   [ Stéphane Graber ]
