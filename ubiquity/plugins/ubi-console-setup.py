@@ -35,6 +35,8 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         self.current_layout = None
+        self.keyboard_layout_timeout_id = 0
+        self.keyboard_variant_timeout_id = 0
         try:
             from gi.repository import Gtk
             builder = Gtk.Builder()
@@ -95,20 +97,54 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
+        if not self.keyboardlayoutview.get_sensitive() or not self.keyboardvariantview.get_sensitive():
+            return False
+
+        # Let's not call this every time the user presses a key.
+        from gi.repository import GObject
+        if self.keyboard_layout_timeout_id:
+            GObject.source_remove(self.keyboard_layout_timeout_id)
+        self.keyboard_layout_timeout_id = GObject.timeout_add(600,
+                                        self.keyboard_layout_timeout)
+
+    def keyboard_layout_timeout(self, *args):
+        if not self.keyboardlayoutview.get_sensitive() or not self.keyboardvariantview.get_sensitive():
+            return False
+
         layout = self.get_keyboard()
         if layout is not None:
+            self.keyboardlayoutview.set_sensitive(False)
+            self.keyboardvariantview.set_sensitive(False)
             self.current_layout = layout
             self.controller.dbfilter.change_layout(layout)
+        return False
 
     def on_keyboardvariantview_row_activated(self, *args):
         self.controller.go_forward()
 
     @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
+        if not self.keyboardlayoutview.get_sensitive() or not self.keyboardvariantview.get_sensitive():
+            return False
+
+        # Let's not call this every time the user presses a key.
+        from gi.repository import GObject
+        if self.keyboard_variant_timeout_id:
+            GObject.source_remove(self.keyboard_variant_timeout_id)
+        self.keyboard_variant_timeout_id = GObject.timeout_add(600,
+                                        self.keyboard_variant_timeout)
+
+    def keyboard_variant_timeout(self, *args):
+        if not self.keyboardvariantview.get_sensitive() or not self.keyboardlayoutview.get_sensitive():
+            return False
+
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
         if layout is not None and variant is not None:
+            self.keyboardlayoutview.set_sensitive(False)
+            self.keyboardvariantview.set_sensitive(False)
             self.controller.dbfilter.apply_keyboard(layout, variant)
+        return False
 
     def set_keyboard_choices(self, choices):
         # Sort the choices including these with accents
@@ -160,6 +196,7 @@ class PageGtk(plugin.PluginUI):
                     path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
+        self.keyboardlayoutview.set_sensitive(True)
 
     def get_keyboard(self):
         selection = self.keyboardlayoutview.get_selection()
@@ -197,6 +234,7 @@ class PageGtk(plugin.PluginUI):
                     path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
+        self.keyboardvariantview.set_sensitive(True)
 
     def get_keyboard_variant(self):
         selection = self.keyboardvariantview.get_selection()
