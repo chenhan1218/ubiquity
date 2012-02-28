@@ -6,6 +6,13 @@ ubiquity (2.9.22) UNRELEASED; urgency=low
     - Add logic to parse the current and new version number and only
       allow reusing an existing install if the target is older than the
       media. (LP: #898278)
+  * ubi-console-setup:
+    - To avoid issues when quickly changing the selection (easily done by
+      using the keyboard), add a 600ms delay to any user action, reset with
+      any further action.
+      The UI is also now set_sensitive(False) while waiting for a UI
+      refresh.
+      This should be enough to limit or get rid of (LP: #645449)
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 27 Feb 2012 11:13:58 -0500
 
