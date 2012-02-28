@@ -1,4 +1,4 @@
-ubiquity (2.9.22) UNRELEASED; urgency=low
+ubiquity (2.9.22) precise; urgency=low
 
   * ubi-partman:
     - Avoid crash when calling contextual menu on a partition list item.
@@ -13,8 +13,9 @@ ubiquity (2.9.22) UNRELEASED; urgency=low
       The UI is also now set_sensitive(False) while waiting for a UI
       refresh.
       This should be enough to limit or get rid of (LP: #645449)
+  * Automatic update of included source packages: netcfg 1.68ubuntu12.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 27 Feb 2012 11:13:58 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 27 Feb 2012 20:21:30 -0500
 
 ubiquity (2.9.21) precise; urgency=low
 
