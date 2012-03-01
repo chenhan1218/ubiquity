@@ -1,3 +1,16 @@
+ubiquity (2.9.23) UNRELEASED; urgency=low
+
+  * ubi-console-setup: Revert most of the previous change but keep the
+    600ms timeout to avoid entering in a gtk main loop quit/start flood.
+    Also add some more checks of the current values to prevent the UI
+    from refreshing when not needed. (LP: #942560)
+  * gtk_ui: Move the pending_quits handling code from being called right
+    after the call to main_quit() to right after the main loop actually
+    exits. This seems to help quite a bit with the race discovered in
+    ubi-console-setup.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 29 Feb 2012 19:19:06 -0500
+
 ubiquity (2.9.22) precise; urgency=low
 
   * ubi-partman:
