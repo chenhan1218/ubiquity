@@ -133,8 +133,8 @@ ubiquity_webcam_init (UbiquityWebcam *self) {
 
 	priv->camerabin = gst_element_factory_make ("camerabin2" , "cam");
 	priv->viewfinder_caps = gst_caps_new_simple ("video/x-raw-rgb",
-		"width", G_TYPE_INT, width,
-		"height", G_TYPE_INT, height, NULL);
+		"width", G_TYPE_INT, 640,
+		"height", G_TYPE_INT, 480, NULL);
 	g_object_set (G_OBJECT (priv->camerabin),
 		"viewfinder-caps", priv->viewfinder_caps, NULL);
     g_signal_new ("image-captured",
@@ -256,7 +256,6 @@ button_clicked_cb (GtkWidget *widget, GstElement *camerabin) {
 		g_print ("Failed to create pngenc.\n");
 		return;
 	}
-	g_object_set (G_OBJECT(camerabin), "image-capture-encoder", camerabin, NULL);
 	g_object_set (G_OBJECT(camerabin), "location", "/tmp/webcam_photo.jpg", NULL);
 	g_object_set (G_OBJECT(camerabin), "post-previews", FALSE, NULL);
 	g_signal_emit_by_name (camerabin, "start-capture", NULL);
