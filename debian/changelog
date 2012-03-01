@@ -1,3 +1,13 @@
+ubiquity (2.9.23ubuntu1) UNRELEASED; urgency=low
+
+  * webcam:
+    - image-capture-encoder is deprecated, just drop it for now
+    - gst_caps_new_simple needs to use a supported width/height,
+      going with 640x480 as it seems standard for most webcams.
+      (LP: #942030)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 01 Mar 2012 15:07:24 -0500
+
 ubiquity (2.9.23) precise; urgency=low
 
   * ubi-console-setup: Revert most of the previous change but keep the
