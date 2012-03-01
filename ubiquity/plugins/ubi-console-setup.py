@@ -97,9 +97,6 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
-        if not self.keyboardlayoutview.get_sensitive() or not self.keyboardvariantview.get_sensitive():
-            return False
-
         # Let's not call this every time the user presses a key.
         from gi.repository import GObject
         if self.keyboard_layout_timeout_id:
@@ -108,13 +105,8 @@ class PageGtk(plugin.PluginUI):
                                         self.keyboard_layout_timeout)
 
     def keyboard_layout_timeout(self, *args):
-        if not self.keyboardlayoutview.get_sensitive() or not self.keyboardvariantview.get_sensitive():
-            return False
-
         layout = self.get_keyboard()
-        if layout is not None:
-            self.keyboardlayoutview.set_sensitive(False)
-            self.keyboardvariantview.set_sensitive(False)
+        if layout is not None and layout != self.current_layout:
             self.current_layout = layout
             self.controller.dbfilter.change_layout(layout)
         return False
@@ -124,9 +116,6 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
-        if not self.keyboardlayoutview.get_sensitive() or not self.keyboardvariantview.get_sensitive():
-            return False
-
         # Let's not call this every time the user presses a key.
         from gi.repository import GObject
         if self.keyboard_variant_timeout_id:
@@ -135,14 +124,9 @@ class PageGtk(plugin.PluginUI):
                                         self.keyboard_variant_timeout)
 
     def keyboard_variant_timeout(self, *args):
-        if not self.keyboardvariantview.get_sensitive() or not self.keyboardlayoutview.get_sensitive():
-            return False
-
         layout = self.get_keyboard()
         variant = self.get_keyboard_variant()
         if layout is not None and variant is not None:
-            self.keyboardlayoutview.set_sensitive(False)
-            self.keyboardvariantview.set_sensitive(False)
             self.controller.dbfilter.apply_keyboard(layout, variant)
         return False
 
@@ -191,12 +175,13 @@ class PageGtk(plugin.PluginUI):
         while iterator is not None:
             if misc.utf8(model.get_value(iterator, 0)) == layout:
                 path = model.get_path(iterator)
-                self.keyboardlayoutview.get_selection().select_path(path)
-                self.keyboardlayoutview.scroll_to_cell(
-                    path, use_align=True, row_align=0.5)
+                selection = self.keyboardlayoutview.get_selection()
+                if not selection.path_is_selected(path):
+                    selection.select_path(path)
+                    self.keyboardlayoutview.scroll_to_cell(
+                        path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
-        self.keyboardlayoutview.set_sensitive(True)
 
     def get_keyboard(self):
         selection = self.keyboardlayoutview.get_selection()
@@ -234,7 +219,6 @@ class PageGtk(plugin.PluginUI):
                     path, use_align=True, row_align=0.5)
                 break
             iterator = model.iter_next(iterator)
-        self.keyboardvariantview.set_sensitive(True)
 
     def get_keyboard_variant(self):
         selection = self.keyboardvariantview.get_selection()
