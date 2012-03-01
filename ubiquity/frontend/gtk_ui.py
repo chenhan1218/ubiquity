@@ -652,6 +652,7 @@ class Wizard(BaseFrontend):
 
                 page.controller.dbfilter = self.dbfilter
                 Gtk.main()
+                self.pending_quits = max(0, self.pending_quits - 1)
                 page.controller.dbfilter = None
 
             if self.backup or self.dbfilter_handle_status():
@@ -672,6 +673,7 @@ class Wizard(BaseFrontend):
         # entertained.
         self.start_slideshow()
         Gtk.main()
+        self.pending_quits = max(0, self.pending_quits - 1)
         # postinstall will exit here by calling Gtk.main_quit in
         # find_next_step.
 
@@ -1618,6 +1620,7 @@ color : @fg_color
         self.allow_change_step(True)
         self.set_focus()
         Gtk.main()
+        self.pending_quits = max(0, self.pending_quits - 1)
 
     # Return control to the next level up.
     pending_quits = 0
@@ -1626,16 +1629,15 @@ color : @fg_color
         # main_quit will do nothing if the main loop hasn't had time to
         # quit.  So we stagger calls to make sure that if this function
         # is called multiple times (nested loops), it works as expected.
-        def quit_decrement():
-            # Defensively guard against negative pending
-            self.pending_quits = max(0, self.pending_quits - 1)
-            return False
         def idle_quit():
             if self.pending_quits > 1:
                 quit_quit()
             if Gtk.main_level() > 0:
                 Gtk.main_quit()
-            return quit_decrement()
+            else:
+                self.pending_quits = max(0, self.pending_quits - 1)
+            return False
+
         def quit_quit():
             # Wait until we're actually out of this main loop
             GObject.idle_add(idle_quit)
