@@ -97,12 +97,15 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
-        # Let's not call this every time the user presses a key.
-        from gi.repository import GObject
-        if self.keyboard_layout_timeout_id:
-            GObject.source_remove(self.keyboard_layout_timeout_id)
-        self.keyboard_layout_timeout_id = GObject.timeout_add(600,
-                                        self.keyboard_layout_timeout)
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            # Let's not call this every time the user presses a key.
+            from gi.repository import GObject
+            if self.keyboard_layout_timeout_id:
+                GObject.source_remove(self.keyboard_layout_timeout_id)
+            self.keyboard_layout_timeout_id = GObject.timeout_add(600,
+                                            self.keyboard_layout_timeout)
+        else:
+            self.keyboard_layout_timeout()
 
     def keyboard_layout_timeout(self, *args):
         layout = self.get_keyboard()
@@ -116,12 +119,15 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
-        # Let's not call this every time the user presses a key.
-        from gi.repository import GObject
-        if self.keyboard_variant_timeout_id:
-            GObject.source_remove(self.keyboard_variant_timeout_id)
-        self.keyboard_variant_timeout_id = GObject.timeout_add(600,
-                                        self.keyboard_variant_timeout)
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            # Let's not call this every time the user presses a key.
+            from gi.repository import GObject
+            if self.keyboard_variant_timeout_id:
+                GObject.source_remove(self.keyboard_variant_timeout_id)
+            self.keyboard_variant_timeout_id = GObject.timeout_add(600,
+                                            self.keyboard_variant_timeout)
+        else:
+            self.keyboard_variant_timeout()
 
     def keyboard_variant_timeout(self, *args):
         layout = self.get_keyboard()
