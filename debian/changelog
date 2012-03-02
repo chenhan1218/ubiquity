@@ -5,8 +5,11 @@ ubiquity (2.9.23ubuntu1) UNRELEASED; urgency=low
     - gst_caps_new_simple needs to use a supported width/height,
       going with 640x480 as it seems standard for most webcams.
       (LP: #942030)
+  * debian/control: Add an explicit dependency on realpath to prevent
+    check-missing-firmware from crashing. In d-i, realpath is provided
+    by busybox.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 01 Mar 2012 15:07:24 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 02 Mar 2012 16:04:13 -0500
 
 ubiquity (2.9.23) precise; urgency=low
 
