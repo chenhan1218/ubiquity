@@ -1,4 +1,4 @@
-ubiquity (2.9.23ubuntu1) UNRELEASED; urgency=low
+ubiquity (2.9.24) precise; urgency=low
 
   * webcam:
     - image-capture-encoder is deprecated, just drop it for now
@@ -11,7 +11,7 @@ ubiquity (2.9.23ubuntu1) UNRELEASED; urgency=low
     check-missing-firmware from crashing. In d-i, realpath is provided
     by busybox.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 02 Mar 2012 16:34:09 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 02 Mar 2012 17:37:36 -0500
 
 ubiquity (2.9.23) precise; urgency=low
 
