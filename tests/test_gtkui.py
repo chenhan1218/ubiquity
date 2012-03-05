@@ -2,6 +2,7 @@
 # -*- coding: utf-8; -*-
 
 import os
+from test import test_support
 import unittest
 
 import mock
@@ -50,14 +51,16 @@ class TestFrontend(unittest.TestCase):
                      'only testable against a build tree')
     def test_pages_fit_on_a_netbook(self):
         from ubiquity.frontend import gtk_ui
-        ui = gtk_ui.Wizard('test-ubiquity')
-        ui.translate_pages()
-        for page in ui.pages:
-            ui.set_page(page.module.NAME)
-            ui.refresh()
-            alloc = ui.live_installer.get_allocation()
-            self.assertLessEqual(alloc.width, 640)
-            self.assertLessEqual(alloc.height, 500)
+        with test_support.EnvironmentVarGuard() as env:
+            env['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
+            ui = gtk_ui.Wizard('test-ubiquity')
+            ui.translate_pages()
+            for page in ui.pages:
+                ui.set_page(page.module.NAME)
+                ui.refresh()
+                alloc = ui.live_installer.get_allocation()
+                self.assertLessEqual(alloc.width, 640)
+                self.assertLessEqual(alloc.height, 500)
 
     def test_interface_translated(self):
         import subprocess
