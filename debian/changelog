@@ -1,3 +1,9 @@
+ubiquity (2.9.25) UNRELEASED; urgency=low
+
+  * Fix debug message when failing to create the migration-assistant page.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 05 Mar 2012 23:46:43 +0000
+
 ubiquity (2.9.24) precise; urgency=low
 
   * webcam:

@@ -59,7 +59,7 @@ class PageGtk(PageBase):
             self.page = builder.get_object('stepMigrationAssistant')
             self.matreeview = builder.get_object('matreeview')
         except Exception, e:
-            self.debug('Could not create keyboard page: %s', e)
+            self.debug('Could not create migration-assistant page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
 
