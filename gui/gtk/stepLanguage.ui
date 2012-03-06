@@ -20,12 +20,11 @@
             <child internal-child="selection">
               <object class="GtkTreeSelection" id="treeview-selection1"/>
             </child>
-			<child internal-child="accessible">
-				<object class="AtkObject" id="language_treeview-atkobject">
-					<property name="AtkObject::accessible-name" translatable="yes">Language Selector</property>
-				</object>
-			</child>
-
+            <child internal-child="accessible">
+              <object class="AtkObject" id="language_treeview-atkobject">
+                <property name="AtkObject::accessible-name" translatable="yes">Language Selector</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
@@ -93,12 +92,11 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="use_action_appearance">False</property>
-						<child internal-child="accessible">
-							<object class="AtkObject" id="install_ubuntu-atkobject">
-								<property name="AtkObject::accessible-name" translatable="yes">Install Ubuntu</property>
-							</object>
-						</child>
-
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="install_ubuntu-atkobject">
+                            <property name="AtkObject::accessible-name" translatable="yes">Install Ubuntu</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -115,11 +113,11 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="use_action_appearance">False</property>
-						<child internal-child="accessible">
-							<object class="AtkObject" id="try_ubuntu-atkobject">
-								<property name="AtkObject::accessible-name" translatable="yes">Try Ubuntu</property>
-							</object>
-						</child>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="try_ubuntu-atkobject">
+                            <property name="AtkObject::accessible-name" translatable="yes">Try Ubuntu</property>
+                          </object>
+                        </child>
                       </object>
                       <packing>
                         <property name="top_attach">1</property>
@@ -216,14 +214,14 @@
                             <property name="invisible_char">•</property>
                             <property name="activates_default">True</property>
                             <property name="width_chars">30</property>
-							<accessibility>
-								<relation type="labelled-by" target="oem_id_label"/>
-							</accessibility>
-							<child internal-child="accessible">
-								<object class="AtkObject" id="oem_id_entry-atkobject">
-									<property name="AtkObject::accessible-name" translatable="yes">System Batch Name</property>
-								</object>
-							</child>
+                            <accessibility>
+                              <relation type="labelled-by" target="oem_id_label"/>
+                            </accessibility>
+                            <child internal-child="accessible">
+                              <object class="AtkObject" id="oem_id_entry-atkobject">
+                                <property name="AtkObject::accessible-name" translatable="yes">System Batch Name</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
