@@ -3,6 +3,7 @@ ubiquity (2.9.25) UNRELEASED; urgency=low
   * Fix debug message when failing to create the migration-assistant page.
   * Ensure that the migration-assistant page is shown in
     test_pages_fit_on_a_netbook.
+  * Make the migration-assistant tree view expand again (LP: #946123).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 05 Mar 2012 23:46:43 +0000
 
