@@ -777,6 +777,7 @@ color : @fg_color
             ['/usr/bin/tail', '-f', '/var/log/installer/debug',
                               '-f', '/var/log/syslog', '-q'],
             None, 0, None, None)
+        self.vte.set_font_from_string("Ubuntu Mono 8")
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window size.
         self.live_installer.set_resizable(False)
