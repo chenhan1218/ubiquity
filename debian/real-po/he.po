@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2011-12-14 11:43+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
@@ -398,9 +398,9 @@ msgstr "הצפנת תיקיית הבית שלי"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
-msgstr "תמונה זו תשמש לך לצורכי זיהוי בהגדרות החשבון, מסך הכניסה ומסך הנעילה."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1884,3 +1884,9 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "תמונה זו תשמש לך לצורכי זיהוי בהגדרות החשבון, מסך הכניסה ומסך הנעילה."

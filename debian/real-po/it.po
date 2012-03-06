@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-11 10:47+0000\n"
 "Last-Translator: Luca Ferretti <elle.uca@gmail.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
@@ -404,11 +404,9 @@ msgstr "Cifrare la cartella personale"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Questa immagine viene usata come identificativo nelle impostazioni "
-"dell'account, nella schermata di accesso e quando viene bloccato lo schermo."
 
 #. Type: text
 #. Description
@@ -1934,3 +1932,11 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Rimozione dei pacchetti"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Questa immagine viene usata come identificativo nelle impostazioni "
+#~ "dell'account, nella schermata di accesso e quando viene bloccato lo "
+#~ "schermo."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2011-10-03 17:51+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
@@ -402,11 +402,9 @@ msgstr "Enkripsi folder beranda Saya"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Gambar ini akan mengidentifikasi Anda pada pengaturan akun, layar log masuk, "
-"dan penguncian layar."
 
 #. Type: text
 #. Description
@@ -1919,3 +1917,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Menghapus paket"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Gambar ini akan mengidentifikasi Anda pada pengaturan akun, layar log "
+#~ "masuk, dan penguncian layar."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2011-12-18 07:45+0000\n"
 "Last-Translator: Michał Kozal <panaut0lordv@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
@@ -406,11 +406,9 @@ msgstr "Zaszyfrowanie katalogu użytkownika"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Wskazany obraz będzie wyświetlany w preferencjach konta użytkownika, ekranie "
-"logowania i po zablokowaniu ekranu."
 
 #. Type: text
 #. Description
@@ -1928,3 +1926,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Usuwanie pakietów"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Wskazany obraz będzie wyświetlany w preferencjach konta użytkownika, "
+#~ "ekranie logowania i po zablokowaniu ekranu."

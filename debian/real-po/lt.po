@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-10 20:31+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -406,11 +406,9 @@ msgstr "Užšifruoti mano asmeninį aplanką"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Šis paveikslėlis bus rodomas prisijungimo lange, naudotojų nustatymuose bei "
-"ekrano „atrakinimo“ metu."
 
 #. Type: text
 #. Description
@@ -1933,3 +1931,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Šis paveikslėlis bus rodomas prisijungimo lange, naudotojų nustatymuose "
+#~ "bei ekrano „atrakinimo“ metu."

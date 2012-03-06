@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-11 10:57+0000\n"
 "Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -404,11 +404,9 @@ msgstr "Šifriraj mojo domačo mapo"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Ta slika bo prikazana v nastavitvah računa, na prijavnem in na zaklenjenem "
-"zaslonu."
 
 #. Type: text
 #. Description
@@ -1916,3 +1914,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Ta slika bo prikazana v nastavitvah računa, na prijavnem in na "
+#~ "zaklenjenem zaslonu."

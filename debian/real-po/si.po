@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2011-09-16 11:09+0000\n"
 "Last-Translator: පසිඳු කාවින්ද <Unknown>\n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
@@ -396,8 +396,8 @@ msgstr "මගේ නිවෙස් බහලුම සංකේතනය ක�
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
 
 #. Type: text

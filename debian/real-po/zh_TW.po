@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-03 06:00+0000\n"
 "Last-Translator: Anthony Wong <anthony.wong@canonical.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
@@ -396,9 +396,9 @@ msgstr "將我的家資料夾加密"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
-msgstr "這個圖片是用來在帳號設定值、登入畫面、螢幕鎖定出現時來辨識您。"
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1850,3 +1850,8 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在移除套件"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr "這個圖片是用來在帳號設定值、登入畫面、螢幕鎖定出現時來辨識您。"

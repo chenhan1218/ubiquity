@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-04 00:28+0000\n"
 "Last-Translator: Pavol Klačanský <pavol@klacansky.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -400,11 +400,9 @@ msgstr "Zašifrovať môj domovský priečinok"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Tento obrázok vás bude identifikovať v nastaveniach vášho účtu, na "
-"prihlasovacej obrazovke a na zamknutej obrazovke."
 
 #. Type: text
 #. Description
@@ -1914,3 +1912,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňujú sa balíky"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Tento obrázok vás bude identifikovať v nastaveniach vášho účtu, na "
+#~ "prihlasovacej obrazovke a na zamknutej obrazovke."

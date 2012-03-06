@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2011-10-21 17:28+0000\n"
 "Last-Translator: Andreas N. <Unknown>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -401,11 +401,9 @@ msgstr "Krypter heimemappa"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Dette biletet vil brukast på innloggingsskjermen, låsskjermen og i "
-"kontoinnstillingane."
 
 #. Type: text
 #. Description
@@ -1915,3 +1913,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjernar pakkar"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Dette biletet vil brukast på innloggingsskjermen, låsskjermen og i "
+#~ "kontoinnstillingane."

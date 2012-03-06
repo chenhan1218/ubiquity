@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-01 22:27+0000\n"
 "Last-Translator: Ander González <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -402,11 +402,9 @@ msgstr "Zifratu karpeta nagusia"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"Irudi honek identifikatuko zaitu kontuaren ezarpenetan, saioa hasteko "
-"pantailan eta pantaila blokeatzerakoan."
 
 #. Type: text
 #. Description
@@ -1926,3 +1924,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "Irudi honek identifikatuko zaitu kontuaren ezarpenetan, saioa hasteko "
+#~ "pantailan eta pantaila blokeatzerakoan."

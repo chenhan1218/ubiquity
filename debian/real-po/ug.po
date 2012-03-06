@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-11 23:43+0000\n"
 "Last-Translator: Gheyret T.Kenji <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -401,11 +401,9 @@ msgstr "ماكان قىسقۇچۇمنى شىفىرلىسۇن"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
 msgstr ""
-"بۇ رەسىم ھېسابات تەڭشەك، تىزىمغا كىرىش ئېكرانى ۋە قۇلۇپلانغان ئېكراندا "
-"سىزنىڭ بەلگىڭىز سۈپىتىدە كۆرۈنىدۇ."
 
 #. Type: text
 #. Description
@@ -1915,3 +1913,10 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "بوغچىلارنى ئۆچۈرۈش"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr ""
+#~ "بۇ رەسىم ھېسابات تەڭشەك، تىزىمغا كىرىش ئېكرانى ۋە قۇلۇپلانغان ئېكراندا "
+#~ "سىزنىڭ بەلگىڭىز سۈپىتىدە كۆرۈنىدۇ."

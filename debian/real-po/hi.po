@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-09 00:51+0000\n"
 "Last-Translator: Manish Kumar <manishku86@yahoo.co.in>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
@@ -396,9 +396,9 @@ msgstr "मेरे गृह फोल्डर का गूढीकरण �
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
-msgstr "यह तस्वीर खाता सेटिंग्स, लॉगिन स्क्रीन, और ताला स्क्रीन में आपको पहचानेगा."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1886,3 +1886,8 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr "यह तस्वीर खाता सेटिंग्स, लॉगिन स्क्रीन, और ताला स्क्रीन में आपको पहचानेगा."

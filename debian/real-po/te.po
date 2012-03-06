@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2011-09-15 19:15+0000\n"
 "Last-Translator: Balu <Unknown>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
@@ -397,9 +397,9 @@ msgstr "నా నివాస సంచయాన్ని ఎన్‌ క్�
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
-msgstr "అకౌంట్ సెట్టింగులు, లాగిన్ స్క్రీన్ , మరియు లాక్ స్క్రీన్లలో ఈ చిత్రం మిమ్మల్ని సూచిస్తుంది."
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1877,3 +1877,8 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr "అకౌంట్ సెట్టింగులు, లాగిన్ స్క్రీన్ , మరియు లాక్ స్క్రీన్లలో ఈ చిత్రం మిమ్మల్ని సూచిస్తుంది."

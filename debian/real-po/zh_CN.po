@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-04 04:35+0000\n"
 "Last-Translator: Liu Qishuai <Unknown>\n"
 "Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
@@ -394,9 +394,9 @@ msgstr "加密我的主目录"
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
-msgstr "该图片会在您的账户设置、登陆窗口和锁屏窗口里出现，作为您的标识。"
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1845,3 +1845,8 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在删除软件包"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr "该图片会在您的账户设置、登陆窗口和锁屏窗口里出现，作为您的标识。"

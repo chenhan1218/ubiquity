@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian_real-po_ubiquity-debconf-km\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-02-18 00:39+0000\n"
+"POT-Creation-Date: 2012-03-06 14:39-0500\n"
 "PO-Revision-Date: 2012-02-10 09:25+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -400,9 +400,9 @@ msgstr "អ៊ិន​គ្រីប​ថត​ផ្ទះ​ខ្ញុំ
 #. Description
 #: ../ubiquity.templates:58001
 msgid ""
-"This picture will identify you in the account settings, login screen, and "
-"lock screen."
-msgstr "រូបភាព​នេះ​នឹង​កំណត់​អត្តសញ្ញាណ​​អ្នក​នៅ​ក្នុង​ការ​កំណត់​គណនី អេក្រង់​ចូល និង​ចាក់​សោ​អេក្រង់ ។"
+"This picture will be associated with your user name and displayed alongside "
+"it at times."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1881,3 +1881,8 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "យក​កញ្ចប់​ចេញ"
+
+#~ msgid ""
+#~ "This picture will identify you in the account settings, login screen, and "
+#~ "lock screen."
+#~ msgstr "រូបភាព​នេះ​នឹង​កំណត់​អត្តសញ្ញាណ​​អ្នក​នៅ​ក្នុង​ការ​កំណត់​គណនី អេក្រង់​ចូល និង​ចាក់​សោ​អេក្រង់ ។"
