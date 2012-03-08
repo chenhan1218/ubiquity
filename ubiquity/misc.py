@@ -580,8 +580,7 @@ def set_indicator_keymaps(locale):
     return
 
     import libxml2
-    import xklavier
-    from gi.repository import Gdk
+    from gi.repository import Xkl
     from ubiquity import gconftool
 
     # FIXME: Code below needs porting to gsettings (not done yet as the function is disabled)
@@ -600,9 +599,8 @@ def set_indicator_keymaps(locale):
     nodes = context.xpathEvalExpression(xpath % lang)
     if nodes:
         code = nodes[0].prop('part2_code')
-        display = Gdk.Display.get_default()
-        engine = xklavier.Engine(display)
-        configreg = xklavier.ConfigRegistry(engine)
+        engine = Xkl.Engine()
+        configreg = Xkl.ConfigRegistry(engine)
         configreg.load(False)
         configreg.foreach_language_variant(code, process_variant)
         if variants:

@@ -10,8 +10,10 @@ ubiquity (2.9.25) UNRELEASED; urgency=low
   * gtk_ui: Set virtual terminal font to "Ubuntu Mono 8" so in most cases
     two lines of text can now be displayed. (LP: #830946)
   * Change ubiquity/text/webcam_heading to be generic (LP: #926493)
+  * Switch from xklavier to Xkl using gobject introspection.
+    The code is still disabled though because of bug #950087.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 06 Mar 2012 14:39:01 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 08 Mar 2012 12:23:50 -0500
 
 ubiquity (2.9.24) precise; urgency=low
 

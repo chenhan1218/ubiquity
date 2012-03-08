@@ -61,7 +61,7 @@ my @basebd = (
     'python-mock (>= 0.7.0)',
     'python-pyicu (>= 1.0)',
     'python-scour',
-    'python-xklavier',
+    'gir1.2-xkl-1.0',
     'udev',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',
