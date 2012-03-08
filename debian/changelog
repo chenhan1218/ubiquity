@@ -1,4 +1,4 @@
-ubiquity (2.9.25) UNRELEASED; urgency=low
+ubiquity (2.9.25) precise; urgency=low
 
   [ Colin Watson ]
   * Fix debug message when failing to create the migration-assistant page.
@@ -12,8 +12,11 @@ ubiquity (2.9.25) UNRELEASED; urgency=low
   * Change ubiquity/text/webcam_heading to be generic (LP: #926493)
   * Switch from xklavier to Xkl using gobject introspection.
     The code is still disabled though because of bug #950087.
+  * Automatic update of included source packages: flash-kernel
+    2.28ubuntu41, netcfg 1.68ubuntu13, partman-base 153ubuntu2, partman-
+    target 76ubuntu2, preseed 1.50ubuntu1, tzsetup 1:0.26ubuntu11.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 08 Mar 2012 12:23:50 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 08 Mar 2012 12:32:02 -0500
 
 ubiquity (2.9.24) precise; urgency=low
 
