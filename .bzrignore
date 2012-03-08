@@ -46,6 +46,7 @@ desktop/Makefile
 desktop/*.desktop
 po/.intltool-merge-cache
 po/Makefile
+po/Makefile.in
 po/POTFILES
 po/remove-potcdate.sed
 po/stamp-it
