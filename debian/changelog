@@ -1,3 +1,9 @@
+ubiquity (2.9.26) UNRELEASED; urgency=low
+
+  * Build-depend on ubuntu-artwork for the unit test. (LP: #950125)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 08 Mar 2012 13:36:33 -0500
+
 ubiquity (2.9.25) precise; urgency=low
 
   [ Colin Watson ]

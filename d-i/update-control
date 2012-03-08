@@ -62,6 +62,7 @@ my @basebd = (
     'python-pyicu (>= 1.0)',
     'python-scour',
     'gir1.2-xkl-1.0',
+    'ubuntu-artwork',
     'udev',
     'xkb-data (>= 0.9)',
     'xkb-data-i18n',
