@@ -611,7 +611,7 @@ def set_indicator_keymaps(locale):
             return
 
     # Use the system default if no other keymaps can be determined.
-    gconftool.set_list(gsettings_key[0], gsettings_key[1], '')
+    gsettings.set_list(gsettings_key[0], gsettings_key[1], '')
 
 NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70
