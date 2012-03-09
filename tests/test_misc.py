@@ -146,7 +146,6 @@ class MiscTests(unittest.TestCase):
                          '\\\\A\\ test\\ string\\n')
 
     @mock.patch('ubiquity.gconftool.set_list')
-    @unittest.skipIf(True, 'functionality currently broken.')
     def test_set_indicator_keymaps(self, mock_set_list):
         misc.set_indicator_keymaps('en_US.UTF-8')
         self.assertEqual(mock_set_list.call_count, 1)

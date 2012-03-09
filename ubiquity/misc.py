@@ -575,23 +575,25 @@ def dmimodel():
     return model
 
 def set_indicator_keymaps(locale):
-    import warnings
-    warnings.warn('set_indicator_keymaps: this function currently does not work')
-    return
-
     import libxml2
-    from gi.repository import Xkl
+    from gi.repository import Xkl, GdkX11
     from ubiquity import gconftool
 
     # FIXME: Code below needs porting to gsettings (not done yet as the function is disabled)
     xpath = "//iso_639_3_entry[@part1_code='%s']"
     gconf_key = '/desktop/gnome/peripherals/keyboard/kbd/layouts'
     variants = []
+
+    def item_str(s):
+        '''Convert a zero-terminated byte array to a proper str'''
+        i = s.find(b'\x00')
+        return s[:i].decode()
+
     def process_variant(*args):
-        if hasattr(args[2], 'get_name'):
-            variants.append('%s\t%s' % (args[1].get_name(), args[2].get_name()))
+        if hasattr(args[2], 'name'):
+            variants.append('%s\t%s' % (item_str(args[1].name), item_str(args[2].name)))
         else:
-            variants.append(args[1].get_name())
+            variants.append(item_str(args[1].name))
 
     lang = locale.split('_')[0]
     fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
@@ -599,13 +601,15 @@ def set_indicator_keymaps(locale):
     nodes = context.xpathEvalExpression(xpath % lang)
     if nodes:
         code = nodes[0].prop('part2_code')
-        engine = Xkl.Engine()
-        configreg = Xkl.ConfigRegistry(engine)
+        display = GdkX11.x11_get_default_xdisplay()
+        engine = Xkl.Engine.get_instance(display)
+        configreg = Xkl.ConfigRegistry.get_instance(engine)
         configreg.load(False)
-        configreg.foreach_language_variant(code, process_variant)
+        configreg.foreach_language_variant(code, process_variant, None)
         if variants:
             gconftool.set_list(gconf_key, 'string', variants)
             return
+
     # Use the system default if no other keymaps can be determined.
     gconftool.set_list(gconf_key, 'string', '')
 
