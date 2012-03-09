@@ -400,6 +400,15 @@ EndSection
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
 
+            # Simply start bluetooth-applet, ubiquity-bluetooth-agent will
+            # override it from casper to make sure it also covers the regular
+            # live session
+            if osextras.find_on_path('bluetooth-applet'):
+                extras.append(subprocess.Popen(
+                    ['bluetooth-applet'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
+
             # Accessibility tools
             if accessibility == True:
                 with open('/proc/cmdline', 'r') as fp:

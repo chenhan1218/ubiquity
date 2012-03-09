@@ -5,8 +5,9 @@ ubiquity (2.9.26ubuntu1) precise; urgency=low
   * Add bin/ubiquity-bluetooth-agent, a bluetooth agent allowing any HID
     bluetooth device for 5 minutes, then spawning bluetooth-applet if
     available, otherwise simply dies.
+  * Start bluetooth-applet from ubiquity-dm (LP: #644198)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 11:06:08 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 11:28:28 -0500
 
 ubiquity (2.9.26) precise; urgency=low
 
