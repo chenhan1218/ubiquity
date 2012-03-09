@@ -238,6 +238,15 @@ class Install(install_misc.InstallBase):
             self.db.input('critical', 'ubiquity/install/broken_network_copy')
             self.db.go()
         try:
+            self.copy_bluetooth_config()
+        except:
+            syslog.syslog(syslog.LOG_WARNING,
+                'Could not copy the bluetooth configuration:')
+            for line in traceback.format_exc().split('\n'):
+                syslog.syslog(syslog.LOG_WARNING, line)
+            self.db.input('critical', 'ubiquity/install/broken_bluetooth_copy')
+            self.db.go()
+        try:
             self.recache_apparmor()
         except:
             syslog.syslog(syslog.LOG_WARNING,
@@ -1529,6 +1538,26 @@ class Install(install_misc.InstallBase):
                     continue
 
                 shutil.copy(source_network, target_network)
+
+    def copy_bluetooth_config(self):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                return
+        except debconf.DebconfError:
+            pass
+
+        source_bluetooth = "/var/lib/bluetooth/"
+        target_bluetooth = "/target/var/lib/bluetooth/"
+
+        # Ensure the target doesn't exist
+        if os.path.exists(target_bluetooth):
+            shutil.rmtree(target_bluetooth)
+
+        # Copy /var/lib/bluetooth to /target/var/lib/bluetooth/
+        if os.path.exists(source_bluetooth):
+            shutil.copytree(source_bluetooth, target_bluetooth)
 
     def recache_apparmor(self):
         """Generate an apparmor cache in /etc/apparmor.d/cache to speed up boot

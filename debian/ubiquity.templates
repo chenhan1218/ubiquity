@@ -790,6 +790,13 @@ _Description: Error copying network configuration
  continue, but the network configuration will have to be set up again in the
  installed system.
 
+Template: ubiquity/install/broken_bluetooth_copy
+Type: error
+_Description: Error copying bluetooth configuration
+ An error occurred while copying the bluetooth settings.  The installation will
+ continue, but the bluetooth configuration will have to be set up again in the
+ installed system.
+
 Template: ubiquity/install/broken_apt_clone
 Type: error
 _Description: Error restoring installed applications

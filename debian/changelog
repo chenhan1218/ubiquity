@@ -6,8 +6,10 @@ ubiquity (2.9.26ubuntu1) precise; urgency=low
     bluetooth device for 5 minutes, then spawning bluetooth-applet if
     available, otherwise simply dies.
   * Start bluetooth-applet from ubiquity-dm (LP: #644198)
+  * Copy /var/lib/bluetooth to /target/var/lib/bluetooth to keep the list
+    of trusted devices on the target system. (LP: #644198)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 11:28:28 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 11:43:38 -0500
 
 ubiquity (2.9.26) precise; urgency=low
 
