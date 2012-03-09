@@ -1,3 +1,10 @@
+ubiquity (2.9.26ubuntu1) precise; urgency=low
+
+  * Port keyboard indicator from xklavier to Xkl and from gconf to gsettings.
+    Update the test accordingly. (LP: #950087, LP: #800561)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 10:34:02 -0500
+
 ubiquity (2.9.26) precise; urgency=low
 
   * Build-depend on ubuntu-artwork for the unit test. (LP: #950125)

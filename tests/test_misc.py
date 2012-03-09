@@ -145,13 +145,13 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(misc.debconf_escape('\\A test string\n'),
                          '\\\\A\\ test\\ string\\n')
 
-    @mock.patch('ubiquity.gconftool.set_list')
+    @mock.patch('ubiquity.gsettings.set_list')
     def test_set_indicator_keymaps(self, mock_set_list):
         misc.set_indicator_keymaps('en_US.UTF-8')
         self.assertEqual(mock_set_list.call_count, 1)
         self.assertEqual(mock_set_list.call_args[0][0],
-            '/desktop/gnome/peripherals/keyboard/kbd/layouts')
-        self.assertEqual(mock_set_list.call_args[0][1], 'string')
+            'org.gnome.libgnomekbd.keyboard')
+        self.assertEqual(mock_set_list.call_args[0][1], 'layouts')
         self.assertIn('us', mock_set_list.call_args[0][2])
         self.assertIn('gb', mock_set_list.call_args[0][2])
         self.assertIn('gb\tintl', mock_set_list.call_args[0][2])

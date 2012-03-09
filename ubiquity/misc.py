@@ -577,11 +577,11 @@ def dmimodel():
 def set_indicator_keymaps(locale):
     import libxml2
     from gi.repository import Xkl, GdkX11
-    from ubiquity import gconftool
+    from ubiquity import gsettings
 
     # FIXME: Code below needs porting to gsettings (not done yet as the function is disabled)
     xpath = "//iso_639_3_entry[@part1_code='%s']"
-    gconf_key = '/desktop/gnome/peripherals/keyboard/kbd/layouts'
+    gsettings_key = ['org.gnome.libgnomekbd.keyboard','layouts']
     variants = []
 
     def item_str(s):
@@ -607,11 +607,11 @@ def set_indicator_keymaps(locale):
         configreg.load(False)
         configreg.foreach_language_variant(code, process_variant, None)
         if variants:
-            gconftool.set_list(gconf_key, 'string', variants)
+            gsettings.set_list(gsettings_key[0], gsettings_key[1], variants)
             return
 
     # Use the system default if no other keymaps can be determined.
-    gconftool.set_list(gconf_key, 'string', '')
+    gconftool.set_list(gsettings_key[0], gsettings_key[1], '')
 
 NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70
