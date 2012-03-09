@@ -1,4 +1,4 @@
-ubiquity (2.9.26ubuntu1) precise; urgency=low
+ubiquity (2.9.27) precise; urgency=low
 
   * Port keyboard indicator from xklavier to Xkl and from gconf to gsettings.
     Update the test accordingly. (LP: #950087, LP: #800561)
@@ -8,8 +8,11 @@ ubiquity (2.9.26ubuntu1) precise; urgency=low
   * Start bluetooth-applet from ubiquity-dm (LP: #644198)
   * Copy /var/lib/bluetooth to /target/var/lib/bluetooth to keep the list
     of trusted devices on the target system. (LP: #644198)
+  * Update PO template and translations for new bluetooth string.
+  * Automatic update of included source packages: netcfg 1.68ubuntu14,
+    partman-auto 93ubuntu20, partman-auto-loop 0ubuntu21.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 11:43:38 -0500
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 09 Mar 2012 12:11:19 -0500
 
 ubiquity (2.9.26) precise; urgency=low
 

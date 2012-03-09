@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-03-06 14:39-0500\n"
+"POT-Creation-Date: 2012-03-09 12:10-0500\n"
 "PO-Revision-Date: 2012-01-27 23:43+0000\n"
 "Last-Translator: Jinkyu Yi <Unknown>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -48,7 +48,7 @@ msgstr "다른 설정을 원하십니까? 고급 파티션 옵션을 직접 선�
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:186001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:187001
 msgid "Install"
 msgstr "깔기"
 
@@ -1121,12 +1121,36 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
+#, fuzzy
+#| msgid "Error copying network configuration"
+msgid "Error copying bluetooth configuration"
+msgstr "네트워크 구성 복사 오류"
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:153001
+#, fuzzy
+#| msgid ""
+#| "An error occurred while copying the network settings.  The installation "
+#| "will continue, but the network configuration will have to be set up again "
+#| "in the installed system."
+msgid ""
+"An error occurred while copying the bluetooth settings.  The installation "
+"will continue, but the bluetooth configuration will have to be set up again "
+"in the installed system."
+msgstr ""
+"네트워크 설정을 복사해 오는중에 에러가 발생했습니다. 설치는 계속 진행되지만 "
+"완료된 후에 네트워크 설정을 다시 해주셔야 합니다."
+
+#. Type: error
+#. Description
+#: ../ubiquity.templates:154001
 msgid "Error restoring installed applications"
 msgstr "깔린 애플리케이션을 고치지 못함"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:154001
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
@@ -1137,31 +1161,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:157001
+#: ../ubiquity.templates:158001
 msgid "Calculating files to skip copying..."
 msgstr "베끼지 않을 파일을 셈하고 있습니다..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:159001
 msgid "Installing language packs"
 msgstr "나라말 꾸러미를 깔고 있습니다"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:160001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "나라말 꾸러미를 받아오고 있습니다(${TIME} 남음)..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Failed to unmount partitions"
 msgstr "파티션의 마운트를 풀지 못함"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1171,25 +1195,25 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Please close any applications using these mount points."
 msgstr "이 마운트 위치를 쓰는 모든 응용프로그램을 닫아주십시오."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:168001
+#: ../ubiquity.templates:169001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "인스톨러가 다시 이 파티션을 마운트 해제하도록 할까요?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid "Do you want to return to the partitioner?"
 msgstr "파티션 프로그램으로 돌아가시겠습니까?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1199,7 +1223,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:175001
+#: ../ubiquity.templates:176001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1209,7 +1233,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:177001
 msgid "System Configuration"
 msgstr "시스템 매만지기"
 
@@ -1217,129 +1241,129 @@ msgstr "시스템 매만지기"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001 ../ubiquity.templates:240001
+#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
 msgid "Welcome"
 msgstr "어서오세요"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:179001
 msgid "Network configuration"
 msgstr "네트워크 매만지기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "Software selection"
 msgstr "무른모 고르기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "Language"
 msgstr "나라말"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "Prepare"
 msgstr "준비"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Timezone"
 msgstr "시간대"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Keyboard"
 msgstr "글자판"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 msgid "Disk Setup"
 msgstr "디스크 설정"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 msgid "User Info"
 msgstr "사용자에 대하여"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:188001
 msgid "installation process"
 msgstr "설치 과정"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:190001
 msgid "Checking for installer updates"
 msgstr "인스톨러의 업데이트를 점검"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "Reading package information"
 msgstr "꾸러미 정보를 읽고 있음"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "Updating package information"
 msgstr "꾸러미 정보를 새로 고치고 있음"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${TOTAL}  의 ${INDEX} 파일이 ${SPEED}/s 의 빠르기로"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${TOTAL} 의 파일 ${INDEX}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "Installing update"
 msgstr "판올림을 깔고 있습니다."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "Error updating installer"
 msgstr "설치 관리자를 업데이트하지 못함"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "설치 관리자가 자기 자신을 업데이트하다 오류가 났습니다:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "USB disk"
 msgstr "USB 디스크"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1347,7 +1371,7 @@ msgstr "깔면서 쓸 나라말을 고르십시오. 이 나라말이 컴퓨터�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1357,13 +1381,13 @@ msgstr "설정에 쓸 나라말을 고르십시오. 이 나라말이 컴퓨터�
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001 ../ubiquity.templates:201001
+#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
 msgid "Installation failed"
 msgstr "깔지못함"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1373,26 +1397,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:202001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "설치프로그램이 복구 불가능한 오류에 빠져 시스템 다시 시작합니다."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:204001
 msgid "Preparing to install ${RELEASE}"
 msgstr "${RELEASE}을(를) 깔려고 합니다"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Wireless"
 msgstr "무선"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid ""
 "Connecting this computer to a wi-fi network allows you to install third-"
 "party software, download updates, automatically detect your timezone, and "
@@ -1403,49 +1427,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:207001
 msgid "Password:"
 msgstr "암호:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:208001
 msgid "Display password"
 msgstr "암호를 보이기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
 msgstr "지금은 wifi 연결하지 않기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "Connect to this network"
 msgstr "이 네트워크에 연결"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 msgid "Select drive:"
 msgstr "디스크 고르기:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "아래 칸막이를 끌어서 드라이브에 깔 자리를 만들어주십시오:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid "The entire disk will be used:"
 msgstr "하드 디스크를 모두 쓰기:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1456,7 +1480,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1466,7 +1490,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1477,7 +1501,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:220001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1487,39 +1511,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid "Split Largest Partition"
 msgstr "가장 큰 파티션 나누기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:223001
 msgid "For best results, please ensure that this computer:"
 msgstr "보다 잘 되도록 컴퓨터가 어떤지 보세요:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "has at least ${SIZE} available drive space"
 msgstr "하드 드라이브에 적어도 ${SIZE}의 빈 자리가 있음"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "is plugged in to a power source"
 msgstr "전원이 들어옴"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "is connected to the Internet"
 msgstr "인터넷과 이어짐"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1532,7 +1556,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:228001
 #, fuzzy
 #| msgid ""
 #| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
@@ -1546,37 +1570,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:229001
 msgid "Install this third-party software"
 msgstr "제 3자가 내놓은 소프트웨어 깔기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:230001
 msgid "Download updates while installing"
 msgstr "깔면서 업데이트 받아오기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:233001
+#: ../ubiquity.templates:234001
 msgid "Layout:"
 msgstr "짜임새:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:235001
 msgid "Variant:"
 msgstr "나눠짐:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:236001
 msgid "Below is an image of your current layout:"
 msgstr "아래에 나온 것은 당신의 현재 짜임새 그림 입니다."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:237001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1587,19 +1611,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:238001
 msgid "Time Zone:"
 msgstr "시간대:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:239001
 msgid "Region:"
 msgstr "사는 곳:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:240001
 msgid "[type here to change]"
 msgstr "[여기에 바꿀 것을 입력하십시오]"
 
@@ -1607,14 +1631,14 @@ msgstr "[여기에 바꿀 것을 입력하십시오]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:243001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "${OS}을(를) ${DISTRO}로 바꿈"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:243001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1626,7 +1650,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:244001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "${OS}와(과) 함께 ${DISTRO} 깔기"
 
@@ -1638,8 +1662,8 @@ msgstr "${OS}와(과) 함께 ${DISTRO} 깔기"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:243001 ../ubiquity.templates:244001
-#: ../ubiquity.templates:248001 ../ubiquity.templates:253001
+#: ../ubiquity.templates:244001 ../ubiquity.templates:245001
+#: ../ubiquity.templates:249001 ../ubiquity.templates:254001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1651,20 +1675,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:245001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "${OS} 안에 ${DISTRO} 깔기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:246001
 msgid "Something else"
 msgstr "그 밖의 것들"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:246001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1675,14 +1699,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "${CURDISTRO} 지우고 다시 깔기"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1694,7 +1718,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:248001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "${CURDISTRO}(을)를 ${VER}(으)로 판올림"
 
@@ -1702,7 +1726,7 @@ msgstr "${CURDISTRO}(을)를 ${VER}(으)로 판올림"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:247001 ../ubiquity.templates:251001
+#: ../ubiquity.templates:248001 ../ubiquity.templates:252001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1715,7 +1739,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:249001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "${CURDISTRO}와 함께 ${DISTRO} ${VER} 깔기"
 
@@ -1725,13 +1749,13 @@ msgstr "${CURDISTRO}와 함께 ${DISTRO} ${VER} 깔기"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:249001 ../ubiquity.templates:252001
+#: ../ubiquity.templates:250001 ../ubiquity.templates:253001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "디스크를 지우고 ${DISTRO} 깔기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:250001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1741,7 +1765,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:251001
 msgid "Erase everything and reinstall"
 msgstr "모두 지우고 다시 깔기"
 
@@ -1749,7 +1773,7 @@ msgstr "모두 지우고 다시 깔기"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:251001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1761,13 +1785,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:252001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} 다시 깔기"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:253001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1779,14 +1803,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:254001
 msgid "Install ${DISTRO} alongside them"
 msgstr "${DISTRO} 같이 깔기"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:255001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "이 컴퓨터에는 ${OS}이(가) 깔려 있습니다. 무엇을 하시겠습니까?"
 
@@ -1794,7 +1818,7 @@ msgstr "이 컴퓨터에는 ${OS}이(가) 깔려 있습니다. 무엇을 하시�
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:256001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1803,7 +1827,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:257001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1811,7 +1835,7 @@ msgstr "이 컴퓨터에는 여러 운영체제가 깔려 있습니다. 무엇�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:258001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
