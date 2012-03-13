@@ -1,12 +1,17 @@
-ubiquity (2.9.28) UNRELEASED; urgency=low
+ubiquity (2.9.28) precise; urgency=low
 
   * ubiquity-bluetooth-agent: Don't touch /tmp/ubiquity-bluetooth-done
     if the file already exists. (LP: #951402)
   * gtk-ui: Drop poke_screensaver and replace by code disabling it in
     gsettings. (LP: #951336)
   * Replace ubuntu_installed.png by a scaled down version (LP: #750134)
+  * Enable test_same_ubuntu_only making sure we don't get offered an
+    'upgrade' to the same version of Ubuntu.
+  * Add test_newer_ubuntu_only ensuring ubiquity doesn't offer a downgrade.
+  * Automatic update of included source packages: user-setup
+    1.41ubuntu1.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 13 Mar 2012 18:41:38 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 13 Mar 2012 19:21:21 -0400
 
 ubiquity (2.9.27) precise; urgency=low
 

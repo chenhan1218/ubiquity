@@ -30,5 +30,5 @@ partman-uboot 5
 partman-xfs 48
 preseed 1.50ubuntu1
 tzsetup 1:0.26ubuntu11
-user-setup 1.39ubuntu2
+user-setup 1.41ubuntu1
 yaboot-installer 1.1.19ubuntu1
