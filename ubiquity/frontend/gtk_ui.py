@@ -244,8 +244,6 @@ class Wizard(BaseFrontend):
         # set default language
         self.locale = i18n.reset_locale(self)
 
-        GObject.timeout_add_seconds(30, self.poke_screensaver)
-
         # set custom language
         self.set_locales()
 
@@ -488,6 +486,29 @@ class Wizard(BaseFrontend):
             gconftool.set(terminal_key, 'string',
                           self.gconf_previous[terminal_key])
 
+    def disable_screensaver(self):
+        gs_schema = 'org.gnome.desktop.screensaver'
+        gs_key = 'idle-activation-enabled'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        if gs_previous in self.gsettings_previous:
+            return
+
+        gs_value = gsettings.get(gs_schema, gs_key)
+        self.gsettings_previous[gs_previous] = gs_value
+
+        if gs_value != False:
+            gsettings.set(gs_schema, gs_key, False)
+
+        atexit.register(self.enable_screensaver)
+
+    def enable_screensaver(self):
+        gs_schema = 'org.gnome.desktop.screensaver'
+        gs_key = 'idle-activation-enabled'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = self.gsettings_previous[gs_previous]
+
+        gsettings.set(gs_schema, gs_key, gs_value)
+
     def disable_logout_indicator(self):
         gs_schema = 'com.canonical.indicator.session'
         gs_key = 'suppress-logout-menuitem'
@@ -600,6 +621,7 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
         self.disable_volume_manager()
+        self.disable_screensaver()
 
         if 'UBIQUITY_ONLY' in os.environ:
             self.disable_logout_indicator()
@@ -838,25 +860,6 @@ color : @fg_color
         self.allow_go_backward(False)
 
         misc.add_connection_watch(self.network_change)
-
-    def poke_screensaver(self):
-        """Attempt to make sure that the screensaver doesn't kick in."""
-        if os.path.exists('/usr/bin/gnome-screensaver-command'):
-            command = ["gnome-screensaver-command", "--poke"]
-        elif os.path.exists('/usr/bin/xscreensaver-command'):
-            command = ["xscreensaver-command", "--deactivate"]
-        else:
-            return
-
-        env = ['LC_ALL=C']
-        for key, value in os.environ.iteritems():
-            if key != 'LC_ALL':
-                env.append('%s=%s' % (key, value))
-        GObject.spawn_async(command, envp=env,
-                            flags=(GObject.SPAWN_SEARCH_PATH |
-                                   GObject.SPAWN_STDOUT_TO_DEV_NULL |
-                                   GObject.SPAWN_STDERR_TO_DEV_NULL))
-        return True
 
     def set_window_hints(self, widget):
         if (self.oem_user_config or

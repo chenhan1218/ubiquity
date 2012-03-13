@@ -2,8 +2,10 @@ ubiquity (2.9.28) UNRELEASED; urgency=low
 
   * ubiquity-bluetooth-agent: Don't touch /tmp/ubiquity-bluetooth-done
     if the file already exists. (LP: #951402)
+  * gtk-ui: Drop poke_screensaver and replace by code disabling it in
+    gsettings. (LP: #951336)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 13 Mar 2012 17:22:18 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 13 Mar 2012 18:19:39 -0400
 
 ubiquity (2.9.27) precise; urgency=low
 
