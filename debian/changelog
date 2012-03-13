@@ -1,3 +1,10 @@
+ubiquity (2.9.28) UNRELEASED; urgency=low
+
+  * ubiquity-bluetooth-agent: Don't touch /tmp/ubiquity-bluetooth-done
+    if the file already exists. (LP: #951402)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 13 Mar 2012 17:22:18 -0400
+
 ubiquity (2.9.27) precise; urgency=low
 
   * Port keyboard indicator from xklavier to Xkl and from gconf to gsettings.
