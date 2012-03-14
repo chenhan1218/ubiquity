@@ -6,6 +6,9 @@ ubiquity (2.9.29) UNRELEASED; urgency=low
     suspend buttons do not put us into suspend mode (LP: #948163)
 
   [ Stéphane Graber ]
+ The change below requires a new pygi/gtk as partition_tree_model.insert_with_valuesv
+ is broken due to https://bugzilla.gnome.org/show_bug.cgi?id=672065
+ Please revert commits 5256 AND 5257 if you need to upload before that.
   * ubi-partman: Replace calls to partition_tree_model.append by their
     partition_tree_model.insert_with_valuesv equivalent to workaround
     gtk not doing atomic appends to a ListStore. (LP: #939450)
