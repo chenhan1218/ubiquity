@@ -1,3 +1,11 @@
+ubiquity (2.9.29) UNRELEASED; urgency=low
+
+  * disable gnome-settings-daemon power management plugin during install to
+    make sure things like lid closing or accidential pressing of power or
+    suspend buttons do not put us into suspend mode (LP: #948163)
+
+ -- Oliver Grawert <ogra@ubuntu.com>  Wed, 14 Mar 2012 15:17:46 +0100
+
 ubiquity (2.9.28) precise; urgency=low
 
   * ubiquity-bluetooth-agent: Don't touch /tmp/ubiquity-bluetooth-done

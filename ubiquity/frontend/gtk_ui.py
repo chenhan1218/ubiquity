@@ -509,6 +509,29 @@ class Wizard(BaseFrontend):
 
         gsettings.set(gs_schema, gs_key, gs_value)
 
+    def disable_powermgr(self):
+        gs_schema = 'org.gnome.settings-daemon.plugins.power'
+        gs_key = 'active'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        if gs_previous in self.gsettings_previous:
+            return
+
+        gs_value = gsettings.get(gs_schema, gs_key)
+        self.gsettings_previous[gs_previous] = gs_value
+
+        if gs_value != False:
+            gsettings.set(gs_schema, gs_key, False)
+
+        atexit.register(self.enable_powermgr)
+
+    def enable_powermgr(self):
+        gs_schema = 'org.gnome.settings-daemon.plugins.power'
+        gs_key = 'active'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = self.gsettings_previous[gs_previous]
+
+        gsettings.set(gs_schema, gs_key, gs_value)
+
     def disable_logout_indicator(self):
         gs_schema = 'com.canonical.indicator.session'
         gs_key = 'suppress-logout-menuitem'
@@ -622,6 +645,7 @@ class Wizard(BaseFrontend):
 
         self.disable_volume_manager()
         self.disable_screensaver()
+        self.disable_powermgr()
 
         if 'UBIQUITY_ONLY' in os.environ:
             self.disable_logout_indicator()
