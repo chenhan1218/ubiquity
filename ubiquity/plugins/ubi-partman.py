@@ -1206,7 +1206,7 @@ class PageGtk(PageBase):
 
         for item in cache_order:
             if item in disk_cache:
-                partition_tree_model.append([item, disk_cache[item]])
+                partition_tree_model.insert_with_valuesv(-1, [0,1], [item, disk_cache[item]])
                 dev = disk_cache[item]['device']
                 self.partition_bars[dev] = segmented_bar.SegmentedBar()
                 partition_bar = self.partition_bars[dev]
@@ -1214,7 +1214,7 @@ class PageGtk(PageBase):
                     partition_bar, True, True, 0)
                 total_size[dev] = 0.0
             else:
-                partition_tree_model.append([item, partition_cache[item]])
+                partition_tree_model.insert_with_valuesv(-1, [0,1], [item, partition_cache[item]])
                 size = int(partition_cache[item]['parted']['size'])
                 total_size[dev] = total_size[dev] + size
                 fs = partition_cache[item]['parted']['fs']

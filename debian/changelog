@@ -1,10 +1,17 @@
 ubiquity (2.9.29) UNRELEASED; urgency=low
 
+  [ Oliver Grawert ]
   * disable gnome-settings-daemon power management plugin during install to
     make sure things like lid closing or accidential pressing of power or
     suspend buttons do not put us into suspend mode (LP: #948163)
 
- -- Oliver Grawert <ogra@ubuntu.com>  Wed, 14 Mar 2012 15:17:46 +0100
+  [ Stéphane Graber ]
+  * ubi-partman: Replace calls to partition_tree_model.append by their
+    partition_tree_model.insert_with_valuesv equivalent to workaround
+    gtk not doing atomic appends to a ListStore. (LP: #939450)
+
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 14 Mar 2012 15:30:03 -0400
 
 ubiquity (2.9.28) precise; urgency=low
 
