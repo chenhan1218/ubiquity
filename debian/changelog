@@ -8,8 +8,11 @@ ubiquity (2.9.29) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * ubi-partman: Ignore None cell values, we'll get another event
     when they actually contain something anyway. (LP: #939450)
+  * Fix set_indicator_keymaps to always send an array of strings to
+    gsettings and also go through more of the possible language codes as
+    Xkl doesn't seem to always work with part2_code (LP: #955844)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 14 Mar 2012 15:30:03 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 16:23:19 -0400
 
 ubiquity (2.9.28) precise; urgency=low
 

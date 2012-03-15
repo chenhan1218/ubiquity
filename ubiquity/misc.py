@@ -579,7 +579,6 @@ def set_indicator_keymaps(locale):
     from gi.repository import Xkl, GdkX11
     from ubiquity import gsettings
 
-    # FIXME: Code below needs porting to gsettings (not done yet as the function is disabled)
     xpath = "//iso_639_3_entry[@part1_code='%s']"
     gsettings_key = ['org.gnome.libgnomekbd.keyboard','layouts']
     variants = []
@@ -591,27 +590,31 @@ def set_indicator_keymaps(locale):
 
     def process_variant(*args):
         if hasattr(args[2], 'name'):
-            variants.append('%s\t%s' % (item_str(args[1].name), item_str(args[2].name)))
+            variants.append(str('%s\t%s' % (item_str(args[1].name), item_str(args[2].name))))
         else:
-            variants.append(item_str(args[1].name))
+            variants.append(str(item_str(args[1].name)))
 
     lang = locale.split('_')[0]
     fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
     context = fp.xpathNewContext()
     nodes = context.xpathEvalExpression(xpath % lang)
     if nodes:
-        code = nodes[0].prop('part2_code')
         display = GdkX11.x11_get_default_xdisplay()
         engine = Xkl.Engine.get_instance(display)
         configreg = Xkl.ConfigRegistry.get_instance(engine)
         configreg.load(False)
-        configreg.foreach_language_variant(code, process_variant, None)
-        if variants:
-            gsettings.set_list(gsettings_key[0], gsettings_key[1], variants)
-            return
+
+        # Apparently part2_code doesn't always work (fails with French)
+        for prop in ('part2_code', 'id', 'part1_code'):
+            if nodes[0].hasProp(prop):
+                code = nodes[0].prop(prop)
+                configreg.foreach_language_variant(code, process_variant, None)
+                if variants:
+                    gsettings.set_list(gsettings_key[0], gsettings_key[1], variants)
+                    return
 
     # Use the system default if no other keymaps can be determined.
-    gsettings.set_list(gsettings_key[0], gsettings_key[1], '')
+    gsettings.set_list(gsettings_key[0], gsettings_key[1], [])
 
 NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70
