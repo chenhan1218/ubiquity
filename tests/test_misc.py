@@ -146,16 +146,24 @@ class MiscTests(unittest.TestCase):
                          '\\\\A\\ test\\ string\\n')
 
     @mock.patch('ubiquity.gsettings.set_list')
-    def test_set_indicator_keymaps(self, mock_set_list):
+    def test_set_indicator_keymaps_english(self, mock_set_list):
         misc.set_indicator_keymaps('en_US.UTF-8')
         self.assertEqual(mock_set_list.call_count, 1)
         self.assertEqual(mock_set_list.call_args[0][0],
             'org.gnome.libgnomekbd.keyboard')
         self.assertEqual(mock_set_list.call_args[0][1], 'layouts')
         self.assertIn('us', mock_set_list.call_args[0][2])
-        self.assertIn('gb', mock_set_list.call_args[0][2])
-        self.assertIn('gb\tintl', mock_set_list.call_args[0][2])
-        self.assertIn('gb\tmac', mock_set_list.call_args[0][2])
+        self.assertEqual(len(mock_set_list.call_args[0][2]), 4)
+
+    @mock.patch('ubiquity.gsettings.set_list')
+    def test_set_indicator_keymaps_variants(self, mock_set_list):
+        misc.set_indicator_keymaps('sv_SE.UTF-8')
+        self.assertEqual(mock_set_list.call_count, 1)
+        self.assertEqual(mock_set_list.call_args[0][0],
+            'org.gnome.libgnomekbd.keyboard')
+        self.assertEqual(mock_set_list.call_args[0][1], 'layouts')
+        print mock_set_list.call_args[0][2]
+        self.assertIn('se\tdvorak', mock_set_list.call_args[0][2])
 
 #class PartedServerTests(unittest.TestCase):
 #    def setUp(self):

@@ -16,10 +16,12 @@ ubiquity (2.9.29) UNRELEASED; urgency=low
   * Only use the keyboard indicator when in greeter mode, otherwise it'd
     override any previously selected keyboard layout (from gfxboot or from
     the user session)
+  * Update indicator tests to match the new code, ensuring we don't have
+    more than 4 entries and that languages with variants work fine.
   * Automatic update of included source packages: console-setup
     1.70ubuntu3, partman-auto 93ubuntu22, partman-efi 24ubuntu3.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 17:54:26 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 18:11:21 -0400
 
 ubiquity (2.9.28) precise; urgency=low
 
