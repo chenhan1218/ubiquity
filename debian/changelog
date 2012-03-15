@@ -11,8 +11,10 @@ ubiquity (2.9.29) UNRELEASED; urgency=low
   * Fix set_indicator_keymaps to always send an array of strings to
     gsettings and also go through more of the possible language codes as
     Xkl doesn't seem to always work with part2_code (LP: #955844)
+  * Restrict the list of keyboard layouts added to the indicator to 4
+    and try to be clever as to which one to select.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 16:23:19 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 17:51:44 -0400
 
 ubiquity (2.9.28) precise; urgency=low
 
