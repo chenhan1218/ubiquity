@@ -1,4 +1,4 @@
-ubiquity (2.9.29) UNRELEASED; urgency=low
+ubiquity (2.9.29) precise; urgency=low
 
   [ Oliver Grawert ]
   * disable gnome-settings-daemon power management plugin during install to
@@ -21,7 +21,7 @@ ubiquity (2.9.29) UNRELEASED; urgency=low
   * Automatic update of included source packages: console-setup
     1.70ubuntu3, partman-auto 93ubuntu22, partman-efi 24ubuntu3.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 18:11:21 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 18:12:41 -0400
 
 ubiquity (2.9.28) precise; urgency=low
 
