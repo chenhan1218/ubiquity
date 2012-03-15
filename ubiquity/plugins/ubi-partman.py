@@ -253,7 +253,7 @@ class PageGtk(PageBase):
                     if key in disk_ids:
                         min_size  = extra_resize[key][1]
                         part_size = extra_resize[key][5]
-                        m.insert_with_valuesv(-1, [0,1], [disk, '<small>%s</small>' %
+                        m.append([disk, '<small>%s</small>' %
                                   misc.format_size(part_size - min_size)])
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_resize_mode()
@@ -261,7 +261,7 @@ class PageGtk(PageBase):
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
                 for disk in self.extra_options['use_device'][1]:
-                    m.insert_with_valuesv(-1, [0,1], [disk, ''])
+                    m.append([disk, ''])
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_use_disk_mode()
 
@@ -468,14 +468,12 @@ class PageGtk(PageBase):
         self.grub_device_entry.set_model(l)
         selected = False
         for opt in options:
-            print "options = %s" % opt
-            i = l.insert_with_valuesv(-1, [0,1], opt)
+            i = l.append(opt)
             if opt[0] == default:
                 self.grub_device_entry.set_active_iter(i)
                 selected = True
         if not selected:
-            print "options = %s" % [default, '']
-            i = l.insert_with_valuesv(-1, [0,1], [default, ''])
+            i = l.append([default, ''])
             self.grub_device_entry.set_active_iter(i)
 
     def get_grub_choice(self):
@@ -591,6 +589,9 @@ class PageGtk(PageBase):
         self.part_advanced_recalculating_box.hide()
 
     def partman_column_name (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition:
             # whole disk
@@ -607,6 +608,9 @@ class PageGtk(PageBase):
             cell.set_property('text', '  %s' % free_space)
 
     def partman_column_type (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition or 'method' not in partition:
             if ('parted' in partition and
@@ -623,6 +627,9 @@ class PageGtk(PageBase):
 
     @plugin.only_this_page
     def partman_column_mountpoint (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
         if mountpoint is None:
@@ -630,6 +637,9 @@ class PageGtk(PageBase):
         cell.set_property('text', mountpoint)
 
     def partman_column_format (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition:
             cell.set_property('visible', False)
@@ -657,6 +667,9 @@ class PageGtk(PageBase):
         self.controller.dbfilter.edit_partition(devpart, fmt='dummy')
 
     def partman_column_size (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition:
             cell.set_property('text', '')
@@ -667,6 +680,9 @@ class PageGtk(PageBase):
             cell.set_property('text', '%d MB' % size_mb)
 
     def partman_column_used (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition or partition['parted']['fs'] == 'free':
             cell.set_property('text', '')
@@ -780,14 +796,14 @@ class PageGtk(PageBase):
         list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
                                    GObject.TYPE_STRING)
         for method, name, description in self.controller.dbfilter.use_as(devpart, True):
-            list_store.insert_with_valuesv(-1, [0,1,2], [method, name, description])
+            list_store.append([method, name, description])
         self.partition_create_use_combo.set_model(list_store)
         if list_store.get_iter_first():
             self.partition_create_use_combo.set_active(0)
 
         list_store = Gtk.ListStore(GObject.TYPE_STRING)
         for mp, choice_c, choice in self.controller.dbfilter.default_mountpoint_choices():
-            list_store.insert_with_valuesv(-1, [0], [mp])
+            list_store.append([mp])
         self.partition_create_mount_combo.set_model(list_store)
         if self.partition_create_mount_combo.get_entry_text_column() == -1:
             self.partition_create_mount_combo.set_entry_text_column(0)
@@ -844,7 +860,7 @@ class PageGtk(PageBase):
                 mount_model.clear()
                 for mp, choice_c, choice in \
                     self.controller.dbfilter.default_mountpoint_choices(fs):
-                    mount_model.insert_with_valuesv(-1, [0], [mp])
+                    mount_model.append([mp])
 
     @plugin.only_this_page
     def partman_edit_dialog (self, devpart, partition):
@@ -882,7 +898,7 @@ class PageGtk(PageBase):
         self.partition_edit_use_combo.add_attribute(renderer, 'text', 1)
         list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         for script, arg, option in partition['method_choices']:
-            list_store.insert_with_valuesv(-1, [0,1], [arg, option])
+            list_store.append([arg, option])
         self.partition_edit_use_combo.set_model(list_store)
         current_method = self.controller.dbfilter.get_current_method(partition)
         if current_method:
@@ -913,7 +929,7 @@ class PageGtk(PageBase):
         list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         if 'mountpoint_choices' in partition:
             for mp, choice_c, choice in partition['mountpoint_choices']:
-                list_store.insert_with_valuesv(-1, [0,1], [mp, choice])
+                list_store.append([mp, choice])
         self.partition_edit_mount_combo.set_model(list_store)
         if self.partition_edit_mount_combo.get_entry_text_column() == -1:
             self.partition_edit_mount_combo.set_entry_text_column(0)
@@ -988,7 +1004,7 @@ class PageGtk(PageBase):
                 mount_model.clear()
                 for mp, choice_c, choice in \
                     self.controller.dbfilter.default_mountpoint_choices(fs):
-                    mount_model.insert_with_valuesv(-1, [0,1], [mp, choice])
+                    mount_model.append([mp, choice])
 
     def on_partition_list_treeview_button_press_event (self, widget, event):
         from gi.repository import Gdk
@@ -1208,7 +1224,7 @@ class PageGtk(PageBase):
 
         for item in cache_order:
             if item in disk_cache:
-                partition_tree_model.insert_with_valuesv(-1, [0,1], [item, disk_cache[item]])
+                partition_tree_model.append([item, disk_cache[item]])
                 dev = disk_cache[item]['device']
                 self.partition_bars[dev] = segmented_bar.SegmentedBar()
                 partition_bar = self.partition_bars[dev]
@@ -1216,7 +1232,7 @@ class PageGtk(PageBase):
                     partition_bar, True, True, 0)
                 total_size[dev] = 0.0
             else:
-                partition_tree_model.insert_with_valuesv(-1, [0,1], [item, partition_cache[item]])
+                partition_tree_model.append([item, partition_cache[item]])
                 size = int(partition_cache[item]['parted']['size'])
                 total_size[dev] = total_size[dev] + size
                 fs = partition_cache[item]['parted']['fs']
