@@ -13,8 +13,11 @@ ubiquity (2.9.29) UNRELEASED; urgency=low
     Xkl doesn't seem to always work with part2_code (LP: #955844)
   * Restrict the list of keyboard layouts added to the indicator to 4
     and try to be clever as to which one to select.
+  * Only use the keyboard indicator when in greeter mode, otherwise it'd
+    override any previously selected keyboard layout (from gfxboot or from
+    the user session)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 17:51:44 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 15 Mar 2012 17:54:26 -0400
 
 ubiquity (2.9.28) precise; urgency=low
 

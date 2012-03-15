@@ -222,7 +222,8 @@ class PageGtk(PageBase):
         self.controller.allow_go_forward(bool(lang))
         if not lang:
             return
-        misc.set_indicator_keymaps(lang)
+        if 'UBIQUITY_GREETER' in os.environ:
+            misc.set_indicator_keymaps(lang)
         # strip encoding; we use UTF-8 internally no matter what
         lang = lang.split('.')[0]
         self.controller.translate(lang)
