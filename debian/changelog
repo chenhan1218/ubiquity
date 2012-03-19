@@ -2,7 +2,7 @@ ubiquity (2.9.30) UNRELEASED; urgency=low
 
   [ Barry Warsaw ]
   * When Try Ubuntu has been clicked once, don't respond to subsequent
-    clicks.  (LP: #792652)
+    clicks.  (LP: #911907)
 
  -- Barry Warsaw <barry@ubuntu.com>  Mon, 19 Mar 2012 10:34:45 -0400
 

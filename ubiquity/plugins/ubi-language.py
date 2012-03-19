@@ -131,7 +131,7 @@ class PageGtk(PageBase):
     def on_try_ubuntu_clicked(self, *args):
         if not self.controller.allowed_change_step():
             # The button's already been clicked once, so stop reacting to it.
-            # LP: #792652.
+            # LP: #911907.
             return
         # Spinning cursor.
         self.controller.allow_change_step(False)
@@ -450,7 +450,7 @@ class PageKde(PageBase):
     def on_try_ubuntu_clicked(self, *args):
         if not self.controller.allowed_change_step():
             # The button's already been clicked once, so stop reacting to it.
-            # LP: #792652.
+            # LP: #911907.
             return
         # Spinning cursor.
         self.controller.allow_change_step(False)
