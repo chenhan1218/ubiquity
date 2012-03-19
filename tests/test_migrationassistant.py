@@ -37,7 +37,6 @@ class TestMigrationAssistant(unittest.TestCase):
                 })
         ma_page.ui.ma_set_choices(tree)
         ui.refresh()
-        valid, start_path, end_path = ui.matreeview.get_visible_range()
-        self.assertTrue(valid)
+        start_path, end_path = ui.matreeview.get_visible_range()
         self.assertEqual('0', start_path.to_string())
         self.assertEqual('3', end_path.to_string())
