@@ -1,3 +1,10 @@
+ubiquity (2.9.30) UNRELEASED; urgency=low
+
+  * Lazily unmount partitions in the check for a Windows partition to
+    install Wubi on when we have a full partition table.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 19 Mar 2012 14:18:42 +0000
+
 ubiquity (2.9.29) precise; urgency=low
 
   [ Oliver Grawert ]
