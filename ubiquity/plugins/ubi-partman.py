@@ -212,7 +212,7 @@ class PageGtk(PageBase):
         except subprocess.CalledProcessError:
             pass
         finally:
-            subprocess.call(['umount', mount_path])
+            subprocess.call(['umount', '-l', mount_path])
             if os.path.exists(mount_path):
                 os.rmdir(mount_path)
 
@@ -2077,7 +2077,7 @@ class Page(plugin.Plugin):
                         except subprocess.CalledProcessError:
                             pass
                         finally:
-                            subprocess.call(['umount', mount_path])
+                            subprocess.call(['umount', '-l', mount_path])
                             if os.path.exists(mount_path):
                                 os.rmdir(mount_path)
 
