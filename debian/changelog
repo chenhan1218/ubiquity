@@ -1,5 +1,9 @@
 ubiquity (2.9.30) UNRELEASED; urgency=low
 
+  [ Adam Conrad ]
+  * Drop gui/qt/images/squares.png and replace it with a single pixel
+    transparent PNG as a placeholder for future changes (LP: #942543)
+
   [ Evan Dandrea ]
   * Lazily unmount partitions in the check for a Windows partition to
     install Wubi on when we have a full partition table (LP: #956531).
