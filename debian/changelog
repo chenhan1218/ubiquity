@@ -1,9 +1,17 @@
 ubiquity (2.9.30) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Lazily unmount partitions in the check for a Windows partition to
     install Wubi on when we have a full partition table (LP: #956531).
 
- -- Evan Dandrea <ev@ubuntu.com>  Mon, 19 Mar 2012 14:23:32 +0000
+  [ Stéphane Graber ]
+  * set_indicator_keymaps() doesn't actually receive a full locale but
+    instead just the language code. That means that the code trying to
+    guess a layout based on the default country won't work.
+    Drop all of that code and replace by a static map to override the
+    default keyboard layout/variant for a language.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 19 Mar 2012 11:48:43 -0400
 
 ubiquity (2.9.29) precise; urgency=low
 

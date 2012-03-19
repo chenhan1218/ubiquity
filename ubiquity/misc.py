@@ -574,7 +574,7 @@ def dmimodel():
             kwargs['stderr'].close()
     return model
 
-def set_indicator_keymaps(locale):
+def set_indicator_keymaps(lang):
     import libxml2
     from gi.repository import Xkl, GdkX11
     from ubiquity import gsettings
@@ -582,6 +582,34 @@ def set_indicator_keymaps(locale):
     xpath = "//iso_639_3_entry[@part1_code='%s']"
     gsettings_key = ['org.gnome.libgnomekbd.keyboard','layouts']
     variants = []
+
+    # Map inspired from that of gfxboot-theme-ubuntu that's itself
+    # based on console-setup's. This one has been restricted to
+    # language => keyboard layout not locale => keyboard layout as
+    # we don't actually know the exact locale
+    default_keymap = {
+        'ar': 'ara',
+        'bs': 'ba',
+        'de': 'de',
+        'el': 'gr',
+        'en': 'us',
+        'eo': 'epo',
+        'fr': 'fr_oss',
+        'gu': 'in_guj',
+        'hi': 'in',
+        'hr': 'hr',
+        'hy': 'am',
+        'ka': 'ge',
+        'kn': 'in_kan',
+        'lo': 'la',
+        'ml': 'in_mal',
+        'pa': 'in_guru',
+        'sr': 'rs',
+        'sv': 'se',
+        'ta': 'in_tam',
+        'te': 'in_tel',
+        'zh': 'cn',
+    }
 
     def item_str(s):
         '''Convert a zero-terminated byte array to a proper str'''
@@ -594,23 +622,24 @@ def set_indicator_keymaps(locale):
         else:
             variants.append(item_str(args[1].name))
 
-    def restrict_list(variants, lang):
+    def restrict_list(variants):
         new_variants = []
-        language = lang[0]
-        try:
-            country = lang[1].split('.')[0].lower()
-        except IndexError:
-            country = ''
+
+        # Start by looking by an explicit default layout in the keymap
+        if lang in default_keymap:
+            if default_keymap[lang] in variants:
+                variants.remove(default_keymap[lang])
+                new_variants.append(default_keymap[lang])
+            else:
+                tab_keymap = default_keymap[lang].replace('_', '\t')
+                if tab_keymap in variants:
+                    variants.remove(tab_keymap)
+                    new_variants.append(tab_keymap)
 
         # Prioritize the layout matching the language (if any)
-        if language in variants:
-            variants.remove(language)
-            new_variants.append(language)
-
-        # Catch cases where the country is the important part (US)
-        if country in variants:
-            variants.remove(country)
-            new_variants.append(country)
+        if lang in variants:
+            variants.remove(lang)
+            new_variants.append(lang)
 
         # Uniquify our list (just in case)
         variants = set(variants)
@@ -644,10 +673,9 @@ def set_indicator_keymaps(locale):
 
         return new_variants
 
-    lang = locale.split('_')
     fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
     context = fp.xpathNewContext()
-    nodes = context.xpathEvalExpression(xpath % lang[0])
+    nodes = context.xpathEvalExpression(xpath % lang)
     if nodes:
         display = GdkX11.x11_get_default_xdisplay()
         engine = Xkl.Engine.get_instance(display)
@@ -660,7 +688,7 @@ def set_indicator_keymaps(locale):
                 code = nodes[0].prop(prop)
                 configreg.foreach_language_variant(code, process_variant, None)
                 if variants:
-                    gsettings.set_list(gsettings_key[0], gsettings_key[1], restrict_list(variants, lang))
+                    gsettings.set_list(gsettings_key[0], gsettings_key[1], restrict_list(variants))
                     return
 
     # Use the system default if no other keymaps can be determined.
