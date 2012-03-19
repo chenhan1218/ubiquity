@@ -146,8 +146,11 @@ class MiscTests(unittest.TestCase):
                          '\\\\A\\ test\\ string\\n')
 
     @mock.patch('ubiquity.gsettings.set_list')
-    def test_set_indicator_keymaps_english(self, mock_set_list):
+    @mock.patch('ubiquity.misc.execute')
+    def test_set_indicator_keymaps_english(self, mock_execute, mock_set_list):
         misc.set_indicator_keymaps('en')
+        self.assertEqual(mock_execute.call_count, 1)
+        self.assertEqual(mock_execute.call_args[0][0], 'setxkbmap')
         self.assertEqual(mock_set_list.call_count, 1)
         self.assertEqual(mock_set_list.call_args[0][0],
             'org.gnome.libgnomekbd.keyboard')
@@ -156,8 +159,11 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(len(mock_set_list.call_args[0][2]), 4)
 
     @mock.patch('ubiquity.gsettings.set_list')
-    def test_set_indicator_keymaps_french(self, mock_set_list):
+    @mock.patch('ubiquity.misc.execute')
+    def test_set_indicator_keymaps_french(self, mock_execute, mock_set_list):
         misc.set_indicator_keymaps('fr')
+        self.assertEqual(mock_execute.call_count, 1)
+        self.assertEqual(mock_execute.call_args[0][0], 'setxkbmap')
         self.assertEqual(mock_set_list.call_count, 1)
         self.assertEqual(mock_set_list.call_args[0][0],
             'org.gnome.libgnomekbd.keyboard')
@@ -166,8 +172,11 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(len(mock_set_list.call_args[0][2]), 4)
 
     @mock.patch('ubiquity.gsettings.set_list')
-    def test_set_indicator_keymaps_variants(self, mock_set_list):
+    @mock.patch('ubiquity.misc.execute')
+    def test_set_indicator_keymaps_variants(self, mock_execute, mock_set_list):
         misc.set_indicator_keymaps('sv')
+        self.assertEqual(mock_execute.call_count, 1)
+        self.assertEqual(mock_execute.call_args[0][0], 'setxkbmap')
         self.assertEqual(mock_set_list.call_count, 1)
         self.assertEqual(mock_set_list.call_args[0][0],
             'org.gnome.libgnomekbd.keyboard')

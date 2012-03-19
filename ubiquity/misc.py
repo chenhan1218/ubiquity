@@ -673,6 +673,21 @@ def set_indicator_keymaps(lang):
 
         return new_variants
 
+    def call_setxkbmap(variants):
+        kb_layouts = []
+        kb_variants = []
+
+        for entry in variants:
+            fields = entry.split('\t')
+            if len(fields) > 1:
+                kb_layouts.append(fields[0])
+                kb_variants.append(fields[1])
+            else:
+                kb_layouts.append(fields[0])
+                kb_variants.append("")
+
+        execute("setxkbmap", "-layout", ",".join(kb_layouts), "-variant", ",".join(kb_variants))
+
     fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
     context = fp.xpathNewContext()
     nodes = context.xpathEvalExpression(xpath % lang)
@@ -688,11 +703,15 @@ def set_indicator_keymaps(lang):
                 code = nodes[0].prop(prop)
                 configreg.foreach_language_variant(code, process_variant, None)
                 if variants:
-                    gsettings.set_list(gsettings_key[0], gsettings_key[1], restrict_list(variants))
-                    return
+                    restricted_variants = restrict_list(variants)
+                    call_setxkbmap(restricted_variants)
+                    gsettings.set_list(gsettings_key[0], gsettings_key[1], restricted_variants)
+                    break
+        else:
+            # Use the system default if no other keymaps can be determined.
+            gsettings.set_list(gsettings_key[0], gsettings_key[1], [])
 
-    # Use the system default if no other keymaps can be determined.
-    gsettings.set_list(gsettings_key[0], gsettings_key[1], [])
+    engine.lock_group(0)
 
 NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70

@@ -16,6 +16,8 @@ ubiquity (2.9.30) UNRELEASED; urgency=low
     default keyboard layout/variant for a language. (LP: #956912)
   * Merge and update Alessio Treglia's branch to make the slideshow
     optional depending on (ubiquity/hide_slideshow) (LP: #690912)
+  * Also call setxkbmap directly from set_indicator_keymaps() to ensure
+    we actually switch to the first layout in the list. (LP: #956912)
 
   [ Martin Pitt ]
   * tests/test_migrationassistant.py: Fix to work with pygobject 3.1.92.
@@ -24,7 +26,7 @@ ubiquity (2.9.30) UNRELEASED; urgency=low
   * When Try Ubuntu has been clicked once, don't respond to subsequent
     clicks.  (LP: #911907)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 19 Mar 2012 12:22:59 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 19 Mar 2012 15:54:59 -0400
 
 ubiquity (2.9.29) precise; urgency=low
 
