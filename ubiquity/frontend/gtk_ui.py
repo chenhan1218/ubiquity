@@ -867,7 +867,8 @@ color : @fg_color
             self.slideshow = '/usr/share/oem-config-slideshow'
         else:
             self.slideshow = '/usr/share/ubiquity-slideshow'
-        if os.path.exists(self.slideshow):
+
+        if os.path.exists(self.slideshow) and not self.hide_slideshow:
             try:
                 cfg = ConfigParser.ConfigParser()
                 cfg.read(os.path.join(self.slideshow, 'slideshow.conf'))

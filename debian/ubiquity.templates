@@ -938,6 +938,12 @@ _Description: Do you want to return to the partitioner?
  If you do not go back to the partitioner and increase the size of these
  partitions, the installation may fail.
 
+Template: ubiquity/hide_slideshow
+Type: boolean
+Default: false
+Description: for internal use; can be preseeded
+ Hide the slideshow while installing.
+
 Template: ubiquity/text/oem_user_config_title
 Type: text
 _Description: System Configuration

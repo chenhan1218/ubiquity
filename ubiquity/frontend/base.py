@@ -151,6 +151,13 @@ class BaseFrontend:
         except debconf.DebconfError:
             self.show_shutdown_button = False
 
+        self.hide_slideshow = False
+        try:
+            if self.db.get('ubiquity/hide_slideshow') == 'true':
+                self.hide_slideshow = True
+        except debconf.DebconfError:
+            pass
+
         # Load plugins
         plugins = plugin_manager.load_plugins()
         modules = plugin_manager.order_plugins(plugins)

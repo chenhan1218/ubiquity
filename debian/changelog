@@ -10,8 +10,10 @@ ubiquity (2.9.30) UNRELEASED; urgency=low
     guess a layout based on the default country won't work.
     Drop all of that code and replace by a static map to override the
     default keyboard layout/variant for a language.
+  * Merge and update Alessio Treglia's branch to make the slideshow
+    optional depending on (ubiquity/hide_slideshow) (LP: #690912)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 19 Mar 2012 11:48:43 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 19 Mar 2012 12:22:59 -0400
 
 ubiquity (2.9.29) precise; urgency=low
 
