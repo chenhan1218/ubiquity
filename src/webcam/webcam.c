@@ -172,8 +172,8 @@ ubiquity_webcam_test (UbiquityWebcam *webcam) {
 	priv->testsrc = gst_element_factory_make ("videotestsrc", NULL);
 	g_object_set (G_OBJECT (priv->testsrc), "is-live", TRUE,
 		"peer-alloc", FALSE, NULL);
-	g_object_set (G_OBJECT (priv->src), "video-src", priv->testsrc, NULL);
-	g_object_set (G_OBJECT (priv->camerabin), "camera-src", priv->src, NULL);
+	g_object_set (G_OBJECT (priv->src), "video-source", priv->testsrc, NULL);
+	g_object_set (G_OBJECT (priv->camerabin), "camera-source", priv->src, NULL);
 	ubiquity_webcam_stop (webcam);
 	ubiquity_webcam_play (webcam);
 	gst_object_ref (priv->src);
