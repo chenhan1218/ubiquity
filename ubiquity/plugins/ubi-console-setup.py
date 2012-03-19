@@ -90,6 +90,7 @@ class PageGtk(plugin.PluginUI):
         self.query.connect('layout_result', self.calculate_result)
         self.query.connect('delete-event', self.calculate_closed)
         #self.controller._wizard.overlay.set_property('greyed', True)
+        self.query.set_transient_for(self.page.get_toplevel())
         self.query.run()
 
     def on_keyboardlayoutview_row_activated(self, *args):
