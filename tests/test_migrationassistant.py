@@ -37,6 +37,11 @@ class TestMigrationAssistant(unittest.TestCase):
                 })
         ma_page.ui.ma_set_choices(tree)
         ui.refresh()
-        start_path, end_path = ui.matreeview.get_visible_range()
+        visible_range = ui.matreeview.get_visible_range()
+        if len(visible_range) == 3:  # pygobject < 3.1.92
+            valid, start_path, end_path = visible_range
+            self.assertTrue(valid)
+        else:
+            start_path, end_path = visible_range
         self.assertEqual('0', start_path.to_string())
         self.assertEqual('3', end_path.to_string())
