@@ -642,7 +642,6 @@ def set_indicator_keymaps(locale):
         # gsettings doesn't understand utf8
         new_variants = [str(variant) for variant in new_variants]
 
-        print new_variants
         return new_variants
 
     lang = locale.split('_')
