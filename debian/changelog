@@ -8,6 +8,7 @@ ubiquity (2.9.31) UNRELEASED; urgency=low
   * add support for automatic-oem-config kernel commandline option to the
     oem-config startup scripts to switch oem-config into automatic mode for
     preseeded oem installs
+  * add an entry for the new option in oem-config-firstboot manpage
 
   [ Stéphane Graber ]
   * Properly mark the quit dialog as a child of ubiquity. (LP: #960375)
