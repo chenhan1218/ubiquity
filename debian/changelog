@@ -3,6 +3,7 @@ ubiquity (2.9.31) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix misc.set_indicator_keymaps to handle ll_CC forms of lang, and also
     to avoid crashing on unknown languages in general (LP: #960047).
+  * Strip invalid characters from default username (LP: #783295).
 
   [ Oliver Grawert ]
   * add support for automatic-oem-config kernel commandline option to the

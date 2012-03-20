@@ -114,3 +114,23 @@ class UserSetupTests(unittest.TestCase):
         self.gtk.login_encrypt.set_active(True)
         self.gtk.on_authentication_toggled(self.gtk.login_encrypt)
         self.assertTrue(self.gtk.login_pass.get_active())
+
+    def test_default_username(self):
+        self.gtk.controller.get_string = mock_get_string
+        self.gtk.set_fullname('Example Person')
+        # Shortcut initialization
+        self.gtk.fullname.set_name('fullname')
+        self.gtk.username_edited = False
+        self.gtk.info_loop(self.gtk.fullname)
+        self.assertEqual('example', self.gtk.get_username())
+        self.assertUsernameErrors([], self.gtk.get_username())
+
+    def test_default_username_strips_invalid_characters(self):
+        self.gtk.controller.get_string = mock_get_string
+        self.gtk.set_fullname('&Foo!$ Bar!')
+        # Shortcut initialization
+        self.gtk.fullname.set_name('fullname')
+        self.gtk.username_edited = False
+        self.gtk.info_loop(self.gtk.fullname)
+        self.assertEqual('foo', self.gtk.get_username())
+        self.assertUsernameErrors([], self.gtk.get_username())
