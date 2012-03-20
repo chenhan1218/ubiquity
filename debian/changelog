@@ -1,3 +1,10 @@
+ubiquity (2.9.31) UNRELEASED; urgency=low
+
+  * Fix misc.set_indicator_keymaps to handle ll_CC forms of lang, and also
+    to avoid crashing on unknown languages in general (LP: #960047).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2012 13:28:02 +0000
+
 ubiquity (2.9.30) precise; urgency=low
 
   [ Adam Conrad ]

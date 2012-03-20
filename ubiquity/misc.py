@@ -581,6 +581,7 @@ def set_indicator_keymaps(lang):
 
     xpath = "//iso_639_3_entry[@part1_code='%s']"
     gsettings_key = ['org.gnome.libgnomekbd.keyboard','layouts']
+    lang = lang.split('_')[0]
     variants = []
 
     # Map inspired from that of gfxboot-theme-ubuntu that's itself
@@ -711,7 +712,7 @@ def set_indicator_keymaps(lang):
             # Use the system default if no other keymaps can be determined.
             gsettings.set_list(gsettings_key[0], gsettings_key[1], [])
 
-    engine.lock_group(0)
+        engine.lock_group(0)
 
 NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70
