@@ -245,20 +245,30 @@ on_draw(GtkWidget *widget, cairo_t *cr, gpointer userdata) {
 int
 main(int argc, char* argv[]) {
 	GtkWidget *win;
+	GtkCssProvider *cssprovider;
+
 	/* Disable global menus */
 	g_unsetenv ("UBUNTU_MENUPROXY");
 	gtk_init(&argc, &argv);
 	win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 	g_signal_connect(win, "realize", G_CALLBACK(on_realize), NULL);
 
-	gtk_css_provider_load_from_data(gtk_css_provider_get_default(),
+	cssprovider = gtk_css_provider_new ();
+	gtk_css_provider_load_from_data(cssprovider,
 			"GtkMenuBar {\n"
-			"-GtkMenuBar-internal-padding: 0;\n"
-			"-GtkMenuBar-shadow-type: none;\n"
-			"}\nGtkWidget {\n"
-			"-GtkWidget-focus-line-width: 0;\n"
-			"-GtkWidget-focus-padding: 0;\n"
-			"}", -1, NULL);
+			"    -GtkMenuBar-internal-padding: 0;\n"
+			"    -GtkMenuBar-shadow-type: none;\n"
+			"}\n"
+			"GtkWidget {\n"
+			"    -GtkWidget-focus-line-width: 0;\n"
+			"    -GtkWidget-focus-padding: 0;\n"
+			"}\n"
+			".menuitem {\n"
+			"    padding: 0px 0px 0px 0px;\n"
+			"}\n", -1, NULL);
+
+	gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
+		GTK_STYLE_PROVIDER (cssprovider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
 	GtkWidget* menubar = gtk_menu_bar_new();
 	gtk_menu_bar_set_pack_direction(GTK_MENU_BAR(menubar), GTK_PACK_DIRECTION_RTL);

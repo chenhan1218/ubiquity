@@ -1,3 +1,11 @@
+ubiquity (2.9.32) precise; urgency=low
+
+  * panel: Fix the gtk3 css code so that it actually applies and add
+    another override for the .menuitem padding that was making the panel
+    28px large instead of 24px.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 20 Mar 2012 19:26:14 -0400
+
 ubiquity (2.9.31) precise; urgency=low
 
   [ Colin Watson ]
