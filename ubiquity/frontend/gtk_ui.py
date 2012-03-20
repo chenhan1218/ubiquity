@@ -1283,6 +1283,7 @@ color : @fg_color
     # Callbacks
 
     def on_quit_clicked(self, unused_widget):
+        self.warning_dialog.set_transient_for(self.live_installer.get_toplevel())
         self.warning_dialog.show()
         # Stop processing.
         return True

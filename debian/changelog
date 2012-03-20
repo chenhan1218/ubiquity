@@ -9,7 +9,10 @@ ubiquity (2.9.31) UNRELEASED; urgency=low
     oem-config startup scripts to switch oem-config into automatic mode for
     preseeded oem installs
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2012 13:28:02 +0000
+  [ Stéphane Graber ]
+  * Properly mark the quit dialog as a child of ubiquity. (LP: #960375)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 20 Mar 2012 15:15:31 -0400
 
 ubiquity (2.9.30) precise; urgency=low
 
