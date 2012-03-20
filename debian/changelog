@@ -1,4 +1,4 @@
-ubiquity (2.9.31) UNRELEASED; urgency=low
+ubiquity (2.9.31) precise; urgency=low
 
   [ Colin Watson ]
   * Fix misc.set_indicator_keymaps to handle ll_CC forms of lang, and also
@@ -23,7 +23,7 @@ ubiquity (2.9.31) UNRELEASED; urgency=low
     exist to accommodate update-apt-cache running in parallel with
     copy_all() (LP: #944191).
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 20 Mar 2012 15:15:31 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2012 22:26:54 +0000
 
 ubiquity (2.9.30) precise; urgency=low
 
