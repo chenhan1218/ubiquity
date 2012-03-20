@@ -692,9 +692,9 @@ def set_indicator_keymaps(lang):
     fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
     context = fp.xpathNewContext()
     nodes = context.xpathEvalExpression(xpath % lang)
+    display = GdkX11.x11_get_default_xdisplay()
+    engine = Xkl.Engine.get_instance(display)
     if nodes:
-        display = GdkX11.x11_get_default_xdisplay()
-        engine = Xkl.Engine.get_instance(display)
         configreg = Xkl.ConfigRegistry.get_instance(engine)
         configreg.load(False)
 
@@ -712,7 +712,7 @@ def set_indicator_keymaps(lang):
             # Use the system default if no other keymaps can be determined.
             gsettings.set_list(gsettings_key[0], gsettings_key[1], [])
 
-        engine.lock_group(0)
+    engine.lock_group(0)
 
 NM = 'org.freedesktop.NetworkManager'
 NM_STATE_CONNECTED_GLOBAL = 70
