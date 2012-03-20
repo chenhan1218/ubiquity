@@ -40,6 +40,28 @@ OEM = False
 PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
 Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
 
+# List of file system types that reserve extra space for grub.  Found by
+# grepping for "reserved_first_sector = 1" in the grub2 source as per 
+# https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/959724
+# Only those file systems that set this to 1 can have the boot loader
+# installed on them.  This is that list, with values taken from the .name
+# entry in the matching structs.
+FS_RESERVED_FIRST_SECTOR = set([
+    'btrfs',
+    'ext2',
+    'fat',
+    'hfsplus',
+    'nilfs2',
+    'ntfs',
+    # Add a few ext variants that aren't explicitly described in grub2.
+    'ext3',
+    'ext4',
+    # Add a few fat variants.
+    'fat16',
+    'fat32',
+    # Others?
+    ])
+
 
 class PageBase(plugin.PluginUI):
     def __init__(self, *args, **kwargs):
@@ -458,20 +480,45 @@ class PageGtk(PageBase):
         self.controller.go_forward()
         return True
 
-    def set_grub_options(self, default):
+    def set_grub_options(self, default, partition_cache=None):
+        # FIXME for KDE
+        if partition_cache is None:
+            partition_cache = {}
         from gi.repository import Gtk, GObject
         self.bootloader_vbox.show()
         options = misc.grub_options()
+        # Create a reverse mapping from grub options device path to the file
+        # system type being installed on that option.  Then later we'll make
+        # sure that grub can actually be installed on that path's file system.
+        fstype_by_path = {}
+        for key, value in partition_cache.items():
+            path = value.get('parted', {}).get('path')
+            fstype = value.get('parted', {}).get('fs', 'free')
+            if path is not None:
+                # Duplicate paths should not be possible, but if we find one,
+                # the first one (<wink>, i.e. random) wins.
+                if path in fstype_by_path:
+                    self.debug('already found path %s with type %s',
+                               path, fstype_by_path[path])
+                else:
+                    fstype_by_path[path] = fstype
         if default.startswith('/'):
             default = os.path.realpath(default)
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
         selected = False
         for opt in options:
-            i = l.append(opt)
-            if opt[0] == default:
-                self.grub_device_entry.set_active_iter(i)
-                selected = True
+            # Only append this option if the boot loader can actually be
+            # installed on the device's file system type.
+            fstype = fstype_by_path.get(opt[0], 'free')
+            self.debug('=====> opt: %s, fstype: %s, okay? %s',
+                       opt[0], fstype,
+                       'yes' if fstype in FS_RESERVED_FIRST_SECTOR else 'no')
+            if fstype in FS_RESERVED_FIRST_SECTOR:
+                i = l.append(opt)
+                if opt[0] == default:
+                    self.grub_device_entry.set_active_iter(i)
+                    selected = True
         if not selected:
             i = l.append([default, ''])
             self.grub_device_entry.set_active_iter(i)
@@ -2913,7 +2960,7 @@ class Page(plugin.Plugin):
                 default = grub_bootdev
             else:
                 default = misc.grub_default()
-            self.ui.set_grub_options(default)
+            self.ui.set_grub_options(default, self.partition_cache)
 
 # Notes:
 #
