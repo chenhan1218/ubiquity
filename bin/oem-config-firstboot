@@ -3,9 +3,17 @@
 set -e
 
 DEBUG=
-if [ "$1" = '--debug' ]; then
-	DEBUG=--debug
-fi
+AUTOMATIC=
+for option;do
+	case $option in
+		--debug)
+			DEBUG=--debug
+			;;
+		--automatic)
+			AUTOMATIC=--automatic
+			;;
+	esac
+done
 
 # KDM stores the default user here, and apparently gets upset that we've
 # just removed its previous default user.
@@ -58,13 +66,13 @@ for try in $(seq 1 $TRY); do
 	if [ "$FRONTEND" = debconf_ui ]; then
 		plymouth quit || true
 		LANG=en_US.UTF-8 FRONTEND="$FRONTEND" \
-		/usr/sbin/oem-config-wrapper $DEBUG --only \
+		/usr/sbin/oem-config-wrapper $DEBUG $AUTOMATIC --only \
 			2>>/var/log/oem-config.log \
 			|| CODE=$?
 	else
 		FRONTEND="$FRONTEND" \
 		/usr/bin/ubiquity-dm vt7 :0 oem \
-			/usr/sbin/oem-config-wrapper $DEBUG --only || CODE=$?
+			/usr/sbin/oem-config-wrapper $DEBUG $AUTOMATIC --only || CODE=$?
 	fi
 	if [ "$CODE" -eq 0 ]; then
 		exit 0

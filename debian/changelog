@@ -1,7 +1,13 @@
 ubiquity (2.9.31) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Fix misc.set_indicator_keymaps to handle ll_CC forms of lang, and also
     to avoid crashing on unknown languages in general (LP: #960047).
+
+  [ Oliver Grawert ]
+  * add support for automatic-oem-config kernel commandline option to the
+    oem-config startup scripts to switch oem-config into automatic mode for
+    preseeded oem installs
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2012 13:28:02 +0000
 
