@@ -13,6 +13,11 @@ ubiquity (2.9.31) UNRELEASED; urgency=low
   [ Stéphane Graber ]
   * Properly mark the quit dialog as a child of ubiquity. (LP: #960375)
 
+  [ James Hunt ]
+  * scripts/install.py: Ignore mkdir failure if directory does (now)
+    exist to accommodate update-apt-cache running in parallel with
+    copy_all() (LP: #944191).
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 20 Mar 2012 15:15:31 -0400
 
 ubiquity (2.9.30) precise; urgency=low
