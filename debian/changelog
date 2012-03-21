@@ -34,6 +34,11 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * all the above fixes (LP: #924018), example boot.scr and preseed.cfg file are
     attached to the bug, thanks to colin for all the fixes and the hard work.
 
+  [ Barry Warsaw ]
+  * Do not offer to install the boot loader on device paths on which
+    incompatible file systems will be installed (e.g. XFS).
+    (LP: #959724)
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 13:08:44 -0400
 
 ubiquity (2.9.31) precise; urgency=low
