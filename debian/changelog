@@ -9,6 +9,9 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     of the keyboard layout guesser. Added a test for it. (LP: #961003)
   * Make sure all the widgets of the quit dialog are always visible.
     (LP: #960600)
+  * Switch to a single install_size() function in misc called by ubi-prepare
+    and by ubi-partman. Tweak the resize partition sizes to enforce the
+    minimum partition size in resize mode too. (LP: #960628)
 
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
@@ -17,7 +20,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Force face selector icon view to a two-column layout, in lieu of better
     geometry management (LP: #961025).
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 10:28:26 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 11:26:21 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 
