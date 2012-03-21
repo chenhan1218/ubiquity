@@ -480,43 +480,18 @@ class PageGtk(PageBase):
         self.controller.go_forward()
         return True
 
-    def set_grub_options(self, default, partition_cache=None):
-        # FIXME for KDE
-        if partition_cache is None:
-            partition_cache = {}
+    def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
         self.bootloader_vbox.show()
         options = misc.grub_options()
-        # Create a reverse mapping from grub options device path to the file
-        # system type being installed on that option.  Then later we'll make
-        # sure that grub can actually be installed on that path's file system.
-        fstype_by_path = {}
-        for key, value in partition_cache.items():
-            path = value.get('parted', {}).get('path')
-            fstype = value.get('parted', {}).get('fs', 'free')
-            if path is not None:
-                # Duplicate paths should not be possible, but if we find one,
-                # the first one (<wink>, i.e. random) wins.
-                if path in fstype_by_path:
-                    self.debug('already found path %s with type %s',
-                               path, fstype_by_path[path])
-                else:
-                    fstype_by_path[path] = fstype
-        if default.startswith('/'):
-            default = os.path.realpath(default)
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
         selected = False
         for opt in options:
-            # Only append this option if the boot loader can actually be
-            # installed on the device's file system type.
-            fstype = fstype_by_path.get(opt[0], 'free')
-            self.debug('=====> opt: %s, fstype: %s, okay? %s',
-                       opt[0], fstype,
-                       'yes' if fstype in FS_RESERVED_FIRST_SECTOR else 'no')
-            if fstype in FS_RESERVED_FIRST_SECTOR:
+            path = opt[0]
+            if grub_installable.get(path, False):
                 i = l.append(opt)
-                if opt[0] == default:
+                if path == default:
                     self.grub_device_entry.set_active_iter(i)
                     selected = True
         if not selected:
@@ -1330,11 +1305,11 @@ class PageKde(PageBase):
         self.disk_layout = layout
         self.partAuto.setDiskLayout(layout)
 
-    def set_grub_options(self, default):
+    def set_grub_options(self, default, grub_installable):
         options = misc.grub_options()
         if default.startswith('/'):
             default = os.path.realpath(default)
-        self.partMan.setGrubOptions(options, default)
+        self.partMan.setGrubOptions(options, default, grub_installable)
 
     def get_grub_choice(self):
         choice = self.partMan.getGrubChoice()
@@ -2954,13 +2929,44 @@ class Page(plugin.Plugin):
             self.local_progress = False
 
     def maybe_update_grub(self):
-        if self.install_bootloader:
-            grub_bootdev=self.db.get("grub-installer/bootdev")
-            if grub_bootdev and grub_bootdev in (part[0] for part in misc.grub_options()):
-                default = grub_bootdev
-            else:
-                default = misc.grub_default()
-            self.ui.set_grub_options(default, self.partition_cache)
+        if not self.install_bootloader:
+            return
+        paths = [part[0] for part in misc.grub_options()]
+        # Get the default boot device.
+        grub_bootdev = self.db.get("grub-installer/bootdev")
+        if grub_bootdev and grub_bootdev in paths:
+            default = grub_bootdev
+        else:
+            default = misc.grub_default()
+        # Create a reverse mapping from grub options device path to the file
+        # system type being installed on that option.  Then later we'll make
+        # sure that grub can actually be installed on that path's file system.
+        fstype_by_path = {}
+        for key, value in self.partition_cache.items():
+            path = value.get('parted', {}).get('path')
+            fstype = value.get('parted', {}).get('fs', 'free')
+            if path is not None:
+                # Duplicate paths should not be possible, but if we find one,
+                # the first one (<wink>, i.e. random) wins.
+                if path in fstype_by_path:
+                    self.debug('already found path %s with type %s',
+                               path, fstype_by_path[path])
+                else:
+                    fstype_by_path[path] = fstype
+        if default.startswith('/'):
+            default = os.path.realpath(default)
+        # Now, create a dictionary mapping boot device path to a flag
+        # indicating whether grub can or cannot be installed on that path's
+        # file system.  Use 'free' as a default since grub can never be
+        # installed on free space.
+        grub_installable = {}
+        for path in paths:
+            fstype = fstype_by_path.get(path, 'free')
+            can_install = fstype in FS_RESERVED_FIRST_SECTOR
+            grub_installable[path] = can_install
+            self.debug('device path: %s, fstype: %s, grub installable? %s',
+                       path, fstype, 'yes' if can_install else 'no')
+        self.ui.set_grub_options(default, grub_installable)
 
 # Notes:
 #

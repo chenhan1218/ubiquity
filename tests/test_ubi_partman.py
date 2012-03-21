@@ -100,12 +100,27 @@ class PartmanPageDirectoryTests(unittest.TestCase):
     #            self.assertNotEqual(method,
     #                                self.page.method_description(method))
 
+# A couple of mock helpers for some of the tests below.
+def _fake_grub_options(*paths):
+    # The interface expects a sequence-of-sequences, although the method
+    # only cares about sub-sequences of length 1, where the path is
+    # element zero.
+    def grub_options():
+        return [(path,) for path in paths]
+    return grub_options
+
+def _fake_grub_default(default):
+    def grub_default():
+        return default
+    return grub_default
+
+
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
 class TestPage(unittest.TestCase):
     def setUp(self):
         # We could mock out the db for this, but we ultimately want to make
         # sure that the debconf questions its getting exist.
-        self.page = ubi_partman.Page(None)
+        self.page = ubi_partman.Page(None, ui=mock.Mock())
         self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(self.page.db.shutdown)
 
@@ -165,6 +180,83 @@ class TestPage(unittest.TestCase):
         q = 'ubiquity/partitioner/heading_no_detected'
         no_detected = self.page.extended_description(q)
         self.assertEqual(no_detected, head)
+
+    def test_maybe_update_dont_install(self):
+        self.page.install_bootloader = False
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 0)
+
+    def test_maybe_update_install(self):
+        self.page.install_bootloader = True
+        self.page.partition_cache = {}
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+
+    @mock.patch('ubiquity.misc.grub_options', _fake_grub_options('/dev/vda1'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
+    def test_install_grub_to_valid_filesystem(self):
+        # Return some fake grub options.
+        self.page.install_bootloader = True
+        self.page.partition_cache = {
+            'ignore': {
+                'parted': {
+                    'path': '/dev/vda1',
+                    'fs': 'ext4',
+                    }
+                }
+            }
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+        self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda1': True,
+            })
+
+    @mock.patch('ubiquity.misc.grub_options', _fake_grub_options('/dev/vda1'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
+    def test_install_grub_to_invalid_filesystem(self):
+        # Return some fake grub options.
+        self.page.install_bootloader = True
+        self.page.partition_cache = {
+            'ignore': {
+                'parted': {
+                    'path': '/dev/vda1',
+                    'fs': 'xfs',
+                    }
+                }
+            }
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+        self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda1': False,
+            })
+
+    @mock.patch('ubiquity.misc.grub_options', 
+                _fake_grub_options('/dev/vda1', '/dev/vda2'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
+    def test_install_grub_to_mixed_filesystems(self):
+        # Return some fake grub options.
+        self.page.install_bootloader = True
+        self.page.partition_cache = {
+            'ignore-1': {
+                'parted': {
+                    'path': '/dev/vda1',
+                    'fs': 'xfs',
+                    }
+                },
+            'ignore-2': {
+                'parted': {
+                    'path': '/dev/vda2',
+                    'fs': 'ext2',
+                    }
+                }
+            }
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+        self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda1': False,
+            '/dev/vda2': True,
+            })
+        
 
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
 class TestCalculateAutopartitioningOptions(unittest.TestCase):
