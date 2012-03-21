@@ -378,6 +378,11 @@ class FaceSelector(Gtk.Box):
         vb_right.pack_start(self.existing_label, False, False, 0)
         iv = Gtk.IconView()
         iv.connect('selection-changed', self.selection_changed)
+        # TODO cjwatson 2012-03-21: Gtk.IconView should work this out
+        # itself, but I think that depends on having correct
+        # height-for-width geometry management everywhere, and we don't yet.
+        # See LP #961025.
+        iv.set_columns(2)
         sw = Gtk.ScrolledWindow()
         sw.set_shadow_type(Gtk.ShadowType.IN)
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)

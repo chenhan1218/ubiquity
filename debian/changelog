@@ -14,6 +14,8 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Make sure to load translations for "USB" and "CD" on the language page
     (LP: #958249).
   * Sort existing images in the face selector by filename.
+  * Force face selector icon view to a two-column layout, in lieu of better
+    geometry management (LP: #961025).
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 10:28:26 -0400
 
