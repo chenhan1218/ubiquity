@@ -670,7 +670,6 @@ def _fake_grub_options_pairs(paths, descriptions):
 
 class TestPageGtk(unittest.TestCase):
     def setUp(self):
-        # FIXME Not sure why this is needed.
         controller = mock.Mock()
         self.gtk = ubi_partman.PageGtk(controller)
 
