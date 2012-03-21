@@ -28,6 +28,9 @@ parser.add_option('--installed', dest='installed',
 parser.add_option('--no-xvfb', dest='xvfb',
                   default=True, action='store_false',
                   help="Don't run tests under Xvfb")
+parser.add_option('--no-build', dest='build',
+                  default=True, action='store_false',
+                  help="Don't build source code first")
 options, args = parser.parse_args()
 
 if options.xvfb:
@@ -97,8 +100,9 @@ else:
     os.environ['UBIQUITY_PLUGIN_PATH'] = 'ubiquity/plugins'
     os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
 
-    # Build dependencies for the tests.
-    subprocess.check_call(['tests/build'])
+    if options.build:
+        # Build dependencies for the tests.
+        subprocess.check_call(['tests/build'])
 
     os.environ['DEBCONF_SYSTEMRC'] = 'tests/debconf.conf'
 
