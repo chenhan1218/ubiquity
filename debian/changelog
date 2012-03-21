@@ -23,6 +23,11 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     geometry management (LP: #961025).
   * Refactor ubiquity.misc.grub_default to make it testable, and add tests
     for it.
+  * Make test_misc pass when run on its own.  Apparently
+    GdkX11.x11_get_default_xdisplay() segfaults if Gtk hasn't been imported
+    (or possibly something finer-grained); so import Gtk from
+    misc.set_indicator_keymaps even though we don't actually use it
+    directly.
 
   [ Oliver Grawert ]
   * bin/oem-config-firstboot: do not reset debconf user data in automatic mode

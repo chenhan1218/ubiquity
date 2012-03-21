@@ -594,7 +594,14 @@ def dmimodel():
 def set_indicator_keymaps(lang):
     import libxml2
     from gi.repository import Xkl, GdkX11
+    # GdkX11.x11_get_default_xdisplay() segfaults if Gtk hasn't been
+    # imported; possibly finer-grained than this, but anything using this
+    # will already have imported Gtk anyway ...
+    from gi.repository import Gtk
     from ubiquity import gsettings
+
+    # pacify pyflakes
+    Gtk
 
     xpath = "//iso_639_3_entry[@part1_code='%s']"
     gsettings_key = ['org.gnome.libgnomekbd.keyboard','layouts']
