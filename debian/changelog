@@ -24,6 +24,16 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Refactor ubiquity.misc.grub_default to make it testable, and add tests
     for it.
 
+  [ Oliver Grawert ]
+  * bin/oem-config-firstboot: do not reset debconf user data in automatic mode
+  * ubiquity/plugins/ubi-tasks.py: run tasksel with --new-install option in
+    automatic mode (this still doesnt make tasksel work, but at least skips
+    the debconf question if tasksel isnt in the preseed file, to install
+    packages late-command needs to be used atm.
+  * bin/ubiquity: make debconf not re-show seen questions again in automatic mode
+  * all the above fixes (LP: #924018), example boot.scr and preseed.cfg file are
+    attached to the bug, thanks to colin for all the fixes and the hard work.
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 13:08:44 -0400
 
 ubiquity (2.9.31) precise; urgency=low
