@@ -11,6 +11,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
     (LP: #958249).
+  * Sort existing images in the face selector by filename.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 09:46:29 -0400
 

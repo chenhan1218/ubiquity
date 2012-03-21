@@ -397,7 +397,7 @@ class FaceSelector(Gtk.Box):
         iv.set_model(m)
         iv.set_pixbuf_column(0)
         if os.path.exists(FACES_PATH):
-            for path in os.listdir(FACES_PATH):
+            for path in sorted(os.listdir(FACES_PATH)):
                 pb = GdkPixbuf.Pixbuf.new_from_file(
                                     os.path.join(FACES_PATH, path))
                 m.append([pb])
