@@ -58,6 +58,7 @@ class TestFrontend(unittest.TestCase):
             for page in ui.pages:
                 ui.set_page(page.module.NAME)
                 ui.refresh()
+                ui.refresh()
                 if 'UBIQUITY_TEST_SHOW_ALL_PAGES' in os.environ:
                     print(page.module.NAME)
                     import time
