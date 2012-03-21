@@ -19,6 +19,8 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Sort existing images in the face selector by filename.
   * Force face selector icon view to a two-column layout, in lieu of better
     geometry management (LP: #961025).
+  * Refactor ubiquity.misc.grub_default to make it testable, and add tests
+    for it.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 11:26:21 -0400
 

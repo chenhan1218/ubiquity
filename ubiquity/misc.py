@@ -293,7 +293,27 @@ def partition_to_disk(partition):
     udevadm_disk = udevadm_info(['-p', disk_syspath])
     return udevadm_disk.get('DEVNAME', partition)
 
+def is_boot_device_removable():
+    return is_removable(boot_device())
+
+def cdrom_mount_info():
+    """Return mount information for /cdrom.
+
+    This is the same as mount_info, except that the partition is converted to
+    its containing disk, and we don't care whether the mount point is
+    writable.
+    """
+    cdsrc, cdfs, _ = mount_info('/cdrom')
+    cdsrc = partition_to_disk(cdsrc)
+    return cdsrc, cdfs
+
 @raise_privileges
+def grub_device_map():
+    """Return the contents of the default GRUB device map."""
+    subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
+                            stdout=subprocess.PIPE)
+    return subp.communicate()[0].splitlines()
+
 def grub_default():
     """Return the default GRUB installation target."""
 
@@ -302,13 +322,11 @@ def grub_default():
     # grub-installer is run.  Pursuant to that, we intentionally run this in
     # the installer root as /target might not yet be available.
 
-    bootremovable = is_removable(boot_device())
+    bootremovable = is_boot_device_removable()
     if bootremovable is not None:
         return bootremovable
 
-    subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
-                            stdout=subprocess.PIPE)
-    devices = subp.communicate()[0].splitlines()
+    devices = grub_device_map()
     target = None
     if devices:
         try:
@@ -319,8 +337,7 @@ def grub_default():
     if target is None:
         target = '(hd0)'
 
-    cdsrc, cdfs, type = mount_info('/cdrom')
-    cdsrc = partition_to_disk(cdsrc)
+    cdsrc, cdfs = cdrom_mount_info()
     try:
         # The target is usually under /dev/disk/by-id/, so string equality
         # is insufficient.
