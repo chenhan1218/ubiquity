@@ -68,7 +68,6 @@ os.environ['GI_TYPELIB_PATH'] = ':'.join(
 
 if options.installed:
     import atexit
-    import re
     import tempfile
 
     sys.path.insert(0, '/usr/lib/ubiquity')
