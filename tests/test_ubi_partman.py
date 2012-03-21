@@ -188,6 +188,7 @@ class TestPage(unittest.TestCase):
 
     def test_maybe_update_install(self):
         self.page.install_bootloader = True
+        self.page.disk_cache = {}
         self.page.partition_cache = {}
         self.page.maybe_update_grub()
         self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
@@ -197,6 +198,11 @@ class TestPage(unittest.TestCase):
     def test_install_grub_to_valid_filesystem(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
+        self.page.disk_cache = {
+            'ignore-1': {
+                'device': '/dev/vda',
+                },
+            }
         self.page.partition_cache = {
             'ignore': {
                 'parted': {
@@ -208,6 +214,7 @@ class TestPage(unittest.TestCase):
         self.page.maybe_update_grub()
         self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
         self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda': True,
             '/dev/vda1': True,
             })
 
@@ -216,6 +223,11 @@ class TestPage(unittest.TestCase):
     def test_install_grub_to_invalid_filesystem(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
+        self.page.disk_cache = {
+            'ignore-1': {
+                'device': '/dev/vda',
+                },
+            }
         self.page.partition_cache = {
             'ignore': {
                 'parted': {
@@ -227,6 +239,7 @@ class TestPage(unittest.TestCase):
         self.page.maybe_update_grub()
         self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
         self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda': True,
             '/dev/vda1': False,
             })
 
@@ -236,6 +249,11 @@ class TestPage(unittest.TestCase):
     def test_install_grub_to_mixed_filesystems(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
+        self.page.disk_cache = {
+            'ignore-1': {
+                'device': '/dev/vda',
+                },
+            }
         self.page.partition_cache = {
             'ignore-1': {
                 'parted': {
@@ -253,10 +271,143 @@ class TestPage(unittest.TestCase):
         self.page.maybe_update_grub()
         self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
         self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda': True,
             '/dev/vda1': False,
             '/dev/vda2': True,
             })
         
+    @mock.patch('ubiquity.misc.grub_options', 
+                _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
+    def test_install_grub_offers_to_install_to_disk(self):
+        # Return some fake grub options.
+        self.page.install_bootloader = True
+        self.page.disk_cache = {
+            'ignore-1': {
+                'device': '/dev/vda',
+                },
+            'ignore-2': {
+                'device': '/dev/vdb',
+                },
+            }
+        self.page.partition_cache = {
+            'ignore-1': {
+                'parted': {
+                    'path': '/dev/vda1',
+                    'fs': 'xfs',
+                    },
+                },
+            'ignore-2': {
+                'parted': {
+                    'path': '/dev/vda2',
+                    'fs': 'ext2',
+                    },
+                },
+            'ignore-3': {
+                'parted': {
+                    'path': '/dev/vdb1',
+                    'fs': 'xfs',
+                    },
+                },
+            }
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+        self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda': True,
+            '/dev/vdb': True,
+            '/dev/vda1': False,
+            '/dev/vda2': True,
+            '/dev/vdb1': False,
+            })
+
+    @mock.patch('ubiquity.misc.grub_options', 
+                _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
+    def test_install_grub_offers_to_install_to_all_but_jfs(self):
+        # Return some fake grub options.
+        self.page.install_bootloader = True
+        self.page.disk_cache = {
+            'ignore-1': {
+                'device': '/dev/vda',
+                },
+            'ignore-2': {
+                'device': '/dev/vdb',
+                },
+            }
+        self.page.partition_cache = {
+            'ignore-1': {
+                'parted': {
+                    'path': '/dev/vda1',
+                    'fs': 'ext4',
+                    },
+                },
+            'ignore-2': {
+                'parted': {
+                    'path': '/dev/vda2',
+                    'fs': 'ext2',
+                    },
+                },
+            'ignore-3': {
+                'parted': {
+                    'path': '/dev/vdb1',
+                    'fs': 'jfs',
+                    },
+                },
+            }
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+        self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda': True,
+            '/dev/vdb': True,
+            '/dev/vda1': True,
+            '/dev/vda2': True,
+            '/dev/vdb1': False,
+            })
+
+    @mock.patch('ubiquity.misc.grub_options', 
+                _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
+    def test_install_grub_offers_to_install_to_all(self):
+        # Return some fake grub options.
+        self.page.install_bootloader = True
+        self.page.disk_cache = {
+            'ignore-1': {
+                'device': '/dev/vda',
+                },
+            'ignore-2': {
+                'device': '/dev/vdb',
+                },
+            }
+        self.page.partition_cache = {
+            'ignore-1': {
+                'parted': {
+                    'path': '/dev/vda1',
+                    'fs': 'ext4',
+                    },
+                },
+            'ignore-2': {
+                'parted': {
+                    'path': '/dev/vda2',
+                    'fs': 'ext2',
+                    },
+                },
+            'ignore-3': {
+                'parted': {
+                    'path': '/dev/vdb1',
+                    'fs': 'fat16',
+                    },
+                },
+            }
+        self.page.maybe_update_grub()
+        self.assertEqual(self.page.ui.set_grub_options.call_count, 1)
+        self.page.ui.set_grub_options.assert_called_once_with('/dev/vda', {
+            '/dev/vda': True,
+            '/dev/vdb': True,
+            '/dev/vda1': True,
+            '/dev/vda2': True,
+            '/dev/vdb1': True,
+            })
+
 
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
 class TestCalculateAutopartitioningOptions(unittest.TestCase):

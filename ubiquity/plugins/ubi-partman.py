@@ -2964,6 +2964,12 @@ class Page(plugin.Plugin):
             grub_installable[path] = can_install
             self.debug('device path: %s, fstype: %s, grub installable? %s',
                        path, fstype, 'yes' if can_install else 'no')
+        # Let grub offer to install to all the disk devices.
+        for key, value in self.disk_cache.items():
+            device = value.get('device')
+            if device is not None:
+                grub_installable[device] = True
+                self.debug('device path: %s grub installable? yes', device)
         self.ui.set_grub_options(default, grub_installable)
 
 # Notes:
