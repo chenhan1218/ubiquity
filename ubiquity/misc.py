@@ -643,7 +643,7 @@ def set_indicator_keymaps(lang):
             new_variants.append(lang)
 
         # Uniquify our list (just in case)
-        variants = set(variants)
+        variants = list(set(variants))
 
         if len(variants) > 4:
             # We have a problem, X only supports 4
