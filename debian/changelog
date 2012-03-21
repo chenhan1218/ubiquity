@@ -6,7 +6,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     28px large instead of 24px. (LP: #960998)
   * Only allow for one orca instance at a time. (LP: #945133)
   * Fix crash in set_indicator_keymaps when reaching the fallback code
-    of the keyboar layout guesser. Added a test for it. (LP: #961003)
+    of the keyboard layout guesser. Added a test for it. (LP: #961003)
   * Make sure all the widgets of the quit dialog are always visible.
     (LP: #960600)
 
