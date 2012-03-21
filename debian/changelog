@@ -17,6 +17,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * panel: Only show icons, not labels, fixing our current "corruption"
     problem where the keyboard layout gets associated with another entry.
     (LP: #960039)
+  * panel: Add a list to enforce the indicator ordering. (LP: #960036)
 
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
@@ -47,7 +48,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     incompatible file systems will be installed (e.g. XFS).
     (LP: #959724)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 18:56:20 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 19:35:48 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 

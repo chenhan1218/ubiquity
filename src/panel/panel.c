@@ -33,6 +33,17 @@
 
 #define ENTRY_DATA_NAME "indicator-custom-entry-data"
 
+
+static gchar * indicator_order[] = {
+  "indicator-session-devices",
+  "indicator-sound",
+  "nm-applet",
+  "bluetooth-manager",
+  "ubiquity",
+  "keyboard",
+  NULL
+};
+
 enum {
 	STRUT_LEFT = 0,
 	STRUT_RIGHT = 1,
@@ -116,7 +127,24 @@ entry_added (IndicatorObject * io, IndicatorObjectEntry * entry, gpointer user_d
         gtk_menu_item_set_submenu(GTK_MENU_ITEM(menuitem), GTK_WIDGET(entry->menu));
     }
 
-    gtk_menu_shell_append(GTK_MENU_SHELL(user_data), menuitem);
+    if (entry->name_hint != NULL) {
+        int i;
+        int found = 0;
+        for (i = 0; indicator_order[i] != NULL; i++) {
+            if (g_strcmp0(entry->name_hint, indicator_order[i]) == 0) {
+                gtk_menu_shell_insert(GTK_MENU_SHELL(user_data), menuitem, i);
+                found = 1;
+                break;
+            }
+        }
+        if (found == 0) {
+            gtk_menu_shell_append(GTK_MENU_SHELL(user_data), menuitem);
+        }
+    }
+    else {
+        gtk_menu_shell_append(GTK_MENU_SHELL(user_data), menuitem);
+    }
+
     gtk_widget_show(menuitem);
 
     g_object_set_data(G_OBJECT(menuitem), ENTRY_DATA_NAME, entry);
@@ -198,7 +226,6 @@ on_realize(GtkWidget *win, gpointer data) {
 
 static const char* indicators[] = {
 	"/usr/lib/indicators3/7/libsession.so",
-	// Bluetooth
 	"/usr/lib/indicators3/7/libapplication.so",
 	"/usr/lib/indicators3/7/libsoundmenu.so",
 	NULL
