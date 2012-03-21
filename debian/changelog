@@ -7,13 +7,15 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Only allow for one orca instance at a time. (LP: #945133)
   * Fix crash in set_indicator_keymaps when reaching the fallback code
     of the keyboar layout guesser. Added a test for it. (LP: #961003)
+  * Make sure all the widgets of the quit dialog are always visible.
+    (LP: #960600)
 
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
     (LP: #958249).
   * Sort existing images in the face selector by filename.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 09:46:29 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 10:28:26 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 
