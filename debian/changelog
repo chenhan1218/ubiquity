@@ -1,9 +1,55 @@
-ubiquity (2.9.31) UNRELEASED; urgency=low
+ubiquity (2.9.32) UNRELEASED; urgency=low
 
+  [ Stéphane Graber ]
+  * panel: Fix the gtk3 css code so that it actually applies and add
+    another override for the .menuitem padding that was making the panel
+    28px large instead of 24px. (LP: #960998)
+  * Only allow for one orca instance at a time. (LP: #945133)
+  * Fix crash in set_indicator_keymaps when reaching the fallback code
+    of the keyboard layout guesser. Added a test for it. (LP: #961003)
+  * Make sure all the widgets of the quit dialog are always visible.
+    (LP: #960600)
+  * Switch to a single install_size() function in misc called by ubi-prepare
+    and by ubi-partman. Tweak the resize partition sizes to enforce the
+    minimum partition size in resize mode too. (LP: #960628)
+
+  [ Colin Watson ]
+  * Make sure to load translations for "USB" and "CD" on the language page
+    (LP: #958249).
+  * Sort existing images in the face selector by filename.
+  * Force face selector icon view to a two-column layout, in lieu of better
+    geometry management (LP: #961025).
+  * Refactor ubiquity.misc.grub_default to make it testable, and add tests
+    for it.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 11:26:21 -0400
+
+ubiquity (2.9.31) precise; urgency=low
+
+  [ Colin Watson ]
   * Fix misc.set_indicator_keymaps to handle ll_CC forms of lang, and also
     to avoid crashing on unknown languages in general (LP: #960047).
+  * Strip invalid characters from default username (LP: #783295).
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu6, console-setup 1.70ubuntu4, partman-basicmethods 49,
+    partman-jfs 35, partman-newworld 26, partman-partitioning 83ubuntu2,
+    partman-reiserfs 52, partman-xfs 49.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2012 13:28:02 +0000
+  [ Oliver Grawert ]
+  * add support for automatic-oem-config kernel commandline option to the
+    oem-config startup scripts to switch oem-config into automatic mode for
+    preseeded oem installs
+  * add an entry for the new option in oem-config-firstboot manpage
+
+  [ Stéphane Graber ]
+  * Properly mark the quit dialog as a child of ubiquity. (LP: #960375)
+
+  [ James Hunt ]
+  * scripts/install.py: Ignore mkdir failure if directory does (now)
+    exist to accommodate update-apt-cache running in parallel with
+    copy_all() (LP: #944191).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 20 Mar 2012 22:26:54 +0000
 
 ubiquity (2.9.30) precise; urgency=low
 

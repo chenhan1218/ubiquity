@@ -423,7 +423,16 @@ class Install(install_misc.InstallBase):
                     os.symlink(linkto, targetpath)
                 elif stat.S_ISDIR(st.st_mode):
                     if not os.path.isdir(targetpath):
-                        os.mkdir(targetpath, mode)
+                        try:
+                            os.mkdir(targetpath, mode)
+                        except OSError, e:
+                            # there is a small window where update-apt-cache
+                            # can race with us since it creates
+                            # "/target/var/cache/apt/...". Hence, ignore
+                            # failure if the directory does now exist where
+                            # brief moments before it didn't.
+                            if e.errno != errno.EEXIST:
+                                raise
                 elif stat.S_ISCHR(st.st_mode):
                     os.mknod(targetpath, stat.S_IFCHR | mode, st.st_rdev)
                 elif stat.S_ISBLK(st.st_mode):

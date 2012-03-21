@@ -293,7 +293,27 @@ def partition_to_disk(partition):
     udevadm_disk = udevadm_info(['-p', disk_syspath])
     return udevadm_disk.get('DEVNAME', partition)
 
+def is_boot_device_removable():
+    return is_removable(boot_device())
+
+def cdrom_mount_info():
+    """Return mount information for /cdrom.
+
+    This is the same as mount_info, except that the partition is converted to
+    its containing disk, and we don't care whether the mount point is
+    writable.
+    """
+    cdsrc, cdfs, _ = mount_info('/cdrom')
+    cdsrc = partition_to_disk(cdsrc)
+    return cdsrc, cdfs
+
 @raise_privileges
+def grub_device_map():
+    """Return the contents of the default GRUB device map."""
+    subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
+                            stdout=subprocess.PIPE)
+    return subp.communicate()[0].splitlines()
+
 def grub_default():
     """Return the default GRUB installation target."""
 
@@ -302,13 +322,11 @@ def grub_default():
     # grub-installer is run.  Pursuant to that, we intentionally run this in
     # the installer root as /target might not yet be available.
 
-    bootremovable = is_removable(boot_device())
+    bootremovable = is_boot_device_removable()
     if bootremovable is not None:
         return bootremovable
 
-    subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
-                            stdout=subprocess.PIPE)
-    devices = subp.communicate()[0].splitlines()
+    devices = grub_device_map()
     target = None
     if devices:
         try:
@@ -319,8 +337,7 @@ def grub_default():
     if target is None:
         target = '(hd0)'
 
-    cdsrc, cdfs, type = mount_info('/cdrom')
-    cdsrc = partition_to_disk(cdsrc)
+    cdsrc, cdfs = cdrom_mount_info()
     try:
         # The target is usually under /dev/disk/by-id/, so string equality
         # is insufficient.
@@ -643,7 +660,7 @@ def set_indicator_keymaps(lang):
             new_variants.append(lang)
 
         # Uniquify our list (just in case)
-        variants = set(variants)
+        variants = list(set(variants))
 
         if len(variants) > 4:
             # We have a problem, X only supports 4
@@ -747,5 +764,32 @@ def add_connection_watch(func):
         # using ssh with X forwarding, and are therefore connected.  This
         # allows us to proceed with a minimum of complaint.
         func(True)
+
+def install_size():
+    if min_install_size:
+        return min_install_size
+
+    # Fallback size to 5 GB
+    size = 5 * 1024 * 1024 * 1024
+
+    # Maximal size to 8 GB
+    max_size = 8 * 1024 * 1024 * 1024
+
+    try:
+        with open('/cdrom/casper/filesystem.size') as fp:
+            size = int(fp.readline())
+    except IOError, e:
+        pass
+
+    # TODO substitute into the template for the state box.
+    min_disk_size = size * 2 # fudge factor.
+
+    # Set minimum size to 8GB if current minimum size is larger
+    # than 8GB and we still have an extra 20% of free space
+    if min_disk_size > max_size and size * 1.2 < max_size:
+        min_disk_size = max_size
+
+    return min_disk_size
+min_install_size = None
 
 # vim:ai:et:sts=4:tw=80:sw=4:

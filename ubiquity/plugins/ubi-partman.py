@@ -389,6 +389,13 @@ class PageGtk(PageBase):
 
         (resize_min_size, resize_max_size, resize_pref_size,
          resize_path, size, fs) = self.extra_options['resize'][disk_id][1:]
+
+        # Make sure we always have enough space to install using the
+        # same install_size as everywhere else in ubiquity
+        real_max_size = size - misc.install_size()
+        if real_max_size < resize_max_size:
+            resize_max_size = real_max_size
+
         self.resizewidget.set_property('min_size', int(resize_min_size))
         self.resizewidget.set_property('max_size', int(resize_max_size))
 
@@ -1407,14 +1414,7 @@ class Page(plugin.Plugin):
             if arch in ('amd64', 'i386'):
                 self.install_bootloader = True
 
-        filesystem_size = 5 * 1024 * 1024 * 1024 # 5GB
-        try:
-            with open('/cdrom/casper/filesystem.size') as fp:
-                filesystem_size = int(fp.readline())
-        except IOError:
-            self.debug('Could not determine filesystem size.')
-        fudge = 200 * 1024 * 1024 # 200 MB
-        self.installation_size = filesystem_size + fudge
+        self.installation_size = misc.install_size()
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',

@@ -319,6 +319,8 @@ class PageGtk(PageBase):
             new_username = misc.utf8(widget.get_text().split(' ')[0])
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.lower()
+            new_username = re.sub('^[^a-z]+', '', new_username)
+            new_username = re.sub('[^-a-z0-9_]', '', new_username)
             self.username.set_text(new_username)
             self.username.handler_unblock(self.username_changed_id)
         elif (widget is not None and widget.get_name() == 'username' and

@@ -228,6 +228,7 @@ class Wizard(BaseFrontend):
         self.parallel_db = None
         self.timeout_id = None
         self.screen_reader = False
+        self.orca_process = None
 
         # To get a "busy mouse":
         self.watch = Gdk.Cursor.new(Gdk.CursorType.WATCH)
@@ -610,12 +611,15 @@ class Wizard(BaseFrontend):
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'high-contrast'
 
     def a11y_profile_screen_reader_activate(self, widget=None):
+        if self.orca_process and self.orca_process.poll() != 0:
+            return
+
         subprocess.call(['log-output', '-t', 'ubiquity',
                          '--pass-stdout', '/usr/bin/casper-a11y-enable',
                          'blindness'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
         if os.path.exists('/usr/bin/orca'):
-            subprocess.Popen(['/usr/bin/orca', '-n'], preexec_fn=misc.drop_all_privileges)
+            self.orca_process = subprocess.Popen(['/usr/bin/orca', '-n'], preexec_fn=misc.drop_all_privileges)
 
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
@@ -967,6 +971,8 @@ color : @fg_color
         core_names.append('ubiquity/imported/default-ltr')
         core_names.append('ubiquity/text/release_notes_only')
         core_names.append('ubiquity/text/update_installer_only')
+        core_names.append('ubiquity/text/USB')
+        core_names.append('ubiquity/text/CD')
         for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                             'ok', 'quit'):
             core_names.append('ubiquity/imported/%s' % stock_item)
@@ -1283,7 +1289,8 @@ color : @fg_color
     # Callbacks
 
     def on_quit_clicked(self, unused_widget):
-        self.warning_dialog.show()
+        self.warning_dialog.set_transient_for(self.live_installer.get_toplevel())
+        self.warning_dialog.show_all()
         # Stop processing.
         return True
 

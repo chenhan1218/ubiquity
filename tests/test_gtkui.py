@@ -58,9 +58,16 @@ class TestFrontend(unittest.TestCase):
             for page in ui.pages:
                 ui.set_page(page.module.NAME)
                 ui.refresh()
+                ui.refresh()
+                if 'UBIQUITY_TEST_SHOW_ALL_PAGES' in os.environ:
+                    print(page.module.NAME)
+                    import time
+                    time.sleep(3)
                 alloc = ui.live_installer.get_allocation()
                 self.assertLessEqual(alloc.width, 640)
                 self.assertLessEqual(alloc.height, 500)
+                if page.module.NAME == 'partman':
+                    ui.allow_change_step(False)
 
     def test_interface_translated(self):
         import subprocess

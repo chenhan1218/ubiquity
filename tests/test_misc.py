@@ -185,6 +185,20 @@ class MiscTests(unittest.TestCase):
 
     @mock.patch('ubiquity.gsettings.set_list')
     @mock.patch('ubiquity.misc.execute')
+    def test_set_indicator_keymaps_ta(self, mock_execute,
+                                        mock_set_list):
+        misc.set_indicator_keymaps('ta')
+        self.assertEqual(mock_execute.call_count, 1)
+        self.assertEqual(mock_execute.call_args[0][0], 'setxkbmap')
+        self.assertEqual(mock_set_list.call_count, 1)
+        self.assertEqual(mock_set_list.call_args[0][0],
+            'org.gnome.libgnomekbd.keyboard')
+        self.assertEqual(mock_set_list.call_args[0][1], 'layouts')
+        self.assertEqual('in\ttam', mock_set_list.call_args[0][2][0])
+        self.assertEqual(len(mock_set_list.call_args[0][2]), 4)
+
+    @mock.patch('ubiquity.gsettings.set_list')
+    @mock.patch('ubiquity.misc.execute')
     def test_set_indicator_keymaps_simplified_chinese(self, mock_execute,
                                                       mock_set_list):
         misc.set_indicator_keymaps('zh_CN')
@@ -276,5 +290,113 @@ class PrivilegeTests(unittest.TestCase):
             os.setgroups.assert_called_once_with([1234])
             self.assertEqual(os.environ['HOME'], 'fakeusr')
 
+
+class GrubDefaultTests(unittest.TestCase):
+    """Support for testing ubiquity.misc.grub_default.
+
+    This class mocks several methods to make it possible to test
+    ubiquity.misc.grub_default.  Individual tests should set self.devices to
+    a list of elements as follows:
+
+        [grub_dev, os_dev, by_id_dev]
+
+    grub_dev should not be surrounded with (); os_dev should not be prefixed
+    with /dev/; by_id_dev should not be prefixed with /dev/disk/by-id/.
+
+    For example:
+
+        [
+            ['hd0', 'sda', 'serial-number-for-sda'],
+            ['hd1', 'sdb', 'serial-number-for-sdb'],
+        ]
+
+    Tests should also set self.cdrom_mount to a (disk, fs_type) pair, e.g.
+    ('/dev/sr0', 'iso9660'), and may set self.boot_device_removable to the
+    path to a removable boot device, e.g. '/dev/sdb'.
+    """
+
+    def setUp(self):
+        for obj in (
+            'os.path.realpath',
+            'os.path.samefile',
+            'ubiquity.misc.cdrom_mount_info',
+            'ubiquity.misc.grub_device_map',
+            'ubiquity.misc.is_boot_device_removable',
+            ):
+            patcher = mock.patch(obj)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+
+        os.path.realpath.side_effect = self.realpath_side_effect
+        os.path.samefile.side_effect = self.samefile_side_effect
+        misc.cdrom_mount_info.side_effect = self.cdrom_mount_info_side_effect
+        misc.grub_device_map.side_effect = self.grub_device_map_side_effect
+        misc.is_boot_device_removable.side_effect = \
+            self.is_boot_device_removable_side_effect
+
+        self.boot_device_removable = None
+
+    def iter_devices(self):
+        """Iterate through devices, expanding abbreviated forms."""
+        for grub_dev, os_dev, by_id_dev in self.devices:
+            yield ('(%s)' % grub_dev, '/dev/%s' % os_dev,
+                   '/dev/disk/by-id/%s' % by_id_dev)
+
+    def realpath_side_effect(self, filename):
+        filename = os.path.abspath(filename)
+        for _, os_dev, by_id_dev in self.iter_devices():
+            if filename in (os_dev, by_id_dev):
+                return os_dev
+        return filename
+
+    def samefile_side_effect(self, f1, f2):
+        f1 = os.path.abspath(f1)
+        f2 = os.path.abspath(f2)
+        if f1 == f2:
+            return True
+        for _, os_dev, by_id_dev in self.iter_devices():
+            if f1 == os_dev and f2 == by_id_dev:
+                return True
+            elif f1 == by_id_dev and f2 == os_dev:
+                return True
+        return False
+
+    def cdrom_mount_info_side_effect(self):
+        return list(self.cdrom_mount)
+
+    def grub_device_map_side_effect(self):
+        device_map = []
+        for grub_dev, _, by_id_dev in self.iter_devices():
+            device_map.append('%s\t%s' % (grub_dev, by_id_dev))
+        return device_map
+
+    def is_boot_device_removable_side_effect(self):
+        return self.boot_device_removable
+
+    def test_removable(self):
+        self.devices = [['hd0', 'sda', 'serial-number-for-sda']]
+        self.cdrom_mount = ('/dev/sr0', 'iso9660')
+        self.boot_device_removable = '/dev/sdb'
+        self.assertEqual('/dev/sdb', misc.grub_default())
+
+    def test_use_first_disk(self):
+        self.devices = [
+            ['hd0', 'sda', 'disk-1'],
+            ['hd1', 'sdb', 'disk-2'],
+            ]
+        self.cdrom_mount = ('/dev/sr0', 'vfat')
+        self.assertEqual('/dev/sda', misc.grub_default())
+
+    def test_avoid_cdrom(self):
+        self.devices = [
+            ['hd0', 'sda', 'cdrom'],
+            ['hd1', 'sdb', 'disk'],
+            ]
+        self.cdrom_mount = ('/dev/sda', 'vfat')
+        self.assertEqual('/dev/sdb', misc.grub_default())
+        self.cdrom_mount = ('/dev/disk/by-id/cdrom', 'vfat')
+        self.assertEqual('/dev/sdb', misc.grub_default())
+
+
 if __name__ == '__main__':
-    test_support.run_unittest(MiscTests, PrivilegeTests)
+    test_support.run_unittest(MiscTests, PrivilegeTests, GrubDefaultTests)
