@@ -1,4 +1,4 @@
-ubiquity (2.9.32) UNRELEASED; urgency=low
+ubiquity (2.9.32) precise; urgency=low
 
   [ Stéphane Graber ]
   * panel: Fix the gtk3 css code so that it actually applies and add
@@ -50,7 +50,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     incompatible file systems will be installed (e.g. XFS).
     (LP: #959724)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 19:39:25 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 19:49:14 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 
