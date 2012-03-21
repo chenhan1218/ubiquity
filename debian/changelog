@@ -14,6 +14,9 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     minimum partition size in resize mode too. (LP: #960628)
   * Change ubiquity's virtual terminal to calling 'busybox tail' instead of
     'tail' to workaround the inotify on overlayfs bug.
+  * panel: Only show icons, not labels, fixing our current "corruption"
+    problem where the keyboard layout gets associated with another entry.
+    (LP: #960039)
 
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
@@ -44,7 +47,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     incompatible file systems will be installed (e.g. XFS).
     (LP: #959724)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 13:08:44 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 18:56:20 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 

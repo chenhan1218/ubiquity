@@ -109,9 +109,6 @@ entry_added (IndicatorObject * io, IndicatorObjectEntry * entry, gpointer user_d
     if (entry->image != NULL) {
         gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(entry->image), FALSE, FALSE, 0);
     }
-    if (entry->label != NULL) {
-        gtk_box_pack_start(GTK_BOX(hbox), GTK_WIDGET(entry->label), FALSE, FALSE, 0);
-    }
     gtk_container_add(GTK_CONTAINER(menuitem), hbox);
     gtk_widget_show(hbox);
 
