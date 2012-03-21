@@ -1,9 +1,14 @@
 ubiquity (2.9.32) UNRELEASED; urgency=low
 
+  [ Stéphane Graber ]
   * panel: Fix the gtk3 css code so that it actually applies and add
     another override for the .menuitem padding that was making the panel
     28px large instead of 24px.
   * Only allow for one orca instance at a time. (LP: #945133)
+
+  [ Colin Watson ]
+  * Make sure to load translations for "USB" and "CD" on the language page
+    (LP: #958249).
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 20 Mar 2012 21:45:58 -0400
 

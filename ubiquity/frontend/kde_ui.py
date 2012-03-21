@@ -647,6 +647,8 @@ class Wizard(BaseFrontend):
             core_names.append('ubiquity/text/breadcrumb_install')
             core_names.append('ubiquity/text/release_notes_only')
             core_names.append('ubiquity/text/update_installer_only')
+            core_names.append('ubiquity/text/USB')
+            core_names.append('ubiquity/text/CD')
             for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
                                'ok', 'quit', 'yes', 'no'):
                 core_names.append('ubiquity/imported/%s' % stock_item)
