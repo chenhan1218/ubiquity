@@ -18,6 +18,8 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     problem where the keyboard layout gets associated with another entry.
     (LP: #960039)
   * panel: Add a list to enforce the indicator ordering. (LP: #960036)
+  * Automatic update of included source packages: migration-assistant
+    0.6.11.
 
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
@@ -48,7 +50,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
     incompatible file systems will be installed (e.g. XFS).
     (LP: #959724)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 19:35:48 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 19:39:25 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 
