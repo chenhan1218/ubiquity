@@ -12,6 +12,8 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Switch to a single install_size() function in misc called by ubi-prepare
     and by ubi-partman. Tweak the resize partition sizes to enforce the
     minimum partition size in resize mode too. (LP: #960628)
+  * Change ubiquity's virtual terminal to calling 'busybox tail' instead of
+    'tail' to workaround the inotify on overlayfs bug.
 
   [ Colin Watson ]
   * Make sure to load translations for "USB" and "CD" on the language page
@@ -22,7 +24,7 @@ ubiquity (2.9.32) UNRELEASED; urgency=low
   * Refactor ubiquity.misc.grub_default to make it testable, and add tests
     for it.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 11:26:21 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 21 Mar 2012 13:08:44 -0400
 
 ubiquity (2.9.31) precise; urgency=low
 

@@ -824,7 +824,7 @@ color : @fg_color
         self.vte = Vte.Terminal()
         self.install_details_sw.add(self.vte)
         self.vte.fork_command_full(0, None,
-            ['/usr/bin/tail', '-f', '/var/log/installer/debug',
+            ['/bin/busybox', 'tail', '-f', '/var/log/installer/debug',
                               '-f', '/var/log/syslog', '-q'],
             None, 0, None, None)
         self.vte.set_font_from_string("Ubuntu Mono 8")
