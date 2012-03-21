@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 
+from itertools import izip, izip_longest
 import os
 from test import test_support
 import unittest
@@ -243,7 +244,7 @@ class TestPage(unittest.TestCase):
             '/dev/vda1': False,
             })
 
-    @mock.patch('ubiquity.misc.grub_options', 
+    @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
     def test_install_grub_to_mixed_filesystems(self):
@@ -275,8 +276,8 @@ class TestPage(unittest.TestCase):
             '/dev/vda1': False,
             '/dev/vda2': True,
             })
-        
-    @mock.patch('ubiquity.misc.grub_options', 
+
+    @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
     def test_install_grub_offers_to_install_to_disk(self):
@@ -320,7 +321,7 @@ class TestPage(unittest.TestCase):
             '/dev/vdb1': False,
             })
 
-    @mock.patch('ubiquity.misc.grub_options', 
+    @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
     def test_install_grub_offers_to_install_to_all_but_jfs(self):
@@ -364,7 +365,7 @@ class TestPage(unittest.TestCase):
             '/dev/vdb1': False,
             })
 
-    @mock.patch('ubiquity.misc.grub_options', 
+    @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
     def test_install_grub_offers_to_install_to_all(self):
@@ -656,10 +657,20 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         self.assertIn('manual', options)
         self.assertItemsEqual(self.manual, options['manual'])
 
+
+def _fake_grub_options_pairs(paths, descriptions):
+    # The interface expects a sequence-of-sequences, although the method
+    # only cares about sub-sequences of length 1, where the path is
+    # element zero.
+    def grub_options():
+        return [(path, description)
+                for path, description
+                in izip_longest(paths, descriptions, fillvalue='')]
+    return grub_options
+
 class TestPageGtk(unittest.TestCase):
     def setUp(self):
         # FIXME Not sure why this is needed.
-        from ubiquity import gtkwidgets
         controller = mock.Mock()
         self.gtk = ubi_partman.PageGtk(controller)
 
@@ -668,6 +679,34 @@ class TestPageGtk(unittest.TestCase):
         self.gtk.part_auto_hidden_label.emit('activate-link', '')
         gtkwidgets.refresh()
         self.gtk.controller.go_forward.assert_called_once_with()
+
+    @mock.patch('ubiquity.misc.grub_options',
+                _fake_grub_options_pairs(
+                    ('/dev/vda', '/dev/vdb',
+                     '/dev/vda1', '/dev/vda2', '/dev/vdb1'),
+                    ('Virtio Block Device (108 GB)',
+                     'Virtio Block Device (801 GB)')))
+    def test_boot_loader_installation_combobox(self):
+        self.gtk.set_grub_options('/dev/vda', {
+            '/dev/vda': True,
+            '/dev/vda1': True,
+            '/dev/vda2': False,
+            '/dev/vdb': True,
+            '/dev/vdb1': True,
+            })
+        # The combo box should have everything but vda2.
+        expected = [
+            '/dev/vda Virtio Block Device (108 GB)',
+            '/dev/vdb Virtio Block Device (801 GB)',
+            '/dev/vda1 ',
+            '/dev/vdb1 ',
+            ]
+        row_text = []
+        for row in self.gtk.grub_device_entry.get_model():
+            row_text.append(' '.join(row))
+        for want, got in izip(expected, row_text):
+            self.assertEqual(want, got)
+
 
 if __name__ == '__main__':
     test_support.run_unittest(TestCalculateAutopartitioningOptions, TestPage, PartmanPageDirectoryTests)
