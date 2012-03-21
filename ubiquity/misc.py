@@ -778,7 +778,7 @@ def install_size():
     try:
         with open('/cdrom/casper/filesystem.size') as fp:
             size = int(fp.readline())
-    except IOError, e:
+    except IOError:
         pass
 
     # TODO substitute into the template for the state box.
