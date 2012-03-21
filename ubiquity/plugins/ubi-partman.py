@@ -1314,8 +1314,6 @@ class PageKde(PageBase):
 
     def set_grub_options(self, default, grub_installable):
         options = misc.grub_options()
-        if default.startswith('/'):
-            default = os.path.realpath(default)
         self.partMan.setGrubOptions(options, default, grub_installable)
 
     def get_grub_choice(self):
