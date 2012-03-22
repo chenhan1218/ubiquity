@@ -25,9 +25,11 @@ class TestMigrationAssistant(unittest.TestCase):
     @mock.patch('ubiquity.upower.setup_power_watch')
     @mock.patch('dbus.mainloop.glib.DBusGMainLoop')
     @mock.patch('gi.repository.UbiquityWebcam.Webcam.available')
-    def test_sensible_treeview_size(self, *args):
+    @mock.patch('ubiquity.i18n.reset_locale')
+    def test_sensible_treeview_size(self, mock_reset_locale, *args):
         """The tree view should show at least a sensible number of items."""
         from ubiquity.frontend import gtk_ui
+        mock_reset_locale.return_value = 'en_US.UTF-8'
         ui = gtk_ui.Wizard('test-ubiquity')
         ui.translate_pages()
         ma_page = [page for page in ui.pages

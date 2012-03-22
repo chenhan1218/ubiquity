@@ -6,6 +6,8 @@ ubiquity (2.10.0) UNRELEASED; urgency=low
     test_ubi_partman.TestPageGtk.setUp; importing custom widgets fails
     without this.
   * Avoid touching D-Bus in migrationassistant test.
+  * Stop leaking locale changes from gtkui and migrationassistant tests into
+    the rest of the test suite.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 11:54:49 +0000
 
