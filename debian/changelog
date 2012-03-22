@@ -8,6 +8,10 @@ ubiquity (2.10.0) UNRELEASED; urgency=low
   * Avoid touching D-Bus in migrationassistant test.
   * Stop leaking locale changes from gtkui and migrationassistant tests into
     the rest of the test suite.
+  * Disable tests that require grub-installer templates only on non-x86
+    architectures.
+  * Re-enable test_maybe_update_install on x86, and add the missing
+    mock.patch calls that caused it to fail in clean build environments.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 11:54:49 +0000
 

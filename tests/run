@@ -66,6 +66,10 @@ if re_exec:
 os.environ['GI_TYPELIB_PATH'] = ':'.join(
     ['src/%s' % extra_module for extra_module in extra_modules])
 
+if 'DEB_HOST_ARCH' not in os.environ:
+    os.environ['DEB_HOST_ARCH'] = subprocess.check_output(
+        ['dpkg-architecture', '-qDEB_HOST_ARCH']).strip()
+
 if options.installed:
     import atexit
     import tempfile

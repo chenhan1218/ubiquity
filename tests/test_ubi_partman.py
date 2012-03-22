@@ -117,10 +117,10 @@ def _fake_grub_default(default):
 
 
 @unittest.skipUnless('DEBCONF_SYSTEMRC' in os.environ, 'Need a database.')
-class TestPage(unittest.TestCase):
+class TestPageBase(unittest.TestCase):
     def setUp(self):
         # We could mock out the db for this, but we ultimately want to make
-        # sure that the debconf questions its getting exist.
+        # sure that the debconf questions it's getting exist.
         self.page = ubi_partman.Page(None, ui=mock.Mock())
         self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(self.page.db.shutdown)
@@ -128,6 +128,7 @@ class TestPage(unittest.TestCase):
         # Don't cache descriptions.
         self.page.description_cache = {}
 
+class TestPage(TestPageBase):
     def test_description(self):
         question = 'partman-auto/init_automatically_partition'
         description = unicode(self.page.db.metaget(question, 'description'),
@@ -182,12 +183,16 @@ class TestPage(unittest.TestCase):
         no_detected = self.page.extended_description(q)
         self.assertEqual(no_detected, head)
 
+@unittest.skipUnless(os.environ['DEB_HOST_ARCH'] in ('amd64', 'i386'),
+                     'GRUB-related tests are only relevant on x86')
+class TestPageGrub(TestPageBase):
     def test_maybe_update_dont_install(self):
         self.page.install_bootloader = False
         self.page.maybe_update_grub()
         self.assertEqual(self.page.ui.set_grub_options.call_count, 0)
 
-    @unittest.skipIf(True, 'Currently fails because of missing grub on x86 builders')
+    @mock.patch('ubiquity.misc.grub_options', _fake_grub_options('/dev/vda1'))
+    @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
     def test_maybe_update_install(self):
         self.page.install_bootloader = True
         self.page.disk_cache = {}
@@ -197,7 +202,6 @@ class TestPage(unittest.TestCase):
 
     @mock.patch('ubiquity.misc.grub_options', _fake_grub_options('/dev/vda1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
-    @unittest.skipIf(True, 'Currently fails on non-x86 builders')
     def test_install_grub_to_valid_filesystem(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
@@ -223,7 +227,6 @@ class TestPage(unittest.TestCase):
 
     @mock.patch('ubiquity.misc.grub_options', _fake_grub_options('/dev/vda1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
-    @unittest.skipIf(True, 'Currently fails on non-x86 builders')
     def test_install_grub_to_invalid_filesystem(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
@@ -250,7 +253,6 @@ class TestPage(unittest.TestCase):
     @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
-    @unittest.skipIf(True, 'Currently fails on non-x86 builders')
     def test_install_grub_to_mixed_filesystems(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
@@ -284,7 +286,6 @@ class TestPage(unittest.TestCase):
     @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
-    @unittest.skipIf(True, 'Currently fails on non-x86 builders')
     def test_install_grub_offers_to_install_to_disk(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
@@ -329,7 +330,6 @@ class TestPage(unittest.TestCase):
     @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
-    @unittest.skipIf(True, 'Currently fails on non-x86 builders')
     def test_install_grub_offers_to_install_to_all_but_jfs(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
@@ -374,7 +374,6 @@ class TestPage(unittest.TestCase):
     @mock.patch('ubiquity.misc.grub_options',
                 _fake_grub_options('/dev/vda1', '/dev/vda2', '/dev/vdb1'))
     @mock.patch('ubiquity.misc.grub_default', _fake_grub_default('/dev/vda'))
-    @unittest.skipIf(True, 'Currently fails on non-x86 builders')
     def test_install_grub_offers_to_install_to_all(self):
         # Return some fake grub options.
         self.page.install_bootloader = True
@@ -696,6 +695,8 @@ class TestPageGtk(unittest.TestCase):
                      '/dev/vda1', '/dev/vda2', '/dev/vdb1'),
                     ('Virtio Block Device (108 GB)',
                      'Virtio Block Device (801 GB)')))
+    @unittest.skipUnless(os.environ['DEB_HOST_ARCH'] in ('amd64', 'i386'),
+                         'GRUB-related tests are only relevant on x86')
     def test_boot_loader_installation_combobox(self):
         self.gtk.set_grub_options('/dev/vda', {
             '/dev/vda': True,
@@ -719,4 +720,10 @@ class TestPageGtk(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    test_support.run_unittest(TestCalculateAutopartitioningOptions, TestPage, PartmanPageDirectoryTests)
+    test_support.run_unittest(
+        TestCalculateAutopartitioningOptions,
+        TestPage,
+        TestPageGrub,
+        TestPageGtk,
+        PartmanPageDirectoryTests,
+        )
