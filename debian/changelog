@@ -1,4 +1,4 @@
-ubiquity (2.10.0) UNRELEASED; urgency=low
+ubiquity (2.10.0) precise; urgency=low
 
   * Fix a few cases where the test suite was insufficiently isolated from
     the host system, running dmidecode and udevadm.
@@ -14,7 +14,7 @@ ubiquity (2.10.0) UNRELEASED; urgency=low
     mock.patch calls that caused it to fail in clean build environments.
   * Update translations from Launchpad.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 11:54:49 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 16:10:05 +0000
 
 ubiquity (2.9.33) precise; urgency=low
 
