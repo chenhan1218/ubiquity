@@ -129,7 +129,10 @@ class NetworkManagerTests(unittest.TestCase):
         self.model = Gtk.TreeStore(str, object, object)
         self.manager = nm.NetworkManager(self.model)
 
-    def test_get_vendor_and_model_null(self):
+    @mock.patch('subprocess.Popen')
+    def test_get_vendor_and_model_null(self, mock_subprocess):
+        mock_subprocess.return_value.communicate.return_value = (
+            '', 'device path not found\n')
         self.assertEqual(nm.get_vendor_and_model('bogus'), ('',''))
 
     @mock.patch('subprocess.Popen')

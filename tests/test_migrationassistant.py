@@ -18,6 +18,9 @@ class TestMigrationAssistant(unittest.TestCase):
     @mock.patch('ubiquity.misc.drop_privileges')
     @mock.patch('ubiquity.misc.regain_privileges')
     @mock.patch('ubiquity.frontend.gtk_ui.Wizard.customize_installer')
+    @mock.patch('ubiquity.nm.wireless_hardware_present')
+    @mock.patch('ubiquity.nm.NetworkManager.start')
+    @mock.patch('ubiquity.nm.NetworkManager.get_state')
     def test_sensible_treeview_size(self, *args):
         """The tree view should show at least a sensible number of items."""
         from ubiquity.frontend import gtk_ui

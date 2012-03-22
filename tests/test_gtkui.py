@@ -12,6 +12,7 @@ class TestFrontend(unittest.TestCase):
         for obj in ('ubiquity.misc.drop_privileges',
                     'ubiquity.misc.regain_privileges',
                     'ubiquity.misc.execute',
+                    'ubiquity.misc.dmimodel',
                     'ubiquity.frontend.base.drop_privileges',
                     'ubiquity.frontend.gtk_ui.Wizard.customize_installer',
                     'ubiquity.nm.wireless_hardware_present',
