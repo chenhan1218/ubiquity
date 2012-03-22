@@ -1,4 +1,4 @@
-ubiquity (2.9.34) UNRELEASED; urgency=low
+ubiquity (2.10.0) UNRELEASED; urgency=low
 
   * Fix a few cases where the test suite was insufficiently isolated from
     the host system, running dmidecode and udevadm.
