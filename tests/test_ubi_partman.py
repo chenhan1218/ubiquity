@@ -677,6 +677,10 @@ def _fake_grub_options_pairs(paths, descriptions):
 
 class TestPageGtk(unittest.TestCase):
     def setUp(self):
+        # Without this, GtkBuilder cannot construct ResizeWidget and
+        # PartitionBox widgets.
+        from ubiquity import gtkwidgets
+        gtkwidgets # pacify pyflakes
         controller = mock.Mock()
         self.gtk = ubi_partman.PageGtk(controller)
 

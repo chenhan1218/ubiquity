@@ -2,6 +2,9 @@ ubiquity (2.9.34) UNRELEASED; urgency=low
 
   * Fix a few cases where the test suite was insufficiently isolated from
     the host system, running dmidecode and udevadm.
+  * Restore 'from ubiquity import gtkwidgets' to
+    test_ubi_partman.TestPageGtk.setUp; importing custom widgets fails
+    without this.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 11:54:49 +0000
 
