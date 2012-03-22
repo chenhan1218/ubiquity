@@ -5,6 +5,7 @@ ubiquity (2.10.0) UNRELEASED; urgency=low
   * Restore 'from ubiquity import gtkwidgets' to
     test_ubi_partman.TestPageGtk.setUp; importing custom widgets fails
     without this.
+  * Avoid touching D-Bus in migrationassistant test.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 11:54:49 +0000
 

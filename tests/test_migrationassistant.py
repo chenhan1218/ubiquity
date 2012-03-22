@@ -21,6 +21,10 @@ class TestMigrationAssistant(unittest.TestCase):
     @mock.patch('ubiquity.nm.wireless_hardware_present')
     @mock.patch('ubiquity.nm.NetworkManager.start')
     @mock.patch('ubiquity.nm.NetworkManager.get_state')
+    @mock.patch('ubiquity.misc.has_connection')
+    @mock.patch('ubiquity.upower.setup_power_watch')
+    @mock.patch('dbus.mainloop.glib.DBusGMainLoop')
+    @mock.patch('gi.repository.UbiquityWebcam.Webcam.available')
     def test_sensible_treeview_size(self, *args):
         """The tree view should show at least a sensible number of items."""
         from ubiquity.frontend import gtk_ui
