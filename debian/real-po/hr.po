@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -1143,27 +1143,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Greška prilikom kopiranja mrežne konfiguracije"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Došlo je do greške prilikom kopiranja mrežnih postavki. Instalacija će "
-"nastaviti, no mrežne postavke će morati biti ponovno podešene na "
-"instaliranom sustavu."
 
 #. Type: error
 #. Description
@@ -1593,16 +1583,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 priključak sadrži tehnologiju dekodiranja MPEG Layer-3 zvuka, "
-"koja je licencirana od strane Fraunhofer IIS-a i Thomsona."
 
 #. Type: text
 #. Description
@@ -1945,10 +1929,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Ova slika će vas identificirati u postavkama vašeg korisničkog računa, "
-#~ "zaslonu prijave, te zaključanom zaslonu."

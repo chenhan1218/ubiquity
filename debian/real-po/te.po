@@ -10,21 +10,21 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2011-09-15 19:15+0000\n"
-"Last-Translator: Balu <Unknown>\n"
+"PO-Revision-Date: 2012-03-17 04:41+0000\n"
+"Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "అనుసంధానిస్తోంది..."
 
 #. Type: text
 #. Description
@@ -223,19 +223,19 @@ msgstr "చిత్రం పెట్టు"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "ఫొటోను తీయండి:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "లేదా మీ వద్ద ఉన్నటువంటి చిత్రాన్ని ఎన్నుకోండి:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "ఫొటో తీయండి"
 
 #. Type: text
 #. Description
@@ -1119,26 +1119,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "నెట్వర్క్ కాన్ఫిగరేషన్‌ని నకలుతీయుటలో దోషం"
+msgstr "బ్లూటూత్ స్వరూపణాన్ని నకలుచేయుటలో దోషం"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"నెట్వర్కు అమరికలను నకలుతీసేటపుడు ఒక దోషము సంభవించినది.  స్థాపన కొనసాగుతుంది, కాని స్థాపించబడిన "
-"సిస్టంలో నెట్వర్కు కాన్ఫిగరేషన్ మరలాఆమర్చవలసి ఉంటుంది."
 
 #. Type: error
 #. Description
@@ -1429,25 +1420,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr ""
+msgstr "సంకేతపదం:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Display password"
-msgstr ""
+msgstr "సంకేతపదాన్ని చూపించు"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "నేను ఇపుడు వై-ఫై నెట్‌వర్కుకు అనుసంధానించాలనుకోవడం లేదు"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Connect to this network"
-msgstr ""
+msgstr "ఈ నెట్‌వర్కుకు అనుసంధానించు"
 
 #. Type: text
 #. Description
@@ -1557,16 +1548,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"ఫ్లుఎండో MP3 ప్లగిన్ MPEG Layer-3 ఆడియో డీకోడింగ్ టెక్నాలజీ కలిగి ఫ్రౌన్‌హోఫర్ IIS మరియు థామ్స న్‌ల నుండి "
-"లైసెన్సు పొందినది."
 
 #. Type: text
 #. Description
@@ -1901,8 +1886,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr "అకౌంట్ సెట్టింగులు, లాగిన్ స్క్రీన్ , మరియు లాక్ స్క్రీన్లలో ఈ చిత్రం మిమ్మల్ని సూచిస్తుంది."

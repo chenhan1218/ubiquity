@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -1135,26 +1135,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Kļūda kopējot tīkla konfigurāciju"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Gadījās kļūda kopējot tīkla iestatījumus. Instalēšana turpināsies, bet tīkla "
-"konfigurāciju vajadzēs iestatīt instalētajā sistēmā vēlreiz."
 
 #. Type: error
 #. Description
@@ -1580,16 +1571,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 spraudnis iekļauj MPEG Layer-3 audio atkodēšanas tehnoloģiju, "
-"kura ir licencēta no Fraunhofer IIS and Thomson."
 
 #. Type: text
 #. Description
@@ -1932,10 +1917,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Noņem pakotnes"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Šī bilde identificēs jūs konta iestatījumos, pieteikšanās ekrānā un "
-#~ "bloķēšanas ekrānā."

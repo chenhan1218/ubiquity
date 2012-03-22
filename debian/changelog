@@ -12,6 +12,7 @@ ubiquity (2.10.0) UNRELEASED; urgency=low
     architectures.
   * Re-enable test_maybe_update_install on x86, and add the missing
     mock.patch calls that caused it to fail in clean build environments.
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Mar 2012 11:54:49 +0000
 

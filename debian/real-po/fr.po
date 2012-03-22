@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-12 18:30+0000\n"
+"PO-Revision-Date: 2012-03-20 01:18+0000\n"
 "Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -68,7 +68,7 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Vous êtes en train  d'effectuer l'installation en mode constructeur. Merci "
+"Vous êtes en train  d’effectuer l’installation en mode constructeur. Merci "
 "de renseigner un nom unique pour ce lot de systèmes. Ce nom sera sauvegardé "
 "sur le système pour aider aux rapport de bogues."
 
@@ -93,7 +93,7 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Ou si vous êtes prêt, vous pouvez installer ${RELEASE} à côté (ou à la "
-"place) de votre système d'exploitation actuel. Cela ne devrait pas prendre "
+"place) de votre système d’exploitation actuel. Cela ne devrait pas prendre "
 "beaucoup de temps."
 
 #. Type: text
@@ -146,8 +146,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Ceci est une version de développement de l'installateur live ${MEDIUM} de  "
-"${RELEASE}. Ceci n'est pas la version finale; celle-ci sera disponible lors "
+"Ceci est une version de développement de l’installateur live ${MEDIUM} de  "
+"${RELEASE}. Ceci n’est pas la version finale; celle-ci sera disponible lors "
 "de la sortie officielle de ${RELEASE} en avril 2012."
 
 #. Type: text
@@ -158,9 +158,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Le processus d'installation va peut-être redimensionner ou effacer des "
+"Le processus d’installation va peut-être redimensionner ou effacer des "
 "partitions sur votre disque dur. Assurez-vous de <b>faire une sauvegarde "
-"complète de toutes les données importantes</b> avant d'exécuter ce programme."
+"complète de toutes les données importantes</b> avant d’exécuter ce programme."
 
 #. Type: text
 #. Description
@@ -208,7 +208,7 @@ msgstr "Détection de la disposition du clavier…"
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Please press one of the following keys:"
-msgstr "Veuillez appuyer sur l'une des touches suivantes :"
+msgstr "Veuillez appuyer sur l’une des touches suivantes :"
 
 #. Type: text
 #. Description
@@ -220,7 +220,7 @@ msgstr "Votre clavier est-il doté de cette touche ?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Who are you?"
-msgstr "Identité"
+msgstr "Qui êtes vous ?"
 
 #. Type: text
 #. Description
@@ -262,25 +262,27 @@ msgstr "Votre nom"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Pick a username:"
-msgstr "Choisissez un nom d'utilisateur :"
+msgstr "Choisissez un nom d’utilisateur :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Username"
-msgstr "Nom d'utilisateur"
+msgstr "Nom d’utilisateur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Doit commencer par une lettre minuscule."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Ne peut contenir que des lettres minuscules, des chiffres, des tirets et des "
+"caractères de soulignement."
 
 #. Type: text
 #. Description
@@ -316,38 +318,40 @@ msgstr "Le nom de votre ordinateur :"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "The name it uses when it talks to other computers."
-msgstr "Le nom qu'il utilise pour communiquer avec d'autres ordinateurs."
+msgstr "Le nom qu’il utilise pour communiquer avec d’autres ordinateurs."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "La longueur doit être comprise entre 1 et 63 caractères."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
 msgstr ""
+"Ne peut contenir que des lettres, des chiffres, des tirets et des points."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Ne peut pas commencer ou finir par un tiret."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Ne peut commencer ou finir par un point, ou contenir la séquence \"..\"."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Vous êtes actuellement en mode de débogage. N'utilisez pas de mot de passe "
+"Vous êtes actuellement en mode de débogage. N’utilisez pas de mot de passe "
 "sensible !"
 
 #. Type: text
@@ -411,6 +415,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Cette image sera associée à votre nom d’utilisateur et sera affichée à coté "
+"de celui-ci à certains endroits."
 
 #. Type: text
 #. Description
@@ -420,7 +426,7 @@ msgid ""
 "for these accounts will be available after the install completes."
 msgstr ""
 "Veuillez sélectionner le ou les comptes à importer. Les documents et les "
-"paramètres de ces comptes seront disponibles dès la fin de l'installation."
+"paramètres de ces comptes seront disponibles dès la fin de l’installation."
 
 #. Type: text
 #. Description
@@ -436,7 +442,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Installation type"
-msgstr "Type d'installation"
+msgstr "Type d’installation"
 
 #. Type: text
 #. Description
@@ -463,19 +469,19 @@ msgstr "_Installer maintenant [ action ]"
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Quit the installation?"
-msgstr "Quitter l'installation ?"
+msgstr "Quitter l’installation ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Do you really want to quit the installation now?"
-msgstr "Voulez-vous vraiment quitter l'installation maintenant ?"
+msgstr "Voulez-vous vraiment quitter l’installation maintenant ?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Bootloader install failed"
-msgstr "Échec de l'installation du chargeur d'amorçage"
+msgstr "Échec de l’installation du chargeur d’amorçage"
 
 #. Type: text
 #. Description
@@ -484,21 +490,21 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Désolé, une erreur s'est produite. Il n'a pas été possible d'installer le "
-"chargeur d'amorçage à l'emplacement indiqué."
+"Désolé, une erreur s’est produite. Il n’a pas été possible d’installer le "
+"chargeur d’amorçage à l’emplacement indiqué."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
-"Choisir un autre périphérique sur lequel installer le chargeur d'amorçage :"
+"Choisir un autre périphérique sur lequel installer le chargeur d’amorçage :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Continue without a bootloader."
-msgstr "Continuer sans chargeur d'amorçage."
+msgstr "Continuer sans chargeur d’amorçage."
 
 #. Type: text
 #. Description
@@ -507,14 +513,14 @@ msgstr "Continuer sans chargeur d'amorçage."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Vous devrez installer manuellement un chargeur d'amorçage pour pouvoir "
+"Vous devrez installer manuellement un chargeur d’amorçage pour pouvoir "
 "démarrer  ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Cancel the installation."
-msgstr "Annuler l'installation."
+msgstr "Annuler l’installation."
 
 #. Type: text
 #. Description
@@ -564,7 +570,7 @@ msgstr "Éteindre maintenant"
 #. Description
 #: ../ubiquity.templates:80001 ../ubiquity.templates:81001
 msgid "Installer crashed"
-msgstr "L'installateur a rencontré une erreur"
+msgstr "L’installateur a rencontré une erreur"
 
 #. Type: text
 #. Description
@@ -576,10 +582,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Désolé ; l'installateur s'est arrêté de façon anormale. Dès que vous aurez "
-"fermé cette fenêtre, vous pourrez créer un rapport de bogue grâce à l'outil "
+"Désolé ; l’installateur s’est arrêté de façon anormale. Dès que vous aurez "
+"fermé cette fenêtre, vous pourrez créer un rapport de bogue grâce à l’outil "
 "de rapport de bogues intégré. Ce dernier va rassembler des informations sur "
-"votre système et votre processus d'installation. Les détails seront envoyés "
+"votre système et votre processus d’installation. Les détails seront envoyés "
 "à notre outil de suivi de bogues et un développeur va prendre en charge ce "
 "problème dès que possible."
 
@@ -736,7 +742,7 @@ msgstr "Modifier une partition"
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Boot loader"
-msgstr "Chargeur d'amorçage"
+msgstr "Chargeur d’amorçage"
 
 #. Type: text
 #. Description
@@ -747,8 +753,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"L'installation est terminée. Vous pouvez continuer à tester ${RELEASE} mais "
-"tant que vous n'aurez pas redémarré votre ordinateur les changements "
+"L’installation est terminée. Vous pouvez continuer à tester ${RELEASE} mais "
+"tant que vous n’aurez pas redémarré votre ordinateur les changements "
 "effectués ou les documents créés ne seront pas préservés."
 
 #. Type: text
@@ -789,14 +795,14 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"L'installation est terminée. Il est nécessaire de redémarrer l'ordinateur "
+"L’installation est terminée. Il est nécessaire de redémarrer l’ordinateur "
 "pour utiliser le nouveau système installé."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Verifying the installation configuration..."
-msgstr "Vérification de la configuration de l'installation…"
+msgstr "Vérification de la configuration de l’installation…"
 
 #. Type: title
 #. Description
@@ -836,7 +842,7 @@ msgstr "Copie des fichiers presque terminée…"
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 #: ../ubiquity.templates:124001
 msgid "Installation Failed"
-msgstr "L'installation a échoué"
+msgstr "L’installation a échoué"
 
 #. Type: error
 #. Description
@@ -850,7 +856,7 @@ msgstr "L'installation a échoué"
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Le programme d'installation a rencontré une erreur lors de la copie des "
+"Le programme d’installation a rencontré une erreur lors de la copie des "
 "fichiers sur le disque dur :"
 
 #. Type: error
@@ -861,9 +867,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"L'installation ne peut pas se terminer sur la partition cible car l'espace "
-"disque y est insuffisant. Veuillez relancer l'installateur et sélectionner "
-"une partition d'installation plus grande."
+"L’installation ne peut pas se terminer sur la partition cible car l’espace "
+"disque y est insuffisant. Veuillez relancer l’installateur et sélectionner "
+"une partition d’installation plus grande."
 
 #. Type: error
 #. Description
@@ -876,7 +882,7 @@ msgstr ""
 "Ceci est souvent provoqué par un disque ou un lecteur CD/DVD défectueux. "
 "Vous pouvez essayer de nettoyer le CD/DVD, de le graver à vitesse réduite ou "
 "de nettoyer la lentille du lecteur CD/DVD (des kits de nettoyage sont "
-"souvent disponibles dans des magasins d'électronique)."
+"souvent disponibles dans des magasins d’électronique)."
 
 #. Type: error
 #. Description
@@ -887,8 +893,8 @@ msgid ""
 "cooler environment."
 msgstr ""
 "Ceci est souvent provoqué par un disque dur défectueux. Il peut être utile "
-"de vérifier l'âge du disque dur et d'envisager un éventuel remplacement, ou "
-"d'assurer une meilleure ventilation du système pour abaisser sa température."
+"de vérifier l’âge du disque dur et d’envisager un éventuel remplacement, ou "
+"d’assurer une meilleure ventilation du système pour abaisser sa température."
 
 #. Type: error
 #. Description
@@ -910,8 +916,8 @@ msgstr ""
 "un disque dur défectueux. Vous pouvez essayer de nettoyer le CD/DVD, de le "
 "graver à vitesse réduite ou de nettoyer la lentille du lecteur CD/DVD (des "
 "kits de nettoyage sont souvent disponibles dans des magasins "
-"d'électronique). Il peut aussi être utile de vérifier l'âge du disque dur et "
-"d'envisager un éventuel remplacement, ou d'assurer une meilleure ventilation "
+"d’électronique). Il peut aussi être utile de vérifier l’âge du disque dur et "
+"d’envisager un éventuel remplacement, ou d’assurer une meilleure ventilation "
 "du système pour abaisser sa température."
 
 #. Type: select
@@ -926,7 +932,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Copying installation logs..."
-msgstr "Copie des journaux d'installation..."
+msgstr "Copie des journaux d’installation..."
 
 #. Type: text
 #. Description
@@ -962,7 +968,7 @@ msgstr "Configuration du clavier..."
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Creating user..."
-msgstr "Création de l'utilisateur..."
+msgstr "Création de l’utilisateur..."
 
 #. Type: text
 #. Description
@@ -992,7 +998,7 @@ msgstr "Configuration du réseau..."
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
-msgstr "Configuration du chargeur de d'amorçage..."
+msgstr "Configuration du chargeur de d’amorçage..."
 
 #. Type: text
 #. Description
@@ -1052,7 +1058,7 @@ msgstr "Téléchargement de la liste des paquets (fin dans ${TIME})..."
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Error installing ${PACKAGE}"
-msgstr "Erreur lors de l'installation de ${PACKAGE}"
+msgstr "Erreur lors de l’installation de ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1064,13 +1070,13 @@ msgstr "Erreur lors de la désinstallation de ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error while installing packages"
-msgstr "Erreur lors de l'installation des paquets"
+msgstr "Erreur lors de l’installation des paquets"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "An error occurred while installing packages:"
-msgstr "Une erreur est survenue lors de l'installation des paquets :"
+msgstr "Une erreur est survenue lors de l’installation des paquets :"
 
 #. Type: error
 #. Description
@@ -1094,13 +1100,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Ceci peut être dû à l'utilisation d'une ancienne image de l'installateur, ou "
+"Ceci peut être dû à l’utilisation d’une ancienne image de l’installateur, ou "
 "bien à un bogue dans certains paquets listés ci-dessous. De plus amples "
-"renseignements se trouvent dans /var/log/syslog. L'installateur va essayer "
+"renseignements se trouvent dans /var/log/syslog. L’installateur va essayer "
 "de poursuivre malgré tout, mais il peut échouer à une étape ultérieure et il "
-"ne pourra pas installer ou supprimer d'autre paquets (y compris lui-même "
-"probablement) du système installé. Vous devriez d'abord chercher une version "
-"plus récente de l'image de l'installateur, ou le cas échéant, signaler ce "
+"ne pourra pas installer ou supprimer d’autre paquets (y compris lui-même "
+"probablement) du système installé. Vous devriez d’abord chercher une version "
+"plus récente de l’image de l’installateur, ou le cas échéant, signaler ce "
 "problème à votre revendeur."
 
 #. Type: error
@@ -1131,8 +1137,8 @@ msgid ""
 "installed system."
 msgstr ""
 "Une erreur est survenue lors de la migration des données. Vous trouverez "
-"plus de renseignements dans dans /var/log/syslog. L'installation va "
-"continuer, mais tout ou partie des documents et des paramètres n'a pas pu "
+"plus de renseignements dans dans /var/log/syslog. L’installation va "
+"continuer, mais tout ou partie des documents et des paramètres n’a pas pu "
 "être transféré sur le système installé."
 
 #. Type: error
@@ -1150,33 +1156,23 @@ msgid ""
 "installed system."
 msgstr ""
 "Une erreur est survenue lors de la copie de la configuration du réseau. "
-"L'installation va continuer, mais le réseau devra être reconfiguré sur le "
+"L’installation va continuer, mais le réseau devra être reconfiguré sur le "
 "système installé."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Erreur lors de la copie de la configuration du réseau"
+msgstr "Erreur lors de la copie de la configuration bluetooth"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Une erreur est survenue lors de la copie de la configuration du réseau. "
-"L'installation va continuer, mais le réseau devra être reconfiguré sur le "
-"système installé."
 
 #. Type: error
 #. Description
@@ -1192,10 +1188,10 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Une erreur s'est produite lors de la restauration des applications "
-"précédemment installées. L'installation va continuer mais vous aurez peut-"
+"Une erreur s’est produite lors de la restauration des applications "
+"précédemment installées. L’installation va continuer mais vous aurez peut-"
 "être besoin de réinstaller certains logiciels après le redémarrage de "
-"l'ordinateur."
+"l’ordinateur."
 
 #. Type: text
 #. Description
@@ -1228,8 +1224,8 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Le programme d'installation a besoin de modifier les tables de partition, "
-"mais c'est impossible car les points de montage suivants ne peuvent être "
+"Le programme d’installation a besoin de modifier les tables de partition, "
+"mais c’est impossible car les points de montage suivants ne peuvent être "
 "démontés :"
 
 #. Type: boolean
@@ -1243,14 +1239,14 @@ msgstr "Veuillez fermer les applications utilisant ces points de montage."
 #: ../ubiquity.templates:169001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Voulez-vous que le programme d'installation essaye à nouveau de démonter ces "
+"Voulez-vous que le programme d’installation essaye à nouveau de démonter ces "
 "partitions ?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Do you want to return to the partitioner?"
-msgstr "Voulez-vous revenir à l'outil de partitionnement ?"
+msgstr "Voulez-vous revenir à l’outil de partitionnement ?"
 
 #. Type: boolean
 #. Description
@@ -1269,8 +1265,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Si vous ne revenez à l'outil de partitionnement pour augmenter la taille de "
-"ces partitions, l'installation pourra échouer."
+"Si vous ne revenez à l’outil de partitionnement pour augmenter la taille de "
+"ces partitions, l’installation pourra échouer."
 
 #. Type: text
 #. Description
@@ -1332,19 +1328,19 @@ msgstr "Partition du disque dur"
 #. Description
 #: ../ubiquity.templates:186001
 msgid "User Info"
-msgstr "Informations sur l'utilisateur"
+msgstr "Informations sur l’utilisateur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "installation process"
-msgstr "Processus d'installation"
+msgstr "Processus d’installation"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:190001
 msgid "Checking for installer updates"
-msgstr "Recherche de mises à jour pour l'installateur"
+msgstr "Recherche de mises à jour pour l’installateur"
 
 #. Type: text
 #. Description
@@ -1380,13 +1376,13 @@ msgstr "Installation de la mise à jour"
 #. Description
 #: ../ubiquity.templates:196001
 msgid "Error updating installer"
-msgstr "Erreur lors de la mise à jour de l'installateur"
+msgstr "Erreur lors de la mise à jour de l’installateur"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "L'installateur a rencontré une erreur durant sa mise à jour :"
+msgstr "L’installateur a rencontré une erreur durant sa mise à jour :"
 
 #. Type: text
 #. Description
@@ -1409,7 +1405,7 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Veuillez choisir la langue à utiliser lors de l'installation. Cette langue "
+"Veuillez choisir la langue à utiliser lors de l’installation. Cette langue "
 "sera également la langue par défaut de cet ordinateur."
 
 #. Type: text
@@ -1428,7 +1424,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:201001 ../ubiquity.templates:202001
 msgid "Installation failed"
-msgstr "L'installation a échoué"
+msgstr "L’installation a échoué"
 
 #. Type: text
 #. Description
@@ -1437,16 +1433,16 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"Le programme d'installation a rencontré une erreur irrécupérable. Une "
+"Le programme d’installation a rencontré une erreur irrécupérable. Une "
 "session graphique va maintenant être lancée afin que vous puissiez étudier "
-"le problème ou réessayer l'installation."
+"le problème ou réessayer l’installation."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Le programme d'installation a rencontré une erreur irrécupérable et va "
+"Le programme d’installation a rencontré une erreur irrécupérable et va "
 "maintenant redémarrer."
 
 #. Type: text
@@ -1454,7 +1450,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:204001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Préparation de l'installation d' ${RELEASE}"
+msgstr "Préparation de l’installation d’ ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1470,9 +1466,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"La connexion de cet ordinateur à un réseau Wi-Fi vous permet d'installer des "
+"La connexion de cet ordinateur à un réseau Wi-Fi vous permet d’installer des "
 "logiciels tiers, de télécharger des mises à jour, de détecter "
-"automatiquement votre fuseau horaire, et d'installer la prise en charge "
+"automatiquement votre fuseau horaire, et d’installer la prise en charge "
 "complète pour votre langue."
 
 #. Type: text
@@ -1491,7 +1487,7 @@ msgstr "Afficher le mot de passe"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "Je ne souhaite pas me connecter à un réseau hi-fi pour le moment"
+msgstr "Je ne souhaite pas me connecter à un réseau Wi-Fi pour le moment"
 
 #. Type: text
 #. Description
@@ -1509,7 +1505,7 @@ msgstr "Sélectionnez le disque :"
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr "Allouez de l'espace disque en déplaçant le séparateur ci-dessous :"
+msgstr "Allouez de l’espace disque en déplaçant le séparateur ci-dessous :"
 
 #. Type: text
 #. Description
@@ -1525,7 +1521,7 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d partitions plus petites sont masquées, utilisez l'<a href="
+"<small>%d partitions plus petites sont masquées, utilisez l’<a href="
 "\"\">outil de partitionnement avancé</a>  pour plus de contrôle</small>"
 
 #. Type: text
@@ -1535,7 +1531,7 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>Une plus petite partition est masquée, utilisez l'<a href=\"\">outil "
+"<small>Une plus petite partition est masquée, utilisez l’<a href=\"\">outil "
 "de partitionnement avancé</a>  pour plus de contrôle</small>"
 
 #. Type: text
@@ -1546,8 +1542,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"%d partitions seront supprimées. Utilisez <a href=\"\">l'outil de "
-"partitionnement avancé</a> pour plus d'options"
+"%d partitions seront supprimées. Utilisez <a href=\"\">l’outil de "
+"partitionnement avancé</a> pour plus d’options"
 
 #. Type: text
 #. Description
@@ -1556,8 +1552,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Une partition sera supprimée. Utilisez <a href=\"\">l'outil de "
-"partitionnement avancé</a> pour plus d'options"
+"Une partition sera supprimée. Utilisez <a href=\"\">l’outil de "
+"partitionnement avancé</a> pour plus d’options"
 
 #. Type: text
 #. Description
@@ -1577,7 +1573,7 @@ msgstr ""
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:224001
 msgid "has at least ${SIZE} available drive space"
-msgstr "a au moins ${SIZE} d'espace libre sur le disque dur"
+msgstr "a au moins ${SIZE} d’espace libre sur le disque dur"
 
 #. Type: text
 #. Description
@@ -1589,7 +1585,7 @@ msgstr "est relié au secteur"
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is connected to the Internet"
-msgstr "est connecté à l'Internet"
+msgstr "est connecté à l’Internet"
 
 #. Type: text
 #. Description
@@ -1602,23 +1598,19 @@ msgid ""
 "software's documentation."
 msgstr ""
 "${RELEASE} utilise des logiciels tiers pour lire les formats Flash, MP3 et "
-"d'autres formats multimédia, ainsi que pour faire fonctionner certains "
+"d’autres formats multimédia, ainsi que pour faire fonctionner certains "
 "matériels pour les réseaux sans fil. Certains de ces logiciels sont "
 "propriétaires. Leur licence est disponible dans leur documentation."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Le greffon Fluendo MP3 utilise, sous licence, la technologie de décodage "
-"audio MPEG Layer-3 qui est la propriété de Fraunhofer IIS et Thomson."
+"Le plugin Fluendo MP3 intègre la technologie de décodage audio MPEG Layer-3 "
+"sous licence Fraunhofer IIS et Thomson SA."
 
 #. Type: text
 #. Description
@@ -1630,7 +1622,7 @@ msgstr "Installer ce logiciel tiers"
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Download updates while installing"
-msgstr "Télécharger les mises à jour pendant l'installation"
+msgstr "Télécharger les mises à jour pendant l’installation"
 
 #. Type: text
 #. Description
@@ -1659,9 +1651,9 @@ msgid ""
 "the clock to the correct local time."
 msgstr ""
 "Choisissez votre lieu de résidence afin que le système utilise les "
-"conventions d'affichage (heure, symbole monétaire, etc.) adéquates pour "
+"conventions d’affichage (heure, symbole monétaire, etc.) adéquates pour "
 "votre pays, récupère les mises à jour sur les miroirs locaux et règle "
-"correctement l'horloge sur l'heure locale."
+"correctement l’horloge sur l’heure locale."
 
 #. Type: text
 #. Description
@@ -1723,8 +1715,8 @@ msgid ""
 "which operating system you want each time the computer starts up."
 msgstr ""
 "Les documents, musiques et autres fichiers personnels seront conservés. Vous "
-"pouvez choisir le système d'exploitation à lancer au moment du démarrage de "
-"l'ordinateur."
+"pouvez choisir le système d’exploitation à lancer au moment du démarrage de "
+"l’ordinateur."
 
 #. Type: text
 #. Description
@@ -1857,7 +1849,7 @@ msgid ""
 msgstr ""
 "<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
 "logiciels, documents, photos, musiques, et autres fichiers de tous les "
-"systèmes d'exploitation."
+"systèmes d’exploitation."
 
 #. Type: text
 #. Description
@@ -1893,7 +1885,7 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
-"Plusieurs systèmes d'exploitation sont actuellement installés sur cet "
+"Plusieurs systèmes d’exploitation sont actuellement installés sur cet "
 "ordinateur. Que voulez-vous faire ?"
 
 #. Type: text
@@ -1903,7 +1895,7 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
-"Aucun système d'exploitation n'a été détecté sur cet ordinateur. Que voulez-"
+"Aucun système d’exploitation n’a été détecté sur cet ordinateur. Que voulez-"
 "vous faire ?"
 
 #. Type: title
@@ -1946,10 +1938,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Au prochain démarrage, vous pourrez vous connecter en tant qu'utilisateur "
+"Au prochain démarrage, vous pourrez vous connecter en tant qu’utilisateur "
 "« oem » avec le mot de passe choisi précédemment ; cet utilisateur possède "
-"les privilèges d'administration accessibles via la commande « sudo ». Vous "
-"serez alors en mesure d'effectuer sur le système toutes les modifications "
+"les privilèges d’administration accessibles via la commande « sudo ». Vous "
+"serez alors en mesure d’effectuer sur le système toutes les modifications "
 "supplémentaires dont vous pourrez avoir besoin."
 
 #. Type: text
@@ -1961,18 +1953,11 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "Une fois le système configuré tel que vous le souhaitez, lancez « oem-config-"
-"prepare ». Le système supprimera alors l'utilisateur temporaire « oem » et "
-"posera quelques questions à l'utilisateur final lors du prochain démarrage."
+"prepare ». Le système supprimera alors l’utilisateur temporaire « oem » et "
+"posera quelques questions à l’utilisateur final lors du prochain démarrage."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Suppression des paquets"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Cette image vous identifiera dans les paramètres des comptes, sur l'écran "
-#~ "de connexion et sur l'écran de verrouillage."

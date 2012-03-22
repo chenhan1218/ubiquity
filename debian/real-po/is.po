@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2011-11-15 08:17+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"PO-Revision-Date: 2012-03-03 20:49+0000\n"
+"Last-Translator: Árni Gunnarsson <Unknown>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Tengist..."
 
 #. Type: text
 #. Description
@@ -226,19 +226,19 @@ msgstr "Veldu mynd"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Taktu mynd:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Eða veldu mynd:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Taktu mynd"
 
 #. Type: text
 #. Description
@@ -268,13 +268,13 @@ msgstr "Notandanafn"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Verður að byrja á litlum staf"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Má einungis innihalda lágstafi, tölustafi, bandstrik eða undirstrik."
 
 #. Type: text
 #. Description
@@ -316,25 +316,25 @@ msgstr "Það er nafnið sem hún notar í samskiptum við aðrar tölvur."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Verður að vera milli 1 og 63 stafa langt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Má einungis innihalda bókstafi, tölustafi, bandstrik eða punkta."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Má ekki byrja eða enda á bandstriki"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "Má ekki byrja eða enda á punkti, eða innihalda rununa \"..\"."
 
 #. Type: text
 #. Description
@@ -1133,26 +1133,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Villa við afritun á netstillingum"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Villa kom upp við afritun á netstillingum. Uppsetningin mun halda áfram, en "
-"setja verður aftur upp allar stillingar á neti á nýja kerfinu."
 
 #. Type: error
 #. Description
@@ -1443,30 +1434,33 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"Tengdu tölvuna við þráðlaust net til að setja upp pakka frá þriðja aðila, "
+"sækja uppfærslur, uppfæra tímabelti sjálfkrafa og setja upp fullan stuðning "
+"fyrir þitt tungumál."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr ""
+msgstr "Lykilorð:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Display password"
-msgstr ""
+msgstr "Birta lykilorð"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Ég vil ekki tengjast þráðlausu neti í augnablikinu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Connect to this network"
-msgstr ""
+msgstr "Tengjast þessu neti"
 
 #. Type: text
 #. Description
@@ -1494,6 +1488,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
+"partitioning tool</a> for more control</small>"
 
 #. Type: text
 #. Description
@@ -1575,16 +1571,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3-íforritið inniheldur MPEG Layer-3 hljóðafkóðunartækni með "
-"notkunarleyfi frá Fraunhofer IIS og Thomson."
 
 #. Type: text
 #. Description
@@ -1926,10 +1916,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Þessi mynd verður tákmynd þín við innskráningu, í aðgangsstýringum og "
-#~ "læsiskjá."

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2011-12-27 07:39+0000\n"
+"PO-Revision-Date: 2012-03-10 15:44+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -227,19 +227,19 @@ msgstr "Iyaberite sliku"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Preuzmi fotografiju:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Ili izaberite postojeću sliku:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Preuzmi fotografiju"
 
 #. Type: text
 #. Description
@@ -269,13 +269,13 @@ msgstr "Korisničko ime"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Mora početi malim slovom."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Može sadržati samo mala slova, cifre, crtice i podvlačilice."
 
 #. Type: text
 #. Description
@@ -317,25 +317,25 @@ msgstr "Ime koje on koristi kada razgovara s drugim kompjuterima"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Mora biti između 1 i 63 znaka."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Može sadržati slova, cifre, crtice i tačke."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Ne može početi ili završiti crticom."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "Ne može početi ili završiti sa tačkom, ili sadrži sekvencu \"..\"."
 
 #. Type: text
 #. Description
@@ -406,6 +406,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Ova slika će biti povezana s vašim korisničkim imenom i ponekad prikazana uz "
+"njega."
 
 #. Type: text
 #. Description
@@ -1139,26 +1141,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Greška u kopiranju postavki mreže"
+msgstr "Greška u kopiranju Bluetooth konfiguracije"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Nastupila je greška pri kopiranju mrežnih postavki. Instalacije će se "
-"nastaviti, ali postavke mreže će se ponovo morati instalirati na sistemu."
+"Desila se greška u kopiranju Bluetooth postavki. Instalacija se nastavlja, "
+"ali će se bluetooth konfiguracija morati ponovo podesiti u instaliranom "
+"sistemu."
 
 #. Type: error
 #. Description
@@ -1587,16 +1583,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 dodatak uključuje MPEG Layer-3 tehnologiju audio dekodiranja "
-"licenciranu od Fraunhofer IIS i Thomson."
+"Fluendo MP3 dodatak sadrži MPEG Layer-3 tehnologiju za audio dekodiranje "
+"licenciranu od strane kompanija Fraunhofer IIS i Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1940,10 +1932,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Uklanjanje paketa"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Ova slika vas identificira u postavkama naloga, ekranima za prijavu i "
-#~ "ekranima za zaključavanje"

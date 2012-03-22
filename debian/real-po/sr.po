@@ -1,21 +1,21 @@
 # Serbian messages for debian-installer.
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 16.12.2010, 2011.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 16.12.2010, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-12 19:42+0000\n"
+"PO-Revision-Date: 2012-03-14 21:57+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Ubuntu Serbian Translators\n"
-"Language: Serbian (sr)\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -81,7 +81,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Можете пробати ${RELEASE} без уношења икаквих промена на Вашем рачунару, "
+"Можете пробати ${RELEASE} без уношења икаквих промена на вашем рачунару, "
 "директно са овог ${MEDIUM}-а."
 
 #. Type: text
@@ -93,7 +93,7 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Или ако сте спремни, можете да инсталирате ${RELEASE} поред (или уместо) "
-"Вашег тренутног оперативног система.  То неће трајати дуго."
+"вашег тренутног оперативног система.  То неће трајати дуго."
 
 #. Type: text
 #. Description
@@ -154,7 +154,7 @@ msgid ""
 "this program."
 msgstr ""
 "Приликом инсталације може доћи до промене величине или брисања партиција на "
-"Вашем чврстом диску. Постарајте се да <b>направите резервну копију свих "
+"вашем чврстом диску. Постарајте се да <b>направите резервну копију свих "
 "драгоцених података</b> пре него што покренете овај програм."
 
 #. Type: text
@@ -179,13 +179,13 @@ msgstr "Распоред тастатуре"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
-msgstr "Изаберите Ваш распоред тастатуре:"
+msgstr "Изаберите ваш распоред тастатуре:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Type here to test your keyboard"
-msgstr "Упишите овде да испробате Вашу тастатуру"
+msgstr "Упишите овде да испробате вашу тастатуру"
 
 #. Type: text
 #. Description
@@ -209,7 +209,7 @@ msgstr "Молим притисните један од следећих тас�
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Is the following key present on your keyboard?"
-msgstr "Да ли следећи тастер постоји на Вашој тастатури?"
+msgstr "Да ли следећи тастер постоји на вашој тастатури?"
 
 #. Type: text
 #. Description
@@ -269,13 +269,13 @@ msgstr "Име корисника"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Мора почети малим словом."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Може да садржи само мала слова, цифре, цртице, и подвлаке."
 
 #. Type: text
 #. Description
@@ -299,13 +299,13 @@ msgstr "Потврдите лозинку"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Confirm your password:"
-msgstr "Потврдите Вашу лозинку:"
+msgstr "Потврдите вашу лозинку:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Your computer's name:"
-msgstr "Име Вашег рачунара:"
+msgstr "Назив вашег рачунара:"
 
 #. Type: text
 #. Description
@@ -317,25 +317,27 @@ msgstr "Име које ће користити када комуницира с
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Мора да буде дужине од 1 до 63 знака."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Може да садржи само слова, цифре, цртице, и тачке."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Не може да почне или да се завршава цртицом."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Не може да почне или да се завршава тачком, или да садржи низ од две тачке "
+"(..)."
 
 #. Type: text
 #. Description
@@ -405,6 +407,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Ова слика ће бити придружена вашем корисничком имену и биће приказивана уз "
+"њега."
 
 #. Type: text
 #. Description
@@ -512,7 +516,7 @@ msgstr "Прекини инсталацију."
 #. Description
 #: ../ubiquity.templates:72001
 msgid "This may leave your computer unable to boot."
-msgstr "После овог, Ваш рачунар можда неће моћи да учита систем."
+msgstr "Након овога рачунар можда неће моћи да учита систем."
 
 #. Type: text
 #. Description
@@ -841,7 +845,7 @@ msgstr "Инсталација није успела"
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Инсталер је наишао на грешку приликом умножавања датотека на чврсти диск."
+"Инсталер је наишао на грешку приликом умножавања датотека на чврсти диск:"
 
 #. Type: error
 #. Description
@@ -852,7 +856,7 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "До овог је дошло због недостатка празног простора на изабраној партицији. "
-"Молимо Вас да поново покренете инсталацију и изаберете већу партицију."
+"Молим поново покрените инсталацију и изаберите већу партицију."
 
 #. Type: error
 #. Description
@@ -905,7 +909,7 @@ msgstr ""
 #: ../ubiquity.templates:124001
 msgid "The following file did not match its source copy on the CD/DVD:"
 msgstr ""
-"Следећа  датотека се не подудара са изворном копијом на оптичком (ЦД/ДВД) "
+"Следећа датотека се не подудара са изворном копијом на оптичком (ЦД/ДВД) "
 "диску:"
 
 #. Type: text
@@ -1085,7 +1089,7 @@ msgstr ""
 "syslog“. Инсталер ће покушати да настави упркос овоме, али може пасти "
 "касније и неће моћи да инсталира или уклони друге пакете (можда не и самога "
 "себе) са инсталираног система. Требало би да прво потражите новију верзију "
-"одраза Вашег инсталера или, ако не успете у томе, да пријавите проблем Вашем "
+"одраза вашег инсталера или, ако не успете у томе, да пријавите проблем вашем "
 "добављачу."
 
 #. Type: error
@@ -1140,26 +1144,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Грешка умножавања подешавања мреже"
+msgstr "Грешка умножавања подешавања блутута"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Дошло је до грешке приликом умножавања поставки мреже. Инсталација ће се "
-"наставити, али подешавања мреже ће морати поново да буду постављена у "
+"Дошло је до грешке приликом умножавања поставки блутута. Инсталација ће се "
+"наставити, али подешавања блутута ће морати поново да буду одрађена у "
 "инсталираном систему."
 
 #. Type: error
@@ -1240,8 +1237,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Неке од партиција које сте направили су сувише мале. Молимо Вас учините "
-"следеће партиције барем оволике величине:"
+"Неке од партиција које сте направили су сувише мале. Молим направите следеће "
+"партиције барем ове величине:"
 
 #. Type: boolean
 #. Description
@@ -1587,17 +1584,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
 "Флуендо МП3 додатак укључује МПЕГ Лајер-3 технологију за аудио декодирање "
-"коју је лиценцирала компанија Фројнхофер ИИС и Томсон (Fraunhofer IIS and "
-"Thomson)."
+"коју је лиценцирала компанија Фројнхофер ИИС и Техниколор СА."
 
 #. Type: text
 #. Description
@@ -1627,7 +1619,7 @@ msgstr "Варијанта:"
 #. Description
 #: ../ubiquity.templates:236001
 msgid "Below is an image of your current layout:"
-msgstr "Испод је слика Вашег тренутног распореда:"
+msgstr "Испод је слика вашег тренутног распореда:"
 
 #. Type: text
 #. Description
@@ -1637,8 +1629,8 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Изаберите Вашу локацију, да би систем могао да користи одговарајуће ознаке "
-"(за дужину, за новац, и сл.), узимао надоградње са интернет страница у Вашој "
+"Изаберите вашу локацију, да би систем могао да користи одговарајуће ознаке "
+"(за дужину, за новац, и сл.), узимао надоградње са интернет страница у вашој "
 "близини и подесио часовник на исправно локално време."
 
 #. Type: text
@@ -1675,7 +1667,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Упозорење:</span> Ово ће обрисати све ваше  "
+"<span foreground=\"darkred\">Упозорење:</span> Ово ће обрисати све ваше "
 "програме, документа, фотографије, музику и све остале датотеке на ${OS} "
 "оперативном систему."
 
@@ -1937,7 +1929,7 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Када је систем најзад подешен према Вашим потребама, покрените „oem-config-"
+"Када је систем најзад подешен према вашим потребама, покрените „oem-config-"
 "prepare“. Тада ће систем да обрише привременог „оем“ корисника и поставиће "
 "крајњем кориснику нека питања подешавања приликом следећег покретања."
 
@@ -1946,10 +1938,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Уклањам пакете"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Ова слика ће вас одређивати у подешавањима налога, екрану пријављивања, и "
-#~ "екрану закључавања."

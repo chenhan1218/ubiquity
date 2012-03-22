@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-10 19:39+0000\n"
+"PO-Revision-Date: 2012-03-10 04:18+0000\n"
 "Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -272,13 +272,14 @@ msgstr "Usuario"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Debe comenzar con una letra minúscula"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Solo puede contener letras minúsculas, números, guiones y guiones bajos."
 
 #. Type: text
 #. Description
@@ -320,25 +321,25 @@ msgstr "El nombre que usa cuando habla con otros equipos."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Debe tener entre 1 y 63 caracteres."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Solo puede contener letras, números, guiones y puntos."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "No puede empezar o terminar con un guión"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "No puede empezar o terminar con un punto o contener la secuencia «..»."
 
 #. Type: text
 #. Description
@@ -407,6 +408,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Esta imagen se asocia con su nombre de usuario y se muestra junto a él a "
+"veces."
 
 #. Type: text
 #. Description
@@ -1144,27 +1147,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Error al copiar la configuración de la red"
+msgstr "Error al copiar la configuración de Bluetooth"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Se produjo un error al copiar la configuración de red. La instalación "
-"continuará, pero la configuración de la red tendrá que ser creada de nuevo "
-"en el sistema instalado."
+"Ocurrió un error al copiar la configuración de Bluetooth. La instalación "
+"continuará, pero se necesitará configurar Bluetooth de nuevo en el sistema "
+"instalado."
 
 #. Type: error
 #. Description
@@ -1595,16 +1591,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"El complemento Fluendo MP3 incluye la tecnología de decodificación de audio "
-"MPEG Layer-3 licenciada por Fraunhofer IIS y Thomson."
+"El complemento Fluendo MP3 incluye la tecnología de decodificación MPEG "
+"Layer-3 licenciada por Fraunhofer IIS y Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1950,10 +1942,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Desinstalando paquetes"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Esta imagen le identificará en la configuración de cuenta y las pantallas "
-#~ "de inicio de sesión y de bloqueo."

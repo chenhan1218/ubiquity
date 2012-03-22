@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: debian_real-po_ubiquity-debconf-km\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-10 09:25+0000\n"
+"PO-Revision-Date: 2012-03-19 03:39+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -166,7 +166,7 @@ msgstr "ព្រមាន"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "អ្នក​នៅ​ឯណា ?"
+msgstr "អ្នក​រស់​នៅ​ឯណា ?"
 
 #. Type: text
 #. Description
@@ -226,19 +226,19 @@ msgstr "ជ្រើសរើស​រូបភាព"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "ថត​រូប ៖"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "ឬ​ជ្រើស​រូបថត​ដែល​មាន​ស្រាប់ ៖"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "ថត​រូប"
 
 #. Type: text
 #. Description
@@ -268,13 +268,13 @@ msgstr "ឈ្មោះ​អ្នក​ប្រើ"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "ត្រូវ​តែ​ចាប់ផ្ដើម​ដោយអក្សរ​តូច"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "អាច​មាន​តែ​អក្សរ​តូច តួលេខ និង​សញ្ញា (_) ។"
 
 #. Type: text
 #. Description
@@ -316,25 +316,25 @@ msgstr "ឈ្មោះ វា​ប្រើ​នៅពេល​វា​​�
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "ត្រូវ​តែ​​មាន​ប្រវែង ១ ដល់ ៦៣ តួអក្សរ ។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "អាច​មាន​តែ​តួអក្សរ តួលេខ និង​សញ្ញា (.) ។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "អាច​មិន​ចាប់ផ្ដើម​ ឬ​បញ្ចប់​ដោយ​សញ្ញា (-) ។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "អាច​មិន​ចាប់ផ្ដើម ឬ​បញ្ចប់​ដោយ​សញ្ញា (.) ឬ​មាន​លំដាប់ \"..\"."
 
 #. Type: text
 #. Description
@@ -402,7 +402,7 @@ msgstr "អ៊ិន​គ្រីប​ថត​ផ្ទះ​ខ្ញុំ
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
+msgstr "រូបភាព​នេះ​នឹង​ត្រូវ​បាន​ភ្ជាប់​ជា​មួយ​នឹង​​ឈ្មោះ​អ្នក​ប្រើ​​របស់​អ្នក ហើយ​បង្ហាញ​​​​ជា​មួយ​ឈ្មោះ​អ្នក​ប្រើ ។"
 
 #. Type: text
 #. Description
@@ -1124,26 +1124,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "មាន​កំហុស​ក្នុង​ការ​ចម្លង​ការកំណត់​រចនាសម្ព័ន្ធ​បណ្តាញ"
+msgstr "កំហុស​ក្នុង​កា​រចម្លង​ការ​កំណត់​រចនាសម្ព័ន្ធ​ប៊្លូធូស"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"កំហុស​បាន​កើត​ឡើង​ ខណៈ​ពេល​កំពុង​ចម្លង​ការកំណត់​បណ្តាញ​ ។ ការ​ដំឡើង​នឹង​បន្ត ប៉ុន្តែ​ការកំណត់​រចនា​សម្ព័ន្ធ​បណ្តាញ​"
-"នឹង​ត្រូវ​បាន​រៀប​ចំ​ម្តង​ទៀត​នៅ​ក្នុង​ប្រព័ន្ធ​ដែល​បាន​ដំឡើង​ ។"
+"កំហុស​មួយ​បានកើត​ឡើង ខណៈ​ដែល​ចម្លង​ការ​កំណត់​រចនាសម្ព័ន្ធ​ប៊្លូធូស ។ ការ​ដំឡើង​នឹង​បន្ត ប៉ុន្ទែ​ការ​កំណត់​"
+"រចនាសម្ព័ន្ធ​ប៊្លូធូស​នឹង​​រៀបចំ​ឡើង​វិញ​នៅ​ក្នុង​ប្រព័ន្ធដែល​បាន​ដំឡើង ។"
 
 #. Type: error
 #. Description
@@ -1562,16 +1555,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"កម្មវិធី​ជំនួយ Fluendo MP3 រួម​មាន​កា​រអ៊ីនកូដ​អូឌីយ៉ូ MPEG Layer-3 ដែល​បាន​ទទួល​អាជ្ញាប័ណ្ណ​ពី "
-"Fraunhofer IIS and Thomson ។"
+"កម្មវិធី​ជំនួយ Fluendo MP3 មាន​​បច្ចេកវិទ្យា​អ៊ីនកូដ​អួឌីយ៉ូ MPEG Layer-3 ដែល​បាន​ទទួល​អាជ្ញាប័ណ្ណ​ពី​ "
+"Fraunhofer IIS and Technicolor SA ។"
 
 #. Type: text
 #. Description
@@ -1905,8 +1894,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "យក​កញ្ចប់​ចេញ"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr "រូបភាព​នេះ​នឹង​កំណត់​អត្តសញ្ញាណ​​អ្នក​នៅ​ក្នុង​ការ​កំណត់​គណនី អេក្រង់​ចូល និង​ចាក់​សោ​អេក្រង់ ។"

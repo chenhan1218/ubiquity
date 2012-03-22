@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-01-06 22:39+0000\n"
-"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"PO-Revision-Date: 2012-03-13 19:04+0000\n"
+"Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -226,19 +226,19 @@ msgstr "Válasszon egy képet"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Fénykép készítése:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Vagy válasszon egy létező képet:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Fénykép készítése"
 
 #. Type: text
 #. Description
@@ -268,13 +268,14 @@ msgstr "Felhasználónév"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Kisbetűvel kell kezdődnie."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Csak kisbetűket, számjegyeket, kötőjeleket és aláhúzásokat tartalmazhat."
 
 #. Type: text
 #. Description
@@ -316,25 +317,26 @@ msgstr "A más számítógépekkel való kommunikációban használt név."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "A hossza 1 és 63 karakter közt kell, hogy legyen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Csak betűket, számjegyeket, kötőjeleket és pontokat tartalmazhat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Nem kezdődhet vagy végződhet kötőjellel."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Nem kezdődhet vagy végződhet ponttal, és nem tartalmazhatja a „..” sorozatot."
 
 #. Type: text
 #. Description
@@ -403,6 +405,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Ez a kép össze lesz kapcsolva a felhasználónevével, és alkalmanként meg fog "
+"jelenni mellette."
 
 #. Type: text
 #. Description
@@ -1139,27 +1143,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "A hálózati beállítások másolása során hiba lépett fel."
+msgstr "A bluetooth beállításainak másolása során hiba lépett fel"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"A hálózati beállítások másolása meghiúsult. A telepítés folytatódik, azonban "
-"elképzelhető, hogy a hálózati beállításait újra meg kell adnia a telepített "
-"rendszernek."
+"A bluetooth beállításainak másolása meghiúsult. A telepítés folytatódik, "
+"azonban elképzelhető, hogy a bluetooth beállításait újra meg kell adnia a "
+"telepített rendszernek."
 
 #. Type: error
 #. Description
@@ -1586,16 +1583,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"A Fluendo MP3 bővítmény a Fraunhofer IIS-től és a Thomsontól licencelt MPEG "
-"Layer-3 hangdekódolási technológiát tartalmaz."
+"A Fluendo MP3 bővítmény a Fraunhofer IIS-től és a Technicolor SA-tól "
+"licencelt MPEG Layer-3 hangdekódolási technológiát tartalmaz."
 
 #. Type: text
 #. Description
@@ -1941,10 +1934,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Csomagok eltávolítása"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Ez a kép fogja azonosítani a fiókbeállításokban, bejelentkező képernyőn "
-#~ "és a zárolási képernyőn."

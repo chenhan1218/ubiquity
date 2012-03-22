@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -1115,26 +1115,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "ජාල සැකසුම් පිටපත් කිරීමේ දෝශයක්"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"ජාල සැකසුම් පිටපත්කිරීමේ දෝශයක් හට ගැනිනි. ස්ථාපනය ඉදිරියට යන නමුත් ඔබට ස්ථාපිත පද්ධතිය තුල "
-"නැවත ජාල සැකසුම් සැකසීමත සිදුවිය හැක."
 
 #. Type: error
 #. Description
@@ -1547,16 +1538,10 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 ප්ලගිනය විසින් Fraunhofer IIS හා Thomson වෙත ලියාපදිංචි කල MPEG ලේයර්-3 "
-"ශ්‍රව්‍ය විකේතන තාක්‍ෂණයක් භාවිත කරයි."
 
 #. Type: text
 #. Description

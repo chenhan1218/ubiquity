@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-10 16:46+0000\n"
-"Last-Translator: Joao Alves <Unknown>\n"
+"PO-Revision-Date: 2012-03-16 23:47+0000\n"
+"Last-Translator: Carlos Manuel <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -42,7 +42,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"Demasiado inteligente? Aventure-se com algumas opções de particionamento."
+"Demasiado inteligente? Aventure-se com algumas opções avançadas de "
+"particionamento."
 
 #. Type: text
 #. Description
@@ -67,8 +68,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Está a instalar o sistema em modo de fabricante. Por favor introduza um nome "
-"único para este conjunto de sistemas. Este nome ficará guardado no sistema "
+"Está a instalar em modo de fabricante. Por favor introduza um nome único "
+"para este conjunto de sistemas. Este nome ficará guardado no sistema "
 "instalado e pode ser utilizado para ajudar nos relatórios de erros."
 
 #. Type: text
@@ -146,8 +147,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"Esta é uma pre-release ${RELEASE} do instalador  live ${MEDIUM}. Não é a "
-"versão final; essa virá com a versão final do ${RELEASE} em Abril de 2012."
+"Esta é uma pré-versão ${RELEASE} do instalador ${MEDIUM}. Não é a versão "
+"final; essa virá com a versão final do ${RELEASE} em Abril de 2012."
 
 #. Type: text
 #. Description
@@ -177,7 +178,7 @@ msgstr "Qual é a sua localização?"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Keyboard layout"
-msgstr "Disposição de teclado"
+msgstr "Disposição do teclado"
 
 #. Type: text
 #. Description
@@ -231,19 +232,19 @@ msgstr "Escolha uma imagem"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Tirar uma fotografia:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Ou escolher uma fotografia existente:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Tirar foto"
 
 #. Type: text
 #. Description
@@ -273,13 +274,14 @@ msgstr "Nome do Utilizador"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Deve começar com uma letra minúscula."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Só pode conter letras minúsculas, dígitos, hífenes e traços inferiores."
 
 #. Type: text
 #. Description
@@ -322,25 +324,26 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Deve ter entre 1 e 63 caracteres."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Só pode conter letras, dígitos, hífenes e pontos."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Não poderá começar ou terminar com um hífen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Não poderá começar ou terminar com ponto, nem conter a sequência \"..\"."
 
 #. Type: text
 #. Description
@@ -411,6 +414,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Esta imagem estará associada ao seu nome de utilizador e exibida junto com "
+"ele todas as vezes."
 
 #. Type: text
 #. Description
@@ -1150,26 +1155,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Erro ao copiar as configurações de rede"
+msgstr "Erro ao copiar a configuração bluetooth"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Ocorreu um erro ao copiar as configurações de rede. A instalação irá "
-"continuar, mas a rede terá de ser configurada novamente no sistema instalado."
+"Ocorreu um erro ao copiar as definições de bluetooth. A instalação irá "
+"continuar, mas a configuração bluetooth deverá ser criada novamente no "
+"sistema instalado."
 
 #. Type: error
 #. Description
@@ -1596,16 +1595,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"A extensão de aplicação Fluendo MP3 inclui tecnologia de descodificação MPEG "
-"Layer-3 licenciada pela Fraunhofer IIS e pela Thomson."
+"O plugin Fluendo MP3 inclui tecnologia de descodificação de áudio MPEG "
+"Layer-3, licenciada por Fraunhofer IIS e Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1950,10 +1945,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A remover pacotes"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Esta imagem vai identificá-lo nas configurações da conta, ecrã de início "
-#~ "de sessão, e ecrã de bloqueio."

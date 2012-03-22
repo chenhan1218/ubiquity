@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-10 20:31+0000\n"
+"PO-Revision-Date: 2012-03-13 18:46+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -182,7 +182,7 @@ msgstr "Klaviatūros išdėstymas"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
-msgstr "Pasirinkite savo klaviatūrą:"
+msgstr "Pasirinkite norimą klaviatūros išdėstymą (kalbą):"
 
 #. Type: text
 #. Description
@@ -272,13 +272,14 @@ msgstr "Naudotojo vardas"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Privalo prasidėti mažąja raide."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Gali turėti tik mažųjų raidžių, skaitmenų, brūkšnelių ir pabraukimo brūkšnių."
 
 #. Type: text
 #. Description
@@ -320,25 +321,25 @@ msgstr "Šis vardas naudojamas bendraujant su kitais kompiuteriais tinkle."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Privalo būti tarp 1 ir 63 simbolių ilgio."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Gali turėti tik mažųjų raidžių, skaitmenų, brūkšnelių ir taškų."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Negali prasidėti ar baigtis brūkšneliu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "Negali prasidėti ar baigtis tašku ar turėti seką „..“."
 
 #. Type: text
 #. Description
@@ -409,6 +410,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Šis paveiksliukas bus susietas su jūsų naudotojo vardu ir kartais bus "
+"rodomas šalia."
 
 #. Type: text
 #. Description
@@ -1111,7 +1114,7 @@ msgstr "Įvyko klaida šalinant paketus:"
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error migrating documents and settings"
-msgstr "Klaida perkeliant dokumentus ir nuostatas"
+msgstr "Klaida perkeliant dokumentus bei nustatymus"
 
 #. Type: error
 #. Description
@@ -1123,8 +1126,8 @@ msgid ""
 "installed system."
 msgstr ""
 "Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite /var/log/"
-"syslog. Diegimas bus pratęstas, bet kai kurie ar visi jūsų dokumentai ir "
-"nuostatos galėjo būti neperkelti į įdiegtą sistemą."
+"syslog. Diegimas bus pratęstas, bet kai kurie, o gal ir visi jūsų dokumentai "
+"bei nustatymai galėjo būti neperkelti į įdiegtą sistemą."
 
 #. Type: error
 #. Description
@@ -1146,26 +1149,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Klaida kopijuojant tinklo konfigūraciją"
+msgstr "Klaida kopijuojant bluetooth konfigūraciją"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Įvyko klaida kopijuojant tinklo nustatymus. Diegimas bus pratęstas, bet "
-"tinklo nustatymai įdiegtoje sistemoje turės būti atlikti iš naujo."
+"Įvyko klaida kopijuojant bluetooth nuostatas. Įdiegimas bus pratęstas, bet "
+"bluetooth reikės sukonfigūruoti iš naujo įdiegtoje sistemoje."
 
 #. Type: error
 #. Description
@@ -1398,8 +1394,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Pasirinkite kalbą, kuri bus naudojama įdiegimo proceso metu. Ši kalba bus "
-"numatytoji šio kompiuterio kalba."
+"Pasirinkite kalbą, kuri bus naudojama įdiegimo metu. Ši kalba bus numatytoji "
+"šiame kompiuteryje, tačiau po įdiegimo galėsite pasirinkti ir kitą."
 
 #. Type: text
 #. Description
@@ -1409,7 +1405,7 @@ msgid ""
 "will be the default language for this computer."
 msgstr ""
 "Prašome pasirinkti kalbą, kuri bus naudojama konfigūravimo metu. Ši kalba "
-"bus numatytoji kalba šiame kompiuteryje."
+"bus numatytoji šiame kompiuteryje, tačiau vėliau galėsite pasirinkti ir kitą."
 
 #. Type: text
 #. Description
@@ -1599,16 +1595,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
 "Fluendo MP3 papildinys apima MPEG Layer-3 garso dekodavimo technologiją "
-"licencijuotą iš „Fraunhofer IIS and Thomson“."
+"licencijuotą iš Fraunhofer IIS ir Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1746,7 +1738,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:247001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr "Naikinti ${CURDISTRO} ir įdiegti iš naujo"
+msgstr "Naikinti įdiegtą ${CURDISTRO} ir įdiegti iš naujo"
 
 #. Type: text
 #. Description
@@ -1807,13 +1799,13 @@ msgid ""
 "the disk."
 msgstr ""
 "<span foreground=\"darkred\">Dėmesio:</span> Bus pašalinti visi failai, "
-"esantys diske."
+"esantys pasirinktoje laikmenoje."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:251001
 msgid "Erase everything and reinstall"
-msgstr "Išvalyti viską ir įdiegti iš naujo"
+msgstr "Ištrinti viską ir įdiegti iš naujo"
 
 #. Type: text
 #. Description
@@ -1955,10 +1947,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Šis paveikslėlis bus rodomas prisijungimo lange, naudotojų nustatymuose "
-#~ "bei ekrano „atrakinimo“ metu."

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-12 06:25+0000\n"
+"PO-Revision-Date: 2012-03-10 05:41+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -270,13 +270,14 @@ msgstr "Emri i përdoruesit"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Duhet të nisë me një gërmë të vogël."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Mund të përmbajë vetëm gërma të vogla, shifra, vija ndarëse dhe nënvija."
 
 #. Type: text
 #. Description
@@ -318,25 +319,27 @@ msgstr "Emri që ai përdor kur flet me kompjuterat e tjerë"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Duhet të ketë një gjatësi prej 1 deri në 63 gërmash."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Mund të përmbajë vetëm gërma, numra, vija dhe pika."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Nuk mund të fillojë apo të përfundojë me një vijë."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Nuk mund të ffilojë ose të përfundojë me një pikë, ose të ketë sekuencën \".."
+"\"."
 
 #. Type: text
 #. Description
@@ -407,6 +410,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Kjo fotografi do bashkangjitet me emrin tuaj të përdoruesit dhe do shfaqet "
+"përkrah tij tek temat."
 
 #. Type: text
 #. Description
@@ -1143,26 +1148,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Gabim në kopjimin e konfigurimit të rrjetit"
+msgstr "Gabim në kopjimin e konfigurimit të bluetooth"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Ndodhi një gabim gjatë kopjimit të parametrave të rrjetit. Instalimi do të "
-"vazhdojë, por konfigurimi i rrjetit duhet të rivendoset në sistemin e "
+"Ndodhi një gabim gjatë kopjimit të parametrave të bluetooth. Instalimi do të "
+"vazhdojë, por konfigurimi i bluetooth duhet bërë përsëri në sistemin e "
 "instaluar."
 
 #. Type: error
@@ -1593,16 +1591,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 plugin përfshin teknologjinë e dekodimit të MPEG Layer-3 audio "
-"të liçensuar nga Fraunhofer IIS dhe Thomson."
+"Fluendo MP3 plugin përfshin teknologjinë e dekodimittë audios MPEG Layer-3 "
+"të liçensuar nga Fraunhofer IIS dhe Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1950,10 +1944,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Duke hequr paketat"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Kjo fotografi do t'iu identifikojë në parametrat e llogarisë, ekranin e "
-#~ "hyrjes dhe kur bllokoni ekranin."

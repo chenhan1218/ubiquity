@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-11 07:51+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@canonical.com>\n"
+"PO-Revision-Date: 2012-03-10 09:40+0000\n"
+"Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:48+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -269,13 +269,14 @@ msgstr "Käyttäjänimi"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Aloitettava pienellä kirjaimella."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Saa sisältää vain pieniä kirjaimia, numeroita sekä ala- ja väliviivoja."
 
 #. Type: text
 #. Description
@@ -317,25 +318,25 @@ msgstr "Nimi, jolla tietokone tunnistautuu toisille tietokoneille."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Pituuden oltava 1-63 merkkiä."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Saa sisältää vain kirjaimia, numeroita, väliviivoja ja pisteitä."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Ensimmäinen tai viimeinen merkki ei saa olla piste."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "Ei voi alkaa tai päättyä pisteeseen tai sisältää merkkijonoa \"..\"."
 
 #. Type: text
 #. Description
@@ -404,6 +405,7 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Tämä kuva liitetään käyttäjätiliisi ja näytetään joskus sen yhteydessä."
 
 #. Type: text
 #. Description
@@ -1140,27 +1142,19 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Virhe kopioitaessa verkkoasetuksia"
+msgstr "Virhe kopioitaessa Bluetooth-asetuksia"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Verkkoasetuksia kopioitaessa tapahtui virhe. Asennus jatkuu, mutta "
-"verkkoasetukset joudutaan mahdollisesti tekemään uudelleen asennuksen "
-"jälkeen."
+"Bluetooth-asetuksia kopioitaessa ilmeni virhe. Asennus jatkuu, mutta "
+"Bluetooth-asetukset tulee tehdä uudelleen asennuksen jälkeen."
 
 #. Type: error
 #. Description
@@ -1590,16 +1584,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 -liitännäinen sisältää Fraunhofer IIS ja Thomsonilta lisensoitua "
-"MPEG Layer-3 -ääniteknologiaa."
+"Fluendon MP3 -lisäosa sisältää Fraunhofer IIS:n ja Technicolor SA:n "
+"lisensoimaa teknologiaa, jota käytetään MP3-tiedostojen toistamiseen."
 
 #. Type: text
 #. Description
@@ -1950,10 +1940,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Tämä kuva esittää sinua käyttäjätilin asetuksissa, kirjautumisnäkymässä "
-#~ "ja näytön ollessa lukittu."

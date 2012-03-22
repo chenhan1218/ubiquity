@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-12 18:51+0000\n"
+"PO-Revision-Date: 2012-03-12 07:57+0000\n"
 "Last-Translator: Hendrik Knackstedt <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -274,13 +274,14 @@ msgstr "Benutzername"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Es muss mit einem Kleinbuchstaben beginnen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Es darf nur Kleinbuchstaben, Zahlen, Bindestriche und Unterstriche enthalten."
 
 #. Type: text
 #. Description
@@ -323,25 +324,27 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Es muss 1 bis 63 Zeichen lang sein."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Es darf nur Buchstaben, Zahlen, Bindestriche und Punkte enthalten."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Es darf nicht mit einem Bindestrich beginnen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Es darf nicht mit einem Punkt beginnen oder aufhören oder die Abfolge »..« "
+"enthalten."
 
 #. Type: text
 #. Description
@@ -412,6 +415,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Dieses Bild wird mit Ihrem Benutzernamen verknüpft und an manchen Stellen "
+"neben ihm dargestellt."
 
 #. Type: text
 #. Description
@@ -1163,27 +1168,20 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Fehler beim Kopieren der Netzwerkeinstellungen"
+msgstr "Fehler beim Kopieren der Bluetooth-Konfiguration"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Beim Kopieren der Netzwerkeinstellungen ist ein Fehler aufgetreten. Die "
-"Installation wird fortgesetzt, aber die Netzwerkeinstellungen müssen im neu "
-"installierten System neu eingerichtet werden."
+"Während des Kopierens der Bluetooth-Einstellungen ist ein Fehler "
+"aufgetreten. Die Installation wird fortgesetzt, aber die Bluetooth-"
+"Konfiguration muss später im installierten System erneut eingerichtet werden."
 
 #. Type: error
 #. Description
@@ -1622,16 +1620,13 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Die Fluendo-MP3-Erweiterung enthält einen »MPEG Layer-3«-Audiodekoder, der "
-"vom Fraunhofer IIS und von Thomson lizenziert wurde."
+"Die MP3-Erweiterung von Fluendo enthält »MPEG Layer-3«-"
+"Audiodekodierungstechnologien, die vom Frauenhofer IIS und von Technicolor "
+"SA lizenziert sind."
 
 #. Type: text
 #. Description
@@ -1982,10 +1977,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakete werden entfernt"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Dieses Bild repräsentiert Sie in den Kontoeinstellungen, dem "
-#~ "Anmeldebildschirm sowie bei gesperrtem Bildschirm."

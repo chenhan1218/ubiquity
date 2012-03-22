@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-01 22:27+0000\n"
-"Last-Translator: Ander González <Unknown>\n"
+"PO-Revision-Date: 2012-03-03 22:10+0000\n"
+"Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-15 11:49+0000\n"
-"X-Generator: Launchpad (build 14781)\n"
+"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
 #. Type: text
 #. Description
@@ -228,19 +228,19 @@ msgstr "Hautatu irudia"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Atera argazki bat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Edo aukeratu irudi bat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Atera argazkia:"
 
 #. Type: text
 #. Description
@@ -270,13 +270,13 @@ msgstr "Erabiltzailea"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Minuskulaz hasi behar da."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Minuskulak, digituak, marratxoak eta azpimarrak soilik eduki ditzake."
 
 #. Type: text
 #. Description
@@ -318,25 +318,26 @@ msgstr "Beste ordenagailuekin konektatzean erabiltzen den izena."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Luzera 1 eta 63 karaktere artekoa izan behar da."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Hizkiak, digituak, marratxoak eta puntuak soilik eduki ditzake."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Ezin da marratxoarekin hasi edo bukatu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Ezin da puntuarekin hasi edo bukatu, eta ezin du \"..\" sekuentzia eduki."
 
 #. Type: text
 #. Description
@@ -1144,27 +1145,17 @@ msgstr ""
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid "Error copying network configuration"
 msgid "Error copying bluetooth configuration"
-msgstr "Errorea sarearen konfigurazioa kopiatzean"
+msgstr ""
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
-#, fuzzy
-#| msgid ""
-#| "An error occurred while copying the network settings.  The installation "
-#| "will continue, but the network configuration will have to be set up again "
-#| "in the installed system."
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Errore bat gertatu da sarearen ezarpenak kopiatzean. Instalazioak jarraituko "
-"du, baina sarearen konfigurazioa berriro ezarri beharko da instalatutako "
-"sisteman."
 
 #. Type: error
 #. Description
@@ -1592,16 +1583,12 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
-#, fuzzy
-#| msgid ""
-#| "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-#| "licensed from Fraunhofer IIS and Thomson."
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendo MP3 plugin-ak bere baitan dakar MPEG Layer-3 audioa deskodetzeko "
-"teknologia, Fraunhofer IIS eta Thomson-en lizentziekin."
+"Fluendo MP3 pluginak Fraunhofer IIS eta Technicolor SAren lizentziapeko MPEG "
+"Layer-3 audio-deskodetze teknologia dakar."
 
 #. Type: text
 #. Description
@@ -1949,10 +1936,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketeak ezabatzen"
-
-#~ msgid ""
-#~ "This picture will identify you in the account settings, login screen, and "
-#~ "lock screen."
-#~ msgstr ""
-#~ "Irudi honek identifikatuko zaitu kontuaren ezarpenetan, saioa hasteko "
-#~ "pantailan eta pantaila blokeatzerakoan."
