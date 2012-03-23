@@ -2,6 +2,8 @@ ubiquity (2.10.1) UNRELEASED; urgency=low
 
   * ubiquity.misc.boot_device needs root privileges in order to talk to
     parted_server.
+  * Make ubiquity-frontend-gtk depend on busybox-static | busybox for now,
+    matching the 'busybox tail' workaround in ubiquity 2.9.32 (LP: #962585).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Mar 2012 12:56:51 +0000
 
