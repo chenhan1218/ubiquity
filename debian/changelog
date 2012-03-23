@@ -1,3 +1,10 @@
+ubiquity (2.10.1) UNRELEASED; urgency=low
+
+  * ubiquity.misc.boot_device needs root privileges in order to talk to
+    parted_server.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Mar 2012 12:56:51 +0000
+
 ubiquity (2.10.0) precise; urgency=low
 
   * Fix a few cases where the test suite was insufficiently isolated from

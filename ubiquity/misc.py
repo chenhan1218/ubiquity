@@ -190,6 +190,7 @@ def grub_options():
             syslog.syslog(syslog.LOG_ERR, line)
     return l
 
+@raise_privileges
 def boot_device():
     from ubiquity.parted_server import PartedServer
 
