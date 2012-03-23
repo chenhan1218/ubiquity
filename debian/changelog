@@ -5,6 +5,7 @@ ubiquity (2.10.2) UNRELEASED; urgency=low
     conflict, so we now set LC_NUMERIC, LC_TIME, LC_MONETARY, LC_PAPER,
     LC_NAME, LC_ADDRESS, LC_TELEPHONE, LC_MEASUREMENT, and LC_IDENTIFICATION
     instead (LP: #926207).
+  * Automatic update of included source packages: localechooser 2.39ubuntu2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Mar 2012 16:08:56 +0000
 
