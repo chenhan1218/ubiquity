@@ -387,7 +387,9 @@ class GrubDefaultTests(unittest.TestCase):
         self.cdrom_mount = ('/dev/sr0', 'vfat')
         self.assertEqual('/dev/sda', misc.grub_default())
 
-    def test_avoid_cdrom(self):
+    @mock.patch('ubiquity.misc.drop_privileges')
+    @mock.patch('ubiquity.misc.regain_privileges')
+    def test_avoid_cdrom(self, *args):
         self.devices = [
             ['hd0', 'sda', 'cdrom'],
             ['hd1', 'sdb', 'disk'],

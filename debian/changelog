@@ -1,3 +1,9 @@
+ubiquity (2.10.2) UNRELEASED; urgency=low
+
+  * Fix test_misc.GrubDefaultTests.test_avoid_cdrom.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Mar 2012 16:08:56 +0000
+
 ubiquity (2.10.1) precise; urgency=low
 
   * ubiquity.misc.boot_device needs root privileges in order to talk to
