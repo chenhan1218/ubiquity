@@ -1,5 +1,6 @@
 ubiquity (2.10.2) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Fix test_misc.GrubDefaultTests.test_avoid_cdrom.
   * Invert the set of locale categories set in case of a language/location
     conflict, so we now set LC_NUMERIC, LC_TIME, LC_MONETARY, LC_PAPER,
@@ -7,7 +8,10 @@ ubiquity (2.10.2) UNRELEASED; urgency=low
     instead (LP: #926207).
   * Automatic update of included source packages: localechooser 2.39ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 23 Mar 2012 16:08:56 +0000
+  [ Brian Murray ]
+  * UTF-8-encode debug messages which are written to stderr (LP: #960278)
+
+ -- Brian Murray <brian@ubuntu.com>  Fri, 23 Mar 2012 10:49:12 -0700
 
 ubiquity (2.10.1) precise; urgency=low
 
