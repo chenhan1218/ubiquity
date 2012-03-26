@@ -135,7 +135,7 @@ XC-Package-Type: udeb
 Section: debian-installer
 Architecture: all
 Depends: oem-config-check, cdebconf-udeb
-XB-Installer-Menu-Item: 2800
+XB-Installer-Menu-Item: 2350
 Description: Prepare for OEM configuration
 
 Package: oem-config-remaster
