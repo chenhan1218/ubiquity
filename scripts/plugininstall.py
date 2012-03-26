@@ -638,6 +638,7 @@ class Install(install_misc.InstallBase):
             self.db.progress('INFO', 'ubiquity/install/target_hooks')
             for hookentry in hooks:
                 hook = os.path.join(hookdir, hookentry)
+                syslog.syslog('running %s' % hook)
                 if not os.access(hook, os.X_OK):
                     self.db.progress('STEP', 1)
                     continue

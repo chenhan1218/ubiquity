@@ -1,3 +1,10 @@
+ubiquity (2.10.4) UNRELEASED; urgency=low
+
+  * Add a log entry before running each target-config hook, to make it a bit
+    more feasible to debug hangs there.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Mar 2012 20:20:56 +0100
+
 ubiquity (2.10.3) precise-proposed; urgency=low
 
   * Move oem-config-udeb's menu item before that of user-setup's, which
