@@ -1,4 +1,4 @@
-ubiquity (2.10.4) UNRELEASED; urgency=low
+ubiquity (2.10.4) precise; urgency=low
 
   [ Colin Watson ]
   * Add a log entry before running each target-config hook, to make it a bit
@@ -13,7 +13,7 @@ ubiquity (2.10.4) UNRELEASED; urgency=low
   * Similarly to ubi-console-setup, don't setup any timeout or similar
     background tasks when running in automatic mode. (LP: #950282)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 27 Mar 2012 16:10:54 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 27 Mar 2012 17:08:29 -0400
 
 ubiquity (2.10.3) precise-proposed; urgency=low
 
