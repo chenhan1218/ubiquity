@@ -744,6 +744,10 @@ class Page(plugin.Plugin):
         # gets disabled.
         self.ui.info_loop(None)
 
+        # Trigger the bogus DNS server detection
+        if hasattr(self.ui, 'detect_bogus_result'):
+            self.ui.detect_bogus_result()
+
         # We intentionally don't listen to passwd/auto-login or
         # user-setup/encrypt-home because we don't want those alone to force
         # the page to be shown, if they're the only questions not preseeded.
