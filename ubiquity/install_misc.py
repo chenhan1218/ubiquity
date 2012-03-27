@@ -873,11 +873,11 @@ class InstallBase:
             try:
                 langpack_db = self.db.get('localechooser/supported-locales')
                 for locale in langpack_db.replace(',', '').split():
-                    langpack_set.add(locale_to_language_pack(locale))
+                    langpack_set.add(locale)
             except debconf.DebconfError:
                 pass
             langpack_db = self.db.get('debian-installer/locale')
-            langpack_set.add(locale_to_language_pack(langpack_db))
+            langpack_set.add(langpack_db)
             langpacks = sorted(langpack_set)
 
         no_install = '/var/lib/ubiquity/no-install-langpacks'
@@ -899,7 +899,8 @@ class InstallBase:
 
         to_install = []
         checker = osextras.find_on_path('check-language-support')
-        for lp in langpacks:
+        for lp_locale in langpacks:
+            lp = locale_to_language_pack(lp_locale)
             # Basic language packs, required to get localisation working at
             # all. We install these almost unconditionally; if you want to
             # get rid of even these, you can preseed pkgsel/language-packs
@@ -913,7 +914,8 @@ class InstallBase:
             # calling check-language-support just once.
             if not all_langpacks and checker:
                 check_lang = subprocess.Popen(
-                    ['check-language-support', '-l', lp, '--show-installed'],
+                    ['check-language-support', '-l', lp_locale.split('.')[0],
+                     '--show-installed'],
                     stdout=subprocess.PIPE)
                 to_install.extend(check_lang.communicate()[0].strip().split())
             else:

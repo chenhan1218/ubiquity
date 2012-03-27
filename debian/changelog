@@ -3,6 +3,8 @@ ubiquity (2.10.4) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add a log entry before running each target-config hook, to make it a bit
     more feasible to debug hangs there.
+  * Call check-language-support with locale names, not with language pack
+    names (LP: #963460).
 
   [ Stéphane Graber ]
   * Change the calls in calculate_result to use the same code path as the
