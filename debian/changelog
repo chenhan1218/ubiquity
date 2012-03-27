@@ -10,8 +10,10 @@ ubiquity (2.10.4) UNRELEASED; urgency=low
   * Change the calls in calculate_result to use the same code path as the
     regular UI. (LP: #964472)
   * Actually call detect_bogus_result() in ubi-usersetup
+  * Similarly to ubi-console-setup, don't setup any timeout or similar
+    background tasks when running in automatic mode. (LP: #950282)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 27 Mar 2012 15:36:09 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 27 Mar 2012 16:10:54 -0400
 
 ubiquity (2.10.3) precise-proposed; urgency=low
 
