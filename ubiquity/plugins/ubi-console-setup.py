@@ -68,13 +68,14 @@ class PageGtk(plugin.PluginUI):
         if len(keymap) == 1:
             keymap.append('')
         layout = keyboard_names.lang[l]['layouts_rev'][keymap[0]]
+
         # Temporary workaround until I fix variants_rev
         v = keyboard_names.lang[l]['variants'][keymap[0]]
         idx = v.values().index(keymap[1])
         variant = v.keys()[idx]
         self.set_keyboard(layout)
-        self.set_keyboard_variant(variant)
-        # FIXME choppy UI effect
+        self.controller.dbfilter.change_layout(layout)
+        self.controller.dbfilter.apply_keyboard(layout, variant)
 
         # Necessary to clean up references so self.query is garbage collected.
         self.calculate_closed()

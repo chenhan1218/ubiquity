@@ -1,9 +1,14 @@
 ubiquity (2.10.4) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Add a log entry before running each target-config hook, to make it a bit
     more feasible to debug hangs there.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 26 Mar 2012 20:20:56 +0100
+  [ Stéphane Graber ]
+  * Change the calls in calculate_result to use the same code path as the
+    regular UI. (LP: #964472)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 26 Mar 2012 20:14:16 -0400
 
 ubiquity (2.10.3) precise-proposed; urgency=low
 
