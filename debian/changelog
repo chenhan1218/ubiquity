@@ -1,3 +1,10 @@
+ubiquity (2.10.5) UNRELEASED; urgency=low
+
+  * Exit early from ubiquity_webcam_play and ubiquity_webcam_stop if priv or
+    priv->camerabin is NULL.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Mar 2012 11:40:47 +0100
+
 ubiquity (2.10.4) precise; urgency=low
 
   [ Colin Watson ]

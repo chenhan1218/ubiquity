@@ -199,6 +199,8 @@ ubiquity_webcam_available (void) {
 void
 ubiquity_webcam_play (UbiquityWebcam *webcam) {
 	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
+	if (!priv || !priv->camerabin)
+		return;
 	if (gst_element_set_state (priv->camerabin, GST_STATE_PLAYING) == GST_STATE_CHANGE_FAILURE) {
 		g_print ("setting camerabin to PLAYING failed\n");
 		return;
@@ -208,6 +210,8 @@ ubiquity_webcam_play (UbiquityWebcam *webcam) {
 void
 ubiquity_webcam_stop (UbiquityWebcam *webcam) {
 	UbiquityWebcamPrivate *priv = UBIQUITY_WEBCAM_PRIVATE (webcam);
+	if (!priv || !priv->camerabin)
+		return;
 	if (gst_element_set_state (priv->camerabin, GST_STATE_NULL) == GST_STATE_CHANGE_FAILURE) {
 		g_print ("setting camerabin to STOPPED failed\n");
 		return;
