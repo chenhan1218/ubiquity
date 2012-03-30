@@ -1,4 +1,4 @@
-ubiquity (2.10.5) UNRELEASED; urgency=low
+ubiquity (2.10.5) precise; urgency=low
 
   * Exit early from ubiquity_webcam_play and ubiquity_webcam_stop if priv or
     priv->camerabin is NULL.
@@ -9,7 +9,7 @@ ubiquity (2.10.5) UNRELEASED; urgency=low
   * Automatic update of included source packages: apt-setup 1:0.55ubuntu2,
     partman-partitioning 85ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Mar 2012 11:40:47 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 30 Mar 2012 23:39:38 +0100
 
 ubiquity (2.10.4) precise; urgency=low
 
