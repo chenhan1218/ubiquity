@@ -2,6 +2,8 @@ ubiquity (2.10.5) UNRELEASED; urgency=low
 
   * Exit early from ubiquity_webcam_play and ubiquity_webcam_stop if priv or
     priv->camerabin is NULL.
+  * Clear disks from the partman plugin's disk cache if any partitions on
+    that disk change, allowing us to notice disk label changes.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Mar 2012 11:40:47 +0100
 

@@ -2243,6 +2243,15 @@ class Page(plugin.Plugin):
                         for devpart in self.update_partitions:
                             if devpart in self.partition_cache:
                                 del self.partition_cache[devpart]
+                            # We don't get a separate notification when a
+                            # disk label is changed, only a notification
+                            # about the free-space slot covering the whole
+                            # disk.  Therefore, clear the corresponding disk
+                            # from the disk cache just in case its label has
+                            # changed.
+                            disk = devpart.split('//', 1)[0] + '//'
+                            if disk in self.disk_cache:
+                                del self.disk_cache[disk]
 
                     # Initialise any items we haven't heard of yet.
                     for script, arg, option in matches:
