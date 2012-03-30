@@ -1586,7 +1586,7 @@ class Page(plugin.Plugin):
                 # building the cache?
                 dev = self.split_devpart(devpart)[0]
                 if dev is not None:
-                    dev = '%s/%s' % (parted_server.devices, dev)
+                    dev = '%s/%s//' % (parted_server.devices, dev)
                     if (dev in self.disk_cache and
                         'label' in self.disk_cache[dev] and
                         self.disk_cache[dev]['label'] == 'gpt'):
@@ -2272,7 +2272,7 @@ class Page(plugin.Plugin):
                                 device = parted.readline_device_entry('device')
                                 parted.open_dialog('GET_LABEL_TYPE')
                                 try:
-                                    label = parted.read_line()
+                                    label = parted.read_line()[0]
                                 finally:
                                     parted.close_dialog()
                                 self.disk_cache[arg] = {

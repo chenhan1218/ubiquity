@@ -4,6 +4,8 @@ ubiquity (2.10.5) UNRELEASED; urgency=low
     priv->camerabin is NULL.
   * Clear disks from the partman plugin's disk cache if any partitions on
     that disk change, allowing us to notice disk label changes.
+  * Fix GPT detection when deciding whether to display the biosgrub method
+    (LP: #969038).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 28 Mar 2012 11:40:47 +0100
 
