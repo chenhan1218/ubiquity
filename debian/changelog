@@ -1,3 +1,10 @@
+ubiquity (2.10.6) UNRELEASED; urgency=low
+
+  * ubiquity-dm: Use macinnis_wallpaper.png by default for ubuntu studio.
+    (LP: #971159)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 02 Apr 2012 10:53:38 -0400
+
 ubiquity (2.10.5) precise; urgency=low
 
   * Exit early from ubiquity_webcam_play and ubiquity_webcam_stop if priv or
