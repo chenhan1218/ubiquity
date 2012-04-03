@@ -1,4 +1,4 @@
-ubiquity (2.10.6) UNRELEASED; urgency=low
+ubiquity (2.10.6) precise; urgency=low
 
   [ Stéphane Graber ]
   * ubiquity-dm: Use macinnis_wallpaper.png by default for ubuntu studio.
@@ -9,7 +9,7 @@ ubiquity (2.10.6) UNRELEASED; urgency=low
     again for the inferior command.
   * Fix DEP-8 control file to stop trying to run Xvfb inside Xvfb.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 02 Apr 2012 10:53:38 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 03 Apr 2012 14:06:44 +0100
 
 ubiquity (2.10.5) precise; urgency=low
 
