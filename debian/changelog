@@ -1,7 +1,12 @@
 ubiquity (2.10.6) UNRELEASED; urgency=low
 
+  [ Stéphane Graber ]
   * ubiquity-dm: Use macinnis_wallpaper.png by default for ubuntu studio.
     (LP: #971159)
+
+  [ Colin Watson ]
+  * Work around LP #972324 by unsetting TMPDIR for xvfb-run and setting it
+    again for the inferior command.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 02 Apr 2012 10:53:38 -0400
 
