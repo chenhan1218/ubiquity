@@ -7,6 +7,7 @@ ubiquity (2.10.6) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Work around LP #972324 by unsetting TMPDIR for xvfb-run and setting it
     again for the inferior command.
+  * Fix DEP-8 control file to stop trying to run Xvfb inside Xvfb.
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 02 Apr 2012 10:53:38 -0400
 

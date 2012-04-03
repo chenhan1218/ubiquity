@@ -1,2 +1,2 @@
 #! /bin/sh
-exec xvfb-run "${0%/*}/../../tests/run" --installed
+exec "${0%/*}/../../tests/run" --installed
