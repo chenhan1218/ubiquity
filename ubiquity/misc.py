@@ -418,6 +418,8 @@ from collections import namedtuple
 
 def windows_startup_folder(mount_path):
     locations = [
+        # Windows 8
+        'ProgramData/Microsoft/Windows/Start Menu/Programs/StartUp',
         # Windows 7
         'ProgramData/Microsoft/Windows/Start Menu/Programs/Startup',
         # Windows XP
