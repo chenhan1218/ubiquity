@@ -2855,13 +2855,14 @@ class Page(plugin.Plugin):
         self.succeeded = True
         self.exit_ui_loops()
 
-    def exit_ui_loops(self):
-        if self.install_bootloader:
-            bootloader_seen = self.db.fget('grub-installer/bootdev', 'seen')
-            if bootloader_seen == 'false' or not 'UBIQUITY_AUTOMATIC' in os.environ:
-                self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
+    def is_bootdev_preseeded(self):
+        return ('UBIQUITY_AUTOMATIC' in os.environ and
+                self.db.fget('grub-installer/bootdev', 'seen') == 'true')
 
-        plugin.Plugin.exit_ui_loops(self)
+    def cleanup(self):
+        if self.install_bootloader and not self.is_bootdev_preseeded():
+            self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
+        plugin.Plugin.cleanup(self)
 
     # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
@@ -2945,7 +2946,10 @@ class Page(plugin.Plugin):
             return
         paths = [part[0] for part in misc.grub_options()]
         # Get the default boot device.
-        grub_bootdev = self.db.get("grub-installer/bootdev")
+        if self.is_bootdev_preseeded():
+            grub_bootdev = self.db.get("grub-installer/bootdev")
+        else:
+            grub_bootdev = self.ui.get_grub_choice()
         if grub_bootdev and grub_bootdev in paths:
             default = grub_bootdev
         else:

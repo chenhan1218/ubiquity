@@ -1,3 +1,12 @@
+ubiquity (2.10.7) UNRELEASED; urgency=low
+
+  * Fix partman plugin to preseed grub-installer/bootdev in a cleanup method
+    rather than exit_ui_loops, since talking to debconf in the latter isn't
+    safe (LP: #792652).  Adjust how maybe_update_grub gets the default boot
+    device to avoid regressing LP #756920.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 Apr 2012 16:40:07 +0100
+
 ubiquity (2.10.6) precise; urgency=low
 
   [ Stéphane Graber ]
