@@ -230,13 +230,13 @@ class PageGtk(PageBase):
             subprocess.check_call(['mount', device, mount_path])
             startup = misc.windows_startup_folder(mount_path)
             shutil.copy('/cdrom/wubi.exe', startup)
-            self.controller._wizard.reboot()
         except subprocess.CalledProcessError:
             pass
         finally:
             subprocess.call(['umount', '-l', mount_path])
             if os.path.exists(mount_path):
                 os.rmdir(mount_path)
+            self.controller._wizard.do_reboot()
 
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
@@ -2043,6 +2043,7 @@ class Page(plugin.Plugin):
             # Let's assume all disks are full unless we find a disk with
             # space for another partition.
             partition_table_full = True
+            ntfs_partitions = []
 
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
@@ -2078,6 +2079,10 @@ class Page(plugin.Plugin):
                         ret.append(Partition(dev, size,
                                              partition[1],
                                              partition[4]))
+
+                        if partition[4] == 'ntfs':
+                            ntfs_partitions.append(partition[5])
+
                     layout[disk] = ret
                     if try_for_wubi and partition_table_full:
                         if (max_primary is not None and
@@ -2091,9 +2096,7 @@ class Page(plugin.Plugin):
                     import tempfile
                     import subprocess
                     mount_path = tempfile.mkdtemp()
-                    for device, name in misc.os_prober().iteritems():
-                        if name.find('indows') == -1:
-                            continue
+                    for device in ntfs_partitions:
                         try:
                             subprocess.check_call(['mount', device, mount_path])
                             if misc.windows_startup_folder(mount_path):
@@ -2103,8 +2106,8 @@ class Page(plugin.Plugin):
                             pass
                         finally:
                             subprocess.call(['umount', '-l', mount_path])
-                            if os.path.exists(mount_path):
-                                os.rmdir(mount_path)
+                    if os.path.exists(mount_path):
+                        os.rmdir(mount_path)
 
                 biggest_free = self.find_script(menu_options, 'biggest_free')
                 if biggest_free:
