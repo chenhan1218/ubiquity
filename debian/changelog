@@ -13,8 +13,10 @@ ubiquity (2.10.7) UNRELEASED; urgency=low
   * Call gsettings through dbus-launch in an hope to ensure its changes
     are saved to disk. (LP: #960096)
   * Make ubiquity depend on dbus-x11 for dbus-launch.
+  * Update compat/os-proper to make a different cache when listing OS
+    data partitions. (LP: #772470)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 04 Apr 2012 18:15:07 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 04 Apr 2012 18:36:38 -0400
 
 ubiquity (2.10.6) precise; urgency=low
 
