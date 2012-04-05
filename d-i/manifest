@@ -10,7 +10,7 @@ grub-installer 1.68ubuntu4
 hw-detect 1.88ubuntu1
 kboot-installer 0.0.1ubuntu9
 localechooser 2.39ubuntu2
-migration-assistant 0.6.11
+migration-assistant 0.6.12
 netcfg 1.68ubuntu14
 partconf 1.37
 partman-auto 93ubuntu22

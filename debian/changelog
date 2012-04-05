@@ -1,4 +1,4 @@
-ubiquity (2.10.7) UNRELEASED; urgency=low
+ubiquity (2.10.7) precise; urgency=low
 
   [ Colin Watson ]
   * Fix partman plugin to preseed grub-installer/bootdev in a cleanup method
@@ -15,8 +15,10 @@ ubiquity (2.10.7) UNRELEASED; urgency=low
   * Make ubiquity depend on dbus-x11 for dbus-launch.
   * Update compat/os-proper to make a different cache when listing OS
     data partitions. (LP: #772470)
+  * Automatic update of included source packages: migration-assistant
+    0.6.12.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 04 Apr 2012 18:36:38 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 04 Apr 2012 20:56:08 -0400
 
 ubiquity (2.10.6) precise; urgency=low
 
