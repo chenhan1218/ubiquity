@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-10 19:05+0000\n"
+"PO-Revision-Date: 2012-03-29 19:30+0000\n"
 "Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -142,6 +142,10 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
+"Aquesta és una versió en desenvolupament de l'instal·lador en ${MEDIUM} "
+"autònom del sistema operatiu ${RELEASE}. No és una versió final, la qual "
+"estarà disponible amb l'alliberament del sistema operatiu ${RELEASE} a "
+"l'abril de 2012."
 
 #. Type: text
 #. Description
@@ -225,19 +229,19 @@ msgstr "Trieu una imatge"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Feu una foto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "O trieu una imatge existent:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Fes una foto"
 
 #. Type: text
 #. Description
@@ -274,6 +278,8 @@ msgstr "Ha de començar amb una lletra en minúscula."
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
+"Pot contenir lletres en minúscula, xifres, guionets i caràcters de "
+"subratllat."
 
 #. Type: text
 #. Description
@@ -402,6 +408,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Aquesta fotografia s'associarà al nom d'usuari. Ambdós es mostraran "
+"conjuntament en algunes parts del sistema operatiu."
 
 #. Type: text
 #. Description
@@ -1147,7 +1155,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "S'ha produït un error en copiar la configuració del Bluetooth"
 
 #. Type: error
 #. Description
@@ -1157,6 +1165,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"S'ha produït un error en copiar els paràmetres del Bluetooth. L'instal·lació "
+"continuarà, però s'hauran de configurar de nou."
 
 #. Type: error
 #. Description
@@ -1467,7 +1477,7 @@ msgstr "Mostra la contrasenya"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Ara mateix no vull connectar-me a una xarxa sense fils"
 
 #. Type: text
 #. Description
@@ -1589,6 +1599,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"El connector MP3 de Fluendo MP3 inclou la tecnologia de decodificació MPEG "
+"Layer-3 llicenciada per Fraunhofer IIS i Technicolor SA."
 
 #. Type: text
 #. Description

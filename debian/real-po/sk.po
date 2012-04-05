@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-27 08:50+0000\n"
+"PO-Revision-Date: 2012-03-30 11:33+0000\n"
 "Last-Translator: helix84 <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -107,7 +107,7 @@ msgstr "Skúsiť ${RELEASE}"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "Nainštalovat ${RELEASE}"
+msgstr "Nainštalovať ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -403,6 +403,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Tento obrázok bude spojený s vaším používateľským menom a vždy sa vedľa neho "
+"zobrazovať."
 
 #. Type: text
 #. Description
@@ -1139,7 +1141,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Chyba pri kopírovaní konfigurácie Bluetooth"
 
 #. Type: error
 #. Description
@@ -1149,6 +1151,9 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Vyskytla sa chyba pri kopírovaní konfigurácie Bluetooth. Inštalácia bude "
+"pokračovať, ale v nainštalovanom systéme budete musieť znova nastaviť "
+"Bluetooth."
 
 #. Type: error
 #. Description
@@ -1682,7 +1687,7 @@ msgid ""
 "which operating system you want each time the computer starts up."
 msgstr ""
 "Dokumenty, hudba a ostatné osobné súbory budú zachované. Môžete si vybrať, "
-"ktorý operačný systém chcete pri každom štarte počítača."
+"ktorý operačný systém chcete spustiť pri každom štarte počítača."
 
 #. Type: text
 #. Description

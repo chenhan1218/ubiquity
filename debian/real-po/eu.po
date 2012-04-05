@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-03 22:10+0000\n"
+"PO-Revision-Date: 2012-03-24 20:22+0000\n"
 "Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -406,6 +406,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Irudi hau zure erabiltzaile-izenarekin erlazionatuko da eta harekin batera "
+"erakutsiko da zenbaitetan."
 
 #. Type: text
 #. Description
@@ -1146,7 +1148,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Errorea Bluetooth konfigurazioa kopiatzean"
 
 #. Type: error
 #. Description
@@ -1156,6 +1158,9 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Errore bat gertatu da Bluetooth ezarpenak kopiatzean. Instalazioak aurrera "
+"jarraituko du, bina Bluetooth konfigurazioa berriro ezarri beharko da "
+"sistema instalatu ondoren."
 
 #. Type: error
 #. Description

@@ -8,33 +8,33 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-22 01:25+0000\n"
-"Last-Translator: Burkut <Unknown>\n"
+"PO-Revision-Date: 2012-04-05 10:48+0000\n"
+"Last-Translator: Sahran <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr "3-1, Connecting..."
+msgstr "باغلىنىۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr "3-2, Restart to Continue"
+msgstr "داۋاملاشتۇرۇش ئۈچۈن قايتا قوزغىتىڭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Manual configuration (advanced)"
-msgstr "3-3, Manual configuration (advanced)"
+msgstr "قولدا سەپلەش(ئالىي)"
 
 #. Type: text
 #. Description
@@ -43,8 +43,8 @@ msgid ""
 "Too smart for us? Get your hands dirty with some advanced partitioning "
 "options."
 msgstr ""
-"3-4, Too smart for us? Get your hands dirty with some advanced partitioning "
-"3-4, options."
+"بۇنىڭدىنمۇ ياخشى تەڭشىيەلىسىڭىز، دىسكا رايونى تاللانمىلىرىدىن پايدىلىنىپ "
+"ئۆزىڭىز تەڭشىسىڭىزمۇ بولىدۇ."
 
 #. Type: text
 #. Description
@@ -53,13 +53,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:187001
 msgid "Install"
-msgstr "3-5, Install"
+msgstr "ئورنات"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "3-6, Install (OEM mode, for manufacturers only)"
+msgstr "قاچىلا (OEM ھالىتىدە، زاۋۇتلار ئۈچۈنلا)"
 
 #. Type: text
 #. Description
@@ -69,9 +69,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"3-7, You are installing in system manufacturer mode. Please enter a unique "
-"name 3-7, for this batch of systems. This name will be saved on the "
-"installed system 3-7, and can be used to help with bug reports."
+"سىز سىستېمىنى  ئەسلى ھالىتىدە قاچىلاۋاتىسىز. سىستېمىڭىزغا يېڭى ئات قويۇڭ. بۇ "
+"ئات مۇشۇ قاچىلانغان سىستېمىدا ساقلىنىدۇ ھەم كېيىن سىستېما خاتالىقىنى مەلۇم "
+"قىلىشتا ياردىمى بولىدۇ."
 
 #. Type: text
 #. Description
@@ -82,8 +82,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"3-8, You can try ${RELEASE} without making any changes to your computer, "
-"directly 3-8, from this ${MEDIUM}."
+"كومپيۇتېردا بار بولغان مەزمۇنلارنى ھېچقانداق ئۆزگەرتمەستىنلا ${MEDIUM} دىن "
+"${RELEASE} نى سىناپ كۆرەلەيسىز."
 
 #. Type: text
 #. Description
@@ -93,22 +93,22 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"3-9, Or if you're ready, you can install ${RELEASE} alongside (or instead "
-"of) 3-9, your current operating system.  This shouldn't take too long."
+"ياكى ھازىرقى سىستېمىڭىزنى ئۆچۈرمەيلا ياكى(ئۇنىڭ ئورنىغا) ${RELEASE} نى "
+"ئورنىتىشقا بولىدۇ. ئورنىتىشقا ئانچە جىق ۋاقىت كەتمەيدۇ."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:11001
 msgid "Try ${RELEASE}"
-msgstr "3-10, Try ${RELEASE}"
+msgstr "${RELEASE} نى سىناپ كۆر"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "3-11, Install ${RELEASE}"
+msgstr "ئورنىتىدىغىنى ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -117,21 +117,20 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"3-12, You may wish to read the <a href=\"release-notes\">release notes</a> "
-"or <a 3-12, href=\"update\">update this installer</a>."
+"سىز <a href=\"تارقىتىش ئىزاھاتى\">release notes</a> ياكى <a href=\"update"
+"\">بۇ ئورناتقۇچنى يېڭىلا</a>ماقچى بولۇشىڭىز مۇمكىن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
-"3-13, You may wish to read the <a href=\"release-notes\">release notes</a>."
+msgstr "خالىسىڭىز<a href=\\\"release-notes\\\">نەشر ئۇچۇرلىرىنى كۆرۈڭ</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "3-14, You may wish to <a href=\"update\">update this installer</a>."
+msgstr "خالىسىڭىز<a href=\"update\">بۇ ئورناتقۇچنى يېڭىلاڭ</a>."
 
 #. Type: text
 #. Description
@@ -143,9 +142,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
-"3-15, This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It "
-"is not 3-15, a final release; that will come with the final release of "
-"${RELEASE} in 3-15, April 2012."
+"بۇ ${RELEASE} live ${MEDIUM}  ئورناتقۇچنىڭ ئالدىن تارقىتىلغان نەشرى. بۇ "
+"ئاخىرقى تارقىتىش نەشرى ئەمەس، ${RELEASE} نىڭ ئاخىرقى نەشرى 2012- يىلى 4- "
+"ئايدا ئېلان قىلىنىدۇ."
 
 #. Type: text
 #. Description
@@ -155,251 +154,251 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"3-16, The installation process may resize or erase partitions on your hard "
-"disk. 3-16, Be sure to <b>take a full backup of any valuable data</b> before "
-"running 3-16, this program."
+"ئورنىتىش پىروگراممىسى قاتتىق دىسكىڭىزنىڭ رايونىنىڭ چوڭلۇقىنى ئۆزگەرتىشى ياكى "
+"رايوننى ئۆچۈرۈشى مۇمكىن. بۇ پىروگراممىنى ئىجرا قىلىشتىن ئىلگىرى <b>بارلىق "
+"مۇھىم سانلىق مەلۇماتلار زاپاسلانغان</b> بولۇشىغا كاپالەتلىك قىلىڭ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Warning"
-msgstr "3-17, Warning"
+msgstr "ئاگاھلاندۇرۇش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "3-18, Where are you?"
+msgstr "سىز نەدە؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Keyboard layout"
-msgstr "3-19, Keyboard layout"
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Choose your keyboard layout:"
-msgstr "3-20, Choose your keyboard layout:"
+msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشىنى تاللاڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Type here to test your keyboard"
-msgstr "3-21, Type here to test your keyboard"
+msgstr "ھەرپتاختىڭىزنى سىناش ئۈچۈن بۇ جايغا كىرگۈزۈڭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Detect Keyboard Layout"
-msgstr "3-22, Detect Keyboard Layout"
+msgstr "ھەرپتاختا جايلاشتۇرۇشنى بايقايدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Detect Keyboard Layout..."
-msgstr "3-23, Detect Keyboard Layout..."
+msgstr "ھەرپتاختا جايلاشتۇرۇشنى باياقايدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Please press one of the following keys:"
-msgstr "3-24, Please press one of the following keys:"
+msgstr "تۆۋەندىكى كۇنۇپكىلاردىن بىرنى بېسىڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Is the following key present on your keyboard?"
-msgstr "3-25, Is the following key present on your keyboard?"
+msgstr "ھەرپتاختىڭىزدا تۆۋەندىكى كۇنۇپكىلار بارمۇ؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Who are you?"
-msgstr "3-26, Who are you?"
+msgstr "سىز كىم؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a picture"
-msgstr "3-27, Choose a picture"
+msgstr "بىر رەسىم تاللاڭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr "3-28, Take a photo:"
+msgstr "بىر سۈرەت تارتىڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr "3-29, Or choose an existing picture:"
+msgstr "ياكى مەۋجۇت رەسىمنى تاللاڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr "3-30, Take Photo"
+msgstr "سۈرەت تارت"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Your name:"
-msgstr "3-31, Your name:"
+msgstr "ئاتىڭىز:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Your name"
-msgstr "3-32, Your name"
+msgstr "ئاتىڭىز"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Pick a username:"
-msgstr "3-33, Pick a username:"
+msgstr "ئىشلەتكۈچى ئاتىنى تاللاڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "Username"
-msgstr "3-34, Username"
+msgstr "ئىشلەتكۈچى ئاتى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr "3-35, Must start with a lower-case letter."
+msgstr "چوقۇم كىچىك ھەرپتىن باشلىنىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
-"3-36, May only contain lower-case letters, digits, hyphens, and underscores."
+msgstr "پەقەت كىچىك ھەرپ، سان، سىزىقچە ۋە ئاستى سىزىقنى ئۆز ئىچىگە ئالىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Choose a password:"
-msgstr "3-37, Choose a password:"
+msgstr "ئىم تاللاڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Password"
-msgstr "3-38, Password"
+msgstr "ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Confirm password"
-msgstr "3-39, Confirm password"
+msgstr "جەزملەش ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Confirm your password:"
-msgstr "3-40, Confirm your password:"
+msgstr "ئىم جەزملەڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Your computer's name:"
-msgstr "3-41, Your computer's name:"
+msgstr "كومپيۇتېر ئاتى:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "The name it uses when it talks to other computers."
-msgstr "3-42, The name it uses when it talks to other computers."
+msgstr "بۇ ئات باشقا كومپيۇتېرلار بىلەن ئالاقە قىلغاندا ئىشلىتىلىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr "3-43, Must be between 1 and 63 characters long."
+msgstr "چوقۇم 1-63 كىچە ھەرپ ئۇزۇنلۇقىدا بولۇشى لازىم."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr "3-44, May only contain letters, digits, hyphens, and dots."
+msgstr "پەقەت ھەرپ، سان، سىزىقچە ۋە چېكىتنى ئۆز ئىچىگە ئېلىشى مۇمكىن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr "3-45, May not start or end with a hyphen."
+msgstr "سىزىقچە بىلەن باشلانماسلىقى ياكى ئاخىرلاشماسلىقى مۇمكىن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr "3-46, May not start or end with a dot, or contain the sequence \"..\"."
+msgstr ""
+"چېكىت بىلەن باشلانماسلىقى ياكى ئاخىرلاشماسلىقى مۇمكىن ياكى تەرتىپ\".\" بىلەن "
+"باشلانماسلىقى مۇمكىن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:48001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"3-47, You are running in debugging mode. Do not use a valuable password!"
+msgstr "سازلاش ھالىتىدە ئىجرا قىلىۋاتىسىز. مۇھىم ئىم ئىشلەتمەڭ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Passwords do not match"
-msgstr "3-48, Passwords do not match"
+msgstr "ئىم ماس كەلمىدى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Short password"
-msgstr "3-49, Short password"
+msgstr "قىسقا ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Weak password"
-msgstr "3-50, Weak password"
+msgstr "ئاجىز ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Fair password"
-msgstr "3-51, Fair password"
+msgstr "يامان ئەمەس ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Good password"
-msgstr "3-52, Good password"
+msgstr "ياخشى ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Strong password"
-msgstr "3-53, Strong password"
+msgstr "كۈچلۈك ئىم"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Log in automatically"
-msgstr "3-54, Log in automatically"
+msgstr "ئۆزلۈكىدىن كىرىش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Require my password to log in"
-msgstr "3-55, Require my password to log in"
+msgstr "كىرگەندە ئىم سورىسۇن"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Encrypt my home folder"
-msgstr "3-56, Encrypt my home folder"
+msgstr "ماكان قىسقۇچۇمنى شىفىرلىسۇن"
 
 #. Type: text
 #. Description
@@ -407,9 +406,7 @@ msgstr "3-56, Encrypt my home folder"
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
-"3-57, This picture will be associated with your user name and displayed "
-"alongside 3-57, it at times."
+msgstr "بۇ رەسىم ئىشلەتكۈچى نامىڭىز بىلەن باغلىنىدۇ ۋە بىللە كۆرسىتىلىدۇ."
 
 #. Type: text
 #. Description
@@ -418,9 +415,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"3-58, Select any accounts you would like to import.  The documents and "
-"settings 3-58, for these accounts will be available after the install "
-"completes."
+"كىرگۈزمەكچى بولغان ھېساباتىڭىزنى تاللاڭ. قاچىلاش تاماملانغاندا بۇ "
+"ھېساباتىڭىزدىكى پۈتۈك ۋە تەڭشەكلەرنى كۆرەلەيسىز."
 
 #. Type: text
 #. Description
@@ -429,27 +425,27 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"3-59, If you do not wish to import any accounts, select nothing and go to "
-"the next 3-59, page."
+"باشقا ھىساباتلارنى ئەكىرىشنى خالىمىسىڭىز، ھېچنىمە نى تاللاپ كېيىنكى بەتكە "
+"ئۆتۈڭ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Installation type"
-msgstr "3-60, Installation type"
+msgstr "ئورنىتىش تىپى"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '100 GB'
 #: ../ubiquity.templates:61001
 msgid "Files (${SIZE})"
-msgstr "3-61, Files (${SIZE})"
+msgstr "ھۆججەتلەر (${SIZE})"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Prepare partitions"
-msgstr "3-62, Prepare partitions"
+msgstr "رايون تەييارلاۋاتىدۇ"
 
 #. Type: text
 #. Description
@@ -457,25 +453,25 @@ msgstr "3-62, Prepare partitions"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:63001
 msgid "_Install Now[ action ]"
-msgstr "3-63, _Install Now[ action ]"
+msgstr "ھازىرلا ئورنات[مەشغۇلات](_I)"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Quit the installation?"
-msgstr "3-64, Quit the installation?"
+msgstr "ئورنىتىشنى ئاخىرلاشتۇرسۇنمۇ؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Do you really want to quit the installation now?"
-msgstr "3-65, Do you really want to quit the installation now?"
+msgstr "ئورنىتىشنى ھازىرلا ئاخىرلاشتۇرسۇنمۇ؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Bootloader install failed"
-msgstr "3-66, Bootloader install failed"
+msgstr "Bootloader نى ئورنىتالمىدى"
 
 #. Type: text
 #. Description
@@ -484,20 +480,20 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"3-67, Sorry, an error occurred and it was not possible to install the "
-"bootloader 3-67, at the specified location."
+"كەچۈرۈڭ خاتالىق كۆرۈلدى. Bootloader نى بەلگىلەنگەن ئورۇنغا ئورنىتىش مۇمكىن "
+"بولمىدى."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "3-68, Choose a different device to install the bootloader on:"
+msgstr "Bootloader نى ئورۇنلاشتۇرىدىغان باشقا ئۈسكىنە تاللاڭ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Continue without a bootloader."
-msgstr "3-69, Continue without a bootloader."
+msgstr "Bootloader نى ئىشلەتمەي داۋاملاشتۇرىدۇ."
 
 #. Type: text
 #. Description
@@ -505,57 +501,55 @@ msgstr "3-69, Continue without a bootloader."
 #: ../ubiquity.templates:70001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
-"3-70, You will need to manually install a bootloader in order to start "
-"${RELEASE}."
+msgstr "${RELEASE} نى قوزغىتىش ئۈچۈن Bootloader نى قولدا ئورنىتىش زۆرۈر."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "Cancel the installation."
-msgstr "3-71, Cancel the installation."
+msgstr "ئورنىتىشنى بىكار قىلىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "This may leave your computer unable to boot."
-msgstr "3-72, This may leave your computer unable to boot."
+msgstr "بۇ پېتى قالسا كومپيۇتېر قوزغىلالماسلىقى مۇمكىن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "How would you like to proceed?"
-msgstr "3-73, How would you like to proceed?"
+msgstr "قانداق بىر تەرەپ قىلىسىز؟"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Skip"
-msgstr "3-74, Skip"
+msgstr "ئاتلا"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Installation Complete"
-msgstr "3-75, Installation Complete"
+msgstr "ئورنىتىش تامام"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Continue Testing"
-msgstr "3-76, Continue Testing"
+msgstr "سىناشنى داۋاملاشتۇر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Restart Now"
-msgstr "3-77, Restart Now"
+msgstr "ھازىرلا قايتا قوزغات"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Shutdown Now"
-msgstr "3-78, Shutdown Now"
+msgstr "ھازىرلا تاقاش"
 
 #. Type: text
 #. Description
@@ -563,7 +557,7 @@ msgstr "3-78, Shutdown Now"
 #. Description
 #: ../ubiquity.templates:80001 ../ubiquity.templates:81001
 msgid "Installer crashed"
-msgstr "3-79, Installer crashed"
+msgstr "ئورنىتىش يىمىرىلدى"
 
 #. Type: text
 #. Description
@@ -575,59 +569,59 @@ msgid ""
 "details will be sent to our bug tracker and a developer  will attend to the "
 "problem as soon as possible."
 msgstr ""
-"3-80, We're sorry; the installer crashed. After you close this window, we'll "
-"allow 3-80, you to file a bug report using the integrated bug reporting "
-"tool. This will 3-80, gather information about your system and your "
-"installation  process. The 3-80, details will be sent to our bug tracker and "
-"a developer  will attend to the 3-80, problem as soon as possible."
+"كەچۈرۈڭ، ئورناتقۇچ يىمىرىلدى. سىز بۇ كۆزنەكنى ياپقاندىن كېيىن ئىچىگە "
+"ئورۇنلاشتۇرۇلغان كەمتۈك دوكلات قورالى ئارقىلىق بىزگە كەمتۈكلۈك دوكلاتى "
+"يوللىسىڭىز بولىدۇ. ئۇ سىستېما ئۇچۇرى ۋە ئورنىتىش جەريانى ئۇچۇرىڭىزنى "
+"توپلايدۇ. بۇ ئۇچۇرلار بىزنىڭ كەمتۈك ئىزلاش سىستېمىمىزغا يوللىنىدۇ، "
+"ئىجادكارلار ئامالنىڭ بېرىچە ھەل قىلىدۇ."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:83001
 msgid "New Partition Table..."
-msgstr "3-81, New Partition Table..."
+msgstr "يېڭى رايون جەدۋىلى..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:84001
 msgid "Add..."
-msgstr "3-82, Add..."
+msgstr "قوش..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "Change..."
-msgstr "3-83, Change..."
+msgstr "ئۆزگەرت…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:86001
 msgid "Delete"
-msgstr "3-84, Delete"
+msgstr "ئۆچۈر"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:87001
 msgid "Revert"
-msgstr "3-85, Revert"
+msgstr "ئەسلىگە ياندۇر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Recalculating partitions..."
-msgstr "3-86, Recalculating partitions..."
+msgstr "رايوننى قايتا ھېسابلاۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:89001
 msgid "Device"
-msgstr "3-87, Device"
+msgstr "ئۈسكۈنە"
 
 #. Type: text
 #. Description
@@ -635,28 +629,28 @@ msgstr "3-87, Device"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:90001
 msgid "Type"
-msgstr "3-88, Type"
+msgstr "تىپى"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:91001
 msgid "Mount point"
-msgstr "3-89, Mount point"
+msgstr "ئېگەرلەش نۇقتىسى"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:92001
 msgid "Format?"
-msgstr "3-90, Format?"
+msgstr "فورماتلامسىز؟"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:93001
 msgid "Size"
-msgstr "3-91, Size"
+msgstr "چوڭلۇقى"
 
 #. Type: text
 #. Description
@@ -664,27 +658,27 @@ msgstr "3-91, Size"
 #. this partition is used by data.
 #: ../ubiquity.templates:94001
 msgid "Used"
-msgstr "3-92, Used"
+msgstr "ئىشلىتىلگىنى"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:95001
 msgid "free space"
-msgstr "3-93, free space"
+msgstr "ئەركىن بوشلۇق"
 
 #. Type: text
 #. Description
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:96001
 msgid "unknown"
-msgstr "3-94, unknown"
+msgstr "يوچۇن"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Create partition"
-msgstr "3-95, Create partition"
+msgstr "دىسكا رايونى قۇر"
 
 #. Type: text
 #. Description
@@ -692,49 +686,49 @@ msgstr "3-95, Create partition"
 #. Description
 #: ../ubiquity.templates:98001 ../ubiquity.templates:105001
 msgid "New partition size in megabytes (1000000 bytes):"
-msgstr "3-96, New partition size in megabytes (1000000 bytes):"
+msgstr "يېڭى دىسكا رايونى مىگابايت (1000000بايت):"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Beginning"
-msgstr "3-97, Beginning"
+msgstr "بېشى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
 msgid "End"
-msgstr "3-98, End"
+msgstr "ئاخىرى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Primary"
-msgstr "3-99, Primary"
+msgstr "ئاساسىي"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Logical"
-msgstr "3-100, Logical"
+msgstr "لوگىكىلىق"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Edit partition"
-msgstr "3-101, Edit partition"
+msgstr "رايون تەھرىر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Edit a partition"
-msgstr "3-102, Edit a partition"
+msgstr "بىر رايوننى تەھرىرلەيدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Boot loader"
-msgstr "3-103, Boot loader"
+msgstr "قوزغىتىش يۈكلىگۈچ"
 
 #. Type: text
 #. Description
@@ -745,16 +739,15 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"3-104, Installation has finished.  You can continue testing ${RELEASE} now, "
-"but 3-104, until you restart the computer, any changes you make or documents "
-"you save 3-104, will not be preserved."
+"ئورنىتىش تاماملاندى. ئەمدى  ${RELEASE} نى سىناپ ئىشلەتسىڭىز بولىدۇ. بىراق "
+"قايتا قوزغاتمىغۇچە ئۆزگەرتىشلەرنىڭ ھېچقايسىسى ساقلانمايدۇ."
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:108001
 msgid "Go Back"
-msgstr "3-105, Go Back"
+msgstr "قايت"
 
 #. Type: text
 #. Description
@@ -764,21 +757,21 @@ msgstr "3-105, Go Back"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:109001 ../ubiquity.templates:112001
 msgid "Continue"
-msgstr "3-106, Continue"
+msgstr "داۋاملاشتۇر"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001
 msgid "Connect"
-msgstr "3-107, Connect"
+msgstr "باغلان"
 
 #. Type: text
 #. Description
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:111001
 msgid "Stop"
-msgstr "3-108, Stop"
+msgstr "توختا"
 
 #. Type: text
 #. Description
@@ -787,38 +780,38 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"3-109, Installation is complete. You need to restart the computer in order "
-"to use 3-109, the new installation."
+"قاچىلاش تامام. قاچلانغان يېڭى سىستېمىنى ئىشلىتىش ئۈچۈن كومپيۇتېرىڭىزنى "
+"قايتىدىن قوزغىتىشىڭىز كېرەك."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:114001
 msgid "Verifying the installation configuration..."
-msgstr "3-110, Verifying the installation configuration..."
+msgstr "ئورناتمىنىڭ سەپلىمىسىنى تەكشۈرۈۋاتىدۇ...."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Installing system"
-msgstr "3-111, Installing system"
+msgstr "سىستېما ئورنىتىۋاتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Finding the distribution to copy..."
-msgstr "3-112, Finding the distribution to copy..."
+msgstr "كۆچۈرۈشنىڭ تارقىتىش مەزمۇنىنى ئىزدەۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Copying files..."
-msgstr "3-113, Copying files..."
+msgstr "ھۆججەت كۆچۈرۈۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Almost finished copying files..."
-msgstr "3-114, Almost finished copying files..."
+msgstr "ھۆججەتلەرنى كۆچۈرۈش تاماملىناي دېدى..."
 
 #. Type: error
 #. Description
@@ -834,7 +827,7 @@ msgstr "3-114, Almost finished copying files..."
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 #: ../ubiquity.templates:124001
 msgid "Installation Failed"
-msgstr "3-115, Installation Failed"
+msgstr "ئورنىتىش مەغلۇپ بولدى"
 
 #. Type: error
 #. Description
@@ -847,8 +840,7 @@ msgstr "3-115, Installation Failed"
 #: ../ubiquity.templates:120001 ../ubiquity.templates:121001
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
-"3-116, The installer encountered an error copying files to the hard disk:"
+msgstr "قاچىلاش جەريانىدا قاتتىق دىسكىغا ھۆججەت كۆچۈرۈشتە خاتالىققا يولۇقتى:"
 
 #. Type: error
 #. Description
@@ -858,9 +850,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"3-117, This is due to there being insufficient disk space for the install to "
-"3-117, complete on the target partition.  Please run the installer again and "
-"select 3-117, a larger partition to install into."
+"دىسكىڭىزدىكى بوشلۇق يىتىشمەسلىك سەۋەبلىك بۇ خاتالىق كۆرۈلدى. چوڭراق دىسكا "
+"رايونىنى تاللاپ قايتىدىن قاچىلاڭ."
 
 #. Type: error
 #. Description
@@ -870,10 +861,10 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"3-118, This is often due to a faulty CD/DVD disk or drive. It may help to "
-"clean the 3-118, CD/DVD, to burn the CD/DVD at a lower speed, or to clean "
-"the CD/DVD drive 3-118, lens (cleaning kits are often available from "
-"electronics suppliers)."
+"بۇ خىل قىسمەن خاتالىقلار ئادەتتە نۇقسان بار CD/DVD ياكى CD/DVD قوزغاتقۇچ "
+"سەۋەبىدىن كېلىپ چىقىدۇ. CD/DVD تازىلاڭ، CD/DVD نى تۆۋەن سۈرئەتتە ئويۇڭ ياكى "
+"CD/DVD قوزغاتقۇچنىڭ ئوقۇش بېشىنى تازىلاڭ (تازىلاش بويۇملىرى ئېلېكترون "
+"ئۇسكۈنىلىرى شىركەتلىرىدىن سېتىۋالالايسىز)."
 
 #. Type: error
 #. Description
@@ -883,9 +874,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"3-119, This is often due to a faulty hard disk. It may help to check whether "
-"the 3-119, hard disk is old and in need of replacement, or to move the "
-"system to a 3-119, cooler environment."
+"بۇ خىل خاتالىق قاتتىق دىسكىدا نۇقسان بارلىقىدىن كېلىپ چىقىدۇ. قاتتىق دىسكا "
+"كونىراپ كەتكەن بولسا ئالماشتۇرۇش زۆرۈر ياكى سىستېمىنى تېمپراتورىسى تېخىمۇ "
+"تۆۋەن مۇھىتقا يۆتكىسىڭىز بۇ مەسىلىنى ھەل قىلىشقا ياردىمى بولۇشى مۇمكىن."
 
 #. Type: error
 #. Description
@@ -903,168 +894,168 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"3-120, This is often due to a faulty CD/DVD disk or drive, or a faulty hard "
-"disk. 3-120, It may help to clean the CD/DVD, to burn the CD/DVD at a lower "
-"speed, to 3-120, clean the CD/DVD drive lens (cleaning kits are often "
-"available from 3-120, electronics suppliers), to check whether the hard disk "
-"is old and in need of 3-120, replacement, or to move the system to a cooler "
-"environment."
+"بۇ خىل قىسمەن خاتالىقلار ئادەتتە نۇقسان بار CD/DVD ياكى CD/DVD قوزغاتقۇچ "
+"سەۋەبىدىن ياكى قاتتىق دىسكا نۇقسانى سەۋەبىدىن كېلىپ چىقىدۇ. CD/DVD تازىلاڭ، "
+"CD/DVD نى تۆۋەن سۈرئەتتە ئويۇڭ ياكى CD/DVD قوزغاتقۇچنىڭ ئوقۇش بېشىنى تازىلاڭ "
+"(تازىلاش بويۇملىرى ئېلېكترون ئۇسكۈنىلىرى شىركەتلىرىدىن سېتىۋالالايسىز) "
+"قاتتىق دىسكا كونىراپ كەتكەن بولسا ئالماشتۇرۇڭ ياكى سىستېمىنى تېمپراتورىسى "
+"تېخىمۇ تۆۋەن مۇھىتقا يۆتكىسىڭىز  بۇ مەسىلە ھەل بولۇشى مۇمكىن."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:124001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "3-121, The following file did not match its source copy on the CD/DVD:"
+msgstr "تۆۋەندىكى ھۆججەت ئوپتېك دىسكىغا كۆچۈرۈلگەن ئەسلى ھۆججەتكە ماس كەلمىدى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:125001
 msgid "Copying installation logs..."
-msgstr "3-122, Copying installation logs..."
+msgstr "قاچىلاش خاتىرە ھۆججىتىنى كۆچۈرۈۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Configuring target system..."
-msgstr "3-123, Configuring target system..."
+msgstr "نىشان سىستېمىنى سەپلەۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Configuring system locales..."
-msgstr "3-124, Configuring system locales..."
+msgstr "سىستېما ئورنىنى سەپلەۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Configuring apt..."
-msgstr "3-125, Configuring apt..."
+msgstr "apt سەپلەۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Configuring time zone..."
-msgstr "3-126, Configuring time zone..."
+msgstr "ۋاقىت رايونىنى سەپلەۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring keyboard..."
-msgstr "3-127, Configuring keyboard..."
+msgstr "ھەرپتاختا سەپلەۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Creating user..."
-msgstr "3-128, Creating user..."
+msgstr "ئىشلەتكۈچى قۇرۇۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Importing documents and settings..."
-msgstr "3-129, Importing documents and settings..."
+msgstr "پۈتۈك ۋە تەڭشەكلەرنى ئەكىرىۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring hardware..."
-msgstr "3-130, Configuring hardware..."
+msgstr "قاتتىق دېتال سەپلەۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Installing third-party software..."
-msgstr "3-131, Installing third-party software..."
+msgstr "ئۈچىنچى تەرەپ يۇمشاق دېتالىنى ئورنىتىۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Configuring network..."
-msgstr "3-132, Configuring network..."
+msgstr "تور سەپلەۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
-msgstr "3-133, Configuring boot loader..."
+msgstr "قوزغىتىش يېتەكلىگۈچنى سەپلەۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Saving installed packages..."
-msgstr "3-134, Saving installed packages..."
+msgstr "ئورنىتىلغان بوغچىلارنى ساقلاۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Restoring previously installed packages..."
-msgstr "3-135, Restoring previously installed packages..."
+msgstr "بۇرۇن ئورنىتىلغان بوغچىلارنى ئەسلىگە كەلتۈرۈۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Installing additional packages..."
-msgstr "3-136, Installing additional packages..."
+msgstr "قوشۇمچە بوغچىلارنى ئورنىتىۋاتىدۇ...."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Checking for packages to install..."
-msgstr "3-137, Checking for packages to install..."
+msgstr "قاچىلايدىغان بوغچىلارنى تەكشۈرۈۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Removing extra packages..."
-msgstr "3-138, Removing extra packages..."
+msgstr "ئارتۇق بوغچىلارنى ئۆچۈرۈۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Checking for packages to remove..."
-msgstr "3-139, Checking for packages to remove..."
+msgstr "ئۆچۈرۈدىغان بوغچىلارنى تەكشۈرۈۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "3-140, Downloading packages (${TIME} remaining)..."
+msgstr "چۈشۈرۈدىغان بوغچا )(${TIME} قالدى("
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Downloading package lists..."
-msgstr "3-141, Downloading package lists..."
+msgstr "بوغچىلار تىزىملىكىنى چۈشۈرۈۋاتىدۇ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "3-142, Downloading package lists (${TIME} remaining)..."
+msgstr "بوغچىلار تىزىملىكىنى چۈشۈرۈۋاتىدۇ،  يەنە (${TIME} قالدى)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Error installing ${PACKAGE}"
-msgstr "3-143, Error installing ${PACKAGE}"
+msgstr "${PACKAGE} نى ئورنىتالمىدى"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Error removing ${PACKAGE}"
-msgstr "3-144, Error removing ${PACKAGE}"
+msgstr "${PACKAGE} نى ئۆچۈرەلمىدى"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error while installing packages"
-msgstr "3-145, Error while installing packages"
+msgstr "بوغچىلارنى ئورنىتىۋاتقاندا خاتالىق كۆرۈلدى."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "An error occurred while installing packages:"
-msgstr "3-146, An error occurred while installing packages:"
+msgstr "بوغچىلارنى ئورنىتىۋاتقاندا بىر خاتالىق كۆرۈلدى:"
 
 #. Type: error
 #. Description
@@ -1072,7 +1063,7 @@ msgstr "3-146, An error occurred while installing packages:"
 #. Description
 #: ../ubiquity.templates:149001 ../ubiquity.templates:150001
 msgid "The following packages are in a broken state:"
-msgstr "3-147, The following packages are in a broken state:"
+msgstr "تۆۋەندىكى بوغچا بۇزۇق ئىكەن:"
 
 #. Type: error
 #. Description
@@ -1088,31 +1079,31 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"3-148, This may be due to using an old installer image, or it may be due to "
-"a bug 3-148, in some of the packages listed above. More details may be found "
-"in 3-148, /var/log/syslog. The installer will try to continue anyway, but "
-"may fail at 3-148, a later point, and will not be able to install or remove "
-"other packages 3-148, (possibly including itself) from the installed system. "
-"You should first look 3-148, for newer versions of your installer image, or "
-"failing that report the 3-148, problem to your distributor."
+"كونا قاچىلىغۇچ تەسۋىرى ئىشلىتىش ياكى يۇقىرىدا تىزىلغان پروگراممىلارنىڭ "
+"بىرەرسىدىكى چاتاق بۇ خىل خاتالىقنى كەلتۈرۈپ چىقارغان بولۇشى مۇمكىن. /var/log/"
+"syslog دىن تېخىمۇ كۆپ خاتالىق تەپسىلاتىنى بايقىيالايسىز. قاچىلاش پروگراممىسى "
+"ئىجرا قىلىشنى داۋاملاشتۇرىدۇ، ئەمما قاچىلاش مەغلۇپ بولۇشى مۇمكىن، شۇنداقلا "
+"قاچىلانغان سىستېمىغا باشقا بوغچا (بۇ پروگراممىنىڭ ئۆزىنىمۇ ئۆز ئىچىگە ئالىدۇ)"
+"لارنى قاچىلاپ ئۆچۈرەلمەسلىكىڭىز مۇمكىن. سىز ئەڭ ياخشىسى يېڭى نەشرىدىكى "
+"تەسۋىردىن قاچىلاڭ، ياكى بۇ مەسىلىنى پروگرامما ئىجادىيەتچىلىرىگە مەلۇم قىلىڭ."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Error while removing packages"
-msgstr "3-149, Error while removing packages"
+msgstr "بوغچىلارنى ئۆچۈرۈۋاتقاندا خاتالىق كۆرۈلدى"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:150001
 msgid "An error occurred while removing packages:"
-msgstr "3-150, An error occurred while removing packages:"
+msgstr "بوغچىلارنى ئۆچۈرۈۋاتقاندا بىر خاتالىق كۆرۈلدى:"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error migrating documents and settings"
-msgstr "3-151, Error migrating documents and settings"
+msgstr "پۈتۈك ۋە تەڭشەكلەرنى يۆتكەۋاتقاندا خاتالىق كۆرۈلدى."
 
 #. Type: error
 #. Description
@@ -1123,16 +1114,16 @@ msgid ""
 "documents and settings you requested may not have been transferred to the "
 "installed system."
 msgstr ""
-"3-152, An error occurred while migrating data.  More details may be found in "
-"3-152, /var/log/syslog.  The installation will continue, but some or all of "
-"the 3-152, documents and settings you requested may not have been "
-"transferred to the 3-152, installed system."
+"پۈتۈك ۋە تەڭشەكلەرنى يۆتكەۋاتقاندا بىر خاتالىق كۆرۈلدى. تەپسىلاتىنى  /var/"
+"log/syslog دىن كۆرۈڭ. ئورنىتىشنى داۋاملاشتۇرغىلى بولىدۇ، بىراق سىز تەلەپ "
+"قىلغان پۈتۈك ۋە تەڭشەكلەرنىڭ بىر قىسمى ياكى ھەممىسى ئورنىتىلغان سىستېمىغا "
+"يۆتكەلمەي قېلىشى مۇمكىن."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Error copying network configuration"
-msgstr "3-153, Error copying network configuration"
+msgstr "تور سەپلىمىسىنى كۆچۈرۈۋاتقاندا خاتالىق كۆرۈلدى"
 
 #. Type: error
 #. Description
@@ -1142,15 +1133,15 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"3-154, An error occurred while copying the network settings.  The "
-"installation will 3-154, continue, but the network configuration will have "
-"to be set up again in the 3-154, installed system."
+"تور سەپلىمىسىنى كۆچۈرۈۋاتقاندا خاتالىق كۆرۈلدى. ئورنىتىشنى داۋاملاشتۇرغىلى "
+"بولىدۇ، بىراق تور سەپلىمىسىنى ئورنىتىلغان سىستېما مۇھىتىدا قايتا تەڭشىشىڭىز "
+"كېرەك."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr "3-155, Error copying bluetooth configuration"
+msgstr "كۆكچىش سەپلىمىسىنى كۆچۈرۈشتە خاتالىق كۆرۈلدى"
 
 #. Type: error
 #. Description
@@ -1160,15 +1151,14 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"3-156, An error occurred while copying the bluetooth settings.  The "
-"installation 3-156, will continue, but the bluetooth configuration will have "
-"to be set up again 3-156, in the installed system."
+"كۆكچىش تەڭشەكلىرىنى كۆچۈرۈشتە خاتالىق كۆرۈلدى. ئورنىتىش داۋاملىشىۋېرىدۇ، "
+"كۆكچىش سەپلىمىسىنى ئورنىتىلىپ بولغاندىن كېيىن بەلگىلەش كېرەك."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Error restoring installed applications"
-msgstr "3-157, Error restoring installed applications"
+msgstr "ئورنىتىلغان پروگراممىلارنى ئەسلىگە كەلتۈرۈۋاتقاندا خاتالىق كۆرۈلدى"
 
 #. Type: error
 #. Description
@@ -1178,33 +1168,33 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"3-158, An error occurred while restoring previously-installed applications.  "
-"The 3-158, installation will continue, but you may have to manually "
-"reinstall some 3-158, applications after the computer reboots."
+"ئورنىتىلغان پروگراممىلارنى ئەسلىگە كەلتۈرۈۋاتقاندا خاتالىق كۆرۈلدى. ئورنىتىش "
+"داۋاملىشىدۇ، بىراق بىر قىسىم پروگراممىلارنى كومپيۇتېر قايتا قوزغالغاندىن "
+"كېيىن قايتا ئورنىتىشىڭىزغا توغرا كېلىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Calculating files to skip copying..."
-msgstr "3-159, Calculating files to skip copying..."
+msgstr "كۆچۈرۈشتە ئاتلاپ كېتىدىغان ھۆججەتنى ھېسابلاۋاتىدۇ…"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Installing language packs"
-msgstr "3-160, Installing language packs"
+msgstr "تىل بوغچىسىنى ئورنىتىۋاتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "3-161, Downloading language packs (${TIME} remaining)..."
+msgstr "تىل بوغچىسى چۈشۈرۈۋاتىدۇ ( ${TIME} قالدى)…"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Failed to unmount partitions"
-msgstr "3-162, Failed to unmount partitions"
+msgstr "رايوننى ئېگەرسىزلەش مەغلۇپ بولدى"
 
 #. Type: boolean
 #. Description
@@ -1213,28 +1203,27 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"3-163, The installer needs to commit changes to partition tables, but cannot "
-"do so 3-163, because partitions on the following mount points could not be "
-"unmounted:"
+"ئورنىتىش پروگراممىسى رايونغا ئايرىش جەدۋىلىنى ئۆزگەرتىشى كېرەك ئىدى، ئەمما "
+"ئەمەلگە ئاشمىدى. چۈنكى تۆۋەندىكى ئېگەرلەش نۇقتىسىدىكى رايوننى "
+"ئېگەرسىزلىيەلمىدى:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Please close any applications using these mount points."
-msgstr "3-164, Please close any applications using these mount points."
+msgstr "بۇ ئېگەرلەش نۇقتىسىنى ئىشلىتىۋاتقان پروگراممىلارنى يېپىڭ."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"3-165, Would you like the installer to try to unmount these partitions again?"
+msgstr "ئورناتقۇچنىڭ بۇ دىسكا رايونلىرىنى يەنە ئېگەرسىزلىشىنى خالامسىز؟"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Do you want to return to the partitioner?"
-msgstr "3-166, Do you want to return to the partitioner?"
+msgstr "دىسكا رايون بۆلگۈچكە قايتامسىز؟"
 
 #. Type: boolean
 #. Description
@@ -1243,8 +1232,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"3-167, Some of the partitions you created are too small.  Please make the "
-"following 3-167, partitions at least this large:"
+"قۇرغان بەزى رايون بەكلا كىچىك بولۇپ قالدى. تۆۋەندىكى رايوننىڭ چوڭلۇقىنى "
+"تۆۋەندىكىدەك قىلىڭ:"
 
 #. Type: boolean
 #. Description
@@ -1253,14 +1242,14 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"3-168, If you do not go back to the partitioner and increase the size of "
-"these 3-168, partitions, the installation may fail."
+"ئەگەر دىسكا رايون بۆلگۈچكە قايتمايلا بۇ رايونلارنىڭ سىغىمىنى چوڭايتسىڭىز، "
+"قاچىلاش مەغلۇب بولۇشى مۇمكىن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:177001
 msgid "System Configuration"
-msgstr "3-169, System Configuration"
+msgstr "سىستېما سەپلىمىسى"
 
 #. Type: text
 #. Description
@@ -1268,124 +1257,123 @@ msgstr "3-169, System Configuration"
 #. Description
 #: ../ubiquity.templates:178001 ../ubiquity.templates:241001
 msgid "Welcome"
-msgstr "3-170, Welcome"
+msgstr "مەرھابا"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179001
 msgid "Network configuration"
-msgstr "3-171, Network configuration"
+msgstr "تور سەپلىمىسى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:180001
 msgid "Software selection"
-msgstr "3-172, Software selection"
+msgstr "يۇمشاق دېتال تاللاش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:181001
 msgid "Language"
-msgstr "3-173, Language"
+msgstr "تىل"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:182001
 msgid "Prepare"
-msgstr "3-174, Prepare"
+msgstr "تەييارلان"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Timezone"
-msgstr "3-175, Timezone"
+msgstr "ۋاقىت رايونى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Keyboard"
-msgstr "3-176, Keyboard"
+msgstr "ھەرپتاختا"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:185001
 msgid "Disk Setup"
-msgstr "3-177, Disk Setup"
+msgstr "دىسكا ئورنىتىش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:186001
 msgid "User Info"
-msgstr "3-178, User Info"
+msgstr "ئىشلەتكۈچى ئۇچۇرى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:188001
 msgid "installation process"
-msgstr "3-179, installation process"
+msgstr "ئورنىتىش جەريانى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:190001
 msgid "Checking for installer updates"
-msgstr "3-180, Checking for installer updates"
+msgstr "ئورناتقۇچ يېڭىلاندىمۇ تەكشۈرۈش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:191001
 msgid "Reading package information"
-msgstr "3-181, Reading package information"
+msgstr "بوغچا ئۇچۇرىنى ئوقۇۋاتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:192001
 msgid "Updating package information"
-msgstr "3-182, Updating package information"
+msgstr "بوغچا ئۇچۇرىنى يېڭىلاۋاتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:193001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr "3-183, File ${INDEX} of ${TOTAL} at ${SPEED}/s"
+msgstr "${INDEX} ھۆججەت ${TOTAL}نىڭ ئىچىدە, تېزلىكى ${SPEED}/s"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:194001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr "3-184, File ${INDEX} of ${TOTAL}"
+msgstr "${INDEX} ھۆججەت ${TOTAL}نىڭ ئىچىدە"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Installing update"
-msgstr "3-185, Installing update"
+msgstr "يېڭىلانمىنى ئورنىتىۋاتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:196001
 msgid "Error updating installer"
-msgstr "3-186, Error updating installer"
+msgstr "ئورناتقۇچنى يېڭىلىيالمىدى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-"3-187, The installer encountered an error while trying to update itself:"
+msgstr "ئورناتقۇچ ئۆزىنى يېڭىلاي دەۋاتقاندا خاتالىق كۆرۈلدى:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:197001
 msgid "USB disk"
-msgstr "3-188, USB disk"
+msgstr "USB دىسكا"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:198001
 msgid "CD"
-msgstr "3-189, CD"
+msgstr "CD"
 
 #. Type: text
 #. Description
@@ -1394,8 +1382,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"3-190, Please choose the language to use for the install process. This "
-"language 3-190, will be the default language for this computer."
+"ئورنىتىشتا ئىشلىتىلىدىغان تىلنى تاللاڭ. بۇ مۇشۇ كومپيۇتېرنىڭ كۆڭۈلدىكى تىلى "
+"بولىدۇ."
 
 #. Type: text
 #. Description
@@ -1404,8 +1392,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"3-191, Please choose the language used for the configuration process. This "
-"language 3-191, will be the default language for this computer."
+"سەپلەشتە ئىشلىتىلىدىغان تىلنى تاللاڭ. بۇ تىل كومپيۇتېرنىڭ كۆڭۈلدىكى تىلى "
+"بولىدۇ."
 
 #. Type: text
 #. Description
@@ -1413,7 +1401,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:201001 ../ubiquity.templates:202001
 msgid "Installation failed"
-msgstr "3-192, Installation failed"
+msgstr "ئورنىتالمىدى"
 
 #. Type: text
 #. Description
@@ -1422,29 +1410,29 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"3-193, The installer encountered an unrecoverable error.  A desktop session "
-"will 3-193, now be run so that you may investigate the problem or try "
-"installing again."
+"ئورناتقۇچتا ئەسلىگە كەلتۈرگىلى بولمايدىغان خاتالىق كۆرۈلدى. ئۈستەل يۈزى "
+"ئەڭگىمەسى ئىجرا بولىدۇ، شۇڭا بۇ مەسىلىنى تەكشۈرۈپ كۆرۈڭ ياكى قايتا ئورنىتىڭ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"3-194, The installer encountered an unrecoverable error and will now reboot."
+"ئورناتقۇچتا ئەسلىگە كەلتۈرگىلى بولمايدىغان خاتالىق كۆرۈلدى. ھازىر قايتا "
+"قوزغىلىدۇ."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:204001
 msgid "Preparing to install ${RELEASE}"
-msgstr "3-195, Preparing to install ${RELEASE}"
+msgstr "${RELEASE} نى ئورنىتىشقا تەييارلىنىۋاتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Wireless"
-msgstr "3-196, Wireless"
+msgstr "سىمسىز"
 
 #. Type: text
 #. Description
@@ -1454,51 +1442,51 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"3-197, Connecting this computer to a wi-fi network allows you to install "
-"third-3-197, party software, download updates, automatically detect your "
-"timezone, and 3-197, install full support for your language."
+"بۇ كومپيۇتېرنى wi-fi تورىغا باغلايدۇ.  سىز ئۈچىنچى تەرەپ يۇمشاق دېتالى "
+"ئورنىتىپ، يېڭىلاش چۈشۈرۈپ، ۋاقىت رايونىڭىزنى ئۆزلۈكىدىن بايقاپ، تولۇق تيل "
+"قوللاشنى ئورنىتالايسىز."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr "3-198, Password:"
+msgstr "ئىم:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Display password"
-msgstr "3-199, Display password"
+msgstr "ئىمنى كۆرسىتىش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "3-200, I don't want to connect to a wi-fi network right now"
+msgstr "ھازىرلا wi-fi(سىمسىز) تورغا باغلانغۇم يوق"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Connect to this network"
-msgstr "3-201, Connect to this network"
+msgstr "بۇ تورغا باشلىنىش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Select drive:"
-msgstr "3-202, Select drive:"
+msgstr "قوزغاتقۇچ تاللاڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:215001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr "3-203, Allocate drive space by dragging the divider below:"
+msgstr "تۆۋەندىكى بۆلگۈچنى سۆرەش ئارقىلىق دىسكا بوشلۇقى ئاجرىتىڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
 msgid "The entire disk will be used:"
-msgstr "3-204, The entire disk will be used:"
+msgstr "پۈتكۈل دىسكا ئىشلىتىلىدۇ:"
 
 #. Type: text
 #. Description
@@ -1508,8 +1496,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"3-205, <small>%d smaller partitions are hidden, use the <a href="
-"\"\">advanced 3-205, partitioning tool</a> for more control</small>"
+"<small>%d كىچىك رايون يوشۇرۇلدى  <a href=\\\"\\\">ئالىي رايونغا ئايرىش "
+"قورالى</a> نى ئىشلىتىپ تېخىمۇ تەپسىلىي تىزگىنلەڭ</small>"
 
 #. Type: text
 #. Description
@@ -1518,8 +1506,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"3-206, <small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-"3-206, partitioning tool</a> for more control</small>"
+"<small>1 كىچىك رايون يوشۇرۇلدى <a href=\\\"\\\">ئالىي رايونغا ئايرىش قورالى</"
+"a> نى ئىشلىتىپ تېخىمۇ تەپسىلىي تىزگىنلەڭ</small>"
 
 #. Type: text
 #. Description
@@ -1529,8 +1517,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"3-207, %d partitions will be deleted, use the <a href=\"\">advanced "
-"partitioning 3-207, tool</a> for more control"
+"%d دانە رايون(partition) ئۆچۈرۈلىدۇ. تېخىمۇ ئىنچىكە كونترول قىلىش ئۈچۈن<a "
+"href=\\\"\\\">ئالىي partitioning قورالى</a> نى ئىشلىتىڭ."
 
 #. Type: text
 #. Description
@@ -1539,39 +1527,39 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"3-208, 1 partition will be deleted, use the <a href=\"\">advanced "
-"partitioning 3-208, tool</a> for more control"
+"1 دانە رايون(partition) ئۆچۈرۈلىدۇ. تېخىمۇ ئىنچىكە كونترول قىلىش ئۈچۈن<a "
+"href=\\\"\\\">ئالىي partitioning قورالى</a> نى ئىشلىتىڭ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Split Largest Partition"
-msgstr "3-209, Split Largest Partition"
+msgstr "چوڭراق رايونغا بولۇش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "For best results, please ensure that this computer:"
-msgstr "3-210, For best results, please ensure that this computer:"
+msgstr "نورمال ئورنىتىش ئۈچۈن، بۇ كومپيۇتېرنى ياخشى تەكشۈرۈڭ:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:224001
 msgid "has at least ${SIZE} available drive space"
-msgstr "3-211, has at least ${SIZE} available drive space"
+msgstr "ئەڭ ئاز دېگەندە ${SIZE}  دىسكا بىكار بوشلۇقى بار"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:225001
 msgid "is plugged in to a power source"
-msgstr "3-212, is plugged in to a power source"
+msgstr "توكقا چېتىلغان"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:226001
 msgid "is connected to the Internet"
-msgstr "3-213, is connected to the Internet"
+msgstr "ئىنتېرنېتقا باغلانغان"
 
 #. Type: text
 #. Description
@@ -1583,10 +1571,11 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"3-214, ${RELEASE} uses third-party software to display Flash, MP3 and other "
-"media, 3-214, and to work with some wireless hardware. Some of this software "
-"is closed-3-214, source. The software is subject to the license terms "
-"included with the 3-214, software's documentation."
+"${RELEASE} نىڭدا Flash، MP3 قاتارلىق ۋاسىتىلەرنى كۆرسىتىش ۋە سىمسىز "
+"ئۈسكۈنىلەرنى ئىشلىتىش ئۈچۈن،  ئۈچىنچى تەرەپ(Ubuntu نىڭ ئەمەس) يۇمشاق دېتالى "
+"ئىشلىتىلدى. بۇلارنىڭ بىر قىسىملىرىنىڭ ئەسلى كودى ئوچۇق ئەمەس. بۇ يۇمشاق "
+"دېتاللار ئۇلارنىڭ پۈتۈكلىرى بىلەن بىرگە تەمىنلەنگەن ئىجازەتنامىلەرگە "
+"بويسۇنىدۇ."
 
 #. Type: text
 #. Description
@@ -1595,38 +1584,38 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"3-215, Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology "
-"licensed 3-215, from Fraunhofer IIS and Technicolor SA."
+"Fluendo MP3 قىستۇرمىسى MPEG Layer-3 ئاۋاز يەشكۈچ تېخنىكا ئىجازىتى Fraunhofer "
+"IIS ۋە Technicolor SA دىن كەلگەن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Install this third-party software"
-msgstr "3-216, Install this third-party software"
+msgstr "بۇ ئۈچىنچى تەرەپ(Ubuntu نىڭ ئەمەس) يۇمشاق دېتالىنى ئورنىتىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "Download updates while installing"
-msgstr "3-217, Download updates while installing"
+msgstr "ئورنىتىۋاتقاندا يېڭىلانمىلارنى چۈشۈرسۇن"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
 msgid "Layout:"
-msgstr "3-218, Layout:"
+msgstr "جايلاشتۇرۇش:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Variant:"
-msgstr "3-219, Variant:"
+msgstr "شالغۇت:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
 msgid "Below is an image of your current layout:"
-msgstr "3-220, Below is an image of your current layout:"
+msgstr "تۆۋەندىكىسى سىزنىڭ ئورۇنلاشتۇرۇشىڭىزنىڭ رەسىمى:"
 
 #. Type: text
 #. Description
@@ -1636,27 +1625,27 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"3-221, Select your location, so that the system can use appropriate display "
-"3-221, conventions for your country, fetch updates from sites close to you, "
-"and set 3-221, the clock to the correct local time."
+"ئورنىڭىزنى بېكىتىڭ. شۇنداقتا سىستېما دۆلىتىڭىزنىڭ ئادىتى بويىچە كۆرسىتىش "
+"ئېلىپ بارالايدۇ. سىزگە يېقىن بولغان مۇلازىمېتىرلاردىن يېڭىلاش ئېلىپ "
+"بارالايدۇ. ۋاقىتنى توغرا كۆرسىتىپ بېرەلەيدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
 msgid "Time Zone:"
-msgstr "3-222, Time Zone:"
+msgstr "ۋاقىت رايونى:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
 msgid "Region:"
-msgstr "3-223, Region:"
+msgstr "رايون:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:240001
 msgid "[type here to change]"
-msgstr "3-224, [type here to change]"
+msgstr "[ئۆزگەرتىش ئۈچۈن بۇ يەرگە كىرگۈزۈڭ]"
 
 #. Type: text
 #. Description
@@ -1664,7 +1653,7 @@ msgstr "3-224, [type here to change]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:243001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "3-225, Replace ${OS} with ${DISTRO}"
+msgstr "${OS} نى ${DISTRO} نىنغا ئالماشتۇرۇش"
 
 #. Type: text
 #. Description
@@ -1674,8 +1663,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"3-226, <span foreground=\"darkred\">Warning:</span> This will delete all of "
-"your 3-226, ${OS} programs, documents, photos, music, and any other files."
+"<span foreground=\\\"darkred\\\">ئاگاھلاندۇرۇش:</span>بۇ ${OS} دىكى بارلىق "
+"پروگرامما، پۈتۈك، سۈرەت، مۇزىكا ۋە باشقا ھۆججەتلەرنى ئۆچۈرىدۇ."
 
 #. Type: text
 #. Description
@@ -1683,7 +1672,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:244001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "3-227, Install ${DISTRO} alongside ${OS}"
+msgstr "${DISTRO} نى ${OS} بىلەن يانداش ئورنىتىش"
 
 #. Type: text
 #. Description
@@ -1699,9 +1688,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"3-228, Documents, music, and other personal files will be kept. You can "
-"choose 3-228, which operating system you want each time the computer starts "
-"up."
+"پۈتۈك،  نەغمە ۋە باشقا خۇسۇسىي ھۆججەتلەر ساقلىنىپ قالىدۇ. ھەر قېتىم "
+"كومپيۇتېر قوزغالغاندا قايسى سىستېمىنى ئىشلىتىشنى تاللىيالايسىز."
 
 #. Type: text
 #. Description
@@ -1709,13 +1697,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:245001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "3-229, Install ${DISTRO} inside ${OS}"
+msgstr "${DISTRO} نى ${OS} نىڭ ئىچىگە ئورنىتىش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:246001
 msgid "Something else"
-msgstr "3-230, Something else"
+msgstr "باشقىچە قىلىش"
 
 #. Type: text
 #. Description
@@ -1725,15 +1713,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"3-231, You can create or resize partitions yourself, or choose multiple "
-"partitions 3-231, for ${DISTRO}."
+"ئۆزىڭىز رايون قۇرىسىز ياكى رايون چوڭلۇقىنى ئۆزگەرتىسىز ياكى ${DISTRO} ئۈچۈن "
+"كوپ رايونلارنى تاللايسىز."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:247001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr "3-232, Erase ${CURDISTRO} and reinstall"
+msgstr "${CURDISTRO} نى ئۆچۈرۈپ ئورنىتىدۇ"
 
 #. Type: text
 #. Description
@@ -1743,9 +1731,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"3-233, <span foreground=\"darkred\">Warning:</span> This will delete all "
-"your 3-233, ${CURDISTRO} programs, documents, photos, music, and any other "
-"files."
+"<span foreground=\\\"darkred\\\">ئاگاھلاندۇرۇش:</span> بۇنىڭدا ${CURDISTRO} "
+"دىكى بارلىق پروگراممىلار، پۈتۈكلەر، سۈرەتلەر،مۇزىكىلار ۋە باشقا ھەممە "
+"ھۆججەتلەر ئۆچۈرۈلىدۇ."
 
 #. Type: text
 #. Description
@@ -1753,7 +1741,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:248001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr "3-234, Upgrade ${CURDISTRO} to ${VER}"
+msgstr "${CURDISTRO} نىڭ نەشرىنى ${VER} غا يۈكسەلدۈرىدۇ"
 
 #. Type: text
 #. Description
@@ -1764,9 +1752,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"3-235, Documents, music, and other personal files will be kept. Installed "
-"software 3-235, will be kept where possible. System-wide settings will be "
-"cleared."
+"پروگرامما، پۈتۈك، سۈرەت، مۇزىكا ۋە باشقا خۇسۇسىي ھۆججەتلەر ساقلىنىپ قالىدۇ. "
+"ئورنىتىلغان پروگراممىلارنىمۇ ئامالنىڭ بارىچە ساقلاپ قالىدۇ. سىستېما "
+"دائىرىسىدە ئىشلىتىلىدىغان تەڭشەكلەر تازىلىنىدۇ."
 
 #. Type: text
 #. Description
@@ -1775,7 +1763,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:249001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "3-236, Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
+msgstr "${DISTRO} ${VER} بىلەن ${CURDISTRO} نى يانداش ئورنىتىدۇ"
 
 #. Type: text
 #. Description
@@ -1785,7 +1773,7 @@ msgstr "3-236, Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:250001 ../ubiquity.templates:253001
 msgid "Erase disk and install ${DISTRO}"
-msgstr "3-237, Erase disk and install ${DISTRO}"
+msgstr "دىسكىنى ئۆچۈرۈپ  ${DISTRO} نى ئورنىتىدۇ"
 
 #. Type: text
 #. Description
@@ -1794,14 +1782,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"3-238, <span foreground=\"darkred\">Warning:</span> This will delete any "
-"files on 3-238, the disk."
+"<span foreground=\\\"darkred\\\">ئاگاھلاندۇرۇش:</span> بۇ دىسكىدىكى "
+"ھەرقانداق ھۆججەتنى ئۆچۈرۈۋېتىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:251001
 msgid "Erase everything and reinstall"
-msgstr "3-239, Erase everything and reinstall"
+msgstr "ھەممىنى ئۆچۈرۈپ قايتا ئورنىتىدۇ"
 
 #. Type: text
 #. Description
@@ -1813,16 +1801,16 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"3-240, <span foreground=\"darkred\">Warning:</span> This will delete all "
-"your 3-240, programs, documents, photos, music, and other files in both "
-"${OS} and 3-240, ${CURDISTRO}."
+"<span foreground=\\\"darkred\\\">ئاگاھلاندۇرۇش:</span> بۇنىڭدا ${OS} ۋە "
+"${CURDISTRO} دىكى بارلىق پروگراممىلار، پۈتۈكلەر، سۈرەتلەر،مۇزىكىلار ۋە باشقا "
+"ھەممە ھۆججەتلەر ئۆچۈرۈلىدۇ."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:252001
 msgid "Reinstall ${CURDISTRO}"
-msgstr "3-241, Reinstall ${CURDISTRO}"
+msgstr "${CURDISTRO} نى قايتا ئورنىتىدۇ"
 
 #. Type: text
 #. Description
@@ -1832,24 +1820,22 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"3-242, <span foreground=\"darkred\">Warning:</span> This will delete all "
-"your 3-242, programs, documents, photos, music, and any other files in all "
-"operating 3-242, systems."
+"<span foreground=\\\"darkred\\\">ئاگاھلاندۇرۇش:</span>بۇ بارلىق سىستېمىدىكى، "
+"بارلىق پروگرامما، پۈتۈك، سۈرەت، مۇزىكا ۋە باشقا ھۆججەتلەرنى ئۆچۈرىدۇ."
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:254001
 msgid "Install ${DISTRO} alongside them"
-msgstr "3-243, Install ${DISTRO} alongside them"
+msgstr "${DISTRO} نى ئۇلار بىلەن يانداش ئورنىتىدۇ"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:255001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
-"3-244, This computer currently has ${OS} on it. What would you like to do?"
+msgstr "مەزكۇر كومپيۇتېردا ${OS} بار ئىكەن. قانداق قىلىسىز؟"
 
 #. Type: text
 #. Description
@@ -1859,9 +1845,7 @@ msgstr ""
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
-msgstr ""
-"3-245, This computer currently has ${OS1} and ${OS2} on it. What would you "
-"like to 3-245, do?"
+msgstr "مەزكۇر كومپيۇتېردا ${OS1} ۋە ${OS2} بار ئىكەن. قانداق قىلىسىز؟"
 
 #. Type: text
 #. Description
@@ -1870,8 +1854,7 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
-"3-246, This computer currently has multiple operating systems on it. What "
-"would you 3-246, like to do?"
+"مەزكۇر كومپيۇتېردا بىر قانچە مەشغۇلات سىستېمىسى بار ئىكەن. قانداق قىلىسىز؟"
 
 #. Type: text
 #. Description
@@ -1880,15 +1863,14 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
-"3-247, This computer currently has no detected operating systems. What would "
-"you 3-247, like to do?"
+"مەزكۇر كومپيۇتېردا ھېچقانداق مەشغۇلات سىستېمىسى يوق ئىكەن. قانداق قىلىسىز؟"
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr "3-248, OEM mode (for manufacturers only)"
+msgstr "OEM ھالىتى (ياسىغۇچى سودىگەرلەرگە خاس)"
 
 #. Type: text
 #. Description
@@ -1899,20 +1881,20 @@ msgstr "3-248, OEM mode (for manufacturers only)"
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr "3-249, Prepare for OEM configuration"
+msgstr "OEM سەپلىمىسىنى تەييارلاۋاتىدۇ"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "3-250, Preparing for OEM configuration..."
+msgstr "OEM سەپلىمىسىنى تەييارلاۋاتىدۇ…"
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr "3-251, Ready for OEM configuration"
+msgstr "OEM سەپلىمىسى تەييارلاندى"
 
 #. Type: text
 #. Description
@@ -1923,10 +1905,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"3-252, When you boot into the new system, you will be able to log in as the "
-"'oem' 3-252, user with the password you selected earlier; this user also has "
-"3-252, administrative privileges using 'sudo'. You will then be able to make "
-"any 3-252, additional modifications you require to the system."
+"قايتا قوزغىتىپ يېڭى سىستېمىغا كىرىشتىن ئىلگىرى 'oem' ئىشلەتكۈچى سالاھىيىتىدە "
+"بايا تاللىغان ئىم بىلەن كىرەلەيسىز؛ بۇ ئىشلەتكۈچىنىڭ 'sudo' ئىشلىتىپ "
+"باشقۇرۇش ھوقۇقى بار. سىز ئېھتىياجىڭىزغا ئاساسەن سىستېمىغا ھەر قانداق "
+"ئۆزگەرتىش ئېلىپ بارالايسىز."
 
 #. Type: text
 #. Description
@@ -1936,13 +1918,13 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"3-253, Once the system is configured to your satisfaction, run 'oem-"
-"config-3-253, prepare'. This will cause the system to delete the temporary "
-"'oem' user and 3-253, ask the end user various configuration questions the "
-"next time it boots."
+"ئېھتىياجىڭىزغا ئاساسەن سىستېمىنى سەپلەپ بولسىڭىزلا 'oem-config-prepare' نى "
+"ئىجرا قىلىڭ. بۇنداق بولغاندا ۋاقىتلىق ئىشلەتكۈچى 'oem' سىستېما تەرىپىدىن "
+"ئۆچۈرۈلىدۇ، ھەمدە كېيىنكى قېتىم قوزغالغاندا ئاخىرقى ئىشلەتكۈچىدىن ھەر خىل "
+"سەپلىمىلەرنى سورايدۇ."
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr "3-254, Removing packages"
+msgstr "بوغچىلارنى ئۆچۈرۈۋاتىدۇ"

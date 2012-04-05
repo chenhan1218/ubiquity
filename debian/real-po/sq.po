@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-10 05:41+0000\n"
+"PO-Revision-Date: 2012-03-26 13:55+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Debian L10n Albanian <debian-l10n-albanian@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -50,13 +50,13 @@ msgstr "Shumë i zgjuar për ne ? Futju punës me disa opsione particionimi."
 #. Description
 #: ../ubiquity.templates:7001 ../ubiquity.templates:187001
 msgid "Install"
-msgstr "_Instalo"
+msgstr "Instalo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Instalo (modi OEM, vetëm për prodhues)"
+msgstr "Instalo (mënyra OEM, vetëm për prodhues)"
 
 #. Type: text
 #. Description
@@ -67,8 +67,9 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "Ju jeni duke instaluar në modin e sistemit të prodhuesit. Ju lutem shkruani "
-"një emër të veqant për këtë batch të sistemit. Ky emer do të ruhet në sistem "
-"të instaluar dhe mund të përdoret për ndihmë rreth raportimit të bug-ave."
+"një emër të veçantë për këtë batch të sistemit. Ky emër do të ruhet në "
+"sistem të instaluar dhe mund të përdoret për ndihmë rreth raportimit të "
+"gabimeve."
 
 #. Type: text
 #. Description
@@ -174,7 +175,7 @@ msgstr "Ku ndodheni?"
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Keyboard layout"
-msgstr "Zgjidh një tastierë"
+msgstr "Planimetria e tastierës"
 
 #. Type: text
 #. Description
@@ -216,7 +217,7 @@ msgstr "A është butoni që vijon i pranishëm në tastierën tuaj?"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Who are you?"
-msgstr "Cili jeni ju?"
+msgstr "Kush jeni?"
 
 #. Type: text
 #. Description

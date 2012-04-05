@@ -2,20 +2,22 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# YunQiang Su <wzssyqa@gmail.com>, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-04 04:35+0000\n"
-"Last-Translator: Liu Qishuai <Unknown>\n"
-"Language-Team: Simplified Chinese <debian-chinese-gb@lists.debian.org>\n"
+"PO-Revision-Date: 2012-04-05 05:37+0000\n"
+"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -220,19 +222,19 @@ msgstr "选择一个图片"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "拍照："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "或者选择现有图片："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "拍照"
 
 #. Type: text
 #. Description
@@ -262,13 +264,13 @@ msgstr "用户名"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "首字母必须小写。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "只可包含小写字母、数字、连字符和下划线。"
 
 #. Type: text
 #. Description
@@ -310,25 +312,25 @@ msgstr "与其他计算机联络时使用的名称。"
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "长度必须为 1 至 63 个字符。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "只可包含字母、数字、连字符和点。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "不得以连字符开始或结束。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "不得以点开始或结束，也不得包含序列 \"..\"。"
 
 #. Type: text
 #. Description
@@ -396,7 +398,7 @@ msgstr "加密我的主目录"
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
+msgstr "该图片将与您的用户名相关联，并且有时显示在用户名旁边。"
 
 #. Type: text
 #. Description
@@ -1111,7 +1113,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "复制蓝牙配置时发生错误"
 
 #. Type: error
 #. Description
@@ -1121,6 +1123,7 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"复制蓝牙设置时出现错误。安装将继续，但必须在已安装的系统中再次配置蓝牙。"
 
 #. Type: error
 #. Description
@@ -1403,7 +1406,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr ""
+msgstr "密码："
 
 #. Type: text
 #. Description
@@ -1530,6 +1533,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo MP3 插件包含 Fraunhofer IIS 和 Technicolor SA 授权的 MPEG Layer-3 音"
+"频解码技术。"
 
 #. Type: text
 #. Description

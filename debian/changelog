@@ -1,3 +1,9 @@
+ubiquity (2.10.8) UNRELEASED; urgency=low
+
+  * Update translations from Launchpad.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 05 Apr 2012 23:13:13 +0100
+
 ubiquity (2.10.7) precise; urgency=low
 
   [ Colin Watson ]

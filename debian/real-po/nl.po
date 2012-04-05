@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-19 12:01+0000\n"
-"Last-Translator: Hannie Dumoleyn <Unknown>\n"
+"PO-Revision-Date: 2012-04-03 15:49+0000\n"
+"Last-Translator: Corneille <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -748,8 +748,8 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "De installatie is voltooid. U kunt nu nog doorgaan met uitproberen van "
-"${RELEASE}, maar aanpassingen of documenten die u maakt worden niet bewaard "
-"voordat u eerst de computer herstart."
+"${RELEASE}, maar aanpassingen of documenten die u maakt worden niet bewaard. "
+"Dat kan pas wanneer u de computer herstart vanaf de harde schijf."
 
 #. Type: text
 #. Description
@@ -910,8 +910,8 @@ msgstr ""
 "cd/dvd, de cd/dvd opnieuw branden op een lagere snelheid, of het schoonmaken "
 "van de lens van de cd/dvd-speler (schoonmaakproducten zijn te verkrijgen bij "
 "de meeste elektronicawinkels). Wat ook kan helpen is nagaan of de harde "
-"schijf te oud c.q. aan vervanging toe is, of het naar een koelere omgeving "
-"verplaatsen van de computer."
+"schijf oud is en vervangen dient te worden, of de computer naar een koelere "
+"omgeving verplaatsen."
 
 #. Type: select
 #. Description

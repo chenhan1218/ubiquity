@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-01-06 13:49+0000\n"
-"Last-Translator: Laur Mõtus <vprints@gmail.com>\n"
+"PO-Revision-Date: 2012-04-03 04:55+0000\n"
+"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:55+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -220,25 +220,25 @@ msgstr "Kes sa oled?"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Choose a picture"
-msgstr "Vali pilt"
+msgstr "Kasutaja avatari valimine"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Tee pilt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Või vali olemasolev:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Tee pilt"
 
 #. Type: text
 #. Description
@@ -268,13 +268,13 @@ msgstr "Kasutajanimi"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Peab algama väikese tähega."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Tohib sisaldada ainult väikesi tähti, numbreid, side- ja allkriipse."
 
 #. Type: text
 #. Description
@@ -316,25 +316,26 @@ msgstr "Selle arvuti nimi teiste arvutitega suhtlemisel."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Peab olema pikkusega 1-63 tärki."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Tohib sisaldada ainult kirjatähti, numbreid, sidekriipse ja punkte."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Ei tohi alata ega lõppeda sidekriipsuga."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Ei tohi alata ega lõppeda sidekriipsuga ega sisaldada märgijada \"..\"."
 
 #. Type: text
 #. Description
@@ -403,6 +404,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"See pilt seostatakse sinu kasutajanimega ning vajadusel kuvatakse seda "
+"kasutajanime kõrval."
 
 #. Type: text
 #. Description
@@ -1135,7 +1138,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Bluetoothi seadete kopimise viga."
 
 #. Type: error
 #. Description
@@ -1145,6 +1148,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Bluetoothi seadete kopimisel tekkis viga. Paigaldamine jätkub, aga bluetooth "
+"tuleb paigaldatud süsteemis uuesti seadistada."
 
 #. Type: error
 #. Description
@@ -1573,6 +1578,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo MP3 plugin sisaldab MPEG Layer-3 audiodekooderi tehnoloogiat, mille "
+"on litsentsinud Fraunhofer IIS ja Technicolor SA."
 
 #. Type: text
 #. Description

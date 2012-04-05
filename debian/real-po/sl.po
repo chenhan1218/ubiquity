@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-10 07:07+0000\n"
-"Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
+"PO-Revision-Date: 2012-04-03 15:48+0000\n"
+"Last-Translator: Klemen Košir <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
@@ -1180,7 +1180,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:158001
 msgid "Calculating files to skip copying..."
-msgstr "Proučevanje, katerih datotek ni treba kopirati ..."
+msgstr "Preračunavanje, katerih datotek ni treba kopirati ..."
 
 #. Type: title
 #. Description
@@ -1542,7 +1542,7 @@ msgstr "Razdeli največji razdelek"
 #. Description
 #: ../ubiquity.templates:223001
 msgid "For best results, please ensure that this computer:"
-msgstr "Za najboljše rezultate se prepričajte, da je ta računalnik:"
+msgstr "Za najboljše rezultate se prepričajte, da ta računalnik:"
 
 #. Type: text
 #. Description
@@ -1573,10 +1573,10 @@ msgid ""
 "source. The software is subject to the license terms included with the "
 "software's documentation."
 msgstr ""
-"${RELEASE} za prikaz Flash, MP3 in drugih večpredstavnosti ter delo z "
-"nekatero brezžično strojno opremo uporablja programe tretjih oseb. Nekateri "
-"izmed teh programov so zaprtokodni. Programi so izdani pod licenčnimi "
-"pogoji, ki so vključeni v njihovi dokumentaciji."
+"${RELEASE} za prikaz Flash, MP3 in drugih predstavnosti ter delo z nekatero "
+"brezžično strojno opremo uporablja programe tretjih oseb. Nekateri izmed teh "
+"programov so zaprtokodni. Programi so izdani pod licenčnimi pogoji, ki so "
+"vključeni v njihovi dokumentaciji."
 
 #. Type: text
 #. Description

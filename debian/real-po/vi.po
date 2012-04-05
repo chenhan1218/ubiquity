@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2011-12-05 20:04+0000\n"
-"Last-Translator: Nguyễn Anh <Unknown>\n"
+"PO-Revision-Date: 2012-03-31 11:12+0000\n"
+"Last-Translator: Hai Lang <hailangvn@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-22 14:56+0000\n"
-"X-Generator: Launchpad (build 14981)\n"
+"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
+"X-Generator: Launchpad (build 15060)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Đang kết nối..."
 
 #. Type: text
 #. Description
@@ -142,6 +142,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
+"Đây là bản cài đặt trước khi phát hành của ${RELEASE} chạy trực tiếp từ "
+"${MEDIUM}. Nó không phải là bản phát hành chính thức, ${RELEASE} sẽ được "
+"phát hành chính thức vào tháng Tư năm 2012."
 
 #. Type: text
 #. Description
@@ -225,19 +228,19 @@ msgstr "Chọn một bức ảnh"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Chụp một tấm hình:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Hay chọn một tấm hình:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Chụp Hình"
 
 #. Type: text
 #. Description
@@ -267,13 +270,13 @@ msgstr "Tên đăng nhập"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Phải bắt đầu bằng chữ thường."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Chỉ có thể bao gồm các chữ thường, số, gạch nối, và gạch dưới."
 
 #. Type: text
 #. Description
@@ -315,25 +318,25 @@ msgstr "Tên mà máy sử dụng khi giao tiếp với các máy tính khác."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Độ dài phải từ 1 đến 63 ký tự"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Chỉ có thể bao gồm chữ, số, gạch nối, và dấu chấm."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Không được bắt đầu hay kết thúc bằng dấu gạch nối"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "Không được bắt đầu hay kết thúc bằng dấu chấm hay có chứa \"..\"."
 
 #. Type: text
 #. Description
@@ -402,6 +405,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Hình này sẽ được kết hợp với tên bạn dùng trên máy này và sẽ luôn hiện cùng "
+"với tên đó."
 
 #. Type: text
 #. Description
@@ -1132,7 +1137,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Gặp lỗi khi đang chép cấu hình bluetooth"
 
 #. Type: error
 #. Description
@@ -1142,6 +1147,9 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Một lỗi xảy ra khi đang chép các xác lập bluetooth. Việc cài đặt sẽ tiếp "
+"tục, nhưng bạn sẽ phải cấu hình bluetooth lại nữa trong hệ thống đã cài đặt "
+"xong."
 
 #. Type: error
 #. Description
@@ -1439,25 +1447,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr ""
+msgstr "Mật khẩu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Display password"
-msgstr ""
+msgstr "Hiện mật khẩu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Tôi không muốn kết nối đến mạng không dây bây giờ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Connect to this network"
-msgstr ""
+msgstr "Kết nối đến mạng này"
 
 #. Type: text
 #. Description
@@ -1572,6 +1580,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Phần bổ sung Fluendo MP3 bao gồm kỹ thuật giải mã âm thanh MPEG Layer-3 được "
+"cấp phép từ Fraunhofer IIS và Technicolor SA."
 
 #. Type: text
 #. Description
