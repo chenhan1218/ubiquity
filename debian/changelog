@@ -1,3 +1,11 @@
+ubiquity (2.10.9) UNRELEASED; urgency=low
+
+  * Try harder to make the unit tests work within autopkgtest:
+    - Install mockresolver (it's small, and this really does make the
+      plumbing a lot easier).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Apr 2012 22:35:33 +0100
+
 ubiquity (2.10.8) precise; urgency=low
 
   * Update translations from Launchpad.

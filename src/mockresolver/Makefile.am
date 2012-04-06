@@ -3,11 +3,11 @@ CLEANFILES =
 AM_CPPFLAGS = $(MOCK_RESOLVER_CFLAGS)
 AM_LDFLAGS = $(MOCK_RESOLVER_LIBS)
 
-noinst_LTLIBRARIES = libubimockresolver.la
+lib_LTLIBRARIES = libubimockresolver.la
 
 libubimockresolver_la_SOURCES = mockresolver.h mockresolver.c
 libubimockresolver_la_LDFLAGS = -version-info 0:0:0 -no-undefined \
-	-export-symbols-regex "^[^_].*" -rpath $(abs_builddir)
+	-export-symbols-regex "^[^_].*"
 libubimockresolver_la_LIBADD = $(MOCK_RESOLVER_LIBS)
 if HAVE_INTROSPECTION
 -include $(INTROSPECTION_MAKEFILE)
@@ -24,7 +24,11 @@ UbiquityMockResolver_1_0_gir_CFLAGS = $(INCLUDES) --identifier-prefix=Ubiquity
 UbiquityMockResolver_1_0_gir_LIBS = libubimockresolver.la
 UbiquityMockResolver_1_0_gir_FILES = $(introspection_sources)
 
-noinst_DATA = $(INTROSPECTION_GIRS) $(INTROSPECTION_GIRS:.gir=.typelib)
+girdir = $(datadir)/gir-1.0
+gir_DATA = $(INTROSPECTION_GIRS)
 
-CLEANFILES += $(noinst_DATA)
+typelibdir = $(libdir)/girepository-1.0
+typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
+
+CLEANFILES += $(gir_DATA) $(typelib_DATA)
 endif
