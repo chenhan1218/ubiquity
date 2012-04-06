@@ -6,6 +6,8 @@ ubiquity (2.10.9) UNRELEASED; urgency=low
     - Use test debconf databases stacked on top of the system ones in
       autopkgtest mode rather than requiring tests/build to have been run
       first.
+    - Fix test_ubi_partman not to rely on tests/partman-tree/ in autopkgtest
+      mode.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Apr 2012 22:35:33 +0100
 

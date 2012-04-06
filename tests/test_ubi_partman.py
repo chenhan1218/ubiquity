@@ -60,7 +60,9 @@ def question_has_variables(question, lookup_variables):
 # arguments to generate said dependencies, so neither need to know about the
 # inner workings of each other.
 
-@unittest.skipUnless(os.path.exists('tests/partman-tree'), 'Need /lib/partman.')
+@unittest.skipUnless('UBIQUITY_TEST_INSTALLED' in os.environ or
+                     os.path.exists('tests/partman-tree'),
+                     'Need /lib/partman.')
 class PartmanPageDirectoryTests(unittest.TestCase):
     def setUp(self):
         # We could mock out the db for this, but we ultimately want to make
@@ -69,6 +71,13 @@ class PartmanPageDirectoryTests(unittest.TestCase):
         self.page.db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(self.page.db.shutdown)
 
+        if 'UBIQUITY_TEST_INSTALLED' not in os.environ:
+            self.mock_partman_tree()
+
+        # Don't cache descriptions.
+        self.page.description_cache = {}
+
+    def mock_partman_tree(self):
         prefix = 'tests/partman-tree'
         def side_effect_factory(real_method):
             def side_effect(path, *args, **kw):
@@ -87,9 +96,6 @@ class PartmanPageDirectoryTests(unittest.TestCase):
             mocked_method = method.start()
             mocked_method.side_effect = side_effect_factory(real_method)
             self.addCleanup(method.stop)
-
-        # Don't cache descriptions.
-        self.page.description_cache = {}
 
     #def test_filesystem_description(self):
     #    for fs in self.page.scripts('/lib/partman/valid_filesystems'):
