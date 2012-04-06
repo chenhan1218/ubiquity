@@ -3,6 +3,9 @@ ubiquity (2.10.9) UNRELEASED; urgency=low
   * Try harder to make the unit tests work within autopkgtest:
     - Install mockresolver (it's small, and this really does make the
       plumbing a lot easier).
+    - Use test debconf databases stacked on top of the system ones in
+      autopkgtest mode rather than requiring tests/build to have been run
+      first.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Apr 2012 22:35:33 +0100
 

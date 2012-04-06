@@ -79,27 +79,11 @@ if 'DEB_HOST_ARCH' not in os.environ:
         ['dpkg-architecture', '-qDEB_HOST_ARCH']).strip()
 
 if options.installed:
-    import atexit
-    import tempfile
-
     sys.path.insert(0, '/usr/lib/ubiquity')
 
     os.environ['UBIQUITY_TEST_INSTALLED'] = '1'
 
-    # The tree must have been built already.  (Once mockresolver is
-    # implemented in Python, this requirement should go away.)
-
-    tempdir = tempfile.mkdtemp(prefix='ubiquity')
-    atexit.register(shutil.rmtree, tempdir)
-    with open('tests/debconf.conf') as conf_in:
-        with open(os.path.join(tempdir, 'debconf.conf'), 'w') as conf_out:
-            for line in conf_in:
-                conf_out.write(re.sub('tests/', '%s/' % tempdir, line))
-    for debconf_file in ('config.dat', 'templates.dat'):
-        shutil.copy2(
-            os.path.join('tests', debconf_file),
-            os.path.join(tempdir, debconf_file))
-    os.environ['DEBCONF_SYSTEMRC'] = os.path.join(tempdir, 'debconf.conf')
+    os.environ['DEBCONF_SYSTEMRC'] = 'tests/debconf.conf-installed'
 else:
     sys.path.insert(0, '.')
 
