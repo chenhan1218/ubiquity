@@ -90,7 +90,7 @@ ifndef UBIQUITY_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
-	rm -f debian/ubiquity/usr/lib/libubiwebcam.la
+	rm -f debian/ubiquity-frontend-gtk/usr/lib/libubi*.la
 endif
 	$(MAKE) -C d-i install
 

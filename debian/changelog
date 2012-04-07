@@ -8,6 +8,7 @@ ubiquity (2.10.9) UNRELEASED; urgency=low
       first.
     - Fix test_ubi_partman not to rely on tests/partman-tree/ in autopkgtest
       mode.
+  * Do a better job of removing .la files.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Apr 2012 22:35:33 +0100
 
