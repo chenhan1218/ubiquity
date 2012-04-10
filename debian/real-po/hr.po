@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2011-10-02 08:47+0000\n"
-"Last-Translator: tty <Unknown>\n"
+"PO-Revision-Date: 2012-04-10 16:39+0000\n"
+"Last-Translator: Tomislav Krznar <tomislav.krznar@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-05 21:54+0000\n"
-"X-Generator: Launchpad (build 15060)\n"
+"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Povezivanje..."
 
 #. Type: text
 #. Description
@@ -145,6 +145,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2012."
 msgstr ""
+"Ovo je beta-verzija ${RELEASE} live ${MEDIUM} instalacijskog programa. Ovo "
+"nije završno izdanje; ono će doći zajedno sa\r\n"
+"završnim izdanjem ${RELEASE} u travnju 2012."
 
 #. Type: text
 #. Description
@@ -228,19 +231,19 @@ msgstr "Odaberite sliku"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Snimite fotografiju:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Ili odaberite postojeću sliku:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Snimi fotografiju"
 
 #. Type: text
 #. Description
@@ -270,13 +273,13 @@ msgstr "Korisničko ime"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Mora početi malim slovom."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Smije sadržavati samo mala slova, znamenke, povlake i podvlake."
 
 #. Type: text
 #. Description
@@ -318,25 +321,25 @@ msgstr "Naziv kojeg koristi za komunikaciju s ostalim računalima."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Duljina mora biti između 1 i 63 znaka."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Smije sadržavati samo slova, znamenke, povlake i točke."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Ne smije započeti ili završiti povlakom."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "Ne smije početi ili završiti točkom ili sadržavati niz \"..\"."
 
 #. Type: text
 #. Description
@@ -407,6 +410,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Ova će slika biti pridružena vašem korisničkom imenu i prikazana uz njega "
+"svakom prilikom."
 
 #. Type: text
 #. Description
@@ -1144,7 +1149,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Greška pri kopiranju bluetooth postavki"
 
 #. Type: error
 #. Description
@@ -1154,6 +1159,9 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Dogodila se greška pri kopiranju bluetooth postavki. Instalacija će se "
+"nastaviti, no bluetooth postavke ćete morati ponovo postaviti u instaliranom "
+"sustavu."
 
 #. Type: error
 #. Description
@@ -1454,25 +1462,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr ""
+msgstr "Lozinka:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Display password"
-msgstr ""
+msgstr "Prikaži lozinku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Trenutno se ne želim povezati na bežičnu mrežu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Connect to this network"
-msgstr ""
+msgstr "Poveži se na ovu mrežu"
 
 #. Type: text
 #. Description
@@ -1587,6 +1595,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo MP3 dodatak uključuje tehnologiju za dekodiranje MPEG Layer-3 "
+"zvučnih zapisa licenciranu od tvrtki Fraunhofer IIS i Technicolor SA."
 
 #. Type: text
 #. Description

@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2011-10-21 17:28+0000\n"
+"PO-Revision-Date: 2012-04-10 16:49+0000\n"
 "Last-Translator: Andreas N. <Unknown>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-05 21:55+0000\n"
-"X-Generator: Launchpad (build 15060)\n"
+"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Koplar til …"
 
 #. Type: text
 #. Description
@@ -116,23 +116,21 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Det kan henda du ynskjer å lesa <a href=\"release-notes\">merknader for "
-"utgjeving</a> eller <a href=\"update\">oppdatera dette "
-"installasjonverktøyet</a>."
+"Du kan ha nytte av å lesa <a href=\"release-notes\">utgjevingsmerknadene</a> "
+"eller <a href=\"update\">oppdatera installasjonsprogrammet</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Det kan henda du ynskjer å lesa <a href=\"release-notes\">merknader for "
-"utgjeving</a>."
+"Du kan ha nytte av å lesa <a href=\"release-notes\">utgjevingsmerknadene</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "Du vil kanskje <a href=\"update\">oppdatera installasjonverktøyet</a>."
+msgstr "Du kan <a href=\"update\">oppdatera installasjonsprogrammet</a>."
 
 #. Type: text
 #. Description
@@ -167,7 +165,7 @@ msgstr "Åtvaring"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Where are you?"
-msgstr "Kor bur du?"
+msgstr "Kvar bur du?"
 
 #. Type: text
 #. Description
@@ -227,19 +225,19 @@ msgstr "Vel eit bilete"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "Ta eit bilete:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "Eller vel eit eksisterande bilete:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "Ta bilete"
 
 #. Type: text
 #. Description
@@ -269,13 +267,13 @@ msgstr "Brukarnamn"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "Må starta med liten bokstav"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "Kan berre innehalda små bokstavar, tal, bindestrekar og understrekar."
 
 #. Type: text
 #. Description
@@ -317,25 +315,26 @@ msgstr "Namnet ho brukar når ho snakkar med andre datamaskinar."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "Må vera mellom 1 og 63 teikn langt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "Kan berre innehalda bokstavar, tal, bindestrekar og punktum."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "Kan ikkje starta eller slutta med bindestrek."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"Kan ikkje starta eller slutta med punktum eller innehalda uttrykket «..»."
 
 #. Type: text
 #. Description
@@ -403,7 +402,7 @@ msgstr "Krypter heimemappa"
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
+msgstr "Dette biletet vert knytt til brukarnamnet ditt og vist saman med det."
 
 #. Type: text
 #. Description
@@ -1139,7 +1138,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Feil ved kopiering av blåtanninnstillingar"
 
 #. Type: error
 #. Description
@@ -1149,6 +1148,9 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Ein feil oppstod under kopiering av blåtanninnstillingar. Installasjonen vil "
+"halda fram, men blåtanninnstillingane må setjast opp att etter "
+"installasjonen."
 
 #. Type: error
 #. Description
@@ -1448,25 +1450,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Password:"
-msgstr ""
+msgstr "Passord:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:208001
 msgid "Display password"
-msgstr ""
+msgstr "Vis passord"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "Ikkje kopla til trådlaust nettverk no"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:210001
 msgid "Connect to this network"
-msgstr ""
+msgstr "Kopla til dette nettverket"
 
 #. Type: text
 #. Description
@@ -1581,6 +1583,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo MP3-utvidinga inneheld lyddekodingsteknologien MPEG Layer-3, "
+"lisensiert frå Fraunhofer IIS og Technicolor SA."
 
 #. Type: text
 #. Description
