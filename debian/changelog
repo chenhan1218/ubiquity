@@ -10,6 +10,8 @@ ubiquity (2.10.9) UNRELEASED; urgency=low
       mode.
   * Do a better job of removing .la files.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu7.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Apr 2012 22:35:33 +0100
 
