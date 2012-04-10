@@ -1,4 +1,4 @@
-ubiquity (2.10.9) UNRELEASED; urgency=low
+ubiquity (2.10.9) precise-proposed; urgency=low
 
   * Try harder to make the unit tests work within autopkgtest:
     - Install mockresolver (it's small, and this really does make the
@@ -13,7 +13,7 @@ ubiquity (2.10.9) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.122ubuntu7.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Apr 2012 22:35:33 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 10 Apr 2012 21:00:08 +0100
 
 ubiquity (2.10.8) precise; urgency=low
 
