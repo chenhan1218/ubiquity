@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8; -*-
 
+import os
 import unittest
 from test.test_support import EnvironmentVarGuard
 
@@ -39,11 +40,12 @@ class OEMUserLanguageTests(unittest.TestCase):
         # I would love to test whether the actual allocations are all the
         # same height; however, GTK+3.0 does not allow access to the
         # GtkIconViewItem GList.
-        real_method = open
-        method = mock.patch('__builtin__.open')
-        mocked_method = method.start()
-        mocked_method.side_effect = side_effect_factory(real_method)
-        self.addCleanup(method.stop)
+        if 'UBIQUITY_TEST_INSTALLED' not in os.environ:
+            real_method = open
+            method = mock.patch('__builtin__.open')
+            mocked_method = method.start()
+            mocked_method.side_effect = side_effect_factory(real_method)
+            self.addCleanup(method.stop)
 
         current_language, sorted_choices, language_display_map = \
             i18n.get_languages(0, False)

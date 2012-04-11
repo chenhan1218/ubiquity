@@ -1,3 +1,10 @@
+ubiquity (2.10.10) UNRELEASED; urgency=low
+
+  * Don't try to open files inside d-i/source/localechooser/ when running
+    the unit tests within autopkgtest.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Apr 2012 15:48:33 +0100
+
 ubiquity (2.10.9) precise-proposed; urgency=low
 
   * Try harder to make the unit tests work within autopkgtest:
