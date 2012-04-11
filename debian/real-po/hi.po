@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-02-09 00:51+0000\n"
-"Last-Translator: Manish Kumar <manishku86@yahoo.co.in>\n"
+"PO-Revision-Date: 2012-04-11 10:04+0000\n"
+"Last-Translator: Ravi Kumar <Unknown>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
+"X-Launchpad-Export-Date: 2012-04-11 16:21+0000\n"
 "X-Generator: Launchpad (build 15070)\n"
 
 #. Type: text
@@ -222,19 +222,19 @@ msgstr "एक चित्र का चयन करें"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take a photo:"
-msgstr ""
+msgstr "तस्वीर खींचें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "या एक मौजूदा तस्वीर का चयन करें:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Take Photo"
-msgstr ""
+msgstr "फोटो ले"
 
 #. Type: text
 #. Description
@@ -264,13 +264,13 @@ msgstr "प्रयोक्ता नाम"
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "लोअरकेस अक्षर के साथ शुरू होना चाहिए."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "केवल लोअरकेस अक्षरों, अंकों, हाइफ़न, और अंडरस्कोर हो सकतॆ है."
 
 #. Type: text
 #. Description
@@ -312,25 +312,26 @@ msgstr "इस नाम का उपयोग अन्य कंप्यू�
 #. Description
 #: ../ubiquity.templates:44001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "1 और 63 वर्णों के बीच होना चाहिए."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "केवल अक्षर, अंक, हाइफ़न, और डॉट्स हो सकता है."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "एक हायफ़न के साथ शुरू या समाप्त नहीं हो सकता है."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:47001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
+"एक बिंदु के साथ शुरू या समाप्त नहीं हो सकता है, और ना ही अनुक्रम \"..\" होना चहिए."
 
 #. Type: text
 #. Description
@@ -399,6 +400,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"यह तस्वीर अपने उपयोगकर्ता नाम के साथ जुड़ जाएगा और समय पर इसके साथ प्रदर्शित किया "
+"जाएगा."
 
 #. Type: text
 #. Description
@@ -1125,7 +1128,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "ब्लूटूथ कॉन्फ़िगरेशन की प्रतिलिपि बनाने मॆ त्रुटि"
 
 #. Type: error
 #. Description
@@ -1135,6 +1138,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"एक त्रुटि आई जब ब्लूटूथ सेटिंग्स की प्रतिलिपि बन रही थी. स्थापना जारी रहेगा, लेकिन ब्लूटूथ "
+"कॉन्फ़िगरेशन को फिर से स्थापित प्रणाली में स्थापित किया जऎगा."
 
 #. Type: error
 #. Description
@@ -1559,6 +1564,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo एमपी 3 प्लगइन एमपीईजी परत 3 ऑडियो decoding के Fraunhofer आईआईएस और "
+"टेक्नीकलर SA से लाइसेंस प्रौद्योगिकी शामिल हैं."
 
 #. Type: text
 #. Description
