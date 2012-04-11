@@ -2,6 +2,8 @@ ubiquity (2.10.10) UNRELEASED; urgency=low
 
   * Don't try to open files inside d-i/source/localechooser/ when running
     the unit tests within autopkgtest.
+  * Make test_ubi_partman read templates from the system templates database
+    rather than tests/templates.dat when running within autopkgtest.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Apr 2012 15:48:33 +0100
 

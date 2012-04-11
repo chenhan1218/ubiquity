@@ -17,7 +17,11 @@ ubi_partman = plugin_manager.load_plugin('ubi-partman')
 def question_has_variables(question, lookup_variables):
     existing_variables = []
     found_question = False
-    with open('tests/templates.dat') as templates:
+    if 'UBIQUITY_TEST_INSTALLED' in os.environ:
+        templates_dat = '/var/cache/debconf/templates.dat'
+    else:
+        templates_dat = 'tests/templates.dat'
+    with open(templates_dat) as templates:
         for line in templates:
             if found_question and line == '\n':
                 break
