@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-03-09 12:10-0500\n"
-"PO-Revision-Date: 2012-03-14 11:06+0000\n"
+"PO-Revision-Date: 2012-04-13 07:44+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
+"X-Launchpad-Export-Date: 2012-04-13 14:50+0000\n"
 "X-Generator: Launchpad (build 15070)\n"
 
 #. Type: text
@@ -115,8 +115,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"מומלץ לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או לבצע <a href="
-"\"update\">עדכון לתכנית התקנה זו</a>."
+"מומלץ לקרוא את <a href=\"release-notes\">הערות ההפצה</a> או את <a href="
+"\"update\">עדכון תכנית התקנה זו</a>."
 
 #. Type: text
 #. Description
@@ -128,7 +128,7 @@ msgstr "מומלץ לעיין ב<a href=\"release-notes\">הערות ההפצה<
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr "מומלץ לבצע <a href=\"update\">עדכון של תכנית התקנה זו</a>."
+msgstr "מומלץ לעיין ב<a href=\"update\">עדכון תכנית התקנה זו</a>."
 
 #. Type: text
 #. Description
@@ -254,7 +254,7 @@ msgstr "שמך"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Pick a username:"
-msgstr "בחירת שם משתמש:"
+msgstr "נא לבחור שם משתמש:"
 
 #. Type: text
 #. Description
