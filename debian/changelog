@@ -1,4 +1,4 @@
-ubiquity (2.10.12) UNRELEASED; urgency=low
+ubiquity (2.10.12) precise-proposed; urgency=low
 
   * Fix download verification to handle epochs correctly, and add a little
     more logging so that we can debug any further errors along these lines.
@@ -7,7 +7,7 @@ ubiquity (2.10.12) UNRELEASED; urgency=low
       browsing interface and the cache is memory-hungry.  This may help with
       LP #979350.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Apr 2012 19:26:15 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Apr 2012 19:49:13 +0100
 
 ubiquity (2.10.11) precise-proposed; urgency=low
 
