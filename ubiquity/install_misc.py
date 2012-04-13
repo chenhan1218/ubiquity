@@ -23,7 +23,7 @@
 
 import errno
 import fcntl
-from hashlib import md5
+import hashlib
 import os
 import re
 import shutil
@@ -36,6 +36,7 @@ import traceback
 from apt.cache import Cache
 from apt.progress.base import InstallProgress
 from apt.progress.text import AcquireProgress
+import apt_pkg
 import debconf
 
 from ubiquity import misc
@@ -688,7 +689,7 @@ def copy_file(db, sourcepath, targetpath, md5_check):
             sourcefh = open(sourcepath, 'rb')
             targetfh = open(targetpath, 'wb')
             if md5_check:
-                sourcehash = md5()
+                sourcehash = hashlib.md5()
             while 1:
                 buf = sourcefh.read(16 * 1024)
                 if not buf:
@@ -702,7 +703,7 @@ def copy_file(db, sourcepath, targetpath, md5_check):
             targetfh.close()
             targetfh = open(targetpath, 'rb')
             if md5_check:
-                targethash = md5()
+                targethash = hashlib.md5()
             while 1:
                 buf = targetfh.read(16 * 1024)
                 if not buf:
@@ -763,6 +764,71 @@ class InstallBase:
                              'ubiquity/install/title')
             self.db.progress('SET', self.prev_count)
 
+    def commit_with_verify(self, cache, fetch_progress, install_progress):
+        # Hack around occasional undetected download errors in apt by doing
+        # our own verification pass at the end.  See
+        # https://bugs.launchpad.net/bugs/922949.  Unfortunately this means
+        # clone-and-hacking most of cache.commit ...
+        pm = apt_pkg.PackageManager(cache._depcache)
+        fetcher = apt_pkg.Acquire(fetch_progress)
+        while True:
+            # fetch archives first
+            res = cache._fetch_archives(fetcher, pm)
+
+            # manually verify all the downloads
+            syslog.syslog('Verifying downloads ...')
+            for item in fetcher.items:
+                with open(item.destfile) as destfile:
+                    st = os.fstat(destfile.fileno())
+                    if st.st_size != item.filesize:
+                        osextras.unlink_force(item.destfile)
+                        raise IOError(
+                            "%s size mismatch: %ld != %ld" %
+                            (item.destfile, st.st_size, item.filesize))
+
+                    # Mapping back to the package object is an utter pain.
+                    # If we fail to find one, it's entirely possible it's a
+                    # programming error and not a download error, so skip
+                    # verification in such cases rather than failing.
+                    destfile_base = os.path.basename(item.destfile)
+                    try:
+                        name, version, arch = destfile_base.split('_')
+                        arch = arch.split('.')[0]
+                        if arch == 'all':
+                            fullname = name
+                        else:
+                            fullname = '%s:%s' % (name, arch)
+                        candidate = cache[fullname].versions[version]
+                    except (KeyError, ValueError):
+                        continue
+
+                    if candidate.sha256 is not None:
+                        sha256 = hashlib.sha256()
+                        for chunk in iter(lambda: destfile.read(16384), b''):
+                            sha256.update(chunk)
+                        if sha256.hexdigest() != candidate.sha256:
+                            osextras.unlink_force(item.destfile)
+                            raise IOError(
+                                "%s SHA256 checksum mismatch: %s != %s" %
+                                (item.destfile, sha256.hexdigest(),
+                                 candidate.sha256))
+            syslog.syslog('Downloads verified successfully')
+
+            # then install
+            res = cache.install_archives(pm, install_progress)
+            if res == pm.RESULT_COMPLETED:
+                break
+            elif res == pm.RESULT_FAILED:
+                raise SystemError("installArchives() failed")
+            elif res == pm.RESULT_INCOMPLETE:
+                pass
+            else:
+                raise SystemError("internal-error: unknown result code "
+                                  "from InstallArchives: %s" % res)
+            # reload the fetcher for media swapping
+            fetcher.shutdown()
+        return (res == pm.RESULT_COMPLETED)
+
     def do_install(self, to_install, langpacks=False):
         self.nested_progress_start()
 
@@ -811,7 +877,8 @@ class InstallBase:
         commit_error = None
         try:
             try:
-                if not cache.commit(fetchprogress, installprogress):
+                if not self.commit_with_verify(cache,
+                                               fetchprogress, installprogress):
                     fetchprogress.stop()
                     installprogress.finishUpdate()
                     self.db.progress('STOP')

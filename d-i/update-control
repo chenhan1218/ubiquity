@@ -52,7 +52,7 @@ my @basebd = (
     'po-debconf (>= 1.0)',
     'pyflakes',
     'python-all (>= 2.6.6-3~)',
-    'python-apt (>= 0.7.91~)',
+    'python-apt (>= 0.7.100.3~)',
     'python-cairo',
     'python-dbus',
     'python-gi-cairo',
