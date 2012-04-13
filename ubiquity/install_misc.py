@@ -793,13 +793,17 @@ class InstallBase:
                     destfile_base = os.path.basename(item.destfile)
                     try:
                         name, version, arch = destfile_base.split('_')
+                        version = version.replace('%3a', ':')
                         arch = arch.split('.')[0]
                         if arch == 'all':
                             fullname = name
                         else:
                             fullname = '%s:%s' % (name, arch)
                         candidate = cache[fullname].versions[version]
-                    except (KeyError, ValueError):
+                    except (KeyError, ValueError), e:
+                        syslog.syslog(
+                            'Failed to find package object for %s: %s' %
+                            (item.destfile, e))
                         continue
 
                     if candidate.sha256 is not None:

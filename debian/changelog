@@ -1,3 +1,10 @@
+ubiquity (2.10.12) UNRELEASED; urgency=low
+
+  * Fix download verification to handle epochs correctly, and add a little
+    more logging so that we can debug any further errors along these lines.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Apr 2012 19:26:15 +0100
+
 ubiquity (2.10.11) precise-proposed; urgency=low
 
   * Work around occasional undetected download errors in apt by doing our
