@@ -1,10 +1,10 @@
-ubiquity (2.10.11) UNRELEASED; urgency=low
+ubiquity (2.10.11) precise-proposed; urgency=low
 
   * Work around occasional undetected download errors in apt by doing our
     own verification pass before trying to install packages (LP: #922949).
   * Update translations from Launchpad.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Apr 2012 13:32:40 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Apr 2012 17:16:33 +0100
 
 ubiquity (2.10.10) precise; urgency=low
 
