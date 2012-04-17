@@ -1,4 +1,4 @@
-ubiquity (2.10.13) UNRELEASED; urgency=low
+ubiquity (2.10.13) precise-proposed; urgency=low
 
   * Update translations from Launchpad.
   * Copy the panel gradient from light-themes 0.1.8.25 (Ubuntu 11.10) and
@@ -6,7 +6,7 @@ ubiquity (2.10.13) UNRELEASED; urgency=low
     correct fix would be to use CSS instead, but I can't seem to make this
     work at the moment (LP: #982883).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Apr 2012 11:40:41 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Apr 2012 20:22:30 +0100
 
 ubiquity (2.10.12) precise-proposed; urgency=low
 
