@@ -1,6 +1,10 @@
 ubiquity (2.10.13) UNRELEASED; urgency=low
 
   * Update translations from Launchpad.
+  * Copy the panel gradient from light-themes 0.1.8.25 (Ubuntu 11.10) and
+    use it as a fallback in case other panel images cannot be found.  The
+    correct fix would be to use CSS instead, but I can't seem to make this
+    work at the moment (LP: #982883).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Apr 2012 11:40:41 +0100
 

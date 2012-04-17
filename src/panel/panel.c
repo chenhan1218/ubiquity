@@ -248,6 +248,9 @@ on_draw(GtkWidget *widget, cairo_t *cr, gpointer userdata) {
 	if (!pixbuf) {
 		pixbuf = gdk_pixbuf_new_from_file("/usr/share/lxpanel/images/lubuntu-background.png", NULL);
 	}
+	if (!pixbuf) {
+		pixbuf = gdk_pixbuf_new_from_file("/usr/share/ubiquity/pixmaps/panel.png", NULL);
+	}
 	if (pixbuf) {
 		gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
 		cairo_pattern_set_extend(cairo_get_source(cr), CAIRO_EXTEND_REPEAT);
