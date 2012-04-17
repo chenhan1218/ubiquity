@@ -1,3 +1,9 @@
+ubiquity (2.10.13) UNRELEASED; urgency=low
+
+  * Update translations from Launchpad.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 17 Apr 2012 11:40:41 +0100
+
 ubiquity (2.10.12) precise-proposed; urgency=low
 
   * Fix download verification to handle epochs correctly, and add a little
