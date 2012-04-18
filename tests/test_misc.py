@@ -311,17 +311,20 @@ class GrubDefaultTests(unittest.TestCase):
         ]
 
     Tests should also set self.cdrom_mount to a (disk, fs_type) pair, e.g.
-    ('/dev/sr0', 'iso9660'), and may set self.boot_device_removable to the
-    path to a removable boot device, e.g. '/dev/sdb'.
+    ('/dev/sr0', 'iso9660'), may set self.removable_devices to a list of
+    paths to removable devices, e.g. ['/dev/sdb'], and may set
+    self.boot_device to the path to a device containing /boot, e.g.
+    '/dev/sdb'.
     """
 
     def setUp(self):
         for obj in (
             'os.path.realpath',
             'os.path.samefile',
+            'ubiquity.misc.boot_device',
             'ubiquity.misc.cdrom_mount_info',
             'ubiquity.misc.grub_device_map',
-            'ubiquity.misc.is_boot_device_removable',
+            'ubiquity.misc.is_removable',
             ):
             patcher = mock.patch(obj)
             patcher.start()
@@ -329,12 +332,13 @@ class GrubDefaultTests(unittest.TestCase):
 
         os.path.realpath.side_effect = self.realpath_side_effect
         os.path.samefile.side_effect = self.samefile_side_effect
+        misc.boot_device.side_effect = self.boot_device_side_effect
         misc.cdrom_mount_info.side_effect = self.cdrom_mount_info_side_effect
         misc.grub_device_map.side_effect = self.grub_device_map_side_effect
-        misc.is_boot_device_removable.side_effect = \
-            self.is_boot_device_removable_side_effect
+        misc.is_removable.side_effect = self.is_removable_side_effect
 
-        self.boot_device_removable = None
+        self.removable_devices = []
+        self.boot_device = None
 
     def iter_devices(self):
         """Iterate through devices, expanding abbreviated forms."""
@@ -361,6 +365,9 @@ class GrubDefaultTests(unittest.TestCase):
                 return True
         return False
 
+    def boot_device_side_effect(self):
+        return self.boot_device
+
     def cdrom_mount_info_side_effect(self):
         return list(self.cdrom_mount)
 
@@ -370,13 +377,17 @@ class GrubDefaultTests(unittest.TestCase):
             device_map.append('%s\t%s' % (grub_dev, by_id_dev))
         return device_map
 
-    def is_boot_device_removable_side_effect(self):
-        return self.boot_device_removable
+    def is_removable_side_effect(self, device):
+        if device in self.removable_devices:
+            return device
+        else:
+            return None
 
     def test_removable(self):
         self.devices = [['hd0', 'sda', 'serial-number-for-sda']]
         self.cdrom_mount = ('/dev/sr0', 'iso9660')
-        self.boot_device_removable = '/dev/sdb'
+        self.boot_device = '/dev/sdb'
+        self.removable_devices = [self.boot_device]
         self.assertEqual('/dev/sdb', misc.grub_default())
 
     def test_use_first_disk(self):
@@ -397,6 +408,16 @@ class GrubDefaultTests(unittest.TestCase):
         self.cdrom_mount = ('/dev/sda', 'vfat')
         self.assertEqual('/dev/sdb', misc.grub_default())
         self.cdrom_mount = ('/dev/disk/by-id/cdrom', 'vfat')
+        self.assertEqual('/dev/sdb', misc.grub_default())
+
+    def test_usb_iso9660(self):
+        self.devices = [
+            ['hd0', 'sda', 'usb'],
+            ['hd1', 'sdb', 'disk'],
+            ]
+        self.cdrom_mount = ('/dev/sda', 'iso9660')
+        self.boot_device = '/dev/sdb'
+        self.removable_devices = ['/dev/sda']
         self.assertEqual('/dev/sdb', misc.grub_default())
 
 

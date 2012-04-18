@@ -6,6 +6,9 @@ ubiquity (2.10.14) UNRELEASED; urgency=low
     moment, apt may sometimes select ubiquity-frontend-kde to resolve
     ubiquity's dependency on a frontend before realising that oem-config-gtk
     already depends on ubiquity-frontend-gtk.
+  * Don't default to installing GRUB to a removable device with /cdrom
+    mounted from it, even if /cdrom's filesystem isn't iso9660
+    (LP: #984989).
 
   [ Stéphane Graber ]
   * Always install oem-config-slideshow-ubuntu in OEM mode, also for
