@@ -1,3 +1,13 @@
+ubiquity (2.10.14) UNRELEASED; urgency=low
+
+  * Install ubiquity-frontend-$frontend along with oem-config-$frontend to
+    improve dependency resolution; with the packaging the way it is at the
+    moment, apt may sometimes select ubiquity-frontend-kde to resolve
+    ubiquity's dependency on a frontend before realising that oem-config-gtk
+    already depends on ubiquity-frontend-gtk.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Apr 2012 11:55:04 +0100
+
 ubiquity (2.10.13) precise-proposed; urgency=low
 
   * Update translations from Launchpad.
