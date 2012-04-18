@@ -1,12 +1,17 @@
 ubiquity (2.10.14) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Install ubiquity-frontend-$frontend along with oem-config-$frontend to
     improve dependency resolution; with the packaging the way it is at the
     moment, apt may sometimes select ubiquity-frontend-kde to resolve
     ubiquity's dependency on a frontend before realising that oem-config-gtk
     already depends on ubiquity-frontend-gtk.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Apr 2012 11:55:04 +0100
+  [ Stéphane Graber ]
+  * Always install oem-config-slideshow-ubuntu in OEM mode, also for
+    alternate installs (LP: #984736)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 18 Apr 2012 16:05:11 +0200
 
 ubiquity (2.10.13) precise-proposed; urgency=low
 
