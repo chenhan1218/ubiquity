@@ -25,7 +25,7 @@ partman-jfs 35
 partman-newworld 26
 partman-partitioning 85ubuntu2
 partman-reiserfs 52
-partman-target 77ubuntu1
+partman-target 77ubuntu2
 partman-uboot 5
 partman-xfs 49
 preseed 1.50ubuntu1
