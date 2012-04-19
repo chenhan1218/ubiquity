@@ -155,6 +155,7 @@ class DM:
         signal.signal(signal.SIGUSR1, signal.SIG_IGN)
 
     def run(self, *program):
+        extras = []
         null = open('/dev/null', 'w')
         try:
             os.makedirs('/var/log/installer')
@@ -280,6 +281,13 @@ EndSection
             dbus_subp.stdout.close()
             dbus_subp.wait()
 
+        # dconf writer
+        if os.path.exists("/usr/lib/dconf/dconf-service"):
+            extras.append(subprocess.Popen(
+                ['/usr/lib/dconf/dconf-service'],
+                stdin=null, stdout=logfile, stderr=logfile,
+                preexec_fn=self.drop_privileges))
+
         gconfd_running = False
         if (self.frontend == 'gtk_ui' and
             osextras.find_on_path('gconftool-2')):
@@ -288,7 +296,6 @@ EndSection
                             preexec_fn=self.drop_privileges)
             gconfd_running = True
 
-        extras = []
         if self.frontend == 'gtk_ui':
             gconf_dir = ('xml:readwrite:%s' %
                 os.path.expanduser('~%s/.gconf' %
