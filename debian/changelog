@@ -9,6 +9,10 @@ ubiquity (2.10.14) UNRELEASED; urgency=low
   * Don't default to installing GRUB to a removable device with /cdrom
     mounted from it, even if /cdrom's filesystem isn't iso9660
     (LP: #984989).
+  * If encrypting the user's home directory, wipe and enable encrypted swap
+    before starting the slideshow, because running the slideshow can use up
+    a lot of memory so we won't be able to disable swap once that's in
+    progress (LP: #979350).
 
   [ Stéphane Graber ]
   * Always install oem-config-slideshow-ubuntu in OEM mode, also for

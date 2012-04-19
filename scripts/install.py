@@ -398,8 +398,9 @@ class Install(install_misc.InstallBase):
             for name in dirnames + filenames:
                 relpath = os.path.join(sp, name)
                 # /etc/fstab was legitimately created by partman, and
-                # shouldn't be copied again.
-                if relpath == "etc/fstab":
+                # shouldn't be copied again.  Similarly, /etc/crypttab may
+                # have been legitimately created by the user-setup plugin.
+                if relpath in ("etc/fstab", "etc/crypttab"):
                     continue
                 sourcepath = os.path.join(self.source, relpath)
                 targetpath = os.path.join(self.target, relpath)

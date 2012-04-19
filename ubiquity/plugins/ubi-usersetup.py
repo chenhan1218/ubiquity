@@ -760,7 +760,10 @@ class Page(plugin.Plugin):
             return (['/usr/lib/ubiquity/user-setup/user-setup-ask-oem'],
                     questions, environ)
         else:
-            return (['/usr/lib/ubiquity/user-setup/user-setup-ask', '/target'],
+            # TODO: It would be neater to use a wrapper script.
+            return (['sh', '-c',
+                     '/usr/lib/ubiquity/user-setup/user-setup-ask /target && '
+                     '/usr/share/ubiquity/user-setup-encrypted-swap'],
                     questions)
 
     def set(self, question, value):
@@ -831,8 +834,11 @@ class Install(plugin.InstallPlugin):
             environ = {'OVERRIDE_SYSTEM_USER': '1'}
             return (['/usr/lib/ubiquity/user-setup/user-setup-apply'], [], environ)
         else:
+            environ = {}
+            if os.path.exists('/var/lib/ubiquity/encrypted-swap'):
+                environ['OVERRIDE_ALREADY_ENCRYPTED_SWAP'] = '1'
             return (['/usr/lib/ubiquity/user-setup/user-setup-apply', '/target'],
-                    [])
+                    [], environ)
 
     def error(self, priority, question):
         self.ui.error_dialog(self.description(question),
