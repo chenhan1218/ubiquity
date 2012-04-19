@@ -1,4 +1,4 @@
-ubiquity (2.10.14) UNRELEASED; urgency=low
+ubiquity (2.10.14) precise-proposed; urgency=low
 
   [ Colin Watson ]
   * Install ubiquity-frontend-$frontend along with oem-config-$frontend to
@@ -22,7 +22,7 @@ ubiquity (2.10.14) UNRELEASED; urgency=low
   * Always install oem-config-slideshow-ubuntu in OEM mode, also for
     alternate installs (LP: #984736)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 18 Apr 2012 16:05:11 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 19 Apr 2012 03:30:44 +0100
 
 ubiquity (2.10.13) precise-proposed; urgency=low
 
