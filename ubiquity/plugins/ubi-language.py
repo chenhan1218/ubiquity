@@ -350,6 +350,8 @@ class PageGtk(PageBase):
     def on_link_clicked(self, widget, uri):
         # Connected in glade.
         lang = self.get_language()
+        if not lang:
+            lang = 'C'
         lang = lang.split('.')[0] # strip encoding
         if uri == 'update':
             if not auto_update.update(self.controller._wizard):
