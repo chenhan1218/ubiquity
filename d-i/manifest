@@ -1,4 +1,4 @@
-apt-setup 1:0.55ubuntu2
+apt-setup 1:0.55ubuntu3
 base-installer 1.122ubuntu7
 bterm-unifont 1.2
 choose-mirror 2.39ubuntu4
@@ -15,7 +15,7 @@ netcfg 1.68ubuntu14
 partconf 1.37
 partman-auto 101ubuntu2
 partman-auto-loop 0ubuntu21
-partman-base 153ubuntu3
+partman-base 153ubuntu4
 partman-basicfilesystems 71ubuntu3
 partman-basicmethods 49
 partman-btrfs 8ubuntu1
@@ -30,5 +30,5 @@ partman-uboot 5
 partman-xfs 49
 preseed 1.50ubuntu1
 tzsetup 1:0.26ubuntu11
-user-setup 1.42ubuntu1
+user-setup 1.42ubuntu3
 yaboot-installer 1.1.20ubuntu1
