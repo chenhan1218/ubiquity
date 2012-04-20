@@ -277,8 +277,11 @@ class Install(install_misc.InstallBase):
         gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
             target_user, '--', 'id', '-g'], stdout=subprocess.PIPE)
         gid = gid.communicate()[0].strip('\n')
-        uid = int(uid)
-        gid = int(gid)
+        try:
+            uid = int(uid)
+            gid = int(gid)
+        except ValueError:
+            return
         if os.path.exists(PHOTO_PATH):
             targetpath = os.path.join(self.target, 'home', target_user, '.face')
             shutil.copy2(PHOTO_PATH, targetpath)

@@ -1,3 +1,11 @@
+ubiquity (2.10.15) UNRELEASED; urgency=low
+
+  * If we can't figure out the target user's uid/gid, don't copy the photo
+    to the user's home directory.  Addresses the immediate symptom of bug
+    #947738, if not the root cause.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Thu, 19 Apr 2012 19:53:56 -0700
+
 ubiquity (2.10.14) precise-proposed; urgency=low
 
   [ Colin Watson ]
