@@ -1,3 +1,11 @@
+ubiquity (2.10.16ubuntu1) UNRELEASED; urgency=low
+
+  * ubiquity-dm: Turn on the compositor in metacity.
+  * wallpaper: Update code to properly set the wallpaper when compositing
+    is enabled.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 23 Apr 2012 16:12:06 +0200
+
 ubiquity (2.10.16) precise-proposed; urgency=low
 
   [ Steve Langasek ]

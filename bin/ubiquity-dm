@@ -17,6 +17,7 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 import ubiquity.frontend
 from ubiquity import osextras
 from ubiquity import gsettings
+from ubiquity import gconftool
 from ubiquity.misc import create_bool
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
@@ -287,6 +288,9 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges)
             gconfd_running = True
+
+            # Enable compositing in metacity (not default upstream yet)
+            gconftool.set("/apps/metacity/general/compositing_manager", "boolean", "true")
 
         extras = []
         if self.frontend == 'gtk_ui':
