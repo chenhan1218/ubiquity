@@ -1,3 +1,12 @@
+ubiquity (2.10.17) UNRELEASED; urgency=low
+
+  * Install oem-config-slideshow-ubuntu in a separate pass from
+    oem-config-$frontend and ubiquity-frontend-$frontend, since it may be
+    missing from images; and only do this for the GTK frontend in any case,
+    since other frontends don't currently use the slideshow (LP: #987050).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 24 Apr 2012 00:57:51 +0100
+
 ubiquity (2.10.16) precise-proposed; urgency=low
 
   [ Steve Langasek ]
