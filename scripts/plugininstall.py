@@ -414,13 +414,13 @@ class Install(install_misc.InstallBase):
                 # Make sure there's at least something here so that ifupdown
                 # doesn't get upset at boot.
                 with open('/etc/network/interfaces', 'w') as interfaces:
-                    print >>interfaces, textwrap.dedent("""\
+                    print(textwrap.dedent("""\
                         # This file describes the network interfaces available on your system
                         # and how to activate them. For more information, see interfaces(5).
 
                         # The loopback network interface
                         auto lo
-                        iface lo inet loopback""")
+                        iface lo inet loopback"""), file=interfaces)
 
         try:
             hostname = self.db.get('netcfg/get_hostname')
@@ -564,7 +564,7 @@ class Install(install_misc.InstallBase):
                     os.path.join(self.target,
                                  'etc/apt/apt.conf.d/00InstallRecommends'),
                     'w')
-                print >>apt_conf_ir, 'APT::Install-Recommends "false";'
+                print('APT::Install-Recommends "false";', file=apt_conf_ir)
                 apt_conf_ir.close()
         except debconf.DebconfError:
             pass

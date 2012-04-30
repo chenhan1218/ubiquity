@@ -428,7 +428,7 @@ class Install(install_misc.InstallBase):
                     if not os.path.isdir(targetpath):
                         try:
                             os.mkdir(targetpath, mode)
-                        except OSError, e:
+                        except OSError as e:
                             # there is a small window where update-apt-cache
                             # can race with us since it creates
                             # "/target/var/cache/apt/...". Hence, ignore
