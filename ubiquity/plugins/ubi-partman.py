@@ -46,7 +46,7 @@ Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
 # Only those file systems that set this to 1 can have the boot loader
 # installed on them.  This is that list, with values taken from the .name
 # entry in the matching structs.
-FS_RESERVED_FIRST_SECTOR = set([
+FS_RESERVED_FIRST_SECTOR = {
     'btrfs',
     'ext2',
     'fat',
@@ -60,7 +60,7 @@ FS_RESERVED_FIRST_SECTOR = set([
     'fat16',
     'fat32',
     # Others?
-    ])
+    }
 
 
 class PageBase(plugin.PluginUI):
