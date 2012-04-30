@@ -1,4 +1,4 @@
-ubiquity (2.10.17) UNRELEASED; urgency=low
+ubiquity (2.11.0) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Install oem-config-slideshow-ubuntu in a separate pass from
