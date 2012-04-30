@@ -1,11 +1,17 @@
 ubiquity (2.10.17) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Install oem-config-slideshow-ubuntu in a separate pass from
     oem-config-$frontend and ubiquity-frontend-$frontend, since it may be
     missing from images; and only do this for the GTK frontend in any case,
     since other frontends don't currently use the slideshow (LP: #987050).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 24 Apr 2012 00:57:51 +0100
+  [ Stéphane Graber ]
+  * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.
+    This should ensure we have a single dconf-service running and that gets
+    killed on ubiquity's exit.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 30 Apr 2012 10:51:23 +0200
 
 ubiquity (2.10.16) precise-proposed; urgency=low
 
