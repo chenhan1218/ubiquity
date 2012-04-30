@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 from IN import INT_MAX
 import os
 import subprocess
@@ -160,16 +162,16 @@ class PageKde(PreparePageBase):
                     self.page.vbox1.addWidget(self.prepare_power_source)
                 else:
                     self.prepare_power_source.hide()
-            except Exception, e:
+            except Exception as e:
                 # TODO use an inconsistent state?
-                print 'unable to set up power source watch:', e
+                print('unable to set up power source watch:', e)
             try:
                 self.prepare_network_connection = StateBox(self.page)
                 self.page.vbox1.addWidget(self.prepare_network_connection)
-            except Exception, e:
-                print 'unable to set up network connection watch:', e
-        except Exception, e:
-            print >>sys.stderr,"Could not create prepare page:", str(e)
+            except Exception as e:
+                print('unable to set up network connection watch:', e)
+        except Exception as e:
+            print("Could not create prepare page:", str(e), file=sys.stderr)
             self.debug('Could not create prepare page: %s', e)
             self.page = None
         self.plugin_widgets = self.page

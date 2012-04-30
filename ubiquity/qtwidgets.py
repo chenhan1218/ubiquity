@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import sys
 
 from PyQt4.QtCore import Qt
@@ -35,4 +37,5 @@ class StateBox(QFrame):
         if prop == "label":
             self.label.setText(value)
         else:
-            print >>sys.stderr, "qtwidgets.StateBox set_property() only implemented for label"
+            print("qtwidgets.StateBox set_property() only implemented for "
+                  "label", file=sys.stderr)

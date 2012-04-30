@@ -30,7 +30,7 @@ def decode_ssid(characters):
 def get_prop(obj, iface, prop):
     try:
         return obj.Get(iface, prop, dbus_interface=dbus.PROPERTIES_IFACE)
-    except dbus.DBusException, e:
+    except dbus.DBusException as e:
         if e.get_dbus_name() == 'org.freedesktop.DBus.Error.UnknownMethod':
             return None
         else:
@@ -143,7 +143,7 @@ class NetworkManager:
                     sec = sec['802-11-wireless-security'].values()[0]
                     ssid = decode_ssid(props['802-11-wireless']['ssid'])
                     self.passphrases_cache[ssid] = sec
-                except dbus.exceptions.DBusException, e:
+                except dbus.exceptions.DBusException as e:
                     if e.get_dbus_name() != NM_ERROR_NOSECRETS:
                         raise
 

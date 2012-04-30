@@ -19,6 +19,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import errno
@@ -127,7 +129,7 @@ class Install(install_misc.InstallBase):
                     stdout=subprocess.PIPE, preexec_fn=subprocess_setup).pid
             try:
                 self.copy_all()
-            except EnvironmentError, e:
+            except EnvironmentError as e:
                 if e.errno in (errno.ENOENT, errno.EIO, errno.EFAULT,
                                errno.ENOTDIR, errno.EROFS):
                     if e.filename is None:
@@ -160,7 +162,7 @@ class Install(install_misc.InstallBase):
             for i in range(10):
                 try:
                     os.killpg(self.update_proc, signal.SIGTERM)
-                except OSError, e:
+                except OSError as e:
                     if e.errno == errno.ESRCH:
                         break
                     else:
@@ -169,7 +171,7 @@ class Install(install_misc.InstallBase):
             else:
                 try:
                     os.killpg(self.update_proc, signal.SIGKILL)
-                except OSError, e:
+                except OSError as e:
                     if e.errno != errno.ESRCH:
                         raise
             syslog.syslog('Terminated ubiquity update process.')
@@ -293,9 +295,9 @@ class Install(install_misc.InstallBase):
 
         # Consider only packages that don't have a prerm, and which can
         # therefore have their files removed without any preliminary work.
-        difference = set(filter(
-            lambda x: not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x),
-            difference))
+        difference = {
+            x for x in difference
+            if not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x)}
 
         confirmed_remove = set()
         for pkg in sorted(difference):
@@ -385,12 +387,12 @@ class Install(install_misc.InstallBase):
             with open('/proc/sys/vm/dirty_writeback_centisecs') as dwc:
                 dirty_writeback_centisecs = int(dwc.readline())
             with open('/proc/sys/vm/dirty_writeback_centisecs', 'w') as dwc:
-                print >>dwc, '3000\n'
+                print('3000\n', file=dwc)
         if os.path.exists('/proc/sys/vm/dirty_expire_centisecs'):
             with open('/proc/sys/vm/dirty_expire_centisecs') as dec:
                 dirty_expire_centisecs = int(dec.readline())
             with open('/proc/sys/vm/dirty_expire_centisecs', 'w') as dec:
-                print >>dec, '6000\n'
+                print('6000\n', file=dec)
 
         old_umask = os.umask(0)
         for dirpath, dirnames, filenames in os.walk(self.source):
@@ -426,7 +428,7 @@ class Install(install_misc.InstallBase):
                     if not os.path.isdir(targetpath):
                         try:
                             os.mkdir(targetpath, mode)
-                        except OSError, e:
+                        except OSError as e:
                             # there is a small window where update-apt-cache
                             # can race with us since it creates
                             # "/target/var/cache/apt/...". Hence, ignore
@@ -496,10 +498,10 @@ class Install(install_misc.InstallBase):
         # Revert to previous kernel flush times.
         if dirty_writeback_centisecs is not None:
             with open('/proc/sys/vm/dirty_writeback_centisecs', 'w') as dwc:
-                print >>dwc, dirty_writeback_centisecs
+                print(dirty_writeback_centisecs, file=dwc)
         if dirty_expire_centisecs is not None:
             with open('/proc/sys/vm/dirty_expire_centisecs', 'w') as dec:
-                print >>dec, dirty_expire_centisecs
+                print(dirty_expire_centisecs, file=dec)
 
         # Try some possible locations for the kernel we used to boot. This
         # lets us save a couple of megabytes of CD space.
@@ -535,9 +537,8 @@ class Install(install_misc.InstallBase):
             raise install_misc.InstallStepError("No source device found for %s" % fsfile)
 
         dev = ''
-        sysloops = filter(lambda x: x.startswith(blockdev_prefix),
-                          os.listdir('/sys/block'))
-        sysloops.sort()
+        sysloops = sorted([x for x in os.listdir('/sys/block')
+                           if x.startswith(blockdev_prefix)])
         for sysloop in sysloops:
             try:
                 sysloopf = open(os.path.join('/sys/block', sysloop, 'size'))
@@ -638,8 +639,8 @@ class Install(install_misc.InstallBase):
             assert self.mountpoints
 
             misc.execute('mount', '-t', 'unionfs', '-o',
-                         'dirs=' + ':'.join(map(lambda x: '%s=ro' % x,
-                                                self.mountpoints)),
+                         'dirs=' + ':'.join(['%s=ro' % x
+                                             for x in self.mountpoints]),
                          'unionfs', self.source)
             self.mountpoints.append(self.source)
 

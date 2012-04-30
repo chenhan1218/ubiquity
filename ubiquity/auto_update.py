@@ -18,6 +18,8 @@
 
 # Update the installer from the network.
 
+from __future__ import print_function
+
 import sys
 import os
 import syslog
@@ -117,11 +119,10 @@ def update(frontend):
         cache_progress = CacheProgressDebconfProgressAdapter(frontend)
         cache = apt.Cache(cache_progress)
         cache_progress.really_done()
-        updates = filter(
-            lambda pkg: pkg in cache and cache[pkg].is_upgradable,
-            UBIQUITY_PKGS)
-    except IOError, e:
-        print "ERROR: cache.update() returned: '%s'" % e
+        updates = [pkg for pkg in UBIQUITY_PKGS
+                   if pkg in cache and cache[pkg].is_upgradable]
+    except IOError as e:
+        print("ERROR: cache.update() returned: '%s'" % e)
         updates = []
 
     if not updates:
@@ -152,7 +153,7 @@ def update(frontend):
             os.dup2(2, 1)
             cache.commit(FetchProgressDebconfProgressAdapter(frontend),
                          InstallProgressDebconfProgressAdapter(frontend))
-        except (SystemError, IOError), e:
+        except (SystemError, IOError) as e:
             syslog.syslog(syslog.LOG_ERR,
                           "Error installing the update: '%s'" % e)
             title = frontend.get_string('error_updating_installer')

@@ -24,6 +24,8 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import sys
 import signal
@@ -71,8 +73,9 @@ class Wizard(BaseFrontend):
         # Is this even needed anymore now that Ubiquity elevates its
         # privileges?
         if os.getuid() != 0:
-            print >>self.console, 'This installer must be run with administrative ' \
-                'privileges, and cannot continue without them.'
+            print('This installer must be run with administrative '
+                  'privileges, and cannot continue without them.',
+                  file=self.console)
             sys.exit(1)
 
         for x in self.pages:
@@ -96,7 +99,8 @@ class Wizard(BaseFrontend):
         self.start_debconf()
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
-            print >>self.console, '\nUnable to commit the partition table, exiting.'
+            print('\nUnable to commit the partition table, exiting.',
+                  file=self.console)
             return
 
         self.start_debconf()
@@ -107,7 +111,7 @@ class Wizard(BaseFrontend):
             ret = dbfilter.run_command(auto_process=True)
         if ret == 0:
             self.run_success_cmd()
-            print >>self.console, 'Installation complete.'
+            print('Installation complete.', file=self.console)
             if self.get_reboot():
                 misc.execute("reboot")
         if ret != 0:
@@ -191,7 +195,8 @@ class Wizard(BaseFrontend):
     def debconf_progress_set(self, progress_val):
         """Set the current progress bar's position to progress_val."""
         self.progress_val = progress_val
-        print >>self.console, '%d%%: %s' % (self.progress_val, self.progress_info)
+        print('%d%%: %s' % (self.progress_val, self.progress_info),
+              file=self.console)
         return True
 
     def debconf_progress_step(self, progress_inc):
@@ -201,7 +206,8 @@ class Wizard(BaseFrontend):
     def debconf_progress_info(self, progress_info):
         """Set the current progress bar's message to progress_info."""
         self.progress_info = progress_info
-        print >>self.console, '%d%%: %s' % (self.progress_val, self.progress_info)
+        print('%d%%: %s' % (self.progress_val, self.progress_info),
+              file=self.console)
         return True
 
     def debconf_progress_stop(self):
@@ -220,7 +226,7 @@ class Wizard(BaseFrontend):
 
     def return_to_partitioning(self):
         """Return to partitioning following a commit error."""
-        print >>self.console, '\nCommit failed on partitioning.  Exiting.'
+        print('\nCommit failed on partitioning.  Exiting.', file=self.console)
         sys.exit(1)
 
     # ubiquity.components.migrationassistant
@@ -233,7 +239,7 @@ class Wizard(BaseFrontend):
 
     def error_dialog(self, title, msg, fatal=True):
         """Display an error message dialog."""
-        print >>self.console, '\n%s: %s' % (title, msg)
+        print('\n%s: %s' % (title, msg), file=self.console)
 
     def question_dialog(self, unused_title, unused_msg, unused_options,
                         use_templates=True):

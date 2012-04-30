@@ -21,6 +21,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import errno
 import fcntl
 import hashlib
@@ -112,9 +114,9 @@ def chroot_setup(target, x11=False):
 
     policy_rc_d = os.path.join(target, 'usr/sbin/policy-rc.d')
     f = open(policy_rc_d, 'w')
-    print >>f, """\
+    print("""\
 #!/bin/sh
-exit 101"""
+exit 101""", file=f)
     f.close()
     os.chmod(policy_rc_d, 0755)
 
@@ -122,11 +124,11 @@ exit 101"""
     if os.path.exists(start_stop_daemon):
         os.rename(start_stop_daemon, '%s.REAL' % start_stop_daemon)
     f = open(start_stop_daemon, 'w')
-    print >>f, """\
+    print("""\
 #!/bin/sh
 echo 1>&2
 echo 'Warning: Fake start-stop-daemon called, doing nothing.' 1>&2
-exit 0"""
+exit 0""", file=f)
     f.close()
     os.chmod(start_stop_daemon, 0755)
 
@@ -134,11 +136,11 @@ exit 0"""
     if os.path.exists(initctl):
         os.rename(initctl, '%s.REAL' % initctl)
         f = open(initctl, 'w')
-        print >>f, """\
+        print("""\
 #!/bin/sh
 echo 1>&2
 echo 'Warning: Fake initctl called, doing nothing.' 1>&2
-exit 0"""
+exit 0""", file=f)
         f.close()
         os.chmod(initctl, 0755)
 
@@ -204,7 +206,7 @@ def record_installed(pkgs):
     record = open(record_file, "a")
 
     for pkg in pkgs:
-        print >>record, pkg
+        print(pkg, file=record)
 
     record.close()
 
@@ -226,7 +228,7 @@ def record_removed(pkgs, recursive=False):
     record = open(record_file, "a")
 
     for pkg in pkgs:
-        print >>record, pkg, str(recursive).lower()
+        print(pkg, str(recursive).lower(), file=record)
 
     record.close()
 
@@ -436,7 +438,7 @@ def excepthook(exctype, excvalue, exctb):
     for line in tbtext.split('\n'):
         syslog.syslog(syslog.LOG_ERR, line)
     tbfile = open('/var/lib/ubiquity/install.trace', 'w')
-    print >>tbfile, tbtext
+    print(tbtext, file=tbfile)
     tbfile.close()
 
     sys.exit(1)
@@ -641,7 +643,7 @@ def remove_target(source_root, target_root, relpath, st_source):
         # Is it an empty directory?  That's easy too.
         os.rmdir(targetpath)
         return
-    except OSError, e:
+    except OSError as e:
         if e.errno not in (errno.ENOTEMPTY, errno.EEXIST):
             raise
 
@@ -664,7 +666,7 @@ def remove_target(source_root, target_root, relpath, st_source):
         if not os.path.exists(linktarget):
             try:
                 os.makedirs(os.path.dirname(linktarget))
-            except OSError, e:
+            except OSError as e:
                 if e.errno != errno.EEXIST:
                     raise
             shutil.move(targetpath, linktarget)
@@ -800,7 +802,7 @@ class InstallBase:
                         else:
                             fullname = '%s:%s' % (name, arch)
                         candidate = cache[fullname].versions[version]
-                    except (KeyError, ValueError), e:
+                    except (KeyError, ValueError) as e:
                         syslog.syslog(
                             'Failed to find package object for %s: %s' %
                             (item.destfile, e))
@@ -896,7 +898,7 @@ class InstallBase:
                 self.db.progress('STOP')
                 self.nested_progress_end()
                 return
-            except SystemError, e:
+            except SystemError as e:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
@@ -933,7 +935,7 @@ class InstallBase:
                 apt_out = subprocess.Popen(
                     ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
                     stdout=subprocess.PIPE).communicate()[0].rstrip().split('\n')
-                langpacks = map(lambda x: x.split('-')[2].strip(), apt_out)
+                langpacks = [x.split('-')[2].strip() for x in apt_out]
                 all_langpacks = True
             else:
                 langpacks = langpack_db.replace(',', '').split()
@@ -1043,7 +1045,7 @@ class InstallBase:
                     os.makedirs(os.path.dirname(langpacks_file))
                 with open(langpacks_file, 'w') as langpacks:
                     for pkg in to_install:
-                        print >>langpacks, pkg
+                        print(pkg, file=langpacks)
                 return []
             else:
                 return to_install

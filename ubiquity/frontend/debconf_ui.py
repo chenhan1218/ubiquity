@@ -24,6 +24,8 @@
 # Note that this frontend relies on being run under the control of a debconf
 # frontend; the main ubiquity program takes care of this.
 
+from __future__ import print_function
+
 import sys
 import os
 import textwrap
@@ -85,9 +87,9 @@ class Wizard(BaseFrontend):
 
     def run(self):
         if os.getuid() != 0:
-            print >>sys.stderr, textwrap.fill(
+            print(textwrap.fill(
                 'This program must be run with administrative privileges, and '
-                'cannot continue without them.')
+                'cannot continue without them.'), file=sys.stderr)
             sys.exit(1)
 
         self.pagesindex = 0

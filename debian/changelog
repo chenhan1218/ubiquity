@@ -9,6 +9,17 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
   * Upgrade to debhelper 9 for improved handling of compiler flags.  Make
     sure that /usr/lib/girepository-1.0/ stays where it's supposed to be
     despite changes in the default libdir for multiarch.
+  * Begin porting to Python 3:
+    - Use Python 3-style print functions.
+    - Use "except Exception as e" syntax rather than the old-style "except
+      Exception, e".
+    - Use reduce from functools rather than relying on the builtin.
+    - Use list comprehensions rather than filter or map.
+    - Use open() rather than file().
+    - Import configparser rather than ConfigParser if available.
+    - Use input() rather than raw_input() when running under Python 3.
+    - Use set comprehensions.
+    - Import quote from urllib.parse rather than urllib if available.
 
   [ Stéphane Graber ]
   * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.

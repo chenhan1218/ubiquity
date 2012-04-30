@@ -24,8 +24,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import re
+import sys
 
 import debconf
 
@@ -668,12 +671,15 @@ class PageNoninteractive(PageBase):
 
     def username_error(self, msg):
         """The selected username was bad."""
-        print >>self.console, '\nusername error: %s' % msg
-        self.username = raw_input('Username: ')
+        print('\nusername error: %s' % msg, file=self.console)
+        if sys.version >= '3':
+            self.username = input('Username: ')
+        else:
+            self.username = raw_input('Username: ')
 
     def password_error(self, msg):
         """The selected password was bad."""
-        print >>self.console, '\nBad password: %s' % msg
+        print('\nBad password: %s' % msg, file=self.console)
         import getpass
         self.password = getpass.getpass('Password: ')
         self.verifiedpassword = getpass.getpass('Password again: ')

@@ -46,7 +46,7 @@ Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
 # Only those file systems that set this to 1 can have the boot loader
 # installed on them.  This is that list, with values taken from the .name
 # entry in the matching structs.
-FS_RESERVED_FIRST_SECTOR = set([
+FS_RESERVED_FIRST_SECTOR = {
     'btrfs',
     'ext2',
     'fat',
@@ -60,7 +60,7 @@ FS_RESERVED_FIRST_SECTOR = set([
     'fat16',
     'fat32',
     # Others?
-    ])
+    }
 
 
 class PageBase(plugin.PluginUI):
@@ -428,7 +428,7 @@ class PageGtk(PageBase):
         try:
             dev, partnum = re.search(r'(.*\D)(\d+)$', resize_path).groups()
             dev = '%s%d' % (dev, int(partnum) + 1)
-        except Exception, e:
+        except Exception as e:
             dev = 'unknown'
             self.debug('Could not determine new partition number: %s', e)
             self.debug('extra_options: %s' % str(self.extra_options))
@@ -1849,8 +1849,8 @@ class Page(plugin.Plugin):
                 if system and system != 'swap':
                     if not system.startswith('Windows Recovery'):
                         operating_systems.append(system)
-        ubuntu_systems = filter(lambda x: x.lower().find('buntu') != -1,
-                                operating_systems)
+        ubuntu_systems = [x for x in operating_systems
+                          if x.lower().find('buntu') != -1]
         return (operating_systems, ubuntu_systems)
 
     def calculate_autopartitioning_options(self, operating_systems,

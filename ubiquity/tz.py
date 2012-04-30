@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import datetime
 import time
@@ -178,7 +180,7 @@ class Location(object):
 
         # Grab md5sum of the timezone file for later comparison
         try:
-            tz_file = file(os.path.join('/usr/share/zoneinfo', self.zone) ,'rb')
+            tz_file = open(os.path.join('/usr/share/zoneinfo', self.zone), 'rb')
             self.md5sum = hashlib.md5(tz_file.read()).digest()
             tz_file.close()
         except IOError:
@@ -228,7 +230,7 @@ class _Database(object):
             return self.tz_to_loc[tz]
         except:
             try:
-                tz_file = file(os.path.join('/usr/share/zoneinfo', tz), 'rb')
+                tz_file = open(os.path.join('/usr/share/zoneinfo', tz), 'rb')
                 md5sum = hashlib.md5(tz_file.read()).digest()
                 tz_file.close()
 
@@ -240,7 +242,7 @@ class _Database(object):
                 pass
 
             # If not found, oh well, just warn and move on.
-            print >> sys.stderr, 'Could not understand timezone', tz
+            print('Could not understand timezone', tz, file=sys.stderr)
             self.tz_to_loc[tz] = None # save it for the future
             return None
 

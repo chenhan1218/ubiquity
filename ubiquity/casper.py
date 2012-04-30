@@ -40,7 +40,7 @@ def get_casper(key, default=None):
                 bits = line.split('=', 1)
                 if len(bits) > 1:
                     _casper_config[bits[0]] = bits[1].strip('"')
-        except IOError, e:
+        except IOError as e:
             if e.errno != errno.ENOENT:
                 import syslog
                 syslog.syslog('Unable to read /etc/casper.conf.')

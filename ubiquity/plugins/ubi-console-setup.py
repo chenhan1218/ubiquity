@@ -18,6 +18,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import re
 import os
 
@@ -49,7 +51,7 @@ class PageGtk(plugin.PluginUI):
             self.calculate_keymap_button = builder.get_object('deduce_layout')
             self.keyboard_test = builder.get_object('keyboard_test')
             self.calculate_keymap_button.connect('clicked', self.calculate_clicked)
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
@@ -256,7 +258,7 @@ class PageKde(plugin.PluginUI):
             #not when we are populating the combo box
             self.page.keyboard_layout_combobox.activated.connect(self.on_keyboard_layout_selected)
             self.page.keyboard_variant_combobox.activated.connect(self.on_keyboard_variant_selected)
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create keyboard page: %s', e)
             self.page = None
         self.plugin_widgets = self.page
@@ -687,17 +689,17 @@ class Page(plugin.Plugin):
             elif re_endsection.match(line) is not None:
                 if in_inputdevice_kbd:
                     if not done['model']:
-                        print >>newconfig, ('\tOption\t\t"XkbModel"\t"%s"' %
-                                            model)
+                        print('\tOption\t\t"XkbModel"\t"%s"' % model,
+                              file=newconfig)
                     if not done['layout']:
-                        print >>newconfig, ('\tOption\t\t"XkbLayout"\t"%s"' %
-                                            layout)
+                        print('\tOption\t\t"XkbLayout"\t"%s"' % layout,
+                              file=newconfig)
                     if not done['variant']:
-                        print >>newconfig, ('\tOption\t\t"XkbVariant"\t"%s"' %
-                                            variant)
+                        print('\tOption\t\t"XkbVariant"\t"%s"' % variant,
+                              file=newconfig)
                     if not done['options']:
-                        print >>newconfig, ('\tOption\t\t"XkbOptions"\t"%s"' %
-                                            options)
+                        print('\tOption\t\t"XkbOptions"\t"%s"' % options,
+                              file=newconfig)
                 in_inputdevice = False
                 in_inputdevice_kbd = False
                 done = {'model': model == '', 'layout': False,
@@ -733,7 +735,7 @@ class Page(plugin.Plugin):
                                 else:
                                     line = match.group(1) + '"%s"' % options
                                 done['options'] = True
-            print >>newconfig, line
+            print(line, file=newconfig)
 
         newconfig.close()
         oldconfig.close()

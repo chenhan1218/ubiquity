@@ -24,6 +24,8 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import traceback
@@ -31,6 +33,7 @@ import syslog
 import atexit
 import signal
 import dbus
+from functools import reduce
 
 # kde gui specifics
 from PyQt4 import QtCore, QtGui, uic
@@ -190,7 +193,7 @@ class Wizard(BaseFrontend):
         misc.drop_privileges_save()
         try:
             self.app = kdeui.KApplication()
-            self.app.setStyleSheet(file(os.path.join(UIDIR, "style.qss")).read())
+            self.app.setStyleSheet(open(os.path.join(UIDIR, "style.qss")).read())
         finally:
             misc.regain_privileges_save()
 
@@ -202,7 +205,7 @@ class Wizard(BaseFrontend):
         # handle smaller screens (old school eee pc
         if (QtGui.QApplication.desktop().screenGeometry().height() < 560):
             self.ui.main_frame.setFixedHeight(470)
-            self.ui.main_frame.setStyleSheet(file(os.path.join(UIDIR, "style_small.qss")).read())
+            self.ui.main_frame.setStyleSheet(open(os.path.join(UIDIR, "style_small.qss")).read())
 
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
@@ -365,9 +368,9 @@ class Wizard(BaseFrontend):
                       "Exception in KDE frontend (invoking crash handler):")
         for line in tbtext.split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
-        print >>sys.stderr, ("Exception in KDE frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
+        print("Exception in KDE frontend (invoking crash handler):",
+              file=sys.stderr)
+        print(tbtext, file=sys.stderr)
 
         self.post_mortem(exctype, excvalue, exctb)
 
@@ -624,9 +627,9 @@ class Wizard(BaseFrontend):
             if hasattr(p.ui, 'plugin_translate'):
                 try:
                     p.ui.plugin_translate(lang or self.locale)
-                except Exception, e:
-                    print >>sys.stderr, 'Could not translate page (%s): %s' \
-                                        % (p.module.NAME, str(e))
+                except Exception as e:
+                    print('Could not translate page (%s): %s' %
+                          (p.module.NAME, str(e)), file=sys.stderr)
 
     # translates widget text based on the object names
     # widgets is a list of (widget, prefix) pairs
@@ -726,8 +729,8 @@ class Wizard(BaseFrontend):
             widget.setWindowTitle(text)
 
         else:
-            print "WARNING: unknown widget: " + name
-            print "Type: ", type(widget)
+            print("WARNING: unknown widget: " + name)
+            print("Type: ", type(widget))
 
     def allow_change_step(self, allowed):
         if allowed:

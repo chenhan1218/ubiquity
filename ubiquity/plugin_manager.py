@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with Ubiquity.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
+
 import sys
 import os
 import fnmatch
@@ -34,13 +36,15 @@ def load_plugin(modname):
 
 def load_plugins():
     modules = []
-    modfiles = filter(lambda x: fnmatch.fnmatch(x,'*.py'), os.listdir(PLUGIN_PATH))
+    modfiles = [x for x in os.listdir(PLUGIN_PATH)
+                if fnmatch.fnmatch(x, '*.py')]
     for modfile in modfiles:
         modname = os.path.splitext(modfile)[0]
         try:
             modules.append(load_plugin(modname))
-        except Exception, e:
-            print >> sys.stderr, 'Could not import plugin %s: %s' % (modname, e)
+        except Exception as e:
+            print('Could not import plugin %s: %s' % (modname, e),
+                  file=sys.stderr)
     return modules
 
 def get_mod_list(mod, name):

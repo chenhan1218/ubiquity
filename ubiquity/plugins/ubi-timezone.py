@@ -17,6 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import os
 import time
 import re
@@ -91,7 +93,10 @@ class PageGtk(plugin.PluginUI):
 
 
     def changed(self, entry):
-        import urllib
+        try:
+            from urllib.parse import quote
+        except ImportError:
+            from urllib import quote
         from gi.repository import Gtk, GObject, Soup
 
         text = misc.utf8(self.city_entry.get_text())
@@ -109,7 +114,7 @@ class PageGtk(plugin.PluginUI):
 
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
-            url = _geoname_url % (urllib.quote(text.encode('UTF-8')),
+            url = _geoname_url % (quote(text.encode('UTF-8')),
                                   misc.get_release().version)
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
@@ -252,7 +257,7 @@ class PageKde(plugin.PluginUI):
             self.tzmap.zoneChanged.connect(self.mapZoneChanged)
             self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
             self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
-        except Exception, e:
+        except Exception as e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
 
@@ -565,8 +570,8 @@ class Page(plugin.Plugin):
                 for name, code in choices.items():
                     if code == country:
                         return name
-        except debconf.DebconfError, e:
-            print "Couldn't get country name for %s: %s" % (country, e)
+        except debconf.DebconfError as e:
+            print("Couldn't get country name for %s: %s" % (country, e))
         return None
 
     def get_city_name_from_tzdata(self, tz):
@@ -581,8 +586,8 @@ class Page(plugin.Plugin):
                 for name, code in zones.items():
                     if code == city:
                         return name
-        except debconf.DebconfError, e:
-            print "Couldn't get city name for %s: %s" % (tz, e)
+        except debconf.DebconfError as e:
+            print("Couldn't get city name for %s: %s" % (tz, e))
         return None
 
     def get_fallback_translation_for_tz(self, country, tz):

@@ -17,12 +17,15 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import re
 import subprocess
 import codecs
 import os
 import locale
 import sys
+from functools import reduce
 
 from ubiquity import misc, im_switch
 
@@ -40,9 +43,9 @@ def reset_locale(frontend, just_country=False):
         os.environ['LANGUAGE'] = di_locale
         try:
             locale.setlocale(locale.LC_ALL, '')
-        except locale.Error, e:
-            print >>sys.stderr, 'locale.setlocale failed: %s (LANG=%s)' % \
-                                (e, di_locale)
+        except locale.Error as e:
+            print('locale.setlocale failed: %s (LANG=%s)' % (e, di_locale),
+                  file=sys.stderr)
         if not just_country:
             misc.execute_root('fontconfig-voodoo',
                                 '--auto', '--force', '--quiet')

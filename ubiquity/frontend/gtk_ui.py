@@ -31,6 +31,8 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import subprocess
@@ -38,7 +40,11 @@ import traceback
 import syslog
 import atexit
 import gettext
-import ConfigParser
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
+from functools import reduce
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
@@ -165,7 +171,7 @@ class Wizard(BaseFrontend):
                 widget = self.builder.get_object(name)
                 steps.append_page(widget, None)
             else:
-                print >>sys.stderr, 'Could not find ui file %s' % name
+                print('Could not find ui file %s' % name, file=sys.stderr)
             return widget
 
         def add_widget(self, widget):
@@ -327,7 +333,8 @@ class Wizard(BaseFrontend):
                 if os.path.exists('/usr/bin/canberra-gtk-play'):
                     subprocess.Popen(['/usr/bin/canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
             except:
-                print >>sys.stderr, "Unable to set up accessibility profile support."
+                print("Unable to set up accessibility profile support.",
+                      file=sys.stderr)
 
     def all_children(self, parent):
         if isinstance(parent, Gtk.Container):
@@ -373,9 +380,9 @@ class Wizard(BaseFrontend):
             if hasattr(p.ui, 'plugin_translate'):
                 try:
                     p.ui.plugin_translate(lang or self.locale)
-                except Exception, e:
-                    print >>sys.stderr, 'Could not translate page (%s): %s' \
-                                        % (p.module.NAME, str(e))
+                except Exception as e:
+                    print('Could not translate page (%s): %s' %
+                          (p.module.NAME, str(e)), file=sys.stderr)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -396,9 +403,9 @@ class Wizard(BaseFrontend):
                       "Exception in GTK frontend (invoking crash handler):")
         for line in tbtext.split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
-        print >>sys.stderr, ("Exception in GTK frontend"
-                             " (invoking crash handler):")
-        print >>sys.stderr, tbtext
+        print("Exception in GTK frontend (invoking crash handler):",
+              file=sys.stderr)
+        print(tbtext, file=sys.stderr)
 
         self.post_mortem(exctype, excvalue, exctb)
 
@@ -451,7 +458,7 @@ class Wizard(BaseFrontend):
             thunar_dir = os.path.expanduser('~/.config/Thunar')
         if os.path.isdir(thunar_dir):
             thunar_volmanrc = '%s/volmanrc' % thunar_dir
-            parser = ConfigParser.RawConfigParser()
+            parser = configparser.RawConfigParser()
             parser.optionxform = str # case-sensitive
             parser.read(thunar_volmanrc)
             if not parser.has_section('Configuration'):
@@ -877,7 +884,7 @@ color : @fg_color
 
         if os.path.exists(self.slideshow) and not self.hide_slideshow:
             try:
-                cfg = ConfigParser.ConfigParser()
+                cfg = configparser.ConfigParser()
                 cfg.read(os.path.join(self.slideshow, 'slideshow.conf'))
                 config_width = int(cfg.get('Slideshow','width'))
                 config_height = int(cfg.get('Slideshow','height'))
@@ -1172,7 +1179,8 @@ color : @fg_color
 
         num = self.steps.page_num(cur)
         if num < 0:
-            print >>sys.stderr, 'Invalid page found for %s: %s' % (n, str(cur))
+            print('Invalid page found for %s: %s' % (n, str(cur)),
+                  file=sys.stderr)
             return False
 
         self.add_history(page, cur)

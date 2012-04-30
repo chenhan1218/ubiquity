@@ -19,6 +19,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
 import sys
 import os
 import platform
@@ -412,13 +414,13 @@ class Install(install_misc.InstallBase):
                 # Make sure there's at least something here so that ifupdown
                 # doesn't get upset at boot.
                 with open('/etc/network/interfaces', 'w') as interfaces:
-                    print >>interfaces, textwrap.dedent("""\
+                    print(textwrap.dedent("""\
                         # This file describes the network interfaces available on your system
                         # and how to activate them. For more information, see interfaces(5).
 
                         # The loopback network interface
                         auto lo
-                        iface lo inet loopback""")
+                        iface lo inet loopback"""), file=interfaces)
 
         try:
             hostname = self.db.get('netcfg/get_hostname')
@@ -432,27 +434,27 @@ class Install(install_misc.InstallBase):
             hostname = 'ubuntu'
 
         hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
-        print >>hosts, "127.0.0.1\tlocalhost"
+        print("127.0.0.1\tlocalhost", file=hosts)
         if domain:
-            print >>hosts, "127.0.1.1\t%s.%s\t%s" % (hostname, domain,
-                                                     hostname)
+            print("127.0.1.1\t%s.%s\t%s" % (hostname, domain, hostname),
+                  file=hosts)
         else:
-            print >>hosts, "127.0.1.1\t%s" % hostname
-        print >>hosts, textwrap.dedent("""\
+            print("127.0.1.1\t%s" % hostname, file=hosts)
+        print(textwrap.dedent("""\
 
             # The following lines are desirable for IPv6 capable hosts
             ::1     ip6-localhost ip6-loopback
             fe00::0 ip6-localnet
             ff00::0 ip6-mcastprefix
             ff02::1 ip6-allnodes
-            ff02::2 ip6-allrouters""")
+            ff02::2 ip6-allrouters"""), file=hosts)
         hosts.close()
 
         # Network Manager's ifupdown plugin has an inotify watch on
         # /etc/hostname, which can trigger a race condition if /etc/hostname is
         # written and immediately followed with /etc/hosts.
         fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-        print >>fp, hostname
+        print(hostname, file=fp)
         fp.close()
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
@@ -481,10 +483,10 @@ class Install(install_misc.InstallBase):
 
             iftab = open(os.path.join(self.target, 'etc/iftab'), 'w')
 
-            print >>iftab, textwrap.dedent("""\
+            print(textwrap.dedent("""\
                 # This file assigns persistent names to network interfaces.
                 # See iftab(5) for syntax.
-                """)
+                """), file=iftab)
 
             for i in range(len(interfaces)):
                 dup = False
@@ -509,7 +511,7 @@ class Install(install_misc.InstallBase):
                         ':'.join(['%02x' % ord(if_name[1][c])
                                   for c in range(6)]))
                 line += " arp %d" % if_name[0]
-                print >>iftab, line
+                print(line, file=iftab)
 
             iftab.close()
 
@@ -562,7 +564,7 @@ class Install(install_misc.InstallBase):
                     os.path.join(self.target,
                                  'etc/apt/apt.conf.d/00InstallRecommends'),
                     'w')
-                print >>apt_conf_ir, 'APT::Install-Recommends "false";'
+                print('APT::Install-Recommends "false";', file=apt_conf_ir)
                 apt_conf_ir.close()
         except debconf.DebconfError:
             pass
@@ -571,15 +573,15 @@ class Install(install_misc.InstallBase):
         # This will be left in place on the installed system.
         apt_conf_tc = open(os.path.join(
             self.target, 'etc/apt/apt.conf.d/00trustcdrom'), 'w')
-        print >>apt_conf_tc, 'APT::Authentication::TrustCDROM "true";'
+        print('APT::Authentication::TrustCDROM "true";', file=apt_conf_tc)
         apt_conf_tc.close()
 
         # Avoid clock skew causing gpg verification issues.
         # This file will be left in place until the end of the install.
         apt_conf_itc = open(os.path.join(
             self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'), 'w')
-        print >>apt_conf_itc, \
-            'Acquire::gpgv::Options { "--ignore-time-conflict"; };'
+        print('Acquire::gpgv::Options { "--ignore-time-conflict"; };',
+              file=apt_conf_itc)
         apt_conf_itc.close()
 
         try:
@@ -588,9 +590,10 @@ class Install(install_misc.InstallBase):
                     os.path.join(self.target,
                                  'etc/apt/apt.conf.d/00AllowUnauthenticated'),
                     'w')
-                print >>apt_conf_au, 'APT::Get::AllowUnauthenticated "true";'
-                print >>apt_conf_au, \
-                    'Aptitude::CmdLine::Ignore-Trust-Violations "true";'
+                print('APT::Get::AllowUnauthenticated "true";',
+                      file=apt_conf_au)
+                print('Aptitude::CmdLine::Ignore-Trust-Violations "true";',
+                      file=apt_conf_au)
                 apt_conf_au.close()
         except debconf.DebconfError:
             pass
@@ -609,7 +612,7 @@ class Install(install_misc.InstallBase):
         # This file will be left in place until the end of the install.
         apt_conf_nmc = open(os.path.join(
             self.target, 'etc/apt/apt.conf.d/00NoMountCDROM'), 'w')
-        print >>apt_conf_nmc, textwrap.dedent("""\
+        print(textwrap.dedent("""\
             APT::CDROM::NoMount "true";
             Acquire::cdrom {
               mount "/cdrom";
@@ -619,7 +622,7 @@ class Install(install_misc.InstallBase):
               };
               AutoDetect "false";
             };
-            Dir::Media::MountPath "/cdrom";""")
+            Dir::Media::MountPath "/cdrom";"""), file=apt_conf_nmc)
         apt_conf_nmc.close()
 
         # This will be reindexed after installation based on the full
@@ -648,7 +651,8 @@ class Install(install_misc.InstallBase):
 
         if os.path.isdir(hookdir):
             # Exclude hooks containing '.', so that *.dpkg-* et al are avoided.
-            hooks = filter(lambda entry: '.' not in entry, os.listdir(hookdir))
+            hooks = [entry for entry in os.listdir(hookdir)
+                     if '.' not in entry]
             self.db.progress('START', 0, len(hooks), 'ubiquity/install/title')
             self.db.progress('INFO', 'ubiquity/install/target_hooks')
             for hookentry in hooks:
@@ -869,7 +873,7 @@ class Install(install_misc.InstallBase):
                 configdir = None
             if configdir is not None:
                 configfile = open(os.path.join(configdir, 'resume'), 'w')
-                print >>configfile, "RESUME=%s" % resume
+                print("RESUME=%s" % resume, file=configfile)
                 configfile.close()
 
         osextras.unlink_force(os.path.join(self.target, 'etc/usplash.conf'))
@@ -1086,7 +1090,7 @@ class Install(install_misc.InstallBase):
                     self.db.progress('STOP')
                     self.nested_progress_end()
                     return
-            except SystemError, e:
+            except SystemError as e:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_ERR, line)
                 commit_error = str(e)
@@ -1163,7 +1167,7 @@ class Install(install_misc.InstallBase):
 
             if extra_pool:
                 with open(custom, 'w') as f:
-                    print >>f, extra_pool
+                    print(extra_pool, file=f)
             if extra_key and os.path.exists(extra_key):
                 if os.path.exists(trusted_db):
                     shutil.copy(trusted_db, trusted_db + '.oem-config')
@@ -1181,7 +1185,7 @@ class Install(install_misc.InstallBase):
             cmd += extra_packages
             try:
                 subprocess.check_call(cmd)
-            except subprocess.CalledProcessError, e:
+            except subprocess.CalledProcessError as e:
                 if e.returncode != 30:
                     cache = Cache()
                     brokenpkgs = install_misc.broken_packages(cache)
@@ -1253,7 +1257,7 @@ class Install(install_misc.InstallBase):
         found_cdrom = False
         for line in old_sources:
             if 'cdrom:' in line:
-                print >>new_sources, line,
+                print(line, end="", file=new_sources)
                 found_cdrom = True
         new_sources.close()
         old_sources.close()
@@ -1325,7 +1329,7 @@ class Install(install_misc.InstallBase):
         keep.add('oem-config')
 
         cache = Cache()
-        remove = set([pkg for pkg in cache.keys() if cache[pkg].is_installed])
+        remove = {pkg for pkg in cache.keys() if cache[pkg].is_installed}
         # Keep packages we explicitly installed.
         keep |= install_misc.query_recorded_installed()
         remove -= install_misc.expand_dependencies_simple(cache, keep, remove)
@@ -1501,7 +1505,7 @@ class Install(install_misc.InstallBase):
             p = os.path.join(self.target, 'var/lib/ubiquity/installed-packages')
             with open(p, 'w') as fp:
                 for line in installed:
-                    print >>fp, line
+                    print(line, file=fp)
 
     def apt_clone_restore(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
@@ -1698,7 +1702,7 @@ class Install(install_misc.InstallBase):
                 oem_id = self.db.get('oem-config/id')
                 oem_id_file = open(
                     os.path.join(self.target, 'var/log/installer/oem-id'), 'w')
-                print >>oem_id_file, oem_id
+                print(oem_id, file=oem_id_file)
                 oem_id_file.close()
         except (debconf.DebconfError, IOError):
             pass
