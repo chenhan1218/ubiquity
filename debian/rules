@@ -17,8 +17,7 @@ endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
-
-PYTHON := $(shell pyversions -d)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
@@ -35,7 +34,7 @@ build-indep: build-stamp
 build-stamp:
 	dh_testdir
 
-	PYTHON=$(PYTHON) dh_auto_configure
+	dh_auto_configure -- --libexecdir=\$${prefix}/lib
 	dh_auto_build
 	$(MAKE) -C d-i build
 
@@ -62,7 +61,7 @@ clean: check
 	$(MAKE) -C d-i clean
 	dh_auto_clean
 	dh_clean
-	rm -rf build-locale
+	rm -rf build-locale tests/partman-tree
 
 	$(MAKE) -C d-i check
 
@@ -89,16 +88,14 @@ endif
 	# For the meantime, nearly everything automake wants to install is
 	# part of the GTK frontend.
 ifndef UBIQUITY_NO_GTK
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk \
-		pythondir=\$${prefix}/lib/ubiquity \
-		pyexecdir=\$${prefix}/lib/ubiquity
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
-	mv -n debian/ubiquity-frontend-gtk/usr/lib/ubiquity/ubiquity \
-		debian/ubiquity/usr/lib/ubiquity/
-	rm -f debian/ubiquity/usr/lib/ubiquity/ubiquity/_osextras.a \
-		debian/ubiquity/usr/lib/ubiquity/ubiquity/_osextras.la \
-		debian/ubiquity/usr/lib/libubiwebcam.la
+	rm -f debian/ubiquity-frontend-gtk/usr/lib/libubi*.la
+ifneq (,$(DEB_HOST_MULTIARCH))
+	mv debian/ubiquity-frontend-gtk/usr/lib/$(DEB_HOST_MULTIARCH)/girepository-1.0 \
+	   debian/ubiquity-frontend-gtk/usr/lib/
+endif
 endif
 	$(MAKE) -C d-i install
 
@@ -221,7 +218,7 @@ endif
 
 tests: install-stamp
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	CODE=0; env -u LD_PRELOAD LD_LIBRARY_PATH=src/webcam/.libs GI_TYPELIB_PATH=src/webcam xvfb-run -e debian/xvfb.log ./tests/run || CODE=$$?; \
+	CODE=0; env -u LD_PRELOAD ./tests/run --xvfb-log debian/xvfb.log || CODE=$$?; \
 	echo "xauth/Xrdb output:"; \
 	cat debian/xvfb.log; \
 	rm -f debian/xvfb.log; \

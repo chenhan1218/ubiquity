@@ -35,11 +35,10 @@ import fcntl
 import traceback
 import syslog
 import gzip
-import debconf
-import warnings
-warnings.filterwarnings("ignore", "apt API not stable yet", FutureWarning)
-import apt_pkg
 import pwd
+
+import debconf
+import apt_pkg
 from apt.cache import Cache
 
 sys.path.insert(0, '/usr/lib/ubiquity')
@@ -91,37 +90,42 @@ class Install(install_misc.InstallBase):
             self.target = '/'
             return
 
-        apt_pkg.InitConfig()
-        apt_pkg.Config.set("Dir", self.target)
-        apt_pkg.Config.set("Dir::State::status",
+        apt_pkg.init_config()
+        apt_pkg.config.set("Dir", self.target)
+        apt_pkg.config.set("Dir::State::status",
                            os.path.join(self.target, 'var/lib/dpkg/status'))
-        apt_pkg.Config.set("APT::GPGV::TrustedKeyring",
+        apt_pkg.config.set("APT::GPGV::TrustedKeyring",
                            os.path.join(self.target, 'etc/apt/trusted.gpg'))
 
         # Keep this in sync with configure_apt.
         # TODO cjwatson 2011-03-03: consolidate this.
-        apt_pkg.Config.set("APT::Authentication::TrustCDROM", "true")
-        apt_pkg.Config.set("Acquire::gpgv::Options::",
+        try:
+            if self.db.get('base-installer/install-recommends') == 'false':
+                apt_pkg.config.set("APT::Install-Recommends", "false")
+        except debconf.DebconfError:
+            pass
+        apt_pkg.config.set("APT::Authentication::TrustCDROM", "true")
+        apt_pkg.config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
         try:
             if self.db.get('debian-installer/allow_unauthenticated') == 'true':
-                apt_pkg.Config.set("APT::Get::AllowUnauthenticated", "true")
-                apt_pkg.Config.set(
+                apt_pkg.config.set("APT::Get::AllowUnauthenticated", "true")
+                apt_pkg.config.set(
                     "Aptitude::CmdLine::Ignore-Trust-Violations", "true")
         except debconf.DebconfError:
             pass
-        apt_pkg.Config.set("APT::CDROM::NoMount", "true")
-        apt_pkg.Config.set("Acquire::cdrom::mount", "/cdrom")
-        apt_pkg.Config.set("Acquire::cdrom::/cdrom/::Mount", "true")
-        apt_pkg.Config.set("Acquire::cdrom::/cdrom/::UMount", "true")
-        apt_pkg.Config.set("Acquire::cdrom::AutoDetect", "false")
-        apt_pkg.Config.set("Dir::Media::MountPath", "/cdrom")
+        apt_pkg.config.set("APT::CDROM::NoMount", "true")
+        apt_pkg.config.set("Acquire::cdrom::mount", "/cdrom")
+        apt_pkg.config.set("Acquire::cdrom::/cdrom/::Mount", "true")
+        apt_pkg.config.set("Acquire::cdrom::/cdrom/::UMount", "true")
+        apt_pkg.config.set("Acquire::cdrom::AutoDetect", "false")
+        apt_pkg.config.set("Dir::Media::MountPath", "/cdrom")
 
-        apt_pkg.Config.set("DPkg::Options::", "--root=%s" % self.target)
+        apt_pkg.config.set("DPkg::Options::", "--root=%s" % self.target)
         # We don't want apt-listchanges or dpkg-preconfigure, so just clear
         # out the list of pre-installation hooks.
-        apt_pkg.Config.clear("DPkg::Pre-Install-Pkgs")
-        apt_pkg.InitSystem()
+        apt_pkg.config.clear("DPkg::Pre-Install-Pkgs")
+        apt_pkg.init_system()
 
         use_restricted = True
         try:
@@ -236,6 +240,15 @@ class Install(install_misc.InstallBase):
             self.db.input('critical', 'ubiquity/install/broken_network_copy')
             self.db.go()
         try:
+            self.copy_bluetooth_config()
+        except:
+            syslog.syslog(syslog.LOG_WARNING,
+                'Could not copy the bluetooth configuration:')
+            for line in traceback.format_exc().split('\n'):
+                syslog.syslog(syslog.LOG_WARNING, line)
+            self.db.input('critical', 'ubiquity/install/broken_bluetooth_copy')
+            self.db.go()
+        try:
             self.recache_apparmor()
         except:
             syslog.syslog(syslog.LOG_WARNING,
@@ -266,8 +279,11 @@ class Install(install_misc.InstallBase):
         gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
             target_user, '--', 'id', '-g'], stdout=subprocess.PIPE)
         gid = gid.communicate()[0].strip('\n')
-        uid = int(uid)
-        gid = int(gid)
+        try:
+            uid = int(uid)
+            gid = int(gid)
+        except ValueError:
+            return
         if os.path.exists(PHOTO_PATH):
             targetpath = os.path.join(self.target, 'home', target_user, '.face')
             shutil.copy2(PHOTO_PATH, targetpath)
@@ -384,7 +400,27 @@ class Install(install_misc.InstallBase):
         if self.target != '/':
             for path in ('/etc/network/interfaces', '/etc/resolv.conf'):
                 if os.path.exists(path):
-                    shutil.copy2(path, os.path.join(self.target, path[1:]))
+                    targetpath = os.path.join(self.target, path[1:])
+                    st = os.lstat(path)
+                    if stat.S_ISLNK(st.st_mode):
+                        if os.path.lexists(targetpath):
+                            os.unlink(targetpath)
+                        linkto = os.readlink(path)
+                        os.symlink(linkto, targetpath)
+                    else:
+                        shutil.copy2(path, os.path.join(self.target, path[1:]))
+        else:
+            if not os.path.exists('/etc/network/interfaces'):
+                # Make sure there's at least something here so that ifupdown
+                # doesn't get upset at boot.
+                with open('/etc/network/interfaces', 'w') as interfaces:
+                    print >>interfaces, textwrap.dedent("""\
+                        # This file describes the network interfaces available on your system
+                        # and how to activate them. For more information, see interfaces(5).
+
+                        # The loopback network interface
+                        auto lo
+                        iface lo inet loopback""")
 
         try:
             hostname = self.db.get('netcfg/get_hostname')
@@ -522,6 +558,17 @@ class Install(install_misc.InstallBase):
 
         # Keep this in sync with __init__.
 
+        try:
+            if self.db.get('base-installer/install-recommends') == 'false':
+                apt_conf_ir = open(
+                    os.path.join(self.target,
+                                 'etc/apt/apt.conf.d/00InstallRecommends'),
+                    'w')
+                print >>apt_conf_ir, 'APT::Install-Recommends "false";'
+                apt_conf_ir.close()
+        except debconf.DebconfError:
+            pass
+
         # Make apt trust CDs. This is not on by default (we think).
         # This will be left in place on the installed system.
         apt_conf_tc = open(os.path.join(
@@ -610,6 +657,7 @@ class Install(install_misc.InstallBase):
             self.db.progress('INFO', 'ubiquity/install/target_hooks')
             for hookentry in hooks:
                 hook = os.path.join(hookdir, hookentry)
+                syslog.syslog('running %s' % hook)
                 if not os.access(hook, os.X_OK):
                     self.db.progress('STEP', 1)
                     continue
@@ -666,7 +714,7 @@ class Install(install_misc.InstallBase):
         kern = install_misc.get_cache_pkg(cache, pkg)
         if kern is None:
             return None
-        pkc = cache._depcache.GetCandidateVer(kern._pkg)
+        pkc = cache._depcache.get_candidate_ver(kern._pkg)
         if 'Depends' in pkc.depends_list:
             dependencies = pkc.depends_list['Depends']
         else:
@@ -1308,10 +1356,13 @@ class Install(install_misc.InstallBase):
                 sourcepath = os.path.join(source, relpath)
                 targetpath = os.path.join(target, relpath)
                 st = os.lstat(sourcepath)
+
+                # Remove the target if necessary and if we can.
+                install_misc.remove_target(source, target, relpath, st)
+
+                # Now actually copy source to target.
                 mode = stat.S_IMODE(st.st_mode)
                 if stat.S_ISLNK(st.st_mode):
-                    if os.path.lexists(targetpath):
-                        os.unlink(targetpath)
                     linkto = os.readlink(sourcepath)
                     os.symlink(linkto, targetpath)
                 elif stat.S_ISDIR(st.st_mode):
@@ -1326,7 +1377,6 @@ class Install(install_misc.InstallBase):
                 elif stat.S_ISSOCK(st.st_mode):
                     os.mknod(targetpath, stat.S_IFSOCK | mode)
                 elif stat.S_ISREG(st.st_mode):
-                    osextras.unlink_force(targetpath)
                     install_misc.copy_file(self.db, sourcepath, targetpath, True)
 
                 os.lchown(targetpath, uid, gid)
@@ -1336,7 +1386,11 @@ class Install(install_misc.InstallBase):
                     directory_times.append((targetpath, st.st_atime, st.st_mtime))
                 # os.utime() sets timestamp of target, not link
                 elif not stat.S_ISLNK(st.st_mode):
-                    os.utime(targetpath, (st.st_atime, st.st_mtime))
+                    try:
+                        os.utime(targetpath, (st.st_atime, st.st_mtime))
+                    except Exception:
+                        # We can live with timestamps being wrong.
+                        pass
 
         # Apply timestamps to all directories now that the items within them
         # have been copied.
@@ -1344,7 +1398,7 @@ class Install(install_misc.InstallBase):
             (directory, atime, mtime) = dirtime
             try:
                 os.utime(directory, (atime, mtime))
-            except OSError:
+            except Exception:
                 # I have no idea why I've been getting lots of bug reports
                 # about this failing, but I really don't care. Ignore it.
                 pass
@@ -1504,6 +1558,26 @@ class Install(install_misc.InstallBase):
                     continue
 
                 shutil.copy(source_network, target_network)
+
+    def copy_bluetooth_config(self):
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+        try:
+            if self.db.get('oem-config/enable') == 'true':
+                return
+        except debconf.DebconfError:
+            pass
+
+        source_bluetooth = "/var/lib/bluetooth/"
+        target_bluetooth = "/target/var/lib/bluetooth/"
+
+        # Ensure the target doesn't exist
+        if os.path.exists(target_bluetooth):
+            shutil.rmtree(target_bluetooth)
+
+        # Copy /var/lib/bluetooth to /target/var/lib/bluetooth/
+        if os.path.exists(source_bluetooth):
+            shutil.copytree(source_bluetooth, target_bluetooth)
 
     def recache_apparmor(self):
         """Generate an apparmor cache in /etc/apparmor.d/cache to speed up boot

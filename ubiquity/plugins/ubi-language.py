@@ -20,6 +20,7 @@
 from __future__ import print_function
 
 import os
+
 import debconf
 
 from ubiquity import plugin
@@ -36,7 +37,7 @@ try:
     import lsb_release
     _ver = lsb_release.get_distro_information()['RELEASE']
 except:
-    _ver = '11.10'
+    _ver = '12.04'
 _wget_url = 'http://changelogs.ubuntu.com/ubiquity/%s-update-available' % _ver
 
 _release_notes_url_path = '/cdrom/.disk/release_notes_url'
@@ -130,6 +131,10 @@ class PageGtk(PageBase):
 
     @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
+        if not self.controller.allowed_change_step():
+            # The button's already been clicked once, so stop reacting to it.
+            # LP: #911907.
+            return
         # Spinning cursor.
         self.controller.allow_change_step(False)
         # Queue quit.
@@ -223,7 +228,8 @@ class PageGtk(PageBase):
         self.controller.allow_go_forward(bool(lang))
         if not lang:
             return
-        misc.set_indicator_keymaps(lang)
+        if 'UBIQUITY_GREETER' in os.environ:
+            misc.set_indicator_keymaps(lang)
         # strip encoding; we use UTF-8 internally no matter what
         lang = lang.split('.')[0]
         self.controller.translate(lang)
@@ -346,6 +352,8 @@ class PageGtk(PageBase):
     def on_link_clicked(self, widget, uri):
         # Connected in glade.
         lang = self.get_language()
+        if not lang:
+            lang = 'C'
         lang = lang.split('.')[0] # strip encoding
         if uri == 'update':
             if not auto_update.update(self.controller._wizard):
@@ -444,6 +452,10 @@ class PageKde(PageBase):
 
     @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
+        if not self.controller.allowed_change_step():
+            # The button's already been clicked once, so stop reacting to it.
+            # LP: #911907.
+            return
         # Spinning cursor.
         self.controller.allow_change_step(False)
         # Queue quit.

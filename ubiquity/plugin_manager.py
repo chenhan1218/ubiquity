@@ -27,19 +27,24 @@ import fnmatch
 PLUGIN_PATH = (os.environ.get('UBIQUITY_PLUGIN_PATH', False)
                or '/usr/lib/ubiquity/plugins')
 
+def load_plugin(modname):
+    sys.path.insert(0, PLUGIN_PATH)
+    try:
+        return __import__(modname)
+    finally:
+        del sys.path[0]
+
 def load_plugins():
     modules = []
     modfiles = [x for x in os.listdir(PLUGIN_PATH)
                 if fnmatch.fnmatch(x, '*.py')]
-    sys.path.insert(0, PLUGIN_PATH)
     for modfile in modfiles:
         modname = os.path.splitext(modfile)[0]
         try:
-            modules.append(__import__(modname))
+            modules.append(load_plugin(modname))
         except Exception as e:
             print('Could not import plugin %s: %s' % (modname, e),
                   file=sys.stderr)
-    del sys.path[0]
     return modules
 
 def get_mod_list(mod, name):

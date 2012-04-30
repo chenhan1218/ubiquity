@@ -2,11 +2,12 @@
 
 from __future__ import print_function
 
+import datetime
+import math
+
 from PyQt4 import QtCore, QtGui
 
-import datetime
 import ubiquity.tz
-import math
 
 #contains information about a geographical timezone city
 class City:

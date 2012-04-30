@@ -24,7 +24,7 @@ NM_STATE_CONNECTED_GLOBAL = 70
 # TODO: DBus exceptions.  Catch 'em all.
 
 def decode_ssid(characters):
-    ssid = ''.join([str(char) for char in characters])
+    ssid = ''.join([chr(int(char)) for char in characters])
     return utf8(ssid, errors='replace')
 
 def get_prop(obj, iface, prop):
@@ -56,7 +56,10 @@ def wireless_hardware_present():
     # the hardware switch is off.
     bus = dbus.SystemBus()
     manager = bus.get_object(NM, '/org/freedesktop/NetworkManager')
-    devices = manager.GetDevices()
+    try:
+        devices = manager.GetDevices()
+    except dbus.DBusException:
+        return False
     for device_path in devices:
         device_obj = bus.get_object(NM, device_path)
         if get_prop(device_obj, NM_DEVICE, 'DeviceType') == DEVICE_TYPE_WIFI:
@@ -174,7 +177,8 @@ class NetworkManager:
             ssid = get_prop(ap_obj, NM_AP, 'Ssid')
             if ssid:
                 ssid = decode_ssid(ssid)
-                security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+                security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
+                            get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
                 strength = int(props['Strength'])
                 iterator = self.model.get_iter_first()
                 while iterator:
@@ -211,7 +215,8 @@ class NetworkManager:
                 if ssid:
                     ssid = decode_ssid(ssid)
                     strength = int(get_prop(ap_obj, NM_AP, 'Strength') or 0)
-                    security = get_prop(ap_obj, NM_AP, 'WpaFlags') != 0
+                    security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
+                                get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
                     i = self.ssid_in_model(iterator, ssid, security)
                     if not i:
                         self.model.append(iterator, [ssid, security, strength])
@@ -382,14 +387,15 @@ class NetworkManagerTreeView(Gtk.TreeView):
 
 GObject.type_register(NetworkManagerTreeView)
 
-class NetworkManagerWidget(Gtk.VBox):
+class NetworkManagerWidget(Gtk.Box):
     __gtype_name__ = 'NetworkManagerWidget'
     __gsignals__ = { 'connection' : (GObject.SignalFlags.RUN_FIRST,
                                      GObject.TYPE_NONE, (GObject.TYPE_UINT,)),
                      'selection_changed' : (GObject.SignalFlags.RUN_FIRST,
                                             GObject.TYPE_NONE, ())}
     def __init__(self):
-        Gtk.VBox.__init__(self)
+        Gtk.Box.__init__(self)
+        self.set_orientation(Gtk.Orientation.VERTICAL)
         self.set_spacing(12)
         self.password_entry = Gtk.Entry()
         self.view = NetworkManagerTreeView(self.password_entry,
@@ -398,8 +404,8 @@ class NetworkManagerWidget(Gtk.VBox):
         scrolled_window.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         scrolled_window.set_shadow_type(Gtk.ShadowType.IN)
         scrolled_window.add(self.view)
-        self.add(scrolled_window)
-        self.hbox = Gtk.HBox(spacing=6)
+        self.pack_start(scrolled_window, True, True, 0)
+        self.hbox = Gtk.Box(spacing=6)
         self.pack_start(self.hbox, False, True, 0)
         self.password_label = Gtk.Label('Password:')
         self.password_entry.set_visibility(False)

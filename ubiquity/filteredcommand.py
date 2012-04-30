@@ -29,7 +29,6 @@ import subprocess
 import debconf
 
 from ubiquity.debconffilter import DebconfFilter
-
 from ubiquity import misc
 
 # We identify as this to debconf.
@@ -68,7 +67,9 @@ class UntrustedBase(object):
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
             message = fmt % args
-            print('%s %s: %s' % (time_str, PACKAGE, message), file=sys.stderr)
+            print((u'%s %s: %s' %
+                   (time_str, PACKAGE, message)).encode('utf-8'),
+                  file=sys.stderr)
 
 class FilteredCommand(UntrustedBase):
     def __init__(self, frontend, db=None, ui=None):
@@ -367,6 +368,9 @@ class FilteredCommand(UntrustedBase):
         self.frontend.run_main_loop()
 
     # Exit any recursive main loops we caused the frontend to enter.
+    # Note that it is not safe for implementations of this method to attempt
+    # to talk to debconf.  Plugins looking for a way to preseed debconf on
+    # exit should override the cleanup method instead.
     def exit_ui_loops(self):
         while self.ui_loop_level > 0:
             self.ui_loop_level -= 1

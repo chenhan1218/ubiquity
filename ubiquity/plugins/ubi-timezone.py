@@ -171,8 +171,9 @@ class PageGtk(plugin.PluginUI):
             pass
         elif message.status_code != Soup.KnownStatusCode.OK:
             # Log but otherwise ignore failures.
-            syslog.syslog('Geoname lookup for "%s" failed: %d %s' %
-                          (text, message.status_code, message.reason_phrase))
+            syslog.syslog(('Geoname lookup for "%s" failed: %d %s' %
+                           (text, message.status_code,
+                            message.reason_phrase)).encode('UTF-8'))
         else:
             for result in json.loads(message.response_body.data):
                 model.append([result['name'],

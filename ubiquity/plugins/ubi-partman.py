@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from collections import namedtuple, OrderedDict
 import os
 import re
 import shutil
@@ -29,7 +30,6 @@ from ubiquity import parted_server
 from ubiquity import misc
 from ubiquity import osextras
 from ubiquity.install_misc import archdetect
-from collections import namedtuple, OrderedDict
 
 NAME = 'partman'
 AFTER = 'prepare'
@@ -39,6 +39,28 @@ OEM = False
 
 PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
 Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
+
+# List of file system types that reserve extra space for grub.  Found by
+# grepping for "reserved_first_sector = 1" in the grub2 source as per 
+# https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/959724
+# Only those file systems that set this to 1 can have the boot loader
+# installed on them.  This is that list, with values taken from the .name
+# entry in the matching structs.
+FS_RESERVED_FIRST_SECTOR = set([
+    'btrfs',
+    'ext2',
+    'fat',
+    'hfsplus',
+    'nilfs2',
+    'ntfs',
+    # Add a few ext variants that aren't explicitly described in grub2.
+    'ext3',
+    'ext4',
+    # Add a few fat variants.
+    'fat16',
+    'fat32',
+    # Others?
+    ])
 
 
 class PageBase(plugin.PluginUI):
@@ -208,13 +230,13 @@ class PageGtk(PageBase):
             subprocess.check_call(['mount', device, mount_path])
             startup = misc.windows_startup_folder(mount_path)
             shutil.copy('/cdrom/wubi.exe', startup)
-            self.controller._wizard.reboot()
         except subprocess.CalledProcessError:
             pass
         finally:
-            subprocess.call(['umount', mount_path])
+            subprocess.call(['umount', '-l', mount_path])
             if os.path.exists(mount_path):
                 os.rmdir(mount_path)
+            self.controller._wizard.do_reboot()
 
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
@@ -367,6 +389,13 @@ class PageGtk(PageBase):
 
         (resize_min_size, resize_max_size, resize_pref_size,
          resize_path, size, fs) = self.extra_options['resize'][disk_id][1:]
+
+        # Make sure we always have enough space to install using the
+        # same install_size as everywhere else in ubiquity
+        real_max_size = size - misc.install_size()
+        if real_max_size < resize_max_size:
+            resize_max_size = real_max_size
+
         self.resizewidget.set_property('min_size', int(resize_min_size))
         self.resizewidget.set_property('max_size', int(resize_max_size))
 
@@ -458,20 +487,20 @@ class PageGtk(PageBase):
         self.controller.go_forward()
         return True
 
-    def set_grub_options(self, default):
+    def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
         self.bootloader_vbox.show()
         options = misc.grub_options()
-        if default.startswith('/'):
-            default = os.path.realpath(default)
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
         selected = False
         for opt in options:
-            i = l.append(opt)
-            if opt[0] == default:
-                self.grub_device_entry.set_active_iter(i)
-                selected = True
+            path = opt[0]
+            if grub_installable.get(path, False):
+                i = l.append(opt)
+                if path == default:
+                    self.grub_device_entry.set_active_iter(i)
+                    selected = True
         if not selected:
             i = l.append([default, ''])
             self.grub_device_entry.set_active_iter(i)
@@ -589,6 +618,9 @@ class PageGtk(PageBase):
         self.part_advanced_recalculating_box.hide()
 
     def partman_column_name (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition:
             # whole disk
@@ -605,6 +637,9 @@ class PageGtk(PageBase):
             cell.set_property('text', '  %s' % free_space)
 
     def partman_column_type (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition or 'method' not in partition:
             if ('parted' in partition and
@@ -621,6 +656,9 @@ class PageGtk(PageBase):
 
     @plugin.only_this_page
     def partman_column_mountpoint (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
         if mountpoint is None:
@@ -628,6 +666,9 @@ class PageGtk(PageBase):
         cell.set_property('text', mountpoint)
 
     def partman_column_format (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition:
             cell.set_property('visible', False)
@@ -655,6 +696,9 @@ class PageGtk(PageBase):
         self.controller.dbfilter.edit_partition(devpart, fmt='dummy')
 
     def partman_column_size (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition:
             cell.set_property('text', '')
@@ -665,6 +709,9 @@ class PageGtk(PageBase):
             cell.set_property('text', '%d MB' % size_mb)
 
     def partman_column_used (self, unused_column, cell, model, iterator, user_data):
+        if not model[iterator][1]:
+            return
+
         partition = model[iterator][1]
         if 'id' not in partition or partition['parted']['fs'] == 'free':
             cell.set_property('text', '')
@@ -731,7 +778,7 @@ class PageGtk(PageBase):
         else:
             button = 0
             time = 0
-        partition_list_menu.popup(None, None, None, button, time)
+        partition_list_menu.popup(None, None, None, None, button, time)
 
     @plugin.only_this_page
     def partman_create_dialog (self, devpart, partition):
@@ -1195,7 +1242,8 @@ class PageGtk(PageBase):
         i = 0
         if not self.segmented_bar_vbox:
             sw = Gtk.ScrolledWindow()
-            self.segmented_bar_vbox = Gtk.VBox()
+            self.segmented_bar_vbox = Gtk.Box()
+            self.segmented_bar_vbox.set_orientation(Gtk.Orientation.VERTICAL)
             sw.add_with_viewport(self.segmented_bar_vbox)
             sw.get_child().set_shadow_type(Gtk.ShadowType.NONE)
             sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.NEVER)
@@ -1209,7 +1257,8 @@ class PageGtk(PageBase):
                 dev = disk_cache[item]['device']
                 self.partition_bars[dev] = segmented_bar.SegmentedBar()
                 partition_bar = self.partition_bars[dev]
-                self.segmented_bar_vbox.add(partition_bar)
+                self.segmented_bar_vbox.pack_start(
+                    partition_bar, True, True, 0)
                 total_size[dev] = 0.0
             else:
                 partition_tree_model.append([item, partition_cache[item]])
@@ -1263,11 +1312,9 @@ class PageKde(PageBase):
         self.disk_layout = layout
         self.partAuto.setDiskLayout(layout)
 
-    def set_grub_options(self, default):
+    def set_grub_options(self, default, grub_installable):
         options = misc.grub_options()
-        if default.startswith('/'):
-            default = os.path.realpath(default)
-        self.partMan.setGrubOptions(options, default)
+        self.partMan.setGrubOptions(options, default, grub_installable)
 
     def get_grub_choice(self):
         choice = self.partMan.getGrubChoice()
@@ -1365,14 +1412,7 @@ class Page(plugin.Plugin):
             if arch in ('amd64', 'i386'):
                 self.install_bootloader = True
 
-        filesystem_size = 5 * 1024 * 1024 * 1024 # 5GB
-        try:
-            with open('/cdrom/casper/filesystem.size') as fp:
-                filesystem_size = int(fp.readline())
-        except IOError:
-            self.debug('Could not determine filesystem size.')
-        fudge = 200 * 1024 * 1024 # 200 MB
-        self.installation_size = filesystem_size + fudge
+        self.installation_size = misc.install_size()
 
         questions = ['^partman-auto/.*automatically_partition$',
                      '^partman-auto/select_disk$',
@@ -1464,6 +1504,13 @@ class Page(plugin.Plugin):
         else:
             return None, None
 
+    def devpart_disk(self, devpart):
+        dev = self.split_devpart(devpart)[0]
+        if dev:
+            return '%s/%s//' % (parted_server.devices, dev)
+        else:
+            return None
+
     def subdirectories(self, directory):
         for name in sorted(os.listdir(directory)):
             if os.path.isdir(os.path.join(directory, name)):
@@ -1544,13 +1591,11 @@ class Page(plugin.Plugin):
                 # supports this method at the moment. Maybe it would be
                 # better to fetch VALID_FLAGS for each partition while
                 # building the cache?
-                dev = self.split_devpart(devpart)[0]
-                if dev is not None:
-                    dev = '%s/%s' % (parted_server.devices, dev)
-                    if (dev in self.disk_cache and
-                        'label' in self.disk_cache[dev] and
-                        self.disk_cache[dev]['label'] == 'gpt'):
-                        yield (method, method, self.method_description(method))
+                disk = self.devpart_disk(devpart)
+                if (disk is not None and disk in self.disk_cache and
+                    'label' in self.disk_cache[disk] and
+                    self.disk_cache[disk]['label'] == 'gpt'):
+                    yield (method, method, self.method_description(method))
             else:
                 yield (method, method, self.method_description(method))
 
@@ -1753,10 +1798,24 @@ class Page(plugin.Plugin):
                 else:
                     # "Windows (or Mac, ...) and an older version of Ubuntu are
                     # present" case
-                    # TODO: Verify that the version is in fact older.
+
+                    # Only allow reuse with newer install media
+                    # also block reuse when invalid version number or codename
+                    try:
+                        current_version = re.split(".*([0-9]{2}\.[0-9]{2}).*", ubuntu)
+                        new_version = re.split(".*([0-9]{2}\.[0-9]{2}).*", release.version)
+
+                        if len(current_version) < 2 or len(new_version) < 2:
+                            return None
+
+                        if float(current_version[1]) >= float(new_version[1]):
+                            return None
+                    except ValueError:
+                        return None
+
                     q = 'ubiquity/partitioner/ubuntu_upgrade'
                     self.db.subst(q, 'CURDISTRO', ubuntu)
-                    self.db.subst(q, 'VER', release.version)
+                    self.db.subst(q, 'VER', "%s %s" % (release.name, release.version))
                     title = self.description(q)
                     desc = self.extended_description(q)
                     return PartitioningOption(title, desc)
@@ -1984,6 +2043,7 @@ class Page(plugin.Plugin):
             # Let's assume all disks are full unless we find a disk with
             # space for another partition.
             partition_table_full = True
+            ntfs_partitions = []
 
             with misc.raised_privileges():
                 # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
@@ -2019,6 +2079,10 @@ class Page(plugin.Plugin):
                         ret.append(Partition(dev, size,
                                              partition[1],
                                              partition[4]))
+
+                        if partition[4] == 'ntfs':
+                            ntfs_partitions.append(partition[5])
+
                     layout[disk] = ret
                     if try_for_wubi and partition_table_full:
                         if (max_primary is not None and
@@ -2032,9 +2096,7 @@ class Page(plugin.Plugin):
                     import tempfile
                     import subprocess
                     mount_path = tempfile.mkdtemp()
-                    for device, name in misc.os_prober().iteritems():
-                        if name.find('indows') == -1:
-                            continue
+                    for device in ntfs_partitions:
                         try:
                             subprocess.check_call(['mount', device, mount_path])
                             if misc.windows_startup_folder(mount_path):
@@ -2043,9 +2105,9 @@ class Page(plugin.Plugin):
                         except subprocess.CalledProcessError:
                             pass
                         finally:
-                            subprocess.call(['umount', mount_path])
-                            if os.path.exists(mount_path):
-                                os.rmdir(mount_path)
+                            subprocess.call(['umount', '-l', mount_path])
+                    if os.path.exists(mount_path):
+                        os.rmdir(mount_path)
 
                 biggest_free = self.find_script(menu_options, 'biggest_free')
                 if biggest_free:
@@ -2189,6 +2251,15 @@ class Page(plugin.Plugin):
                         for devpart in self.update_partitions:
                             if devpart in self.partition_cache:
                                 del self.partition_cache[devpart]
+                            # We don't get a separate notification when a
+                            # disk label is changed, only a notification
+                            # about the free-space slot covering the whole
+                            # disk.  Therefore, clear the corresponding disk
+                            # from the disk cache just in case its label has
+                            # changed.
+                            disk = self.devpart_disk(devpart)
+                            if disk and disk in self.disk_cache:
+                                del self.disk_cache[disk]
 
                     # Initialise any items we haven't heard of yet.
                     for script, arg, option in matches:
@@ -2209,7 +2280,7 @@ class Page(plugin.Plugin):
                                 device = parted.readline_device_entry('device')
                                 parted.open_dialog('GET_LABEL_TYPE')
                                 try:
-                                    label = parted.read_line()
+                                    label = parted.read_line()[0]
                                 finally:
                                     parted.close_dialog()
                                 self.disk_cache[arg] = {
@@ -2787,13 +2858,14 @@ class Page(plugin.Plugin):
         self.succeeded = True
         self.exit_ui_loops()
 
-    def exit_ui_loops(self):
-        if self.install_bootloader:
-            bootloader_seen = self.db.fget('grub-installer/bootdev', 'seen')
-            if bootloader_seen == 'false' or not 'UBIQUITY_AUTOMATIC' in os.environ:
-                self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
+    def is_bootdev_preseeded(self):
+        return ('UBIQUITY_AUTOMATIC' in os.environ and
+                self.db.fget('grub-installer/bootdev', 'seen') == 'true')
 
-        plugin.Plugin.exit_ui_loops(self)
+    def cleanup(self):
+        if self.install_bootloader and not self.is_bootdev_preseeded():
+            self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
+        plugin.Plugin.cleanup(self)
 
     # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
@@ -2873,13 +2945,53 @@ class Page(plugin.Plugin):
             self.local_progress = False
 
     def maybe_update_grub(self):
-        if self.install_bootloader:
-            grub_bootdev=self.db.get("grub-installer/bootdev")
-            if grub_bootdev and grub_bootdev in (part[0] for part in misc.grub_options()):
-                default = grub_bootdev
-            else:
-                default = misc.grub_default()
-            self.ui.set_grub_options(default)
+        if not self.install_bootloader:
+            return
+        paths = [part[0] for part in misc.grub_options()]
+        # Get the default boot device.
+        if self.is_bootdev_preseeded():
+            grub_bootdev = self.db.get("grub-installer/bootdev")
+        else:
+            grub_bootdev = self.ui.get_grub_choice()
+        if grub_bootdev and grub_bootdev in paths:
+            default = grub_bootdev
+        else:
+            default = misc.grub_default()
+        # Create a reverse mapping from grub options device path to the file
+        # system type being installed on that option.  Then later we'll make
+        # sure that grub can actually be installed on that path's file system.
+        fstype_by_path = {}
+        for key, value in self.partition_cache.items():
+            path = value.get('parted', {}).get('path')
+            fstype = value.get('parted', {}).get('fs', 'free')
+            if path is not None:
+                # Duplicate paths should not be possible, but if we find one,
+                # the first one (<wink>, i.e. random) wins.
+                if path in fstype_by_path:
+                    self.debug('already found path %s with type %s',
+                               path, fstype_by_path[path])
+                else:
+                    fstype_by_path[path] = fstype
+        if default.startswith('/'):
+            default = os.path.realpath(default)
+        # Now, create a dictionary mapping boot device path to a flag
+        # indicating whether grub can or cannot be installed on that path's
+        # file system.  Use 'free' as a default since grub can never be
+        # installed on free space.
+        grub_installable = {}
+        for path in paths:
+            fstype = fstype_by_path.get(path, 'free')
+            can_install = fstype in FS_RESERVED_FIRST_SECTOR
+            grub_installable[path] = can_install
+            self.debug('device path: %s, fstype: %s, grub installable? %s',
+                       path, fstype, 'yes' if can_install else 'no')
+        # Let grub offer to install to all the disk devices.
+        for key, value in self.disk_cache.items():
+            device = value.get('device')
+            if device is not None:
+                grub_installable[device] = True
+                self.debug('device path: %s grub installable? yes', device)
+        self.ui.set_grub_options(default, grub_installable)
 
 # Notes:
 #
