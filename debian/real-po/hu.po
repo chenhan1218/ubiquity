@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-03-09 12:10-0500\n"
+"POT-Creation-Date: 2012-04-30 11:30+0100\n"
 "PO-Revision-Date: 2012-03-13 19:04+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
@@ -49,7 +49,7 @@ msgstr "Részletes particionálási lehetőségek haladóknak."
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:187001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:188001
 msgid "Install"
 msgstr "Telepítés"
 
@@ -135,10 +135,15 @@ msgstr "<a href=\"update\">Frissítheti ezt a telepítőt</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2012."
+"October 2012."
 msgstr ""
 "Ez a(z) ${RELEASE} live ${MEDIUM} telepítő előzetes kiadása. Ez még nem a "
 "végleges kiadás, az a(z) ${RELEASE} végleges kiadásában lesz elérhető, 2012 "
@@ -1252,7 +1257,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "System Configuration"
 msgstr "Rendszerbeállítás"
 
@@ -1260,129 +1265,129 @@ msgstr "Rendszerbeállítás"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:179001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "Üdvözöljük"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "Network configuration"
 msgstr "Hálózat beállítása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "Software selection"
 msgstr "Csomagok kiválasztása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "Language"
 msgstr "Nyelv"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Prepare"
 msgstr "Előkészítés"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Timezone"
 msgstr "Időzóna"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 msgid "Disk Setup"
 msgstr "Lemezbeállítások"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:187001
 msgid "User Info"
 msgstr "Felhasználói adatok"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:189001
 msgid "installation process"
 msgstr "telepítési folyamat"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "Checking for installer updates"
 msgstr "Telepítőfrissítések keresése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "Reading package information"
 msgstr "Csomaginformációk olvasása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "Updating package information"
 msgstr "Csomaginformációk frissítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${INDEX}. fájl, összesen: ${TOTAL} (${SPEED}/s)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${INDEX}. fájl, összesen: ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "Installing update"
 msgstr "Frissítés telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "Error updating installer"
 msgstr "A telepítő frissítésekor hiba történt"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "A telepítő frissítésekor hiba történt:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 msgid "USB disk"
 msgstr "USB-meghajtó"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid "CD"
 msgstr "CD"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1392,7 +1397,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1404,13 +1409,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:202001 ../ubiquity.templates:203001
 msgid "Installation failed"
 msgstr "A telepítés meghiúsult"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:202001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1421,26 +1426,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:203001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "A telepítő helyreállíthatatlan hibát észlelt, és újraindul."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Preparing to install ${RELEASE}"
 msgstr "A(z) ${RELEASE} telepítésének előkészítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid "Wireless"
 msgstr "Vezeték nélküli"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:207001
 msgid ""
 "Connecting this computer to a wi-fi network allows you to install third-"
 "party software, download updates, automatically detect your timezone, and "
@@ -1452,49 +1457,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:208001
 msgid "Password:"
 msgstr "Jelszó:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid "Display password"
 msgstr "Jelszó megjelenítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "I don't want to connect to a wi-fi network right now"
 msgstr "Most nem szeretnék Wi-Fi hálózathoz kapcsolódni"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "Connect to this network"
 msgstr "Kapcsolódás ezen hálózathoz"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid "Select drive:"
 msgstr "Válasszon meghajtót:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "Foglaljon lemezterületet a kis pöcök mozgatásával:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 msgid "The entire disk will be used:"
 msgstr "A teljes lemez felhasználásra kerül:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1505,7 +1510,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1515,7 +1520,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:220001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1526,7 +1531,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1536,39 +1541,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
 msgstr "Legnagyobb partíció felosztása"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
 msgstr "A legjobb eredmények érdekében biztosítsa a következőket:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
 msgstr "legalább ${SIZE} lemezhely érhető el"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
 msgstr "a számítógép csatlakozik az elektromos hálózatra"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
 msgstr "a számítógép csatlakozik az internetre"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:228001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1582,7 +1587,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:229001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
@@ -1592,37 +1597,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:230001
 msgid "Install this third-party software"
 msgstr "Harmadik féltől származó szoftverek telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:231001
 msgid "Download updates while installing"
 msgstr "Frissítések letöltése a telepítés közben"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:235001
 msgid "Layout:"
 msgstr "Elrendezés:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:236001
 msgid "Variant:"
 msgstr "Változat:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:237001
 msgid "Below is an image of your current layout:"
 msgstr "Ez a kép a jelenlegi billentyűzetkiosztást ábrázolja:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:238001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1634,19 +1639,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:239001
 msgid "Time Zone:"
 msgstr "Időzóna:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:240001
 msgid "Region:"
 msgstr "Régió:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:241001
 msgid "[type here to change]"
 msgstr "[gépeljen a módosításhoz]"
 
@@ -1654,14 +1659,14 @@ msgstr "[gépeljen a módosításhoz]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:244001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "${OS} cseréje ezzel: ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:244001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1674,7 +1679,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:245001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "${DISTRO} telepítése ${OS} mellé"
 
@@ -1686,8 +1691,8 @@ msgstr "${DISTRO} telepítése ${OS} mellé"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244001 ../ubiquity.templates:245001
-#: ../ubiquity.templates:249001 ../ubiquity.templates:254001
+#: ../ubiquity.templates:245001 ../ubiquity.templates:246001
+#: ../ubiquity.templates:250001 ../ubiquity.templates:255001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1700,20 +1705,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:246001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "${DISTRO} telepítése ${OS} alá"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid "Something else"
 msgstr "Valami más"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1724,14 +1729,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:248001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "${CURDISTRO} törlése és újratelepítés"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:248001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1743,7 +1748,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:249001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "${CURDISTRO} frissítése erre a verzióra: ${VER}"
 
@@ -1751,7 +1756,7 @@ msgstr "${CURDISTRO} frissítése erre a verzióra: ${VER}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001 ../ubiquity.templates:252001
+#: ../ubiquity.templates:249001 ../ubiquity.templates:253001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1765,7 +1770,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:250001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "${DISTRO} ${VER} telepítése ${CURDISTRO} mellé"
 
@@ -1775,13 +1780,13 @@ msgstr "${DISTRO} ${VER} telepítése ${CURDISTRO} mellé"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:250001 ../ubiquity.templates:253001
+#: ../ubiquity.templates:251001 ../ubiquity.templates:254001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "Merevlemez törlése, és ${DISTRO} telepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:251001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1791,7 +1796,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:252001
 msgid "Erase everything and reinstall"
 msgstr "Minden törlése, és újratelepítés"
 
@@ -1799,7 +1804,7 @@ msgstr "Minden törlése, és újratelepítés"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:252001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1812,13 +1817,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:253001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} újratelepítése"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:254001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1831,14 +1836,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:255001
 msgid "Install ${DISTRO} alongside them"
 msgstr "${DISTRO} telepítése melléjük"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:256001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "Ezen a számítógépen jelenleg ${OS} van. Mi történjen vele?"
 
@@ -1846,7 +1851,7 @@ msgstr "Ezen a számítógépen jelenleg ${OS} van. Mi történjen vele?"
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:257001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1854,7 +1859,7 @@ msgstr "Ezen a számítógépen jelenleg ${OS1} és ${OS2} van. Mi történjen v
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:258001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1863,7 +1868,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:258001
+#: ../ubiquity.templates:259001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-03-09 12:10-0500\n"
+"POT-Creation-Date: 2012-04-30 11:30+0100\n"
 "PO-Revision-Date: 2012-03-23 21:43+0000\n"
 "Last-Translator: Ibrahim Saed <ibraheem5000@gmail.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
@@ -48,7 +48,7 @@ msgstr "أنت أذكى من ذلك؟ غبّر يديك بخيارات تقسي�
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:187001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:188001
 msgid "Install"
 msgstr "ثبت"
 
@@ -131,10 +131,15 @@ msgstr "ربما ترغب <a href=\"update\">بتحديث المثبت</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:17001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"April 2012."
+"October 2012."
 msgstr ""
 "هذه إصدارة تجريبية من مثبّت ${RELEASE} الحي. ليست الإصدارة النهائية التي "
 "ستأتي مع إصدارة ${RELEASE} النهائية في أبريل 2012."
@@ -1222,7 +1227,7 @@ msgstr "إذا لم تعد إلى المقسّم وتزيد مساحة هذه ا
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:177001
+#: ../ubiquity.templates:178001
 msgid "System Configuration"
 msgstr "ضبط النظام"
 
@@ -1230,129 +1235,129 @@ msgstr "ضبط النظام"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001 ../ubiquity.templates:241001
+#: ../ubiquity.templates:179001 ../ubiquity.templates:242001
 msgid "Welcome"
 msgstr "أهلا بك"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001
+#: ../ubiquity.templates:180001
 msgid "Network configuration"
 msgstr "ضبط الشبكة"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:181001
 msgid "Software selection"
 msgstr "اختيار البرمجيات"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:182001
 msgid "Language"
 msgstr "اللغة"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:183001
 msgid "Prepare"
 msgstr "إعداد"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:184001
 msgid "Timezone"
 msgstr "المنطقة الزمنية"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:185001
 msgid "Keyboard"
 msgstr "لوحة المفاتيح"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:186001
 msgid "Disk Setup"
 msgstr "إعداد القرص"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:187001
 msgid "User Info"
 msgstr "معلومات المستخدم"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:188001
+#: ../ubiquity.templates:189001
 msgid "installation process"
 msgstr "عملية التثبيت"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:190001
+#: ../ubiquity.templates:191001
 msgid "Checking for installer updates"
 msgstr "يلتمس تحديثات المثبت"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:192001
 msgid "Reading package information"
 msgstr "يقرأ معلومات الحزم"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:193001
 msgid "Updating package information"
 msgstr "يُحدث معلومات الحزم"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:194001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "ملف ${INDEX} من ${TOTAL} بسرعة ${SPEED}\\ث"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:195001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "ملف ${INDEX} من ${TOTAL}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:196001
 msgid "Installing update"
 msgstr "يثبت التحديث"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "Error updating installer"
 msgstr "خطأ في تحديث المثبت"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:197001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "واجه المثبت خطأ أثناء محاولته تحديث نفسه:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:198001
 msgid "USB disk"
 msgstr "قرص USB"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:199001
 msgid "CD"
 msgstr "اسطوانة"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:200001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1360,7 +1365,7 @@ msgstr "اختر لغة لاستخدامها في عملية التثبيت، س
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:201001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1372,13 +1377,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001 ../ubiquity.templates:202001
+#: ../ubiquity.templates:202001 ../ubiquity.templates:203001
 msgid "Installation failed"
 msgstr "فشل التثبيت"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:202001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1388,26 +1393,26 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:203001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr "واجه المثبّت خطأ غير قابل للإصلاح وسيعيد التشغيل الآن."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:204001
+#: ../ubiquity.templates:205001
 msgid "Preparing to install ${RELEASE}"
 msgstr "يحضّر لتثبيت ${RELEASE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:206001
 msgid "Wireless"
 msgstr "لاسلكي"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:207001
 msgid ""
 "Connecting this computer to a wi-fi network allows you to install third-"
 "party software, download updates, automatically detect your timezone, and "
@@ -1418,49 +1423,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:208001
 msgid "Password:"
 msgstr "كلمة السر:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:209001
 msgid "Display password"
 msgstr "إظهار كلمة السر"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:210001
 msgid "I don't want to connect to a wi-fi network right now"
 msgstr "لا اريد الاتصال بشبكة لا سلكية في الوقت الحالي"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:211001
 msgid "Connect to this network"
 msgstr "اتصل بهذه الشبكة"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 msgid "Select drive:"
 msgstr "اختر القرص:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "خصّص مساحة القرص بسحب الفاصل أدناه:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 msgid "The entire disk will be used:"
 msgstr "سيُستخدم القرص بأكمله:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1471,7 +1476,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1481,7 +1486,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:220001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1491,7 +1496,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1500,39 +1505,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "Split Largest Partition"
 msgstr "اقسم الجزء الأكبر"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "For best results, please ensure that this computer:"
 msgstr "لأفضل النتائج، تأكد من أن هذا الحاسوب:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "has at least ${SIZE} available drive space"
 msgstr "به على الأقل ${SIZE} مساحة خالية"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "is plugged in to a power source"
 msgstr "موصل بمقبس التيار"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid "is connected to the Internet"
 msgstr "موصل بالإنترنت"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:228001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1545,7 +1550,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:229001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
@@ -1555,37 +1560,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:230001
 msgid "Install this third-party software"
 msgstr "ثبت هذه البرامج الخارجية"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:231001
 msgid "Download updates while installing"
 msgstr "نزّل التحديثات أثناء التثبيت"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:234001
+#: ../ubiquity.templates:235001
 msgid "Layout:"
 msgstr "التخطيط:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:236001
 msgid "Variant:"
 msgstr "النوع:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:237001
 msgid "Below is an image of your current layout:"
 msgstr "في الأسفل صورة للتخطيط الحالي:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:238001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1596,19 +1601,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:239001
 msgid "Time Zone:"
 msgstr "المنطقة الزّمنيّة:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:240001
 msgid "Region:"
 msgstr "الإقليم:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:241001
 msgid "[type here to change]"
 msgstr "[اكتب هنا لتغييرها]"
 
@@ -1616,14 +1621,14 @@ msgstr "[اكتب هنا لتغييرها]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:244001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "استبدل ${OS} بـ ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:243001
+#: ../ubiquity.templates:244001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1635,7 +1640,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:245001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "ثبّت ${DISTRO} بجانب ${OS}"
 
@@ -1647,8 +1652,8 @@ msgstr "ثبّت ${DISTRO} بجانب ${OS}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:244001 ../ubiquity.templates:245001
-#: ../ubiquity.templates:249001 ../ubiquity.templates:254001
+#: ../ubiquity.templates:245001 ../ubiquity.templates:246001
+#: ../ubiquity.templates:250001 ../ubiquity.templates:255001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1660,20 +1665,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:246001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "ثبّت ${DISTRO} داخل ${OS}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid "Something else"
 msgstr "شيء آخر"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:247001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1684,14 +1689,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:248001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "امسح ${CURDISTRO} وأعد التثبيت"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:248001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1703,7 +1708,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:249001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "رقِ ${CURDISTRO} إلى ${VER}"
 
@@ -1711,7 +1716,7 @@ msgstr "رقِ ${CURDISTRO} إلى ${VER}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001 ../ubiquity.templates:252001
+#: ../ubiquity.templates:249001 ../ubiquity.templates:253001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1724,7 +1729,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:250001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "ثبّت ${DISTRO} ${VER} بجانب ${CURDISTRO}"
 
@@ -1734,13 +1739,13 @@ msgstr "ثبّت ${DISTRO} ${VER} بجانب ${CURDISTRO}"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:250001 ../ubiquity.templates:253001
+#: ../ubiquity.templates:251001 ../ubiquity.templates:254001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "إمسح القرص وثبّت ${DISTRO}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:251001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1750,7 +1755,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:252001
 msgid "Erase everything and reinstall"
 msgstr "امسح كل شيء وأعد التثبيت"
 
@@ -1758,7 +1763,7 @@ msgstr "امسح كل شيء وأعد التثبيت"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:252001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1770,13 +1775,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:253001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "أعِد تثبيت ${CURDISTRO}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:254001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1788,14 +1793,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:255001
 msgid "Install ${DISTRO} alongside them"
 msgstr "ثبّت ${DISTRO} بجانبهم"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:256001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "يحتوي هذا الحاسوب حاليًا على ${OS}. ماذا تود أن تفعل؟"
 
@@ -1803,7 +1808,7 @@ msgstr "يحتوي هذا الحاسوب حاليًا على ${OS}. ماذا ت�
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:257001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1811,7 +1816,7 @@ msgstr "يحتوي هذا الحاسوب حاليًا على ${OS1} و ${OS2} م
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:258001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1819,7 +1824,7 @@ msgstr "يحتوي هذا الحاسوب حاليًا على أنظمة تشغي
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:258001
+#: ../ubiquity.templates:259001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
