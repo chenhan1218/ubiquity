@@ -17,6 +17,7 @@ endif
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 console-setup-depends := console-setup (>= $(shell cd d-i/source/console-setup && dpkg-parsechangelog | awk '/Version:/ {print $$2}'))
 
@@ -91,6 +92,10 @@ ifndef UBIQUITY_NO_GTK
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
 	rm -f debian/ubiquity-frontend-gtk/usr/lib/libubi*.la
+ifneq (,$(DEB_HOST_MULTIARCH))
+	mv debian/ubiquity-frontend-gtk/usr/lib/$(DEB_HOST_MULTIARCH)/girepository-1.0 \
+	   debian/ubiquity-frontend-gtk/usr/lib/
+endif
 endif
 	$(MAKE) -C d-i install
 

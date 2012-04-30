@@ -6,6 +6,9 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     missing from images; and only do this for the GTK frontend in any case,
     since other frontends don't currently use the slideshow (LP: #987050).
   * Re-enable alpha warning for quantal.
+  * Upgrade to debhelper 9 for improved handling of compiler flags.  Make
+    sure that /usr/lib/girepository-1.0/ stays where it's supposed to be
+    despite changes in the default libdir for multiarch.
 
   [ Stéphane Graber ]
   * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.
