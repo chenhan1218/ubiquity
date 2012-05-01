@@ -514,7 +514,7 @@ class Install(install_misc.InstallBase):
             osextras.unlink_force(target_kernel)
             install_misc.copy_file(self.db, kernel, target_kernel, md5_check)
             os.lchown(target_kernel, 0, 0)
-            os.chmod(target_kernel, 0644)
+            os.chmod(target_kernel, 0o644)
             st = os.lstat(kernel)
             try:
                 os.utime(target_kernel, (st.st_atime, st.st_mtime))

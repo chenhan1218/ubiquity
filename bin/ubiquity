@@ -184,7 +184,7 @@ def start_debconf():
         # have a custom debconf program, a bit like dpkg-reconfigure.
         import tempfile
         debconfrc_fd, debconfrc = tempfile.mkstemp()
-        os.chmod(debconfrc, 0644)
+        os.chmod(debconfrc, 0o644)
         debconfrc_file = os.fdopen(debconfrc_fd, 'w')
         orig_debconfrc = open('/etc/debconf.conf')
         state = 0
@@ -537,7 +537,7 @@ def main(oem_config):
             else:
                 logfile = '/var/log/installer/debug'
             log = os.open(logfile, os.O_WRONLY | os.O_CREAT | os.O_APPEND,
-                          0644)
+                          0o644)
             os.dup2(log, 2)
             os.close(log)
             sys.stderr = os.fdopen(2, 'a', 1)

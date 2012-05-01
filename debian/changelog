@@ -20,6 +20,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Use input() rather than raw_input() when running under Python 3.
     - Use set comprehensions.
     - Import quote from urllib.parse rather than urllib if available.
+    - Use new-style octal literals.
 
   [ Stéphane Graber ]
   * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.

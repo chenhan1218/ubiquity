@@ -96,7 +96,7 @@ def main():
             import tempfile
             xauthority = tempfile.NamedTemporaryFile(prefix='ubiquity-',
                                                      suffix='-xauth')
-            os.chmod(xauthority.name, 0600) # root can still read it
+            os.chmod(xauthority.name, 0o600) # root can still read it
             xauth_extract = subprocess.Popen(
                 ['xauth', 'extract', '-', os.environ['DISPLAY']],
                 stdout=subprocess.PIPE)

@@ -118,7 +118,7 @@ def chroot_setup(target, x11=False):
 #!/bin/sh
 exit 101""", file=f)
     f.close()
-    os.chmod(policy_rc_d, 0755)
+    os.chmod(policy_rc_d, 0o755)
 
     start_stop_daemon = os.path.join(target, 'sbin/start-stop-daemon')
     if os.path.exists(start_stop_daemon):
@@ -130,7 +130,7 @@ echo 1>&2
 echo 'Warning: Fake start-stop-daemon called, doing nothing.' 1>&2
 exit 0""", file=f)
     f.close()
-    os.chmod(start_stop_daemon, 0755)
+    os.chmod(start_stop_daemon, 0o755)
 
     initctl = os.path.join(target, 'sbin/initctl')
     if os.path.exists(initctl):
@@ -142,7 +142,7 @@ echo 1>&2
 echo 'Warning: Fake initctl called, doing nothing.' 1>&2
 exit 0""", file=f)
         f.close()
-        os.chmod(initctl, 0755)
+        os.chmod(initctl, 0o755)
 
     if not os.path.exists(os.path.join(target, 'proc/cmdline')):
         chrex(target, 'mount', '-t', 'proc', 'proc', '/proc')

@@ -1640,8 +1640,8 @@ class Install(install_misc.InstallBase):
             gid = int(gid)
             self.copy_tree(casper_user_wallpaper_cache_dir,
                            target_user_wallpaper_cache_dir, uid, gid)
-            os.chmod(target_user_cache_dir, 0700)
-            os.chmod(target_user_wallpaper_cache_dir, 0700)
+            os.chmod(target_user_cache_dir, 0o700)
+            os.chmod(target_user_wallpaper_cache_dir, 0o700)
 
     def copy_dcd(self):
         """Copy the Distribution Channel Descriptor (DCD) file into the
