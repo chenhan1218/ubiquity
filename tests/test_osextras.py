@@ -20,7 +20,7 @@ class OsextrasTests(unittest.TestCase):
     def create_empty_file(self, path, mode=None):
         try:
             os.makedirs(os.path.dirname(path))
-        except OSError, e:
+        except OSError as e:
             if e.errno != errno.EEXIST:
                 raise
         with open(path, "w"):
