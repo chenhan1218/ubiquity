@@ -3,7 +3,10 @@
 
 from itertools import izip, izip_longest
 import os
-from test import test_support
+try:
+    from test.support import run_unittest
+except ImportError:
+    from test.test_support import run_unittest
 import unittest
 
 import debconf
@@ -730,7 +733,7 @@ class TestPageGtk(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    test_support.run_unittest(
+    run_unittest(
         TestCalculateAutopartitioningOptions,
         TestPage,
         TestPageGrub,

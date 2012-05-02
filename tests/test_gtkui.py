@@ -2,7 +2,10 @@
 # -*- coding: utf-8; -*-
 
 import os
-from test import test_support
+try:
+    from test.support import EnvironmentVarGuard
+except ImportError:
+    from test.test_support import EnvironmentVarGuard
 import unittest
 
 import mock
@@ -56,7 +59,7 @@ class TestFrontend(unittest.TestCase):
                      'only testable against a build tree')
     def test_pages_fit_on_a_netbook(self):
         from ubiquity.frontend import gtk_ui
-        with test_support.EnvironmentVarGuard() as env:
+        with EnvironmentVarGuard() as env:
             env['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
             ui = gtk_ui.Wizard('test-ubiquity')
             ui.translate_pages()

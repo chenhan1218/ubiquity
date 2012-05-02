@@ -4,7 +4,10 @@ import errno
 import os
 import shutil
 import tempfile
-from test import test_support
+try:
+    from test.support import EnvironmentVarGuard
+except ImportError:
+    from test.test_support import EnvironmentVarGuard
 import unittest
 
 from ubiquity import osextras
@@ -46,7 +49,7 @@ class OsextrasTests(unittest.TestCase):
         inner_bin = os.path.join(chroot, self.temp_dir[1:], "bin")
         self.create_empty_file(os.path.join(outer_bin, "executable"), 0o755)
         self.create_empty_file(os.path.join(inner_bin, "executable"), 0o755)
-        with test_support.EnvironmentVarGuard() as env:
+        with EnvironmentVarGuard() as env:
             env['PATH'] = outer_bin
             self.assertTrue(osextras.find_on_path_root(chroot, "executable"))
 

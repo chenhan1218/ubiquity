@@ -3,7 +3,10 @@
 
 import os
 import unittest
-from test.test_support import EnvironmentVarGuard
+try:
+    from test.support import EnvironmentVarGuard
+except ImportError:
+    from test.test_support import EnvironmentVarGuard
 
 from gi.repository import Gtk
 import mock

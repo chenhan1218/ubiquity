@@ -3,7 +3,10 @@
 
 import os
 import sys
-from test import test_support
+try:
+    from test.support import run_unittest
+except ImportError:
+    from test.test_support import run_unittest
 import unittest
 
 from gi.repository import Gtk, TimezoneMap
@@ -220,4 +223,4 @@ class NetworkManagerTests(unittest.TestCase):
         mock_cell.set_property.assert_called_with('text', 'Orange')
 
 if __name__ == '__main__':
-    test_support.run_unittest(WidgetTests, NetworkManagerTests)
+    run_unittest(WidgetTests, NetworkManagerTests)

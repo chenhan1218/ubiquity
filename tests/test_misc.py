@@ -3,7 +3,10 @@
 import grp
 import os
 import pwd
-from test import test_support
+try:
+    from test.support import EnvironmentVarGuard, run_unittest
+except ImportError:
+    from test.test_support import EnvironmentVarGuard, run_unittest
 import unittest
 
 # These tests require Mock 0.7.0
@@ -38,15 +41,15 @@ _proc_mounts = [
 ]
 
 
-class EnvironmentVarGuard(test_support.EnvironmentVarGuard):
-    """Stronger version of test_support.EnvironmentVarGuard.
+class EnvironmentVarGuardRestore(EnvironmentVarGuard):
+    """Stronger version of EnvironmentVarGuard.
 
     This class restores os.environ even if something within its context
     manipulates os.environ directly.
     """
 
     def __init__(self):
-        test_support.EnvironmentVarGuard.__init__(self)
+        EnvironmentVarGuard.__init__(self)
         self._environ = self._environ.copy()
 
 
@@ -259,7 +262,7 @@ class PrivilegeTests(unittest.TestCase):
     @mock.patch('os.seteuid')
     @mock.patch('os.setgroups')
     def test_drop_privileges(self, *args):
-        with test_support.EnvironmentVarGuard() as env:
+        with EnvironmentVarGuard() as env:
             env['SUDO_UID'] = '1000'
             env['SUDO_GID'] = '1000'
             misc.drop_privileges()
@@ -281,7 +284,7 @@ class PrivilegeTests(unittest.TestCase):
     @mock.patch('os.setreuid')
     def test_drop_all_privileges(self, *args):
         pwd.getpwuid.return_value.pw_dir = 'fakeusr'
-        with EnvironmentVarGuard():
+        with EnvironmentVarGuardRestore():
             os.environ['SUDO_UID'] = '1000'
             os.environ['SUDO_GID'] = '1000'
             misc.drop_all_privileges()
@@ -422,4 +425,4 @@ class GrubDefaultTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    test_support.run_unittest(MiscTests, PrivilegeTests, GrubDefaultTests)
+    run_unittest(MiscTests, PrivilegeTests, GrubDefaultTests)
