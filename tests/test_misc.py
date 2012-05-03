@@ -13,7 +13,7 @@ import unittest
 import mock
 
 from ubiquity import misc
-from helpers import builtin_patch
+from helpers import builtin_patch, text_file_type
 
 _proc_swaps = [
     'Filename\t\t\t\tType\t\tSize\tUsed\tPriority',
@@ -61,7 +61,7 @@ class MiscTests(unittest.TestCase):
 
     @builtin_patch('open')
     def test_is_swap(self, mock_open):
-        magic = mock.MagicMock(spec=file)
+        magic = mock.MagicMock(spec=text_file_type)
         mock_open.return_value = magic
         magic.__iter__.return_value = iter(_proc_swaps)
         self.assertTrue(misc.is_swap('/dev/sda5'))
@@ -95,7 +95,7 @@ class MiscTests(unittest.TestCase):
 
     @builtin_patch('open')
     def test_get_release(self, mock_open):
-        magic = mock.MagicMock(spec=file)
+        magic = mock.MagicMock(spec=text_file_type)
         magic.__enter__.return_value = magic
         mock_open.return_value = magic
         magic.readline.return_value = _disk_info
@@ -129,7 +129,7 @@ class MiscTests(unittest.TestCase):
 
     @builtin_patch('open')
     def test_mount_info(self, mock_open):
-        magic = mock.MagicMock(spec=file)
+        magic = mock.MagicMock(spec=text_file_type)
         magic.__enter__.return_value = magic
         mock_open.return_value = magic
         # TODO come up with better mountpoints.

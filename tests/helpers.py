@@ -25,6 +25,11 @@ import mock
 if sys.version >= '3':
     def builtin_patch(name):
         return mock.patch("builtins.%s" % name)
+
+    import io
+    text_file_type = io.TextIOBase
 else:
     def builtin_patch(name):
         return mock.patch("__builtin__.%s" % name)
+
+    text_file_type = file

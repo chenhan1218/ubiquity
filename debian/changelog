@@ -48,6 +48,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       Python 2.7 and 3.2.
     - Rearrange ubiquity.i18n.get_translations to treat debconf-copydb
       output as binary data and do field-dependent decoding.
+    - Adjust test_misc and test_upower to cope with file type changes in
+      Python 3.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
