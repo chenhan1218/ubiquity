@@ -1,7 +1,12 @@
 #!/usr/bin/python
 
 
-from itertools import izip, izip_longest
+try:
+    # < 3.0
+    from itertools import izip as zip, izip_longest as zip_longest
+except ImportError:
+    # >= 3.0; the zip builtin returns an iterator
+    from itertools import zip_longest
 import os
 try:
     from test.support import run_unittest
@@ -684,7 +689,7 @@ def _fake_grub_options_pairs(paths, descriptions):
     def grub_options():
         return [(path, description)
                 for path, description
-                in izip_longest(paths, descriptions, fillvalue='')]
+                in zip_longest(paths, descriptions, fillvalue='')]
     return grub_options
 
 class TestPageGtk(unittest.TestCase):
@@ -728,7 +733,7 @@ class TestPageGtk(unittest.TestCase):
         row_text = []
         for row in self.gtk.grub_device_entry.get_model():
             row_text.append(' '.join(row))
-        for want, got in izip(expected, row_text):
+        for want, got in zip(expected, row_text):
             self.assertEqual(want, got)
 
 
