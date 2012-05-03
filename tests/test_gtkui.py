@@ -123,7 +123,8 @@ class TestFrontend(unittest.TestCase):
                 ]
             deb_host_arch = subprocess.Popen(
                 ['dpkg-architecture', '-qDEB_HOST_ARCH'],
-                stdout=subprocess.PIPE).communicate()[0].strip()
+                stdout=subprocess.PIPE,
+                universal_newlines=True).communicate()[0].strip()
             if deb_host_arch not in ('amd64', 'i386'):
                 # grub-installer not available, but this template won't be
                 # displayed anyway.

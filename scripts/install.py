@@ -321,7 +321,9 @@ class Install(install_misc.InstallBase):
 
         cmd = ['dpkg', '-L']
         cmd.extend(difference)
-        subp = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subp = subprocess.Popen(
+            cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True)
         res = subp.communicate()[0].splitlines()
         u = {}
         for x in res:
@@ -553,7 +555,8 @@ class Install(install_misc.InstallBase):
                     udevinfo_cmd.extend(
                         ['-q', 'name', '-p', os.path.join('/block', sysloop)])
                     udevinfo = subprocess.Popen(
-                        udevinfo_cmd, stdout=subprocess.PIPE, stderr=devnull)
+                        udevinfo_cmd, stdout=subprocess.PIPE, stderr=devnull,
+                        universal_newlines=True)
                     devbase = udevinfo.communicate()[0]
                     devnull.close()
                     if udevinfo.returncode != 0:

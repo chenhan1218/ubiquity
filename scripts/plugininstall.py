@@ -273,11 +273,13 @@ class Install(install_misc.InstallBase):
     def configure_face(self):
         PHOTO_PATH = '/var/lib/ubiquity/webcam_photo.png'
         target_user = self.db.get('passwd/username')
-        uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
-            target_user, '--', 'id', '-u'], stdout=subprocess.PIPE)
+        uid = subprocess.Popen(
+            ['chroot', self.target, 'sudo', '-u', target_user, '--',
+             'id', '-u'], stdout=subprocess.PIPE, universal_newlines=True)
         uid = uid.communicate()[0].strip('\n')
-        gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
-            target_user, '--', 'id', '-g'], stdout=subprocess.PIPE)
+        gid = subprocess.Popen(
+            ['chroot', self.target, 'sudo', '-u', target_user, '--',
+             'id', '-g'], stdout=subprocess.PIPE, universal_newlines=True)
         gid = gid.communicate()[0].strip('\n')
         try:
             uid = int(uid)
@@ -321,7 +323,8 @@ class Install(install_misc.InstallBase):
         # Modules provided by the core Debian Python packages.
         default = subprocess.Popen(
             ['chroot', self.target, 'pyversions', '-d'],
-            stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+            stdout=subprocess.PIPE,
+            universal_newlines=True).communicate()[0].rstrip('\n')
         if default:
             install_misc.chrex(self.target, default, '-m', 'compileall',
                                '/usr/share/python/')
@@ -341,7 +344,8 @@ class Install(install_misc.InstallBase):
             if osextras.find_on_path_root(self.target, 'pyversions'):
                 supported = subprocess.Popen(
                     ['chroot', self.target, 'pyversions', '-s'],
-                    stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True).communicate()[0].rstrip('\n')
                 for python in supported.split():
                     try:
                         cachedpython = cache['%s-minimal' % python]
@@ -362,7 +366,8 @@ class Install(install_misc.InstallBase):
             if osextras.find_on_path_root(self.target, 'py3versions'):
                 supported = subprocess.Popen(
                     ['chroot', self.target, 'py3versions', '-s'],
-                    stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True).communicate()[0].rstrip('\n')
                 for python in supported.split():
                     try:
                         cachedpython = cache['%s-minimal' % python]
@@ -856,7 +861,8 @@ class Install(install_misc.InstallBase):
             try:
                 resume_uuid = subprocess.Popen(
                     ['block-attr', '--uuid', resume],
-                    stdout=subprocess.PIPE).communicate()[0].rstrip('\n')
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True).communicate()[0].rstrip('\n')
             except OSError:
                 pass
             if resume_uuid:
@@ -1226,7 +1232,8 @@ class Install(install_misc.InstallBase):
                 inst_composite = ['chroot', self.target, 'jockey-text',
                                   '-C', '--no-dbus', '-k', self.kernel_version]
                 p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
-                                     stdout=sys.stderr, env=env)
+                                     stdout=sys.stderr, env=env,
+                                     universal_newlines=True)
                 p.communicate('y\n')
             except OSError:
                 syslog.syslog(syslog.LOG_WARNING,
@@ -1630,12 +1637,16 @@ class Install(install_misc.InstallBase):
                                  '/usr/lib/gnome-settings-daemon/'
                                  'gnome-update-wallpaper-cache'])
             # copy to targeted user
-            uid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
-                target_user, '--', 'id', '-u'],
-                stdout=subprocess.PIPE).communicate()[0].strip('\n')
-            gid = subprocess.Popen(['chroot', self.target, 'sudo', '-u',
-                target_user, '--', 'id', '-g'],
-                stdout=subprocess.PIPE).communicate()[0].strip('\n')
+            uid = subprocess.Popen(
+                ['chroot', self.target, 'sudo', '-u', target_user, '--',
+                 'id', '-u'],
+                stdout=subprocess.PIPE,
+                universal_newlines=True).communicate()[0].strip('\n')
+            gid = subprocess.Popen(
+                ['chroot', self.target, 'sudo', '-u', target_user, '--',
+                 'id', '-g'],
+                stdout=subprocess.PIPE,
+                universal_newlines=True).communicate()[0].strip('\n')
             uid = int(uid)
             gid = int(gid)
             self.copy_tree(casper_user_wallpaper_cache_dir,

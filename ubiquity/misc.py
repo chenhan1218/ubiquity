@@ -143,8 +143,9 @@ def grub_options():
     l = []
     try:
         oslist = {}
-        subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
+        subp = subprocess.Popen(
+            ['os-prober'], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True)
         result = subp.communicate()[0].splitlines()
         for res in result:
             res = res.split(':')
@@ -227,7 +228,7 @@ def is_removable(device):
     removable_bus = False
     subp = subprocess.Popen(['udevadm', 'info', '-q', 'property',
                              '-n', device],
-                            stdout=subprocess.PIPE)
+                            stdout=subprocess.PIPE, universal_newlines=True)
     for line in subp.communicate()[0].splitlines():
         line = line.strip()
         if line.startswith('DEVPATH='):
@@ -250,7 +251,8 @@ def is_removable(device):
             try:
                 subp = subprocess.Popen(['udevadm', 'info', '-q', 'name',
                                          '-p', devpath],
-                                        stdout=subprocess.PIPE)
+                                        stdout=subprocess.PIPE,
+                                        universal_newlines=True)
                 return ('/dev/%s' %
                         subp.communicate()[0].splitlines()[0].strip())
             except Exception:
@@ -276,7 +278,8 @@ def udevadm_info(args):
     fullargs = ['udevadm', 'info', '-q', 'property']
     fullargs.extend(args)
     udevadm = {}
-    subp = subprocess.Popen(fullargs, stdout=subprocess.PIPE)
+    subp = subprocess.Popen(
+        fullargs, stdout=subprocess.PIPE, universal_newlines=True)
     for line in subp.communicate()[0].splitlines():
         line = line.strip()
         if '=' not in line:
@@ -314,7 +317,7 @@ def cdrom_mount_info():
 def grub_device_map():
     """Return the contents of the default GRUB device map."""
     subp = subprocess.Popen(['grub-mkdevicemap', '--no-floppy', '-m', '-'],
-                            stdout=subprocess.PIPE)
+                            stdout=subprocess.PIPE, universal_newlines=True)
     return subp.communicate()[0].splitlines()
 
 def grub_default():
@@ -397,8 +400,9 @@ def os_prober():
 
     if not _os_prober_called:
         _os_prober_called = True
-        subp = subprocess.Popen(['os-prober'], stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
+        subp = subprocess.Popen(
+            ['os-prober'], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True)
         result = subp.communicate()[0].splitlines()
         for res in result:
             res = res.split(':')
@@ -562,8 +566,9 @@ def dmimodel():
         # Silence annoying warnings during the test suite.
         kwargs['stderr'] = open('/dev/null', 'w')
     try:
-        proc = subprocess.Popen(['dmidecode', '--string',
-            'system-manufacturer'], stdout=subprocess.PIPE, **kwargs)
+        proc = subprocess.Popen(
+            ['dmidecode', '--string', 'system-manufacturer'],
+            stdout=subprocess.PIPE, universal_newlines=True, **kwargs)
         manufacturer = proc.communicate()[0]
         if not manufacturer:
             return
@@ -580,7 +585,8 @@ def dmimodel():
             else:
                 key = 'system-product-name'
             proc = subprocess.Popen(['dmidecode', '--string', key],
-                                    stdout=subprocess.PIPE)
+                                    stdout=subprocess.PIPE,
+                                    universal_newlines=True)
             model = proc.communicate()[0]
         if 'apple' in manufacturer:
             # MacBook4,1 - strip the 4,1

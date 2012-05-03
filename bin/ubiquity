@@ -40,7 +40,9 @@ lock = None
 def distribution():
     """Returns the name of the running distribution."""
 
-    proc = subprocess.Popen(['lsb_release', '-is'], stdout=subprocess.PIPE)
+    proc = subprocess.Popen(
+        ['lsb_release', '-is'], stdout=subprocess.PIPE,
+        universal_newlines=True)
     return proc.communicate()[0].strip()
 
 def disable_autologin():
@@ -397,7 +399,8 @@ def acquire_lock():
         # something else.
         test_debconf = subprocess.Popen(
             ['debconf-communicate', '-fnoninteractive', 'ubiquity'],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True)
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True,
+            universal_newlines=True)
         try:
             print('VERSION 2.0', file=test_debconf.stdin)
             test_debconf.stdout.readline()

@@ -444,7 +444,8 @@ def excepthook(exctype, excvalue, exctb):
     sys.exit(1)
 
 def archdetect():
-    archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+    archdetect = subprocess.Popen(
+        ['archdetect'], stdout=subprocess.PIPE, universal_newlines=True)
     answer = archdetect.communicate()[0].strip()
     try:
         return answer.split('/', 1)
@@ -934,7 +935,8 @@ class InstallBase:
             if langpack_db == 'ALL':
                 apt_out = subprocess.Popen(
                     ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
-                    stdout=subprocess.PIPE).communicate()[0].rstrip().split('\n')
+                    stdout=subprocess.PIPE,
+                    universal_newlines=True).communicate()[0].rstrip().split('\n')
                 langpacks = [x.split('-')[2].strip() for x in apt_out]
                 all_langpacks = True
             else:
@@ -989,7 +991,7 @@ class InstallBase:
                 check_lang = subprocess.Popen(
                     ['check-language-support', '-l', lp_locale.split('.')[0],
                      '--show-installed'],
-                    stdout=subprocess.PIPE)
+                    stdout=subprocess.PIPE, universal_newlines=True)
                 to_install.extend(check_lang.communicate()[0].strip().split())
             else:
                 to_install.append('language-support-%s' % lp)
@@ -1005,7 +1007,7 @@ class InstallBase:
         if all_langpacks and checker:
             check_lang = subprocess.Popen(
                 ['check-language-support', '-a', '--show-installed'],
-                stdout=subprocess.PIPE)
+                stdout=subprocess.PIPE, universal_newlines=True)
             to_install.extend(check_lang.communicate()[0].strip().split())
 
         # Filter the list of language packs to include only language packs

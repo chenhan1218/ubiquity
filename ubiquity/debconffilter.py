@@ -209,7 +209,7 @@ class DebconfFilter:
 
         self.subp = subprocess.Popen(
             command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-            preexec_fn=subprocess_setup)
+            preexec_fn=subprocess_setup, universal_newlines=True)
         self.subin = self.subp.stdin
         self.subout = self.subp.stdout
         self.subout_fd = self.subout.fileno()

@@ -239,7 +239,9 @@ class Page(plugin.Plugin):
 
     def big_enough(self, size):
         with misc.raised_privileges():
-            proc = subprocess.Popen(['parted_devices'], stdout=subprocess.PIPE)
+            proc = subprocess.Popen(
+                ['parted_devices'],
+                stdout=subprocess.PIPE, universal_newlines=True)
             devices = proc.communicate()[0].rstrip('\n').split('\n')
             ret = False
             for device in devices:

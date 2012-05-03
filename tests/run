@@ -86,7 +86,8 @@ os.environ['GI_TYPELIB_PATH'] = ':'.join(
 
 if 'DEB_HOST_ARCH' not in os.environ:
     os.environ['DEB_HOST_ARCH'] = subprocess.check_output(
-        ['dpkg-architecture', '-qDEB_HOST_ARCH']).decode().strip()
+        ['dpkg-architecture', '-qDEB_HOST_ARCH'],
+        universal_newlines=True).strip()
 
 if options.installed:
     sys.path.insert(0, '/usr/lib/ubiquity')

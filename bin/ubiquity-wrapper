@@ -118,7 +118,8 @@ def main():
     # Apparently killing a few processes up-front helps.
     try:
         lowmem = False
-        archdetect = subprocess.Popen(['archdetect'], stdout=subprocess.PIPE)
+        archdetect = subprocess.Popen(
+            ['archdetect'], stdout=subprocess.PIPE, universal_newlines=True)
         arch = archdetect.communicate()[0].strip()
         if arch == 'powerpc/ps3':
             with open('/proc/meminfo') as meminfo:

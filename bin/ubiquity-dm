@@ -274,7 +274,7 @@ EndSection
             dbus_subp = subprocess.Popen(
                 ['dbus-launch', '--exit-with-session'],
                 stdin=null, stdout=subprocess.PIPE, stderr=logfile,
-                preexec_fn=self.drop_privileges)
+                preexec_fn=self.drop_privileges, universal_newlines=True)
             for line in dbus_subp.stdout:
                 try:
                     name, value = line.rstrip('\n').split('=', 1)

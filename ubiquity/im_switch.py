@@ -60,7 +60,8 @@ echo "XIM_ARGS: $XIM_ARGS"
 echo "XIM_PROGRAM_XTRA: $XIM_PROGRAM_XTRA"
 echo "XMODIFIERS: $XMODIFIERS"
 echo "GTK_IM_MODULE: $GTK_IM_MODULE"
-echo "QT_IM_MODULE: $QT_IM_MODULE"''' % f, stdout=subprocess.PIPE, shell=True)
+echo "QT_IM_MODULE: $QT_IM_MODULE"''' % f,
+        stdout=subprocess.PIPE, shell=True, universal_newlines=True)
     cfg_lines = cfg.communicate()[0].splitlines()
     cfg_dict = {}
     for line in cfg_lines:

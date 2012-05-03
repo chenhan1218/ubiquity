@@ -46,7 +46,8 @@ def get(schema, key, user = None):
 
     subp = subprocess.Popen(['sudo', '-u', user, 'gsettings', 'get', schema, key],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                            preexec_fn=misc.drop_all_privileges)
+                            preexec_fn=misc.drop_all_privileges,
+                            universal_newlines=True)
     value = subp.communicate()[0].rstrip('\n')
 
     if not value:

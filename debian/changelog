@@ -30,6 +30,14 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       available.
     - Use helpers from the six module to deal with some bytes/unicode
       differences.
+    - As a general rule, open subprocesses with universal_newlines=True when
+      expecting to read text from them.  This has no effect on Python 2
+      (aside from \r\n conversion and the like, which is mostly a no-op for
+      us), but causes Python 3 to read str rather than bytes.  The
+      exceptions at the moment are debconf-communicator subprocesses, where
+      debconf expects to read binary data and deal with encoding itself, and
+      debconf-copydb subprocesses, which return mixed-encoding data that
+      needs to be handled specially.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

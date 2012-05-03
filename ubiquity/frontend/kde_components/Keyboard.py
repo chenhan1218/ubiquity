@@ -232,7 +232,9 @@ class Keyboard(QWidget):
         cmd="ckbcomp -model pc106 -layout %s %s -compact" % (self.layout, variantParam)
         #print(cmd)
 
-        pipe = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=None)
+        pipe = subprocess.Popen(
+            cmd, shell=True, stdout=subprocess.PIPE, stderr=None,
+            universal_newlines=True)
         cfile = pipe.communicate()[0]
 
         #clear the current codes
