@@ -3,9 +3,10 @@ import unittest
 import mock
 
 from ubiquity import upower
+from helpers import builtin_patch
 
 class UPowerTests(unittest.TestCase):
-    @mock.patch('__builtin__.open')
+    @builtin_patch('open')
     @mock.patch('os.path.exists')
     @mock.patch('os.listdir')
     def test_has_battery(self, mock_listdir, mock_exists, mock_open):

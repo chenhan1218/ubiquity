@@ -13,6 +13,7 @@ import unittest
 import mock
 
 from ubiquity import misc
+from helpers import builtin_patch
 
 _proc_swaps = [
     'Filename\t\t\t\tType\t\tSize\tUsed\tPriority',
@@ -58,7 +59,7 @@ class MiscTests(unittest.TestCase):
     def setUp(self):
         misc.get_release.release_info = None
 
-    @mock.patch('__builtin__.open')
+    @builtin_patch('open')
     def test_is_swap(self, mock_open):
         magic = mock.MagicMock(spec=file)
         mock_open.return_value = magic
@@ -66,7 +67,7 @@ class MiscTests(unittest.TestCase):
         self.assertTrue(misc.is_swap('/dev/sda5'))
         self.assertFalse(misc.is_swap('/dev/sda'))
 
-    @mock.patch('__builtin__.open')
+    @builtin_patch('open')
     def test_is_swap_fail(self, mock_open):
         mock_open.side_effect = Exception('Ka-blamo!')
         self.assertFalse(misc.is_swap('/dev/sda5'))
@@ -92,7 +93,7 @@ class MiscTests(unittest.TestCase):
         # os.access, raise an exception as a side effect.
         pass
 
-    @mock.patch('__builtin__.open')
+    @builtin_patch('open')
     def test_get_release(self, mock_open):
         magic = mock.MagicMock(spec=file)
         magic.__enter__.return_value = magic
@@ -102,14 +103,14 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(release.name, 'Ubuntu-Server')
         self.assertEqual(release.version, '10.04.1 LTS')
 
-    @mock.patch('__builtin__.open')
+    @builtin_patch('open')
     def test_get_release_fail(self, mock_open):
         mock_open.side_effect = Exception('Pow!')
         release = misc.get_release()
         self.assertEqual(release.name, 'Ubuntu')
         self.assertEqual(release.version, '')
 
-    #@mock.patch('__builtin__.os.path.exists')
+    #@mock.patch('os.path.exists')
     #def windows_startup_folder(self, mock_exists):
     #    #mock_exists.return_value = True
     #    locations = [
@@ -126,7 +127,7 @@ class MiscTests(unittest.TestCase):
 
     #    self.assertEqual(misc.windows_startup_folder('/tmp/tmp.XXXXXX'))
 
-    @mock.patch('__builtin__.open')
+    @builtin_patch('open')
     def test_mount_info(self, mock_open):
         magic = mock.MagicMock(spec=file)
         magic.__enter__.return_value = magic
