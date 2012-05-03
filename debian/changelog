@@ -24,6 +24,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Use test.support rather than test.test_support if available.
     - Add a --python3 option to tests/run to run the tests under Python 3.
     - Handle renaming of __builtin__ to builtins in Python 3.
+    - Only pass unicode=1 to gettext.install in Python 2.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

@@ -965,7 +965,10 @@ color : @fg_color
         gettext.bindtextdomain(domain, LOCALEDIR)
         self.builder.set_translation_domain(domain)
         gettext.textdomain(domain)
-        gettext.install(domain, LOCALEDIR, unicode=1)
+        kwargs = {}
+        if sys.version < '3':
+            kwargs['unicode'] = 1
+        gettext.install(domain, LOCALEDIR, **kwargs)
 
     def translate_reget(self, lang):
         if lang is None:
