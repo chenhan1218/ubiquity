@@ -34,6 +34,9 @@ parser.add_option('--xvfb-log', dest='xvfb_log', metavar='FILE',
 parser.add_option('--no-build', dest='build',
                   default=True, action='store_false',
                   help="Don't build source code first")
+parser.add_option('--python3', dest='python3',
+                  default=False, action='store_true',
+                  help='Run tests with Python 3')
 options, args = parser.parse_args()
 
 if options.xvfb:
@@ -71,12 +74,19 @@ if re_exec:
     os.environ['LD_LIBRARY_PATH'] = ':'.join(ld_library_path)
     os.execv(sys.argv[0], sys.argv)
 
+# Re-exec under Python 3 if necessary.  This must come after all other
+# re-execs.
+if options.python3 and sys.version < '3':
+    new_argv = list(sys.argv)
+    new_argv.insert(0, 'python3')
+    os.execvp('python3', new_argv)
+
 os.environ['GI_TYPELIB_PATH'] = ':'.join(
     ['src/%s' % extra_module for extra_module in extra_modules])
 
 if 'DEB_HOST_ARCH' not in os.environ:
     os.environ['DEB_HOST_ARCH'] = subprocess.check_output(
-        ['dpkg-architecture', '-qDEB_HOST_ARCH']).strip()
+        ['dpkg-architecture', '-qDEB_HOST_ARCH']).decode("UTF-8").strip()
 
 if options.installed:
     sys.path.insert(0, '/usr/lib/ubiquity')
