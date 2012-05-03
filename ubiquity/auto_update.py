@@ -40,7 +40,7 @@ UBIQUITY_PKGS = ["ubiquity-casper",
                  "ubiquity"]
 
 
-class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
+class CacheProgressDebconfProgressAdapter(apt.progress.base.OpProgress):
     def __init__(self, frontend):
         self.frontend = frontend
         self.frontend.debconf_progress_start(
@@ -56,23 +56,25 @@ class CacheProgressDebconfProgressAdapter(apt.progress.OpProgress):
         self.frontend.debconf_progress_stop()
 
 
-class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
+class AcquireProgressDebconfProgressAdapter(apt.progress.base.AcquireProgress):
     def __init__(self, frontend):
-        apt.progress.FetchProgress.__init__(self)
+        apt.progress.base.AcquireProgress.__init__(self)
         self.frontend = frontend
 
-    def pulse(self):
-        apt.progress.FetchProgress.pulse(self)
-        if self.currentCPS > 0:
+    def pulse(self, owner):
+        apt.progress.base.AcquireProgress.pulse(self, owner)
+        if self.current_cps > 0:
             info = self.frontend.get_string('apt_progress_cps')
             info = info.replace(
-                '${SPEED}', apt_pkg.size_to_str(self.currentCPS))
+                '${SPEED}', apt_pkg.size_to_str(self.current_cps))
         else:
             info = self.frontend.get_string('apt_progress')
-        info = info.replace('${INDEX}', str(self.currentItems))
-        info = info.replace('${TOTAL}', str(self.totalItems))
+        info = info.replace('${INDEX}', str(self.current_items))
+        info = info.replace('${TOTAL}', str(self.total_items))
         self.frontend.debconf_progress_info(info)
-        self.frontend.debconf_progress_set(self.percent)
+        self.frontend.debconf_progress_set(
+            ((self.current_bytes + self.current_items) * 100.0) /
+            float(self.total_bytes + self.total_items))
         self.frontend.refresh()
         return True
 
@@ -84,23 +86,23 @@ class FetchProgressDebconfProgressAdapter(apt.progress.FetchProgress):
             0, 100, self.frontend.get_string('updating_package_information'))
 
 
-class InstallProgressDebconfProgressAdapter(apt.progress.InstallProgress):
+class InstallProgressDebconfProgressAdapter(apt.progress.base.InstallProgress):
     def __init__(self, frontend):
-        apt.progress.InstallProgress.__init__(self)
+        apt.progress.base.InstallProgress.__init__(self)
         self.frontend = frontend
 
-    def statusChange(self, unused_pkg, percent, unused_status):
+    def status_change(self, unused_pkg, percent, unused_status):
         self.frontend.debconf_progress_set(percent)
 
-    def startUpdate(self):
+    def start_update(self):
         self.frontend.debconf_progress_start(
             0, 100, self.frontend.get_string('installing_update'))
 
-    def finishUpdate(self):
+    def finish_update(self):
         self.frontend.debconf_progress_stop()
 
-    def updateInterface(self):
-        apt.progress.InstallProgress.updateInterface(self)
+    def update_interface(self):
+        apt.progress.base.InstallProgress.update_interface(self)
         self.frontend.refresh()
 
 
@@ -113,9 +115,9 @@ def update(frontend):
     cache = apt.Cache(cache_progress)
     cache_progress.really_done()
 
-    fetchprogress = FetchProgressDebconfProgressAdapter(frontend)
+    acquire_progress = AcquireProgressDebconfProgressAdapter(frontend)
     try:
-        cache.update(fetchprogress)
+        cache.update(acquire_progress)
         cache_progress = CacheProgressDebconfProgressAdapter(frontend)
         cache = apt.Cache(cache_progress)
         cache_progress.really_done()
@@ -151,7 +153,7 @@ def update(frontend):
             # log file.
             old_stdout = os.dup(1)
             os.dup2(2, 1)
-            cache.commit(FetchProgressDebconfProgressAdapter(frontend),
+            cache.commit(AcquireProgressDebconfProgressAdapter(frontend),
                          InstallProgressDebconfProgressAdapter(frontend))
         except (SystemError, IOError) as e:
             syslog.syslog(syslog.LOG_ERR,
