@@ -123,9 +123,8 @@ class Wizard(BaseFrontend):
                                        signal.SIGTERM)):
                 sys.exit(ret)
             elif os.path.exists('/var/lib/ubiquity/install.trace'):
-                tbfile = open('/var/lib/ubiquity/install.trace')
-                realtb = tbfile.read()
-                tbfile.close()
+                with open('/var/lib/ubiquity/install.trace') as tbfile:
+                    realtb = tbfile.read()
                 raise RuntimeError("Install failed with exit code %s\n%s" %
                                   (ret, realtb))
 

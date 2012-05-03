@@ -22,19 +22,14 @@ def utf8(s, errors="strict"):
         return six.text_type(s, "utf-8", errors)
 
 def is_swap(device):
-    swap = False
-    fp = None
     try:
-        fp = open('/proc/swaps')
-        for line in fp:
-            if line.startswith(device + ' '):
-                swap = True
-    except:
-        swap = False
-    finally:
-        if fp:
-            fp.close()
-    return swap
+        with open('/proc/swaps') as fp:
+            for line in fp:
+                if line.startswith(device + ' '):
+                    return True
+    except Exception:
+        pass
+    return False
 
 _dropped_privileges = 0
 
@@ -153,22 +148,12 @@ def grub_options():
         p = PartedServer()
         for disk in p.disks():
             p.select_disk(disk)
-            dev = ''
-            mod = ''
-            size = ''
-            try:
-                fp = open(p.device_entry('model'))
+            with open(p.device_entry('model')) as fp:
                 mod = fp.readline()
-                fp.close()
-                fp = open(p.device_entry('device'))
+            with open(p.device_entry('device')) as fp:
                 dev = fp.readline()
-                fp.close()
-                fp = open(p.device_entry('size'))
+            with open(p.device_entry('size')) as fp:
                 size = fp.readline()
-                fp.close()
-            finally:
-                if fp:
-                    fp.close()
             if dev and mod:
                 if size.isdigit():
                     size = format_size(int(size))
@@ -243,8 +228,9 @@ def is_removable(device):
             devpath = os.path.dirname(devpath)
         is_removable = removable_bus
         try:
-            if open('/sys%s/removable' % devpath).readline().strip() != '0':
-                is_removable = True
+            with open('/sys%s/removable' % devpath) as removable:
+                if removable.readline().strip() != '0':
+                    is_removable = True
         except IOError:
             pass
         if is_removable:
@@ -467,22 +453,18 @@ def get_release_name():
                   category=DeprecationWarning)
 
     if not get_release_name.release_name:
-        fp = None
         try:
-            fp = open('/cdrom/.disk/info')
-            line = fp.readline()
-            if line:
-                line = line.split()
-                if line[2] == 'LTS':
-                    get_release_name.release_name = ' '.join(line[:3])
-                else:
-                    get_release_name.release_name = ' '.join(line[:2])
+            with open('/cdrom/.disk/info') as fp:
+                line = fp.readline()
+                if line:
+                    line = line.split()
+                    if line[2] == 'LTS':
+                        get_release_name.release_name = ' '.join(line[:3])
+                    else:
+                        get_release_name.release_name = ' '.join(line[:2])
         except:
             syslog.syslog(syslog.LOG_ERR,
                 "Unable to determine the distribution name from /cdrom/.disk/info")
-        finally:
-            if fp:
-                fp.close()
         if not get_release_name.release_name:
             get_release_name.release_name = 'Ubuntu'
     return get_release_name.release_name

@@ -59,9 +59,8 @@ class PartedServer(object):
             self.close_dialog()
 
     def log(self, *args):
-        f = open(logfile, 'a')
-        print('ubiquity:', ' '.join(args), file=f)
-        f.close()
+        with open(logfile, 'a') as f:
+            print('ubiquity:', ' '.join(args), file=f)
 
     def write_line(self, *args):
         self.log('IN:', *args)
@@ -128,7 +127,8 @@ class PartedServer(object):
                     raise PartedServerError(exception_type, message, options)
 
     def sync_server(self):
-        open(stopfifo, 'w').close()
+        with open(stopfifo, 'w'):
+            pass
 
     def open_dialog(self, command, *args):
         self.inf = open(infifo, 'w')
@@ -144,7 +144,8 @@ class PartedServer(object):
         if self.inf is not None:
             self.inf.close()
         self.sync_server()
-        open(outfifo, 'w').close()
+        with open(outfifo, 'w'):
+            pass
         self.sync_server()
         self.inf = open(infifo, 'r')
         self.inf.readlines()
@@ -166,10 +167,8 @@ class PartedServer(object):
         return os.path.join(devices, self.current_disk, name)
 
     def readline_device_entry(self, name):
-        entryfile = open(self.device_entry(name))
-        line = entryfile.readline().rstrip('\n')
-        entryfile.close()
-        return line
+        with open(self.device_entry(name)) as entryfile:
+            return entryfile.readline().rstrip('\n')
 
     def part_entry(self, partition, name):
         return os.path.join(devices, self.current_disk, partition, name)
@@ -178,15 +177,12 @@ class PartedServer(object):
         return os.path.isfile(self.part_entry(partition, name))
 
     def readline_part_entry(self, partition, name):
-        entryfile = open(self.part_entry(partition, name))
-        line = entryfile.readline().rstrip('\n')
-        entryfile.close()
-        return line
+        with open(self.part_entry(partition, name)) as entryfile:
+            return entryfile.readline().rstrip('\n')
 
     def write_part_entry(self, partition, name, text):
-        entryfile = open(self.part_entry(partition, name), 'w')
-        entryfile.write(text)
-        entryfile.close()
+        with open(self.part_entry(partition, name), 'w') as entryfile:
+            entryfile.write(text)
 
     def remove_part_entry(self, partition, name):
         entry = self.part_entry(partition, name)

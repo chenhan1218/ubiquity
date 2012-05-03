@@ -468,6 +468,7 @@ class BaseFrontend:
                 h.update(self.wget_proc.stdout.read())
                 if WGET_HASH == h.hexdigest():
                     state = True
+            self.wget_proc.stdout.close()
             self.set_online_state(state)
             return False
 

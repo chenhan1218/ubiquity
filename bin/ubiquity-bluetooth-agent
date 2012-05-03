@@ -55,8 +55,8 @@ class Agent(dbus.service.Object):
 def exit_handler():
     import os
     if not os.path.exists("/tmp/ubiquity-bluetooth-done"):
-        touch = open("/tmp/ubiquity-bluetooth-done", "w+")
-        touch.close()
+        with open("/tmp/ubiquity-bluetooth-done", "w+"):
+            pass
 
     if os.path.exists("/usr/bin/bluetooth-applet.orig"):
         os.execl("/usr/bin/bluetooth-applet.orig", "bluetooth-applet")

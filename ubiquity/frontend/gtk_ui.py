@@ -470,9 +470,9 @@ class Wizard(BaseFrontend):
                     previous[key] = 'TRUE'
                 parser.set('Configuration', key, value)
             try:
-                thunar_volmanrc_new = open('%s.new' % thunar_volmanrc, 'w')
-                parser.write(thunar_volmanrc_new)
-                thunar_volmanrc_new.close()
+                with open('%s.new' % thunar_volmanrc,
+                          'w') as thunar_volmanrc_new:
+                    parser.write(thunar_volmanrc_new)
                 os.rename('%s.new' % thunar_volmanrc, thunar_volmanrc)
             except (KeyboardInterrupt, SystemExit):
                 raise
@@ -748,7 +748,8 @@ class Wizard(BaseFrontend):
                 txt = txt.replace('${RELEASE}', misc.get_release().name)
             self.finished_label.set_label(txt)
             with misc.raised_privileges():
-                open('/var/run/reboot-required', "w").close()
+                with open('/var/run/reboot-required', "w"):
+                    pass
             self.finished_dialog.set_keep_above(True)
             set_root_cursor()
             self.finished_dialog.run()

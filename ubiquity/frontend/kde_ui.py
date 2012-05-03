@@ -75,17 +75,14 @@ class UbiquityUI(kdeui.KMainWindow):
         distro_release = ""
 
         ## setup the release and codename
-        fp = open("/etc/lsb-release", 'r')
-
-        for line in fp:
-            if "DISTRIB_ID=" in line:
-                name = str.strip(line.split("=")[1], '\n')
-                if name != "Ubuntu":
-                    distro_name = name
-            elif "DISTRIB_RELEASE=" in line:
-                distro_release = str.strip(line.split("=")[1], '\n')
-
-        fp.close()
+        with open("/etc/lsb-release", 'r') as fp:
+            for line in fp:
+                if "DISTRIB_ID=" in line:
+                    name = str.strip(line.split("=")[1], '\n')
+                    if name != "Ubuntu":
+                        distro_name = name
+                elif "DISTRIB_RELEASE=" in line:
+                    distro_release = str.strip(line.split("=")[1], '\n')
 
         self.distro_name_label.setText(distro_name)
         self.distro_release_label.setText(distro_release)
@@ -193,7 +190,8 @@ class Wizard(BaseFrontend):
         misc.drop_privileges_save()
         try:
             self.app = kdeui.KApplication()
-            self.app.setStyleSheet(open(os.path.join(UIDIR, "style.qss")).read())
+            with open(os.path.join(UIDIR, "style.qss")) as style:
+                self.app.setStyleSheet(style.read())
         finally:
             misc.regain_privileges_save()
 
@@ -205,7 +203,8 @@ class Wizard(BaseFrontend):
         # handle smaller screens (old school eee pc
         if (QtGui.QApplication.desktop().screenGeometry().height() < 560):
             self.ui.main_frame.setFixedHeight(470)
-            self.ui.main_frame.setStyleSheet(open(os.path.join(UIDIR, "style_small.qss")).read())
+            with open(os.path.join(UIDIR, "style_small.qss")) as style:
+                self.ui.main_frame.setStyleSheet(style.read())
 
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active

@@ -45,17 +45,14 @@ def main():
                          stdout=subprocess.PIPE,
                          close_fds=True, universal_newlines=True)
 
-    contents = p.stdout.readlines()
+    contents = p.communicate()[0].splitlines()
 
     # Read in the exclusions file
     exclusions = {}
-    fp = open(os.path.join(cur_dir, "pyflakes.exclude"), "r")
-
-    for line in fp.readlines():
-        if not line.startswith("#"):
-            exclusions[line.rstrip()] = 1
-
-    fp.close()
+    with open(os.path.join(cur_dir, "pyflakes.exclude"), "r") as fp:
+        for line in fp.readlines():
+            if not line.startswith("#"):
+                exclusions[line.rstrip()] = 1
 
     # Now filter thin
     error = False

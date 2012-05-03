@@ -93,18 +93,17 @@ def set_debconf(target, question, value, db=None):
 def get_all_interfaces():
     """Get all non-local network interfaces."""
     ifs = []
-    ifs_file = open('/proc/net/dev')
-    # eat header
-    ifs_file.readline()
-    ifs_file.readline()
+    with open('/proc/net/dev') as ifs_file:
+        # eat header
+        ifs_file.readline()
+        ifs_file.readline()
 
-    for line in ifs_file:
-        name = re.match('(.*?(?::\d+)?):', line.strip()).group(1)
-        if name == 'lo':
-            continue
-        ifs.append(name)
+        for line in ifs_file:
+            name = re.match('(.*?(?::\d+)?):', line.strip()).group(1)
+            if name == 'lo':
+                continue
+            ifs.append(name)
 
-    ifs_file.close()
     return ifs
 
 def chroot_setup(target, x11=False):
@@ -113,35 +112,32 @@ def chroot_setup(target, x11=False):
         return
 
     policy_rc_d = os.path.join(target, 'usr/sbin/policy-rc.d')
-    f = open(policy_rc_d, 'w')
-    print("""\
+    with open(policy_rc_d, 'w') as f:
+        print("""\
 #!/bin/sh
 exit 101""", file=f)
-    f.close()
     os.chmod(policy_rc_d, 0o755)
 
     start_stop_daemon = os.path.join(target, 'sbin/start-stop-daemon')
     if os.path.exists(start_stop_daemon):
         os.rename(start_stop_daemon, '%s.REAL' % start_stop_daemon)
-    f = open(start_stop_daemon, 'w')
-    print("""\
+    with open(start_stop_daemon, 'w') as f:
+        print("""\
 #!/bin/sh
 echo 1>&2
 echo 'Warning: Fake start-stop-daemon called, doing nothing.' 1>&2
 exit 0""", file=f)
-    f.close()
     os.chmod(start_stop_daemon, 0o755)
 
     initctl = os.path.join(target, 'sbin/initctl')
     if os.path.exists(initctl):
         os.rename(initctl, '%s.REAL' % initctl)
-        f = open(initctl, 'w')
-        print("""\
+        with open(initctl, 'w') as f:
+            print("""\
 #!/bin/sh
 echo 1>&2
 echo 'Warning: Fake initctl called, doing nothing.' 1>&2
 exit 0""", file=f)
-        f.close()
         os.chmod(initctl, 0o755)
 
     if not os.path.exists(os.path.join(target, 'proc/cmdline')):
@@ -203,20 +199,16 @@ def record_installed(pkgs):
     record_file = "/var/lib/ubiquity/apt-installed"
     if not os.path.exists(os.path.dirname(record_file)):
         os.makedirs(os.path.dirname(record_file))
-    record = open(record_file, "a")
-
-    for pkg in pkgs:
-        print(pkg, file=record)
-
-    record.close()
+    with open(record_file, "a") as record:
+        for pkg in pkgs:
+            print(pkg, file=record)
 
 def query_recorded_installed():
     apt_installed = set()
     if os.path.exists("/var/lib/ubiquity/apt-installed"):
-        record_file = open("/var/lib/ubiquity/apt-installed")
-        for line in record_file:
-            apt_installed.add(line.strip())
-        record_file.close()
+        with open("/var/lib/ubiquity/apt-installed") as record_file:
+            for line in record_file:
+                apt_installed.add(line.strip())
     return apt_installed
 
 def record_removed(pkgs, recursive=False):
@@ -225,24 +217,20 @@ def record_removed(pkgs, recursive=False):
     record_file = "/var/lib/ubiquity/apt-removed"
     if not os.path.exists(os.path.dirname(record_file)):
         os.makedirs(os.path.dirname(record_file))
-    record = open(record_file, "a")
-
-    for pkg in pkgs:
-        print(pkg, str(recursive).lower(), file=record)
-
-    record.close()
+    with open(record_file, "a") as record:
+        for pkg in pkgs:
+            print(pkg, str(recursive).lower(), file=record)
 
 def query_recorded_removed():
     apt_removed = set()
     apt_removed_recursive = set()
     if os.path.exists("/var/lib/ubiquity/apt-removed"):
-        record_file = open("/var/lib/ubiquity/apt-removed")
-        for line in record_file:
-            if misc.create_bool(line.split()[1]):
-                apt_removed_recursive.add(line.split()[0])
-            else:
-                apt_removed.add(line.split()[0])
-        record_file.close()
+        with open("/var/lib/ubiquity/apt-removed") as record_file:
+            for line in record_file:
+                if misc.create_bool(line.split()[1]):
+                    apt_removed_recursive.add(line.split()[0])
+                else:
+                    apt_removed.add(line.split()[0])
     return (apt_removed, apt_removed_recursive)
 
 class DebconfAcquireProgress(AcquireProgress):
@@ -437,9 +425,8 @@ def excepthook(exctype, excvalue, exctb):
     syslog.syslog(syslog.LOG_ERR, "Exception during installation:")
     for line in tbtext.split('\n'):
         syslog.syslog(syslog.LOG_ERR, line)
-    tbfile = open('/var/lib/ubiquity/install.trace', 'w')
-    print(tbtext, file=tbfile)
-    tbfile.close()
+    with open('/var/lib/ubiquity/install.trace', 'w') as tbfile:
+        print(tbtext, file=tbfile)
 
     sys.exit(1)
 
@@ -685,14 +672,12 @@ def remove_target(source_root, target_root, relpath, st_source):
             backuppath = backuppath + '.bak'
 
 def copy_file(db, sourcepath, targetpath, md5_check):
-    sourcefh = None
-    targetfh = None
-    try:
-        while 1:
-            sourcefh = open(sourcepath, 'rb')
-            targetfh = open(targetpath, 'wb')
-            if md5_check:
-                sourcehash = hashlib.md5()
+    while 1:
+        if md5_check:
+            sourcehash = hashlib.md5()
+
+        with open(sourcepath, 'rb') as sourcefh, \
+             open(targetpath, 'wb') as targetfh:
             while 1:
                 buf = sourcefh.read(16 * 1024)
                 if not buf:
@@ -701,10 +686,10 @@ def copy_file(db, sourcepath, targetpath, md5_check):
                 if md5_check:
                     sourcehash.update(buf)
 
-            if not md5_check:
-                break
-            targetfh.close()
-            targetfh = open(targetpath, 'rb')
+        if not md5_check:
+            break
+
+        with open(targetpath, 'rb') as targetfh:
             if md5_check:
                 targethash = hashlib.md5()
             while 1:
@@ -712,31 +697,23 @@ def copy_file(db, sourcepath, targetpath, md5_check):
                 if not buf:
                     break
                 targethash.update(buf)
-            if targethash.digest() != sourcehash.digest():
-                if targetfh:
-                    targetfh.close()
-                if sourcefh:
-                    sourcefh.close()
-                error_template = 'ubiquity/install/copying_error/md5'
-                db.subst(error_template, 'FILE', targetpath)
-                db.input('critical', error_template)
-                db.go()
-                response = db.get(error_template)
-                if response == 'skip':
-                    break
-                elif response == 'abort':
-                    syslog.syslog(syslog.LOG_ERR,
-                        'MD5 failure on %s' % targetpath)
-                    sys.exit(3)
-                elif response == 'retry':
-                    pass
-            else:
+
+        if targethash.digest() != sourcehash.digest():
+            error_template = 'ubiquity/install/copying_error/md5'
+            db.subst(error_template, 'FILE', targetpath)
+            db.input('critical', error_template)
+            db.go()
+            response = db.get(error_template)
+            if response == 'skip':
                 break
-    finally:
-        if targetfh:
-            targetfh.close()
-        if sourcefh:
-            sourcefh.close()
+            elif response == 'abort':
+                syslog.syslog(syslog.LOG_ERR,
+                    'MD5 failure on %s' % targetpath)
+                sys.exit(3)
+            elif response == 'retry':
+                pass
+        else:
+            break
 
 class InstallBase:
     def warn_broken_packages(self, pkgs, err):

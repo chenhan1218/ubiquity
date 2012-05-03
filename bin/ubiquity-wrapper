@@ -104,6 +104,7 @@ def main():
                 ['xauth', '-f', xauthority.name, 'merge', '-'],
                 stdin=xauth_extract.stdout)
             xauth_merge.wait()
+            xauth_extract.stdout.close()
             xauth_extract.wait()
             toexec = ['sudo', '-E', 'XAUTHORITY=%s' % xauthority.name]
         else:

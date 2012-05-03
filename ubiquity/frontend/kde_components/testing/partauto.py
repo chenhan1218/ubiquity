@@ -15,9 +15,8 @@ if __name__ == "__main__":
     PartAuto._uidir = '../../../../gui/qt'
 
     styleFile = os.path.join(PartAuto._uidir, "style.qss")
-    sf = open(styleFile, 'r')
-    app.setStyleSheet(sf.read())
-    sf.close()
+    with open(styleFile, 'r') as sf:
+        app.setStyleSheet(sf.read())
 
     win = PartAuto()
     win.setObjectName("widgetStack")

@@ -1370,7 +1370,8 @@ class Page(plugin.Plugin):
             # If an old parted_server is still running, clean it up.
             if os.path.exists('/var/run/parted_server.pid'):
                 try:
-                    pidline = open('/var/run/parted_server.pid').readline()
+                    with open('/var/run/parted_server.pid') as pidfile:
+                        pidline = pidfile.readline()
                     pidline = pidline.strip()
                     pid = int(pidline)
                     os.kill(pid, signal.SIGTERM)
@@ -1447,15 +1448,14 @@ class Page(plugin.Plugin):
 
         options = []
         try:
-            snoop = open('/var/lib/partman/snoop')
-            for line in snoop:
-                line = misc.utf8(line.rstrip('\n'), errors='replace')
-                fields = line.split('\t', 1)
-                if len(fields) == 2:
-                    (key, option) = fields
-                    options.append((key, option))
-                    continue
-            snoop.close()
+            with open('/var/lib/partman/snoop') as snoop:
+                for line in snoop:
+                    line = misc.utf8(line.rstrip('\n'), errors='replace')
+                    fields = line.split('\t', 1)
+                    if len(fields) == 2:
+                        (key, option) = fields
+                        options.append((key, option))
+                        continue
         except IOError:
             pass
         return options
@@ -1739,7 +1739,8 @@ class Page(plugin.Plugin):
         set of choices may not be valid; you must cache whatever you need
         before calling this method."""
         self.debug('Partman: Freezing choices for %s', menu)
-        open('/lib/partman/%s/no_show_choices' % menu, 'w').close
+        with open('/lib/partman/%s/no_show_choices' % menu, 'w'):
+            pass
 
     @misc.raise_privileges
     def thaw_choices(self, menu):

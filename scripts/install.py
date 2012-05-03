@@ -174,6 +174,8 @@ class Install(install_misc.InstallBase):
                 except OSError as e:
                     if e.errno != errno.ESRCH:
                         raise
+            self.update_proc.stdin.close()
+            self.update_proc.stdout.close()
             syslog.syslog('Terminated ubiquity update process.')
 
     def find_cd_kernel(self):
@@ -210,31 +212,27 @@ class Install(install_misc.InstallBase):
         manifest = os.path.join(self.casper_path, 'filesystem.manifest')
         if os.path.exists(manifest_remove) and os.path.exists(manifest):
             difference = set()
-            manifest_file = open(manifest_remove)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    difference.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest_remove) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        difference.add(line.split()[0])
             live_packages = set()
-            manifest_file = open(manifest)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    live_packages.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        live_packages.add(line.split()[0])
             desktop_packages = live_packages - difference
         elif os.path.exists(manifest_desktop) and os.path.exists(manifest):
             desktop_packages = set()
-            manifest_file = open(manifest_desktop)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    desktop_packages.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest_desktop) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        desktop_packages.add(line.split()[0])
             live_packages = set()
-            manifest_file = open(manifest)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    live_packages.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        live_packages.add(line.split()[0])
             difference = live_packages - desktop_packages
         else:
             difference = set()
@@ -543,22 +541,21 @@ class Install(install_misc.InstallBase):
                            if x.startswith(blockdev_prefix)])
         for sysloop in sysloops:
             try:
-                sysloopf = open(os.path.join('/sys/block', sysloop, 'size'))
-                sysloopsize = sysloopf.readline().strip()
-                sysloopf.close()
+                with open(os.path.join('/sys/block', sysloop,
+                                       'size')) as sysloopf:
+                    sysloopsize = sysloopf.readline().strip()
                 if sysloopsize == '0':
-                    devnull = open('/dev/null')
                     if osextras.find_on_path('udevadm'):
                         udevinfo_cmd = ['udevadm', 'info']
                     else:
                         udevinfo_cmd = ['udevinfo']
                     udevinfo_cmd.extend(
                         ['-q', 'name', '-p', os.path.join('/block', sysloop)])
-                    udevinfo = subprocess.Popen(
-                        udevinfo_cmd, stdout=subprocess.PIPE, stderr=devnull,
-                        universal_newlines=True)
+                    with open('/dev/null') as devnull:
+                        udevinfo = subprocess.Popen(
+                            udevinfo_cmd, stdout=subprocess.PIPE,
+                            stderr=devnull, universal_newlines=True)
                     devbase = udevinfo.communicate()[0]
-                    devnull.close()
                     if udevinfo.returncode != 0:
                         devbase = sysloop
                     dev = '/dev/%s' % devbase
@@ -595,15 +592,13 @@ class Install(install_misc.InstallBase):
 
         if fs_preseed == '':
             # Simple autodetection on unionfs systems
-            mounts = open('/proc/mounts')
-            for line in mounts:
-                (device, fstype) = line.split()[1:3]
-                if fstype == 'squashfs' and os.path.exists(device):
-                    misc.execute('mount', '--bind', device, self.source)
-                    self.mountpoints.append(self.source)
-                    mounts.close()
-                    return
-            mounts.close()
+            with open('/proc/mounts') as mounts:
+                for line in mounts:
+                    (device, fstype) = line.split()[1:3]
+                    if fstype == 'squashfs' and os.path.exists(device):
+                        misc.execute('mount', '--bind', device, self.source)
+                        self.mountpoints.append(self.source)
+                        return
 
             # Manual detection on non-unionfs systems
             fsfiles = [os.path.join(self.casper_path, 'filesystem.cloop'),

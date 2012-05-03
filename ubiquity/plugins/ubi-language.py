@@ -101,9 +101,8 @@ class PageGtk(PageBase):
             if self.controller.oem_config or auto_update.already_updated():
                 self.update_installer = False
             try:
-                release_notes = open(_release_notes_url_path)
-                self.release_notes_url = release_notes.read().rstrip('\n')
-                release_notes.close()
+                with open(_release_notes_url_path) as release_notes:
+                    self.release_notes_url = release_notes.read().rstrip('\n')
                 self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise
@@ -417,9 +416,8 @@ class PageKde(PageBase):
                 self.update_installer = False
             self.release_notes_found = False
             try:
-                release_notes = open(_release_notes_url_path)
-                self.release_notes_url = release_notes.read().rstrip('\n')
-                release_notes.close()
+                with open(_release_notes_url_path) as release_notes:
+                    self.release_notes_url = release_notes.read().rstrip('\n')
                 self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise

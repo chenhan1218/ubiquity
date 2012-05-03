@@ -51,33 +51,28 @@ def set_locale():
     if not locale:
         return
 
-    default_locale = open('/etc/default/locale', 'w')
-    print('LANG="%s"' % locale, file=default_locale)
-    default_locale.close()
+    with open('/etc/default/locale', 'w') as default_locale:
+        print('LANG="%s"' % locale, file=default_locale)
 
-    environment = open('/etc/environment')
-    environment_lines = environment.readlines()
-    environment.close()
-    environment = open('/etc/environment', 'w')
-    seen_lang = False
-    for line in environment_lines:
-        if line.startswith('LANG='):
+    with open('/etc/environment') as environment:
+        environment_lines = environment.readlines()
+    with open('/etc/environment', 'w') as environment:
+        seen_lang = False
+        for line in environment_lines:
+            if line.startswith('LANG='):
+                print('LANG="%s"' % locale, file=environment)
+                seen_lang = True
+            else:
+                print(line.rstrip('\n'), file=environment)
+        if not seen_lang:
             print('LANG="%s"' % locale, file=environment)
-            seen_lang = True
-        else:
-            print(line.rstrip('\n'), file=environment)
-    if not seen_lang:
-        print('LANG="%s"' % locale, file=environment)
-    environment.close()
 
-    locale_gen = open('/etc/locale.gen', 'w')
-    print('%s UTF-8' % locale, file=locale_gen)
-    locale_gen.close()
+    with open('/etc/locale.gen', 'w') as locale_gen:
+        print('%s UTF-8' % locale, file=locale_gen)
 
-    logfile = open('/var/log/installer/dm', 'a')
-    subprocess.call(['/usr/sbin/locale-gen', locale],
-                    stdout=logfile, stderr=logfile)
-    logfile.close()
+    with open('/var/log/installer/dm', 'a') as logfile:
+        subprocess.call(['/usr/sbin/locale-gen', locale],
+                        stdout=logfile, stderr=logfile)
 
 class XStartupError(EnvironmentError):
     pass
@@ -209,8 +204,8 @@ class DM:
                 command.extend(['-config', xorg_conf_failsafe])
                 command.extend(['-logfile', '/var/log/Xorg.%s.log' % attempt])
 
-                xorg_conf_failsafe_file = open(xorg_conf_failsafe, 'w')
-                print('''\
+                with open(xorg_conf_failsafe, 'w') as xorg_conf_failsafe_file:
+                    print('''\
 Section "Device"
 	Identifier	"Configured Video Device"
 	Driver		"%s"
@@ -226,7 +221,6 @@ Section "Screen"
 	Device		"Configured Video Device"
 EndSection
 ''' % attempt, file=xorg_conf_failsafe_file)
-                xorg_conf_failsafe_file.close()
 
             server = subprocess.Popen(
                 command, stdin=null, stdout=logfile, stderr=logfile,
@@ -563,13 +557,16 @@ EndSection
 
         # Clear the console so we don't see boot-time messages on switch
         try:
-            vthandle = open('/dev/tty' + self.vt[2:], 'r+')
-            subprocess.call(['clear'], stdin=vthandle, stdout=vthandle)
+            with open('/dev/tty' + self.vt[2:], 'r+') as vthandle:
+                subprocess.call(['clear'], stdin=vthandle, stdout=vthandle)
         except IOError:
             pass
 
         kill_if_exists(server.pid, signal.SIGTERM)
         server.wait()
+
+        logfile.close()
+        null.close()
 
         if reboot:
             subprocess.Popen(['reboot'])

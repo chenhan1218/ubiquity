@@ -157,6 +157,7 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
                         descriptions["extended:%s" % lang] = \
                             decoded_value.replace('\\n', '\n')
 
+        db.stdout.close()
         db.wait()
         devnull.close()
 
@@ -327,17 +328,16 @@ def get_languages(current_language_index=-1, only_installable=False):
     return current_language, sorted_choices, language_display_map
 
 def default_locales():
-    languagelist = open('/usr/lib/ubiquity/localechooser/languagelist')
-    defaults = {}
-    for line in languagelist:
-        line = misc.utf8(line)
-        if line == '' or line == '\n':
-            continue
-        bits = line.strip('\n').split(';')
-        code = bits[0]
-        locale = bits[4]
-        defaults[code] = locale
-    languagelist.close()
+    with open('/usr/lib/ubiquity/localechooser/languagelist') as languagelist:
+        defaults = {}
+        for line in languagelist:
+            line = misc.utf8(line)
+            if line == '' or line == '\n':
+                continue
+            bits = line.strip('\n').split(';')
+            code = bits[0]
+            locale = bits[4]
+            defaults[code] = locale
     return defaults
 
 # vim:ai:et:sts=4:tw=80:sw=4:

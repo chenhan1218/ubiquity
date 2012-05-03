@@ -189,9 +189,8 @@ class Install(install_misc.InstallBase):
         self.configure_hardware()
 
         # Tell apt-install to install packages directly from now on.
-        apt_install_direct = open('/var/lib/ubiquity/apt-install-direct',
-                                  'w')
-        apt_install_direct.close()
+        with open('/var/lib/ubiquity/apt-install-direct', 'w'):
+            pass
 
         self.next_region()
         self.db.progress('INFO', 'ubiquity/install/installing')
@@ -438,29 +437,27 @@ class Install(install_misc.InstallBase):
         if hostname == '':
             hostname = 'ubuntu'
 
-        hosts = open(os.path.join(self.target, 'etc/hosts'), 'w')
-        print("127.0.0.1\tlocalhost", file=hosts)
-        if domain:
-            print("127.0.1.1\t%s.%s\t%s" % (hostname, domain, hostname),
-                  file=hosts)
-        else:
-            print("127.0.1.1\t%s" % hostname, file=hosts)
-        print(textwrap.dedent("""\
+        with open(os.path.join(self.target, 'etc/hosts'), 'w') as hosts:
+            print("127.0.0.1\tlocalhost", file=hosts)
+            if domain:
+                print("127.0.1.1\t%s.%s\t%s" % (hostname, domain, hostname),
+                      file=hosts)
+            else:
+                print("127.0.1.1\t%s" % hostname, file=hosts)
+            print(textwrap.dedent("""\
 
-            # The following lines are desirable for IPv6 capable hosts
-            ::1     ip6-localhost ip6-loopback
-            fe00::0 ip6-localnet
-            ff00::0 ip6-mcastprefix
-            ff02::1 ip6-allnodes
-            ff02::2 ip6-allrouters"""), file=hosts)
-        hosts.close()
+                # The following lines are desirable for IPv6 capable hosts
+                ::1     ip6-localhost ip6-loopback
+                fe00::0 ip6-localnet
+                ff00::0 ip6-mcastprefix
+                ff02::1 ip6-allnodes
+                ff02::2 ip6-allrouters"""), file=hosts)
 
         # Network Manager's ifupdown plugin has an inotify watch on
         # /etc/hostname, which can trigger a race condition if /etc/hostname is
         # written and immediately followed with /etc/hosts.
-        fp = open(os.path.join(self.target, 'etc/hostname'), 'w')
-        print(hostname, file=fp)
-        fp.close()
+        with open(os.path.join(self.target, 'etc/hostname'), 'w') as fp:
+            print(hostname, file=fp)
 
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
             os.system("hostname %s" % hostname)
@@ -486,39 +483,36 @@ class Install(install_misc.InstallBase):
                                 struct.pack('256s', interfaces[i]))[16:24])
             sock.close()
 
-            iftab = open(os.path.join(self.target, 'etc/iftab'), 'w')
+            with open(os.path.join(self.target, 'etc/iftab'), 'w') as iftab:
+                print(textwrap.dedent("""\
+                    # This file assigns persistent names to network interfaces.
+                    # See iftab(5) for syntax.
+                    """), file=iftab)
 
-            print(textwrap.dedent("""\
-                # This file assigns persistent names to network interfaces.
-                # See iftab(5) for syntax.
-                """), file=iftab)
+                for i in range(len(interfaces)):
+                    dup = False
 
-            for i in range(len(interfaces)):
-                dup = False
-
-                if_name = if_names[interfaces[i]]
-                if if_name is None or if_name[0] != ARPHRD_ETHER:
-                    continue
-
-                for j in range(len(interfaces)):
-                    if i == j or if_names[interfaces[j]] is None:
-                        continue
-                    if if_name[1] != if_names[interfaces[j]][1]:
+                    if_name = if_names[interfaces[i]]
+                    if if_name is None or if_name[0] != ARPHRD_ETHER:
                         continue
 
-                    if if_names[interfaces[j]][0] == ARPHRD_ETHER:
-                        dup = True
+                    for j in range(len(interfaces)):
+                        if i == j or if_names[interfaces[j]] is None:
+                            continue
+                        if if_name[1] != if_names[interfaces[j]][1]:
+                            continue
 
-                if dup:
-                    continue
+                        if if_names[interfaces[j]][0] == ARPHRD_ETHER:
+                            dup = True
 
-                line = (interfaces[i] + " mac " +
-                        ':'.join(['%02x' % ord(if_name[1][c])
-                                  for c in range(6)]))
-                line += " arp %d" % if_name[0]
-                print(line, file=iftab)
+                    if dup:
+                        continue
 
-            iftab.close()
+                    line = (interfaces[i] + " mac " +
+                            ':'.join(['%02x' % ord(if_name[1][c])
+                                      for c in range(6)]))
+                    line += " arp %d" % if_name[0]
+                    print(line, file=iftab)
 
     def configure_plugins(self):
         """Apply plugin settings to installed system."""
@@ -565,41 +559,37 @@ class Install(install_misc.InstallBase):
 
         try:
             if self.db.get('base-installer/install-recommends') == 'false':
-                apt_conf_ir = open(
-                    os.path.join(self.target,
-                                 'etc/apt/apt.conf.d/00InstallRecommends'),
-                    'w')
-                print('APT::Install-Recommends "false";', file=apt_conf_ir)
-                apt_conf_ir.close()
+                with open(os.path.join(
+                    self.target, 'etc/apt/apt.conf.d/00InstallRecommends'),
+                    'w') as apt_conf_ir:
+                    print('APT::Install-Recommends "false";', file=apt_conf_ir)
         except debconf.DebconfError:
             pass
 
         # Make apt trust CDs. This is not on by default (we think).
         # This will be left in place on the installed system.
-        apt_conf_tc = open(os.path.join(
-            self.target, 'etc/apt/apt.conf.d/00trustcdrom'), 'w')
-        print('APT::Authentication::TrustCDROM "true";', file=apt_conf_tc)
-        apt_conf_tc.close()
+        with open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00trustcdrom'),
+            'w') as apt_conf_tc:
+            print('APT::Authentication::TrustCDROM "true";', file=apt_conf_tc)
 
         # Avoid clock skew causing gpg verification issues.
         # This file will be left in place until the end of the install.
-        apt_conf_itc = open(os.path.join(
-            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'), 'w')
-        print('Acquire::gpgv::Options { "--ignore-time-conflict"; };',
-              file=apt_conf_itc)
-        apt_conf_itc.close()
+        with open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00IgnoreTimeConflict'),
+            'w') as apt_conf_itc:
+            print('Acquire::gpgv::Options { "--ignore-time-conflict"; };',
+                  file=apt_conf_itc)
 
         try:
             if self.db.get('debian-installer/allow_unauthenticated') == 'true':
-                apt_conf_au = open(
-                    os.path.join(self.target,
-                                 'etc/apt/apt.conf.d/00AllowUnauthenticated'),
-                    'w')
-                print('APT::Get::AllowUnauthenticated "true";',
-                      file=apt_conf_au)
-                print('Aptitude::CmdLine::Ignore-Trust-Violations "true";',
-                      file=apt_conf_au)
-                apt_conf_au.close()
+                with open(os.path.join(
+                    self.target, 'etc/apt/apt.conf.d/00AllowUnauthenticated'),
+                    'w') as apt_conf_au:
+                    print('APT::Get::AllowUnauthenticated "true";',
+                          file=apt_conf_au)
+                    print('Aptitude::CmdLine::Ignore-Trust-Violations "true";',
+                          file=apt_conf_au)
         except debconf.DebconfError:
             pass
 
@@ -615,20 +605,20 @@ class Install(install_misc.InstallBase):
 
         # Make apt-cdrom and apt not unmount/mount CD-ROMs.
         # This file will be left in place until the end of the install.
-        apt_conf_nmc = open(os.path.join(
-            self.target, 'etc/apt/apt.conf.d/00NoMountCDROM'), 'w')
-        print(textwrap.dedent("""\
-            APT::CDROM::NoMount "true";
-            Acquire::cdrom {
-              mount "/cdrom";
-              "/cdrom/" {
-                Mount  "true";
-                UMount "true";
-              };
-              AutoDetect "false";
-            };
-            Dir::Media::MountPath "/cdrom";"""), file=apt_conf_nmc)
-        apt_conf_nmc.close()
+        with open(os.path.join(
+            self.target, 'etc/apt/apt.conf.d/00NoMountCDROM'),
+            'w') as apt_conf_nmc:
+            print(textwrap.dedent("""\
+                APT::CDROM::NoMount "true";
+                Acquire::cdrom {
+                  mount "/cdrom";
+                  "/cdrom/" {
+                    Mount  "true";
+                    UMount "true";
+                  };
+                  AutoDetect "false";
+                };
+                Dir::Media::MountPath "/cdrom";"""), file=apt_conf_nmc)
 
         # This will be reindexed after installation based on the full
         # installed sources.list.
@@ -750,32 +740,34 @@ class Install(install_misc.InstallBase):
         install_kernels = set()
         new_kernel_pkg = None
         new_kernel_version = None
-        if os.path.exists("/var/lib/ubiquity/install-kernels"):
-            install_kernels_file = open("/var/lib/ubiquity/install-kernels")
-            for line in install_kernels_file:
-                kernel = line.strip()
-                install_kernels.add(kernel)
-                # If we decided to actively install a particular kernel like
-                # this, it's probably because we prefer it to the default
-                # one, so we'd better update kernel_version to match.
-                if kernel.startswith('linux-image-2.'):
-                    new_kernel_pkg = kernel
-                    new_kernel_version = kernel[12:]
-                elif kernel.startswith('linux-generic-'):
-                    # Traverse dependencies to find the real kernel image.
-                    cache = Cache()
-                    kernel = self.traverse_for_kernel(cache, kernel)
-                    if kernel:
+        install_kernels_path = "/var/lib/ubiquity/install-kernels"
+        if os.path.exists(install_kernels_path):
+            with open(install_kernels_path) as install_kernels_file:
+                for line in install_kernels_file:
+                    kernel = line.strip()
+                    install_kernels.add(kernel)
+                    # If we decided to actively install a particular kernel
+                    # like this, it's probably because we prefer it to the
+                    # default one, so we'd better update kernel_version to
+                    # match.
+                    if kernel.startswith('linux-image-2.'):
                         new_kernel_pkg = kernel
                         new_kernel_version = kernel[12:]
+                    elif kernel.startswith('linux-generic-'):
+                        # Traverse dependencies to find the real kernel image.
+                        cache = Cache()
+                        kernel = self.traverse_for_kernel(cache, kernel)
+                        if kernel:
+                            new_kernel_pkg = kernel
+                            new_kernel_version = kernel[12:]
             install_kernels_file.close()
 
         remove_kernels = set()
-        if os.path.exists("/var/lib/ubiquity/remove-kernels"):
-            remove_kernels_file = open("/var/lib/ubiquity/remove-kernels")
-            for line in remove_kernels_file:
-                remove_kernels.add(line.strip())
-            remove_kernels_file.close()
+        remove_kernels_path = "/var/lib/ubiquity/remove-kernels"
+        if os.path.exists(remove_kernels_path):
+            with open(remove_kernels_path) as remove_kernels_file:
+                for line in remove_kernels_file:
+                    remove_kernels.add(line.strip())
 
         if len(install_kernels) == 0 and len(remove_kernels) == 0:
             self.db.progress('STOP')
@@ -813,22 +805,21 @@ class Install(install_misc.InstallBase):
         biggest_size = 0
         biggest_partition = None
         try:
-            swaps = open('/proc/swaps')
-        except:
+            with open('/proc/swaps') as swaps:
+                for line in swaps:
+                    words = line.split()
+                    if words[1] != 'partition':
+                        continue
+                    if not os.path.exists(words[0]):
+                        continue
+                    if words[0].startswith('/dev/ramzswap'):
+                        continue
+                    size = int(words[2])
+                    if size > biggest_size:
+                        biggest_size = size
+                        biggest_partition = words[0]
+        except Exception:
             return None
-        for line in swaps:
-            words = line.split()
-            if words[1] != 'partition':
-                continue
-            if not os.path.exists(words[0]):
-                continue
-            if words[0].startswith('/dev/ramzswap'):
-                continue
-            size = int(words[2])
-            if size > biggest_size:
-                biggest_size = size
-                biggest_partition = words[0]
-        swaps.close()
         return biggest_partition
 
     def configure_hardware(self):
@@ -878,9 +869,9 @@ class Install(install_misc.InstallBase):
             else:
                 configdir = None
             if configdir is not None:
-                configfile = open(os.path.join(configdir, 'resume'), 'w')
-                print("RESUME=%s" % resume, file=configfile)
-                configfile.close()
+                with open(os.path.join(
+                    configdir, 'resume'), 'w') as configfile:
+                    print("RESUME=%s" % resume, file=configfile)
 
         osextras.unlink_force(os.path.join(self.target, 'etc/usplash.conf'))
         osextras.unlink_force(os.path.join(self.target,
@@ -1259,15 +1250,13 @@ class Install(install_misc.InstallBase):
         # We only ever install these packages from the CD.
         sources_list = os.path.join(self.target, 'etc/apt/sources.list')
         os.rename(sources_list, "%s.apt-setup" % sources_list)
-        old_sources = open("%s.apt-setup" % sources_list)
-        new_sources = open(sources_list, 'w')
-        found_cdrom = False
-        for line in old_sources:
-            if 'cdrom:' in line:
-                print(line, end="", file=new_sources)
-                found_cdrom = True
-        new_sources.close()
-        old_sources.close()
+        with open("%s.apt-setup" % sources_list) as old_sources, \
+             open(sources_list, 'w') as new_sources:
+            found_cdrom = False
+            for line in old_sources:
+                if 'cdrom:' in line:
+                    print(line, end="", file=new_sources)
+                    found_cdrom = True
         if not found_cdrom:
             os.rename("%s.apt-setup" % sources_list, sources_list)
 
@@ -1283,8 +1272,9 @@ class Install(install_misc.InstallBase):
         try:
             if self.db.get('oem-config/enable') == 'true':
                 if os.path.isdir(os.path.join(self.target, 'home/oem')):
-                    open(os.path.join(self.target, 'home/oem/.hwdb'),
-                         'w').close()
+                    with open(os.path.join(
+                        self.target, 'home/oem/.hwdb'), 'w'):
+                        pass
 
                     for desktop_file in (
                         'usr/share/applications/oem-config-prepare-gtk.desktop',
@@ -1428,31 +1418,27 @@ class Install(install_misc.InstallBase):
         manifest = os.path.join(self.casper_path, 'filesystem.manifest')
         if os.path.exists(manifest_remove) and os.path.exists(manifest):
             difference = set()
-            manifest_file = open(manifest_remove)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    difference.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest_remove) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        difference.add(line.split()[0])
             live_packages = set()
-            manifest_file = open(manifest)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    live_packages.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        live_packages.add(line.split()[0])
             desktop_packages = live_packages - difference
         elif os.path.exists(manifest_desktop) and os.path.exists(manifest):
             desktop_packages = set()
-            manifest_file = open(manifest_desktop)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    desktop_packages.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest_desktop) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        desktop_packages.add(line.split()[0])
             live_packages = set()
-            manifest_file = open(manifest)
-            for line in manifest_file:
-                if line.strip() != '' and not line.startswith('#'):
-                    live_packages.add(line.split()[0])
-            manifest_file.close()
+            with open(manifest) as manifest_file:
+                for line in manifest_file:
+                    if line.strip() != '' and not line.startswith('#'):
+                        live_packages.add(line.split()[0])
             difference = live_packages - desktop_packages
         else:
             difference = set()
@@ -1711,10 +1697,10 @@ class Install(install_misc.InstallBase):
         try:
             if self.db.get('oem-config/enable') == 'true':
                 oem_id = self.db.get('oem-config/id')
-                oem_id_file = open(
-                    os.path.join(self.target, 'var/log/installer/oem-id'), 'w')
-                print(oem_id, file=oem_id_file)
-                oem_id_file.close()
+                with open(os.path.join(
+                    self.target, 'var/log/installer/oem-id'),
+                    'w') as oem_id_file:
+                    print(oem_id, file=oem_id_file)
         except (debconf.DebconfError, IOError):
             pass
         try:

@@ -176,7 +176,8 @@ def update(frontend):
         # all went well, write marker and restart self
         # FIXME: we probably want some sort of in-between-restart-splash
         #        or at least a dialog here
-        open(MAGIC_MARKER, "w").write("1")
+        with open(MAGIC_MARKER, "w") as magic_marker:
+            magic_marker.write("1")
         os.execv(sys.argv[0], sys.argv)
         return False
     finally:

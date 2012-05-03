@@ -120,15 +120,12 @@ def open_terminal():
         if framebuffer:
             def fb_has(substring):
                 try:
-                    fb = open('/proc/fb')
+                    with open('/proc/fb') as fb:
+                        for line in fb:
+                            if substring in line:
+                                return True
                 except IOError:
-                    return False
-                try:
-                    for line in fb:
-                        if substring in line:
-                            return True
-                finally:
-                    fb.close()
+                    pass
                 return False
 
             got_fb = False
@@ -354,12 +351,11 @@ def unmount_target():
     if not TARGET:
         return
     paths = []
-    mounts = open('/proc/mounts')
-    for line in mounts:
-        path = line.split(' ')[1]
-        if path == TARGET or path.startswith(TARGET + '/'):
-            paths.append(path)
-    mounts.close()
+    with open('/proc/mounts') as mounts:
+        for line in mounts:
+            path = line.split(' ')[1]
+            if path == TARGET or path.startswith(TARGET + '/'):
+                paths.append(path)
     paths.sort()
     paths.reverse()
     for path in paths:
@@ -407,6 +403,7 @@ def acquire_lock():
         except IOError:
             pass
         test_debconf.stdin.close()
+        test_debconf.stdout.close()
         if test_debconf.wait() != 0:
             print("Debconf database is locked!")
             print("This may be because a package management program is "
@@ -522,9 +519,8 @@ def main(oem_config):
         syslog.syslog("Ubiquity %s (oem-config)" % VERSION)
     else:
         syslog.syslog("Ubiquity %s" % VERSION)
-    version_file = open('/var/log/installer/version', 'w')
-    print('ubiquity %s' % VERSION, file=version_file)
-    version_file.close()
+    with open('/var/log/installer/version', 'w') as version_file:
+        print('ubiquity %s' % VERSION, file=version_file)
 
     if 'UBIQUITY_DEBUG' in os.environ:
         if 'UBIQUITY_DEBUG_CORE' not in os.environ:
