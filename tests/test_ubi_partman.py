@@ -29,43 +29,49 @@ def question_has_variables(question, lookup_variables):
         templates_dat = '/var/cache/debconf/templates.dat'
     else:
         templates_dat = 'tests/templates.dat'
-    with open(templates_dat) as templates:
+    # Templates files are (at least in theory) mixed-encoding, so we must
+    # treat them as binary data and decode only marked elements.  In this
+    # function, we only care about question and variable names, which should
+    # always be ASCII.
+    with open(templates_dat, 'rb') as templates:
         for line in templates:
-            if found_question and line == '\n':
+            if found_question and line == b'\n':
                 break
 
-            if line.startswith('Name: %s' % question):
+            if line.startswith(('Name: %s' % question).encode()):
                 found_question = True
                 continue
             elif not found_question:
                 continue
 
-            if line.startswith('Description:'):
+            if line.startswith(b'Description:'):
                 last = 13
-            elif line.startswith('Extended_description:'):
+            elif line.startswith(b'Extended_description:'):
                 last = 22
             else:
                 continue
 
             while True:
-                start = line.find('${', last)
+                start = line.find(b'${', last)
                 if start != -1:
-                    end = line.find('}', last)
+                    end = line.find(b'}', last)
                     if end != -1:
-                        existing_variables.append(line[start+2:end])
+                        existing_variables.append(line[start+2:end].decode())
                         last = end + 1
                     else:
-                        exc = 'Expected to find } on \'%s\'' % line
-                        raise EOFError, exc
+                        exc = ('Expected to find } on \'%s\'' %
+                               line.decode(errors='replace'))
+                        raise EOFError(exc)
                 else:
                     break
     if not found_question:
-        raise AssertionError, 'Never found the question: %s' % question
+        raise AssertionError('Never found the question: %s' % question)
     only_in_lookup = set(lookup_variables) - set(existing_variables)
     only_in_template = set(existing_variables) - set(lookup_variables)
     if only_in_lookup or only_in_template:
-        raise AssertionError, ('%s\nOnly in lookup: %s\nOnly in template: %s' %
-            (question, ', '.join(only_in_lookup), ', '.join(only_in_template)))
+        raise AssertionError(('%s\nOnly in lookup: %s\nOnly in template: %s' %
+            (question, ', '.join(only_in_lookup),
+             ', '.join(only_in_template))))
 
 
 # These tests skip when their dependencies are not met and tests/run takes
