@@ -63,6 +63,7 @@ class MiscTests(unittest.TestCase):
     def test_is_swap(self, mock_open):
         magic = mock.MagicMock(spec=text_file_type)
         mock_open.return_value = magic
+        magic.__enter__.return_value = magic
         magic.__iter__.return_value = iter(_proc_swaps)
         self.assertTrue(misc.is_swap('/dev/sda5'))
         self.assertFalse(misc.is_swap('/dev/sda'))
