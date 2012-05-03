@@ -27,6 +27,8 @@ import locale
 import sys
 from functools import reduce
 
+import six
+
 from ubiquity import misc, im_switch
 
 # if 'just_country' is True, only the country is changing
@@ -235,7 +237,7 @@ def ascii_transliterate(exc):
     if ord(s) in range(128):
         return s, exc.start + 1
     else:
-        return u'', exc.start + 1
+        return six.u(''), exc.start + 1
 
 codecs.register_error('ascii_transliterate', ascii_transliterate)
 
@@ -262,7 +264,7 @@ def get_languages(current_language_index=-1, only_installable=False):
         line = misc.utf8(line)
         if line == '' or line == '\n':
             continue
-        code, name, trans = line.strip(u'\n').split(u':')[1:]
+        code, name, trans = line.strip('\n').split(':')[1:]
         if code in ('C', 'dz', 'km'):
             i += 1
             continue
@@ -329,7 +331,7 @@ def default_locales():
         line = misc.utf8(line)
         if line == '' or line == '\n':
             continue
-        bits = line.strip(u'\n').split(u';')
+        bits = line.strip('\n').split(';')
         code = bits[0]
         locale = bits[4]
         defaults[code] = locale

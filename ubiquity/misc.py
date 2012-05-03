@@ -10,14 +10,16 @@ import syslog
 import shutil
 import contextlib
 
+import six
+
 from ubiquity import osextras
 
 def utf8(s, errors="strict"):
     """Decode a string as UTF-8 if it isn't already Unicode."""
-    if isinstance(s, unicode):
+    if isinstance(s, six.text_type):
         return s
     else:
-        return unicode(s, "utf-8", errors)
+        return six.text_type(s, "utf-8", errors)
 
 def is_swap(device):
     swap = False
@@ -386,7 +388,7 @@ def find_in_os_prober(device):
         syslog.syslog(syslog.LOG_ERR, "Error in find_in_os_prober:")
         for line in traceback.format_exc().split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
-    return unicode('')
+    return six.u('')
 
 @raise_privileges
 def os_prober():

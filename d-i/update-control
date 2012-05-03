@@ -61,6 +61,7 @@ my @basebd = (
     'python-mock (>= 0.7.0)',
     'python-pyicu (>= 1.0)',
     'python-scour',
+    'python-six',
     'gir1.2-xkl-1.0',
     'ubuntu-artwork',
     'udev',

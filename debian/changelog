@@ -28,6 +28,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Port ubiquity.auto_update to python-apt 0.8 progress classes.
     - Use Python 3 names for itertools.izip and itertools.izip_longest if
       available.
+    - Use helpers from the six module to deal with some bytes/unicode
+      differences.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
