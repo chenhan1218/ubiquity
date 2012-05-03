@@ -149,8 +149,8 @@ class TestPageBase(unittest.TestCase):
 class TestPage(TestPageBase):
     def test_description(self):
         question = 'partman-auto/init_automatically_partition'
-        description = unicode(self.page.db.metaget(question, 'description'),
-                              'utf-8', 'replace')
+        description = misc.utf8(self.page.db.metaget(question, 'description'),
+                                'replace')
         self.assertEqual(self.page.description(question), description)
         self.assertIn(question, self.page.description_cache)
 

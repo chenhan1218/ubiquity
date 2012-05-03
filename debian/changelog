@@ -40,6 +40,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       needs to be handled specially.
     - Use six.reraise rather than the three-argument form of raise.
     - Adjust test_filteredcommand for Python 3 text handling.
+    - Use misc.utf8 in test_ubi_partman.TestPage.test_description rather
+      than using unicode directly.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
