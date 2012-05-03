@@ -39,6 +39,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       debconf-copydb subprocesses, which return mixed-encoding data that
       needs to be handled specially.
     - Use six.reraise rather than the three-argument form of raise.
+    - Adjust test_filteredcommand for Python 3 text handling.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
