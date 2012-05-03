@@ -50,6 +50,9 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       output as binary data and do field-dependent decoding.
     - Adjust test_misc and test_upower to cope with file type changes in
       Python 3.
+    - Use xml.etree.cElementTree instead of libxml2; it's faster, has a
+      smaller footprint by virtue of being built into the standard library,
+      arguably easier to read, and works with Python 3.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

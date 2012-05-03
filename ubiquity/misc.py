@@ -604,7 +604,10 @@ def dmimodel():
     return model
 
 def set_indicator_keymaps(lang):
-    import libxml2
+    try:
+        import xml.etree.cElementTree as ElementTree
+    except ImportError:
+        import xml.etree.ElementTree as ElementTree
     from gi.repository import Xkl, GdkX11
     # GdkX11.x11_get_default_xdisplay() segfaults if Gtk hasn't been
     # imported; possibly finer-grained than this, but anything using this
@@ -725,9 +728,9 @@ def set_indicator_keymaps(lang):
 
         execute("setxkbmap", "-layout", ",".join(kb_layouts), "-variant", ",".join(kb_variants))
 
-    fp = libxml2.parseFile('/usr/share/xml/iso-codes/iso_639_3.xml')
-    context = fp.xpathNewContext()
-    nodes = context.xpathEvalExpression(xpath % lang)
+    iso_639_3 = ElementTree.parse('/usr/share/xml/iso-codes/iso_639_3.xml')
+    nodes = [element for element in iso_639_3.findall('iso_639_3_entry')
+             if element.get('part1_code') == lang]
     display = GdkX11.x11_get_default_xdisplay()
     engine = Xkl.Engine.get_instance(display)
     if nodes:
@@ -736,8 +739,8 @@ def set_indicator_keymaps(lang):
 
         # Apparently part2_code doesn't always work (fails with French)
         for prop in ('part2_code', 'id', 'part1_code'):
-            if nodes[0].hasProp(prop):
-                code = nodes[0].prop(prop)
+            code = nodes[0].get(prop)
+            if code is not None:
                 configreg.foreach_language_variant(code, process_variant, None)
                 if variants:
                     restricted_variants = restrict_list(variants)
