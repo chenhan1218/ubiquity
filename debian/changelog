@@ -46,6 +46,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       as binary data, since they're mixed-encoding.
     - Cope with assertItemsEqual/assertCountEqual naming difference between
       Python 2.7 and 3.2.
+    - Rearrange ubiquity.i18n.get_translations to treat debconf-copydb
+      output as binary data and do field-dependent decoding.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

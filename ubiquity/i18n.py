@@ -105,11 +105,11 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
             preexec_fn=misc.regain_privileges)
         question = None
         descriptions = {}
-        fieldsplitter = re.compile(r':\s*')
+        fieldsplitter = re.compile(br':\s*')
 
         for line in db.stdout:
-            line = line.rstrip('\n')
-            if ':' not in line:
+            line = line.rstrip(b'\n')
+            if b':' not in line:
                 if question is not None:
                     _translations[question] = descriptions
                     descriptions = {}
@@ -117,43 +117,45 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
                 continue
 
             (name, value) = fieldsplitter.split(line, 1)
-            if value == '':
+            if value == b'':
                 continue
             name = name.lower()
-            if name == 'name':
-                question = value
-            elif name.startswith('description'):
-                namebits = name.split('-', 1)
+            if name == b'name':
+                question = value.decode()
+            elif name.startswith(b'description'):
+                namebits = name.split(b'-', 1)
                 if len(namebits) == 1:
                     lang = 'c'
+                    decoded_value = value.decode('ASCII', 'replace')
                 else:
-                    lang = namebits[1].lower()
-                    # TODO: recode from specified encoding
-                    lang = lang.split('.')[0]
+                    lang = namebits[1].lower().decode()
+                    lang, encoding = lang.split('.', 1)
+                    decoded_value = value.decode(encoding, 'replace')
                 if (use_langs is None or lang in use_langs or
                     question in core_names):
-                    value = strip_context(question, value)
-                    descriptions[lang] = value.replace('\\n', '\n')
-            elif name.startswith('extended_description'):
-                namebits = name.split('-', 1)
+                    decoded_value = strip_context(question, decoded_value)
+                    descriptions[lang] = decoded_value.replace('\\n', '\n')
+            elif name.startswith(b'extended_description'):
+                namebits = name.split(b'-', 1)
                 if len(namebits) == 1:
                     lang = 'c'
+                    decoded_value = value.decode('ASCII', 'replace')
                 else:
-                    lang = namebits[1].lower()
-                    # TODO: recode from specified encoding
-                    lang = lang.split('.')[0]
+                    lang = namebits[1].lower().decode()
+                    lang, encoding = lang.split('.', 1)
+                    decoded_value = value.decode(encoding, 'replace')
                 if (use_langs is None or lang in use_langs or
                     question in core_names):
-                    value = strip_context(question, value)
+                    decoded_value = strip_context(question, decoded_value)
                     if lang not in descriptions:
-                        descriptions[lang] = value.replace('\\n', '\n')
+                        descriptions[lang] = decoded_value.replace('\\n', '\n')
                     # TODO cjwatson 2006-09-04: a bit of a hack to get the
                     # description and extended description separately ...
                     if question in ('grub-installer/bootdev',
                                     'partman-newworld/no_newworld',
                                     'ubiquity/text/error_updating_installer'):
                         descriptions["extended:%s" % lang] = \
-                            value.replace('\\n', '\n')
+                            decoded_value.replace('\\n', '\n')
 
         db.wait()
         devnull.close()
@@ -224,7 +226,7 @@ def get_string(name, lang, prefix=None):
         else:
             text = translations[question]['c']
 
-    return misc.utf8(text, errors='replace')
+    return text
 
 
 # Based on code by Walter Dörwald:
