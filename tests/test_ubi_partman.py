@@ -20,6 +20,12 @@ import mock
 
 from ubiquity import misc, plugin_manager
 
+
+# Monkey-patch for Python 2/3 compatibility.
+if not hasattr(unittest.TestCase, 'assertCountEqual'):
+    unittest.TestCase.assertCountEqual = unittest.TestCase.assertItemsEqual
+
+
 ubi_partman = plugin_manager.load_plugin('ubi-partman')
 
 def question_has_variables(question, lookup_variables):
@@ -176,7 +182,7 @@ class TestPage(TestPageBase):
             default_mountpoints = [default[0] for default in
                                    self.page.default_mountpoint_choices(fs)]
             self.assertTrue(len(default_mountpoints) > 0)
-            self.assertItemsEqual(mountpoints, default_mountpoints)
+            self.assertCountEqual(mountpoints, default_mountpoints)
 
     def test_method_description(self):
         # FIXME: move this into the Directory tests, following use_as()
@@ -505,11 +511,11 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         options = self.page.calculate_autopartitioning_options(
                         operating_systems, ubuntu_systems)
         self.assertIn('resize', options)
-        self.assertItemsEqual(resize, options['resize'])
+        self.assertCountEqual(resize, options['resize'])
         self.assertIn('use_device', options)
-        self.assertItemsEqual(replace, options['use_device'])
+        self.assertCountEqual(replace, options['use_device'])
         self.assertIn('manual', options)
-        self.assertItemsEqual(self.manual, options['manual'])
+        self.assertCountEqual(self.manual, options['manual'])
 
     # 'This computer currently has no operating systems on it.'
     def test_empty(self):
@@ -528,10 +534,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
                         operating_systems, ubuntu_systems)
 
         self.assertIn('use_device', options)
-        self.assertItemsEqual(use_device, options['use_device'])
+        self.assertCountEqual(use_device, options['use_device'])
 
         self.assertIn('manual', options)
-        self.assertItemsEqual(self.manual, options['manual'])
+        self.assertCountEqual(self.manual, options['manual'])
 
     # 'This computer currently has Ubuntu 10.04 on it.'
     def test_older_ubuntu_only(self):
@@ -564,13 +570,13 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         options = self.page.calculate_autopartitioning_options(
                         operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
-        self.assertItemsEqual(use_device, options['use_device'])
+        self.assertCountEqual(use_device, options['use_device'])
 
         self.assertIn('manual', options)
-        self.assertItemsEqual(self.manual, options['manual'])
+        self.assertCountEqual(self.manual, options['manual'])
 
         self.assertIn('reuse', options)
-        self.assertItemsEqual(reuse, options['reuse'])
+        self.assertCountEqual(reuse, options['reuse'])
 
     # 'This computer currently has Ubuntu 12.04 on it.'
     def test_same_ubuntu_only(self):
@@ -601,10 +607,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         options = self.page.calculate_autopartitioning_options(
                         operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
-        self.assertItemsEqual(use_device, options['use_device'])
+        self.assertCountEqual(use_device, options['use_device'])
 
         self.assertIn('manual', options)
-        self.assertItemsEqual(self.manual, options['manual'])
+        self.assertCountEqual(self.manual, options['manual'])
 
         self.assertNotIn('reuse', options)
 
@@ -637,10 +643,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         options = self.page.calculate_autopartitioning_options(
                         operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
-        self.assertItemsEqual(use_device, options['use_device'])
+        self.assertCountEqual(use_device, options['use_device'])
 
         self.assertIn('manual', options)
-        self.assertItemsEqual(self.manual, options['manual'])
+        self.assertCountEqual(self.manual, options['manual'])
 
         self.assertNotIn('reuse', options)
 
@@ -679,13 +685,13 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         options = self.page.calculate_autopartitioning_options(
                         operating_systems, ubuntu_systems)
         self.assertIn('use_device', options)
-        self.assertItemsEqual(use_device, options['use_device'])
+        self.assertCountEqual(use_device, options['use_device'])
 
         self.assertIn('resize', options)
-        self.assertItemsEqual(resize, options['resize'])
+        self.assertCountEqual(resize, options['resize'])
 
         self.assertIn('manual', options)
-        self.assertItemsEqual(self.manual, options['manual'])
+        self.assertCountEqual(self.manual, options['manual'])
 
 
 def _fake_grub_options_pairs(paths, descriptions):

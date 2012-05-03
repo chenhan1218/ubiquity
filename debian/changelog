@@ -44,6 +44,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       than using unicode directly.
     - Fix test_ubi_partman.question_has_variables to handle templates files
       as binary data, since they're mixed-encoding.
+    - Cope with assertItemsEqual/assertCountEqual naming difference between
+      Python 2.7 and 3.2.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
