@@ -93,6 +93,7 @@ class PageGtk(PageBase):
 
         self.release_notes_url = ''
         self.update_installer = True
+        self.updating_installer = False
         self.release_notes_label = builder.get_object('release_notes_label')
         self.release_notes_found = False
         if self.release_notes_label:
@@ -356,6 +357,9 @@ class PageGtk(PageBase):
             lang = 'C'
         lang = lang.split('.')[0] # strip encoding
         if uri == 'update':
+            if self.updating_installer:
+                return True
+            self.updating_installer = True
             if not auto_update.update(self.controller._wizard):
                 # no updates, so don't check again
                 if self.release_notes_url:
@@ -363,6 +367,7 @@ class PageGtk(PageBase):
                     self.release_notes_label.set_markup(text)
                 else:
                     self.release_notes_label.hide()
+            self.updating_installer = False
         elif uri == 'release-notes':
             import subprocess
             uri = self.release_notes_url.replace('${LANG}', lang)
@@ -407,6 +412,7 @@ class PageKde(PageBase):
 
             self.release_notes_url = ''
             self.update_installer = True
+            self.updating_installer = False
             if self.controller.oem_config or auto_update.already_updated():
                 self.update_installer = False
             self.release_notes_found = False
@@ -477,10 +483,14 @@ class PageKde(PageBase):
                 url = self.release_notes_url.replace('${LANG}', lang)
                 self.openURL(url)
         elif link == "update":
+            if self.updating_installer:
+                return
+            self.updating_installer = True
             if not auto_update.update(self.controller._wizard):
                 # no updates, so don't check again
                 text = i18n.get_string('release_notes_only', lang)
                 self.page.release_notes_label.setText(text)
+            self.updating_installer = False
 
     def openURL(self, url):
         from PyQt4.QtGui import QDesktopServices

@@ -29,6 +29,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
+  * Avoid locking failures when clicking on the "update this installer" link
+    more than once.
 
   [ Stéphane Graber ]
   * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.
