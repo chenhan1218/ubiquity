@@ -43,6 +43,7 @@ import debconf
 
 from ubiquity import misc
 from ubiquity import osextras
+from ubiquity.casper import get_casper
 
 def debconf_disconnect():
     """Disconnect from debconf. This is only to be used as a subprocess
@@ -716,6 +717,14 @@ def copy_file(db, sourcepath, targetpath, md5_check):
             break
 
 class InstallBase:
+    def __init__(self):
+        self.target = '/target'
+        self.casper_path = os.path.join(
+            '/cdrom', get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'))
+
+    def target_file(self, *args):
+        return os.path.join(self.target, *args)
+
     def warn_broken_packages(self, pkgs, err):
         pkgs = ', '.join(pkgs)
         syslog.syslog('broken packages after installation: %s' % pkgs)

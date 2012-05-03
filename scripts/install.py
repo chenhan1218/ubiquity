@@ -39,13 +39,13 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 from ubiquity import misc
 from ubiquity import install_misc
 from ubiquity import osextras
-from ubiquity.casper import get_casper
 
 
 class Install(install_misc.InstallBase):
 
     def __init__(self):
         """Initial attributes."""
+        install_misc.InstallBase.__init__(self)
 
         self.update_proc = None
 
@@ -57,9 +57,6 @@ class Install(install_misc.InstallBase):
             self.source = '/UNIONFS'
         else:
             self.source = '/var/lib/ubiquity/source'
-        self.target = '/target'
-        self.casper_path = os.path.join(
-            '/cdrom', get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'))
         self.db = debconf.Debconf()
         self.blacklist = {}
 
@@ -81,9 +78,9 @@ class Install(install_misc.InstallBase):
         apt_pkg.init_config()
         apt_pkg.config.set("Dir", self.target)
         apt_pkg.config.set("Dir::State::status",
-                           os.path.join(self.target, 'var/lib/dpkg/status'))
+                           self.target_file('var/lib/dpkg/status'))
         apt_pkg.config.set("APT::GPGV::TrustedKeyring",
-                           os.path.join(self.target, 'etc/apt/trusted.gpg'))
+                           self.target_file('etc/apt/trusted.gpg'))
         apt_pkg.config.set("Acquire::gpgv::Options::",
                            "--ignore-time-conflict")
         apt_pkg.config.set("DPkg::Options::", "--root=%s" % self.target)
@@ -505,7 +502,7 @@ class Install(install_misc.InstallBase):
 
         # Try some possible locations for the kernel we used to boot. This
         # lets us save a couple of megabytes of CD space.
-        bootdir = os.path.join(self.target, 'boot')
+        bootdir = self.target_file('boot')
         kernel = self.find_cd_kernel()
         if kernel:
             prefix = os.path.basename(kernel).split('-', 1)[0]
@@ -668,7 +665,7 @@ class Install(install_misc.InstallBase):
         need to make this decision before generating the file copy blacklist
         so user-setup-apply would be too late."""
 
-        home = os.path.join(self.target, 'home')
+        home = self.target_file('home')
         if os.path.isdir(home):
             for homedir in os.listdir(home):
                 if os.path.isdir(os.path.join(home, homedir, '.ecryptfs')):

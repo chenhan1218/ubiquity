@@ -60,6 +60,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     been removed from the archive.
   * Avoid locking failures when clicking on the "update this installer" link
     more than once.
+  * Move a bit more code into ubiquity.install_misc, including a new
+    target_file helper method.
 
   [ Stéphane Graber ]
   * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.
