@@ -38,6 +38,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       debconf expects to read binary data and deal with encoding itself, and
       debconf-copydb subprocesses, which return mixed-encoding data that
       needs to be handled specially.
+    - Use six.reraise rather than the three-argument form of raise.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

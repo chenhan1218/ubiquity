@@ -11,6 +11,7 @@ import unittest
 
 from gi.repository import Gtk, TimezoneMap
 import mock
+import six
 
 from ubiquity import segmented_bar, gtkwidgets
 
@@ -33,7 +34,7 @@ class WidgetTests(unittest.TestCase):
     def tearDown(self):
         self.win.hide()
         if self.err:
-            raise self.err[0], None, self.err[1]
+            six.reraise(self.err[0], None, self.err[1])
 
     def test_segmented_bar(self):
         sb = segmented_bar.SegmentedBar()
