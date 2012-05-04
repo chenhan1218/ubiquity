@@ -29,14 +29,14 @@ class WidgetTests(unittest.TestCase):
         def excepthook(exctype, value, tb):
             # Workaround for http://bugzilla.gnome.org/show_bug.cgi?id=616279
             Gtk.main_quit()
-            self.err = exctype, tb
+            self.err = exctype, value, tb
         sys.excepthook = excepthook
         self.win = Gtk.Window()
 
     def tearDown(self):
         self.win.hide()
         if self.err:
-            six.reraise(self.err[0], None, self.err[1])
+            six.reraise(*self.err)
 
     def test_segmented_bar(self):
         sb = segmented_bar.SegmentedBar()
