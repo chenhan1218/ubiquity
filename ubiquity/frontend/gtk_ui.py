@@ -256,10 +256,10 @@ class Wizard(BaseFrontend):
 
         # Thin progress bar
         provider = Gtk.CssProvider()
-        provider.load_from_data(
-            '''GtkProgressBar {
+        provider.load_from_data(b'''\
+            GtkProgressBar {
               -GtkProgressBar-min-horizontal-bar-height : 10
-              }''')
+            }''')
 
         Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
             provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
