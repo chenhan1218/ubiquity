@@ -550,7 +550,7 @@ class Page(plugin.Plugin):
     def build_shortlist_timezone_pairs(self, country_code, sort=True):
         try:
             shortlist = self.choices_display_map('tzsetup/country/%s' % country_code)
-            for pair in shortlist.items():
+            for pair in list(shortlist.items()):
                 # Remove any 'other' entry, we don't need it
                 if pair[1] == 'other':
                     del shortlist[pair[0]]

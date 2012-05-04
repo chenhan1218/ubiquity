@@ -1171,7 +1171,7 @@ class PageGtk(PageBase):
         from gi.repository import Gtk, GObject
         from ubiquity import segmented_bar
         if self.partition_bars:
-            for p in self.partition_bars.values():
+            for p in list(self.partition_bars.values()):
                 self.segmented_bar_vbox.remove(p)
                 del p
 
