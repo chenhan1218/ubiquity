@@ -22,11 +22,11 @@ from __future__ import print_function
 
 import sys
 import os
-import types
 import signal
 import subprocess
 
 import debconf
+import six
 
 from ubiquity.debconffilter import DebconfFilter
 from ubiquity import misc
@@ -95,7 +95,7 @@ class FilteredCommand(UntrustedBase):
             self.run(None, None)
             return
         self.command = ['log-output', '-t', PACKAGE, '--pass-stdout']
-        if isinstance(prep[0], types.StringTypes):
+        if isinstance(prep[0], six.string_types):
             self.command.append(prep[0])
         else:
             self.command.extend(prep[0])
@@ -163,7 +163,7 @@ class FilteredCommand(UntrustedBase):
             if prep is None:
                 return
             self.command = ['log-output', '-t', PACKAGE, '--pass-stdout']
-            if isinstance(prep[0], types.StringTypes):
+            if isinstance(prep[0], six.string_types):
                 self.command.append(prep[0])
             else:
                 self.command.extend(prep[0])

@@ -64,6 +64,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Cope with various builtins and dict methods returning iterators rather
       than lists in Python 3.
     - Use chr rather than unichr in Python 3.
+    - Use six.string_types rather than types.StringTypes.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
