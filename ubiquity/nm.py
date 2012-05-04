@@ -142,7 +142,7 @@ class NetworkManager:
                 try:
                     sec = conn_obj.GetSecrets('802-11-wireless-security',
                                               dbus_interface=NM_SETTINGS_CONN)
-                    sec = sec['802-11-wireless-security'].values()[0]
+                    sec = list(sec['802-11-wireless-security'].values())[0]
                     ssid = decode_ssid(props['802-11-wireless']['ssid'])
                     self.passphrases_cache[ssid] = sec
                 except dbus.exceptions.DBusException as e:

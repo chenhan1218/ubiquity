@@ -493,11 +493,11 @@ class Page(plugin.Plugin):
     # Returns [('translated country name', None, 'region code')...] list
     def build_region_pairs(self):
         continents = self.choices_display_map('localechooser/continentlist')
-        names, codes = zip(*continents.items())
+        names, codes = list(zip(*continents.items()))
         codes = [c.replace(' ', '_') for c in codes]
 
         nones = [None for _ in continents]
-        pairs = zip(names, nones, codes)
+        pairs = list(zip(names, nones, codes))
         pairs.sort(key=self.collation_key)
         return pairs
 
@@ -510,9 +510,9 @@ class Page(plugin.Plugin):
                 if pair[1] == 'other':
                     del shortlist[pair[0]]
                     break
-            names, codes = zip(*shortlist.items())
+            names, codes = list(zip(*shortlist.items()))
             nones = [None for _ in names]
-            shortlist = zip(names, codes, nones)
+            shortlist = list(zip(names, codes, nones))
             shortlist.sort(key=self.collation_key)
             return shortlist
         except debconf.DebconfError:
@@ -554,7 +554,7 @@ class Page(plugin.Plugin):
                 # Remove any 'other' entry, we don't need it
                 if pair[1] == 'other':
                     del shortlist[pair[0]]
-            shortlist = shortlist.items()
+            shortlist = list(shortlist.items())
             if sort:
                 shortlist.sort(key=self.collation_key)
             return shortlist

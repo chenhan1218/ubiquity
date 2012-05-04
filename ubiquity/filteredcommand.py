@@ -175,7 +175,7 @@ class FilteredCommand(UntrustedBase):
                 env = {}
 
             def subprocess_setup():
-                for key, value in env.iteritems():
+                for key, value in env.items():
                     os.environ[key] = value
                 os.environ['LC_COLLATE'] = 'C'
                 # Python installs a SIGPIPE handler by default. This is bad
@@ -218,7 +218,7 @@ class FilteredCommand(UntrustedBase):
         def subprocess_setup():
             os.environ['HOME'] = '/root'
             os.environ['LC_COLLATE'] = 'C'
-            for key, value in env.iteritems():
+            for key, value in env.items():
                 os.environ[key] = value
             # Python installs a SIGPIPE handler by default. This is bad for
             # non-Python subprocesses, which need SIGPIPE set to the default

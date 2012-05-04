@@ -198,7 +198,7 @@ class DebconfFilter:
                 os.environ['PERL_DL_NONLAZY'] = '1'
             os.environ['HOME'] = '/root'
             os.environ['LC_COLLATE'] = 'C'
-            for key, value in extra_env.iteritems():
+            for key, value in extra_env.items():
                 os.environ[key] = value
             # Python installs a SIGPIPE handler by default. This is bad for
             # non-Python subprocesses, which need SIGPIPE set to the default

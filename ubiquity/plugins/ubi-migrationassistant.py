@@ -274,7 +274,7 @@ class Page(plugin.Plugin):
                 except KeyError:
                     users[c['part']] = [c['user']]
 
-        for p in users.iterkeys():
+        for p in users.keys():
             question = 'migration-assistant/%s/users' % p
             self.db.register('migration-assistant/users', question)
             self.preseed(question, ', '.join(users[p]))

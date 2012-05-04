@@ -463,7 +463,7 @@ class Wizard(BaseFrontend):
             parser.read(thunar_volmanrc)
             if not parser.has_section('Configuration'):
                 parser.add_section('Configuration')
-            for key, value in fields.iteritems():
+            for key, value in fields.items():
                 if parser.has_option('Configuration', key):
                     previous[key] = parser.get('Configuration', key)
                 else:

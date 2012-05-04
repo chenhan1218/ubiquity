@@ -1,5 +1,5 @@
 class KeyboardDetector:
-    UNKNOWN, PRESS_KEY, KEY_PRESENT, KEY_PRESENT_P, RESULT = range(5)
+    UNKNOWN, PRESS_KEY, KEY_PRESENT, KEY_PRESENT_P, RESULT = list(range(5))
 
     def __init__(self):
         self.current_step = -1
@@ -19,7 +19,7 @@ class KeyboardDetector:
 
     def read_step(self, step):
         if self.current_step != -1:
-            if step not in self.keycodes.values() + [self.present] + [self.not_present]:
+            if step not in list(self.keycodes.values()) + [self.present] + [self.not_present]:
                 raise KeyError('invalid argument')
             if self.result:
                 raise Exception('already done')

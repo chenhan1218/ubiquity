@@ -266,7 +266,7 @@ class PageGtk(PageBase):
                 m = self.part_auto_select_drive.get_model()
                 m.clear()
                 extra_resize = self.extra_options['resize']
-                disk_ids = extra_resize.keys()
+                disk_ids = list(extra_resize.keys())
                 disks = self.extra_options['use_device'][1]
                 # FIXME: perhaps it makes more sense to store the disk
                 # description.
@@ -1084,7 +1084,7 @@ class PageGtk(PageBase):
                 dev = partition['device']
             else:
                 dev = partition['parent']
-            for p in self.partition_bars.itervalues():
+            for p in self.partition_bars.values():
                 p.hide()
             self.partition_bars[dev].show()
         for action in self.controller.dbfilter.get_actions(devpart, partition):
@@ -1171,7 +1171,7 @@ class PageGtk(PageBase):
         from gi.repository import Gtk, GObject
         from ubiquity import segmented_bar
         if self.partition_bars:
-            for p in self.partition_bars.itervalues():
+            for p in self.partition_bars.values():
                 self.segmented_bar_vbox.remove(p)
                 del p
 
@@ -2291,7 +2291,8 @@ class Page(plugin.Plugin):
                                 }
 
                     if self.update_partitions is None:
-                        self.update_partitions = self.partition_cache.keys()
+                        self.update_partitions = list(
+                            self.partition_cache.keys())
                     else:
                         self.update_partitions = [devpart
                             for devpart in self.update_partitions

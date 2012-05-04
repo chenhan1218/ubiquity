@@ -73,8 +73,8 @@ class PageGtk(plugin.PluginUI):
 
         # Temporary workaround until I fix variants_rev
         v = keyboard_names.lang[l]['variants'][keymap[0]]
-        idx = v.values().index(keymap[1])
-        variant = v.keys()[idx]
+        idx = list(v.values()).index(keymap[1])
+        variant = list(v.keys())[idx]
         self.set_keyboard(layout)
         self.controller.dbfilter.change_layout(layout)
         self.controller.dbfilter.apply_keyboard(layout, variant)
