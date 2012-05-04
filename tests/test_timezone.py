@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8; -*-
 
+from __future__ import unicode_literals
+
 import unittest
 
 import debconf
@@ -49,5 +51,5 @@ class TimezoneTests(unittest.TestCase):
                 msg='expected: %s\ngot: %s' % (str(expected), str(results)))
         self.assertEqual(set(results), set(expected))
         # unicode, LP: #831533
-        self.gtk.city_entry.set_text(u'♥')
+        self.gtk.city_entry.set_text('♥')
         self.gtk.changed(self.gtk.city_entry)

@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8; -*-
 
+from __future__ import unicode_literals
+
 import os
 try:
     from test.support import EnvironmentVarGuard
@@ -43,13 +45,13 @@ class TestFrontend(unittest.TestCase):
         ui = gtk_ui.Wizard('test-ubiquity')
         with mock.patch('gi.repository.Gtk.Dialog.run') as run:
             run.return_value = 0
-            ret = ui.question_dialog(title=u'♥', msg=u'♥',
-                                     options=(u'♥', u'£'))
-            self.assertEqual(ret, u'£')
+            ret = ui.question_dialog(title='♥', msg='♥',
+                                     options=('♥', '£'))
+            self.assertEqual(ret, '£')
             run.return_value = 1
-            ret = ui.question_dialog(title=u'♥', msg=u'♥',
-                                     options=(u'♥', u'£'))
-            self.assertEqual(ret, u'♥')
+            ret = ui.question_dialog(title='♥', msg='♥',
+                                     options=('♥', '£'))
+            self.assertEqual(ret, '♥')
 
     # TODO: I'm not entirely sure this makes sense, but the numbers are
     # currently rather unstable and seem to depend quite a lot on the theme.

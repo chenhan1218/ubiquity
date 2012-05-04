@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8; -*-
 
+from __future__ import unicode_literals
+
 import unittest
 
 from gi.repository import UbiquityMockResolver
@@ -92,7 +94,7 @@ class UserSetupTests(unittest.TestCase):
         # i18n needs to be imported to register ascii_transliterate
         from ubiquity import i18n
         self.gtk.controller.get_string = mock_get_string
-        heart = u'♥'
+        heart = '♥'
         self.gtk.set_fullname(heart)
         self.gtk.set_username(heart)
         self.gtk.set_hostname(heart)

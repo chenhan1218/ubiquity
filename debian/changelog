@@ -59,6 +59,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       it back to a Unicode type after running it through the
       ascii_transliterate encoder.
     - Remove __pycache__ directories on clean.
+    - Use 'from __future__ import unicode_literals' in tests requiring
+      Unicode literals.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

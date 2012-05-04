@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from __future__ import unicode_literals
 
 try:
     # < 3.0
@@ -481,7 +482,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
 
     # 'This computer currently has Windows on it.'
     def test_windows_only(self):
-        operating_system = u'Windows XP'
+        operating_system = 'Windows XP'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ntfs')
         layout = { '=dev=sda' : [part] }
@@ -541,7 +542,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
 
     # 'This computer currently has Ubuntu 10.04 on it.'
     def test_older_ubuntu_only(self):
-        operating_system = u'Ubuntu 10.04'
+        operating_system = 'Ubuntu 10.04'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         layout = { '=dev=sda' : [part] }
@@ -580,7 +581,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
 
     # 'This computer currently has Ubuntu 12.04 on it.'
     def test_same_ubuntu_only(self):
-        operating_system = u'Ubuntu 12.04'
+        operating_system = 'Ubuntu 12.04'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         layout = { '=dev=sda' : [part] }
@@ -616,7 +617,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
 
     # 'This computer currently has Ubuntu 90.10 on it.'
     def test_newer_ubuntu_only(self):
-        operating_system = u'Ubuntu 90.10'
+        operating_system = 'Ubuntu 90.10'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         layout = { '=dev=sda' : [part] }
@@ -652,7 +653,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
 
     # 'This computer currently has multiple operating systems on it.'
     def test_multiple_operating_systems(self):
-        operating_systems = [u'Ubuntu 10.04', u'Windows XP', u'Mac OSX']
+        operating_systems = ['Ubuntu 10.04', 'Windows XP', 'Mac OSX']
         def side_effect(*args, **kwargs):
             return operating_systems.pop()
         misc.find_in_os_prober.side_effect = side_effect
