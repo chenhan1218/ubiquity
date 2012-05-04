@@ -127,8 +127,8 @@ for my $mo (</usr/share/locale/*/LC_MESSAGES/xkeyboard-config.mo>) {
 
 print "}\n";
 print "for l in lang:\n";
-print "    lang[l]['models_rev'].update(((v, k) for (k, v) in lang[l]['models'].iteritems()))\n";
-print "    lang[l]['layouts_rev'].update(((v, k) for (k, v) in lang[l]['layouts'].iteritems()))\n";
+print "    lang[l]['models_rev'].update(((v, k) for (k, v) in lang[l]['models'].items()))\n";
+print "    lang[l]['layouts_rev'].update(((v, k) for (k, v) in lang[l]['layouts'].items()))\n";
 print "    for layoutname in lang[l]['variants'].keys():\n";
 print "        lang[l]['variants_rev'][layoutname] = {}\n";
-print "        lang[l]['variants_rev'][layoutname].update(((v, k) for (k, v) in lang[l]['variants_rev'][layoutname].iteritems()))\n";
+print "        lang[l]['variants_rev'][layoutname].update(((v, k) for (k, v) in lang[l]['variants_rev'][layoutname].items()))\n";
