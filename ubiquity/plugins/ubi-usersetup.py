@@ -31,6 +31,7 @@ import re
 import sys
 
 import debconf
+import six
 
 from ubiquity import validation
 from ubiquity import misc
@@ -518,7 +519,7 @@ class PageKde(PageBase):
         # If the user did not manually enter a username create one for him.
         if not self.username_edited:
             self.page.username.blockSignals(True)
-            new_username = unicode(self.page.fullname.text()).split(' ')[0]
+            new_username = six.text_type(self.page.fullname.text()).split(' ')[0]
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.decode().lower()
             self.page.username.setText(new_username)
@@ -529,7 +530,7 @@ class PageKde(PageBase):
     def on_username_changed(self):
         if not self.hostname_edited:
             self.page.hostname.blockSignals(True)
-            self.page.hostname.setText(unicode(self.page.username.text()).strip() + self.suffix)
+            self.page.hostname.setText(six.text_type(self.page.username.text()).strip() + self.suffix)
             self.page.hostname.blockSignals(False)
 
         self.username_edited = (self.page.username.text() != '')
@@ -544,22 +545,22 @@ class PageKde(PageBase):
         self.hostname_edited = (self.page.hostname.text() != '')
 
     def set_fullname(self, value):
-        self.page.fullname.setText(unicode(value, "UTF-8"))
+        self.page.fullname.setText(misc.utf8(value))
 
     def get_fullname(self):
-        return unicode(self.page.fullname.text())
+        return six.text_type(self.page.fullname.text())
 
     def set_username(self, value):
-        self.page.username.setText(unicode(value, "UTF-8"))
+        self.page.username.setText(misc.utf8(value))
 
     def get_username(self):
-        return unicode(self.page.username.text())
+        return six.text_type(self.page.username.text())
 
     def get_password(self):
-        return unicode(self.page.password.text())
+        return six.text_type(self.page.password.text())
 
     def get_verified_password(self):
-        return unicode(self.page.verified_password.text())
+        return six.text_type(self.page.verified_password.text())
 
     def set_auto_login(self, value):
         return self.page.login_auto.setChecked(value)
@@ -594,7 +595,7 @@ class PageKde(PageBase):
         self.page.hostname_error_reason.show()
 
     def get_hostname (self):
-        return unicode(self.page.hostname.text())
+        return six.text_type(self.page.hostname.text())
 
     def set_hostname (self, value):
         self.page.hostname.setText(value)

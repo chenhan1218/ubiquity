@@ -22,6 +22,7 @@ from __future__ import print_function
 import os
 
 import debconf
+import six
 
 from ubiquity import plugin
 from ubiquity import i18n
@@ -505,11 +506,11 @@ class PageKde(PageBase):
         PageBase.set_language_choices(self, choices, choice_map)
         self.combobox.clear()
         for choice in choices:
-            self.combobox.addItem(QString(unicode(choice)))
+            self.combobox.addItem(QString(six.text_type(choice)))
 
     def set_language(self, language):
         from PyQt4.QtCore import QString
-        index = self.combobox.findText(QString(unicode(language)))
+        index = self.combobox.findText(QString(six.text_type(language)))
         if index < 0:
             self.combobox.addItem("C")
         else:
@@ -528,7 +529,7 @@ class PageKde(PageBase):
         if lang.isNull() or not hasattr(self, 'language_choice_map'):
             return None
         else:
-            return self.language_choice_map[unicode(lang)][1]
+            return self.language_choice_map[six.text_type(lang)][1]
 
     def on_language_selection_changed(self):
         lang = self.selected_language()
@@ -612,7 +613,7 @@ class PageKde(PageBase):
         return self.page.oem_id_entry.setText(text)
 
     def get_oem_id(self):
-        return unicode(self.page.oem_id_entry.text())
+        return six.text_type(self.page.oem_id_entry.text())
 
 class PageDebconf(PageBase):
     plugin_title = 'ubiquity/text/language_heading_label'

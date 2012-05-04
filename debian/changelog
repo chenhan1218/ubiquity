@@ -40,8 +40,6 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       needs to be handled specially.
     - Use six.reraise rather than the three-argument form of raise.
     - Adjust test_filteredcommand for Python 3 text handling.
-    - Use misc.utf8 in test_ubi_partman.TestPage.test_description rather
-      than using unicode directly.
     - Fix test_ubi_partman.question_has_variables to handle templates files
       as binary data, since they're mixed-encoding.
     - Cope with assertItemsEqual/assertCountEqual naming difference between
@@ -66,6 +64,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Use chr rather than unichr in Python 3.
     - Use six.string_types rather than types.StringTypes.
     - Pass a byte string to Gtk.CssProvider.load_from_data.
+    - Replace all calls to unicode() with calls to six.text_type() or
+      misc.utf8() as appropriate.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

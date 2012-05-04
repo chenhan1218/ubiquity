@@ -4,6 +4,7 @@ import os
 
 from PyQt4 import uic
 from PyQt4 import QtGui
+import six
 
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
 from ubiquity.frontend.kde_components.PartitionModel import PartitionModel
@@ -199,10 +200,10 @@ class PartMan(QtGui.QWidget):
             else:
                 place = PARTITION_PLACE_END
 
-            method_description = unicode(self.create_dialog.partition_create_use_combo.currentText())
+            method_description = six.text_type(self.create_dialog.partition_create_use_combo.currentText())
             method = self.create_use_method_names[method_description]
 
-            mountpoint = unicode(self.create_dialog.partition_create_mount_combo.currentText())
+            mountpoint = six.text_type(self.create_dialog.partition_create_mount_combo.currentText())
 
             self.ctrlr.allow_change_step(False)
             self.ctrlr.dbfilter.create_partition(
@@ -216,7 +217,7 @@ class PartMan(QtGui.QWidget):
         known_filesystems = ('ext4', 'ext3', 'ext2',
                              'btrfs', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
-        text = unicode(self.create_dialog.partition_create_use_combo.currentText())
+        text = six.text_type(self.create_dialog.partition_create_use_combo.currentText())
         if text not in self.create_use_method_names:
             return
 
@@ -318,12 +319,12 @@ class PartMan(QtGui.QWidget):
             if current_size is not None:
                 size = str(self.edit_dialog.partition_edit_size_spinbutton.value())
 
-            method_description = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
+            method_description = six.text_type(self.edit_dialog.partition_edit_use_combo.currentText())
             method = self.edit_use_method_names[method_description]
 
             fmt = self.edit_dialog.partition_edit_format_checkbutton.isChecked()
 
-            mountpoint = unicode(self.edit_dialog.partition_edit_mount_combo.currentText())
+            mountpoint = six.text_type(self.edit_dialog.partition_edit_mount_combo.currentText())
 
             if (current_size is not None and size is not None and
                 current_size == size):
@@ -353,7 +354,7 @@ class PartMan(QtGui.QWidget):
         known_filesystems = ('ext4', 'ext3', 'ext2',
                              'btrfs', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
-        text = unicode(self.edit_dialog.partition_edit_use_combo.currentText())
+        text = six.text_type(self.edit_dialog.partition_edit_use_combo.currentText())
         if text not in self.edit_use_method_names:
             return
         method = self.edit_use_method_names[text]
@@ -460,4 +461,4 @@ class PartMan(QtGui.QWidget):
         self.grub_device_entry.setCurrentIndex(index)
 
     def getGrubChoice(self):
-        return unicode(self.grub_device_entry.currentText())
+        return six.text_type(self.grub_device_entry.currentText())

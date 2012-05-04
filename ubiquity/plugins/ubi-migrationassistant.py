@@ -20,6 +20,7 @@ import syslog
 import os
 
 import debconf
+import six
 
 from ubiquity import plugin
 
@@ -115,7 +116,7 @@ class PageGtk(PageBase):
                 text = model.get_value(iterator, 1)
 
             try:
-                cell.set_property("markup", unicode(text))
+                cell.set_property("markup", six.text_type(text))
             except:
                 cell.set_property("text", '%s  %s (%s)' % \
                     (val['user'], val['os'], val['part']))

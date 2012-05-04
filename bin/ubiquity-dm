@@ -20,7 +20,7 @@ import ubiquity.frontend
 from ubiquity import osextras
 from ubiquity import gsettings
 from ubiquity import gconftool
-from ubiquity.misc import create_bool
+from ubiquity.misc import create_bool, utf8
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
 
@@ -496,10 +496,10 @@ EndSection
             title = ''
             message = ''
             try:
-                title = unicode(db.metaget(question, 'description'),
-                                'utf-8', 'replace')
-                message = unicode(db.metaget(question, 'extended_description'),
-                                  'utf-8', 'replace')
+                title = utf8(db.metaget(question, 'description'),
+                             errors='replace')
+                message = utf8(db.metaget(question, 'extended_description'),
+                               errors='replace')
             except debconf.DebconfError:
                 pass
             db.shutdown()

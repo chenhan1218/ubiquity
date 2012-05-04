@@ -23,6 +23,8 @@ from __future__ import print_function
 import re
 import os
 
+import six
+
 from ubiquity import plugin
 from ubiquity import keyboard_names
 from ubiquity import misc
@@ -328,7 +330,7 @@ class PageKde(plugin.PluginUI):
         if self.page.keyboard_layout_combobox.currentIndex() < 0:
             return None
 
-        return unicode(self.page.keyboard_layout_combobox.currentText())
+        return six.text_type(self.page.keyboard_layout_combobox.currentText())
 
     def set_keyboard_variant_choices(self, choices):
         from PyQt4.QtCore import QString
@@ -360,7 +362,7 @@ class PageKde(plugin.PluginUI):
         if self.page.keyboard_variant_combobox.currentIndex() < 0:
             return None
 
-        return unicode(self.page.keyboard_variant_combobox.currentText())
+        return six.text_type(self.page.keyboard_variant_combobox.currentText())
 
 class PageDebconf(plugin.PluginUI):
     plugin_title = 'ubiquity/text/keyboard_heading_label'
