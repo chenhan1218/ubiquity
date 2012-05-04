@@ -321,7 +321,7 @@ class PageGtk(PageBase):
             self.username.handler_block(self.username_changed_id)
             new_username = misc.utf8(widget.get_text().split(' ')[0])
             new_username = new_username.encode('ascii', 'ascii_transliterate')
-            new_username = new_username.lower()
+            new_username = new_username.decode().lower()
             new_username = re.sub('^[^a-z]+', '', new_username)
             new_username = re.sub('[^-a-z0-9_]', '', new_username)
             self.username.set_text(new_username)
@@ -519,7 +519,8 @@ class PageKde(PageBase):
         if not self.username_edited:
             self.page.username.blockSignals(True)
             new_username = unicode(self.page.fullname.text()).split(' ')[0]
-            new_username = new_username.encode('ascii', 'ascii_transliterate').lower()
+            new_username = new_username.encode('ascii', 'ascii_transliterate')
+            new_username = new_username.decode().lower()
             self.page.username.setText(new_username)
             self.on_username_changed()
             self.username_edited = False
