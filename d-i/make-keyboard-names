@@ -27,6 +27,8 @@ print "#   $file\n";
 print "# Instead of editing this file, it is better to edit the original and\n";
 print "# regenerate this.\n\n";
 
+print "from __future__ import unicode_literals\n\n";
+
 print "lang = {\n";
 print "    'C': {\n";
 print "        'models' : {\n";
@@ -93,7 +95,7 @@ for my $mo (</usr/share/locale/*/LC_MESSAGES/xkeyboard-config.mo>) {
     for my $model (sort keys %KeyboardNames::models) {
         my $name = $KeyboardNames::models{$model};
         (my $local_model = $d->get($model)) =~ s/'/\\'/g;
-        print "            u'$local_model': '$name',\n"
+        print "            '$local_model': '$name',\n"
     }
     print "        },\n";
     print "        'models_rev' : {},\n";
@@ -102,7 +104,7 @@ for my $mo (</usr/share/locale/*/LC_MESSAGES/xkeyboard-config.mo>) {
         my $name = $KeyboardNames::layouts{$layout};
         my $local_layout = $d->get($layout);
         (my $layoutesc = $local_layout) =~ s/'/\\'/g;
-        print "            u'$layoutesc': '$name',\n";
+        print "            '$layoutesc': '$name',\n";
     }
     print "        },\n";
     print "        'layouts_rev' : {},\n";
@@ -111,12 +113,12 @@ for my $mo (</usr/share/locale/*/LC_MESSAGES/xkeyboard-config.mo>) {
         my $local_desc = $d->get($layouts_rev{$layout});
         print "            '$layout': {\n";
         (my $layoutesc = $local_desc) =~ s/'/\\'/g;
-        print "                u'$layoutesc': '',\n";
+        print "                '$layoutesc': '',\n";
         for my $variant (sort keys %{$KeyboardNames::variants{$layout}}) {
             my $local_variant = $d->get($variant);
             my $variantname = $KeyboardNames::variants{$layout}{$variant};
             (my $variantesc = "$local_desc - $local_variant") =~ s/'/\\'/g;
-            print "                u'$variantesc': '$variantname',\n";
+            print "                '$variantesc': '$variantname',\n";
         }
         print "            },\n";
     }

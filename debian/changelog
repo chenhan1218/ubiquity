@@ -66,6 +66,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Pass a byte string to Gtk.CssProvider.load_from_data.
     - Replace all calls to unicode() with calls to six.text_type() or
       misc.utf8() as appropriate.
+    - Use unicode_literals in ubiquity.keyboard_names.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
