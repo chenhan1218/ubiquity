@@ -71,6 +71,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       Python 3, we can write Unicode strings (i.e. str) directly to
       sys.stderr, and its defaults are such that the worst case is that they
       get backslash-encoded.  Arrange the tests to simulate this.
+    - Simplify ubiquity.nm.decode_ssid using bytearray(), allowing it to
+      work with Python 3 too.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
