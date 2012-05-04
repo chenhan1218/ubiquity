@@ -67,6 +67,10 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Replace all calls to unicode() with calls to six.text_type() or
       misc.utf8() as appropriate.
     - Use unicode_literals in ubiquity.keyboard_names.
+    - Fix up ubiquity.filteredcommand.debug and its tests for Python 3.  In
+      Python 3, we can write Unicode strings (i.e. str) directly to
+      sys.stderr, and its defaults are such that the worst case is that they
+      get backslash-encoded.  Arrange the tests to simulate this.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

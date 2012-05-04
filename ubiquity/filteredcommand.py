@@ -67,9 +67,10 @@ class UntrustedBase(object):
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
             message = fmt % args
-            print((u'%s %s: %s' %
-                   (time_str, PACKAGE, message)).encode('utf-8'),
-                  file=sys.stderr)
+            line = six.u('%s %s: %s') % (time_str, PACKAGE, message)
+            if sys.version < '3':
+                line = line.encode('utf-8')
+            print(line, file=sys.stderr)
 
 class FilteredCommand(UntrustedBase):
     def __init__(self, frontend, db=None, ui=None):
