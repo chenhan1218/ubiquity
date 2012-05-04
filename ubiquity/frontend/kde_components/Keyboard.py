@@ -8,6 +8,9 @@ import sys
 from PyQt4.QtCore import Qt, QRectF
 from PyQt4.QtGui import QWidget, QFont, QPainter, QPen, QPainterPath, QColor
 
+if sys.version >= '3':
+    unichr = chr
+
 IMG_DIR = "/usr/share/ubiquity/qt/images"
 
 #U+ , or +U+ ... to string
