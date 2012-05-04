@@ -1,7 +1,3 @@
-project.log
-tailor.state
-tailor.state.old
-tailor.state.journal
 ./build-stamp
 ./install-stamp
 ./build-locale
