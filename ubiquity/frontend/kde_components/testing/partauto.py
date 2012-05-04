@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
+from __future__ import print_function, unicode_literals
 
 import sys
 import os
@@ -37,22 +37,22 @@ if __name__ == "__main__":
     win.setDiskLayout(diskLayout)
     win.setDiskLayout(diskLayout)
 
-    biggest_free_choice = u'Use the largest continuous free space',
-    choices = [u'Install them side by side, choosing between them each startup',
-             u'Erase and use the entire disk',
-             u'Specify partitions manually (advanced)']
+    biggest_free_choice = 'Use the largest continuous free space',
+    choices = ['Install them side by side, choosing between them each startup',
+               'Erase and use the entire disk',
+               'Specify partitions manually (advanced)']
 
-    extra_options = {u'Erase and use the entire disk': [u'SCSI1 (0,0,0) (sda) - 8.6 GB ATA VBOX HARDDISK',
-                                                        u'SCSI1 (0,1,0) (sdb) - 5.4 GB ATA VBOX HARDDISK',
-                                                        u'SCSI2 (0,1,0) (sdc) - 5.4 GB ATA VBOX HARDDISK'],
-                    u'Install them side by side, choosing between them each startup': (2757079040,
+    extra_options = {'Erase and use the entire disk': ['SCSI1 (0,0,0) (sda) - 8.6 GB ATA VBOX HARDDISK',
+                                                       'SCSI1 (0,1,0) (sdb) - 5.4 GB ATA VBOX HARDDISK',
+                                                       'SCSI2 (0,1,0) (sdc) - 5.4 GB ATA VBOX HARDDISK'],
+                     'Install them side by side, choosing between them each startup': (2757079040,
                                                                                        5485413376,
                                                                                        4121246208,
                                                                                        '/dev/sda1'),
-                    u'Use the largest continuous free space': []}
+                     'Use the largest continuous free space': []}
 
-    manual_choice = u'Specify partitions manually (advanced)'
-    resize_choice = u'Install them side by side, choosing between them each startup'
+    manual_choice = 'Specify partitions manually (advanced)'
+    resize_choice = 'Install them side by side, choosing between them each startup'
 
     win.setupChoices(choices, extra_options, resize_choice, manual_choice,
                      biggest_free_choice)
