@@ -600,7 +600,6 @@ def set_indicator_keymaps(lang):
     # pacify pyflakes
     Gtk
 
-    xpath = "//iso_639_3_entry[@part1_code='%s']"
     gsettings_key = ['org.gnome.libgnomekbd.keyboard','layouts']
     lang = lang.split('_')[0]
     variants = []
