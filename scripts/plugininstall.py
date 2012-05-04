@@ -1313,7 +1313,10 @@ class Install(install_misc.InstallBase):
         keep.add('oem-config')
 
         cache = Cache()
-        remove = {pkg for pkg in cache.keys() if cache[pkg].is_installed}
+        # TODO cjwatson 2012-05-04: It would be nice to use a set
+        # comprehension here, but that causes:
+        #   SyntaxError: can not delete variable 'cache' referenced in nested scope
+        remove = set([pkg for pkg in cache.keys() if cache[pkg].is_installed])
         # Keep packages we explicitly installed.
         keep |= install_misc.query_recorded_installed()
         remove -= install_misc.expand_dependencies_simple(cache, keep, remove)
