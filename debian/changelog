@@ -75,6 +75,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Simplify ubiquity.nm.decode_ssid using bytearray(), allowing it to
       work with Python 3 too.
     - Open .debs in binary mode when verifying their contents.
+    - Decode text read from debconffilter subprocesses in Python 3.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

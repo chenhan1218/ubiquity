@@ -132,6 +132,8 @@ class DebconfFilter:
 
             try:
                 text = os.read(self.subout_fd, 512)
+                if sys.version >= '3':
+                    text = text.decode()
                 if text == '':
                     ret = self.toread
                     self.toread = ''
