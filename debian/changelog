@@ -78,6 +78,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Decode text read from debconffilter subprocesses in Python 3.
     - Only encode preseeded values in Python 2.  Python 3's debconf module
       accepts Unicode strings directly.
+    - Encode the second argument to struct.pack.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

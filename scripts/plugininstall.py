@@ -476,7 +476,8 @@ class Install(install_misc.InstallBase):
             for i in range(len(interfaces)):
                 if_names[interfaces[i]] = struct.unpack('H6s',
                     fcntl.ioctl(sock.fileno(), SIOCGIFHWADDR,
-                                struct.pack('256s', interfaces[i]))[16:24])
+                                struct.pack('256s',
+                                            interfaces[i].encode()))[16:24])
             sock.close()
 
             with open(self.target_file('etc/iftab'), 'w') as iftab:
