@@ -457,7 +457,7 @@ class BaseFrontend:
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
                 ['wget', '-q', WGET_URL, '--timeout=15', '--tries=1', '-O', '-'],
-                stdout=subprocess.PIPE, universal_newlines=True)
+                stdout=subprocess.PIPE)
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
             return True
