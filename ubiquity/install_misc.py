@@ -767,7 +767,7 @@ class InstallBase:
             # manually verify all the downloads
             syslog.syslog('Verifying downloads ...')
             for item in fetcher.items:
-                with open(item.destfile) as destfile:
+                with open(item.destfile, 'rb') as destfile:
                     st = os.fstat(destfile.fileno())
                     if st.st_size != item.filesize:
                         osextras.unlink_force(item.destfile)

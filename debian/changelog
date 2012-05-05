@@ -74,6 +74,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       get backslash-encoded.  Arrange the tests to simulate this.
     - Simplify ubiquity.nm.decode_ssid using bytearray(), allowing it to
       work with Python 3 too.
+    - Open .debs in binary mode when verifying their contents.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
