@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
 import os

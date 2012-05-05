@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import os
 
 import cairo
@@ -445,4 +443,3 @@ class FaceSelector(Gtk.Box):
         self.selected_image.set_from_pixbuf(m[selection][0])
 
 GObject.type_register(FaceSelector)
-
