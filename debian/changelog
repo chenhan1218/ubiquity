@@ -76,6 +76,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       work with Python 3 too.
     - Open .debs in binary mode when verifying their contents.
     - Decode text read from debconffilter subprocesses in Python 3.
+    - Only encode preseeded values in Python 2.  Python 3's debconf module
+      accepts Unicode strings directly.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

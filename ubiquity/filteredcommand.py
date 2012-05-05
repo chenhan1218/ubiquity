@@ -337,10 +337,11 @@ class FilteredCommand(UntrustedBase):
 
     def preseed(self, name, value, seen=True):
         value = misc.debconf_escape(value)
-        try:
-            value = value.encode("UTF-8", "ignore")
-        except UnicodeDecodeError:
-            pass
+        if sys.version < '3':
+            try:
+                value = value.encode("UTF-8", "ignore")
+            except UnicodeDecodeError:
+                pass
 
         try:
             self.db.set(name, value)
