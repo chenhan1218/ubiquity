@@ -817,7 +817,8 @@ class Wizard(BaseFrontend):
         self.live_installer.set_default_icon_from_file(os.path.join(PIXMAPS,
                                                         'ubiquity.png'))
         provider = Gtk.CssProvider()
-        provider.load_from_data('''#live_installer,
+        provider.load_from_data(b'''\
+#live_installer,
 #page_title,
 #install_progress_text,
 #install_details_expander {
