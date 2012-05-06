@@ -81,7 +81,8 @@ def set_debconf(target, question, value, db=None):
                                        'debconf-communicate',
                                        '-fnoninteractive', 'ubiquity'],
                                       stdin=subprocess.PIPE,
-                                      stdout=subprocess.PIPE, close_fds=True)
+                                      stdout=subprocess.PIPE, close_fds=True,
+                                      universal_newlines=True)
             dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
         dc.set(question, value)
         dc.fset(question, 'seen', 'true')

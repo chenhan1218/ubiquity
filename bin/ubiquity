@@ -105,7 +105,8 @@ def open_terminal():
         dccomm = subprocess.Popen(['debconf-communicate',
                                    '-fnoninteractive', 'ubiquity'],
                                   stdin=subprocess.PIPE,
-                                  stdout=subprocess.PIPE, close_fds=True)
+                                  stdout=subprocess.PIPE, close_fds=True,
+                                  universal_newlines=True)
         try:
             dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
             try:
@@ -285,7 +286,8 @@ def apply_keyboard():
     dccomm = subprocess.Popen(['debconf-communicate',
                                '-fnoninteractive', 'ubiquity'],
                               stdin=subprocess.PIPE,
-                              stdout=subprocess.PIPE, close_fds=True)
+                              stdout=subprocess.PIPE, close_fds=True,
+                              universal_newlines=True)
     try:
         dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
         try:
@@ -326,7 +328,8 @@ def copy_debconf():
     dccomm = subprocess.Popen(['debconf-communicate',
                                '-fnoninteractive', 'ubiquity'],
                               stdin=subprocess.PIPE,
-                              stdout=subprocess.PIPE, close_fds=True)
+                              stdout=subprocess.PIPE, close_fds=True,
+                              universal_newlines=True)
     try:
         dc = debconf.Debconf(read=dccomm.stdout, write=dccomm.stdin)
         try:

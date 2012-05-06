@@ -34,11 +34,9 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       expecting to read text from them.  This has no effect on Python 2
       (aside from \r\n conversion and the like, which is mostly a no-op for
       us), but causes Python 3 to read str rather than bytes.  The
-      exceptions at the moment are: debconf-communicator subprocesses, where
-      debconf expects to read binary data and deal with encoding itself;
-      debconf-copydb subprocesses, which return mixed-encoding data that
-      needs to be handled specially; and when feeding the output of a
-      subprocess to hashlib.
+      exceptions at the moment are: debconf-copydb subprocesses, which
+      return mixed-encoding data that needs to be handled specially; and
+      when feeding the output of a subprocess to hashlib.
     - Use six.reraise rather than the three-argument form of raise.
     - Adjust test_filteredcommand for Python 3 text handling.
     - Fix test_ubi_partman.question_has_variables to handle templates files
