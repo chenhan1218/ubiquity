@@ -22,7 +22,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Import quote from urllib.parse rather than urllib if available.
     - Use new-style octal literals.
     - Use test.support rather than test.test_support if available.
-    - Add a --python3 option to tests/run to run the tests under Python 3.
+    - Add --python2 and --python3 options to tests/run to force running the
+      tests under Python 2 or 3 respectively.
     - Handle renaming of __builtin__ to builtins in Python 3.
     - Only pass unicode=1 to gettext.install in Python 2.
     - Port ubiquity.auto_update to python-apt 0.8 progress classes.

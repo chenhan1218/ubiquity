@@ -34,6 +34,9 @@ parser.add_option('--xvfb-log', dest='xvfb_log', metavar='FILE',
 parser.add_option('--no-build', dest='build',
                   default=True, action='store_false',
                   help="Don't build source code first")
+parser.add_option('--python2', dest='python2',
+                  default=False, action='store_true',
+                  help='Run tests with Python 2')
 parser.add_option('--python3', dest='python3',
                   default=False, action='store_true',
                   help='Run tests with Python 3')
@@ -74,9 +77,13 @@ if re_exec:
     os.environ['LD_LIBRARY_PATH'] = ':'.join(ld_library_path)
     os.execv(sys.argv[0], sys.argv)
 
-# Re-exec under Python 3 if necessary.  This must come after all other
-# re-execs.
-if options.python3 and sys.version < '3':
+# Re-exec under a different version of Python if necessary.  This must come
+# after all other re-execs.
+if options.python2 and sys.version >= '3':
+    new_argv = list(sys.argv)
+    new_argv.insert(0, 'python')
+    os.execvp('python', new_argv)
+elif options.python3 and sys.version < '3':
     new_argv = list(sys.argv)
     new_argv.insert(0, 'python3')
     os.execvp('python3', new_argv)
