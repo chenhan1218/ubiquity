@@ -505,8 +505,15 @@ class Install(install_misc.InstallBase):
                     if dup:
                         continue
 
+                    if sys.version < '3':
+                        def get_byte(ba, c):
+                            return ord(ba[c])
+                    else:
+                        def get_byte(ba, c):
+                            return ba[c]
+
                     line = (interfaces[i] + " mac " +
-                            ':'.join(['%02x' % ord(if_name[1][c])
+                            ':'.join(['%02x' % get_byte(if_name[1], c)
                                       for c in range(6)]))
                     line += " arp %d" % if_name[0]
                     print(line, file=iftab)
