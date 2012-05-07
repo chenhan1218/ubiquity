@@ -78,6 +78,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       accepts Unicode strings directly.
     - Encode the second argument to struct.pack.
     - Fix byte array handling when generating /etc/iftab.
+    - Fix a missing bit of python-apt 0.8 porting in ubiquity.install_misc.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

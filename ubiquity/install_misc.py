@@ -371,7 +371,7 @@ class DebconfInstallProgress(InstallProgress):
             # Probably not a good idea to use this in /target too ...
             del os.environ['DEBCONF_USE_CDEBCONF']
 
-        res = pm.ResultFailed
+        res = pm.RESULT_FAILED
         try:
             res = pm.do_install(self.write_stream.fileno())
         finally:
