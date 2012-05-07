@@ -1678,7 +1678,7 @@ class Install(install_misc.InstallBase):
                 pass
 
         try:
-            status = open(self.target_file('var/lib/dpkg/status'))
+            status = open(self.target_file('var/lib/dpkg/status'), 'rb')
             status_gz = gzip.open(os.path.join(target_dir,
                                                'initial-status.gz'), 'w')
             while True:
