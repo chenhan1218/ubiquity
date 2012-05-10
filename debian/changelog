@@ -86,6 +86,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       complete port to the new API.
     - Use boolean tests rather than isNull, to cope with getting ordinary
       Python strings rather than QStrings.
+    - In Python 3, pass strings directly to Qt rather than creating
+      QStrings.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

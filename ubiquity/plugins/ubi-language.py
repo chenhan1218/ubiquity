@@ -20,6 +20,7 @@
 from __future__ import print_function
 
 import os
+import sys
 
 import debconf
 import six
@@ -455,6 +456,15 @@ class PageKde(PageBase):
 
         self.plugin_widgets = self.page
 
+    @staticmethod
+    def make_qstring(s):
+        """Python 2/3 compatibility hack."""
+        if sys.version >= '3':
+            return s
+        else:
+            from PyQt4.QtCore import QString
+            return QString(s)
+
     @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
         if not self.controller.allowed_change_step():
@@ -502,15 +512,14 @@ class PageKde(PageBase):
         regain_privileges_save()
 
     def set_language_choices(self, choices, choice_map):
-        from PyQt4.QtCore import QString
         PageBase.set_language_choices(self, choices, choice_map)
         self.combobox.clear()
         for choice in choices:
-            self.combobox.addItem(QString(six.text_type(choice)))
+            self.combobox.addItem(self.make_qstring(six.text_type(choice)))
 
     def set_language(self, language):
-        from PyQt4.QtCore import QString
-        index = self.combobox.findText(QString(six.text_type(language)))
+        index = self.combobox.findText(
+            self.make_qstring(six.text_type(language)))
         if index < 0:
             self.combobox.addItem("C")
         else:
