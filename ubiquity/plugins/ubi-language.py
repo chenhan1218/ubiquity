@@ -526,7 +526,7 @@ class PageKde(PageBase):
 
     def selected_language(self):
         lang = self.combobox.currentText()
-        if lang.isNull() or not hasattr(self, 'language_choice_map'):
+        if not lang or not hasattr(self, 'language_choice_map'):
             return None
         else:
             return self.language_choice_map[six.text_type(lang)][1]
