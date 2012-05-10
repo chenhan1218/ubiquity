@@ -36,6 +36,8 @@ import dbus
 from functools import reduce
 
 # kde gui specifics
+import sip
+sip.setapi("QVariant", 1)
 from PyQt4 import QtCore, QtGui, uic
 from PyKDE4 import kdeui, kdecore
 

@@ -82,6 +82,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Fix a missing bit of python-apt 0.8 porting in ubiquity.install_misc.
     - Open /var/lib/dpkg/status in binary mode when compressing it.
     - Pass bytes rather than text to kdecore.ki18n.
+    - Call sip.setapi("QVariant", 1) on KDE frontend startup, pending a more
+      complete port to the new API.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
