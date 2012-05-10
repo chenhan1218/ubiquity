@@ -167,19 +167,19 @@ class Wizard(BaseFrontend):
 
         appName     = "kubuntu-ubiquity"
         catalog     = ""
-        programName = kdecore.ki18n ("Installer")
+        programName = kdecore.ki18n (b"Installer")
         ver         = "1.0"
-        description = kdecore.ki18n ("Live CD Installer for Kubuntu")
+        description = kdecore.ki18n (b"Live CD Installer for Kubuntu")
         rights      = kdecore.KAboutData.License_GPL
-        copy        = kdecore.ki18n ("(c) 2006 Canonical Ltd")
-        text        = kdecore.ki18n ("none")
+        copy        = kdecore.ki18n (b"(c) 2006 Canonical Ltd")
+        text        = kdecore.ki18n (b"none")
         homePage    = "http://wiki.kubuntu.org/KubuntuUbiquity"
         bugEmail    = "jriddell@ubuntu.com"
 
         about = kdecore.KAboutData (appName, catalog, programName, ver, description,
                             rights, copy, text, homePage, bugEmail)
-        about.addAuthor(kdecore.ki18n("Jonathan Riddell"), kdecore.KLocalizedString() ,"jriddell@ubuntu.com")
-        about.addAuthor(kdecore.ki18n("Roman Shtylman"), kdecore.KLocalizedString() ,"shtylman@gmail.com")
+        about.addAuthor(kdecore.ki18n(b"Jonathan Riddell"), kdecore.KLocalizedString() ,"jriddell@ubuntu.com")
+        about.addAuthor(kdecore.ki18n(b"Roman Shtylman"), kdecore.KLocalizedString() ,"shtylman@gmail.com")
         kdecore.KCmdLineArgs.init([""],about)
 
         # KApplication won't initialise if real UID != effective UID.  On

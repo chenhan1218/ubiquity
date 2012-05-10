@@ -81,6 +81,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
     - Fix byte array handling when generating /etc/iftab.
     - Fix a missing bit of python-apt 0.8 porting in ubiquity.install_misc.
     - Open /var/lib/dpkg/status in binary mode when compressing it.
+    - Pass bytes rather than text to kdecore.ki18n.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.
