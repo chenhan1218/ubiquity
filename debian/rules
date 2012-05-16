@@ -252,7 +252,7 @@ binary-indep: install-stamp
 	dh_strip
 	dh_compress
 	dh_fixperms
-	dh_python2 /usr/lib/ubiquity
+	dh_python3 /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -Vmangled-version='$(MANGLED_VERSION)'
@@ -293,7 +293,7 @@ binary-arch: tests install-stamp
 	dh_strip
 	dh_compress
 	dh_fixperms
-	dh_python2 /usr/lib/ubiquity
+	dh_python3 /usr/lib/ubiquity
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'

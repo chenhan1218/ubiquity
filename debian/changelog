@@ -9,7 +9,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
   * Upgrade to debhelper 9 for improved handling of compiler flags.  Make
     sure that /usr/lib/girepository-1.0/ stays where it's supposed to be
     despite changes in the default libdir for multiarch.
-  * Begin porting to Python 3:
+  * Port to Python 3:
     - Use Python 3-style print functions.
     - Use "except Exception as e" syntax rather than the old-style "except
       Exception, e".
