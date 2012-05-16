@@ -1,5 +1,6 @@
 # Exclude the following from pyflakes failures.
 
+scripts/plugininstall.py:*: redefinition of function 'get_byte' from line *
 tests/helpers.py:*: redefinition of function 'builtin_patch' from line *
 tests/test_gtkui.py:*: redefinition of unused 'EnvironmentVarGuard' from line *
 tests/test_gtkwidgets.py:*: redefinition of unused 'run_unittest' from line *
