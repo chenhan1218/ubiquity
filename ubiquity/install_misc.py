@@ -788,6 +788,11 @@ class InstallBase:
                             fullname = name
                         else:
                             fullname = '%s:%s' % (name, arch)
+                            # This syntax only works on systems configured
+                            # for multiarch, so check and fall back to the
+                            # single-architecture syntax.
+                            if fullname not in cache:
+                                fullname = name
                         candidate = cache[fullname].versions[version]
                     except (KeyError, ValueError) as e:
                         syslog.syslog(
