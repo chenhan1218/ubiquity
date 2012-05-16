@@ -96,6 +96,9 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
   * Move a bit more code into ubiquity.install_misc, including a new
     target_file helper method.
   * Remove unnecessary #! lines from non-executable files.
+  * Automatic update of included source packages: choose-mirror 2.39ubuntu5,
+    clock-setup 0.110ubuntu1, debian-installer-utils 1.89ubuntu1,
+    localechooser 2.40ubuntu1.
 
   [ Stéphane Graber ]
   * Spawn dconf-service from ubiquity-dm and drop all the dbus-launch calls.
