@@ -92,7 +92,7 @@ ifndef UBIQUITY_NO_GTK
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/ubiquity-frontend-gtk
 	rm -rf debian/ubiquity-frontend-gtk/usr/share/applications \
 		debian/ubiquity-frontend-gtk/usr/share/ubiquity/pixmaps
-	rm -f debian/ubiquity-frontend-gtk/usr/lib/libubi*.la
+	rm -f debian/ubiquity-frontend-gtk/usr/lib/$(DEB_HOST_MULTIARCH)/libubi*.la
 ifneq (,$(DEB_HOST_MULTIARCH))
 	mv debian/ubiquity-frontend-gtk/usr/lib/$(DEB_HOST_MULTIARCH)/girepository-1.0 \
 	   debian/ubiquity-frontend-gtk/usr/lib/
