@@ -1,4 +1,4 @@
-ubiquity (2.11.0) UNRELEASED; urgency=low
+ubiquity (2.11.0) quantal; urgency=low
 
   [ Colin Watson ]
   * Install oem-config-slideshow-ubuntu in a separate pass from
@@ -112,7 +112,7 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
   * wallpaper: Update code to properly set the wallpaper when compositing
     is enabled.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 30 Apr 2012 10:51:23 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 17 May 2012 03:09:54 +0100
 
 ubiquity (2.10.16) precise-proposed; urgency=low
 
