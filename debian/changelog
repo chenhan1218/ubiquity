@@ -88,6 +88,8 @@ ubiquity (2.11.0) UNRELEASED; urgency=low
       Python strings rather than QStrings.
     - In Python 3, pass strings directly to Qt rather than creating
       QStrings.
+    - Temporarily (build-)depend on python3-gi, since python3-gi-cairo
+      doesn't depend on that.
   * Add Burmese translations.
   * Remove obsolete uxlaunch handling, since it's no longer used and has
     been removed from the archive.

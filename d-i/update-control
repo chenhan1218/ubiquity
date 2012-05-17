@@ -58,6 +58,7 @@ my @basebd = (
     'python3-apt (>= 0.7.100.3~)',
     'python3-cairo',
     'python3-dbus',
+    'python3-gi',
     'python3-gi-cairo',
     'python3-mock (>= 0.7.0)',
     'python3-pyicu (>= 1.0)',
