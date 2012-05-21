@@ -1,4 +1,4 @@
-ubiquity (2.11.1) UNRELEASED; urgency=low
+ubiquity (2.11.1) quantal; urgency=low
 
   * Fix handling of pipes to update-apt-cache.
   * Sync up scripts/clock-setup-apply with changes in clock-setup 0.110.
@@ -6,7 +6,7 @@ ubiquity (2.11.1) UNRELEASED; urgency=low
     (LP: #1001542).
   * Remove a couple of unused attributes.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 May 2012 15:54:45 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 May 2012 17:16:32 +0100
 
 ubiquity (2.11.0) quantal; urgency=low
 
