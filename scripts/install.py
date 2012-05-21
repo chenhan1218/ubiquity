@@ -123,7 +123,7 @@ class Install(install_misc.InstallBase):
                     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
                     os.setpgid(0, 0)
                 self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
-                    stdout=subprocess.PIPE, preexec_fn=subprocess_setup).pid
+                    stdout=subprocess.PIPE, preexec_fn=subprocess_setup)
             try:
                 self.copy_all()
             except EnvironmentError as e:
@@ -158,7 +158,7 @@ class Install(install_misc.InstallBase):
         if self.update_proc:
             for i in range(10):
                 try:
-                    os.killpg(self.update_proc, signal.SIGTERM)
+                    os.killpg(self.update_proc.pid, signal.SIGTERM)
                 except OSError as e:
                     if e.errno == errno.ESRCH:
                         break
@@ -167,7 +167,7 @@ class Install(install_misc.InstallBase):
                 time.sleep(1)
             else:
                 try:
-                    os.killpg(self.update_proc, signal.SIGKILL)
+                    os.killpg(self.update_proc.pid, signal.SIGKILL)
                 except OSError as e:
                     if e.errno != errno.ESRCH:
                         raise
