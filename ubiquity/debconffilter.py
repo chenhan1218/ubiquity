@@ -98,8 +98,6 @@ class DebconfFilter:
         self.progress_bars = []
         self.toread = b''
         self.toreadpos = 0
-        self.towrite = ''
-        self.towritepos = 0
         self.question_type_cache = {}
 
     def debug_enabled(self, key):

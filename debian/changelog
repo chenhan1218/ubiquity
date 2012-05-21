@@ -4,6 +4,7 @@ ubiquity (2.11.1) UNRELEASED; urgency=low
   * Sync up scripts/clock-setup-apply with changes in clock-setup 0.110.
   * Only decode bytes read from debconf once we have a complete line
     (LP: #1001542).
+  * Remove a couple of unused attributes.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 May 2012 15:54:45 +0100
 
