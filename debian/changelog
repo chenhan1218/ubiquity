@@ -2,6 +2,8 @@ ubiquity (2.11.1) UNRELEASED; urgency=low
 
   * Fix handling of pipes to update-apt-cache.
   * Sync up scripts/clock-setup-apply with changes in clock-setup 0.110.
+  * Only decode bytes read from debconf once we have a complete line
+    (LP: #1001542).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 21 May 2012 15:54:45 +0100
 

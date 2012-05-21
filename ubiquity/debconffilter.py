@@ -96,7 +96,7 @@ class DebconfFilter:
         self.escaping = False
         self.progress_cancel = False
         self.progress_bars = []
-        self.toread = ''
+        self.toread = b''
         self.toreadpos = 0
         self.towrite = ''
         self.towritepos = 0
@@ -120,31 +120,35 @@ class DebconfFilter:
     # Returns None if non-blocking and can't read a full line right now;
     # returns '' at end of file; otherwise as fileobj.readline().
     def tryreadline(self):
+        ret = b''
         while True:
-            newlinepos = self.toread.find('\n', self.toreadpos)
+            newlinepos = self.toread.find(b'\n', self.toreadpos)
             if newlinepos != -1:
                 ret = self.toread[self.toreadpos:newlinepos + 1]
                 self.toreadpos = newlinepos + 1
                 if self.toreadpos >= len(self.toread):
-                    self.toread = ''
+                    self.toread = b''
                     self.toreadpos = 0
-                return ret
+                break
 
             try:
                 text = os.read(self.subout_fd, 512)
-                if sys.version >= '3':
-                    text = text.decode()
-                if text == '':
+                if text == b'':
                     ret = self.toread
-                    self.toread = ''
+                    self.toread = b''
                     self.toreadpos = 0
-                    return ret
+                    break
                 self.toread += text
             except OSError as e:
                 if e.errno in (errno.EAGAIN, errno.EWOULDBLOCK):
                     return None
                 else:
                     raise
+
+        if sys.version >= '3':
+            return ret.decode()
+        else:
+            return ret
 
     def reply(self, code, text='', log=False):
         if self.escaping and code == 0:
