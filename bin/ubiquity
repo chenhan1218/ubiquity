@@ -25,6 +25,7 @@ import syslog
 import atexit
 import optparse
 import subprocess
+import locale
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -36,6 +37,19 @@ VERSION = '@VERSION@'
 TARGET = '/target'
 LOCKFILE = '/var/lock/ubiquity'
 lock = None
+
+def force_utf8_locale():
+    """We must have a UTF-8 locale.  Try to get one."""
+    if locale.getpreferredencoding() != "UTF-8":
+        old_lc_all = locale.setlocale(locale.LC_ALL)
+        try:
+            os.environ["LC_ALL"] = "C.UTF-8"
+            locale.setlocale(locale.LC_ALL, "")
+        except locale.Error:
+            # Abandon hope.
+            print("Ubiquity requires a UTF-8 locale and cannot proceed "
+                  "without one.", file=sys.stderr)
+            sys.exit(1)
 
 def distribution():
     """Returns the name of the running distribution."""
@@ -432,6 +446,8 @@ def run_oem_hooks():
                 subprocess.call([hook], env=child_env)
 
 def main(oem_config):
+    force_utf8_locale()
+
     usage = '%prog [options] [frontend]'
     parser = optparse.OptionParser(usage=usage, version=VERSION)
     parser.set_defaults(
