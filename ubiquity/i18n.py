@@ -271,6 +271,11 @@ def get_languages(current_language_index=-1, only_installable=False):
         if code in ('C', 'dz', 'km'):
             i += 1
             continue
+        # KDE fails to round-trip strings containing U+FEFF ZERO WIDTH
+        # NO-BREAK SPACE, and we don't care about the NBSP anyway, so strip
+        # it.
+        #   https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/1001542/comments/5
+        trans = trans.strip(six.u(" \ufeff"))
 
         if only_installable:
             pkg_name = 'language-pack-%s' % code

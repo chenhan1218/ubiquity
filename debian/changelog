@@ -3,6 +3,9 @@ ubiquity (2.11.2) UNRELEASED; urgency=low
   [ Colin Watson ]
   * If ubiquity is started up in a non-UTF-8 locale, force it into C.UTF-8
     and fail immediately if that's unavailable (LP: #1003851).
+  * KDE fails to round-trip strings containing U+FEFF ZERO WIDTH NO-BREAK
+    SPACE, such as the translations of a few language names.  Strip these
+    from language name translations.
 
   [ Evan Dandrea ]
   * Remove migration-assistant following foundations-q-testing-
