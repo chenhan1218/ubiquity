@@ -439,18 +439,13 @@ def main(oem_config):
         debug_pdb=False,
         cdebconf=False,
         automatic=False,
-        query=False,
-        migration_assistant=(not oem_config))
+        query=False)
     parser.add_option('-d', '--debug', dest='debug', action='store_true',
                       help='debug mode (warning: passwords will be logged!)')
     parser.add_option('--pdb', dest='debug_pdb', action='store_true',
                       help='drop into Python debugger on a crash')
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
                       help='use cdebconf instead of debconf (experimental)')
-    if not oem_config:
-        parser.add_option('--no-migration-assistant', dest='migration_assistant',
-                          action='store_false',
-                          help='disable Migration Assistant')
     parser.add_option('--automatic', dest='automatic', action='store_true',
                       help='do not ignore the "seen" flag (useful for ' \
                       'unattended installations).')
@@ -487,9 +482,6 @@ def main(oem_config):
 
     if options.automatic:
         os.environ['UBIQUITY_AUTOMATIC'] = '1'
-
-    if options.migration_assistant:
-        os.environ['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
 
     if options.greeter:
         os.environ['UBIQUITY_GREETER'] = '1'

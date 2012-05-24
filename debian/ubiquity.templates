@@ -662,10 +662,6 @@ Template: ubiquity/install/user
 Type: text
 _Description: Creating user...
 
-Template: ubiquity/install/migrationassistant
-Type: text
-_Description: Importing documents and settings...
-
 Template: ubiquity/install/hardware
 Type: text
 _Description: Configuring hardware...
@@ -774,14 +770,6 @@ _Description: Error while removing packages
  (possibly including itself) from the installed system. You should first
  look for newer versions of your installer image, or failing that report the
  problem to your distributor.
-
-Template: ubiquity/install/broken_migration
-Type: error
-_Description: Error migrating documents and settings
- An error occurred while migrating data.  More details may be found in
- /var/log/syslog.  The installation will continue, but some or all of the
- documents and settings you requested may not have been transferred to the
- installed system.
 
 Template: ubiquity/install/broken_network_copy
 Type: error
@@ -898,11 +886,6 @@ _Description: Failed to unmount partitions
  Please close any applications using these mount points.
  .
  Would you like the installer to try to unmount these partitions again?
-
-Template: ubiquity/run-ma-again
-Type: boolean
-Default: true
-Description: for internal use; run migration-assistant again.
 
 Template: ubiquity/reboot
 Type: boolean

@@ -7,7 +7,6 @@ console-setup
 debian-installer-utils
 hw-detect
 localechooser
-migration-assistant
 netcfg
 partconf
 partman-auto

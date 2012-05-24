@@ -228,12 +228,6 @@ class Wizard(BaseFrontend):
         print('\nCommit failed on partitioning.  Exiting.', file=self.console)
         sys.exit(1)
 
-    # ubiquity.components.migrationassistant
-
-    # FIXME: Needed by m-a, but is it really necessary?
-    def allow_go_forward(self, allow):
-        pass
-
     # General facilities for components.
 
     def error_dialog(self, title, msg, fatal=True):
