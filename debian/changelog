@@ -1,7 +1,12 @@
 ubiquity (2.11.2) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * If ubiquity is started up in a non-UTF-8 locale, force it into C.UTF-8
     and fail immediately if that's unavailable (LP: #1003851).
+
+  [ Evan Dandrea ]
+  * Remove migration-assistant following foundations-q-testing-
+    migration-assistant. Thanks Dmitrijs Ledkovs!
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 24 May 2012 12:18:07 +0100
 

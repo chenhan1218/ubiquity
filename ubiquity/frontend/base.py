@@ -115,12 +115,6 @@ class BaseFrontend:
             try:
                 if self.db.get('oem-config/enable') == 'true':
                     self.oem_config = True
-                    # It seems unlikely that anyone will need
-                    # migration-assistant in the OEM installation process. If it
-                    # turns out that they do, just delete the following two
-                    # lines.
-                    if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-                        del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
             except debconf.DebconfError:
                 pass
 
@@ -163,9 +157,6 @@ class BaseFrontend:
         modules = plugin_manager.order_plugins(plugins)
         self.modules = []
         for mod in modules:
-            if mod.NAME == 'migrationassistant' and \
-                'UBIQUITY_MIGRATION_ASSISTANT' not in os.environ:
-                    continue
             comp = Component()
             comp.module = mod
             if hasattr(mod, 'Page'):
