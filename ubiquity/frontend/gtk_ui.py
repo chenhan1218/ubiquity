@@ -1141,7 +1141,7 @@ color : @fg_color
         self.run_automation_error_cmd()
         # We only stop the backup process when we're on a page where questions
         # need to be asked, otherwise you wont be able to back up past
-        # migration-assistant.
+        # pages that do not stop on questions or are preseeded away.
         self.backup = False
         visible = self.live_installer.get_property('visible')
         self.live_installer.show()
