@@ -6,6 +6,7 @@ ubiquity (2.11.2) UNRELEASED; urgency=low
   * KDE fails to round-trip strings containing U+FEFF ZERO WIDTH NO-BREAK
     SPACE, such as the translations of a few language names.  Strip these
     from language name translations.
+  * Install debconf-set from debian-installer-utils, useful for preseeding.
 
   [ Evan Dandrea ]
   * Remove migration-assistant following foundations-q-testing-
