@@ -8,6 +8,7 @@ tests/test_language.py:*: redefinition of unused 'EnvironmentVarGuard' from line
 tests/test_misc.py:*: redefinition of unused 'EnvironmentVarGuard' from line *
 tests/test_misc.py:*: redefinition of unused 'run_unittest' from line *
 tests/test_osextras.py:*: redefinition of unused 'EnvironmentVarGuard' from line *
+tests/test_timezone.py:*: redefinition of unused 'EnvironmentVarGuard' from line *
 tests/test_ubi_partman.py:*: 'gtkwidgets' imported but unused
 tests/test_ubi_partman.py:*: redefinition of unused 'run_unittest' from line *
 tests/test_ubi_partman.py:*: redefinition of unused 'zip_longest' from line *
