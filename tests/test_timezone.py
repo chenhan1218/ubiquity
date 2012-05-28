@@ -3,6 +3,10 @@
 
 from __future__ import unicode_literals
 
+try:
+    from test.support import EnvironmentVarGuard
+except ImportError:
+    from test.test_support import EnvironmentVarGuard
 import unittest
 
 import debconf
@@ -13,7 +17,9 @@ from ubiquity import plugin_manager
 class TimezoneTests(unittest.TestCase):
     def setUp(self):
         self.ubi_timezone = plugin_manager.load_plugin('ubi-timezone')
-        db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
+        with EnvironmentVarGuard() as env:
+            env["LC_ALL"] = "en_US.UTF-8"
+            db = debconf.DebconfCommunicator('ubi-test', cloexec=True)
         self.addCleanup(db.shutdown)
         controller = mock.Mock()
         controller.dbfilter = self.ubi_timezone.Page(None, db=db)
@@ -41,7 +47,10 @@ class TimezoneTests(unittest.TestCase):
 
         self.gtk.set_timezone('America/New_York')
         self.gtk.city_entry.set_text('Eastern')
-        self.gtk.changed(self.gtk.city_entry)
+        with EnvironmentVarGuard() as env:
+            # Parts of ubi-timezone are rather overly fixated on LANG.
+            env["LANG"] = "en_US.UTF-8"
+            self.gtk.changed(self.gtk.city_entry)
         m = self.gtk.city_entry.get_completion().get_model()
         results = []
         expected = (('Eastern', 'United States'), ('Eastern', 'Canada'))
