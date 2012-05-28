@@ -1,8 +1,8 @@
-ubiquity (2.11.3) UNRELEASED; urgency=low
+ubiquity (2.11.3) quantal; urgency=low
 
   * Automatic update of included source packages: flash-kernel 2.28ubuntu45.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 May 2012 09:42:02 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 28 May 2012 09:44:35 +0100
 
 ubiquity (2.11.2) quantal; urgency=low
 
