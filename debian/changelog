@@ -6,6 +6,11 @@ ubiquity (2.11.4) UNRELEASED; urgency=low
   [ Dmitrijs Ledkovs ]
   * Remove migration-assistant's UI definitions.
 
+  [ Martin Pitt ]
+  * scripts/simple-plugins, ubiquity/plugins/ubi-prepare.py: Move from Jockey
+    to "ubuntu-drivers autoinstall". Add ubuntu-drivers-common Recommends: for
+    this.
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 28 May 2012 15:35:55 +0100
 
 ubiquity (2.11.3) quantal; urgency=low

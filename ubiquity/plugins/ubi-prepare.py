@@ -118,10 +118,10 @@ class PageGtk(PreparePageBase):
             self.prepare_foss_disclaimer_extra.set_property('visible', False)
 
     def set_use_nonfree(self, val):
-        if osextras.find_on_path('jockey-text'):
+        if osextras.find_on_path('ubuntu-drivers'):
             self.prepare_nonfree_software.set_active(val)
         else:
-            self.debug('Could not find jockey-text on the executable path.')
+            self.debug('Could not find ubuntu-drivers on the executable path.')
             self.set_allow_nonfree(False)
 
     def get_use_nonfree(self):
@@ -193,10 +193,10 @@ class PageKde(PreparePageBase):
             self.prepare_foss_disclaimer.setVisible(False)
 
     def set_use_nonfree(self, val):
-        if osextras.find_on_path('jockey-text'):
+        if osextras.find_on_path('ubuntu-drivers'):
             self.prepare_nonfree_software.setChecked(val)
         else:
-            self.debug('Could not find jockey-text on the executable path.')
+            self.debug('Could not find ubuntu-drivers on the executable path.')
             self.set_allow_nonfree(False)
 
     def get_use_nonfree(self):
@@ -263,12 +263,4 @@ class Page(plugin.Plugin):
                 if self.db.fget('ubiquity/nonfree_package', 'seen') != 'true':
                     self.preseed('ubiquity/nonfree_package',
                         self.ui.restricted_package_name)
-                bus = dbus.SystemBus()
-                obj = bus.get_object(JOCKEY, JOCKEY_PATH)
-                i = dbus.Interface(obj, JOCKEY)
-                i.shutdown(timeout=MAX_DBUS_TIMEOUT)
-                env = os.environ.copy()
-                env['DEBCONF_DB_REPLACE'] = 'configdb'
-                env['DEBCONF_DB_OVERRIDE'] = 'Pipe{infd:none outfd:none}'
-                subprocess.Popen(['/usr/share/jockey/jockey-backend', '--timeout=120'], env=env)
         plugin.Plugin.ok_handler(self)
