@@ -22,6 +22,7 @@ from __future__ import print_function
 import os
 import time
 import re
+import sys
 
 import debconf
 import icu
@@ -114,7 +115,7 @@ class PageGtk(plugin.PluginUI):
 
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
-            url = _geoname_url % (quote(text),
+            url = _geoname_url % (self.geoname_cb_string(quote(text)),
                                   misc.get_release().version)
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
@@ -171,9 +172,9 @@ class PageGtk(plugin.PluginUI):
             pass
         elif message.status_code != Soup.KnownStatusCode.OK:
             # Log but otherwise ignore failures.
-            syslog.syslog(('Geoname lookup for "%s" failed: %d %s' %
+            syslog.syslog(self.geoname_cb_string(('Geoname lookup for "%s" failed: %d %s' %
                            (text, message.status_code,
-                            message.reason_phrase)))
+                            message.reason_phrase))))
         else:
             for result in json.loads(message.response_body.data):
                 model.append([result['name'],
@@ -240,6 +241,13 @@ class PageGtk(plugin.PluginUI):
         completion.pack_start(cell, True)
         completion.set_match_func(match_func, None)
         completion.set_cell_data_func(cell, data_func, None)
+
+    @staticmethod
+    def geoname_cb_string(s):
+        if sys.version >= '3':
+            return s
+        else:
+            return s.encode('UTF-8')
 
 class PageKde(plugin.PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_timezone'
