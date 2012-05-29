@@ -10,6 +10,10 @@ ubiquity (2.11.4) UNRELEASED; urgency=low
   * scripts/simple-plugins, ubiquity/plugins/ubi-prepare.py: Move from Jockey
     to "ubuntu-drivers autoinstall". Add ubuntu-drivers-common Recommends: for
     this.
+  * scripts/plugininstall.py: Drop jockey --check-composite call. It is
+    obsolete as the free drivers now provide 3D support. Automatic
+    installation of graphics drivers is controlled and covered by
+    ubuntu-drivers autoinstall now.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 28 May 2012 15:35:55 +0100
 
