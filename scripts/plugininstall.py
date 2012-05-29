@@ -1195,43 +1195,6 @@ class Install(install_misc.InstallBase):
             self.db.progress('INFO', 'ubiquity/install/nonfree')
             packages = self.db.get('ubiquity/nonfree_package').split()
             self.do_install(packages)
-            try:
-                install_misc.chrex(self.target,'dpkg-divert', '--package',
-                        'ubiquity', '--rename', '--quiet', '--add',
-                        '/usr/sbin/update-initramfs')
-                try:
-                    os.symlink(
-                        '/bin/true',
-                        self.target_file('usr/sbin/update-initramfs'))
-                except OSError:
-                    pass
-                env = os.environ.copy()
-                env['LC_ALL'] = 'C'
-                misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-                misc.execute('mount', '--bind', '/sys', self.target + '/sys')
-                misc.execute('mount', '--bind', '/dev', self.target + '/dev')
-                inst_composite = ['chroot', self.target, 'jockey-text',
-                                  '-C', '--no-dbus', '-k', self.kernel_version]
-                p = subprocess.Popen(inst_composite, stdin=subprocess.PIPE,
-                                     stdout=sys.stderr, env=env,
-                                     universal_newlines=True)
-                p.communicate('y\n')
-            except OSError:
-                syslog.syslog(syslog.LOG_WARNING,
-                    'Could not install a composited driver:')
-                for line in traceback.format_exc().split('\n'):
-                    syslog.syslog(syslog.LOG_WARNING, line)
-            finally:
-                misc.execute('umount', '-f', self.target + '/proc')
-                misc.execute('umount', '-f', self.target + '/sys')
-                misc.execute('umount', '-f', self.target + '/dev')
-                osextras.unlink_force(
-                    self.target_file('usr/sbin/update-initramfs'))
-                install_misc.chrex(self.target,'dpkg-divert', '--package',
-                        'ubiquity', '--rename', '--quiet', '--remove',
-                        '/usr/sbin/update-initramfs')
-                install_misc.chrex(self.target,'update-initramfs', '-c', '-k',
-                        self.kernel_version)
 
     def install_extras(self):
         """Try to install additional packages requested by installer
