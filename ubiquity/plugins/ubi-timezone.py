@@ -114,7 +114,7 @@ class PageGtk(plugin.PluginUI):
 
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
-            url = _geoname_url % (quote(text.encode('UTF-8')),
+            url = _geoname_url % (quote(text),
                                   misc.get_release().version)
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
@@ -173,7 +173,7 @@ class PageGtk(plugin.PluginUI):
             # Log but otherwise ignore failures.
             syslog.syslog(('Geoname lookup for "%s" failed: %d %s' %
                            (text, message.status_code,
-                            message.reason_phrase)).encode('UTF-8'))
+                            message.reason_phrase)))
         else:
             for result in json.loads(message.response_body.data):
                 model.append([result['name'],

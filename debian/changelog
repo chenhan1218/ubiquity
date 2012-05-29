@@ -15,6 +15,10 @@ ubiquity (2.11.4) UNRELEASED; urgency=low
     installation of graphics drivers is controlled and covered by
     ubuntu-drivers autoinstall now.
 
+  [ Mario Limonciello ]
+  * Don't encode callbacks in UTF8 in the timezone plugin anymore.  The strings
+    are already unicode.
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 28 May 2012 15:35:55 +0100
 
 ubiquity (2.11.3) quantal; urgency=low
