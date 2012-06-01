@@ -4,6 +4,8 @@ ubiquity (2.11.4) UNRELEASED; urgency=low
   * Force the locale to en_US.UTF-8 for the timezone tests.
   * Fix seddery of clock-setup/finish-install.d/10clock-setup to handle
     changes in clock-setup 0.110 (LP: #1003443).
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu1.
 
   [ Dmitrijs Ledkovs ]
   * Remove migration-assistant's UI definitions.
