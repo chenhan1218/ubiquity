@@ -6,6 +6,9 @@ ubiquity (2.11.4) UNRELEASED; urgency=low
     changes in clock-setup 0.110 (LP: #1003443).
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu1.
+  * In the shell script syntax check, filter out *.po and *.pot files
+    straight away before doing the slower check using file(1).  There are
+    lots of these and it takes quite a long time otherwise.
 
   [ Dmitrijs Ledkovs ]
   * Remove migration-assistant's UI definitions.
