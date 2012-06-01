@@ -134,7 +134,7 @@ endif
 	fi
 	install d-i/source/clock-setup/debian/clock-setup.postinst \
 		debian/ubiquity/usr/lib/ubiquity/clock-setup/clock-setup
-	sed -e '/^rcsfile=/ { s/.*/exit 0/; q }' \
+	sed -e '/^# Update target system configuration/ { s/.*/exit 0/; q }' \
 		d-i/source/clock-setup/finish-install.d/10clock-setup \
 		> debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
 	chmod +x debian/ubiquity/usr/lib/ubiquity/clock-setup/finish-install
