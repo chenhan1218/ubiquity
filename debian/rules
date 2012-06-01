@@ -288,6 +288,7 @@ binary-arch: tests install-stamp
 	# ubiquity
 	dh_installinit --no-start --name=ubiquity
 	dh_installman
+	dh_lintian
 	dh_link
 	dh_scour
 	dh_strip

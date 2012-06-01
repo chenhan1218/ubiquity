@@ -9,6 +9,7 @@ ubiquity (2.11.4) UNRELEASED; urgency=low
   * In the shell script syntax check, filter out *.po and *.pot files
     straight away before doing the slower check using file(1).  There are
     lots of these and it takes quite a long time otherwise.
+  * Add several Lintian overrides.
 
   [ Dmitrijs Ledkovs ]
   * Remove migration-assistant's UI definitions.
