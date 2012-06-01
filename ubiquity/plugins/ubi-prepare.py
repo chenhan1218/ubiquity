@@ -24,8 +24,6 @@ import os
 import subprocess
 import sys
 
-import dbus
-
 from ubiquity import plugin
 from ubiquity import misc, osextras, i18n, upower
 
