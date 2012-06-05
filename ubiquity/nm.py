@@ -123,7 +123,7 @@ class NetworkManager:
         if passphrase:
             obj['802-11-wireless-security'] = { 'psk' : passphrase }
         self.active_connection = self.manager.AddAndActivateConnection(
-            obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path))[1]
+            obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path), signature='a{sa{sv}}oo')[1]
 
     def disconnect_from_ap(self):
         if self.active_connection is not None:
