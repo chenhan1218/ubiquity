@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-04-30 11:30+0100\n"
+"POT-Creation-Date: 2012-06-06 13:24+0100\n"
 "PO-Revision-Date: 2012-03-19 06:42+0000\n"
 "Last-Translator: Jamal Uddin <Unknown>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -50,7 +50,7 @@ msgstr "আমাদের জন্যে বেশি স্মার্ট? �
 #. This is used as a window title.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:7001 ../ubiquity.templates:188001
+#: ../ubiquity.templates:7001 ../ubiquity.templates:185001
 msgid "Install"
 msgstr "ইনস্টল করুন"
 
@@ -955,108 +955,102 @@ msgstr "ব্যবহারকারী তৈরি করা হচ্ছে
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
-msgid "Importing documents and settings..."
-msgstr "ডকুমেন্টস ও বৈশিষ্ট্যসমূহ আমদানি করা হচ্ছে..."
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:133001
 msgid "Configuring hardware..."
 msgstr "হার্ডওয়্যার কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:134001
+#: ../ubiquity.templates:133001
 msgid "Installing third-party software..."
 msgstr "থার্ড পার্টি সফ্টওয়্যার ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:135001
+#: ../ubiquity.templates:134001
 msgid "Configuring network..."
 msgstr "নেটওয়ার্ক কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:136001
+#: ../ubiquity.templates:135001
 msgid "Configuring boot loader..."
 msgstr "বুট লোডার কনফিগার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:137001
+#: ../ubiquity.templates:136001
 msgid "Saving installed packages..."
 msgstr "ইনস্টলকৃত প্যাকেজ সংরক্ষণ করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:138001
+#: ../ubiquity.templates:137001
 msgid "Restoring previously installed packages..."
 msgstr "পূর্বে ইনস্টলকৃত প্যাকেজ পুনরূদ্ধার করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:139001
+#: ../ubiquity.templates:138001
 msgid "Installing additional packages..."
 msgstr "অতিরিক্ত প্যাকেজসমূহ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:140001
+#: ../ubiquity.templates:139001
 msgid "Checking for packages to install..."
 msgstr "প্যাকেজসমূহ ইনস্টল করার জন্য পরীক্ষা করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:141001
+#: ../ubiquity.templates:140001
 msgid "Removing extra packages..."
 msgstr "অতিরিক্ত প্যাকেজ মুছে ফেলা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:142001
+#: ../ubiquity.templates:141001
 msgid "Checking for packages to remove..."
 msgstr "বাদ দেয়ার মত প্যাকেজ খোঁজা হচ্ছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:143001
+#: ../ubiquity.templates:142001
 msgid "Downloading packages (${TIME} remaining)..."
 msgstr "প্যাকেজগুলো ডাউনলোড করা হচ্ছে (${TIME} অবশিষ্ট আছে) ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:144001
+#: ../ubiquity.templates:143001
 msgid "Downloading package lists..."
 msgstr "প্যাকেজগুলোর তালিকা ডাউনলোড করা হছে ..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:145001
+#: ../ubiquity.templates:144001
 msgid "Downloading package lists (${TIME} remaining)..."
 msgstr "প্যাকেজগুলোর তালিকা ডাউনলোড করা হছে (${TIME}অবশিষ্ট আছে ) ..."
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:147001
+#: ../ubiquity.templates:146001
 msgid "Error installing ${PACKAGE}"
 msgstr "${PACKAGE} ইনস্টল করা যাচ্ছে না"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:148001
+#: ../ubiquity.templates:147001
 msgid "Error removing ${PACKAGE}"
 msgstr "${PACKAGE} সরানোতে ত্রুটি ঘটেছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:148001
 msgid "Error while installing packages"
 msgstr "প্যাকেজসমূহ ইনস্টলের সময় সমস্যা দেখা দিয়েছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001
+#: ../ubiquity.templates:148001
 msgid "An error occurred while installing packages:"
 msgstr "প্যাকেজসমূহ ইনস্টলের সময় একটি সমস্যা হয়েছে"
 
@@ -1064,7 +1058,7 @@ msgstr "প্যাকেজসমূহ ইনস্টলের সময় এ
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001 ../ubiquity.templates:150001
+#: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid "The following packages are in a broken state:"
 msgstr "এই প্যাকেজসমূহ নষ্ট অবস্থায় আছে"
 
@@ -1072,7 +1066,7 @@ msgstr "এই প্যাকেজসমূহ নষ্ট অবস্থা
 #. Description
 #. Type: error
 #. Description
-#: ../ubiquity.templates:149001 ../ubiquity.templates:150001
+#: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
 "in some of the packages listed above. More details may be found in /var/log/"
@@ -1091,44 +1085,25 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:149001
 msgid "Error while removing packages"
 msgstr "প্যাকেজসমূহ অপসারণের সময় সমস্যা দেখা দিয়েছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:150001
+#: ../ubiquity.templates:149001
 msgid "An error occurred while removing packages:"
 msgstr "প্যাকেজসমূহ অপসারণের সময় একটি সমস্যা হয়েছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:151001
-msgid "Error migrating documents and settings"
-msgstr "নথী এবং সেটিং অভিবাসন সংক্রান্ত ত্রুটি পাওয়া গেছে"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:151001
-msgid ""
-"An error occurred while migrating data.  More details may be found in /var/"
-"log/syslog.  The installation will continue, but some or all of the "
-"documents and settings you requested may not have been transferred to the "
-"installed system."
-msgstr ""
-"ডাটা স্থানান্তরের সময় ত্রুটি ঘটেছে। আরও বিস্তারিত তথ্য পাওয়া যাবে /var/log/syslog "
-"এ। ইনস্টলেশন চলবে, কিন্তু আপনার অনুরোধকৃত সব ডকুমেন্টস ও সেটিংস ইনস্টলকৃত সিস্টেমে "
-"স্থানান্তর নাও করা যেতে পারে।"
-
-#. Type: error
-#. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:150001
 msgid "Error copying network configuration"
 msgstr "নেটওয়ার্ক কনফিগারেশন কপি করার সময় ত্রুটি পরিলক্ষিত"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:152001
+#: ../ubiquity.templates:150001
 msgid ""
 "An error occurred while copying the network settings.  The installation will "
 "continue, but the network configuration will have to be set up again in the "
@@ -1139,13 +1114,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:151001
 msgid "Error copying bluetooth configuration"
 msgstr "ব্লু-টুথ কনফিগারেশন কপি করতে ভুল হয়েছে"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:153001
+#: ../ubiquity.templates:151001
 msgid ""
 "An error occurred while copying the bluetooth settings.  The installation "
 "will continue, but the bluetooth configuration will have to be set up again "
@@ -1156,13 +1131,13 @@ msgstr ""
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:152001
 msgid "Error restoring installed applications"
 msgstr "ইনস্টলকৃত অ্যাপ্লিকেশন পুনরূদ্ধার করার সময় ত্রুটি"
 
 #. Type: error
 #. Description
-#: ../ubiquity.templates:154001
+#: ../ubiquity.templates:152001
 msgid ""
 "An error occurred while restoring previously-installed applications.  The "
 "installation will continue, but you may have to manually reinstall some "
@@ -1173,31 +1148,31 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:158001
+#: ../ubiquity.templates:156001
 msgid "Calculating files to skip copying..."
 msgstr "অনুলিপি করা এড়াতে ফাইলসমূহ গণনা করা হচ্ছে..."
 
 #. Type: title
 #. Description
-#: ../ubiquity.templates:159001
+#: ../ubiquity.templates:157001
 msgid "Installing language packs"
 msgstr "ভাষার প্যাকেজ ইনস্টল করা হচ্ছে..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:160001
+#: ../ubiquity.templates:158001
 msgid "Downloading language packs (${TIME} remaining)..."
 msgstr "ভাষা ভিত্তিক প্যাকেজগুলো ডাউনলোড করা হছে (${TIME}অবশিষ্ট আছে ) ..."
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:167001
 msgid "Failed to unmount partitions"
 msgstr "পার্টিশন আনমাউন্ট করতে ব্যর্থ"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:167001
 msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
@@ -1207,26 +1182,26 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:167001
 msgid "Please close any applications using these mount points."
 msgstr ""
 "দয়া করে এই মাউন্ট পয়েন্টগুলি ব্যবহার করে এমন কোনো অ্যাপ্লিকেশন চালু থাকলে বন্ধ করুন।"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:169001
+#: ../ubiquity.templates:167001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr "ইনস্টলার কি এই পার্টিশনগুলোকে আবার আনমাউন্ট করার চেষ্টা করবে?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:173001
 msgid "Do you want to return to the partitioner?"
 msgstr "পার্টিশন প্রোগ্রামে ফেরত যেতে চান?"
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:173001
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
@@ -1236,7 +1211,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../ubiquity.templates:176001
+#: ../ubiquity.templates:173001
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
@@ -1246,7 +1221,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:178001
+#: ../ubiquity.templates:175001
 msgid "System Configuration"
 msgstr "সিস্টেম কনফিগারেশন"
 
@@ -1254,129 +1229,129 @@ msgstr "সিস্টেম কনফিগারেশন"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:179001 ../ubiquity.templates:242001
+#: ../ubiquity.templates:176001 ../ubiquity.templates:239001
 msgid "Welcome"
 msgstr "স্বাগতম"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:180001
+#: ../ubiquity.templates:177001
 msgid "Network configuration"
 msgstr "নেটওয়ার্ক কনফিগারেশন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:181001
+#: ../ubiquity.templates:178001
 msgid "Software selection"
 msgstr "সফটওয়্যার নির্বাচন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:182001
+#: ../ubiquity.templates:179001
 msgid "Language"
 msgstr "ভাষা"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:183001
+#: ../ubiquity.templates:180001
 msgid "Prepare"
 msgstr "প্রস্তুত"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:184001
+#: ../ubiquity.templates:181001
 msgid "Timezone"
 msgstr "সময় অঞ্চল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:185001
+#: ../ubiquity.templates:182001
 msgid "Keyboard"
 msgstr "কীবোর্ড"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:186001
+#: ../ubiquity.templates:183001
 msgid "Disk Setup"
 msgstr "ডিস্ক সেটআপ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:187001
+#: ../ubiquity.templates:184001
 msgid "User Info"
 msgstr "ব্যবহারকারীর তথ্য"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:189001
+#: ../ubiquity.templates:186001
 msgid "installation process"
 msgstr "ইনস্টল প্রক্রিয়া"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:191001
+#: ../ubiquity.templates:188001
 msgid "Checking for installer updates"
 msgstr "ইন্সটলারের আপডেটের জন্য পরীক্ষা করা হচ্ছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:192001
+#: ../ubiquity.templates:189001
 msgid "Reading package information"
 msgstr "প্যাকেজ সংক্রান্ত তথ্য পড়া হচ্ছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:193001
+#: ../ubiquity.templates:190001
 msgid "Updating package information"
 msgstr "প্যাকেজ সংক্রান্ত তথ্য আপডেট করা হচ্ছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:194001
+#: ../ubiquity.templates:191001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
 msgstr "${TOTAL}টি থেকে ${INDEX} ফাইল ${SPEED}/s গতিতে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:195001
+#: ../ubiquity.templates:192001
 msgid "File ${INDEX} of ${TOTAL}"
 msgstr "${TOTAL} এর ${INDEX} ফাইল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:196001
+#: ../ubiquity.templates:193001
 msgid "Installing update"
 msgstr "আপডেট সমূহ ইনস্টল করা হচ্ছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:194001
 msgid "Error updating installer"
 msgstr "ইন্সটলার আপডেট করার সময় ত্রুটি পরিলক্ষিত"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:197001
+#: ../ubiquity.templates:194001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr "ইনস্টলার হালনাগাদ করার সময় যে ত্রুটি ধরা পড়েছে:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
-#: ../ubiquity.templates:198001
+#: ../ubiquity.templates:195001
 msgid "USB disk"
 msgstr "ইউএসবি ডিস্ক"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
-#: ../ubiquity.templates:199001
+#: ../ubiquity.templates:196001
 msgid "CD"
 msgstr "সিডি"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:200001
+#: ../ubiquity.templates:197001
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
@@ -1386,7 +1361,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:201001
+#: ../ubiquity.templates:198001
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
@@ -1397,13 +1372,13 @@ msgstr ""
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001 ../ubiquity.templates:203001
+#: ../ubiquity.templates:199001 ../ubiquity.templates:200001
 msgid "Installation failed"
 msgstr "ইনস্টলেশন ব্যর্থ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:202001
+#: ../ubiquity.templates:199001
 msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
@@ -1413,7 +1388,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:203001
+#: ../ubiquity.templates:200001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
 "সমাধানযোগ্য নহে এমন একটি ত্রুটির সম্মুখীন হয়েছে ইনস্টলার, এখন সিস্টেম পুনরায় আরম্ভ "
@@ -1422,19 +1397,19 @@ msgstr ""
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:205001
+#: ../ubiquity.templates:202001
 msgid "Preparing to install ${RELEASE}"
 msgstr "${RELEASE} ইন্সটল করার প্রস্তুতি নিচ্ছি"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:206001
+#: ../ubiquity.templates:203001
 msgid "Wireless"
 msgstr "বেতার"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:207001
+#: ../ubiquity.templates:204001
 msgid ""
 "Connecting this computer to a wi-fi network allows you to install third-"
 "party software, download updates, automatically detect your timezone, and "
@@ -1446,49 +1421,49 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:208001
+#: ../ubiquity.templates:205001
 msgid "Password:"
 msgstr "শব্দচাবি:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:209001
+#: ../ubiquity.templates:206001
 msgid "Display password"
 msgstr "শব্দচাবি প্রদর্শন"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:210001
+#: ../ubiquity.templates:207001
 msgid "I don't want to connect to a wi-fi network right now"
 msgstr "এ মুহূর্তে আমি কোন বেতার (wi-fi) নেটওয়ার্কে সংযুক্ত হতে চাচ্ছি না।"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:208001
 msgid "Connect to this network"
 msgstr "এই নেটওয়ার্কে সংযোগ করো"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:212001
 msgid "Select drive:"
 msgstr "ড্রাইভ সিলেক্ট করুনঃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:213001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "ড্রাইভার নিচে টেনে নিয়ে ড্রাইভার স্পেস বরাদ্দ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:214001
 msgid "The entire disk will be used:"
 msgstr "সম্পূর্ণ ড্রাইভ ব্যবহার হবেঃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:215001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1499,7 +1474,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:219001
+#: ../ubiquity.templates:216001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1509,7 +1484,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:217001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1520,7 +1495,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:218001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1530,39 +1505,39 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:219001
 msgid "Split Largest Partition"
 msgstr "বৃহত্তম পার্টিশন ভাগ কর"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:221001
 msgid "For best results, please ensure that this computer:"
 msgstr "সর্বোত্তম ফলাফলের জন্য নিশ্চিত করুন যে এই কম্পিউটারেঃ"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:222001
 msgid "has at least ${SIZE} available drive space"
 msgstr "কমপক্ষে ${SIZE} ড্রাইভ স্পেস আছে"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:223001
 msgid "is plugged in to a power source"
 msgstr "বৈদ্যুতিক উৎসের সঙ্গে সংযুক্ত"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:227001
+#: ../ubiquity.templates:224001
 msgid "is connected to the Internet"
 msgstr "ইন্টারনেটের সঙ্গে সংযুক্ত"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:228001
+#: ../ubiquity.templates:225001
 msgid ""
 "${RELEASE} uses third-party software to display Flash, MP3 and other media, "
 "and to work with some wireless hardware. Some of this software is closed-"
@@ -1575,7 +1550,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:229001
+#: ../ubiquity.templates:226001
 msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
@@ -1585,37 +1560,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:230001
+#: ../ubiquity.templates:227001
 msgid "Install this third-party software"
 msgstr "এই ৩য় পক্ষের সফটওয়্যার ইন্সটল কর"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:231001
+#: ../ubiquity.templates:228001
 msgid "Download updates while installing"
 msgstr "ইন্সটলের সাথে সাথে আপডেট ডাউনলোড কর"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:235001
+#: ../ubiquity.templates:232001
 msgid "Layout:"
 msgstr "লেআউট:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:236001
+#: ../ubiquity.templates:233001
 msgid "Variant:"
 msgstr "ভেরিয়েন্টঃ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:234001
 msgid "Below is an image of your current layout:"
 msgstr "আপনার ব্যবহৃত বর্তমান লেআউটটির একটি ছবি দেখানো হচ্ছে:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:235001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1627,19 +1602,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:236001
 msgid "Time Zone:"
 msgstr "সময় অঞ্চল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:237001
 msgid "Region:"
 msgstr "এলাকা:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:238001
 msgid "[type here to change]"
 msgstr "[পরিবর্তনের জন্য এখানে লিখুন]"
 
@@ -1647,14 +1622,14 @@ msgstr "[পরিবর্তনের জন্য এখানে লিখ�
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:241001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "প্রতিস্থাপন করুন ${OS} দিয়ে ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:244001
+#: ../ubiquity.templates:241001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1666,7 +1641,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:242001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "ইনস্টল ${DISTRO} পাশাপাশি ${OS}"
 
@@ -1678,8 +1653,8 @@ msgstr "ইনস্টল ${DISTRO} পাশাপাশি ${OS}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:245001 ../ubiquity.templates:246001
-#: ../ubiquity.templates:250001 ../ubiquity.templates:255001
+#: ../ubiquity.templates:242001 ../ubiquity.templates:243001
+#: ../ubiquity.templates:247001 ../ubiquity.templates:252001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1691,20 +1666,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:243001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "${DISTRO} ইনস্টল ${OS} এ"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:244001
 msgid "Something else"
 msgstr "অন্য কিছু"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:244001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1715,14 +1690,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:245001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "${CURDISTRO} অপসারণ এবং পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:245001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1734,7 +1709,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:246001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "${CURDISTRO} থেকে ${VER} এ আপগ্রেড"
 
@@ -1742,7 +1717,7 @@ msgstr "${CURDISTRO} থেকে ${VER} এ আপগ্রেড"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:249001 ../ubiquity.templates:253001
+#: ../ubiquity.templates:246001 ../ubiquity.templates:250001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1755,7 +1730,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:247001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "ইনস্টল ${DISTRO} ${VER} পাশাপাশি ${CURDISTRO}"
 
@@ -1765,13 +1740,13 @@ msgstr "ইনস্টল ${DISTRO} ${VER} পাশাপাশি ${CURDISTRO
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:251001 ../ubiquity.templates:254001
+#: ../ubiquity.templates:248001 ../ubiquity.templates:251001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "ডিস্ক অপসারণ করে ${DISTRO} ইনস্টল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:248001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1780,7 +1755,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:249001
 msgid "Erase everything and reinstall"
 msgstr "সবকিছু মুছে ফেলে পুনরায় ইনস্টল"
 
@@ -1788,7 +1763,7 @@ msgstr "সবকিছু মুছে ফেলে পুনরায় ইন�
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:249001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1800,13 +1775,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:250001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} পুনরায় ইনস্টল"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:251001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1818,14 +1793,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:252001
 msgid "Install ${DISTRO} alongside them"
 msgstr "এগুলোর পাশাপাশি ${DISTRO} ইনস্টল"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:253001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "এ কম্পিউটারে বর্তমানে ${OS} আছে। এখন আপনি কি করতে চান?"
 
@@ -1833,7 +1808,7 @@ msgstr "এ কম্পিউটারে বর্তমানে ${OS} আছ
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:254001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1841,7 +1816,7 @@ msgstr "এ কম্পিউটারে বর্তমানে ${OS1} এ�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:258001
+#: ../ubiquity.templates:255001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1849,7 +1824,7 @@ msgstr "এ কম্পিউটারে বর্তমানে একাধ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:259001
+#: ../ubiquity.templates:256001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
@@ -1918,3 +1893,19 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
+
+#~ msgid "Importing documents and settings..."
+#~ msgstr "ডকুমেন্টস ও বৈশিষ্ট্যসমূহ আমদানি করা হচ্ছে..."
+
+#~ msgid "Error migrating documents and settings"
+#~ msgstr "নথী এবং সেটিং অভিবাসন সংক্রান্ত ত্রুটি পাওয়া গেছে"
+
+#~ msgid ""
+#~ "An error occurred while migrating data.  More details may be found in /"
+#~ "var/log/syslog.  The installation will continue, but some or all of the "
+#~ "documents and settings you requested may not have been transferred to the "
+#~ "installed system."
+#~ msgstr ""
+#~ "ডাটা স্থানান্তরের সময় ত্রুটি ঘটেছে। আরও বিস্তারিত তথ্য পাওয়া যাবে /var/log/"
+#~ "syslog এ। ইনস্টলেশন চলবে, কিন্তু আপনার অনুরোধকৃত সব ডকুমেন্টস ও সেটিংস ইনস্টলকৃত "
+#~ "সিস্টেমে স্থানান্তর নাও করা যেতে পারে।"
