@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import dbus, dbus.service, dbus.mainloop.glib, os, sys
-from gi.repository import GObject as gobject
+from gi.repository import GObject
 
 class Rejected(dbus.DBusException):
     _dbus_error_name = "org.bluez.Error.Rejected"
@@ -76,10 +76,10 @@ try:
     manager = dbus.Interface(bus.get_object("org.bluez", "/"), "org.bluez.Manager")
     adapter = dbus.Interface(bus.get_object("org.bluez", manager.DefaultAdapter()), "org.bluez.Adapter")
     agent = Agent(bus, "/ubiquity/bluetooth/agent")
-    mainloop = gobject.MainLoop()
+    mainloop = GObject.MainLoop()
     adapter.RegisterAgent("/ubiquity/bluetooth/agent", "DisplayYesNo")
 except dbus.exceptions.DBusException:
     exit_handler()
 
-gobject.timeout_add(300000, exit_handler)
+GObject.timeout_add(300000, exit_handler)
 mainloop.run()
