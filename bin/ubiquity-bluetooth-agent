@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import dbus, dbus.service, dbus.mainloop.glib, gobject, os, sys
+import dbus, dbus.service, dbus.mainloop.glib, os, sys
+from gi.repository import GObject as gobject
 
 class Rejected(dbus.DBusException):
     _dbus_error_name = "org.bluez.Error.Rejected"

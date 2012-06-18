@@ -7,7 +7,11 @@ ubiquity (2.11.6) UNRELEASED; urgency=low
   * Adjust the default use_device_title label to make more sense when read
     by screen readers (LP: #1010179).
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 06 Jun 2012 13:26:51 +0100
+  [ Stéphane Graber ]
+  * Port ubiquity-bluetooth-agent from the old python-gobject to the
+    gi version of gobject as required with python3. (LP: #1013172)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 18 Jun 2012 10:22:34 -0400
 
 ubiquity (2.11.5) quantal-proposed; urgency=low
 
