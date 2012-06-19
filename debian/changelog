@@ -22,6 +22,9 @@ ubiquity (2.11.6) UNRELEASED; urgency=low
     - Removes repetition of "the software", by changing "the software's
       documentation" to "its documentation".
 
+  [ Colin Watson ]
+  * Add XS-Testsuite header, as per current DEP-8.
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 18 Jun 2012 10:22:34 -0400
 
 ubiquity (2.11.5) quantal-proposed; urgency=low
