@@ -1165,10 +1165,10 @@ Template: ubiquity/text/prepare_foss_disclaimer
 Type: text
 # RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 _Description:
- ${RELEASE} uses third-party software to display Flash, MP3 and other media,
- and to work with some wireless hardware. Some of this software is
- closed-source. The software is subject to the license terms included with
- the software's documentation.  
+ ${RELEASE} uses third-party software to play Flash, MP3 and other media, and
+ to work with some graphics and wi-fi hardware. Some of this software is
+ proprietary. The software is subject to license terms included with its
+ documentation.
 
 Template: ubiquity/text/prepare_foss_disclaimer_extra_label
 Type: text

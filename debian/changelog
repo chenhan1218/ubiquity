@@ -11,6 +11,17 @@ ubiquity (2.11.6) UNRELEASED; urgency=low
   * Port ubiquity-bluetooth-agent from the old python-gobject to the
     gi version of gobject as required with python3. (LP: #1013172)
 
+  [ Matthew Paul Thomas ]
+  * Improvements to the third-party software text:
+    - Changes "display" to "play" (since MP3 is about audio, not video).
+    - Adds mention of graphics drivers (because the installer may install a
+      Nvidia proprietary driver).
+    - Changes "wireless" to "wi-fi".
+    - Changes "closed-source" to "proprietary", matching Ubuntu Software
+      Center.
+    - Removes repetition of "the software", by changing "the software's
+      documentation" to "its documentation".
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 18 Jun 2012 10:22:34 -0400
 
 ubiquity (2.11.5) quantal-proposed; urgency=low
