@@ -60,7 +60,6 @@ class Agent(dbus.service.Object):
         return
 
 def exit_handler():
-    import os
     if not os.path.exists("/tmp/ubiquity-bluetooth-done"):
         with open("/tmp/ubiquity-bluetooth-done", "w+"):
             pass
