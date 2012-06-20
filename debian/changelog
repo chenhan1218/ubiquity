@@ -26,6 +26,9 @@ ubiquity (2.11.6) UNRELEASED; urgency=low
   * Add XS-Testsuite header, as per current DEP-8.
   * debian/tests/control: Depend on python3-mock rather than python-mock
     (LP: #1015400).
+  * Automatic update of included source packages: apt-setup 1:0.56ubuntu2,
+    partconf 1.38, partman-basicmethods 50, partman-jfs 36, partman-newworld
+    27, partman-reiserfs 53, partman-xfs 50.
 
   [ Luke Yelavich ]
   * Show the a11y profile indicator in oem-config as well as in
