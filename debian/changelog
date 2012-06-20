@@ -1,8 +1,13 @@
 ubiquity (2.11.7) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Remove hardcoded paths to xfsettingsd and various accessibility tools.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jun 2012 09:53:18 +0100
+  [ Harald Sitter ]
+  * Fix bogus attribute access in usersetup plugin leading to crashes with
+    the KDE frontend (LP: #1008255)
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 20 Jun 2012 13:43:39 +0200
 
 ubiquity (2.11.6) quantal; urgency=low
 

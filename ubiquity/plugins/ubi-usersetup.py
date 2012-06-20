@@ -811,7 +811,7 @@ class Page(plugin.Plugin):
 
         # showing warning message is error is set
         if errors:
-            self.ui.hostname_error(make_error_string(self.controller, errors))
+            self.ui.hostname_error(make_error_string(self.ui.controller, errors))
             self.done = False
             self.enter_ui_loop()
             return
