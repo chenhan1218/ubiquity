@@ -1,4 +1,4 @@
-ubiquity (2.11.6) UNRELEASED; urgency=low
+ubiquity (2.11.6) quantal; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Run debconf-updatepo to remove migration-assistant translations.
@@ -35,7 +35,7 @@ ubiquity (2.11.6) UNRELEASED; urgency=low
     maybe-ubiquity mode.
   * bin/ubiquity-dm: Load at-spi for both OEM config and ubiquity.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 18 Jun 2012 10:22:34 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jun 2012 09:37:32 +0100
 
 ubiquity (2.11.5) quantal-proposed; urgency=low
 
