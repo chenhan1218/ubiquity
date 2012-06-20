@@ -56,7 +56,8 @@ if 'DISPLAY' in os.environ:
     GObject.threads_init()
     from ubiquity import gtkwidgets
 
-from ubiquity import filteredcommand, gconftool, gsettings, i18n, validation, misc
+from ubiquity import (
+    filteredcommand, gconftool, gsettings, i18n, validation, misc, osextras)
 from ubiquity.plugin import Plugin
 from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.progressposition
@@ -322,8 +323,8 @@ class Wizard(BaseFrontend):
         self.customize_installer()
 
         # Put up the a11y indicator in maybe-ubiquity mode
-        if (os.path.exists('/usr/bin/casper-a11y-enable')):
-            if ('UBIQUITY_GREETER' in os.environ or self.oem_user_config):
+        if osextras.find_on_path('casper-a11y-enable'):
+            if 'UBIQUITY_GREETER' in os.environ or self.oem_user_config:
                 try:
                     from gi.repository import AppIndicator3 as AppIndicator
                     self.indicator = AppIndicator.Indicator.new('ubiquity', 'accessibility-directory',
@@ -331,8 +332,8 @@ class Wizard(BaseFrontend):
                     self.indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
                     self.indicator.set_menu(self.builder.get_object('a11y_indicator_menu'))
                     self.live_installer.connect('key-press-event', self.a11y_profile_keys)
-                    if os.path.exists('/usr/bin/canberra-gtk-play'):
-                        subprocess.Popen(['/usr/bin/canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
+                    if osextras.find_on_path('canberra-gtk-play'):
+                        subprocess.Popen(['canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
                 except:
                     print("Unable to set up accessibility profile support.",
                           file=sys.stderr)
@@ -614,7 +615,7 @@ class Wizard(BaseFrontend):
 
     def a11y_profile_high_contrast_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
-                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '--pass-stdout', 'casper-a11y-enable',
                          'high-contrast'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'high-contrast'
 
@@ -623,25 +624,25 @@ class Wizard(BaseFrontend):
             return
 
         subprocess.call(['log-output', '-t', 'ubiquity',
-                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '--pass-stdout', 'casper-a11y-enable',
                          'blindness'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
-        if os.path.exists('/usr/bin/orca'):
-            self.orca_process = subprocess.Popen(['/usr/bin/orca', '-n'], preexec_fn=misc.drop_all_privileges)
+        if osextras.find_on_path('orca'):
+            self.orca_process = subprocess.Popen(['orca', '-n'], preexec_fn=misc.drop_all_privileges)
 
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
-                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '--pass-stdout', 'casper-a11y-enable',
                          'keyboard-modifiers'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'keyboard-modifiers'
 
     def a11y_profile_onscreen_keyboard_activate(self, widget=None):
         subprocess.call(['log-output', '-t', 'ubiquity',
-                         '--pass-stdout', '/usr/bin/casper-a11y-enable',
+                         '--pass-stdout', 'casper-a11y-enable',
                          'onscreen-keyboard'], preexec_fn=misc.drop_all_privileges)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'onscreen-keyboard'
-        if os.path.exists('/usr/bin/onboard'):
-            subprocess.Popen(['/usr/bin/onboard'], preexec_fn=misc.drop_all_privileges)
+        if osextras.find_on_path('onboard'):
+            subprocess.Popen(['onboard'], preexec_fn=misc.drop_all_privileges)
 
     def run(self):
         """run the interface."""

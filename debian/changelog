@@ -1,3 +1,9 @@
+ubiquity (2.11.7) UNRELEASED; urgency=low
+
+  * Remove hardcoded paths to xfsettingsd and various accessibility tools.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Jun 2012 09:53:18 +0100
+
 ubiquity (2.11.6) quantal; urgency=low
 
   [ Dmitrijs Ledkovs ]
