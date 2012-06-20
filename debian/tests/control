@@ -1,2 +1,2 @@
 Tests: unit
-Depends: @, python-mock, xvfb
+Depends: @, python3-mock, xvfb
