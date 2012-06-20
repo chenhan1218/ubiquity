@@ -324,7 +324,8 @@ EndSection
                     'toolkit-accessibility', self.username)
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
-                if (accessibility == True or 'maybe-ubiquity' in fp.readline()):
+                if (accessibility == True or 'maybe-ubiquity' in fp.readline() or
+                    sys.argv[4:] == '/usr/sbin/oem-config-wrapper'):
                     if os.path.exists('/usr/lib/at-spi2-core/at-spi-bus-launcher'):
                         extras.append(subprocess.Popen(
                             ['/usr/lib/at-spi2-core/at-spi-bus-launcher',

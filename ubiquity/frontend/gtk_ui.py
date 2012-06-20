@@ -322,19 +322,20 @@ class Wizard(BaseFrontend):
         self.customize_installer()
 
         # Put up the a11y indicator in maybe-ubiquity mode
-        if ('UBIQUITY_GREETER' in os.environ and os.path.exists('/usr/bin/casper-a11y-enable')):
-            try:
-                from gi.repository import AppIndicator3 as AppIndicator
-                self.indicator = AppIndicator.Indicator.new('ubiquity', 'accessibility-directory',
-                    AppIndicator.IndicatorCategory.OTHER)
-                self.indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
-                self.indicator.set_menu(self.builder.get_object('a11y_indicator_menu'))
-                self.live_installer.connect('key-press-event', self.a11y_profile_keys)
-                if os.path.exists('/usr/bin/canberra-gtk-play'):
-                    subprocess.Popen(['/usr/bin/canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
-            except:
-                print("Unable to set up accessibility profile support.",
-                      file=sys.stderr)
+        if (os.path.exists('/usr/bin/casper-a11y-enable')):
+            if ('UBIQUITY_GREETER' in os.environ or self.oem_user_config):
+                try:
+                    from gi.repository import AppIndicator3 as AppIndicator
+                    self.indicator = AppIndicator.Indicator.new('ubiquity', 'accessibility-directory',
+                        AppIndicator.IndicatorCategory.OTHER)
+                    self.indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
+                    self.indicator.set_menu(self.builder.get_object('a11y_indicator_menu'))
+                    self.live_installer.connect('key-press-event', self.a11y_profile_keys)
+                    if os.path.exists('/usr/bin/canberra-gtk-play'):
+                        subprocess.Popen(['/usr/bin/canberra-gtk-play', '--id=system-ready'], preexec_fn=misc.drop_all_privileges)
+                except:
+                    print("Unable to set up accessibility profile support.",
+                          file=sys.stderr)
 
     def all_children(self, parent):
         if isinstance(parent, Gtk.Container):

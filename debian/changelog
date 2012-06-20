@@ -25,6 +25,11 @@ ubiquity (2.11.6) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Add XS-Testsuite header, as per current DEP-8.
 
+  [ Luke Yelavich ]
+  * Show the a11y profile indicator in oem-config as well as in
+    maybe-ubiquity mode.
+  * bin/ubiquity-dm: Load at-spi for both OEM config and ubiquity.
+
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 18 Jun 2012 10:22:34 -0400
 
 ubiquity (2.11.5) quantal-proposed; urgency=low
