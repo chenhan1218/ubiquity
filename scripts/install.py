@@ -264,15 +264,9 @@ class Install(install_misc.InstallBase):
                 keep.add('grub')
                 keep.add('grub-pc')
         elif (arch in ('armel', 'armhf') and
-              subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x', 'omap')):
+              subarch in ('omap', 'omap4', 'mx5')):
             keep.add('flash-kernel')
-            if subarch == 'dove':
-                keep.add('uboot-mkimage')
-            elif subarch == 'imx51':
-                keep.add('redboot-tools')
-            elif subarch == 'omap':
-                keep.add('uboot-envtools')
-                keep.add('uboot-mkimage')
+            keep.add('u-boot-tools')
         elif arch == 'powerpc' and subarch != 'ps3':
             keep.add('yaboot')
             keep.add('hfsutils')

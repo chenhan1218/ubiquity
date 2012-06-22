@@ -1006,7 +1006,7 @@ class Install(install_misc.InstallBase):
                         else:
                             break
                 elif (arch in ('armel', 'armhf') and
-                      subarch in ('dove', 'imx51', 'iop32x', 'ixp4xx', 'orion5x', 'omap')):
+                      subarch in ('omap', 'omap4', 'mx5')):
                     from ubiquity.components import flash_kernel
                     dbfilter = flash_kernel.FlashKernel(None, self.db)
                     ret = dbfilter.run_command(auto_process=True)

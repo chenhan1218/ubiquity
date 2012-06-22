@@ -7,6 +7,10 @@ ubiquity (2.11.7) UNRELEASED; urgency=low
   * Fix bogus attribute access in usersetup plugin leading to crashes with
     the KDE frontend (LP: #1008255)
 
+  [ Oliver Grawert ]
+  * adjust arm bootloader installation, we have not used this part of ubiquity
+    in some years and everything was outdated
+
  -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 20 Jun 2012 13:43:39 +0200
 
 ubiquity (2.11.6) quantal; urgency=low
