@@ -1,4 +1,4 @@
-ubiquity (2.11.7) UNRELEASED; urgency=low
+ubiquity (2.11.7) quantal-proposed; urgency=low
 
   [ Colin Watson ]
   * Remove hardcoded paths to xfsettingsd and various accessibility tools.
@@ -15,7 +15,7 @@ ubiquity (2.11.7) UNRELEASED; urgency=low
   * adjust arm bootloader installation, we have not used this part of ubiquity
     in some years and everything was outdated
 
- -- Harald Sitter <apachelogger@ubuntu.com>  Wed, 20 Jun 2012 13:43:39 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 26 Jun 2012 11:12:34 +0100
 
 ubiquity (2.11.6) quantal; urgency=low
 
