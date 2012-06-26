@@ -4,5 +4,7 @@ usr/lib/ubiquity/base-installer
 usr/lib/ubiquity/bin
 usr/lib/ubiquity/clock-setup
 usr/lib/ubiquity/debian-installer-utils
+usr/lib/ubiquity/dm-scripts/install
+usr/lib/ubiquity/dm-scripts/oem
 usr/share/applications/
 var/lib/localechooser
