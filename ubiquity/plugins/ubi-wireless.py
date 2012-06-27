@@ -30,7 +30,11 @@ class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/wireless_heading_label'
     def __init__(self, controller, *args, **kwargs):
         import dbus
-        from ubiquity import misc
+
+        # NOTE: Import 'nm' even though it's not used in this function as
+        # importing it as the side effect of registering NetworkManagerWidget
+        # which we DO use in the Wireless step UI.
+        from ubiquity import misc, nm
         from gi.repository import Gtk
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None

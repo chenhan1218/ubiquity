@@ -16,3 +16,4 @@ tests/test_usersetup.py:*: 'i18n' imported but unused
 ubiquity/frontend/gtk_ui.py:*: redefinition of unused 'configparser' from line *
 ubiquity/misc.py:*: redefinition of unused 'ElementTree' from line *
 ubiquity/plugins/ubi-timezone.py:*: redefinition of unused 'quote' from line *
+ubiquity/plugins/ubi-wireless.py:*: 'nm' imported but unused
