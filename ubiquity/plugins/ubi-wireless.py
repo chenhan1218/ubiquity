@@ -30,7 +30,7 @@ class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/wireless_heading_label'
     def __init__(self, controller, *args, **kwargs):
         import dbus
-        from ubiquity import misc, nm
+        from ubiquity import misc
         from gi.repository import Gtk
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.page = None
