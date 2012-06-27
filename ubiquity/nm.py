@@ -1,4 +1,5 @@
 import subprocess
+import string
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
@@ -391,7 +392,9 @@ class NetworkManagerWidget(Gtk.Box):
     __gsignals__ = { 'connection' : (GObject.SignalFlags.RUN_FIRST,
                                      GObject.TYPE_NONE, (GObject.TYPE_UINT,)),
                      'selection_changed' : (GObject.SignalFlags.RUN_FIRST,
-                                            GObject.TYPE_NONE, ())}
+                                            GObject.TYPE_NONE, ()),
+                     'pw_validated' : (GObject.SignalFlags.RUN_FIRST,
+                                       GObject.TYPE_NONE, (GObject.TYPE_BOOLEAN,))}
     def __init__(self):
         Gtk.Box.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)
@@ -409,6 +412,7 @@ class NetworkManagerWidget(Gtk.Box):
         self.password_label = Gtk.Label('Password:')
         self.password_entry.set_visibility(False)
         self.password_entry.connect('activate', self.connect_to_ap)
+        self.password_entry.connect('changed', self.password_entry_changed)
         self.display_password = Gtk.CheckButton('Display password')
         self.display_password.connect('toggled', self.display_password_toggled)
         self.hbox.pack_start(self.password_label, False, True, 0)
@@ -438,12 +442,28 @@ class NetworkManagerWidget(Gtk.Box):
     def state_changed(self, state):
         self.emit('connection', state)
 
-    def connect_to_ap(self, *args):
+    def password_is_valid(self):
         passphrase = self.password_entry.get_text()
-        self.view.connect_to_selection(passphrase)
+        if len(passphrase) >= 8 and \
+           len(passphrase) < 64 :
+            return True
+        if len(passphrase) == 64:
+            for c in passphrase:
+                if not c in string.hexdigits: return False
+            return True
+        else:
+            return False
+
+    def connect_to_ap(self, *args):
+        if self.password_is_valid():
+            passphrase = self.password_entry.get_text()
+            self.view.connect_to_selection(passphrase)
 
     def disconnect_from_ap(self):
         self.view.disconnect_from_ap()
+        
+    def password_entry_changed(self, *args):
+        self.emit('pw_validated', self.password_is_valid())
 
     def display_password_toggled(self, *args):
         self.password_entry.set_visibility(self.display_password.get_active())
@@ -459,10 +479,13 @@ class NetworkManagerWidget(Gtk.Box):
             self.hbox.set_sensitive(True)
             passphrase = self.view.get_passphrase(ssid)
             self.password_entry.set_text(passphrase)
+            self.emit('pw_validated', False)
         else:
             self.hbox.set_sensitive(False)
             self.password_entry.set_text('')
+            self.emit('pw_validated', True)
         self.emit('selection_changed')
+
 
 GObject.type_register(NetworkManagerWidget)
 
