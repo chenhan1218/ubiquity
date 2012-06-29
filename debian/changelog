@@ -1,4 +1,4 @@
-ubiquity (2.11.8) UNRELEASED; urgency=low
+ubiquity (2.11.8) quantal; urgency=low
 
   [ James M. Leddy ]
   * Only allow a user to proceed on the networking screen if he entered a valid
@@ -15,7 +15,7 @@ ubiquity (2.11.8) UNRELEASED; urgency=low
   * Fix auto-update OpProgress instance to handle the python-apt 0.8 API,
     which doesn't pass a percent argument to update (LP: #1018759).
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 27 Jun 2012 17:45:36 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 29 Jun 2012 18:02:16 +0100
 
 ubiquity (2.11.7) quantal-proposed; urgency=low
 
