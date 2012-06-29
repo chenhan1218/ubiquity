@@ -262,14 +262,14 @@ EndSection
 
         ck_open_session(self.uid)
         
-        #run simple, custom scripts during install time
+        # run simple, custom scripts during install time
         if sys.argv[4] == '/usr/bin/ubiquity':
             for root, dirs, files in os.walk("/usr/lib/ubiquity/dm-scripts/install"):
                 for file in files:
                     install_script = os.path.join(root, file)
                     subprocess.Popen(install_script, stdin=null, stdout=logfile, stderr=logfile, preexec_fn=self.drop_privileges)
 
-        #run simple, custom scripts during  oem-config
+        # run simple, custom scripts during  oem-config
         if sys.argv[4] == '/usr/sbin/oem-config-wrapper':
             for root, dirs, files in os.walk("/usr/lib/ubiquity/dm-scripts/oem"):
                 for file in files:
