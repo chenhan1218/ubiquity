@@ -2,7 +2,7 @@ ubiquity (2.11.8) UNRELEASED; urgency=low
 
   [ James M. Leddy ]
   * Only allow a user to proceed on the networking screen if he entered a valid
-    password. This prevents a nm dbus exception. (LP: #112211)
+    password. This prevents a nm dbus exception. (LP: #929092)
 
   [ Mario Limonciello ]
   * Don't let oem-config crash from an invalid server return on the timezone
