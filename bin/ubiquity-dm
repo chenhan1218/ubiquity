@@ -282,7 +282,7 @@ EndSection
 
         # run simple, custom scripts during  oem-config
         if program_basename == 'oem-config-wrapper':
-            hookdir = '/usr/lib/ubiquity/dm-scripts/install'
+            hookdir = '/usr/lib/ubiquity/dm-scripts/oem'
             self.run_hooks(hookdir)
 
         # Session bus, apparently needed by most interfaces now
