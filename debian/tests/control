@@ -1,2 +1,2 @@
 Tests: unit
-Depends: @, python3-mock, xvfb
+Depends: @, humanity-icon-theme, python3-mock, xvfb
