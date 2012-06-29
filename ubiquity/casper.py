@@ -44,7 +44,4 @@ def get_casper(key, default=None):
                 import syslog
                 syslog.syslog('Unable to read /etc/casper.conf.')
 
-    if key in _casper_config:
-        return _casper_config[key]
-    else:
-        return default
+    return _casper_config.get(key, default)
