@@ -12,6 +12,8 @@ ubiquity (2.11.8) UNRELEASED; urgency=low
   * Simplify get_casper slightly.
   * Depend on humanity-icon-theme for the DEP-8 tests so that the
     gtk-missing-image icon is available.
+  * Fix auto-update OpProgress instance to handle the python-apt 0.8 API,
+    which doesn't pass a percent argument to update (LP: #1018759).
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 27 Jun 2012 17:45:36 -0400
 
