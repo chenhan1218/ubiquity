@@ -1,4 +1,4 @@
-ubiquity (2.11.9) UNRELEASED; urgency=low
+ubiquity (2.11.9) quantal-proposed; urgency=low
 
   [ Colin Watson ]
   * Update DebconfInstallProgress method names for the python-apt 0.8 API.
@@ -10,7 +10,7 @@ ubiquity (2.11.9) UNRELEASED; urgency=low
   * Rearrange DebconfInstallProgress to not assume that update_interface
     returns a value (LP: #1020574).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Jul 2012 10:16:27 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Jul 2012 11:51:17 +0100
 
 ubiquity (2.11.8) quantal; urgency=low
 
