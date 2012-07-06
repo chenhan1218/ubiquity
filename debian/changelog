@@ -2,6 +2,9 @@ ubiquity (2.11.9) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Update DebconfInstallProgress method names for the python-apt 0.8 API.
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu5, partman-base 158ubuntu1, partman-target 78ubuntu1,
+    preseed 1.53ubuntu1.
 
   [ Colin Watson, Dmitrijs Ledkovs ]
   * Rearrange DebconfInstallProgress to not assume that update_interface
