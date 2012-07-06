@@ -304,7 +304,7 @@ class DebconfInstallProgress(InstallProgress):
         fcntl.fcntl(self.status_stream.fileno(), fcntl.F_SETFL,
                     flags & ~os.O_NONBLOCK)
 
-    def startUpdate(self):
+    def start_update(self):
         if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
             self.db.progress('START', 0, 100, self.title)
         self.started = True
@@ -316,7 +316,7 @@ class DebconfInstallProgress(InstallProgress):
             self.db.input('critical', self.error_template)
             self.db.go()
 
-    def statusChange(self, dummypkg, percent, status):
+    def status_change(self, dummypkg, percent, status):
         self.percent = percent
         self.status = status
         if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
@@ -402,7 +402,7 @@ class DebconfInstallProgress(InstallProgress):
 
         return res
 
-    def finishUpdate(self):
+    def finish_update(self):
         if self.started:
             if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
                 self.db.progress('STOP')

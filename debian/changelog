@@ -1,3 +1,9 @@
+ubiquity (2.11.9) UNRELEASED; urgency=low
+
+  * Update DebconfInstallProgress method names for the python-apt 0.8 API.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 06 Jul 2012 10:16:27 +0100
+
 ubiquity (2.11.8) quantal; urgency=low
 
   [ James M. Leddy ]
