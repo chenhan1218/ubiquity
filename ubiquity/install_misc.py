@@ -27,7 +27,9 @@ import fcntl
 import hashlib
 import os
 import re
+import select
 import shutil
+import signal
 import stat
 import subprocess
 import sys
@@ -332,8 +334,13 @@ class DebconfInstallProgress(InstallProgress):
             # child
             self.write_stream.close()
             try:
-                while self.update_interface():
-                    pass
+                while True:
+                    try:
+                        select.select([self.status_stream], [], [])
+                    except select.error as error:
+                        if error[0] != errno.EINTR:
+                            raise
+                    self.update_interface()
             except (KeyboardInterrupt, SystemExit):
                 pass # we're going to exit anyway
             except:
@@ -377,6 +384,10 @@ class DebconfInstallProgress(InstallProgress):
         finally:
             # Reap the status-to-debconf subprocess.
             self.write_stream.close()
+            try:
+                os.kill(child_pid, signal.SIGTERM)
+            except OSError:
+                pass
             while True:
                 try:
                     (pid, status) = os.waitpid(child_pid, 0)
