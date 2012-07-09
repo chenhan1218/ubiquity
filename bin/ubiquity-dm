@@ -177,7 +177,7 @@ class DM:
             subprocess.call(['plymouth', 'deactivate'])
             if subprocess.call(['plymouth', '--has-active-vt']) == 0:
                 self.vt = 'vt%d' % self.active_vt()
-                servercommand.append('-nr')
+                servercommand.extend(['-background', 'none'])
             else:
                 subprocess.call(['plymouth', 'quit'])
                 plymouth_running = False
