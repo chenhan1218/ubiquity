@@ -154,7 +154,9 @@ class DM:
 
     def run_hooks(self, hookdir):
         if os.path.isdir(hookdir):
-            hooks = [entry for entry in os.listdir(hookdir)]
+            # Exclude hooks containing '.', so that *.dpkg-* et al are avoided. 
+            hooks = [entry for entry in os.listdir(hookdir)
+                     if '.' not in entry]
             for hookentry in hooks:
                 hook = os.path.join(hookdir, hookentry)
                 with open('/var/log/installer/dm', 'a') as logfile:
@@ -277,13 +279,11 @@ EndSection
         
         # run simple, custom scripts during install time
         if program_basename == 'ubiquity':
-            hookdir = '/usr/lib/ubiquity/dm-scripts/install'
-            self.run_hooks(hookdir)
+            self.run_hooks('/usr/lib/ubiquity/dm-scripts/install')
 
         # run simple, custom scripts during  oem-config
         if program_basename == 'oem-config-wrapper':
-            hookdir = '/usr/lib/ubiquity/dm-scripts/oem'
-            self.run_hooks(hookdir)
+            self.run_hooks('/usr/lib/ubiquity/dm-scripts/oem')
 
         # Session bus, apparently needed by most interfaces now
         if ('DBUS_SESSION_BUS_ADDRESS' not in os.environ and
@@ -348,7 +348,7 @@ EndSection
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
                 if (accessibility == True or 'maybe-ubiquity' in fp.readline() or
-                    sys.argv[4:] == '/usr/sbin/oem-config-wrapper'):
+                    program_basename == 'oem-config-wrapper'):
                     if os.path.exists('/usr/lib/at-spi2-core/at-spi-bus-launcher'):
                         extras.append(subprocess.Popen(
                             ['/usr/lib/at-spi2-core/at-spi-bus-launcher',
