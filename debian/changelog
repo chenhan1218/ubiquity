@@ -1,3 +1,10 @@
+ubiquity (2.11.11) UNRELEASED; urgency=low
+
+  * Add the ability to run simple, custom scripts in ubiquity-dm
+    (LP: #1017580).
+
+ -- Kent Baxley <kent.baxley@canonical.com>  Tue, 10 Jul 2012 16:41:34 +0100
+
 ubiquity (2.11.10) quantal-proposed; urgency=low
 
   * ubiquity-dm: Use "-background none" rather than no-longer-supported
