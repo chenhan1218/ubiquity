@@ -481,9 +481,9 @@ def main(oem_config):
                       action='store_true',
                       help='Name widgets in ATK by their GtkBuilder names,' \
                            'to support LDTP testing.')
-    parser.add_option('--enable-partauto-lvm', dest='partauto_lvm', action='store_true',
-                      help='Enable using complex recipes, e.g. LVM, crypto, ' \
-                      'in the automatic partitioner.')
+    parser.add_option('--enable-partauto-lvm', dest='partauto_lvm',
+                      action='store_true', help='Enable using complex recipe, '
+                      'LVM in the automatic partitioner.')
 
     (options, args) = parser.parse_args()
 

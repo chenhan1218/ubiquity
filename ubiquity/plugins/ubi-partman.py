@@ -365,10 +365,10 @@ class PageGtk(PageBase):
         '''Shows experimental LVM option. TODO actually
         check the available options from partman. '''
 
-        if not 'UBIQUITY_PARTAUTO_LVM' in os.environ:
-            self.vbox_part_auto_recipes.hide()
-        else:
+        if 'UBIQUITY_PARTAUTO_LVM' in os.environ:
             self.vbox_part_auto_recipes.show_all()
+        else:
+            self.vbox_part_auto_recipes.hide()
 
     def part_ask_option_is_install(self):
         if (self.reuse_partition.get_active() or
@@ -601,22 +601,22 @@ class PageGtk(PageBase):
 
         elif self.use_device.get_active():
             def choose_recipe():
-                '''
-                To be extended with other complex recipes,
-                e.g. stacking crypt & raid.
-                '''
-                if not 'UBIQUITY_PARTAUTO_LVM' in os.environ:
-                    return self.extra_options['use_device'][0]
+                # TODO dmitrij.ledkov 2012-07-10: To be extended with
+                # other complex recipes, e.g. stacking crypt & raid.
 
                 have_lvm = 'some_device_lvm' in self.extra_options
-                want_lvm = self.part_auto_use_lvm_checkbox.get_active()
 
-                if not have_lvm:
+                if 'UBIQUITY_PARTAUTO_LVM' not in os.environ or not have_lvm:
                     return self.extra_options['use_device'][0]
 
-                if have_lvm and want_lvm:
+                want_lvm = self.part_auto_use_lvm_checkbox.get_active()
+
+                if want_lvm:
                     return self.extra_options['some_device_lvm']
 
+                # Something went horribly wrong, we should have returned earlier
+                return None
+                
             i = self.part_auto_select_drive.get_active_iter()
             m = self.part_auto_select_drive.get_model()
             disk = m.get_value(i, 0)
@@ -1626,7 +1626,7 @@ class Page(plugin.Plugin):
                     'label' in self.disk_cache[disk] and
                     self.disk_cache[disk]['label'] == 'gpt'):
                     yield (method, method, self.method_description(method))
-            elif not complex_devices and method in ('lvm','crypto','md'):
+            elif not complex_devices and method in ('lvm', 'crypto', 'md'):
                 pass
             else:
                 yield (method, method, self.method_description(method))
