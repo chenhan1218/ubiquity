@@ -1,3 +1,9 @@
+ubiquity (2.11.11) UNRELEASED; urgency=low
+
+  * Add experimental auto-lvm recipe
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 09 Jul 2012 18:11:06 -0600
+
 ubiquity (2.11.10) quantal-proposed; urgency=low
 
   * ubiquity-dm: Use "-background none" rather than no-longer-supported

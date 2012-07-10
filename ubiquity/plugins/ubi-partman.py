@@ -131,6 +131,8 @@ class PageGtk(PageBase):
         self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
         self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
         self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
+        self.vbox_part_auto_recipes = builder.get_object('vbox_part_auto_recipes')
+        self.part_auto_use_lvm_checkbox = builder.get_object('part_auto_use_lvm_checkbox')
 
         # Ask page
         self.part_ask_heading = builder.get_object('part_ask_heading')
@@ -359,6 +361,15 @@ class PageGtk(PageBase):
             hidden = self.controller.get_string('part_auto_hidden_label')
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
+    def set_part_auto_recipes(self):
+        '''Shows experimental LVM option. TODO actually
+        check the available options from partman. '''
+
+        if not 'UBIQUITY_PARTAUTO_LVM' in os.environ:
+            self.vbox_part_auto_recipes.hide()
+        else:
+            self.vbox_part_auto_recipes.show_all()
+
     def part_ask_option_is_install(self):
         if (self.reuse_partition.get_active() or
             self.replace_partition.get_active()):
@@ -474,6 +485,7 @@ class PageGtk(PageBase):
 
     def part_auto_select_drive_changed (self, unused_widget):
         self.set_part_auto_hidden_label()
+        self.set_part_auto_recipes()
         disk_id = self.get_current_disk_partman_id()
         if not disk_id:
             return
@@ -588,10 +600,27 @@ class PageGtk(PageBase):
                 return choice, '%s B' % self.resizewidget.get_size()
 
         elif self.use_device.get_active():
+            def choose_recipe():
+                '''
+                To be extended with other complex recipes,
+                e.g. stacking crypt & raid.
+                '''
+                if not 'UBIQUITY_PARTAUTO_LVM' in os.environ:
+                    return self.extra_options['use_device'][0]
+
+                have_lvm = 'some_device_lvm' in self.extra_options
+                want_lvm = self.part_auto_use_lvm_checkbox.get_active()
+
+                if not have_lvm:
+                    return self.extra_options['use_device'][0]
+
+                if have_lvm and want_lvm:
+                    return self.extra_options['some_device_lvm']
+
             i = self.part_auto_select_drive.get_active_iter()
             m = self.part_auto_select_drive.get_model()
             disk = m.get_value(i, 0)
-            choice = self.extra_options['use_device'][0]
+            choice = choose_recipe()
             # Is the encoding necessary?
             return choice, misc.utf8(disk, errors='replace')
 
@@ -1424,6 +1453,7 @@ class Page(plugin.Plugin):
                      '^partman/confirm.*',
                      '^partman/free_space$',
                      '^partman/active_partition$',
+                     '^partman-lvm/confirm.*',
                      '^partman-partitioning/new_partition_(size|type|place)$',
                      '^partman-target/choose_method$',
                      '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
@@ -1554,7 +1584,7 @@ class Page(plugin.Plugin):
         except debconf.DebconfError:
             return filesystem
 
-    def use_as(self, devpart, create):
+    def use_as(self, devpart, create, complex_devices=False):
         """Yields the possible methods that a partition may use.
 
         If create is True, then only list methods usable on new partitions."""
@@ -1596,6 +1626,8 @@ class Page(plugin.Plugin):
                     'label' in self.disk_cache[disk] and
                     self.disk_cache[disk]['label'] == 'gpt'):
                     yield (method, method, self.method_description(method))
+            elif not complex_devices and method in ('lvm','crypto','md'):
+                pass
             else:
                 yield (method, method, self.method_description(method))
 

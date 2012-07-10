@@ -481,6 +481,10 @@ def main(oem_config):
                       action='store_true',
                       help='Name widgets in ATK by their GtkBuilder names,' \
                            'to support LDTP testing.')
+    parser.add_option('--enable-partauto-lvm', dest='partauto_lvm', action='store_true',
+                      help='Enable using complex recipes, e.g. LVM, crypto, ' \
+                      'in the automatic partitioner.')
+
     (options, args) = parser.parse_args()
 
     if options.debug:
@@ -515,6 +519,9 @@ def main(oem_config):
 
     if options.ldtp:
         os.environ['UBIQUITY_LDTP'] = '1'
+
+    if options.partauto_lvm:
+        os.environ['UBIQUITY_PARTAUTO_LVM'] = '1'
 
     acquire_lock()
 
