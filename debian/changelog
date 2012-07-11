@@ -1,7 +1,13 @@
 ubiquity (2.11.11) UNRELEASED; urgency=low
 
+  [ Kent Baxley ]
   * Add the ability to run simple, custom scripts in ubiquity-dm
     (LP: #1017580).
+
+  [ Colin Watson ]
+  * Fix excision of code in hw-detect that creates
+    /usr/lib/finish-install.d/30hw-detect (not necessary or useful in
+    ubiquity, but accidentally broken way back in ubiquity 1.1.0).
 
  -- Kent Baxley <kent.baxley@canonical.com>  Tue, 10 Jul 2012 16:41:34 +0100
 

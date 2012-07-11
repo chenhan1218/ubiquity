@@ -146,7 +146,7 @@ endif
 	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst && \
 	 debian/preprocessor $(CURDIR)/debian/ubiquity/usr/share/ubiquity/console-setup-apply)
 	chmod +x debian/ubiquity/usr/lib/ubiquity/console-setup/keyboard-configuration.postinst
-	sed 's,\(finish-install=\).*,\1/dev/null,' \
+	sed 's,\(finish_install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
 	chmod +x debian/ubiquity/bin/hw-detect
