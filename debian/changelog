@@ -1,4 +1,4 @@
-ubiquity (2.11.11) UNRELEASED; urgency=low
+ubiquity (2.11.11) quantal-proposed; urgency=low
 
   [ Kent Baxley ]
   * Add the ability to run simple, custom scripts in ubiquity-dm
@@ -11,7 +11,7 @@ ubiquity (2.11.11) UNRELEASED; urgency=low
   * Temporarily add shell tracing through part of hw-detect in the hope of
     diagnosing LP #1023036.
 
- -- Kent Baxley <kent.baxley@canonical.com>  Tue, 10 Jul 2012 16:41:34 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Jul 2012 11:36:20 +0100
 
 ubiquity (2.11.10) quantal-proposed; urgency=low
 
