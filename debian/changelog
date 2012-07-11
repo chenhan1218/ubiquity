@@ -1,3 +1,9 @@
+ubiquity (2.11.12) UNRELEASED; urgency=low
+
+  * Rebuild with fixed dh_python3 (LP: #1023474).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 11 Jul 2012 17:53:56 +0100
+
 ubiquity (2.11.11) quantal-proposed; urgency=low
 
   [ Kent Baxley ]
