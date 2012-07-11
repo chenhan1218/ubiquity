@@ -149,6 +149,7 @@ endif
 	sed 's,\(finish_install=\).*,\1/dev/null,' \
 		d-i/source/hw-detect/debian/hw-detect/bin/hw-detect \
 		> debian/ubiquity/bin/hw-detect
+	patch debian/ubiquity/bin/hw-detect < debian/hw-detect.patch
 	chmod +x debian/ubiquity/bin/hw-detect
 	set -e; for x in languagemap localechooser; do \
 		sed 's,/usr/share/localechooser,/usr/lib/ubiquity/localechooser,g' \

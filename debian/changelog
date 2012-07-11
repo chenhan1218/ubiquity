@@ -8,6 +8,8 @@ ubiquity (2.11.11) UNRELEASED; urgency=low
   * Fix excision of code in hw-detect that creates
     /usr/lib/finish-install.d/30hw-detect (not necessary or useful in
     ubiquity, but accidentally broken way back in ubiquity 1.1.0).
+  * Temporarily add shell tracing through part of hw-detect in the hope of
+    diagnosing LP #1023036.
 
  -- Kent Baxley <kent.baxley@canonical.com>  Tue, 10 Jul 2012 16:41:34 +0100
 
