@@ -1,8 +1,8 @@
-ubiquity (2.11.13) UNRELEASED; urgency=low
+ubiquity (2.11.13) quantal; urgency=low
 
   * Add some more debugging around hw-detect.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Jul 2012 14:48:41 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Jul 2012 14:49:30 +0100
 
 ubiquity (2.11.12) quantal; urgency=low
 
