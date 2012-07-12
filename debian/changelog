@@ -1,3 +1,9 @@
+ubiquity (2.11.13) UNRELEASED; urgency=low
+
+  * Add some more debugging around hw-detect.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Jul 2012 14:48:41 +0100
+
 ubiquity (2.11.12) quantal; urgency=low
 
   * Rebuild with fixed dh_python3 (LP: #1023474).

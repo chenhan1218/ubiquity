@@ -17,12 +17,16 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import os
+
 from ubiquity.filteredcommand import FilteredCommand
 
 class HwDetect(FilteredCommand):
     def prepare(self):
         self.preseed('hw-detect/start_pcmcia', 'false')
         self.preseed('hw-detect/load_firmware', 'false')
+        self.orig_debug = os.environ.get('UBIQUITY_DEBUG_CORE')
+        os.environ['UBIQUITY_DEBUG_CORE'] = '1'
         return (['/bin/hw-detect'], ['ERROR', 'PROGRESS'])
 
     def error(self, priority, question):
@@ -37,3 +41,9 @@ class HwDetect(FilteredCommand):
 
         return FilteredCommand.progress_info(self,
                                              progress_title, progress_info)
+
+    def cleanup(self):
+        if self.orig_debug is not None:
+            os.environ['UBIQUITY_DEBUG_CORE'] = self.orig_debug
+        else:
+            os.environ.pop('UBIQUITY_DEBUG_CORE', None)
