@@ -47,6 +47,11 @@ class Install(install_misc.InstallBase):
         """Initial attributes."""
         install_misc.InstallBase.__init__(self)
 
+        if not os.path.exists('/var/lib/ubiquity'):
+            os.makedirs('/var/lib/ubiquity')
+        with open('/var/lib/ubiquity/started-installing', 'a'):
+            pass
+
         self.update_proc = None
 
         if os.path.isdir('/rofs'):

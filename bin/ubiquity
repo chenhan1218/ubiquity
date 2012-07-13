@@ -573,7 +573,8 @@ def main(oem_config):
                              '/var/lib/dpkg/info/%s.templates' % package])
 
     # Clean up old state.
-    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels', 'apt-removed', 'encrypted-swap'):
+    for name in ('apt-installed', 'apt-install-direct', 'remove-kernels',
+                 'apt-removed', 'encrypted-swap', 'started-installing'):
         osextras.unlink_force(os.path.join('/var/lib/ubiquity', name))
     shutil.rmtree("/var/lib/partman", ignore_errors=True)
     misc.remove_os_prober_cache()
