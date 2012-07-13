@@ -29,7 +29,6 @@ import os
 import re
 import select
 import shutil
-import signal
 import stat
 import subprocess
 import sys
