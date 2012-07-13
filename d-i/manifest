@@ -7,7 +7,7 @@ console-setup 1.70ubuntu5
 debian-installer-utils 1.91ubuntu1
 flash-kernel 3.0~rc.4ubuntu6
 grub-installer 1.68ubuntu5
-hw-detect 1.88ubuntu2
+hw-detect 1.89ubuntu1
 kboot-installer 0.0.1ubuntu9
 localechooser 2.40ubuntu1
 netcfg 1.68ubuntu14
