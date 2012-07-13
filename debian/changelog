@@ -1,10 +1,10 @@
-ubiquity (2.11.14) UNRELEASED; urgency=low
+ubiquity (2.11.14) quantal; urgency=low
 
   * compat/udpkg: Handle 'udpkg -c' from udpkg 1.14, required by hw-detect
     1.89.
   * Automatic update of included source packages: hw-detect 1.89ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Jul 2012 10:21:52 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Jul 2012 10:27:33 +0100
 
 ubiquity (2.11.13) quantal; urgency=low
 
