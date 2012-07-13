@@ -17,6 +17,12 @@ set -e
 db_get user-setup/encrypt-home
 [ "$RET" = true ] || exit 0
 
+if [ "$(grep -c "^/" /proc/swaps)" -eq 0 ]; then
+	# No swap partitions, so we can't and don't need to set up encrypted
+	# swap.
+	exit 0
+fi
+
 # We must allow partitioning to finish before we continue.  Unfortunately
 # there is currently no hook that will reliably run after both the user page
 # and partitioning, and the parallel questions arrangement makes it hard to

@@ -7,6 +7,8 @@ ubiquity (2.11.15) UNRELEASED; urgency=low
     response (LP: #1023036).
   * Make user-setup-encrypted-swap wait until partitioning has finished
     before attempting to adjust /target/etc/fstab (LP: #1024343).
+  * Don't try and fail to set up encrypted swap if no swap partitions are
+    configured (LP: #989279).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Jul 2012 16:40:57 +0100
 
