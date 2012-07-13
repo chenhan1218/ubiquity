@@ -1,3 +1,9 @@
+ubiquity (2.11.15) UNRELEASED; urgency=low
+
+  * Drop hw-detect debugging attempts.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Jul 2012 16:40:57 +0100
+
 ubiquity (2.11.14) quantal; urgency=low
 
   * compat/udpkg: Handle 'udpkg -c' from udpkg 1.14, required by hw-detect
