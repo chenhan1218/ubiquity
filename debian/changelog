@@ -1,6 +1,10 @@
 ubiquity (2.11.15) UNRELEASED; urgency=low
 
   * Drop hw-detect debugging attempts.
+  * Terminate status-to-debconf subprocess in DebconfInstallProgress more
+    gracefully to avoid desynchronising the debconf protocol if the
+    subprocess is killed between sending a command and receiving the
+    response (LP: #1023036).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 13 Jul 2012 16:40:57 +0100
 

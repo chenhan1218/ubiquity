@@ -329,18 +329,24 @@ class DebconfInstallProgress(InstallProgress):
     def run(self, pm):
         # Create a subprocess to deal with turning apt status messages into
         # debconf protocol messages.
+        control_read, control_write = os.pipe()
         child_pid = self.fork()
         if child_pid == 0:
             # child
             self.write_stream.close()
+            os.close(control_write)
             try:
                 while True:
                     try:
-                        select.select([self.status_stream], [], [])
+                        rlist, _, _ = select.select(
+                            [self.status_stream, control_read], [], [])
                     except select.error as error:
                         if error[0] != errno.EINTR:
                             raise
-                    self.update_interface()
+                    if self.status_stream in rlist:
+                        self.update_interface()
+                    if control_read in rlist:
+                        os._exit(0)
             except (KeyboardInterrupt, SystemExit):
                 pass # we're going to exit anyway
             except:
@@ -349,6 +355,7 @@ class DebconfInstallProgress(InstallProgress):
             os._exit(0)
 
         self.status_stream.close()
+        os.close(control_read)
 
         # Redirect stdin from /dev/null and stdout to stderr to avoid them
         # interfering with our debconf protocol stream.
@@ -384,10 +391,8 @@ class DebconfInstallProgress(InstallProgress):
         finally:
             # Reap the status-to-debconf subprocess.
             self.write_stream.close()
-            try:
-                os.kill(child_pid, signal.SIGTERM)
-            except OSError:
-                pass
+            os.write(control_write, b'\1')
+            os.close(control_write)
             while True:
                 try:
                     (pid, status) = os.waitpid(child_pid, 0)
