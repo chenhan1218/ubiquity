@@ -8,6 +8,7 @@ ubiquity (2.11.16) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Add a --no-webcam option to disable the webcam page.
+  * Make all Python code pass pep8(1), and add a test to enforce this.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 16 Jul 2012 11:31:17 +0100
 

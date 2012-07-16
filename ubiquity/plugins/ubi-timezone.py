@@ -20,9 +20,9 @@
 from __future__ import print_function
 
 import os
-import time
 import re
 import sys
+import time
 
 import debconf
 import icu
@@ -32,6 +32,7 @@ from ubiquity import i18n
 from ubiquity import misc
 import ubiquity.tz
 
+
 NAME = 'timezone'
 #after partman for default install, but language for oem install
 AFTER = ['partman', 'language']
@@ -39,14 +40,17 @@ WEIGHT = 10
 
 _geoname_url = 'http://geoname-lookup.ubuntu.com/?query=%s&release=%s'
 
+
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/timezone_heading_label'
+
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         from gi.repository import Gtk
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
-        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
+        builder.add_from_file(os.path.join(
+            os.environ['UBIQUITY_GLADE'], 'stepLocation.ui'))
         builder.connect_signals(self)
         self.page = builder.get_object('stepLocation')
         self.city_entry = builder.get_object('timezone_city_entry')
@@ -92,7 +96,6 @@ class PageGtk(plugin.PluginUI):
             self.timezone = city
             self.controller.allow_go_forward(True)
 
-
     def changed(self, entry):
         try:
             from urllib.parse import quote
@@ -134,11 +137,12 @@ class PageGtk(plugin.PluginUI):
             return
 
         # TODO benchmark this
-        results = [(name, self.tzdb.get_loc(city))
-                    for (name, city) in
-                        [(x[0], x[1]) for x in self.zones
-                            if x[0].lower().split('(', 1)[-1] \
-                                            .startswith(text.lower())]]
+        results = [
+            (name, self.tzdb.get_loc(city))
+            for name, city in [
+                (x[0], x[1])
+                for x in self.zones
+                if x[0].lower().split('(', 1)[-1].startswith(text.lower())]]
         for result in results:
             # We use name rather than loc.human_zone for i18n.
             # TODO this looks pretty awful for US results:
@@ -172,9 +176,9 @@ class PageGtk(plugin.PluginUI):
             pass
         elif message.status_code != Soup.KnownStatusCode.OK:
             # Log but otherwise ignore failures.
-            syslog.syslog(self.geoname_cb_string(('Geoname lookup for "%s" failed: %d %s' %
-                           (text, message.status_code,
-                            message.reason_phrase))))
+            syslog.syslog(self.geoname_cb_string(
+                'Geoname lookup for "%s" failed: %d %s' %
+                (text, message.status_code, message.reason_phrase)))
         else:
             try:
                 for result in json.loads(message.response_body.data):
@@ -188,7 +192,8 @@ class PageGtk(plugin.PluginUI):
                 self.geoname_cache[text] = model
 
             except ValueError:
-                syslog.syslog('Server return does not appear to be valid JSON.')
+                syslog.syslog(
+                    'Server return does not appear to be valid JSON.')
 
         self.city_entry.get_completion().set_model(model)
 
@@ -206,6 +211,7 @@ class PageGtk(plugin.PluginUI):
             return m[i][0] is None
 
         self.timeout_id = 0
+
         def queue_entry_changed(entry):
             if self.timeout_id:
                 GObject.source_remove(self.timeout_id)
@@ -253,6 +259,7 @@ class PageGtk(plugin.PluginUI):
         else:
             return s.encode('UTF-8')
 
+
 class PageKde(plugin.PluginUI):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_timezone'
 
@@ -267,8 +274,10 @@ class PageKde(plugin.PluginUI):
             self.page.map_frame.layout().addWidget(self.tzmap)
 
             self.tzmap.zoneChanged.connect(self.mapZoneChanged)
-            self.page.timezone_zone_combo.currentIndexChanged[int].connect(self.regionChanged)
-            self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
+            self.page.timezone_zone_combo.currentIndexChanged[int].connect(
+                self.regionChanged)
+            self.page.timezone_city_combo.currentIndexChanged[int].connect(
+                self.cityChanged)
         except Exception as e:
             self.debug('Could not create timezone page: %s', e)
             self.page = None
@@ -288,7 +297,8 @@ class PageKde(plugin.PluginUI):
         self.page.timezone_zone_combo.clear()
         for pair in shortlist:
             self.page.timezone_zone_combo.addItem(pair[0], pair[1])
-        self.page.timezone_zone_combo.insertSeparator(self.page.timezone_zone_combo.count())
+        self.page.timezone_zone_combo.insertSeparator(
+            self.page.timezone_zone_combo.count())
         for pair in longlist:
             self.page.timezone_zone_combo.addItem(pair[0], pair[2])
 
@@ -296,21 +306,25 @@ class PageKde(plugin.PluginUI):
     def populateCities(self, regionIndex):
         self.page.timezone_city_combo.clear()
 
-        code = str(self.page.timezone_zone_combo.itemData(regionIndex).toPyObject())
+        code = str(
+            self.page.timezone_zone_combo.itemData(regionIndex).toPyObject())
         countries = self.controller.dbfilter.get_countries_for_region(code)
-        if not countries: # must have been a country code itself
+        if not countries:  # must have been a country code itself
             countries = [code]
 
-        shortlist, longlist = self.controller.dbfilter.build_timezone_pairs(countries)
+        shortlist, longlist = self.controller.dbfilter.build_timezone_pairs(
+            countries)
 
         for pair in shortlist:
             self.page.timezone_city_combo.addItem(pair[0], pair[1])
         if shortlist:
-            self.page.timezone_city_combo.insertSeparator(self.page.timezone_city_combo.count())
+            self.page.timezone_city_combo.insertSeparator(
+                self.page.timezone_city_combo.count())
         for pair in longlist:
             self.page.timezone_city_combo.addItem(pair[0], pair[1])
 
-        return len(countries) == 1 and self.controller.dbfilter.get_default_for_region(countries[0])
+        return (len(countries) == 1 and
+                self.controller.dbfilter.get_default_for_region(countries[0]))
 
     # called when the region(zone) combo changes
     @plugin.only_this_page
@@ -319,10 +333,12 @@ class PageKde(plugin.PluginUI):
             return
 
         self.page.timezone_city_combo.blockSignals(True)
-        #self.page.timezone_city_combo.currentIndexChanged[int].disconnect(self.cityChanged)
+        #self.page.timezone_city_combo.currentIndexChanged[int].disconnect(
+        #    self.cityChanged)
         default = self.populateCities(regionIndex)
         self.page.timezone_city_combo.blockSignals(False)
-        #self.page.timezone_city_combo.currentIndexChanged[int].connect(self.cityChanged)
+        #self.page.timezone_city_combo.currentIndexChanged[int].connect(
+        #    self.cityChanged)
 
         if default:
             self.tzmap.set_timezone(default)
@@ -331,7 +347,8 @@ class PageKde(plugin.PluginUI):
 
     # called when the city combo changes
     def cityChanged(self, cityindex):
-        zone = str(self.page.timezone_city_combo.itemData(cityindex).toPyObject())
+        zone = str(
+            self.page.timezone_city_combo.itemData(cityindex).toPyObject())
         self.tzmap.zoneChanged.disconnect(self.mapZoneChanged)
         self.tzmap.set_timezone(zone)
         self.tzmap.zoneChanged.connect(self.mapZoneChanged)
@@ -344,7 +361,7 @@ class PageKde(plugin.PluginUI):
         for i in range(self.page.timezone_zone_combo.count()):
             code = str(self.page.timezone_zone_combo.itemData(i).toPyObject())
             countries = self.controller.dbfilter.get_countries_for_region(code)
-            if not countries: # must have been a country code itself
+            if not countries:  # must have been a country code itself
                 countries = [code]
             if loc.country in countries:
                 self.page.timezone_zone_combo.setCurrentIndex(i)
@@ -361,12 +378,13 @@ class PageKde(plugin.PluginUI):
         self.page.timezone_zone_combo.blockSignals(False)
         self.page.timezone_city_combo.blockSignals(False)
 
-    def set_timezone (self, timezone):
+    def set_timezone(self, timezone):
         self.refresh_timezones()
         self.tzmap.set_timezone(timezone)
 
-    def get_timezone (self):
+    def get_timezone(self):
         return self.tzmap.get_timezone()
+
 
 class PageDebconf(plugin.PluginUI):
     plugin_title = 'ubiquity/text/timezone_heading_label'
@@ -377,6 +395,7 @@ class PageDebconf(plugin.PluginUI):
 
     def plugin_set_online_state(self, state):
         self.online = state
+
 
 class PageNoninteractive(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
@@ -393,6 +412,7 @@ class PageNoninteractive(plugin.PluginUI):
     def get_timezone(self):
         """Get the current selected timezone."""
         return self.timezone
+
 
 class Page(plugin.Plugin):
     def prepare(self, unfiltered=False):
@@ -431,7 +451,7 @@ class Page(plugin.Plugin):
                 pass
         self.preseed('tzsetup/selected', 'false')
         questions = ['^time/zone$', '^tzsetup/detected$', 'CAPB', 'PROGRESS']
-        return ([clock_script], questions, env)
+        return [clock_script], questions, env
 
     def capb(self, capabilities):
         self.frontend.debconf_progress_cancellable(
@@ -474,10 +494,12 @@ class Page(plugin.Plugin):
         return s[0]
 
     def get_countries_for_region(self, region):
-        if region in self.regions: return self.regions[region]
+        if region in self.regions:
+            return self.regions[region]
 
         try:
-            codes = self.choices_untranslated('localechooser/countrylist/%s' % region)
+            codes = self.choices_untranslated(
+                'localechooser/countrylist/%s' % region)
         except debconf.DebconfError:
             codes = []
         self.regions[region] = codes
@@ -488,7 +510,8 @@ class Page(plugin.Plugin):
         total = []
         continents = self.choices_untranslated('localechooser/continentlist')
         for continent in continents:
-            country_codes = self.choices_untranslated('localechooser/countrylist/%s' % continent.replace(' ', '_'))
+            country_codes = self.choices_untranslated(
+                'localechooser/countrylist/%s' % continent.replace(' ', '_'))
             for c in country_codes:
                 shortlist = self.build_shortlist_timezone_pairs(c, sort=False)
                 longlist = self.build_longlist_timezone_pairs(c, sort=False)
@@ -516,7 +539,8 @@ class Page(plugin.Plugin):
     # Returns [('translated short list of countries', 'timezone')...] list
     def build_shortlist_region_pairs(self, language_code):
         try:
-            shortlist = self.choices_display_map('localechooser/shortlist/%s' % language_code)
+            shortlist = self.choices_display_map(
+                'localechooser/shortlist/%s' % language_code)
             # Remove any 'other' entry
             for pair in shortlist.items():
                 if pair[1] == 'other':
@@ -539,7 +563,8 @@ class Page(plugin.Plugin):
 
         longlist = []
         for country_code in country_codes:
-            longlist += self.build_longlist_timezone_pairs(country_code, sort=False)
+            longlist += self.build_longlist_timezone_pairs(
+                country_code, sort=False)
         longlist.sort(key=self.collation_key)
 
         # There may be duplicate entries in the shortlist and longlist.
@@ -561,7 +586,8 @@ class Page(plugin.Plugin):
 
     def build_shortlist_timezone_pairs(self, country_code, sort=True):
         try:
-            shortlist = self.choices_display_map('tzsetup/country/%s' % country_code)
+            shortlist = self.choices_display_map(
+                'tzsetup/country/%s' % country_code)
             for pair in list(shortlist.items()):
                 # Remove any 'other' entry, we don't need it
                 if pair[1] == 'other':
@@ -576,9 +602,12 @@ class Page(plugin.Plugin):
     def get_country_name(self, country):
         # Relatively expensive algorithmically, but we don't call this often.
         try:
-            continents = self.choices_untranslated('localechooser/continentlist')
+            continents = self.choices_untranslated(
+                'localechooser/continentlist')
             for continent in continents:
-                choices = self.choices_display_map('localechooser/countrylist/%s' % continent.replace(' ', '_'))
+                choices = self.choices_display_map(
+                    'localechooser/countrylist/%s' %
+                    continent.replace(' ', '_'))
                 for name, code in choices.items():
                     if code == country:
                         return name
@@ -613,7 +642,7 @@ class Page(plugin.Plugin):
             # First, try tzdata's translation.
             city_name = self.get_city_name_from_tzdata(tz)
             if city_name is None:
-                city_name = tz # fall back to ASCII name
+                city_name = tz  # fall back to ASCII name
             city_name = city_name.split('/')[-1]
             return "%s (%s)" % (country_name, city_name)
         else:
@@ -622,13 +651,13 @@ class Page(plugin.Plugin):
     # Returns [('translated long list of timezones', 'timezone')...] list
     def build_longlist_timezone_pairs(self, country_code, sort=True):
         if 'LANG' not in os.environ:
-            return [] # ?!
+            return []  # ?!
         locale = os.environ['LANG'].rsplit('.', 1)[0]
         tz_format = icu.SimpleDateFormat('VVVV', icu.Locale(locale))
-        now = time.time()*1000
+        now = time.time() * 1000
         rv = []
         try:
-            locs = self.tzdb.cc_to_locs[country_code] # BV failed?
+            locs = self.tzdb.cc_to_locs[country_code]  # BV failed?
         except:
             # Some countries in tzsetup don't exist in zone.tab...
             # Specifically BV (Bouvet Island) and
@@ -649,7 +678,8 @@ class Page(plugin.Plugin):
             if (translated is None or
                 re.search('.*[-+][0-9][0-9]:?[0-9][0-9]$', translated)):
                 # Wasn't something that icu understood...
-                name = self.get_fallback_translation_for_tz(country_code, location.zone)
+                name = self.get_fallback_translation_for_tz(
+                    country_code, location.zone)
                 rv.append((name, location.zone))
             else:
                 rv.append((translated, location.zone))
@@ -660,10 +690,11 @@ class Page(plugin.Plugin):
     # Returns [('translated long list of timezones', 'timezone')...] list
     def build_longlist_timezone_pairs_by_continent(self, continent):
         if 'LANG' not in os.environ:
-            return [] # ?
+            return []  # ?
         rv = []
         try:
-            regions = self.choices_untranslated('localechooser/countrylist/%s' % continent)
+            regions = self.choices_untranslated(
+                'localechooser/countrylist/%s' % continent)
             for region in regions:
                 rv += self.build_longlist_timezone_pairs(region, sort=False)
             rv.sort(key=self.collation_key)
@@ -688,6 +719,7 @@ class Page(plugin.Plugin):
         self.ui.controller.set_locale(
                 i18n.reset_locale(self.frontend, just_country=True))
 
+
 class Install(plugin.InstallPlugin):
     def prepare(self, unfiltered=False):
         tzsetup_script = '/usr/lib/ubiquity/tzsetup/post-base-installer'
@@ -700,4 +732,5 @@ class Install(plugin.InstallPlugin):
 
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/timezone')
-        return plugin.InstallPlugin.install(self, target, progress, *args, **kwargs)
+        return plugin.InstallPlugin.install(
+            self, target, progress, *args, **kwargs)

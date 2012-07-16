@@ -24,10 +24,12 @@ import debconf
 
 from ubiquity import misc
 
+
 class DebconfCommunicator(debconf.Debconf):
     def __init__(self, owner, title=None, cloexec=False, env=None):
-        self.dccomm = subprocess.Popen(['debconf-communicate',
-            '-fnoninteractive', owner], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        self.dccomm = subprocess.Popen(
+            ['debconf-communicate', '-fnoninteractive', owner],
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE,
             close_fds=True, env=env, preexec_fn=misc.regain_privileges,
             universal_newlines=True)
         debconf.Debconf.__init__(self, title=title,

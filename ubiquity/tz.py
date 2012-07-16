@@ -30,6 +30,7 @@ import sys
 TZ_DATA_FILE = '/usr/share/zoneinfo/zone.tab'
 ISO_3166_FILE = '/usr/share/xml/iso-codes/iso_3166.xml'
 
+
 def _seconds_since_epoch(dt):
     # TODO cjwatson 2006-02-23: %s escape is not portable
     return int(dt.replace(tzinfo=None).strftime('%s'))
@@ -150,6 +151,7 @@ def _parse_position(position, wholedigits):
     else:
         return whole - fraction / pow(10.0, len(fractionstr))
 
+
 class Location(object):
     def __init__(self, zonetab_line, iso3166):
         bits = zonetab_line.rstrip().split('\t', 3)
@@ -242,11 +244,12 @@ class _Database(object):
 
             # If not found, oh well, just warn and move on.
             print('Could not understand timezone', tz, file=sys.stderr)
-            self.tz_to_loc[tz] = None # save it for the future
+            self.tz_to_loc[tz] = None  # save it for the future
             return None
 
 
 _database = None
+
 
 def Database():
     global _database

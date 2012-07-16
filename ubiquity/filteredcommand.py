@@ -39,6 +39,7 @@ DEBCONF_IO_OUT = 2
 DEBCONF_IO_ERR = 4
 DEBCONF_IO_HUP = 8
 
+
 class UntrustedBase(object):
     def get(self, attr):
         '''Safely gets an attribute.  If it doesn't exist, returns None'''
@@ -71,10 +72,11 @@ class UntrustedBase(object):
                 line = line.encode('utf-8')
             print(line, file=sys.stderr)
 
+
 class FilteredCommand(UntrustedBase):
     def __init__(self, frontend, db=None, ui=None):
-        self.frontend = frontend # ubiquity-wide UI
-        self.ui = ui # page-specific UI
+        self.frontend = frontend  # ubiquity-wide UI
+        self.ui = ui  # page-specific UI
         # db does not normally need to be specified.
         self.db = db
         self.done = False

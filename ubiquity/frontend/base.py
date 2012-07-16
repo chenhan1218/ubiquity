@@ -32,11 +32,13 @@ from ubiquity.misc import drop_privileges, execute_root
 from ubiquity import i18n
 from ubiquity import plugin_manager
 
+
 # Lots of intentionally unused arguments here (abstract methods).
 __pychecker__ = 'no-argsused'
 
 WGET_URL = 'http://start.ubuntu.com/connectivity-check.html'
 WGET_HASH = '4589f42e1546aa47ca181e5d949d310b'
+
 
 class Controller:
     def __init__(self, wizard):
@@ -50,20 +52,28 @@ class Controller:
 
     def translate(self, lang=None, just_me=True, not_me=False, reget=False):
         pass
+
     def allow_go_forward(self, allowed):
         pass
+
     def allow_go_backward(self, allowed):
         pass
+
     def allow_change_step(self, allowed):
         pass
+
     def allowed_change_step(self):
         pass
+
     def go_forward(self):
         pass
+
     def go_backward(self):
         pass
+
     def toggle_top_level(self):
         pass
+
 
 class Component:
     def __init__(self):
@@ -72,6 +82,7 @@ class Component:
         self.filter_class = None
         self.ui_class = None
         self.ui = None
+
 
 class BaseFrontend:
     """Abstract ubiquity frontend.
@@ -197,8 +208,8 @@ class BaseFrontend:
             if history_entry in self.history:
                 idx = self.history.index(history_entry)
                 if idx + 1 < len(self.history):
-                    self.history = self.history[:idx+1]
-                    return # The page is now effectively a dup
+                    self.history = self.history[:idx + 1]
+                    return  # The page is now effectively a dup
             # We may have either jumped backward or forward over pages.
             # Correct history in that case
             new_index = self.pages.index(page)
@@ -210,12 +221,13 @@ class BaseFrontend:
             # Now push fake history if needed
             i = old_index + 1
             while i < new_index:
-                for _ in self.pages[i].widgets: # add 1 for each always-on widgets
+                # Add 1 for each always-on widget.
+                for _ in self.pages[i].widgets:
                     self.history.append((self.pages[i], None))
                 i += 1
 
             if history_entry == self.history[-1]:
-                return # Don't add the page if it's a dup
+                return  # Don't add the page if it's a dup
         self.history.append(history_entry)
 
     def pop_history(self):
@@ -447,7 +459,8 @@ class BaseFrontend:
     def check_returncode(self, *args):
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
-                ['wget', '-q', WGET_URL, '--timeout=15', '--tries=1', '-O', '-'],
+                ['wget', '-q', WGET_URL, '--timeout=15', '--tries=1',
+                 '-O', '-'],
                 stdout=subprocess.PIPE)
         self.wget_retcode = self.wget_proc.poll()
         if self.wget_retcode is None:
@@ -465,4 +478,3 @@ class BaseFrontend:
 
     def set_online_state(self, state):
         pass
-

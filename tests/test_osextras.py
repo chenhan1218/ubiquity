@@ -12,6 +12,7 @@ import unittest
 
 from ubiquity import osextras
 
+
 class OsextrasTests(unittest.TestCase):
     def setUp(self):
         self.temp_dir = tempfile.mkdtemp()

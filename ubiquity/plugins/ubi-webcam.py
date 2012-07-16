@@ -22,12 +22,15 @@ import sys
 
 from ubiquity import plugin
 
+
 NAME = 'webcam'
 AFTER = 'usersetup'
 WEIGHT = 10
 
+
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/webcam_heading_label'
+
     def __init__(self, controller, *args, **kwargs):
         from gi.repository import Gtk, Gst
         Gst.init(sys.argv)

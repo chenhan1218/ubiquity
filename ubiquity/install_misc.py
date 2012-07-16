@@ -45,6 +45,7 @@ from ubiquity import misc
 from ubiquity import osextras
 from ubiquity.casper import get_casper
 
+
 def debconf_disconnect():
     """Disconnect from debconf. This is only to be used as a subprocess
     preexec_fn helper."""
@@ -55,9 +56,11 @@ def debconf_disconnect():
         # Probably not a good idea to use this in /target too ...
         del os.environ['DEBCONF_USE_CDEBCONF']
 
+
 def reconfigure_preexec():
     debconf_disconnect()
     os.environ['XAUTHORITY'] = '/root/.Xauthority'
+
 
 def reconfigure(target, package):
     """executes a dpkg-reconfigure into installed system to each
@@ -66,9 +69,11 @@ def reconfigure(target, package):
                      'dpkg-reconfigure', '-fnoninteractive', package],
                     preexec_fn=reconfigure_preexec, close_fds=True)
 
+
 def chrex(target, *args):
     """executes commands on chroot system (provided by *args)."""
     return misc.execute('chroot', target, *args)
+
 
 def set_debconf(target, question, value, db=None):
     try:
@@ -92,6 +97,7 @@ def set_debconf(target, question, value, db=None):
             dccomm.stdin.close()
             dccomm.wait()
 
+
 def get_all_interfaces():
     """Get all non-local network interfaces."""
     ifs = []
@@ -107,6 +113,7 @@ def get_all_interfaces():
             ifs.append(name)
 
     return ifs
+
 
 def chroot_setup(target, x11=False):
     """Set up /target for safe package management operations."""
@@ -163,6 +170,7 @@ exit 0""", file=f)
         misc.execute('mount', '--bind', '/tmp/.X11-unix',
                      os.path.join(target, 'tmp/.X11-unix'))
 
+
 def chroot_cleanup(target, x11=False):
     """Undo the work done by chroot_setup."""
     if target == '/':
@@ -194,6 +202,7 @@ def chroot_cleanup(target, x11=False):
     policy_rc_d = os.path.join(target, 'usr/sbin/policy-rc.d')
     osextras.unlink_force(policy_rc_d)
 
+
 def record_installed(pkgs):
     """Record which packages we've explicitly installed so that we don't
     try to remove them later."""
@@ -205,6 +214,7 @@ def record_installed(pkgs):
         for pkg in pkgs:
             print(pkg, file=record)
 
+
 def query_recorded_installed():
     apt_installed = set()
     if os.path.exists("/var/lib/ubiquity/apt-installed"):
@@ -212,6 +222,7 @@ def query_recorded_installed():
             for line in record_file:
                 apt_installed.add(line.strip())
     return apt_installed
+
 
 def record_removed(pkgs, recursive=False):
     """Record which packages we've like removed later"""
@@ -222,6 +233,7 @@ def record_removed(pkgs, recursive=False):
     with open(record_file, "a") as record:
         for pkg in pkgs:
             print(pkg, str(recursive).lower(), file=record)
+
 
 def query_recorded_removed():
     apt_removed = set()
@@ -234,6 +246,7 @@ def query_recorded_removed():
                 else:
                     apt_removed.add(line.split()[0])
     return (apt_removed, apt_removed_recursive)
+
 
 class DebconfAcquireProgress(AcquireProgress):
     """An object that reports apt's fetching progress using debconf."""
@@ -259,8 +272,8 @@ class DebconfAcquireProgress(AcquireProgress):
 
     # TODO cjwatson 2006-02-27: implement updateStatus
 
-    def pulse(self,owner=None):
-        AcquireProgress.pulse(self,owner)
+    def pulse(self, owner=None):
+        AcquireProgress.pulse(self, owner)
         self.percent = (((self.current_bytes + self.current_items) * 100.0) /
                         float(self.total_bytes + self.total_items))
         if self.current_cps > 0:
@@ -287,6 +300,7 @@ class DebconfAcquireProgress(AcquireProgress):
             self.old_capb = None
             if os.environ['UBIQUITY_FRONTEND'] != 'debconf_ui':
                 self.db.progress('STOP')
+
 
 class DebconfInstallProgress(InstallProgress):
     """An object that reports apt's installation progress using debconf."""
@@ -347,7 +361,7 @@ class DebconfInstallProgress(InstallProgress):
                     if control_read in rlist:
                         os._exit(0)
             except (KeyboardInterrupt, SystemExit):
-                pass # we're going to exit anyway
+                pass  # we're going to exit anyway
             except:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_WARNING, line)
@@ -423,11 +437,13 @@ class DebconfInstallProgress(InstallProgress):
                 self.db.progress('STOP')
             self.started = False
 
+
 class InstallStepError(Exception):
     """Raised when an install step fails."""
 
     def __init__(self, message):
         Exception.__init__(self, message)
+
 
 def excepthook(exctype, excvalue, exctb):
     """Crash handler. Dump the traceback to a file so that it can be
@@ -446,6 +462,7 @@ def excepthook(exctype, excvalue, exctb):
 
     sys.exit(1)
 
+
 def archdetect():
     archdetect = subprocess.Popen(
         ['archdetect'], stdout=subprocess.PIPE, universal_newlines=True)
@@ -455,6 +472,7 @@ def archdetect():
     except ValueError:
         return answer, ''
 
+
 # TODO this can probably go away now.
 def get_cache_pkg(cache, pkg):
     # work around broken has_key in python-apt 0.6.16
@@ -462,6 +480,7 @@ def get_cache_pkg(cache, pkg):
         return cache[pkg]
     except KeyError:
         return None
+
 
 def broken_packages(cache):
     expect_count = cache._depcache.broken_count
@@ -479,9 +498,11 @@ def broken_packages(cache):
             break
     return brokenpkgs
 
+
 def mark_install(cache, pkg):
     cachedpkg = get_cache_pkg(cache, pkg)
-    if cachedpkg is not None and (not cachedpkg.is_installed or cachedpkg.is_upgradable):
+    if (cachedpkg is not None and
+        (not cachedpkg.is_installed or cachedpkg.is_upgradable)):
         apt_error = False
         try:
             cachedpkg.mark_install()
@@ -494,17 +515,20 @@ def mark_install(cache, pkg):
                     get_cache_pkg(cache, brokenpkg).mark_keep()
                 new_brokenpkgs = broken_packages(cache)
                 if brokenpkgs == new_brokenpkgs:
-                    break # we can do nothing more
+                    break  # we can do nothing more
                 brokenpkgs = new_brokenpkgs
             assert cache._depcache.broken_count == 0
 
+
 def expand_dependencies_simple(cache, keep, to_remove, recommends=True):
-    """Return the list of packages in to_remove that clearly cannot be removed
+    """Calculate non-removable packages.
+
+    Return the list of packages in to_remove that clearly cannot be removed
     if we want to keep the set of packages in keep. Except in the case of
     Recommends, this is not required for correctness (we could just let apt
-    figure it out), but it allows us to ask apt fewer separate questions, and
-    so is faster."""
-
+    figure it out), but it allows us to ask apt fewer separate questions,
+    and so is faster.
+    """
     keys = ['Pre-Depends', 'Depends']
     if recommends:
         keys.append('Recommends')
@@ -548,6 +572,7 @@ def expand_dependencies_simple(cache, keep, to_remove, recommends=True):
 
     return expanded
 
+
 def locale_to_language_pack(locale):
     lang = locale.split('.')[0]
     if lang == 'zh_CN':
@@ -557,6 +582,7 @@ def locale_to_language_pack(locale):
     else:
         lang = locale.split('_')[0]
         return lang
+
 
 def get_remove_list(cache, to_remove, recursive=False):
     to_remove = set(to_remove)
@@ -614,6 +640,7 @@ def get_remove_list(cache, to_remove, recursive=False):
         to_remove -= removed
         all_removed |= removed
     return all_removed
+
 
 def remove_target(source_root, target_root, relpath, st_source):
     """Remove a target file if necessary and if we can.
@@ -687,6 +714,7 @@ def remove_target(source_root, target_root, relpath, st_source):
         else:
             backuppath = backuppath + '.bak'
 
+
 def copy_file(db, sourcepath, targetpath, md5_check):
     while 1:
         if md5_check:
@@ -730,6 +758,7 @@ def copy_file(db, sourcepath, targetpath, md5_check):
                 pass
         else:
             break
+
 
 class InstallBase:
     def __init__(self):
@@ -939,10 +968,10 @@ class InstallBase:
         try:
             langpack_db = self.db.get('pkgsel/language-packs')
             if langpack_db == 'ALL':
-                apt_out = subprocess.Popen(
+                apt_subp = subprocess.Popen(
                     ['apt-cache', '-n', 'search', '^language-pack-[^-][^-]*$'],
-                    stdout=subprocess.PIPE,
-                    universal_newlines=True).communicate()[0].rstrip().split('\n')
+                    stdout=subprocess.PIPE, universal_newlines=True)
+                apt_out = apt_subp.communicate()[0].rstrip().split('\n')
                 langpacks = [x.split('-')[2].strip() for x in apt_out]
                 all_langpacks = True
             else:
@@ -1035,9 +1064,9 @@ class InstallBase:
         if not install_new:
             # Keep packages that are on the live filesystem, but don't install
             # new ones.
-            # TODO cjwatson 2010-03-18: To match pkgsel's semantics, we ought to
-            # be willing to install packages from the package pool on the CD as
-            # well.
+            # TODO cjwatson 2010-03-18: To match pkgsel's semantics, we
+            # ought to be willing to install packages from the package pool
+            # on the CD as well.
             to_install = [lp for lp in to_install
                              if get_cache_pkg(cache, lp).is_installed]
 

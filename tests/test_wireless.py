@@ -6,6 +6,7 @@ import mock
 
 from ubiquity import gtkwidgets, nm, plugin_manager
 
+
 class WirelessTests(unittest.TestCase):
     @mock.patch('ubiquity.nm.NetworkManager.start')
     @mock.patch('ubiquity.nm.NetworkManager.get_state')

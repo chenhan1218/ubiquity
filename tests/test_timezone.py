@@ -14,6 +14,7 @@ import mock
 
 from ubiquity import plugin_manager
 
+
 class TimezoneTests(unittest.TestCase):
     def setUp(self):
         self.ubi_timezone = plugin_manager.load_plugin('ubi-timezone')

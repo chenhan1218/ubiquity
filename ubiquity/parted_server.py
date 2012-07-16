@@ -32,6 +32,7 @@ outfifo = '/var/lib/partman/outfifo'
 stopfifo = '/var/lib/partman/stopfifo'
 logfile = '/var/log/partman'
 
+
 class PartedServerError(Exception):
     """Raised when parted_server throws an exception.
 
@@ -47,6 +48,7 @@ class PartedServerError(Exception):
         self.exctype = exctype
         self.parted_error = parted_error
         self.options = list(options)
+
 
 class PartedServer(object):
     def __init__(self):

@@ -27,8 +27,8 @@
 from __future__ import print_function
 
 import os
-import sys
 import signal
+import sys
 
 from gi.repository import GObject
 
@@ -40,15 +40,15 @@ import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
 
-class Wizard(BaseFrontend):
 
+class Wizard(BaseFrontend):
     def __init__(self, distro):
         BaseFrontend.__init__(self, distro)
 
         with misc.raised_privileges():
             self.console = open('/dev/console', 'w')
         if not self.console:
-            self.console = sys.stdout # better than crashing
+            self.console = sys.stdout  # better than crashing
         self.installing = False
         self.progress_position = ubiquity.progressposition.ProgressPosition()
         self.progress_val = 0
@@ -94,8 +94,7 @@ class Wizard(BaseFrontend):
         self.progress_loop()
 
     def progress_loop(self):
-        """prepare, copy and config the system in the core install process."""
-
+        """Prepare, copy and configure the system."""
         self.start_debconf()
         dbfilter = partman_commit.PartmanCommit(self)
         if dbfilter.run_command(auto_process=True) != 0:
@@ -142,7 +141,7 @@ class Wizard(BaseFrontend):
                              GObject.IO_IN | GObject.IO_ERR | GObject.IO_HUP,
                              self.watch_debconf_fd_helper, process_input)
 
-    def watch_debconf_fd_helper (self, source, cb_condition, callback):
+    def watch_debconf_fd_helper(self, source, cb_condition, callback):
         debconf_condition = 0
         if (cb_condition & GObject.IO_IN) != 0:
             debconf_condition |= filteredcommand.DEBCONF_IO_IN

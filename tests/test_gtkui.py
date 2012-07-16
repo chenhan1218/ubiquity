@@ -12,6 +12,7 @@ import unittest
 
 import mock
 
+
 class TestFrontend(unittest.TestCase):
     def setUp(self):
         for obj in ('ubiquity.misc.drop_privileges',
@@ -87,7 +88,7 @@ class TestFrontend(unittest.TestCase):
         missing_translations = []
         with mock.patch.object(ui, 'translate_widget') as translate_widget:
             def side_effect(widget, lang=None, prefix=None):
-                label  = isinstance(widget, Gtk.Label)
+                label = isinstance(widget, Gtk.Label)
                 button = isinstance(widget, Gtk.Button)
                 # We have some checkbuttons without labels.
                 button = button and widget.get_label()

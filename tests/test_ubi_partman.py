@@ -29,6 +29,7 @@ if not hasattr(unittest.TestCase, 'assertCountEqual'):
 
 ubi_partman = plugin_manager.load_plugin('ubi-partman')
 
+
 def question_has_variables(question, lookup_variables):
     existing_variables = []
     found_question = False
@@ -63,7 +64,7 @@ def question_has_variables(question, lookup_variables):
                 if start != -1:
                     end = line.find(b'}', last)
                     if end != -1:
-                        existing_variables.append(line[start+2:end].decode())
+                        existing_variables.append(line[start + 2:end].decode())
                         last = end + 1
                     else:
                         exc = ('Expected to find } on \'%s\'' %
@@ -104,6 +105,7 @@ class PartmanPageDirectoryTests(unittest.TestCase):
 
     def mock_partman_tree(self):
         prefix = 'tests/partman-tree'
+
         def side_effect_factory(real_method):
             def side_effect(path, *args, **kw):
                 if path.startswith('/lib/partman'):
@@ -132,6 +134,7 @@ class PartmanPageDirectoryTests(unittest.TestCase):
     #            self.assertNotEqual(method,
     #                                self.page.method_description(method))
 
+
 # A couple of mock helpers for some of the tests below.
 def _fake_grub_options(*paths):
     # The interface expects a sequence-of-sequences, although the method
@@ -139,11 +142,14 @@ def _fake_grub_options(*paths):
     # element zero.
     def grub_options():
         return [(path,) for path in paths]
+
     return grub_options
+
 
 def _fake_grub_default(default):
     def grub_default():
         return default
+
     return grub_default
 
 
@@ -158,6 +164,7 @@ class TestPageBase(unittest.TestCase):
 
         # Don't cache descriptions.
         self.page.description_cache = {}
+
 
 class TestPage(TestPageBase):
     def test_description(self):
@@ -213,6 +220,7 @@ class TestPage(TestPageBase):
         q = 'ubiquity/partitioner/heading_no_detected'
         no_detected = self.page.extended_description(q)
         self.assertEqual(no_detected, head)
+
 
 @unittest.skipUnless(os.environ['DEB_HOST_ARCH'] in ('amd64', 'i386'),
                      'GRUB-related tests are only relevant on x86')
@@ -485,10 +493,10 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         operating_system = 'Windows XP'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ntfs')
-        layout = { '=dev=sda' : [part] }
+        layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
         self.page.extra_options['resize'] = {
-            '=dev=sda' : [ '', 0, 0, 0, '', 0, 'ntfs']}
+            '=dev=sda': ['', 0, 0, 0, '', 0, 'ntfs']}
 
         question = 'ubiquity/partitioner/single_os_resize'
         question_has_variables(question, ['OS', 'DISTRO'])
@@ -545,7 +553,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         operating_system = 'Ubuntu 10.04'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
-        layout = { '=dev=sda' : [part] }
+        layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
         self.page.extra_options['use_device'] = ('debconf-return-value',
                                                  [{'disk-desc': 0}])
@@ -584,7 +592,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         operating_system = 'Ubuntu 12.04'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
-        layout = { '=dev=sda' : [part] }
+        layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
         self.page.extra_options['use_device'] = ('debconf-return-value',
                                                  [{'disk-desc': 0}])
@@ -620,7 +628,7 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         operating_system = 'Ubuntu 90.10'
         misc.find_in_os_prober.return_value = operating_system
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
-        layout = { '=dev=sda' : [part] }
+        layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
         self.page.extra_options['use_device'] = ('debconf-return-value',
                                                  [{'disk-desc': 0}])
@@ -654,18 +662,20 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
     # 'This computer currently has multiple operating systems on it.'
     def test_multiple_operating_systems(self):
         operating_systems = ['Ubuntu 10.04', 'Windows XP', 'Mac OSX']
+
         def side_effect(*args, **kwargs):
             return operating_systems.pop()
+
         misc.find_in_os_prober.side_effect = side_effect
         part1 = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         part2 = ubi_partman.Partition('/dev/sda2', 0, '1234-1234', 'ext4')
         part3 = ubi_partman.Partition('/dev/sda3', 0, '1234-1234', 'ext4')
-        layout = { '=dev=sda' : [part1, part2, part3] }
+        layout = {'=dev=sda': [part1, part2, part3]}
         self.page.extra_options = {}
         self.page.extra_options['use_device'] = ('debconf-return-value',
                                                  [{'disk-desc': 0}])
         self.page.extra_options['resize'] = {
-            '=dev=sda' : [ '', 0, 0, 0, '', 0, 'ntfs']}
+            '=dev=sda': ['', 0, 0, 0, '', 0, 'ntfs']}
 
         question = 'ubiquity/partitioner/multiple_os_format'
         question_has_variables(question, ['DISTRO'])
@@ -705,12 +715,13 @@ def _fake_grub_options_pairs(paths, descriptions):
                 in zip_longest(paths, descriptions, fillvalue='')]
     return grub_options
 
+
 class TestPageGtk(unittest.TestCase):
     def setUp(self):
         # Without this, GtkBuilder cannot construct ResizeWidget and
         # PartitionBox widgets.
         from ubiquity import gtkwidgets
-        gtkwidgets # pacify pyflakes
+        gtkwidgets  # pacify pyflakes
         controller = mock.Mock()
         self.gtk = ubi_partman.PageGtk(controller)
 

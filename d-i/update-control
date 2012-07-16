@@ -49,6 +49,7 @@ my @basebd = (
     'libindicator3-dev',
     'liblocale-gettext-perl',
     'gobject-introspection',
+    'pep8',
     'pkg-config',
     'po-debconf (>= 1.0)',
     'pyflakes',

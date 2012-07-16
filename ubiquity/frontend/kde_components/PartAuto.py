@@ -9,7 +9,8 @@ import six
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
 from ubiquity import misc
 
-_uidir="/usr/share/ubiquity/qt/"
+_uidir = "/usr/share/ubiquity/qt/"
+
 
 def addBars(parent, before_bar, after_bar):
     frame = QtGui.QWidget(parent)
@@ -17,15 +18,18 @@ def addBars(parent, before_bar, after_bar):
     frame.layout().setSpacing(0)
 
     # TODO
-    #frame.layout().addWidget(QtGui.QLabel(get_string('ubiquity/text/partition_layout_before')))
+    #frame.layout().addWidget(QtGui.QLabel(
+    #    get_string('ubiquity/text/partition_layout_before')))
     frame.layout().addWidget(QtGui.QLabel("Before:"))
     frame.layout().addWidget(before_bar)
-    #frame.layout().addWidget(QtGui.QLabel(get_string('ubiquity/text/partition_layout_after')))
+    #frame.layout().addWidget(QtGui.QLabel(
+    #    get_string('ubiquity/text/partition_layout_after')))
     frame.layout().addWidget(QtGui.QLabel("After:"))
     frame.layout().addWidget(after_bar)
 
     parent.layout().addWidget(frame)
     return frame
+
 
 class PartAuto(QtGui.QWidget):
 
@@ -33,7 +37,7 @@ class PartAuto(QtGui.QWidget):
         QtGui.QWidget.__init__(self)
         self.controller = controller
 
-        uic.loadUi(os.path.join(_uidir,'stepPartAuto.ui'), self)
+        uic.loadUi(os.path.join(_uidir, 'stepPartAuto.ui'), self)
 
         self.diskLayout = None
 
@@ -59,8 +63,8 @@ class PartAuto(QtGui.QWidget):
     def setDiskLayout(self, diskLayout):
         self.diskLayout = diskLayout
 
-    def setupChoices (self, choices, extra_options, resize_choice,
-                      manual_choice, biggest_free_choice, use_device_choice):
+    def setupChoices(self, choices, extra_options, resize_choice,
+                     manual_choice, biggest_free_choice, use_device_choice):
         self._clearInfo()
 
         self.resizeChoice = resize_choice
@@ -84,7 +88,8 @@ class PartAuto(QtGui.QWidget):
 
         bId = 0
         if 'resize' in extra_options:
-            button = QtGui.QRadioButton(self.resizeChoice, self.autopart_selection_frame)
+            button = QtGui.QRadioButton(
+                self.resizeChoice, self.autopart_selection_frame)
             self.autopart_selection_frame.layout().addWidget(button)
             self.autopartition_buttongroup.addButton(button, bId)
             self.autopartitionTexts.append(resize_choice)
@@ -118,16 +123,19 @@ class PartAuto(QtGui.QWidget):
                             before_bar.addPartition(p[0], int(p[1]), p[3])
                             after_bar.addPartition(p[0], int(p[1]), p[3])
 
-                        after_bar.setResizePartition(resize_path,
-                            min_size, max_size, pref_size, release_name)
-                        after_bar.partitionResized.connect(self.on_partitionResized)
+                        after_bar.setResizePartition(
+                            resize_path, min_size, max_size, pref_size,
+                            release_name)
+                        after_bar.partitionResized.connect(
+                            self.on_partitionResized)
                         addBars(bar_frame, before_bar, after_bar)
             self.disks.append(disks)
 
         # TODO biggest_free_choice
 
         # Use entire disk.
-        button = QtGui.QRadioButton(self.useDeviceChoice, self.autopart_selection_frame)
+        button = QtGui.QRadioButton(
+            self.useDeviceChoice, self.autopart_selection_frame)
         self.autopartitionTexts.append(self.useDeviceChoice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)
@@ -153,7 +161,8 @@ class PartAuto(QtGui.QWidget):
             for p in dev:
                 before_bar.addPartition(p.device, int(p.size), p.filesystem)
             if before_bar.diskSize > 0:
-                after_bar.addPartition(release_name, before_bar.diskSize, 'auto')
+                after_bar.addPartition(
+                    release_name, before_bar.diskSize, 'auto')
             else:
                 after_bar.addPartition(release_name, 1, 'auto')
 
@@ -162,7 +171,8 @@ class PartAuto(QtGui.QWidget):
 
         # Manual partitioning.
 
-        button = QtGui.QRadioButton(manual_choice, self.autopart_selection_frame)
+        button = QtGui.QRadioButton(
+            manual_choice, self.autopart_selection_frame)
         self.autopartitionTexts.append(manual_choice)
         self.autopart_selection_frame.layout().addWidget(button)
         self.autopartition_buttongroup.addButton(button, bId)
@@ -177,7 +187,7 @@ class PartAuto(QtGui.QWidget):
     def on_partitionResized(self, unused, size):
         self.resizeSize = size
 
-    def getChoice (self):
+    def getChoice(self):
         bId = self.autopartition_buttongroup.checkedId()
         if bId > -1:
             choice = six.text_type(self.autopartitionTexts[bId])

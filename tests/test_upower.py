@@ -5,6 +5,7 @@ import mock
 from ubiquity import upower
 from helpers import builtin_patch, text_file_type
 
+
 class UPowerTests(unittest.TestCase):
     @builtin_patch('open')
     @mock.patch('os.path.exists')
@@ -20,5 +21,3 @@ class UPowerTests(unittest.TestCase):
         self.assertTrue(upower.has_battery())
         magic.read.return_value = 'Not a battery'
         self.assertFalse(upower.has_battery())
-
-

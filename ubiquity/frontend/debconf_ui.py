@@ -26,10 +26,10 @@
 
 from __future__ import print_function
 
-import sys
 import os
-import textwrap
 import signal
+import sys
+import textwrap
 
 import debconf
 
@@ -38,9 +38,11 @@ from ubiquity.plugin import Plugin
 from ubiquity import i18n
 from ubiquity.components import install, plugininstall
 
+
 class PersistentDebconfCommunicator(debconf.Debconf):
     def shutdown(self):
         pass
+
 
 class Wizard(BaseFrontend):
     def __init__(self, distro):

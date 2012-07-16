@@ -8,8 +8,10 @@ import dbus.service
 import dbus.mainloop.glib
 from gi.repository import GObject
 
+
 class Rejected(dbus.DBusException):
     _dbus_error_name = "org.bluez.Error.Rejected"
+
 
 class Agent(dbus.service.Object):
     exit_on_release = True
@@ -22,32 +24,41 @@ class Agent(dbus.service.Object):
         if self.exit_on_release:
             mainloop.quit()
 
-    @dbus.service.method("org.bluez.Agent", in_signature="os", out_signature="")
+    @dbus.service.method("org.bluez.Agent",
+                         in_signature="os", out_signature="")
     def Authorize(self, device, uuid):
         bus = dbus.SystemBus()
-        attr = dbus.Interface(bus.get_object("org.bluez", device), "org.bluez.Device").GetProperties()
+        attr = dbus.Interface(
+            bus.get_object("org.bluez", device),
+            "org.bluez.Device").GetProperties()
 
         # Only accept input (HID) devices
         if 'Class' in attr:
             if (attr['Class'] & 0x500) == 0x500:
-                dbus.Interface(bus.get_object("org.bluez", device), "org.bluez.Device").SetProperty("Trusted", True)
+                dbus.Interface(
+                    bus.get_object("org.bluez", device),
+                    "org.bluez.Device").SetProperty("Trusted", True)
                 return
 
         raise Rejected("Connection rejected by user")
 
-    @dbus.service.method("org.bluez.Agent", in_signature="o", out_signature="s")
+    @dbus.service.method("org.bluez.Agent",
+                         in_signature="o", out_signature="s")
     def RequestPinCode(self, device):
         return "0000"
 
-    @dbus.service.method("org.bluez.Agent", in_signature="o", out_signature="u")
+    @dbus.service.method("org.bluez.Agent",
+                         in_signature="o", out_signature="u")
     def RequestPasskey(self, device):
         return dbus.UInt32(0000)
 
-    @dbus.service.method("org.bluez.Agent", in_signature="ou", out_signature="")
+    @dbus.service.method("org.bluez.Agent",
+                         in_signature="ou", out_signature="")
     def DisplayPasskey(self, device, passkey):
         return
 
-    @dbus.service.method("org.bluez.Agent", in_signature="ou", out_signature="")
+    @dbus.service.method("org.bluez.Agent",
+                         in_signature="ou", out_signature="")
     def RequestConfirmation(self, device, passkey):
         return
 
@@ -58,6 +69,7 @@ class Agent(dbus.service.Object):
     @dbus.service.method("org.bluez.Agent", in_signature="", out_signature="")
     def Cancel(self):
         return
+
 
 def exit_handler():
     if not os.path.exists("/tmp/ubiquity-bluetooth-done"):
@@ -72,14 +84,18 @@ def exit_handler():
         sys.exit(0)
     return False
 
+
 if os.path.exists("/tmp/ubiquity-bluetooth-done"):
     exit_handler()
 
 try:
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
     bus = dbus.SystemBus()
-    manager = dbus.Interface(bus.get_object("org.bluez", "/"), "org.bluez.Manager")
-    adapter = dbus.Interface(bus.get_object("org.bluez", manager.DefaultAdapter()), "org.bluez.Adapter")
+    manager = dbus.Interface(
+        bus.get_object("org.bluez", "/"), "org.bluez.Manager")
+    adapter = dbus.Interface(
+        bus.get_object("org.bluez", manager.DefaultAdapter()),
+        "org.bluez.Adapter")
     agent = Agent(bus, "/ubiquity/bluetooth/agent")
     mainloop = GObject.MainLoop()
     adapter.RegisterAgent("/ubiquity/bluetooth/agent", "DisplayYesNo")

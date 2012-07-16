@@ -7,6 +7,7 @@ import unittest
 
 from ubiquity import install_misc
 
+
 class InstallMiscTests(unittest.TestCase):
     def setUp(self):
         self.source = tempfile.mkdtemp()

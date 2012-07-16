@@ -41,7 +41,7 @@ PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
 Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
 
 # List of file system types that reserve extra space for grub.  Found by
-# grepping for "reserved_first_sector = 1" in the grub2 source as per 
+# grepping for "reserved_first_sector = 1" in the grub2 source as per
 # https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/959724
 # Only those file systems that set this to 1 can have the boot loader
 # installed on them.  This is that list, with values taken from the .name
@@ -98,17 +98,22 @@ class PageBase(plugin.PluginUI):
     def get_grub_choice(self):
         return misc.grub_default()
 
+
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
     plugin_is_install = True
+
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         from gi.repository import Gtk
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
-        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
-        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
-        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
+        builder.add_from_file(os.path.join(
+            os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
+        builder.add_from_file(os.path.join(
+            os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
+        builder.add_from_file(os.path.join(
+            os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
         builder.connect_signals(self)
 
         self.page_ask = builder.get_object('stepPartAsk')
@@ -123,59 +128,96 @@ class PageGtk(PageBase):
         self.resizewidget = builder.get_object('resizewidget')
         self.partitionbox = builder.get_object('partitionbox')
         self.partition_container = builder.get_object('partition_container')
-        self.part_auto_select_drive = builder.get_object('part_auto_select_drive')
+        self.part_auto_select_drive = builder.get_object(
+            'part_auto_select_drive')
         self.resize_use_free = builder.get_object('resize_use_free')
         self.custom_partitioning = builder.get_object('custom_partitioning')
         self.use_device = builder.get_object('use_device')
         self.reuse_partition = builder.get_object('reuse_partition')
-        self.part_auto_allocate_label = builder.get_object('part_auto_allocate_label')
-        self.part_auto_hidden_label = builder.get_object('part_auto_hidden_label')
+        self.part_auto_allocate_label = builder.get_object(
+            'part_auto_allocate_label')
+        self.part_auto_hidden_label = builder.get_object(
+            'part_auto_hidden_label')
         self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
-        self.vbox_part_auto_recipes = builder.get_object('vbox_part_auto_recipes')
-        self.part_auto_use_lvm_checkbox = builder.get_object('part_auto_use_lvm_checkbox')
+        self.vbox_part_auto_recipes = builder.get_object(
+            'vbox_part_auto_recipes')
+        self.part_auto_use_lvm_checkbox = builder.get_object(
+            'part_auto_use_lvm_checkbox')
 
         # Ask page
         self.part_ask_heading = builder.get_object('part_ask_heading')
         self.use_device_title = builder.get_object('use_device_title')
         self.use_device_desc = builder.get_object('use_device_desc')
         self.replace_partition = builder.get_object('replace_partition')
-        self.replace_partition_title = builder.get_object('replace_partition_title')
-        self.replace_partition_desc = builder.get_object('replace_partition_desc')
-        self.reuse_partition_title = builder.get_object('reuse_partition_title')
+        self.replace_partition_title = builder.get_object(
+            'replace_partition_title')
+        self.replace_partition_desc = builder.get_object(
+            'replace_partition_desc')
+        self.reuse_partition_title = builder.get_object(
+            'reuse_partition_title')
         self.reuse_partition_desc = builder.get_object('reuse_partition_desc')
-        self.resize_use_free_title = builder.get_object('resize_use_free_title')
+        self.resize_use_free_title = builder.get_object(
+            'resize_use_free_title')
         self.resize_use_free_desc = builder.get_object('resize_use_free_desc')
-        self.custom_partitioning_title = builder.get_object('custom_partitioning_title')
-        self.custom_partitioning_desc = builder.get_object('custom_partitioning_desc')
+        self.custom_partitioning_title = builder.get_object(
+            'custom_partitioning_title')
+        self.custom_partitioning_desc = builder.get_object(
+            'custom_partitioning_desc')
 
         # Advanced page
-        self.partition_create_mount_combo = builder.get_object('partition_create_mount_combo')
-        self.partition_edit_mount_combo = builder.get_object('partition_edit_mount_combo')
-        self.partition_create_dialog = builder.get_object('partition_create_dialog')
-        self.partition_list_treeview = builder.get_object('partition_list_treeview')
-        self.partition_create_type_label = builder.get_object('partition_create_type_label')
-        self.partition_create_type_primary = builder.get_object('partition_create_type_primary')
-        self.partition_create_type_logical = builder.get_object('partition_create_type_logical')
-        self.partition_create_size_spinbutton = builder.get_object('partition_create_size_spinbutton')
-        self.partition_create_place_beginning = builder.get_object('partition_create_place_beginning')
-        self.partition_create_use_combo = builder.get_object('partition_create_use_combo')
-        self.partition_edit_dialog = builder.get_object('partition_edit_dialog')
-        self.partition_edit_size_label = builder.get_object('partition_edit_size_label')
-        self.partition_edit_size_spinbutton = builder.get_object('partition_edit_size_spinbutton')
-        self.partition_edit_use_combo = builder.get_object('partition_edit_use_combo')
-        self.partition_edit_format_label = builder.get_object('partition_edit_format_label')
-        self.partition_edit_format_checkbutton = builder.get_object('partition_edit_format_checkbutton')
-        self.partition_button_new_label = builder.get_object('partition_button_new_label')
+        self.partition_create_mount_combo = builder.get_object(
+            'partition_create_mount_combo')
+        self.partition_edit_mount_combo = builder.get_object(
+            'partition_edit_mount_combo')
+        self.partition_create_dialog = builder.get_object(
+            'partition_create_dialog')
+        self.partition_list_treeview = builder.get_object(
+            'partition_list_treeview')
+        self.partition_create_type_label = builder.get_object(
+            'partition_create_type_label')
+        self.partition_create_type_primary = builder.get_object(
+            'partition_create_type_primary')
+        self.partition_create_type_logical = builder.get_object(
+            'partition_create_type_logical')
+        self.partition_create_size_spinbutton = builder.get_object(
+            'partition_create_size_spinbutton')
+        self.partition_create_place_beginning = builder.get_object(
+            'partition_create_place_beginning')
+        self.partition_create_use_combo = builder.get_object(
+            'partition_create_use_combo')
+        self.partition_edit_dialog = builder.get_object(
+            'partition_edit_dialog')
+        self.partition_edit_size_label = builder.get_object(
+            'partition_edit_size_label')
+        self.partition_edit_size_spinbutton = builder.get_object(
+            'partition_edit_size_spinbutton')
+        self.partition_edit_use_combo = builder.get_object(
+            'partition_edit_use_combo')
+        self.partition_edit_format_label = builder.get_object(
+            'partition_edit_format_label')
+        self.partition_edit_format_checkbutton = builder.get_object(
+            'partition_edit_format_checkbutton')
+        self.partition_button_new_label = builder.get_object(
+            'partition_button_new_label')
         self.partition_button_new = builder.get_object('partition_button_new')
-        self.partition_button_edit = builder.get_object('partition_button_edit')
-        self.partition_button_delete = builder.get_object('partition_button_delete')
-        self.partition_button_undo = builder.get_object('partition_button_undo')
-        self.part_advanced_warning_message = builder.get_object('part_advanced_warning_message')
-        self.part_advanced_warning_hbox = builder.get_object('part_advanced_warning_hbox')
-        self.partition_list_buttonbox = builder.get_object('partition_list_buttonbox')
-        self.part_advanced_recalculating_box = builder.get_object('part_advanced_recalculating_box')
-        self.part_advanced_recalculating_spinner = builder.get_object('part_advanced_recalculating_spinner')
-        self.part_advanced_recalculating_label = builder.get_object('part_advanced_recalculating_label')
+        self.partition_button_edit = builder.get_object(
+            'partition_button_edit')
+        self.partition_button_delete = builder.get_object(
+            'partition_button_delete')
+        self.partition_button_undo = builder.get_object(
+            'partition_button_undo')
+        self.part_advanced_warning_message = builder.get_object(
+            'part_advanced_warning_message')
+        self.part_advanced_warning_hbox = builder.get_object(
+            'part_advanced_warning_hbox')
+        self.partition_list_buttonbox = builder.get_object(
+            'partition_list_buttonbox')
+        self.part_advanced_recalculating_box = builder.get_object(
+            'part_advanced_recalculating_box')
+        self.part_advanced_recalculating_spinner = builder.get_object(
+            'part_advanced_recalculating_spinner')
+        self.part_advanced_recalculating_label = builder.get_object(
+            'part_advanced_recalculating_label')
 
         self.partition_bars = {}
         self.segmented_bar_vbox = None
@@ -186,7 +228,8 @@ class PageGtk(PageBase):
         self.auto_colors = ['3465a4', '73d216', 'f57900']
         self.extra_options = {}
 
-        self.partition_create_mount_combo.get_child().set_activates_default(True)
+        self.partition_create_mount_combo.get_child().set_activates_default(
+            True)
         self.partition_edit_mount_combo.get_child().set_activates_default(True)
 
         self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
@@ -197,7 +240,8 @@ class PageGtk(PageBase):
         self.partitionbox.set_property('title', release.name)
 
         # New partition
-        self.resizewidget.get_child2().get_child().set_property('title', release.name)
+        self.resizewidget.get_child2().get_child().set_property(
+            'title', release.name)
 
         # Annoyingly, you can't set packing properties for cell renderers
         # in Glade.
@@ -275,7 +319,7 @@ class PageGtk(PageBase):
                 for disk in disks:
                     key = disks[disk][0].rsplit('/', 1)[1]
                     if key in disk_ids:
-                        min_size  = extra_resize[key][1]
+                        min_size = extra_resize[key][1]
                         part_size = extra_resize[key][5]
                         m.append([disk, '<small>%s</small>' %
                                   misc.format_size(part_size - min_size)])
@@ -332,7 +376,7 @@ class PageGtk(PageBase):
 
     # Automatic partitioning page
 
-    def get_current_disk_partman_id (self):
+    def get_current_disk_partman_id(self):
         i = self.part_auto_select_drive.get_active_iter()
         if not i:
             return None
@@ -343,7 +387,7 @@ class PageGtk(PageBase):
         disk_id = partman_id.rsplit('/', 1)[1]
         return disk_id
 
-    def set_part_auto_hidden_label (self):
+    def set_part_auto_hidden_label(self):
         '''Sets the number of partitions in the "X smaller partitions are
         hidden" label.  It subtracts one from the total count to account for
         the partition being resized.'''
@@ -380,7 +424,7 @@ class PageGtk(PageBase):
         else:
             return False
 
-    def part_ask_option_changed (self, unused_widget):
+    def part_ask_option_changed(self, unused_widget):
         '''The user has selected one of the automatic partitioning options.'''
         about_to_install = self.part_ask_option_is_install()
 
@@ -419,8 +463,11 @@ class PageGtk(PageBase):
             icon.set_property('icon-name', 'folder')
         else:
             if 'windows' in title.lower():
-                PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
-                icon.logo.set_from_file(os.path.join(PATH, 'pixmaps', 'windows_square.png'))
+                PATH = (
+                    os.environ.get('UBIQUITY_PATH', False) or
+                    '/usr/share/ubiquity')
+                icon.logo.set_from_file(os.path.join(
+                    PATH, 'pixmaps', 'windows_square.png'))
             elif 'buntu' in title.lower():
                 icon.set_property('icon-name', 'distributor-logo')
             else:
@@ -483,7 +530,7 @@ class PageGtk(PageBase):
         size = self.extra_options['use_device'][1][val][1]
         self.partitionbox.set_size(size)
 
-    def part_auto_select_drive_changed (self, unused_widget):
+    def part_auto_select_drive_changed(self, unused_widget):
         self.set_part_auto_hidden_label()
         self.set_part_auto_recipes()
         disk_id = self.get_current_disk_partman_id()
@@ -547,7 +594,8 @@ class PageGtk(PageBase):
         if 'replace' in options:
             self.replace_partition.show()
             self.replace_partition_title.set_label(options['replace'].title)
-            self.replace_partition_desc.set_markup(fmt % options['replace'].desc)
+            self.replace_partition_desc.set_markup(
+                fmt % options['replace'].desc)
             self.replace_partition_desc.set_sensitive(False)
         else:
             self.replace_partition.hide()
@@ -580,7 +628,7 @@ class PageGtk(PageBase):
         # Make sure we're on the autopartitioning page.
         self.current_page = self.page_ask
 
-    def get_autopartition_choice (self):
+    def get_autopartition_choice(self):
         if self.reuse_partition.get_active():
             return self.extra_options['reuse'][0][0], None
 
@@ -614,9 +662,10 @@ class PageGtk(PageBase):
                 if want_lvm:
                     return self.extra_options['some_device_lvm']
 
-                # Something went horribly wrong, we should have returned earlier
+                # Something went horribly wrong, we should have returned
+                # earlier
                 return None
-                
+
             i = self.part_auto_select_drive.get_active_iter()
             m = self.part_auto_select_drive.get_model()
             disk = m.get_value(i, 0)
@@ -646,7 +695,8 @@ class PageGtk(PageBase):
         self.part_advanced_recalculating_spinner.stop()
         self.part_advanced_recalculating_box.hide()
 
-    def partman_column_name (self, unused_column, cell, model, iterator, user_data):
+    def partman_column_name(self, unused_column, cell, model, iterator,
+                            user_data):
         if not model[iterator][1]:
             return
 
@@ -665,7 +715,8 @@ class PageGtk(PageBase):
             free_space = self.controller.get_string('partition_free_space')
             cell.set_property('text', '  %s' % free_space)
 
-    def partman_column_type (self, unused_column, cell, model, iterator, user_data):
+    def partman_column_type(self, unused_column, cell, model, iterator,
+                            user_data):
         if not model[iterator][1]:
             return
 
@@ -684,7 +735,8 @@ class PageGtk(PageBase):
             cell.set_property('text', partition['method'])
 
     @plugin.only_this_page
-    def partman_column_mountpoint (self, unused_column, cell, model, iterator, user_data):
+    def partman_column_mountpoint(self, unused_column, cell, model, iterator,
+                                  user_data):
         if not model[iterator][1]:
             return
 
@@ -694,7 +746,8 @@ class PageGtk(PageBase):
             mountpoint = ''
         cell.set_property('text', mountpoint)
 
-    def partman_column_format (self, unused_column, cell, model, iterator, user_data):
+    def partman_column_format(self, unused_column, cell, model, iterator,
+                              user_data):
         if not model[iterator][1]:
             return
 
@@ -706,14 +759,15 @@ class PageGtk(PageBase):
         elif 'method' in partition:
             cell.set_property('visible', True)
             cell.set_property('active', partition['method'] == 'format')
-            cell.set_property('activatable', 'can_activate_format' in partition)
+            cell.set_property(
+                'activatable', 'can_activate_format' in partition)
         else:
             cell.set_property('visible', True)
             cell.set_property('active', False)
             cell.set_property('activatable', False)
 
     @plugin.only_this_page
-    def partman_column_format_toggled (self, unused_cell, path, user_data):
+    def partman_column_format_toggled(self, unused_cell, path, user_data):
         if not self.controller.allowed_change_step():
             return
         model = user_data
@@ -724,7 +778,8 @@ class PageGtk(PageBase):
         self.controller.allow_change_step(False)
         self.controller.dbfilter.edit_partition(devpart, fmt='dummy')
 
-    def partman_column_size (self, unused_column, cell, model, iterator, user_data):
+    def partman_column_size(self, unused_column, cell, model, iterator,
+                            user_data):
         if not model[iterator][1]:
             return
 
@@ -737,7 +792,8 @@ class PageGtk(PageBase):
             size_mb = int(partition['parted']['size']) / 1000000
             cell.set_property('text', '%d MB' % size_mb)
 
-    def partman_column_used (self, unused_column, cell, model, iterator, user_data):
+    def partman_column_used(self, unused_column, cell, model, iterator,
+                            user_data):
         if not model[iterator][1]:
             return
 
@@ -754,7 +810,7 @@ class PageGtk(PageBase):
             cell.set_property('text', '%d MB' % size_mb)
 
     @plugin.only_this_page
-    def partman_popup (self, widget, event):
+    def partman_popup(self, widget, event):
         from gi.repository import Gtk
         if not self.controller.allowed_change_step():
             return
@@ -810,7 +866,7 @@ class PageGtk(PageBase):
         partition_list_menu.popup(None, None, None, None, button, time)
 
     @plugin.only_this_page
-    def partman_create_dialog (self, devpart, partition):
+    def partman_create_dialog(self, devpart, partition):
         from gi.repository import Gtk, GObject
         if not self.controller.allowed_change_step():
             return
@@ -853,14 +909,16 @@ class PageGtk(PageBase):
         self.partition_create_use_combo.add_attribute(renderer, 'text', 2)
         list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
                                    GObject.TYPE_STRING)
-        for method, name, description in self.controller.dbfilter.use_as(devpart, True):
+        for method, name, description in (
+            self.controller.dbfilter.use_as(devpart, True)):
             list_store.append([method, name, description])
         self.partition_create_use_combo.set_model(list_store)
         if list_store.get_iter_first():
             self.partition_create_use_combo.set_active(0)
 
         list_store = Gtk.ListStore(GObject.TYPE_STRING)
-        for mp, choice_c, choice in self.controller.dbfilter.default_mountpoint_choices():
+        for mp, choice_c, choice in (
+            self.controller.dbfilter.default_mountpoint_choices()):
             list_store.append([mp])
         self.partition_create_mount_combo.set_model(list_store)
         if self.partition_create_mount_combo.get_entry_text_column() == -1:
@@ -893,7 +951,8 @@ class PageGtk(PageBase):
                 model = self.partition_create_use_combo.get_model()
                 method = model.get_value(method_iter, 1)
 
-            mountpoint = self.partition_create_mount_combo.get_child().get_text()
+            mount_combo = self.partition_create_mount_combo
+            mountpoint = mount_combo.get_child().get_text()
 
             self.controller.allow_change_step(False)
             self.controller.dbfilter.create_partition(
@@ -902,7 +961,7 @@ class PageGtk(PageBase):
                 prilog, place, method, mountpoint)
 
     @plugin.only_this_page
-    def on_partition_create_use_combo_changed (self, combobox):
+    def on_partition_create_use_combo_changed(self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
         # If the selected method isn't a filesystem, then selecting a mount
@@ -921,7 +980,7 @@ class PageGtk(PageBase):
                     mount_model.append([mp])
 
     @plugin.only_this_page
-    def partman_edit_dialog (self, devpart, partition):
+    def partman_edit_dialog(self, devpart, partition):
         from gi.repository import Gtk, GObject
         if not self.controller.allowed_change_step():
             return
@@ -991,9 +1050,11 @@ class PageGtk(PageBase):
         self.partition_edit_mount_combo.set_model(list_store)
         if self.partition_edit_mount_combo.get_entry_text_column() == -1:
             self.partition_edit_mount_combo.set_entry_text_column(0)
-        current_mountpoint = self.controller.dbfilter.get_current_mountpoint(partition)
+        current_mountpoint = self.controller.dbfilter.get_current_mountpoint(
+            partition)
         if current_mountpoint is not None:
-            self.partition_edit_mount_combo.get_child().set_text(current_mountpoint)
+            self.partition_edit_mount_combo.get_child().set_text(
+                current_mountpoint)
             iterator = list_store.get_iter_first()
             while iterator:
                 if list_store[iterator][0] == current_mountpoint:
@@ -1040,7 +1101,7 @@ class PageGtk(PageBase):
                 self.controller.dbfilter.edit_partition(devpart, **edits)
 
     @plugin.only_this_page
-    def on_partition_edit_use_combo_changed (self, combobox):
+    def on_partition_edit_use_combo_changed(self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
         # If the selected method isn't a filesystem, then selecting a mount
@@ -1064,7 +1125,7 @@ class PageGtk(PageBase):
                     self.controller.dbfilter.default_mountpoint_choices(fs):
                     mount_model.append([mp, choice])
 
-    def on_partition_list_treeview_button_press_event (self, widget, event):
+    def on_partition_list_treeview_button_press_event(self, widget, event):
         from gi.repository import Gdk
         if event.type == Gdk.EventType.BUTTON_PRESS and event.button == 3:
             path_at_pos = widget.get_path_at_pos(int(event.x), int(event.y))
@@ -1077,26 +1138,27 @@ class PageGtk(PageBase):
             return True
 
     @plugin.only_this_page
-    def on_partition_list_treeview_key_press_event (self, widget, event):
+    def on_partition_list_treeview_key_press_event(self, widget, event):
         from gi.repository import Gdk
         if event.type != Gdk.EventType.KEY_PRESS:
             return False
 
         if event.keyval == Gdk.KEY_Delete:
             devpart, partition = self.partition_list_get_selection()
-            for action in self.controller.dbfilter.get_actions(devpart, partition):
+            dbfilter = self.controller.dbfilter
+            for action in dbfilter.get_actions(devpart, partition):
                 if action == 'delete':
                     self.on_partition_list_delete_activate(widget)
                     return True
 
         return False
 
-    def on_partition_list_treeview_popup_menu (self, widget):
+    def on_partition_list_treeview_popup_menu(self, widget):
         self.partman_popup(widget, None)
         return True
 
     @plugin.only_this_page
-    def on_partition_list_treeview_selection_changed (self, selection):
+    def on_partition_list_treeview_selection_changed(self, selection):
         self.partition_button_new_label.set_sensitive(False)
         self.partition_button_new.set_sensitive(False)
         self.partition_button_edit.set_sensitive(False)
@@ -1128,8 +1190,8 @@ class PageGtk(PageBase):
         self.partition_button_undo.set_sensitive(True)
 
     @plugin.only_this_page
-    def on_partition_list_treeview_row_activated (self, treeview,
-                                                  path, unused_view_column):
+    def on_partition_list_treeview_row_activated(self, treeview,
+                                                 path, unused_view_column):
         if not self.controller.allowed_change_step():
             return
         model = treeview.get_model()
@@ -1155,8 +1217,9 @@ class PageGtk(PageBase):
         else:
             self.partman_edit_dialog(devpart, partition)
 
-    def partition_list_get_selection (self):
-        model, iterator = self.partition_list_treeview.get_selection().get_selected()
+    def partition_list_get_selection(self):
+        model, iterator = (
+            self.partition_list_treeview.get_selection().get_selected())
         if iterator is None:
             devpart = None
             partition = None
@@ -1166,23 +1229,23 @@ class PageGtk(PageBase):
         return (devpart, partition)
 
     @plugin.only_this_page
-    def on_partition_list_new_label_activate (self, unused_widget):
+    def on_partition_list_new_label_activate(self, unused_widget):
         if not self.controller.allowed_change_step():
             return
         self.controller.allow_change_step(False)
         devpart, partition = self.partition_list_get_selection()
         self.controller.dbfilter.create_label(devpart)
 
-    def on_partition_list_new_activate (self, unused_widget):
+    def on_partition_list_new_activate(self, unused_widget):
         devpart, partition = self.partition_list_get_selection()
         self.partman_create_dialog(devpart, partition)
 
-    def on_partition_list_edit_activate (self, unused_widget):
+    def on_partition_list_edit_activate(self, unused_widget):
         devpart, partition = self.partition_list_get_selection()
         self.partman_edit_dialog(devpart, partition)
 
     @plugin.only_this_page
-    def on_partition_list_delete_activate (self, unused_widget):
+    def on_partition_list_delete_activate(self, unused_widget):
         if not self.controller.allowed_change_step():
             return
         self.controller.allow_change_step(False)
@@ -1190,13 +1253,13 @@ class PageGtk(PageBase):
         self.controller.dbfilter.delete_partition(devpart)
 
     @plugin.only_this_page
-    def on_partition_list_undo_activate (self, unused_widget):
+    def on_partition_list_undo_activate(self, unused_widget):
         if not self.controller.allowed_change_step():
             return
         self.controller.allow_change_step(False)
         self.controller.dbfilter.undo()
 
-    def update_partman (self, disk_cache, partition_cache, cache_order):
+    def update_partman(self, disk_cache, partition_cache, cache_order):
         from gi.repository import Gtk, GObject
         from ubiquity import segmented_bar
         if self.partition_bars:
@@ -1211,7 +1274,8 @@ class PageGtk(PageBase):
 
             cell_name = Gtk.CellRendererText()
             column_name = Gtk.TreeViewColumn(
-                self.controller.get_string('partition_column_device'), cell_name)
+                self.controller.get_string('partition_column_device'),
+                cell_name)
             column_name.set_cell_data_func(cell_name, self.partman_column_name)
             column_name.set_sizing(Gtk.TreeViewColumnSizing.AUTOSIZE)
             self.partition_list_treeview.append_column(column_name)
@@ -1234,7 +1298,8 @@ class PageGtk(PageBase):
 
             cell_format = Gtk.CellRendererToggle()
             column_format = Gtk.TreeViewColumn(
-                self.controller.get_string('partition_column_format'), cell_format)
+                self.controller.get_string('partition_column_format'),
+                cell_format)
             column_format.set_cell_data_func(
                 cell_format, self.partman_column_format)
             column_format.set_sizing(Gtk.TreeViewColumnSizing.AUTOSIZE)
@@ -1291,10 +1356,11 @@ class PageGtk(PageBase):
                 total_size[dev] = 0.0
             else:
                 partition_tree_model.append([item, partition_cache[item]])
-                size = int(partition_cache[item]['parted']['size'])
+                cache_parted = partition_cache[item]['parted']
+                size = int(cache_parted['size'])
                 total_size[dev] = total_size[dev] + size
-                fs = partition_cache[item]['parted']['fs']
-                path = partition_cache[item]['parted']['path'].replace('/dev/','')
+                fs = cache_parted['fs']
+                path = cache_parted['path'].replace('/dev/', '')
                 if fs == 'free':
                     c = partition_bar.remainder_color
                     txt = self.controller.get_string('partition_free_space')
@@ -1309,9 +1375,10 @@ class PageGtk(PageBase):
         # make sure we're on the advanced partitioning page
         self.show_page_advanced()
 
-    def installation_medium_mounted (self, message):
+    def installation_medium_mounted(self, message):
         self.part_advanced_warning_message.set_text(message)
         self.part_advanced_warning_hbox.show_all()
+
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
@@ -1366,10 +1433,10 @@ class PageKde(PageBase):
 
         self.current_page = self.page
 
-    def get_autopartition_choice (self):
+    def get_autopartition_choice(self):
         return self.partAuto.getChoice()
 
-    def update_partman (self, disk_cache, partition_cache, cache_order):
+    def update_partman(self, disk_cache, partition_cache, cache_order):
         self.partMan.update(disk_cache, partition_cache, cache_order)
         # make sure we're on the advanced partitioning page
         self.show_page_advanced()
@@ -1377,9 +1444,11 @@ class PageKde(PageBase):
     def plugin_get_current_page(self):
         return self.current_page
 
+
 class PageNoninteractive(PageBase):
     def set_part_page(self, p):
         pass
+
 
 PARTITION_TYPE_PRIMARY = 0
 PARTITION_TYPE_LOGICAL = 1
@@ -1387,8 +1456,10 @@ PARTITION_TYPE_LOGICAL = 1
 PARTITION_PLACE_BEGINNING = 0
 PARTITION_PLACE_END = 1
 
+
 class PartmanOptionError(LookupError):
     pass
+
 
 class Page(plugin.Plugin):
     def prepare(self):
@@ -1444,31 +1515,37 @@ class Page(plugin.Plugin):
 
         self.installation_size = misc.install_size()
 
-        questions = ['^partman-auto/.*automatically_partition$',
-                     '^partman-auto/select_disk$',
-                     '^partman-partitioning/confirm_resize$',
-                     '^partman-partitioning/confirm_new_label$',
-                     '^partman-partitioning/new_size$',
-                     '^partman/choose_partition$',
-                     '^partman/confirm.*',
-                     '^partman/free_space$',
-                     '^partman/active_partition$',
-                     '^partman-lvm/confirm.*',
-                     '^partman-partitioning/new_partition_(size|type|place)$',
-                     '^partman-target/choose_method$',
-                     '^partman-basicfilesystems/(fat_mountpoint|mountpoint|mountpoint_manual)$',
-                     '^partman-uboot/mountpoint$',
-                     '^partman/exception_handler$',
-                     '^partman/exception_handler_note$',
-                     '^partman/unmount_active$',
-                     '^partman/installation_medium_mounted$',
-                     'type:boolean',
-                     'ERROR',
-                     'PROGRESS']
         # TODO: It would be neater to use a wrapper script.
-        return (['sh', '-c',
-                 '/usr/share/ubiquity/activate-dmraid && /bin/partman'],
-                questions, {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'})
+        command = [
+            'sh', '-c',
+            '/usr/share/ubiquity/activate-dmraid && /bin/partman',
+            ],
+        questions = [
+            '^partman-auto/.*automatically_partition$',
+            '^partman-auto/select_disk$',
+            '^partman-partitioning/confirm_resize$',
+            '^partman-partitioning/confirm_new_label$',
+            '^partman-partitioning/new_size$',
+            '^partman/choose_partition$',
+            '^partman/confirm.*',
+            '^partman/free_space$',
+            '^partman/active_partition$',
+            '^partman-lvm/confirm.*',
+            '^partman-partitioning/new_partition_(size|type|place)$',
+            '^partman-target/choose_method$',
+            '^partman-basicfilesystems/'
+                '(fat_mountpoint|mountpoint|mountpoint_manual)$',
+            '^partman-uboot/mountpoint$',
+            '^partman/exception_handler$',
+            '^partman/exception_handler_note$',
+            '^partman/unmount_active$',
+            '^partman/installation_medium_mounted$',
+            'type:boolean',
+            'ERROR',
+            'PROGRESS',
+            ]
+        environ = {'PARTMAN_NO_COMMIT': '1', 'PARTMAN_SNOOP': '1'}
+        return command, questions, environ
 
     def snoop(self):
         """Read the partman snoop file hack, returning a list of tuples
@@ -1835,8 +1912,10 @@ class Page(plugin.Plugin):
                     # Only allow reuse with newer install media
                     # also block reuse when invalid version number or codename
                     try:
-                        current_version = re.split(".*([0-9]{2}\.[0-9]{2}).*", ubuntu)
-                        new_version = re.split(".*([0-9]{2}\.[0-9]{2}).*", release.version)
+                        current_version = re.split(
+                            ".*([0-9]{2}\.[0-9]{2}).*", ubuntu)
+                        new_version = re.split(
+                            ".*([0-9]{2}\.[0-9]{2}).*", release.version)
 
                         if len(current_version) < 2 or len(new_version) < 2:
                             return None
@@ -1848,7 +1927,8 @@ class Page(plugin.Plugin):
 
                     q = 'ubiquity/partitioner/ubuntu_upgrade'
                     self.db.subst(q, 'CURDISTRO', ubuntu)
-                    self.db.subst(q, 'VER', "%s %s" % (release.name, release.version))
+                    self.db.subst(
+                        q, 'VER', "%s %s" % (release.name, release.version))
                     title = self.description(q)
                     desc = self.extended_description(q)
                     return PartitioningOption(title, desc)
@@ -2068,7 +2148,6 @@ class Page(plugin.Plugin):
             else:
                 self.auto_state = None
 
-
             # You know what they say about assumptions.
             has_wubi = os.path.exists('/cdrom/wubi.exe')
             has_resize = 'resize' in self.extra_options
@@ -2079,7 +2158,8 @@ class Page(plugin.Plugin):
             ntfs_partitions = []
 
             with misc.raised_privileges():
-                # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'), ...
+                # {'/dev/sda' : ('/dev/sda1', 24973242, '32256-2352430079'),
+                # ...
                 parted = parted_server.PartedServer()
                 layout = {}
                 for disk in parted.disks():
@@ -2131,7 +2211,8 @@ class Page(plugin.Plugin):
                     mount_path = tempfile.mkdtemp()
                     for device in ntfs_partitions:
                         try:
-                            subprocess.check_call(['mount', device, mount_path])
+                            subprocess.check_call(
+                                ['mount', device, mount_path])
                             if misc.windows_startup_folder(mount_path):
                                 self.extra_options['wubi'] = device
                                 break
@@ -2171,7 +2252,8 @@ class Page(plugin.Plugin):
             # We always have the manual option.
             self.extra_options['manual'] = self.manual_desc
             self.ui.set_disk_layout(layout)
-            self.ui.set_default_filesystem(self.db.get('partman/default_filesystem'))
+            self.ui.set_default_filesystem(
+                self.db.get('partman/default_filesystem'))
 
             operating_systems, ubuntu_systems = \
                 self.calculate_operating_systems(layout)
@@ -2208,7 +2290,8 @@ class Page(plugin.Plugin):
                             size = fp.readline()
                         size = int(size)
                         disks[choices[i]] = (choices_c[i], size)
-                self.extra_options['use_device'] = (self.some_device_desc, disks)
+                self.extra_options['use_device'] = (
+                    self.some_device_desc, disks)
                 # Back up to autopartitioning question.
                 self.succeeded = False
                 return False
@@ -2219,7 +2302,7 @@ class Page(plugin.Plugin):
                 return True
 
         elif question == 'partman/choose_partition':
-            self.autopartition_question = None # not autopartitioning any more
+            self.autopartition_question = None  # not autopartitioning any more
 
             if not self.building_cache and self.update_partitions:
                 # Rebuild our cache of just these partitions.
@@ -2337,9 +2420,11 @@ class Page(plugin.Plugin):
                             continue
                         parted.select_disk(dev)
                         if part_id:
-                            self.partition_cache[arg]['display'] = '%s__________%s' % (script, arg)
+                            self.partition_cache[arg]['display'] = (
+                                '%s__________%s' % (script, arg))
                         else:
-                            self.disk_cache[arg]['display'] = '%s__________%s' % (script, arg)
+                            self.disk_cache[arg]['display'] = (
+                                '%s__________%s' % (script, arg))
 
                     # Get basic information from parted_server for each
                     # partition being updated.
@@ -2419,7 +2504,8 @@ class Page(plugin.Plugin):
                         self.disk_cache, self.partition_cache,
                         self.cache_order)
             elif self.deleting_partition:
-                raise AssertionError("Deleting partition didn't rebuild cache?")
+                raise AssertionError(
+                    "Deleting partition didn't rebuild cache?")
 
             if self.debug_enabled():
                 import pprint
@@ -2707,16 +2793,18 @@ class Page(plugin.Plugin):
         elif question == 'partman-partitioning/new_size':
             if self.autopartition_question is not None:
                 if self.auto_state is not None:
-                    p_id = self.translate_to_c(self.autopartition_question,
-                                               self.auto_state[1])
+                    p_id = self.translate_to_c(
+                        self.autopartition_question, self.auto_state[1])
                     p_id = p_id.rsplit('//')[1]
-                    disk = self.translate_to_c(self.autopartition_question, self.auto_state[1])
-                    disk = re.search('/var/lib/partman/devices/(.*)//', disk).group(1)
+                    disk = self.translate_to_c(
+                        self.autopartition_question, self.auto_state[1])
+                    disk = re.search(
+                        '/var/lib/partman/devices/(.*)//', disk).group(1)
                     with misc.raised_privileges():
                         parted = parted_server.PartedServer()
                         parted.select_disk(disk)
                         size = int(parted.partition_info(p_id)[2])
-                        fs   = parted.partition_info(p_id)[4]
+                        fs = parted.partition_info(p_id)[4]
 
                     # The resize path will use the selected size as the amount
                     # of space to create *all* the needed partitions, currently
@@ -2956,7 +3044,8 @@ class Page(plugin.Plugin):
             self.ui.progress_start(self.description(progress_title))
         else:
             self.local_progress = True
-            plugin.Plugin.progress_start(self, progress_min, progress_max, progress_title)
+            plugin.Plugin.progress_start(
+                self, progress_min, progress_max, progress_title)
 
     def progress_info(self, progress_title, progress_info):
         if (progress_info != 'partman-partitioning/progress_resizing' and

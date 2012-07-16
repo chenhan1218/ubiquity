@@ -33,10 +33,12 @@ from ubiquity import misc
 from ubiquity import im_switch
 from ubiquity import osextras
 
+
 VERSION = '@VERSION@'
 TARGET = '/target'
 LOCKFILE = '/var/lock/ubiquity'
 lock = None
+
 
 def force_utf8_locale():
     """We must have a UTF-8 locale.  Try to get one."""
@@ -51,13 +53,14 @@ def force_utf8_locale():
                   "without one.", file=sys.stderr)
             sys.exit(1)
 
+
 def distribution():
     """Returns the name of the running distribution."""
-
     proc = subprocess.Popen(
         ['lsb_release', '-is'], stdout=subprocess.PIPE,
         universal_newlines=True)
     return proc.communicate()[0].strip()
+
 
 def disable_autologin():
     import traceback
@@ -72,12 +75,12 @@ def disable_autologin():
             except OSError:
                 traceback.print_exc()
 
+
 def open_terminal():
     """Set up the terminal to run ubiquity's debconf frontend."""
-
     # Set up a framebuffer and start bterm if debian-installer/framebuffer
-    # says to do so. See
-    # rootskel/src/lib/debian-installer-startup.d/S40framebuffer-module-linux-x86.
+    # says to do so. See, in rootskel:
+    #   src/lib/debian-installer-startup.d/S40framebuffer-module-linux-x86
     # TODO: more careful architecture handling
 
     import debconf
@@ -177,9 +180,9 @@ def open_terminal():
                 bterm_args.extend(sys.argv)
                 os.execvp('bterm', bterm_args)
 
+
 def start_debconf():
     """debconf_ui needs to run within a debconf frontend."""
-
     if 'DEBIAN_HAS_FRONTEND' in os.environ:
         # debconf already started, so just clean up the configuration file
         # if any (debconf has already read it by now).
@@ -221,15 +224,15 @@ def start_debconf():
     # TODO: need to set owner somehow for the cdebconf case
 
     import debconf
-    debconf.runFrontEnd() # re-execs this program
+    debconf.runFrontEnd()  # re-execs this program
+
 
 def install(frontend=None, query=False):
-    '''install(frontend=None) -> none
+    """Get the type of frontend to use and load the module for that.
 
-    Get the type of frontend to use and load the module for that.
-    If frontend is None, defaults to the first of
-    gtk_ui, kde_ui, and debconf_ui that exists.
-    '''
+    If frontend is None, defaults to the first of gtk_ui, kde_ui, and
+    debconf_ui that exists.
+    """
     if frontend is None:
         frontends = ['gtk_ui', 'kde_ui', 'debconf_ui']
     else:
@@ -280,9 +283,11 @@ def install(frontend=None, query=False):
 
 @misc.raise_privileges
 def apply_keyboard():
-    '''Set the keyboard layout to the default layout for the language selected.
+    """Set the keyboard layout to the default layout for the language selected.
+
     If a user wants a different layout, they can be reasonably expected to
-    change it in System -> Preferences -> Keyboard.'''
+    change it in System -> Preferences -> Keyboard.
+    """
 
     # Mostly taken from ubi-console-setup.
 
@@ -330,6 +335,7 @@ def apply_keyboard():
                  '--action=change')
     misc.execute('udevadm', 'settle')
 
+
 def copy_debconf():
     """Copy a few important questions into the installed system."""
     if not TARGET:
@@ -364,6 +370,7 @@ def copy_debconf():
                      '--config=Name:targetdb', '--config=Driver:File',
                      '--config=Mode:0644', '--config=Filename:%s' % targetdb)
 
+
 def unmount_target():
     if not TARGET:
         return
@@ -378,11 +385,13 @@ def unmount_target():
     for path in paths:
         misc.execute_root('umount', path)
 
+
 def prepend_path(directory):
     if 'PATH' in os.environ and os.environ['PATH'] != '':
         os.environ['PATH'] = '%s:%s' % (directory, os.environ['PATH'])
     else:
         os.environ['PATH'] = directory
+
 
 def release_lock():
     global lock
@@ -390,6 +399,7 @@ def release_lock():
     if lock is not None:
         lock.close()
         lock = None
+
 
 def acquire_lock():
     global lock
@@ -427,9 +437,9 @@ def acquire_lock():
                   "running.")
             sys.exit(1)
 
+
 def run_oem_hooks():
     """Run hook scripts from /usr/lib/oem-config/post-install."""
-
     hookdir = '/usr/lib/oem-config/post-install'
 
     if os.path.isdir(hookdir):
@@ -444,6 +454,7 @@ def run_oem_hooks():
             if os.access(hook, os.X_OK):
                 # Errors are ignored at present, although this may change.
                 subprocess.call([hook], env=child_env)
+
 
 def main(oem_config):
     force_utf8_locale()
@@ -603,6 +614,7 @@ def main(oem_config):
     if oem_config:
         run_oem_hooks()
     im_switch.kill_im()
+
 
 if __name__ == '__main__':
     # Are we running as ubiquity or oem-config?

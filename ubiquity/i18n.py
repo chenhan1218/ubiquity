@@ -31,6 +31,7 @@ import six
 
 from ubiquity import misc, im_switch
 
+
 # if 'just_country' is True, only the country is changing
 def reset_locale(frontend, just_country=False):
     frontend.start_debconf()
@@ -54,7 +55,9 @@ def reset_locale(frontend, just_country=False):
         im_switch.start_im()
     return di_locale
 
+
 _strip_context_re = None
+
 
 def strip_context(unused_question, string):
     # po-debconf context
@@ -68,6 +71,7 @@ def strip_context(unused_question, string):
 
 _translations = None
 
+
 def get_translations(languages=None, core_names=[], extra_prefixes=[]):
     """Returns a dictionary {name: {language: description}} of translatable
     strings.
@@ -79,7 +83,8 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
     cached version will be returned."""
 
     global _translations
-    if _translations is None or languages is not None or core_names or extra_prefixes:
+    if (_translations is None or languages is not None or core_names or
+        extra_prefixes):
         if languages is None:
             use_langs = None
         else:
@@ -90,8 +95,21 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
                 use_langs.add(ll_cc)
                 use_langs.add(ll)
 
-        prefixes = 'ubiquity|partman/text/undo_everything|partman/text/unusable|partman-basicfilesystems/bad_mountpoint|partman-basicfilesystems/text/specify_mountpoint|partman-basicmethods/text/format|partman-newworld/no_newworld|partman-partitioning|partman-target/no_root|partman-target/text/method|grub-installer/bootdev|popularity-contest/participate'
-        prefixes = reduce(lambda x, y: x+'|'+y, extra_prefixes, prefixes)
+        prefixes = '|'.join(
+            'ubiquity',
+            'partman/text/undo_everything',
+            'partman/text/unusable',
+            'partman-basicfilesystems/bad_mountpoint',
+            'partman-basicfilesystems/text/specify_mountpoint',
+            'partman-basicmethods/text/format',
+            'partman-newworld/no_newworld',
+            'partman-partitioning',
+            'partman-target/no_root',
+            'partman-target/text/method',
+            'grub-installer/bootdev',
+            'popularity-contest/participate',
+            )
+        prefixes = reduce(lambda x, y: x + '|' + y, extra_prefixes, prefixes)
 
         _translations = {}
         devnull = open('/dev/null', 'w')
@@ -163,16 +181,19 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
 
     return _translations
 
+
 string_questions = {
     'new_size_label': 'partman-partitioning/new_size',
     'partition_create_heading_label': 'partman-partitioning/text/new',
     'partition_create_type_label': 'partman-partitioning/new_partition_type',
-    'partition_create_mount_label': 'partman-basicfilesystems/text/specify_mountpoint',
+    'partition_create_mount_label':
+        'partman-basicfilesystems/text/specify_mountpoint',
     'partition_create_use_label': 'partman-target/text/method',
     'partition_create_place_label': 'partman-partitioning/new_partition_place',
     'partition_edit_use_label': 'partman-target/text/method',
     'partition_edit_format_label': 'partman-basicmethods/text/format',
-    'partition_edit_mount_label': 'partman-basicfilesystems/text/specify_mountpoint',
+    'partition_edit_mount_label':
+        'partman-basicfilesystems/text/specify_mountpoint',
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',
     # TODO: it would be nice to have a neater way to handle stock buttons
@@ -187,6 +208,7 @@ string_questions = {
 
 string_extended = set()
 
+
 def map_widget_name(prefix, name):
     """Map a widget name to its translatable template."""
     if prefix is None:
@@ -198,6 +220,7 @@ def map_widget_name(prefix, name):
     else:
         question = '%s/%s' % (prefix, name)
     return question
+
 
 def get_string(name, lang, prefix=None):
     """Get the translation of a single string."""
@@ -260,7 +283,8 @@ def get_languages(current_language_index=-1, only_installable=False):
         with misc.raised_privileges():
             cache = Cache()
 
-    languagelist = gzip.open('/usr/lib/ubiquity/localechooser/languagelist.data.gz')
+    languagelist = gzip.open(
+        '/usr/lib/ubiquity/localechooser/languagelist.data.gz')
     language_display_map = {}
     i = 0
     for line in languagelist:
@@ -274,7 +298,8 @@ def get_languages(current_language_index=-1, only_installable=False):
         # KDE fails to round-trip strings containing U+FEFF ZERO WIDTH
         # NO-BREAK SPACE, and we don't care about the NBSP anyway, so strip
         # it.
-        #   https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/1001542/comments/5
+        #   https://bugs.launchpad.net/bugs/1001542
+        #   (comment #5 and on)
         trans = trans.strip(six.u(" \ufeff"))
 
         if only_installable:
@@ -318,7 +343,7 @@ def get_languages(current_language_index=-1, only_installable=False):
 
     def compare_choice(x):
         if language_display_map[x][1] == 'C':
-            return None # place C first
+            return None  # place C first
         if collator:
             try:
                 return collator.getCollationKey(x).getByteArray()
@@ -331,6 +356,7 @@ def get_languages(current_language_index=-1, only_installable=False):
     sorted_choices = sorted(language_display_map, key=compare_choice)
 
     return current_language, sorted_choices, language_display_map
+
 
 def default_locales():
     with open('/usr/lib/ubiquity/localechooser/languagelist') as languagelist:

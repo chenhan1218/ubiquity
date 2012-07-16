@@ -103,7 +103,8 @@ class Install(install_misc.InstallBase):
         self.prev_count = 0
         self.count = 1
 
-        self.db.progress('START', self.start, self.end, 'ubiquity/install/title')
+        self.db.progress(
+            'START', self.start, self.end, 'ubiquity/install/title')
         self.db.progress('INFO', 'ubiquity/install/mounting_source')
 
         if self.source == '/var/lib/ubiquity/source':
@@ -124,9 +125,11 @@ class Install(install_misc.InstallBase):
             # imagine.  Have those spin until the lock is released.
             if self.db.get('ubiquity/download_updates') == 'true':
                 cmd = ['/usr/share/ubiquity/update-apt-cache']
+
                 def subprocess_setup():
                     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
                     os.setpgid(0, 0)
+
                 self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
                     stdout=subprocess.PIPE, preexec_fn=subprocess_setup)
             try:
@@ -285,7 +288,8 @@ class Install(install_misc.InstallBase):
         except (debconf.DebconfError, IOError):
             pass
 
-        difference -= install_misc.expand_dependencies_simple(cache, keep, difference)
+        difference -= install_misc.expand_dependencies_simple(
+            cache, keep, difference)
 
         # Consider only packages that don't have a prerm, and which can
         # therefore have their files removed without any preliminary work.
@@ -297,7 +301,8 @@ class Install(install_misc.InstallBase):
         for pkg in sorted(difference):
             if pkg in confirmed_remove:
                 continue
-            would_remove = install_misc.get_remove_list(cache, [pkg], recursive=True)
+            would_remove = install_misc.get_remove_list(
+                cache, [pkg], recursive=True)
             if would_remove <= difference:
                 confirmed_remove |= would_remove
                 # Leave these marked for removal in the apt cache to speed
@@ -441,7 +446,8 @@ class Install(install_misc.InstallBase):
                 elif stat.S_ISSOCK(st.st_mode):
                     os.mknod(targetpath, stat.S_IFSOCK | mode)
                 elif stat.S_ISREG(st.st_mode):
-                    install_misc.copy_file(self.db, sourcepath, targetpath, md5_check)
+                    install_misc.copy_file(
+                        self.db, sourcepath, targetpath, md5_check)
 
                 # Copy metadata.
                 copied_size += st.st_size
@@ -449,7 +455,8 @@ class Install(install_misc.InstallBase):
                 if not stat.S_ISLNK(st.st_mode):
                     os.chmod(targetpath, mode)
                 if stat.S_ISDIR(st.st_mode):
-                    directory_times.append((targetpath, st.st_atime, st.st_mtime))
+                    directory_times.append(
+                        (targetpath, st.st_atime, st.st_mtime))
                 # os.utime() sets timestamp of target, not link
                 elif not stat.S_ISLNK(st.st_mode):
                     try:
@@ -475,7 +482,8 @@ class Install(install_misc.InstallBase):
                         speed = ((times[-1][1] - times[0][1]) /
                                  (times[-1][0] - times[0][0]))
                         if speed != 0:
-                            time_remaining = int((total_size - copied_size) / speed)
+                            time_remaining = (
+                                int((total_size - copied_size) / speed))
                             if time_remaining < 60:
                                 self.db.progress(
                                     'INFO', 'ubiquity/install/copying_minute')
@@ -530,7 +538,8 @@ class Install(install_misc.InstallBase):
             blockdev_prefix = 'loop'
 
         if blockdev_prefix == '':
-            raise install_misc.InstallStepError("No source device found for %s" % fsfile)
+            raise install_misc.InstallStepError(
+                "No source device found for %s" % fsfile)
 
         dev = ''
         sysloops = sorted([x for x in os.listdir('/sys/block')
@@ -560,7 +569,8 @@ class Install(install_misc.InstallBase):
                 continue
 
         if dev == '':
-            raise install_misc.InstallStepError("No loop device available for %s" % fsfile)
+            raise install_misc.InstallStepError(
+                "No loop device available for %s" % fsfile)
 
         misc.execute('losetup', dev, fsfile)
         if mountpoint is None:
@@ -649,7 +659,8 @@ class Install(install_misc.InstallBase):
 
         for mountpoint in mountpoints:
             if not misc.execute('umount', mountpoint):
-                raise install_misc.InstallStepError("Failed to unmount %s" % mountpoint)
+                raise install_misc.InstallStepError(
+                    "Failed to unmount %s" % mountpoint)
         for dev in devs:
             if (dev != '' and dev != 'unused' and
                 not misc.execute('losetup', '-d', dev)):

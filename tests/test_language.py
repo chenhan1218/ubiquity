@@ -14,15 +14,19 @@ import mock
 from ubiquity import i18n, plugin_manager
 from helpers import builtin_patch
 
+
 def side_effect_factory(real_method):
     new_path = 'd-i/source/localechooser/debian/localechooser' \
                '/usr/share/localechooser/languagelist.data.gz'
+
     def side_effect(path, *args, **kw):
         if path.endswith('languagelist.data.gz'):
             return real_method(new_path, *args, **kw)
         else:
             return real_method(path, *args, **kw)
+
     return side_effect
+
 
 class OEMUserLanguageTests(unittest.TestCase):
     def setUp(self):
@@ -74,7 +78,6 @@ class OEMUserLanguageTests(unittest.TestCase):
 
 class LanguageTests(unittest.TestCase):
     def setUp(self):
-        
         for obj in ('ubiquity.misc.execute',
                 'ubiquity.misc.execute_root'):
             patcher = mock.patch(obj)
@@ -95,11 +98,14 @@ class LanguageTests(unittest.TestCase):
 
     def test_try_ubuntu_clicks(self):
         from ubiquity import gtkwidgets
+
         # Ensure that the mock changes state correctly.
         self.controller.allowed_change_step.return_value = True
+
         def side_effect(*args):
             assert len(args) == 1 and type(args[0]) is bool
             self.controller.allowed_change_step.return_value = args[0]
+
         self.controller.allow_change_step.side_effect = side_effect
         # Multiple clicks on Try Ubuntu crash the installer.  LP: #911907
         self.gtk.try_ubuntu.clicked()

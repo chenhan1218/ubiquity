@@ -11,11 +11,12 @@ except ImportError:
     from test.test_support import run_unittest
 import unittest
 
+import dbus
 from gi.repository import Gtk, TimezoneMap
 import mock
 import six
 
-from ubiquity import segmented_bar, gtkwidgets
+from ubiquity import gtkwidgets, nm, segmented_bar
 
 
 class MockController(object):
@@ -26,10 +27,12 @@ class MockController(object):
 class WidgetTests(unittest.TestCase):
     def setUp(self):
         self.err = None
+
         def excepthook(exctype, value, tb):
             # Workaround for http://bugzilla.gnome.org/show_bug.cgi?id=616279
             Gtk.main_quit()
             self.err = exctype, value, tb
+
         sys.excepthook = excepthook
         self.win = Gtk.Window()
 
@@ -125,8 +128,6 @@ ID_MM_CANDIDATE=1
 """
 
 
-from ubiquity import nm
-import dbus
 class NetworkManagerTests(unittest.TestCase):
     def setUp(self):
         patcher = mock.patch('ubiquity.nm.NetworkManager.start')
@@ -139,11 +140,12 @@ class NetworkManagerTests(unittest.TestCase):
     def test_get_vendor_and_model_null(self, mock_subprocess):
         mock_subprocess.return_value.communicate.return_value = (
             '', 'device path not found\n')
-        self.assertEqual(nm.get_vendor_and_model('bogus'), ('',''))
+        self.assertEqual(nm.get_vendor_and_model('bogus'), ('', ''))
 
     @mock.patch('subprocess.Popen')
     def test_get_vendor_and_model(self, mock_subprocess):
-        mock_subprocess.return_value.communicate.return_value = (udevinfo, None)
+        mock_subprocess.return_value.communicate.return_value = (
+            udevinfo, None)
         self.assertEqual(nm.get_vendor_and_model('foobar'),
                          ('Intel Corporation',
                           'PRO/Wireless 3945ABG [Golan] Network Connection'))
@@ -169,7 +171,8 @@ class NetworkManagerTests(unittest.TestCase):
         iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
         for ssid in ('Orange', 'Apple', 'Grape'):
             self.model.append(iterator, [ssid, True, 0])
-        self.assertIsNotNone(self.manager.ssid_in_model(iterator, 'Apple', True))
+        self.assertIsNotNone(
+            self.manager.ssid_in_model(iterator, 'Apple', True))
         self.assertIsNone(self.manager.ssid_in_model(iterator, 'Grape', False))
 
     def test_prune(self):

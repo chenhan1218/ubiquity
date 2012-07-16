@@ -85,6 +85,7 @@ valid_commands = {
     'X_LOADTEMPLATEFILE': 2
 }
 
+
 class DebconfFilter:
     def __init__(self, db, widgets={}):
         self.db = db

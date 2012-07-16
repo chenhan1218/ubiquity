@@ -32,6 +32,7 @@
 # Validation library.
 # Created by Antonio Olmo <aolmo#emergya._info> on 26 jul 2005.
 
+
 def check_grub_device(device):
     """Check that the user entered a valid boot device.
         @return True if the device is valid, False if it is not."""
@@ -49,10 +50,12 @@ def check_grub_device(device):
     else:
         return False
 
+
 HOSTNAME_LENGTH = 1
 HOSTNAME_BADCHAR = 2
 HOSTNAME_BADHYPHEN = 3
 HOSTNAME_BADDOTS = 4
+
 
 def check_hostname(name):
 
@@ -67,7 +70,7 @@ def check_hostname(name):
     import re
     result = set()
 
-    if len (name) < 1 or len (name) > 63:
+    if len(name) < 1 or len(name) > 63:
         result.add(HOSTNAME_LENGTH)
 
     regex = re.compile(r'^[a-zA-Z0-9.-]+$')
@@ -79,6 +82,7 @@ def check_hostname(name):
         result.add(HOSTNAME_BADDOTS)
 
     return sorted(result)
+
 
 # Based on setPasswordStrength() in Mozilla Seamonkey, which is tri-licensed
 # under MPL 1.1, GPL 2.0, and LGPL 2.1.
@@ -112,6 +116,7 @@ def password_strength(password):
     if strength < 0:
         strength = 0
     return strength
+
 
 def human_password_strength(password):
     strength = password_strength(password)

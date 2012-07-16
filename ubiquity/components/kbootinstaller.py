@@ -19,6 +19,7 @@
 
 from ubiquity.filteredcommand import FilteredCommand
 
+
 class KbootInstaller(FilteredCommand):
     def prepare(self):
         return (['/usr/lib/ubiquity/kboot-installer/kboot-installer'],
