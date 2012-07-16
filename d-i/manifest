@@ -14,6 +14,7 @@ netcfg 1.68ubuntu14
 partconf 1.38
 partman-auto 101ubuntu2
 partman-auto-loop 0ubuntu21
+partman-auto-lvm 44ubuntu1
 partman-base 158ubuntu1
 partman-basicfilesystems 74ubuntu1
 partman-basicmethods 50
@@ -21,6 +22,7 @@ partman-btrfs 9ubuntu1
 partman-efi 25ubuntu1
 partman-ext3 70ubuntu1
 partman-jfs 36
+partman-lvm 79
 partman-newworld 27
 partman-partitioning 85ubuntu2
 partman-reiserfs 53

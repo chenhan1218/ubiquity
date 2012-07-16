@@ -1367,3 +1367,7 @@ Type: text
 _Description:
  This computer currently has no detected operating systems. What would you
  like to do?
+
+Template: ubiquity/text/part_auto_use_lvm_checkbox
+Type: text
+_Description: Set up LVM
