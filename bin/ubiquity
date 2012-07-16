@@ -463,27 +463,27 @@ def main(oem_config):
     parser.add_option('--cdebconf', dest='cdebconf', action='store_true',
                       help='use cdebconf instead of debconf (experimental)')
     parser.add_option('--automatic', dest='automatic', action='store_true',
-                      help='do not ignore the "seen" flag (useful for ' \
-                      'unattended installations).')
+                      help='do not ignore the "seen" flag (useful for '
+                           'unattended installations).')
     parser.add_option('--only', dest='only', action='store_true',
-                      help='tell the application that it is the only desktop ' \
-                      'program running so that it can customize its UI to ' \
-                      'better suit a minimal environment.')
+                      help='tell the application that it is the only desktop '
+                           'program running so that it can customize its UI '
+                           'to better suit a minimal environment.')
     parser.add_option('-q', '--query', dest='query', action='store_true',
                       help='find out which frontend will be used by default')
     parser.add_option('-g', '--greeter', dest='greeter', action='store_true',
-                      help='allow the user to leave the installer and enter ' \
-                      'a live desktop (for the initial boot).')
+                      help='allow the user to leave the installer and enter '
+                           'a live desktop (for the initial boot).')
     parser.add_option('-b', '--no-bootloader', dest='bootloader',
-                      action='store_true',
+                      default=True, action='store_false',
                       help='Do not install a bootloader.')
     parser.add_option('--ldtp', dest='ldtp',
                       action='store_true',
-                      help='Name widgets in ATK by their GtkBuilder names,' \
+                      help='Name widgets in ATK by their GtkBuilder names, '
                            'to support LDTP testing.')
     parser.add_option('--enable-partauto-lvm', dest='partauto_lvm',
-                      action='store_true', help='Enable using complex recipe, '
-                      'LVM in the automatic partitioner.')
+                      action='store_true',
+                      help='Enable LVM in the automatic partitioner.')
     parser.add_option('--no-webcam', dest='webcam',
                       default=True, action='store_false',
                       help='Disable the webcam page.')
@@ -512,7 +512,7 @@ def main(oem_config):
     if options.only:
         os.environ['UBIQUITY_ONLY'] = '1'
 
-    if options.bootloader:
+    if not options.bootloader:
         os.environ['UBIQUITY_NO_BOOTLOADER'] = '1'
 
     if oem_config:
