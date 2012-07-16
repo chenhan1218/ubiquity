@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-03-31 11:12+0000\n"
 "Last-Translator: Hai Lang <hailangvn@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -1842,6 +1842,12 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr "Máy tính này hiện không có hệ điều hành nào. Bạn muốn làm gì?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description

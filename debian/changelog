@@ -3,8 +3,9 @@ ubiquity (2.11.16) UNRELEASED; urgency=low
   * Add experimental auto-lvm recipe
   * Automatic update of included source packages: partman-auto-lvm
     44ubuntu1, partman-lvm 79
+  * Update translation templates.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 16 Jul 2012 11:24:17 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 16 Jul 2012 11:31:17 +0100
 
 ubiquity (2.11.15) quantal; urgency=low
 

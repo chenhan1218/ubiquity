@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-03-17 04:41+0000\n"
 "Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
@@ -1805,6 +1805,12 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr "ఈ కంప్యూటర్‌లో ప్రస్తుతం ఏ ఆపరేటింగ్ సిస్టం లేదు, ఏం చేయాలనుకుంటున్నారు?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description

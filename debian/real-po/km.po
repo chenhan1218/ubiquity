@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian_real-po_ubiquity-debconf-km\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-03-19 03:39+0000\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -1818,6 +1818,12 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr "កុំព្យូទ័រ​នេះ​បច្ចុប្បន្ន​គ្មាន​ប្រព័ន្ធ​ប្រតិបត្តិការ​ទេ ។ តើ​អ្នក​ចង់​ធ្វើ​អ្វី ?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description

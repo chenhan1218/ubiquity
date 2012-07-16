@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-04-12 12:43+0000\n"
 "Last-Translator: Gheyret T.Kenji <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -1853,6 +1853,12 @@ msgid ""
 "like to do?"
 msgstr ""
 "مەزكۇر كومپيۇتېردا ھېچقانداق مەشغۇلات سىستېمىسى يوق ئىكەن. قانداق قىلىسىز؟"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description

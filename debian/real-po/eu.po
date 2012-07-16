@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-03-24 20:22+0000\n"
 "Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -1862,6 +1862,12 @@ msgid ""
 msgstr ""
 "Ordenagailu honetan ez dago sistema eragile ezagunik instalatuta. Zer egin "
 "nahi duzu?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description

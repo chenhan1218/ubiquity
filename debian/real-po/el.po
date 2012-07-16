@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-04-14 15:53+0000\n"
 "Last-Translator: Simos Xenitellis <Unknown>\n"
 "Language-Team: <en@li.org>\n"
@@ -1892,6 +1892,12 @@ msgid ""
 "like to do?"
 msgstr ""
 "Αυτός ο υπολογιστής δεν έχει λειτουργικό σύστημα. Τι θα θέλατε να κάνετε;"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description

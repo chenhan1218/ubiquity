@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-06-20 09:03+0100\n"
+"POT-Creation-Date: 2012-07-16 11:30+0100\n"
 "PO-Revision-Date: 2012-03-11 07:58+0000\n"
 "Last-Translator: Joel Addison <jaddi27@gmail.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
@@ -1850,6 +1850,12 @@ msgid ""
 msgstr ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:257001
+msgid "Set up LVM"
+msgstr ""
 
 #. Type: title
 #. Description
