@@ -168,7 +168,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkCheckButton" id="part_auto_use_lvm_checkbox">
-                        <property name="label" translatable="yes">Setup LVM</property>
+                        <property name="label" translatable="yes">Set up LVM</property>
                         <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>

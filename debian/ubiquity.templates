@@ -1370,4 +1370,4 @@ _Description:
 
 Template: ubiquity/text/part_auto_use_lvm_checkbox
 Type: text
-_Description: Setup LVM
+_Description: Set up LVM
