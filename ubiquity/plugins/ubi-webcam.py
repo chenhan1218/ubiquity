@@ -33,7 +33,8 @@ class PageGtk(plugin.PluginUI):
         Gst.init(sys.argv)
         from gi.repository import UbiquityWebcam
         from ubiquity import gtkwidgets
-        if (not UbiquityWebcam.Webcam.available()
+        if ('UBIQUITY_NO_WEBCAM' in os.environ
+            or not UbiquityWebcam.Webcam.available()
             or 'UBIQUITY_AUTOMATIC' in os.environ
             or controller.oem_config):
             self.page = None

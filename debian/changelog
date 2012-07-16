@@ -1,9 +1,13 @@
 ubiquity (2.11.16) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Add experimental auto-lvm recipe
   * Automatic update of included source packages: partman-auto-lvm
     44ubuntu1, partman-lvm 79
   * Update translation templates.
+
+  [ Colin Watson ]
+  * Add a --no-webcam option to disable the webcam page.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 16 Jul 2012 11:31:17 +0100
 
