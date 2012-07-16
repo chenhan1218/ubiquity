@@ -95,7 +95,7 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
                 use_langs.add(ll_cc)
                 use_langs.add(ll)
 
-        prefixes = '|'.join(
+        prefixes = '|'.join((
             'ubiquity',
             'partman/text/undo_everything',
             'partman/text/unusable',
@@ -108,7 +108,7 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
             'partman-target/text/method',
             'grub-installer/bootdev',
             'popularity-contest/participate',
-            )
+            ))
         prefixes = reduce(lambda x, y: x + '|' + y, extra_prefixes, prefixes)
 
         _translations = {}
