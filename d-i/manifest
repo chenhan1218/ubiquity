@@ -5,7 +5,7 @@ choose-mirror 2.39ubuntu5
 clock-setup 0.112ubuntu1
 console-setup 1.70ubuntu5
 debian-installer-utils 1.91ubuntu1
-flash-kernel 3.0~rc.4ubuntu6
+flash-kernel 3.0~rc.4ubuntu7
 grub-installer 1.68ubuntu5
 hw-detect 1.89ubuntu1
 kboot-installer 0.0.1ubuntu9
@@ -22,7 +22,7 @@ partman-btrfs 9ubuntu1
 partman-efi 25ubuntu1
 partman-ext3 70ubuntu1
 partman-jfs 36
-partman-lvm 79
+partman-lvm 79ubuntu2
 partman-newworld 27
 partman-partitioning 85ubuntu2
 partman-reiserfs 53
