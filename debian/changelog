@@ -1,4 +1,4 @@
-ubiquity (2.11.16) UNRELEASED; urgency=low
+ubiquity (2.11.16) quantal; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Add experimental auto-lvm recipe
@@ -12,7 +12,7 @@ ubiquity (2.11.16) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu7, partman-lvm 79ubuntu2.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 16 Jul 2012 11:31:17 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Jul 2012 15:47:16 +0100
 
 ubiquity (2.11.15) quantal; urgency=low
 
