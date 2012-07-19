@@ -1519,7 +1519,7 @@ class Page(plugin.Plugin):
         command = [
             'sh', '-c',
             '/usr/share/ubiquity/activate-dmraid && /bin/partman',
-            ],
+            ]
         questions = [
             '^partman-auto/.*automatically_partition$',
             '^partman-auto/select_disk$',
