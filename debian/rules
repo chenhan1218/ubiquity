@@ -71,13 +71,13 @@ d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
 	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
 		xkbdir=/usr/share/X11/xkb
 
-ubiquity/keyboard_names.py: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
-	d-i/make-keyboard-names $< > $@
+debian/kbdnames.gz: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
+	d-i/source/console-setup/Keyboard/kbdnames-maker $< | gzip -9c > $@
 
 install: install-stamp
 
 install-stamp: DH_OPTIONS=
-install-stamp: build-stamp ubiquity/keyboard_names.py
+install-stamp: build-stamp debian/kbdnames.gz
 	dh_testdir
 	dh_testroot
 	dh_prep

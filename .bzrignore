@@ -4,6 +4,7 @@ __pycache__
 ./build-locale
 debian/build
 debian/files
+debian/kbdnames.gz
 debian/oem-config
 debian/oem-config-check
 debian/oem-config-debconf
@@ -80,5 +81,4 @@ tests/templates.dat*
 ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
 ubiquity/frontend/crashdialog.py
-ubiquity/keyboard_names.py
 d-i/sources.list.local

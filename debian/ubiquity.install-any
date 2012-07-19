@@ -45,6 +45,7 @@ d-i/source/clock-setup/set-date-epoch sbin
 
 # console-setup
 compat/locale usr/lib/ubiquity/console-setup
+debian/kbdnames.gz usr/lib/ubiquity/console-setup
 
 # debian-installer-utils
 d-i/source/debian-installer-utils/block-attr bin

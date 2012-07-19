@@ -2,6 +2,9 @@ ubiquity (2.11.17) UNRELEASED; urgency=low
 
   * ubiquity/plugins/ubi-partman.py: Remove a stray comma, which broke this
     plugin.
+  * Parse a compact representation of keyboard layouts and variants on the
+    fly, rather than building them all into a giant static Python module.
+    This is much more memory-efficient.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Jul 2012 18:25:15 +0100
 
