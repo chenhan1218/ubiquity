@@ -31,7 +31,6 @@ class KeyboardNames:
         self._clear()
 
     def _clear(self):
-        self._model = {}
         self._layout = {}
         self._layout_rev = {}
         self._variant = {}
@@ -48,9 +47,7 @@ class KeyboardNames:
             if got_lang != lang:
                 continue
 
-            if element == "model":
-                self._model[name] = value
-            elif element == "layout":
+            if element == "layout":
                 self._layout[name] = value
                 self._layout_rev[value] = name
             elif element == "variant":
@@ -82,10 +79,6 @@ class KeyboardNames:
     def has_language(self, lang):
         self._load(lang)
         return bool(self._layout)
-
-    def model(self, lang, name):
-        self._load(lang)
-        return self._model[name]
 
     def has_layout(self, lang, name):
         self._load(lang)
@@ -130,11 +123,6 @@ def _get_keyboard_names():
 def has_language(lang):
     kn = _get_keyboard_names()
     return kn.has_language(lang)
-
-
-def model(lang, name):
-    kn = _get_keyboard_names()
-    return kn.model(lang, name)
 
 
 def has_layout(lang, name):

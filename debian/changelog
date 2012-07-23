@@ -1,3 +1,10 @@
+ubiquity (2.11.18) UNRELEASED; urgency=low
+
+  * Don't bother keeping track of keyboard model names and identifiers, as
+    nothing in ubiquity uses them right now.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Jul 2012 10:13:17 +0100
+
 ubiquity (2.11.17) quantal; urgency=low
 
   * ubiquity/plugins/ubi-partman.py: Remove a stray comma, which broke this
