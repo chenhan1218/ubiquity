@@ -66,7 +66,7 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_translate(self, lang):
         # TODO Move back into the frontend as we can check
-        # isinstance(LabelledEntry and just call set_label.  We'll need to
+        # isinstance(LabelledEntry) and just call set_label.  We'll need to
         # properly name the debconf keys though (s/inactive_label//)
         test_label = self.controller.get_string('keyboard_test_label', lang)
         self.keyboard_test.set_placeholder_text(test_label)
