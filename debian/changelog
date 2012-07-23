@@ -4,7 +4,7 @@ ubiquity (2.11.18) UNRELEASED; urgency=low
     nothing in ubiquity uses them right now.
   * Fix reversed uses of methods mapping between keyboard layout/variant IDs
     and human-readable names, and improve method naming and documentation to
-    make this mistake less likely in future (LP: #1027620).
+    make this mistake less likely in future (LP: #1027207, #1027620).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 23 Jul 2012 10:13:17 +0100
 
