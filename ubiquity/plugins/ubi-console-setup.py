@@ -77,8 +77,8 @@ class PageGtk(plugin.PluginUI):
         keymap = keymap.split(':')
         if len(keymap) == 1:
             keymap.append('')
-        layout = keyboard_names.layout_reverse(l, keymap[0])
-        variant = keyboard_names.variant_reverse(l, keymap[0], keymap[1])
+        layout = keyboard_names.layout_human(l, keymap[0])
+        variant = keyboard_names.variant_human(l, keymap[0], keymap[1])
         self.set_keyboard(layout)
         self.controller.dbfilter.change_layout(layout)
         self.controller.dbfilter.apply_keyboard(layout, variant)
@@ -297,7 +297,7 @@ class PageKde(plugin.PluginUI):
         if layout is not None:
             #skip updating keyboard if not using display
             if self.keyboardDisplay:
-                ly = keyboard_names.layout(l, misc.utf8(layout))
+                ly = keyboard_names.layout_id(l, misc.utf8(layout))
                 self.keyboardDisplay.setLayout(ly)
 
                 #no variants, force update by setting none
@@ -313,11 +313,12 @@ class PageKde(plugin.PluginUI):
         variant = self.get_keyboard_variant()
 
         if self.keyboardDisplay:
+            var = None
             l = self.controller.dbfilter.get_locale()
-            ly = keyboard_names.layout(l, layout)
+            ly = keyboard_names.layout_id(l, layout)
             if variant:
                 try:
-                    var = keyboard_names.variant(l, ly, misc.utf8(variant))
+                    var = keyboard_names.variant_id(l, ly, misc.utf8(variant))
                 except KeyError:
                     var = None
 
@@ -345,7 +346,7 @@ class PageKde(plugin.PluginUI):
 
         if self.keyboardDisplay:
             l = self.controller.dbfilter.get_locale()
-            ly = keyboard_names.layout(l, misc.utf8(layout))
+            ly = keyboard_names.layout_id(l, misc.utf8(layout))
             self.keyboardDisplay.setLayout(ly)
 
     def get_keyboard(self):
@@ -370,10 +371,11 @@ class PageKde(plugin.PluginUI):
 
         if self.keyboardDisplay:
             l = self.controller.dbfilter.get_locale()
-            layout = keyboard_names.layout(l, self.get_keyboard())
+            layout = keyboard_names.layout_id(l, self.get_keyboard())
             if variant:
                 try:
-                    var = keyboard_names.variant(l, layout, misc.utf8(variant))
+                    var = keyboard_names.variant_id(
+                        l, layout, misc.utf8(variant))
                 except KeyError:
                     var = None
 
@@ -661,7 +663,7 @@ class Page(plugin.Plugin):
 
         l = self.get_locale()
         try:
-            layout = keyboard_names.layout(l, layout_name)
+            layout = keyboard_names.layout_id(l, layout_name)
         except KeyError:
             self.debug("Unknown keyboard layout '%s'" % layout_name)
             return
@@ -671,7 +673,8 @@ class Page(plugin.Plugin):
             variant = ''
         else:
             try:
-                variant = keyboard_names.variant(l, layout_name, variant_name)
+                variant = keyboard_names.variant_id(
+                    l, layout, variant_name)
             except KeyError:
                 self.debug("Unknown keyboard variant '%s' for layout '%s'" %
                            (variant_name, layout_name))

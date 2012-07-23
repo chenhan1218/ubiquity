@@ -31,10 +31,10 @@ class KeyboardNames:
         self._clear()
 
     def _clear(self):
-        self._layout = {}
-        self._layout_rev = {}
-        self._variant = {}
-        self._variant_rev = {}
+        self._layout_by_id = {}
+        self._layout_by_human = {}
+        self._variant_by_id = {}
+        self._variant_by_human = {}
 
     def _load_file(self, lang, kbdnames):
         # TODO cjwatson 2012-07-19: Work around
@@ -48,16 +48,16 @@ class KeyboardNames:
                 continue
 
             if element == "layout":
-                self._layout[name] = value
-                self._layout_rev[value] = name
+                self._layout_by_id[name] = value
+                self._layout_by_human[value] = name
             elif element == "variant":
                 variantname, variantdesc = value.split("*", 1)
-                if name not in self._variant:
-                    self._variant[name] = {}
-                self._variant[name][variantname] = variantdesc
-                if name not in self._variant_rev:
-                    self._variant_rev[name] = {}
-                self._variant_rev[name][variantdesc] = variantname
+                if name not in self._variant_by_id:
+                    self._variant_by_id[name] = {}
+                self._variant_by_id[name][variantname] = variantdesc
+                if name not in self._variant_by_human:
+                    self._variant_by_human[name] = {}
+                self._variant_by_human[name][variantdesc] = variantname
 
     def _load(self, lang):
         if lang == self._current_lang:
@@ -78,35 +78,36 @@ class KeyboardNames:
 
     def has_language(self, lang):
         self._load(lang)
-        return bool(self._layout)
+        return bool(self._layout_by_id)
 
     def has_layout(self, lang, name):
         self._load(lang)
-        return name in self._layout
+        return name in self._layout_by_id
 
-    def layout(self, lang, name):
+    def layout_human(self, lang, name):
         self._load(lang)
-        return self._layout[name]
+        return self._layout_by_id[name]
 
-    def layout_reverse(self, lang, value):
+    def layout_id(self, lang, value):
         self._load(lang)
-        return self._layout_rev[value]
+        return self._layout_by_human[value]
 
     def has_variants(self, lang, layout):
         self._load(lang)
-        return layout in self._variant
+        return layout in self._variant_by_id
 
     def has_variant(self, lang, layout, name):
         self._load(lang)
-        return layout in self._variant and name in self._variant[layout]
+        return (layout in self._variant_by_id and
+                name in self._variant_by_id[layout])
 
-    def variant(self, lang, layout, name):
+    def variant_human(self, lang, layout, name):
         self._load(lang)
-        return self._variant[layout][name]
+        return self._variant_by_id[layout][name]
 
-    def variant_reverse(self, lang, layout, value):
+    def variant_id(self, lang, layout, value):
         self._load(lang)
-        return self._variant_rev[layout][value]
+        return self._variant_by_human[layout][value]
 
 
 _keyboard_names = None
@@ -121,40 +122,48 @@ def _get_keyboard_names():
 
 
 def has_language(lang):
+    """Are there any keyboard names for this language?"""
     kn = _get_keyboard_names()
     return kn.has_language(lang)
 
 
 def has_layout(lang, name):
+    """Does this layout ID exist for this language?"""
     kn = _get_keyboard_names()
     return kn.has_layout(lang, name)
 
 
-def layout(lang, name):
+def layout_human(lang, name):
+    """Return a human layout name given a layout ID."""
     kn = _get_keyboard_names()
-    return kn.layout(lang, name)
+    return kn.layout_human(lang, name)
 
 
-def layout_reverse(lang, value):
+def layout_id(lang, value):
+    """Return a layout ID given a human layout name."""
     kn = _get_keyboard_names()
-    return kn.layout_reverse(lang, value)
+    return kn.layout_id(lang, value)
 
 
 def has_variants(lang, layout):
+    """Are there any variants for this language and layout ID?"""
     kn = _get_keyboard_names()
     return kn.has_variants(lang, layout)
 
 
 def has_variant(lang, layout, name):
+    """Does this variant ID exist for this language and layout ID?"""
     kn = _get_keyboard_names()
     return kn.has_variant(lang, layout, name)
 
 
-def variant(lang, layout, name):
+def variant_human(lang, layout, name):
+    """Return a human variant name given layout and variant IDs."""
     kn = _get_keyboard_names()
-    return kn.variant(lang, layout, name)
+    return kn.variant_human(lang, layout, name)
 
 
-def variant_reverse(lang, layout, value):
+def variant_id(lang, layout, value):
+    """Return a variant ID given a layout ID and a human variant name."""
     kn = _get_keyboard_names()
-    return kn.variant_reverse(lang, layout, value)
+    return kn.variant_id(lang, layout, value)
