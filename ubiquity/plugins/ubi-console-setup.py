@@ -668,7 +668,7 @@ class Page(plugin.Plugin):
             self.debug("Unknown keyboard layout '%s'" % layout_name)
             return
 
-        if not keyboard_names.has_variants(l, layout_name):
+        if not keyboard_names.has_variants(l, layout):
             self.debug("No known variants for layout '%s'" % layout)
             variant = ''
         else:
