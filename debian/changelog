@@ -1,3 +1,9 @@
+ubiquity (2.11.19) UNRELEASED; urgency=low
+
+  * Simplify DebconfFilter.process_line slightly.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jul 2012 13:26:31 +0100
+
 ubiquity (2.11.18) quantal; urgency=low
 
   * Don't bother keeping track of keyboard model names and identifiers, as

@@ -249,7 +249,7 @@ class DebconfFilter:
             rest = ''
 
         # Split parameters according to the command name.
-        if command not in valid_commands or valid_commands[command] == 0:
+        if valid_commands.get(command, 0) == 0:
             params = [rest]
         elif valid_commands[command] is None:
             params = rest.split()
