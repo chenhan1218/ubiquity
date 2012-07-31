@@ -17,6 +17,7 @@
 
 """Parse the output of kbdnames-maker."""
 
+from collections import defaultdict
 import gzip
 import io
 
@@ -33,7 +34,7 @@ class KeyboardNames:
     def _clear(self):
         self._layout_by_id = {}
         self._layout_by_human = {}
-        self._variant_by_id = {}
+        self._variant_by_id = defaultdict(dict)
         self._variant_by_human = {}
 
     def _load_file(self, lang, kbdnames):
@@ -52,11 +53,7 @@ class KeyboardNames:
                 self._layout_by_human[value] = name
             elif element == "variant":
                 variantname, variantdesc = value.split("*", 1)
-                if name not in self._variant_by_id:
-                    self._variant_by_id[name] = {}
                 self._variant_by_id[name][variantname] = variantdesc
-                if name not in self._variant_by_human:
-                    self._variant_by_human[name] = {}
                 self._variant_by_human[name][variantdesc] = variantname
 
     def _load(self, lang):

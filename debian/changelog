@@ -1,6 +1,7 @@
 ubiquity (2.11.19) UNRELEASED; urgency=low
 
   * Simplify DebconfFilter.process_line slightly.
+  * Simplify KeyboardNames._load_file using collections.defaultdict.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jul 2012 13:26:31 +0100
 
