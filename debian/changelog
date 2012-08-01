@@ -10,10 +10,11 @@ ubiquity (2.11.19) UNRELEASED; urgency=low
     ask page.
   * Refactor password validation from ubi-usersetup into a reusable
     component (for ubi-partman).
-  * Refactor set_autopartition_options method in ubi-partman.py
+  * Refactor set_autopartition_options method in ubi-partman.py.
   * Add crypto option to ubi-partman.
   * Add command line flag to enable crypt checkbox on the ask page.
-  * Add partman-crypto to the dependencies
+  * Add partman-crypto to the dependencies.
+  * Add translation strings for crypto.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 01 Aug 2012 15:02:14 +0100
 
