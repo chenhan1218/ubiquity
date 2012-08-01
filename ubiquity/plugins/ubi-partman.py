@@ -355,8 +355,8 @@ class PageGtk(PageBase):
             self.info_loop(None)
             return True
 
-        if self.current_page == self.page_crypto and \
-          not self.get_crypto_keys():
+        if (self.current_page == self.page_crypto and
+            not self.get_crypto_keys()):
             self.controller.allow_go_forward(False)
             return True
 
@@ -1608,7 +1608,8 @@ class Page(plugin.Plugin):
             '^partman/confirm.*',
             '^partman/free_space$',
             '^partman/active_partition$',
-            '^partman-crypto/.*passphrase.*',
+            '^partman-crypto/passphrase.*',
+            '^partman-crypto/weak_passphrase$',
             '^partman-lvm/confirm.*',
             '^partman-lvm/device_remove_lvm',
             '^partman-partitioning/new_partition_(size|type|place)$',
