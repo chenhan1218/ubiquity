@@ -1,9 +1,13 @@
 ubiquity (2.11.19) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Simplify DebconfFilter.process_line slightly.
   * Simplify KeyboardNames._load_file using collections.defaultdict.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jul 2012 13:26:31 +0100
+  [ Dmitrijs Ledkovs ]
+  * Make the UI layout test print the failed page/step name.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 01 Aug 2012 15:02:14 +0100
 
 ubiquity (2.11.18) quantal; urgency=low
 

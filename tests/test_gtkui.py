@@ -75,8 +75,8 @@ class TestFrontend(unittest.TestCase):
                     import time
                     time.sleep(3)
                 alloc = ui.live_installer.get_allocation()
-                self.assertLessEqual(alloc.width, 640)
-                self.assertLessEqual(alloc.height, 500)
+                self.assertLessEqual(alloc.width, 640, page.module.NAME)
+                self.assertLessEqual(alloc.height, 500, page.module.NAME)
                 if page.module.NAME == 'partman':
                     ui.allow_change_step(False)
 
