@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="2.24"/>
-  <!-- interface-naming-policy project-wide -->
+  <!-- interface-requires gtk+ 3.0 -->
   <!-- interface-local-resource-path /home/evan/bzr/ubiquity.partitioner-redesign/pixmaps/partitioner -->
   <object class="GtkAlignment" id="stepPartAsk">
     <property name="visible">True</property>
@@ -39,6 +38,7 @@
             <property name="spacing">12</property>
             <child>
               <object class="GtkRadioButton" id="resize_use_free">
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -46,10 +46,10 @@
                 <property name="xalign">0</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
-                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="resize_use_free_title"/>
                 </accessibility>
+                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="hbox1">
                     <property name="visible">True</property>
@@ -122,6 +122,7 @@
             </child>
             <child>
               <object class="GtkRadioButton" id="replace_partition">
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -129,10 +130,10 @@
                 <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
-                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="replace_partition_title"/>
                 </accessibility>
+                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="hbox5">
                     <property name="visible">True</property>
@@ -205,16 +206,18 @@
             </child>
             <child>
               <object class="GtkRadioButton" id="reuse_partition">
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_action_appearance">False</property>
+                <property name="xalign">0.5</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
-                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="reuse_partition_title"/>
                 </accessibility>
+                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="hbox2">
                     <property name="visible">True</property>
@@ -287,6 +290,7 @@
             </child>
             <child>
               <object class="GtkRadioButton" id="use_device">
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -294,10 +298,10 @@
                 <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
-                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="use_device_title"/>
                 </accessibility>
+                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="hbox3">
                     <property name="visible">True</property>
@@ -369,6 +373,116 @@
               </packing>
             </child>
             <child>
+              <object class="GtkCheckButton" id="use_crypto">
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_action_appearance">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+                <child>
+                  <object class="GtkBox" id="vbox7">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">3</property>
+                    <child>
+                      <object class="GtkLabel" id="use_crypto_title">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <property name="label" translatable="yes">Encrypt the new Ubuntu installation for security</property>
+                        <property name="wrap">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="use_crypto_desc">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;You’ll choose a security key in the next step.&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                        <property name="wrap">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkCheckButton" id="use_lvm">
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_action_appearance">False</property>
+                <property name="xalign">0</property>
+                <property name="draw_indicator">True</property>
+                <child>
+                  <object class="GtkBox" id="vbox8">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">3</property>
+                    <child>
+                      <object class="GtkLabel" id="use_lvm_title">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <property name="label" translatable="yes">Use LVM with the new Ubuntu installation</property>
+                        <property name="wrap">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="use_lvm_desc">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <property name="label" translatable="yes">&lt;span weight="light" size="small"&gt;This will set up Logical Volume Management. It allows taking snapshots and easier partition resizing.&lt;/span&gt;</property>
+                        <property name="use_markup">True</property>
+                        <property name="wrap">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">5</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkAlignment" id="alignment1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -384,11 +498,12 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">4</property>
+                <property name="position">6</property>
               </packing>
             </child>
             <child>
               <object class="GtkRadioButton" id="custom_partitioning">
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -396,10 +511,10 @@
                 <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">resize_use_free</property>
-                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <accessibility>
                   <relation type="labelled-by" target="custom_partitioning_title"/>
                 </accessibility>
+                <signal name="clicked" handler="part_ask_option_changed" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="hbox4">
                     <property name="visible">True</property>
@@ -467,7 +582,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">5</property>
+                <property name="position">7</property>
               </packing>
             </child>
           </object>
