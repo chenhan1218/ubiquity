@@ -369,40 +369,17 @@ class PageGtk(PageBase):
             self.username_error_label.hide()
             complete = False
 
-        passw = self.password.get_text()
-        vpassw = self.verified_password.get_text()
-        allow_empty = self.allow_password_empty
-        if passw != vpassw:
-            complete = False
-            self.password_ok.hide()
-            if passw and (len(vpassw) / float(len(passw)) > 0.8):
-                # TODO Cache, use a custom string.
-                txt = self.controller.get_string(
-                    'ubiquity/text/password_mismatch')
-                txt = (
-                    '<small>'
-                    '<span foreground="darkred"><b>%s</b></span>'
-                    '</small>' % txt)
-                self.password_error_label.set_markup(txt)
-                self.password_error_label.show()
-        else:
-            self.password_error_label.hide()
+        password_ok = validation.gtk_password_validate(
+            self.controller,
+            self.password,
+            self.verified_password,
+            self.password_ok,
+            self.password_error_label,
+            self.password_strength,
+            self.allow_password_empty,
+            )
 
-        if allow_empty:
-            self.password_strength.hide()
-        elif not passw:
-            self.password_strength.hide()
-            complete = False
-        else:
-            (txt, color) = validation.human_password_strength(passw)
-            # TODO Cache
-            txt = self.controller.get_string('ubiquity/text/password/' + txt)
-            txt = '<small><span foreground="%s"><b>%s</b></span></small>' \
-                  % (color, txt)
-            self.password_strength.set_markup(txt)
-            self.password_strength.show()
-            if passw == vpassw:
-                self.password_ok.show()
+        complete = complete and password_ok
 
         txt = self.hostname.get_text()
         self.hostname_ok.show()

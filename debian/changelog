@@ -8,6 +8,8 @@ ubiquity (2.11.19) UNRELEASED; urgency=low
   * Make the UI layout test print the failed page/step name.
   * Add crypt security key setup page and move crypt/lvm checkboxes to the
     ask page.
+  * Refactor password validation from ubi-usersetup into a reusable
+    component (for ubi-partman).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 01 Aug 2012 15:02:14 +0100
 
