@@ -2,6 +2,8 @@ ubiquity (2.11.19) UNRELEASED; urgency=low
 
   * Simplify DebconfFilter.process_line slightly.
   * Simplify KeyboardNames._load_file using collections.defaultdict.
+  * Call installprogress.finish_update() when a download fails or is
+    cancelled, not installprogress.finishUpdate() (LP: #1024043).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 31 Jul 2012 13:26:31 +0100
 
