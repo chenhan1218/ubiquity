@@ -29,6 +29,7 @@ from ubiquity import plugin
 from ubiquity import parted_server
 from ubiquity import misc
 from ubiquity import osextras
+from ubiquity import validation
 from ubiquity.install_misc import archdetect
 
 NAME = 'partman'
@@ -98,6 +99,9 @@ class PageBase(plugin.PluginUI):
     def get_grub_choice(self):
         return misc.grub_default()
 
+    def get_crypto_keys(self):
+        pass
+
 
 class PageGtk(PageBase):
     plugin_title = 'ubiquity/text/part_auto_heading_label'
@@ -114,11 +118,14 @@ class PageGtk(PageBase):
             os.environ['UBIQUITY_GLADE'], 'stepPartAuto.ui'))
         builder.add_from_file(os.path.join(
             os.environ['UBIQUITY_GLADE'], 'stepPartAdvanced.ui'))
+        builder.add_from_file(os.path.join(
+            os.environ['UBIQUITY_GLADE'], 'stepPartCrypto.ui'))
         builder.connect_signals(self)
 
         self.page_ask = builder.get_object('stepPartAsk')
         self.page_auto = builder.get_object('stepPartAuto')
         self.page_advanced = builder.get_object('stepPartAdvanced')
+        self.page_crypto = builder.get_object('stepPartCrypto')
 
         # Grub options
         self.bootloader_vbox = builder.get_object('bootloader_vbox')
@@ -139,10 +146,8 @@ class PageGtk(PageBase):
         self.part_auto_hidden_label = builder.get_object(
             'part_auto_hidden_label')
         self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
-        self.vbox_part_auto_recipes = builder.get_object(
-            'vbox_part_auto_recipes')
-        self.part_auto_use_lvm_checkbox = builder.get_object(
-            'part_auto_use_lvm_checkbox')
+        self.use_lvm = builder.get_object('use_lvm')
+        self.use_crypto = builder.get_object('use_crypto')
 
         # Ask page
         self.part_ask_heading = builder.get_object('part_ask_heading')
@@ -163,6 +168,10 @@ class PageGtk(PageBase):
             'custom_partitioning_title')
         self.custom_partitioning_desc = builder.get_object(
             'custom_partitioning_desc')
+        self.use_lvm_title = builder.get_object('use_lvm_title')
+        self.use_lvm_desc = builder.get_object('use_lvm_desc')
+        self.use_crypto_title = builder.get_object('use_crypto_title')
+        self.use_crypto_desc = builder.get_object('use_crypto_desc')
 
         # Advanced page
         self.partition_create_mount_combo = builder.get_object(
@@ -219,6 +228,19 @@ class PageGtk(PageBase):
         self.part_advanced_recalculating_label = builder.get_object(
             'part_advanced_recalculating_label')
 
+        # Crypto page
+
+        self.auto_password = builder.get_object(
+            'auto_password')
+        self.password_error_label = builder.get_object(
+            'password_error_label')
+        self.auto_verified_password = builder.get_object(
+            'auto_verified_password')
+        self.password_strength = builder.get_object(
+            'password_strength')
+        self.password_ok = builder.get_object(
+            'password_ok')
+
         self.partition_bars = {}
         self.segmented_bar_vbox = None
         self.resize_min_size = None
@@ -232,7 +254,8 @@ class PageGtk(PageBase):
             True)
         self.partition_edit_mount_combo.get_child().set_activates_default(True)
 
-        self.plugin_optional_widgets = [self.page_auto, self.page_advanced]
+        self.plugin_optional_widgets = [self.page_auto, self.page_advanced,
+                                        self.page_crypto]
         self.current_page = self.page_ask
 
         # Set some parameters that do not change between runs of the plugin
@@ -284,6 +307,10 @@ class PageGtk(PageBase):
                 os.rmdir(mount_path)
             self.controller._wizard.do_reboot()
 
+    def set_page_title(self, title):
+        self.controller._wizard.page_title.set_markup(
+            '<span size="xx-large">%s</span>' % title)
+
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
         replace = self.replace_partition.get_active()
@@ -291,29 +318,62 @@ class PageGtk(PageBase):
         custom = self.custom_partitioning.get_active()
         use_device = self.use_device.get_active()
         biggest_free = 'biggest_free' in self.extra_options
+        crypto = self.use_device.get_active()
+        one_disk = False
+
+        if custom:
+            self.set_page_title(self.custom_partitioning_title.get_text())
+            self.current_page = self.page_advanced
+            self.controller.go_to_page(self.current_page)
+            self.controller.toggle_next_button('install_button')
+            self.plugin_is_install = True
+            return False
+
+        # Setting the model early on, because if there is only one
+        # disk, we switch to install interface staight away and it
+        # queries the model to get the disk
+        m = self.part_auto_select_drive.get_model()
+        m.clear()
+        disks = self.extra_options['use_device'][1]
+        if len(disks) == 1:
+            one_disk = True
+        if use_device:
+            for disk in disks:
+                m.append([disk, ''])
+            self.part_auto_select_drive.set_active(0)
+
+        # Currently we support crypto only in use_disk
+        # TODO dmitrij.ledkov 2012-07-25 no way to go back and return
+        # to here? This needs to be addressed in the design document.
+        if crypto and use_device and self.current_page == self.page_ask:
+            self.set_page_title(
+                self.controller.get_string('ubiquity/text/crypto_label'))
+            self.current_page = self.page_crypto
+            self.controller.go_to_page(self.current_page)
+            self.controller.toggle_next_button('install_button')
+            self.plugin_is_install = True
+            self.info_loop(None)
+            return True
+
+        if (self.current_page == self.page_crypto and
+            not self.get_crypto_keys()):
+            self.controller.allow_go_forward(False)
+            return True
 
         # We already have all that we need from the user.
-        done_partitioning = (resize and biggest_free) or reuse or replace
+        done_partitioning = \
+          (resize and biggest_free) or \
+          (use_device and one_disk) or \
+          reuse or replace
 
         if self.current_page == self.page_ask and not done_partitioning:
-            if custom:
-                title = self.custom_partitioning_title.get_text()
-            elif resize:
-                title = self.resize_use_free_title.get_text()
-            elif use_device:
-                title = self.use_device_title.get_text()
-            self.controller._wizard.page_title.set_markup(
-                '<span size="xx-large">%s</span>' % title)
-
-            if resize and 'wubi' in self.extra_options:
-                self.configure_wubi_and_reboot()
-                return True
-            elif resize:
-                m = self.part_auto_select_drive.get_model()
-                m.clear()
+            if resize:
+                self.set_page_title(self.resize_use_free_title.get_text())
+                if 'wubi' in self.extra_options:
+                    self.configure_wubi_and_reboot()
+                    return True
                 extra_resize = self.extra_options['resize']
                 disk_ids = list(extra_resize.keys())
-                disks = self.extra_options['use_device'][1]
                 # FIXME: perhaps it makes more sense to store the disk
                 # description.
                 for disk in disks:
@@ -325,32 +385,21 @@ class PageGtk(PageBase):
                                   misc.format_size(part_size - min_size)])
                 self.part_auto_select_drive.set_active(0)
                 self.initialize_resize_mode()
-            elif use_device:
-                m = self.part_auto_select_drive.get_model()
-                m.clear()
-                for disk in self.extra_options['use_device'][1]:
-                    m.append([disk, ''])
-                self.part_auto_select_drive.set_active(0)
+
+            if use_device:
+                self.set_page_title(self.use_device_title.get_text())
                 self.initialize_use_disk_mode()
 
-            if not custom:
-                self.current_page = self.page_auto
-                self.controller.go_to_page(self.current_page)
-                self.controller.toggle_next_button('install_button')
-                self.plugin_is_install = True
-                return True
-            else:
-                self.current_page = self.page_advanced
-                self.controller.go_to_page(self.current_page)
-                self.controller.toggle_next_button('install_button')
-                self.plugin_is_install = True
-                return False
-        else:
-            # Return control to partman, which will call
-            # get_autopartition_choice and start partitioninging the device.
-            if not custom:
-                self.controller.switch_to_install_interface()
-            return False
+            self.current_page = self.page_auto
+            self.controller.go_to_page(self.current_page)
+            self.controller.toggle_next_button('install_button')
+            self.plugin_is_install = True
+            return True
+
+        # Return control to partman, which will call
+        # get_autopartition_choice and start partitioninging the device.
+        self.controller.switch_to_install_interface()
+        return False
 
     def plugin_on_back_clicked(self):
         if self.current_page == self.page_auto:
@@ -405,15 +454,6 @@ class PageGtk(PageBase):
             hidden = self.controller.get_string('part_auto_hidden_label')
             self.part_auto_hidden_label.set_markup(hidden % partition_count)
 
-    def set_part_auto_recipes(self):
-        '''Shows experimental LVM option. TODO actually
-        check the available options from partman. '''
-
-        if 'UBIQUITY_PARTAUTO_LVM' in os.environ:
-            self.vbox_part_auto_recipes.show_all()
-        else:
-            self.vbox_part_auto_recipes.hide()
-
     def part_ask_option_is_install(self):
         if (self.reuse_partition.get_active() or
             self.replace_partition.get_active()):
@@ -436,6 +476,11 @@ class PageGtk(PageBase):
             else:
                 self.controller.toggle_next_button()
             self.plugin_is_install = about_to_install
+
+        # Supporting crypto and lvm in new installs only for now
+        use_device = self.use_device.get_active()
+        self.use_lvm.set_sensitive(use_device)
+        self.use_crypto.set_sensitive(use_device)
 
     def initialize_resize_mode(self):
         disk_id = self.get_current_disk_partman_id()
@@ -532,7 +577,6 @@ class PageGtk(PageBase):
 
     def part_auto_select_drive_changed(self, unused_widget):
         self.set_part_auto_hidden_label()
-        self.set_part_auto_recipes()
         disk_id = self.get_current_disk_partman_id()
         if not disk_id:
             return
@@ -581,46 +625,56 @@ class PageGtk(PageBase):
     def set_autopartition_options(self, options, extra_options):
         # TODO Need to select a radio button when resize isn't around.
         self.extra_options = extra_options
-
         fmt = '<span size="small">%s</span>'
-        self.use_device_title.set_label(options['use_device'].title)
-        self.use_device_desc.set_markup(fmt % options['use_device'].desc)
-        # To give a nice text effect.
-        self.use_device_desc.set_sensitive(False)
-        self.custom_partitioning_title.set_label(options['manual'].title)
-        self.custom_partitioning_desc.set_markup(fmt % options['manual'].desc)
-        self.custom_partitioning_desc.set_sensitive(False)
+        option_to_widget = OrderedDict({
+            "resize": "resize_use_free",
+            "reuse": "reuse_partition",
+            "replace": "replace_partition",
+            "use_device": "use_device",
+            "manual": "custom_partitioning",
+            "some_device_crypto": "use_crypto",
+            "some_device_lvm": "use_lvm",
+            })
 
-        if 'replace' in options:
-            self.replace_partition.show()
-            self.replace_partition_title.set_label(options['replace'].title)
-            self.replace_partition_desc.set_markup(
-                fmt % options['replace'].desc)
-            self.replace_partition_desc.set_sensitive(False)
-        else:
-            self.replace_partition.hide()
+        if 'some_device_crypto' in extra_options:
+            title = self.controller.get_string(
+                'ubiquity/text/use_crypto_title')
+            desc = self.controller.get_string('ubiquity/text/use_crypto_desc')
+            options['some_device_crypto'] = PartitioningOption(title, desc)
 
-        if 'reuse' in options:
-            self.reuse_partition.show()
-            self.reuse_partition_title.set_markup(options['reuse'].title)
-            self.reuse_partition_desc.set_markup(fmt % options['reuse'].desc)
-            self.reuse_partition_desc.set_sensitive(False)
-        else:
-            self.reuse_partition.hide()
+        if 'some_device_lvm' in extra_options:
+            title = self.controller.get_string('ubiquity/text/use_lvm_title')
+            desc = self.controller.get_string('ubiquity/text/use_lvm_desc')
+            options['some_device_lvm'] = PartitioningOption(title, desc)
 
-        if 'resize' in options:
-            self.resize_use_free.show()
-            self.resize_use_free_title.set_label(options['resize'].title)
-            self.resize_use_free_desc.set_markup(fmt % options['resize'].desc)
-            self.resize_use_free_desc.set_sensitive(False)
-        else:
-            self.resize_use_free.hide()
+        for option in option_to_widget:
+            name = option_to_widget[option]
+            opt_widget = getattr(self, name)
+            opt_title = getattr(self, name + '_title')
+            opt_desc = getattr(self, name + '_desc')
 
-        for opt in (self.resize_use_free, self.reuse_partition,
-                    self.replace_partition, self.use_device):
-            if opt.get_property('visible'):
-                opt.set_active(True)
-                break
+            if option in options:
+                opt_widget.show()
+                opt_title.set_label(options[option].title)
+                opt_desc.set_markup(fmt % options[option].desc)
+                opt_desc.set_sensitive(False)
+            else:
+                opt_widget.hide()
+
+            # dmitrij.ledkov 2012-07-23: Hide LVM from the UI, until
+            # we design user-friendly way of expressing this, or we
+            # switch to lvm installs by default....
+            if option == 'some_device_lvm':
+                if 'UBIQUITY_PARTAUTO_LVM' in os.environ:
+                    opt_widget.show()
+                else:
+                    opt_widget.hide()
+
+            if option == 'some_device_crypto':
+                if 'UBIQUITY_PARTAUTO_CRYPTO' in os.environ:
+                    opt_widget.show()
+                else:
+                    opt_widget.hide()
 
         # Process the default selection
         self.part_ask_option_changed(None)
@@ -649,15 +703,20 @@ class PageGtk(PageBase):
 
         elif self.use_device.get_active():
             def choose_recipe():
-                # TODO dmitrij.ledkov 2012-07-10: To be extended with
-                # other complex recipes, e.g. stacking crypt & raid.
+                # TODO dmitrij.ledkov 2012-07-23: RAID recipe?
 
                 have_lvm = 'some_device_lvm' in self.extra_options
+                want_lvm = self.use_lvm.get_active()
 
-                if 'UBIQUITY_PARTAUTO_LVM' not in os.environ or not have_lvm:
+                have_crypto = 'some_device_crypto' in self.extra_options
+                want_crypto = self.use_crypto.get_active()
+
+                if not ((want_crypto and have_crypto) or
+                        (want_lvm and have_lvm)):
                     return self.extra_options['use_device'][0]
 
-                want_lvm = self.part_auto_use_lvm_checkbox.get_active()
+                if want_crypto:
+                    return self.extra_options['some_device_crypto']
 
                 if want_lvm:
                     return self.extra_options['some_device_lvm']
@@ -1379,6 +1438,25 @@ class PageGtk(PageBase):
         self.part_advanced_warning_message.set_text(message)
         self.part_advanced_warning_hbox.show_all()
 
+    # Crypto Page
+    def info_loop(self, unused_widget):
+        complete = validation.gtk_password_validate(
+            self.controller,
+            self.auto_password,
+            self.auto_verified_password,
+            self.password_ok,
+            self.password_error_label,
+            self.password_strength
+            )
+        self.controller.allow_go_forward(complete)
+        return complete
+
+    def get_crypto_keys(self):
+        if self.info_loop(None):
+            return self.auto_password.get_text()
+        else:
+            return False
+
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_partition'
@@ -1530,7 +1608,10 @@ class Page(plugin.Plugin):
             '^partman/confirm.*',
             '^partman/free_space$',
             '^partman/active_partition$',
+            '^partman-crypto/passphrase.*',
+            '^partman-crypto/weak_passphrase$',
             '^partman-lvm/confirm.*',
+            '^partman-lvm/device_remove_lvm',
             '^partman-partitioning/new_partition_(size|type|place)$',
             '^partman-target/choose_method$',
             '^partman-basicfilesystems/'
@@ -1996,6 +2077,7 @@ class Page(plugin.Plugin):
         resize_option = ('resize' in self.extra_options or
                          'biggest_free' in self.extra_options)
 
+        # Irrespective of os_counts
         # We always have the manual partitioner, and it always has the same
         # title and description.
         q = 'ubiquity/partitioner/advanced'
@@ -2129,6 +2211,10 @@ class Page(plugin.Plugin):
                     self.description('partman-auto/text/resize_use_free')
                 self.manual_desc = \
                     self.description('partman-auto/text/custom_partitioning')
+                self.some_device_lvm_desc = \
+                    self.description('partman-auto-lvm/text/choice')
+                self.some_device_crypto_desc = \
+                    self.description('partman-auto-crypto/text/choice')
                 self.extra_options = {}
                 if choices:
                     self.auto_state = [0, None]
@@ -2248,6 +2334,18 @@ class Page(plugin.Plugin):
                     self.extra_options['replace'] = []
                     for option in replace:
                         self.extra_options['replace'].append(option[2])
+
+                some_device_lvm = self.find_script(menu_options,
+                                                   'some_device_lvm')
+                if some_device_lvm:
+                    self.extra_options['some_device_lvm'] = \
+                      self.some_device_lvm_desc
+
+                some_device_crypto = self.find_script(menu_options,
+                                                      'some_device_crypto')
+                if some_device_crypto:
+                    self.extra_options['some_device_crypto'] = \
+                      self.some_device_crypto_desc
 
             # We always have the manual option.
             self.extra_options['manual'] = self.manual_desc
@@ -2909,6 +3007,22 @@ class Page(plugin.Plugin):
                 return True
             else:
                 raise AssertionError("Arrived at %s unexpectedly" % question)
+
+        elif question.startswith('partman-lvm/confirm') or \
+          question == 'partman-lvm/device_remove_lvm':
+            self.preseed_bool(question, True, seen=False)
+            self.succeeded = True
+            return True
+
+        elif question == 'partman-crypto/weak_passphrase':
+            self.preseed_bool(question, True, seen=False)
+            return True
+
+        elif question.startswith('partman-crypto/passphrase'):
+            if not self.ui.get_crypto_keys():
+                return False
+            self.preseed(question, self.ui.get_crypto_keys())
+            return True
 
         elif question.startswith('partman/confirm'):
             self.db.set('ubiquity/partman-confirm', question[8:])

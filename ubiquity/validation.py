@@ -140,3 +140,51 @@ def human_password_strength(password):
         hint = 'strong'
         color = 'darkgreen'
     return (hint, color)
+
+
+# TODO dmitrij.ledkov 2012-07-23: factor-out further into generic
+# page/pagegtk/pagekde sub-widget
+def gtk_password_validate(controller,
+                          password,
+                          verified_password,
+                          password_ok,
+                          password_error_label,
+                          password_strength,
+                          allow_empty=False,
+                          ):
+    complete = True
+    passw = password.get_text()
+    vpassw = verified_password.get_text()
+    if passw != vpassw:
+        complete = False
+        password_ok.hide()
+        if passw and (len(vpassw) / float(len(passw)) > 0.8):
+            # TODO Cache, use a custom string.
+            txt = controller.get_string(
+                'ubiquity/text/password_mismatch')
+            txt = (
+                '<small>'
+                '<span foreground="darkred"><b>%s</b></span>'
+                '</small>' % txt)
+            password_error_label.set_markup(txt)
+            password_error_label.show()
+    else:
+        password_error_label.hide()
+
+    if allow_empty:
+        password_strength.hide()
+    elif not passw:
+        password_strength.hide()
+        complete = False
+    else:
+        (txt, color) = human_password_strength(passw)
+        # TODO Cache
+        txt = controller.get_string('ubiquity/text/password/' + txt)
+        txt = '<small><span foreground="%s"><b>%s</b></span></small>' \
+              % (color, txt)
+        password_strength.set_markup(txt)
+        password_strength.show()
+        if passw == vpassw:
+            password_ok.show()
+
+    return complete
