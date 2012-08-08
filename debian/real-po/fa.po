@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-07-16 11:30+0100\n"
+"POT-Creation-Date: 2012-08-08 12:36+0100\n"
 "PO-Revision-Date: 2009-09-05 19:30+0000\n"
 "Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: <fa@li.org>\n"
@@ -1720,7 +1720,80 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:257001
-msgid "Set up LVM"
+msgid "Encrypt the new Ubuntu installation for security"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:258001
+msgid "You will choose a security key in the next step."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:259001
+msgid "Use LVM with the new Ubuntu installation"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:260001
+msgid ""
+"This will set up Logical Volume Management. It allows taking snapshots and "
+"easier partition resizing."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:261001
+msgid "Confirm the security key:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:262001
+msgid "Choose a security key:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:263001
+msgid ""
+"Disk encryption protects your files in case you lose your computer. It "
+"requires you to enter a security key each time the computer starts up."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:264001
+msgid "Any files outside of Ubuntu will not be encrypted."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:265001
+msgid ""
+"<span foreground=\"darkred\">Warning:</span> If you lose this security key, "
+"all data will be lost. If you need to, write down your key and keep it in a "
+"safe place elsewhere."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:266001
+msgid "For more security:"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:267001
+msgid "Overwrite empty disk space"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:268001
+msgid "The installation may take much longer."
 msgstr ""
 
 #. Type: title
