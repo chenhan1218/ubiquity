@@ -722,7 +722,7 @@ def copy_file(db, sourcepath, targetpath, md5_check):
 
         with open(sourcepath, 'rb') as sourcefh, \
              open(targetpath, 'wb') as targetfh:
-            while 1:
+            while True:
                 buf = sourcefh.read(16 * 1024)
                 if not buf:
                     break
@@ -736,7 +736,7 @@ def copy_file(db, sourcepath, targetpath, md5_check):
         with open(targetpath, 'rb') as targetfh:
             if md5_check:
                 targethash = hashlib.md5()
-            while 1:
+            while True:
                 buf = targetfh.read(16 * 1024)
                 if not buf:
                     break
