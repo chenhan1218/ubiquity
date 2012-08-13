@@ -1,3 +1,10 @@
+ubiquity (2.11.20) UNRELEASED; urgency=low
+
+  * Fix incomplete simplification of KeyboardNames._load_file
+    (LP: #1034960).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 13 Aug 2012 10:31:28 +0100
+
 ubiquity (2.11.19) quantal; urgency=low
 
   [ Colin Watson ]

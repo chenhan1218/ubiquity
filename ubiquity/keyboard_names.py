@@ -35,7 +35,7 @@ class KeyboardNames:
         self._layout_by_id = {}
         self._layout_by_human = {}
         self._variant_by_id = defaultdict(dict)
-        self._variant_by_human = {}
+        self._variant_by_human = defaultdict(dict)
 
     def _load_file(self, lang, kbdnames):
         # TODO cjwatson 2012-07-19: Work around
