@@ -1,11 +1,11 @@
-ubiquity (2.11.20) UNRELEASED; urgency=low
+ubiquity (2.11.20) quantal; urgency=low
 
   * Fix incomplete simplification of KeyboardNames._load_file
     (LP: #1034960).
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu20, partman-partitioning 87ubuntu1, preseed 1.54ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 13 Aug 2012 10:31:28 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 13 Aug 2012 10:39:35 +0100
 
 ubiquity (2.11.19) quantal; urgency=low
 
