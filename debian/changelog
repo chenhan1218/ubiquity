@@ -4,8 +4,9 @@ ubiquity (2.11.21) UNRELEASED; urgency=low
   * Correct a mistake in refactoring: Do not clear drive selection, just
     before switching to install interface, instead guard by checking for
     correct current page. (LP: #1034954).
+  * Mark optional options as invisible by default (LP: #1035514).
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 13 Aug 2012 18:00:01 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 13 Aug 2012 18:08:43 +0100
 
 ubiquity (2.11.20) quantal; urgency=low
 

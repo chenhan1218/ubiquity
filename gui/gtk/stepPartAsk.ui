@@ -375,7 +375,6 @@
             <child>
               <object class="GtkCheckButton" id="use_crypto">
                 <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_action_appearance">False</property>
@@ -430,7 +429,6 @@
             <child>
               <object class="GtkCheckButton" id="use_lvm">
                 <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_action_appearance">False</property>

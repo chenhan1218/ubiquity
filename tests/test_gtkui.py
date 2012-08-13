@@ -58,13 +58,8 @@ class TestFrontend(unittest.TestCase):
     # currently rather unstable and seem to depend quite a lot on the theme.
     # This may have something to do with pixmaps not being set up properly
     # when testing against a build tree.
-    # TODO dmitrij.ledkov 2012-08-08 for some reason 5579.1.2 broke
-    # this unit test and the page allocation is now too high,
-    # 593. Needs fixing / checking if this test case is still failing
-    # after the images are removed from the ask page.
     @unittest.skipIf('UBIQUITY_TEST_INSTALLED' in os.environ,
                      'only testable against a build tree')
-    @unittest.expectedFailure
     def test_pages_fit_on_a_netbook(self):
         from ubiquity.frontend import gtk_ui
         with EnvironmentVarGuard() as env:
