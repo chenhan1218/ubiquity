@@ -1,4 +1,4 @@
-ubiquity (2.11.21) UNRELEASED; urgency=low
+ubiquity (2.11.21) quantal; urgency=low
 
   * Fix a typpo when checking if crypto option was selected (LP: #1035167).
   * Correct a mistake in refactoring: Do not clear drive selection, just
