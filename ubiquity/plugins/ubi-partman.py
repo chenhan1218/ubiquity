@@ -318,7 +318,7 @@ class PageGtk(PageBase):
         custom = self.custom_partitioning.get_active()
         use_device = self.use_device.get_active()
         biggest_free = 'biggest_free' in self.extra_options
-        crypto = self.use_device.get_active()
+        crypto = self.use_crypto.get_active()
         one_disk = False
 
         if custom:
