@@ -1,8 +1,11 @@
 ubiquity (2.11.21) UNRELEASED; urgency=low
 
   * Fix a typpo when checking if crypto option was selected (LP: #1035167).
+  * Correct a mistake in refactoring: Do not clear drive selection, just
+    before switching to install interface, instead guard by checking for
+    correct current page. (LP: #1034954).
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 13 Aug 2012 14:28:15 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 13 Aug 2012 18:00:01 +0100
 
 ubiquity (2.11.20) quantal; urgency=low
 

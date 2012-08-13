@@ -319,7 +319,8 @@ class PageGtk(PageBase):
         use_device = self.use_device.get_active()
         biggest_free = 'biggest_free' in self.extra_options
         crypto = self.use_crypto.get_active()
-        one_disk = False
+        disks = self.extra_options['use_device'][1]
+        one_disk = len(disks) == 1
 
         if custom:
             self.set_page_title(self.custom_partitioning_title.get_text())
@@ -332,15 +333,13 @@ class PageGtk(PageBase):
         # Setting the model early on, because if there is only one
         # disk, we switch to install interface staight away and it
         # queries the model to get the disk
-        m = self.part_auto_select_drive.get_model()
-        m.clear()
-        disks = self.extra_options['use_device'][1]
-        if len(disks) == 1:
-            one_disk = True
-        if use_device:
-            for disk in disks:
-                m.append([disk, ''])
-            self.part_auto_select_drive.set_active(0)
+        if self.current_page == self.page_ask:
+            m = self.part_auto_select_drive.get_model()
+            m.clear()
+            if use_device:
+                for disk in disks:
+                    m.append([disk, ''])
+                self.part_auto_select_drive.set_active(0)
 
         # Currently we support crypto only in use_disk
         # TODO dmitrij.ledkov 2012-07-25 no way to go back and return
