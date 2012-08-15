@@ -66,13 +66,14 @@ script
     done
     [ "$ubiquity" ]
 
-    if [ -r /etc/environment ]; then
-	if LANG=$(pam_getenv -l LANG); then
-	    export LANG
-	fi
-	if LANGUAGE=$(pam_getenv -l LANGUAGE); then
-	    export LANGUAGE
-	fi
+    if [ -r /etc/default/locale ]; then
+        . /etc/default/locale
+        if [ -n "$LANG" ]; then
+            export LANG
+        fi
+        if [ -n "$LANGUAGE" ]; then
+            export LANGUAGE
+        fi
     fi
 
     initctl emit starting-dm DM=ubiquity-dm

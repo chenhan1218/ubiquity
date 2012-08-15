@@ -1,3 +1,10 @@
+ubiquity (2.11.22) UNRELEASED; urgency=low
+
+  * Fix ubiquity upstart job to use /etc/default/locale as the source of
+    LANG and LANGUAGE instead of /etc/environment (LP: #1037001)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 15 Aug 2012 16:42:42 -0400
+
 ubiquity (2.11.21) quantal; urgency=low
 
   * Fix a typpo when checking if crypto option was selected (LP: #1035167).
