@@ -1,9 +1,14 @@
 ubiquity (2.11.22) UNRELEASED; urgency=low
 
+  [ Stéphane Graber ]
   * Fix ubiquity upstart job to use /etc/default/locale as the source of
     LANG and LANGUAGE instead of /etc/environment (LP: #1037001)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 15 Aug 2012 16:42:42 -0400
+  [ Dmitrijs Ledkovs ]
+  * Remove pictograms from the partAsk page
+  * Make full disk encryption tickbox visible by default
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 16 Aug 2012 11:00:27 +0100
 
 ubiquity (2.11.21) quantal; urgency=low
 
