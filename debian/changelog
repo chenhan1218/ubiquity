@@ -7,8 +7,9 @@ ubiquity (2.11.22) UNRELEASED; urgency=low
   [ Dmitrijs Ledkovs ]
   * Remove pictograms from the partAsk page
   * Make full disk encryption tickbox visible by default
+  * Make the security key page layout centered and fixed
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 16 Aug 2012 11:00:27 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 17 Aug 2012 10:37:21 +0100
 
 ubiquity (2.11.21) quantal; urgency=low
 

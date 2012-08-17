@@ -213,12 +213,13 @@ def map_widget_name(prefix, name):
     """Map a widget name to its translatable template."""
     if prefix is None:
         prefix = 'ubiquity/text'
-    if '/' in name:
+    if '/' in name and not name.startswith('password/'):
         question = name
     elif name in string_questions:
         question = string_questions[name]
     else:
         question = '%s/%s' % (prefix, name)
+    print(question)
     return question
 
 

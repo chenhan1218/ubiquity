@@ -138,7 +138,8 @@ class PageGtk(PageBase):
         self.part_auto_select_drive = builder.get_object(
             'part_auto_select_drive')
         self.resize_use_free = builder.get_object('resize_use_free_title')
-        self.custom_partitioning = builder.get_object('custom_partitioning_title')
+        self.custom_partitioning = builder.get_object(
+            'custom_partitioning_title')
         self.replace_partition = builder.get_object('replace_partition_title')
         self.use_device = builder.get_object('use_device_title')
         self.reuse_partition = builder.get_object('reuse_partition_title')
@@ -218,18 +219,32 @@ class PageGtk(PageBase):
             'part_advanced_recalculating_label')
 
         # Crypto page
-
-        self.auto_password = builder.get_object(
-            'auto_password')
-        self.password_error_label = builder.get_object(
-            'password_error_label')
-        self.auto_verified_password = builder.get_object(
-            'auto_verified_password')
+        self.crypto_grid = builder.get_object(
+            'crypto_grid')
+        self.password_grid = builder.get_object(
+            'password_grid')
+        self.password = builder.get_object(
+            'password')
+        self.verified_password = builder.get_object(
+            'verified_password')
         self.password_strength = builder.get_object(
             'password_strength')
-        self.password_ok = builder.get_object(
-            'password_ok')
-        
+        self.password_match = builder.get_object(
+            'password_match')
+        self.password_strength_pages = {
+            'empty': 0,
+            'too_short': 1,
+            'weak': 2,
+            'fair': 3,
+            'good': 4,
+            'strong': 5,
+        }
+        self.password_match_pages = {
+            'empty': 0,
+            'mismatch': 1,
+            'ok': 2,
+        }
+
         self.partition_bars = {}
         self.segmented_bar_vbox = None
         self.resize_min_size = None
@@ -1425,20 +1440,32 @@ class PageGtk(PageBase):
 
     # Crypto Page
     def info_loop(self, unused_widget):
-        complete = validation.gtk_password_validate(
-            self.controller,
-            self.auto_password,
-            self.auto_verified_password,
-            self.password_ok,
-            self.password_error_label,
-            self.password_strength
-            )
+        complete = True
+        passw = self.password.get_text()
+        vpassw = self.verified_password.get_text()
+
+        if passw != vpassw or not passw:
+            complete = False
+            self.password_match.set_current_page(
+                self.password_match_pages['empty'])
+            if passw and (len(vpassw) / float(len(passw)) > 0.8):
+                self.password_match.set_current_page(
+                    self.password_match_pages['mismatch'])
+        else:
+            self.password_match.set_current_page(
+                self.password_match_pages['ok'])
+
+        if passw:
+            txt = validation.human_password_strength(passw)[0]
+            self.password_strength.set_current_page(
+                self.password_strength_pages[txt])
+
         self.controller.allow_go_forward(complete)
         return complete
 
     def get_crypto_keys(self):
         if self.info_loop(None):
-            return self.auto_password.get_text()
+            return self.password.get_text()
         else:
             return False
 
