@@ -8,6 +8,8 @@ ubiquity (2.11.22) UNRELEASED; urgency=low
   * Remove pictograms from the partAsk page
   * Make full disk encryption tickbox visible by default
   * Make the security key page layout centered and fixed
+  * Automatic update of included source packages: partman-crypto
+    54ubuntu1.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 17 Aug 2012 10:37:21 +0100
 
