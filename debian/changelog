@@ -1,4 +1,4 @@
-ubiquity (2.11.22) UNRELEASED; urgency=low
+ubiquity (2.11.22) quantal; urgency=low
 
   [ Stéphane Graber ]
   * Fix ubiquity upstart job to use /etc/default/locale as the source of
