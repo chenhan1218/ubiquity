@@ -359,6 +359,7 @@ EndSection
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
                 if (accessibility or 'maybe-ubiquity' in fp.readline() or
+                    'only-ubiquity' in fp.readline() or
                     program_basename == 'oem-config-wrapper'):
                     launcher = '/usr/lib/at-spi2-core/at-spi-bus-launcher'
                     if os.path.exists(launcher):

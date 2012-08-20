@@ -325,27 +325,29 @@ class Wizard(BaseFrontend):
 
         self.customize_installer()
 
-        # Put up the a11y indicator in maybe-ubiquity mode
+        # Put up the a11y indicator in *-ubiquity and oemconfig.
         if osextras.find_on_path('casper-a11y-enable'):
-            if 'UBIQUITY_GREETER' in os.environ or self.oem_user_config:
-                try:
-                    from gi.repository import AppIndicator3 as AppIndicator
-                    self.indicator = AppIndicator.Indicator.new(
-                        'ubiquity', 'accessibility-directory',
-                        AppIndicator.IndicatorCategory.OTHER)
-                    self.indicator.set_status(
-                        AppIndicator.IndicatorStatus.ACTIVE)
-                    self.indicator.set_menu(
-                        self.builder.get_object('a11y_indicator_menu'))
-                    self.live_installer.connect(
-                        'key-press-event', self.a11y_profile_keys)
-                    if osextras.find_on_path('canberra-gtk-play'):
-                        subprocess.Popen(
-                            ['canberra-gtk-play', '--id=system-ready'],
-                            preexec_fn=misc.drop_all_privileges)
-                except:
-                    print("Unable to set up accessibility profile support.",
-                          file=sys.stderr)
+            with open('/proc/cmdline') as fp:
+                if ('UBIQUITY_GREETER' in os.environ or self.oem_user_config or
+                   'only-ubiquity' in fp.read()):
+                    try:
+                        from gi.repository import AppIndicator3 as AppIndicator
+                        self.indicator = AppIndicator.Indicator.new(
+                            'ubiquity', 'accessibility-directory',
+                            AppIndicator.IndicatorCategory.OTHER)
+                        self.indicator.set_status(
+                            AppIndicator.IndicatorStatus.ACTIVE)
+                        self.indicator.set_menu(
+                            self.builder.get_object('a11y_indicator_menu'))
+                        self.live_installer.connect(
+                            'key-press-event', self.a11y_profile_keys)
+                        if osextras.find_on_path('canberra-gtk-play'):
+                            subprocess.Popen(
+                                ['canberra-gtk-play', '--id=system-ready'],
+                                preexec_fn=misc.drop_all_privileges)
+                    except:
+                        print("Unable to set up accessibility profile support",
+                              file=sys.stderr)
 
     def all_children(self, parent):
         if isinstance(parent, Gtk.Container):

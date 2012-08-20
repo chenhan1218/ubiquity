@@ -1,3 +1,11 @@
+ubiquity (2.11.23) UNRELEASED; urgency=low
+
+  * Show the accessibility indicator in only-ubiquity as well.
+  * Tweak the error message displayed when the accessibility indicator
+    cannot be shown, to satisfy PEP tests.
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Mon, 20 Aug 2012 15:14:44 +1000
+
 ubiquity (2.11.22) quantal; urgency=low
 
   [ Stéphane Graber ]
