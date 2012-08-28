@@ -437,24 +437,22 @@ class BaseFrontend:
 
     def slideshow_get_available_locale(self, slideshow_dir, locale):
         # Returns the ideal locale for the given slideshow, based on the
-        # given locale, or 'c' if an ideal one is not available.
+        # given locale, or 'C' if an ideal one is not available.
         # For example, with locale=en_CA, this returns en if en_CA is not
         # available. If en is not available this would return c.
 
-        slides_dir = '%s/slides' % slideshow_dir
-        locale_choice = 'c'
+        base_slides_dir = os.path.join(slideshow_dir, 'slides', 'l10n')
+        extra_slides_dir = os.path.join(base_slides_dir, 'extra')
 
-        if os.path.exists('%s/loc.%s' % (slides_dir, locale)):
-            locale_choice = locale
-        else:
-            ll_cc = locale.split('.')[0]
-            ll = ll_cc.split('_')[0]
-            if os.path.exists('%s/loc.%s' % (slides_dir, ll_cc)):
-                locale_choice = ll_cc
-            elif os.path.exists('%s/loc.%s' % (slides_dir, ll)):
-                locale_choice = ll
+        ll_cc = locale.split('.')[0]
+        ll = ll_cc.split('_')[0]
 
-        return locale_choice
+        for slides_dir in [extra_slides_dir, base_slides_dir]:
+            for test_locale in [locale, ll_cc, ll]:
+                locale_dir = os.path.join(slides_dir, test_locale)
+                if os.path.exists(locale_dir):
+                    return test_locale
+        return 'C'
 
     def check_returncode(self, *args):
         if self.wget_retcode is not None or self.wget_proc is None:

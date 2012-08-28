@@ -805,17 +805,20 @@ class Wizard(BaseFrontend):
             return
 
         self.page_section.hide()
+
         slideshow_locale = self.slideshow_get_available_locale(
             self.slideshow, self.locale)
-        slideshow_main = self.slideshow + '/slides/index.html'
+        slideshow_main = os.path.join(self.slideshow, 'slides', 'index.html')
 
-        slides = 'file://' + slideshow_main
-        if slideshow_locale != 'c':  # slideshow will use default automatically
-            slides += '#?locale=' + slideshow_locale
-            ltr = i18n.get_string(
-                'default-ltr', slideshow_locale, 'ubiquity/imported')
-            if ltr == 'default:RTL':
-                slides += '?rtl'
+        parameters = []
+        parameters.append('locale=%s' % slideshow_locale)
+        ltr = i18n.get_string(
+            'default-ltr', slideshow_locale, 'ubiquity/imported')
+        if ltr == 'default:RTL':
+            parameters.append('rtl')
+        parameters_encoded = '&'.join(parameters)
+
+        slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
         from gi.repository import WebKit
         # We have no significant browsing interface, so there isn't much point

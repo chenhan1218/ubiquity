@@ -568,18 +568,20 @@ class Wizard(BaseFrontend):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir,
                                                                self.locale)
-        slideshow_main = slideshow_dir + '/slides/index.html'
+        slideshow_main = os.path.join(slideshow_dir, 'slides', 'index.html')
         if not os.path.exists(slideshow_main) or self.hide_slideshow:
             self.ui.pageMode.hide()
             return
 
-        slides = 'file://' + slideshow_main
-        if slideshow_locale != 'c':  # slideshow will use default automatically
-            slides += '#?locale=' + slideshow_locale
-            ltr = i18n.get_string('default-ltr', slideshow_locale,
-                                  'ubiquity/imported')
-            if ltr == 'default:RTL':
-                slides += '?rtl'
+        parameters = []
+        parameters.append('locale=%s' % slideshow_locale)
+        ltr = i18n.get_string(
+            'default-ltr', slideshow_locale, 'ubiquity/imported')
+        if ltr == 'default:RTL':
+            parameters.append('rtl')
+        parameters_encoded = '&'.join(parameters)
+
+        slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
         from PyQt4.QtWebKit import QWebView
         from PyQt4.QtWebKit import QWebPage
