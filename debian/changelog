@@ -1,4 +1,4 @@
-ubiquity (2.11.24) UNRELEASED; urgency=low
+ubiquity (2.11.24) quantal; urgency=low
 
   [ Dylan McCall ]
   * Tweaks to support ubiquity-slideshow's new file structure and parameter format (LP: #1035806)
