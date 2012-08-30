@@ -110,7 +110,8 @@ class PageGtk(PageBase):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         from gi.repository import Gtk
-        builder = Gtk.Builder()
+        from ubiquity.gtkwidgets import Builder
+        builder = Builder()
         self.controller.add_builder(builder)
         builder.add_from_file(os.path.join(
             os.environ['UBIQUITY_GLADE'], 'stepPartAsk.ui'))
@@ -127,110 +128,10 @@ class PageGtk(PageBase):
         self.page_advanced = builder.get_object('stepPartAdvanced')
         self.page_crypto = builder.get_object('stepPartCrypto')
 
-        # Grub options
-        self.bootloader_vbox = builder.get_object('bootloader_vbox')
-        self.grub_device_entry = builder.get_object('grub_device_entry')
-
-        # Automatic page
-        self.resizewidget = builder.get_object('resizewidget')
-        self.partitionbox = builder.get_object('partitionbox')
-        self.partition_container = builder.get_object('partition_container')
-        self.part_auto_select_drive = builder.get_object(
-            'part_auto_select_drive')
-        self.resize_use_free = builder.get_object('resize_use_free_title')
-        self.custom_partitioning = builder.get_object(
-            'custom_partitioning_title')
-        self.replace_partition = builder.get_object('replace_partition_title')
-        self.use_device = builder.get_object('use_device_title')
-        self.reuse_partition = builder.get_object('reuse_partition_title')
-        self.use_lvm = builder.get_object('use_lvm_title')
-        self.use_crypto = builder.get_object('use_crypto_title')
-        self.part_auto_allocate_label = builder.get_object(
-            'part_auto_allocate_label')
-        self.part_auto_hidden_label = builder.get_object(
-            'part_auto_hidden_label')
-        self.part_advanced_vbox = builder.get_object('part_advanced_vbox')
-
-        # Ask page
-        self.part_ask_heading = builder.get_object('part_ask_heading')
-        self.use_device_desc = builder.get_object('use_device_desc')
-        self.replace_partition_desc = builder.get_object(
-            'replace_partition_desc')
-        self.reuse_partition_desc = builder.get_object('reuse_partition_desc')
-        self.resize_use_free_desc = builder.get_object('resize_use_free_desc')
-        self.custom_partitioning_desc = builder.get_object(
-            'custom_partitioning_desc')
-        self.use_lvm_desc = builder.get_object('use_lvm_desc')
-        self.use_crypto_desc = builder.get_object('use_crypto_desc')
-
-        # Advanced page
-        self.partition_create_mount_combo = builder.get_object(
-            'partition_create_mount_combo')
-        self.partition_edit_mount_combo = builder.get_object(
-            'partition_edit_mount_combo')
-        self.partition_create_dialog = builder.get_object(
-            'partition_create_dialog')
-        self.partition_list_treeview = builder.get_object(
-            'partition_list_treeview')
-        self.partition_create_type_label = builder.get_object(
-            'partition_create_type_label')
-        self.partition_create_type_primary = builder.get_object(
-            'partition_create_type_primary')
-        self.partition_create_type_logical = builder.get_object(
-            'partition_create_type_logical')
-        self.partition_create_size_spinbutton = builder.get_object(
-            'partition_create_size_spinbutton')
-        self.partition_create_place_beginning = builder.get_object(
-            'partition_create_place_beginning')
-        self.partition_create_use_combo = builder.get_object(
-            'partition_create_use_combo')
-        self.partition_edit_dialog = builder.get_object(
-            'partition_edit_dialog')
-        self.partition_edit_size_label = builder.get_object(
-            'partition_edit_size_label')
-        self.partition_edit_size_spinbutton = builder.get_object(
-            'partition_edit_size_spinbutton')
-        self.partition_edit_use_combo = builder.get_object(
-            'partition_edit_use_combo')
-        self.partition_edit_format_label = builder.get_object(
-            'partition_edit_format_label')
-        self.partition_edit_format_checkbutton = builder.get_object(
-            'partition_edit_format_checkbutton')
-        self.partition_button_new_label = builder.get_object(
-            'partition_button_new_label')
-        self.partition_button_new = builder.get_object('partition_button_new')
-        self.partition_button_edit = builder.get_object(
-            'partition_button_edit')
-        self.partition_button_delete = builder.get_object(
-            'partition_button_delete')
-        self.partition_button_undo = builder.get_object(
-            'partition_button_undo')
-        self.part_advanced_warning_message = builder.get_object(
-            'part_advanced_warning_message')
-        self.part_advanced_warning_hbox = builder.get_object(
-            'part_advanced_warning_hbox')
-        self.partition_list_buttonbox = builder.get_object(
-            'partition_list_buttonbox')
-        self.part_advanced_recalculating_box = builder.get_object(
-            'part_advanced_recalculating_box')
-        self.part_advanced_recalculating_spinner = builder.get_object(
-            'part_advanced_recalculating_spinner')
-        self.part_advanced_recalculating_label = builder.get_object(
-            'part_advanced_recalculating_label')
+        for wdg in builder.get_object_ids():
+            setattr(self, wdg, builder.get_object(wdg))
 
         # Crypto page
-        self.crypto_grid = builder.get_object(
-            'crypto_grid')
-        self.password_grid = builder.get_object(
-            'password_grid')
-        self.password = builder.get_object(
-            'password')
-        self.verified_password = builder.get_object(
-            'verified_password')
-        self.password_strength = builder.get_object(
-            'password_strength')
-        self.password_match = builder.get_object(
-            'password_match')
         self.password_strength_pages = {
             'empty': 0,
             'too_short': 1,
@@ -254,9 +155,7 @@ class PageGtk(PageBase):
         self.auto_colors = ['3465a4', '73d216', 'f57900']
         self.extra_options = {}
 
-        self.partition_create_mount_combo.get_child().set_activates_default(
-            True)
-        self.partition_edit_mount_combo.get_child().set_activates_default(True)
+        self.partition_mount_combo.get_child().set_activates_default(True)
 
         self.plugin_optional_widgets = [self.page_auto, self.page_advanced,
                                         self.page_crypto]
@@ -315,6 +214,40 @@ class PageGtk(PageBase):
         self.controller._wizard.page_title.set_markup(
             '<span size="xx-large">%s</span>' % title)
 
+    def move_crypto_widgets(self, auto=True):
+        from gi.repository import Gtk
+        parent = self.password_grid.get_parent()
+        if auto:
+            new_parent = self.crypto_grid
+            below = self.crypto_description_2
+        else:
+            new_parent = self.partition_dialog_grid
+            below = self.partition_encrypt_checkbutton
+        if parent == new_parent:
+            return
+        crypto_widgets = [
+            ('password_grid', below, 'bottom', 1, 2),
+            ('crypto_label', 'password_grid', 'left', 1, 1),
+            ('verified_crypto_label', 'crypto_label', 'bottom', 1, 1),
+            ('crypto_warning', 'verified_crypto_label', 'bottom', 2, 1),
+            ('crypto_extra_label', 'crypto_warning', 'bottom', 1, 1),
+            ('crypto_overwrite_space', 'crypto_extra_label', 'right', 1, 1),
+            ('crypto_extra_time', 'crypto_overwrite_space', 'bottom', 1, 1),
+        ]
+
+        for widget, sibling, direction, width, height in crypto_widgets:
+            widget = getattr(self, widget)
+            if isinstance(sibling, str):
+                sibling = getattr(self, sibling)
+            direction = getattr(Gtk.PositionType, direction.upper())
+            parent = widget.get_parent()
+            if parent is not None:
+                parent.remove(widget)
+            new_parent.attach_next_to(widget, sibling, direction,
+                                      width, height)
+
+        self.crypto_overwrite_space.set_active(False)
+
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
         replace = self.replace_partition.get_active()
@@ -329,6 +262,7 @@ class PageGtk(PageBase):
         if custom:
             self.set_page_title(self.custom_partitioning.get_label())
             self.current_page = self.page_advanced
+            self.move_crypto_widgets(auto=False)
             self.controller.go_to_page(self.current_page)
             self.controller.toggle_next_button('install_button')
             self.plugin_is_install = True
@@ -352,6 +286,7 @@ class PageGtk(PageBase):
             self.set_page_title(
                 self.controller.get_string('ubiquity/text/crypto_label'))
             self.current_page = self.page_crypto
+            self.move_crypto_widgets()
             self.controller.go_to_page(self.current_page)
             self.controller.toggle_next_button('install_button')
             self.plugin_is_install = True
@@ -595,7 +530,6 @@ class PageGtk(PageBase):
 
     def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
-        self.bootloader_vbox.show()
         options = misc.grub_options()
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
@@ -629,15 +563,15 @@ class PageGtk(PageBase):
         # TODO Need to select a radio button when resize isn't around.
         self.extra_options = extra_options
         fmt = '<span size="small">%s</span>'
-        option_to_widget = OrderedDict({
-            "resize": "resize_use_free",
-            "reuse": "reuse_partition",
-            "replace": "replace_partition",
-            "use_device": "use_device",
-            "manual": "custom_partitioning",
-            "some_device_crypto": "use_crypto",
-            "some_device_lvm": "use_lvm",
-            })
+        option_to_widget = (
+            ("resize", "resize_use_free"),
+            ("reuse", "reuse_partition"),
+            ("replace", "replace_partition"),
+            ("use_device", "use_device"),
+            ("manual", "custom_partitioning"),
+            ("some_device_crypto", "use_crypto"),
+            ("some_device_lvm", "use_lvm"),
+            )
 
         if 'some_device_crypto' in extra_options:
             title = self.controller.get_string(
@@ -650,8 +584,8 @@ class PageGtk(PageBase):
             desc = self.controller.get_string('ubiquity/text/use_lvm_desc')
             options['some_device_lvm'] = PartitioningOption(title, desc)
 
-        for option in option_to_widget:
-            name = option_to_widget[option]
+        ticked = False
+        for option, name in option_to_widget:
             opt_widget = getattr(self, name)
             opt_desc = getattr(self, name + '_desc')
 
@@ -661,20 +595,12 @@ class PageGtk(PageBase):
                 opt_widget.set_label(options[option].title)
                 opt_desc.set_markup(fmt % options[option].desc)
                 opt_desc.set_sensitive(False)
+                if not ticked:
+                    opt_widget.set_active(True)
+                    ticked = True
             else:
                 opt_widget.hide()
                 opt_desc.hide()
-
-            # dmitrij.ledkov 2012-07-23: Hide LVM from the UI, until
-            # we design user-friendly way of expressing this, or we
-            # switch to lvm installs by default....
-            if option == 'some_device_lvm':
-                if 'UBIQUITY_PARTAUTO_LVM' in os.environ:
-                    opt_widget.show()
-                    opt_desc.show()
-                else:
-                    opt_widget.hide()
-                    opt_desc.hide()
 
         # Process the default selection
         self.part_ask_option_changed(None)
@@ -743,7 +669,8 @@ class PageGtk(PageBase):
     def progress_start(self, progress_title):
         self.partition_list_buttonbox.set_sensitive(False)
         self.part_advanced_recalculating_label.set_text(progress_title)
-        self.part_advanced_recalculating_box.show()
+        self.part_advanced_recalculating_label.show()
+        self.part_advanced_recalculating_spinner.show()
         self.part_advanced_recalculating_spinner.start()
 
     def progress_info(self, progress_info):
@@ -752,7 +679,8 @@ class PageGtk(PageBase):
     def progress_stop(self):
         self.partition_list_buttonbox.set_sensitive(True)
         self.part_advanced_recalculating_spinner.stop()
-        self.part_advanced_recalculating_box.hide()
+        self.part_advanced_recalculating_spinner.hide()
+        self.part_advanced_recalculating_label.hide()
 
     def partman_column_name(self, unused_column, cell, model, iterator,
                             user_data):
@@ -883,37 +811,20 @@ class PageGtk(PageBase):
             partition = model[iterator][1]
 
         partition_list_menu = Gtk.Menu()
+        actions = [action for action in
+                   self.controller.dbfilter.get_actions(devpart, partition)]
+        actions.append('separator')
+        actions.append('undo')
         for action in self.controller.dbfilter.get_actions(devpart, partition):
-            if action == 'new_label':
-                new_label_item = Gtk.MenuItem(
-                    self.controller.get_string('partition_button_new_label'))
-                new_label_item.connect(
-                    'activate', self.on_partition_list_new_label_activate)
-                partition_list_menu.append(new_label_item)
-            elif action == 'new':
-                new_item = Gtk.MenuItem(
-                    self.controller.get_string('partition_button_new'))
-                new_item.connect(
-                    'activate', self.on_partition_list_new_activate)
-                partition_list_menu.append(new_item)
-            elif action == 'edit':
-                edit_item = Gtk.MenuItem(
-                    self.controller.get_string('partition_button_edit'))
-                edit_item.connect(
-                    'activate', self.on_partition_list_edit_activate)
-                partition_list_menu.append(edit_item)
-            elif action == 'delete':
-                delete_item = Gtk.MenuItem(
-                    self.controller.get_string('partition_button_delete'))
-                delete_item.connect(
-                    'activate', self.on_partition_list_delete_activate)
-                partition_list_menu.append(delete_item)
-        if partition_list_menu.get_children():
-            partition_list_menu.append(Gtk.SeparatorMenuItem())
-        undo_item = Gtk.MenuItem(
-            self.controller.get_string('partition_button_undo'))
-        undo_item.connect('activate', self.on_partition_list_undo_activate)
-        partition_list_menu.append(undo_item)
+            if action == 'separator' and partition_list_menu.get_children():
+                partition_list_menu.append(Gtk.SeparatorMenuItem())
+            widget = 'partition_button_%s' % action
+            signal_callback = getattr(self,
+                                      'on_partition_list_%s_activate' % action)
+            new_item = Gtk.MenuItem(self.controller.get_string(widget))
+            new_item.connect('activate', signal_callback)
+            partition_list_menu.append(new_item)
+
         partition_list_menu.show_all()
 
         if event:
@@ -925,18 +836,32 @@ class PageGtk(PageBase):
         partition_list_menu.popup(None, None, None, None, button, time)
 
     @plugin.only_this_page
-    def partman_create_dialog(self, devpart, partition):
+    def partman_dialog(self, devpart, partition, create=True):
         from gi.repository import Gtk, GObject
         if not self.controller.allowed_change_step():
             return
 
-        self.partition_create_dialog.show_all()
+        self.partition_dialog_grid.show_all()
+        if create:
+            self.partition_edit_format_checkbutton.hide()
+            self.partition_create_place_beginning.set_active(True)
+        else:
+            self.partition_create_place_label.hide()
+            self.partition_create_place_beginning.hide()
+            self.partition_create_place_end.hide()
+
+        for widget in ['password_grid', 'crypto_label', 'crypto_warning',
+                       'verified_crypto_label', 'crypto_extra_label',
+                       'crypto_overwrite_space', 'crypto_extra_time',
+                       'partition_encrypt_checkbutton']:
+            getattr(self, widget).hide()
+
+        self.partition_dialog.show()
 
         # TODO cjwatson 2006-11-01: Because partman doesn't use a question
         # group for these, we have to figure out in advance whether each
         # question is going to be asked.
-
-        if partition['parted']['type'] == 'pri/log':
+        if not create and partition['parted']['type'] == 'pri/log':
             # Is there already a primary partition?
             model = self.partition_list_treeview.get_model()
             for otherpart in [row[1] for row in model]:
@@ -954,40 +879,109 @@ class PageGtk(PageBase):
 
         # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
         # partman expects.
-        max_size_mb = int(partition['parted']['size']) / 1000000
-        self.partition_create_size_spinbutton.set_adjustment(
-            Gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
-                           step_increment=1, page_increment=100))
-        self.partition_create_size_spinbutton.set_value(max_size_mb)
-
-        self.partition_create_place_beginning.set_active(True)
-
-        self.partition_create_use_combo.clear()
+        min_size_mb = 0
+        cur_size_mb = 0
+        max_size_mb = 0
+        if create:
+            max_size_mb = int(partition['parted']['size']) / 1000000
+            cur_size_mb = max_size_mb
+        else:
+            current_size = None
+            if ('can_resize' not in partition or not partition['can_resize'] or
+                'resize_min_size' not in partition or
+                'resize_max_size' not in partition):
+                self.partition_size_label.hide()
+                self.partition_size_grid.hide()
+            else:
+                min_size_mb = int(partition['resize_min_size']) / 1000000
+                cur_size_mb = int(partition['parted']['size']) / 1000000
+                max_size_mb = int(partition['resize_max_size']) / 1000000
+                # Bad things happen if the current size is out of bounds.
+                min_size_mb = min(min_size_mb, cur_size_mb)
+                max_size_mb = max(cur_size_mb, max_size_mb)
+        if max_size_mb is not 0:
+            self.partition_size_spinbutton.set_adjustment(
+                Gtk.Adjustment(value=max_size_mb, upper=max_size_mb,
+                               step_increment=1, page_increment=100))
+            self.partition_size_spinbutton.set_value(cur_size_mb)
+            current_size = str(self.partition_size_spinbutton.get_value())
+        self.partition_use_combo.clear()
         renderer = Gtk.CellRendererText()
-        self.partition_create_use_combo.pack_start(renderer, True)
-        self.partition_create_use_combo.add_attribute(renderer, 'text', 2)
-        list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING,
-                                   GObject.TYPE_STRING)
-        for method, name, description in (
-            self.controller.dbfilter.use_as(devpart, True)):
-            list_store.append([method, name, description])
-        self.partition_create_use_combo.set_model(list_store)
-        if list_store.get_iter_first():
-            self.partition_create_use_combo.set_active(0)
+        self.partition_use_combo.pack_start(renderer, True)
+        if create:
+            self.partition_use_combo.add_attribute(renderer, 'text', 2)
+            list_store = Gtk.ListStore(GObject.TYPE_STRING,
+                                       GObject.TYPE_STRING,
+                                       GObject.TYPE_STRING)
+            for method, name, description in (
+                self.controller.dbfilter.use_as(devpart, True)):
+                list_store.append([method, name, description])
+        else:
+            self.partition_use_combo.add_attribute(renderer, 'text', 1)
+            list_store = Gtk.ListStore(GObject.TYPE_STRING,
+                                       GObject.TYPE_STRING)
+            for script, arg, option in partition['method_choices']:
+                list_store.append([arg, option])
+        self.partition_use_combo.set_model(list_store)
+        if create:
+            if list_store.get_iter_first():
+                self.partition_use_combo.set_active(0)
+        else:
+            current_method = \
+              self.controller.dbfilter.get_current_method(partition)
+            if current_method:
+                iterator = list_store.get_iter_first()
+                while iterator:
+                    if list_store[iterator][0] == current_method:
+                        self.partition_use_combo.set_active_iter(iterator)
+                        break
+                    iterator = list_store.iter_next(iterator)
 
-        list_store = Gtk.ListStore(GObject.TYPE_STRING)
-        for mp, choice_c, choice in (
-            self.controller.dbfilter.default_mountpoint_choices()):
-            list_store.append([mp])
-        self.partition_create_mount_combo.set_model(list_store)
-        if self.partition_create_mount_combo.get_entry_text_column() == -1:
-            self.partition_create_mount_combo.set_entry_text_column(0)
-        self.partition_create_mount_combo.get_child().set_text('')
+            if 'id' not in partition:
+                self.partition_edit_format_checkbutton.hide()
+                current_format = False
+            elif 'method' in partition:
+                self.partition_edit_format_checkbutton.show()
+                self.partition_edit_format_checkbutton.set_sensitive(
+                    'can_activate_format' in partition)
+                current_format = (partition['method'] == 'format')
+            else:
+                self.partition_edit_format_checkbutton.show()
+                self.partition_edit_format_checkbutton.set_sensitive(False)
+                current_format = False
+            self.partition_edit_format_checkbutton.set_active(current_format)
+        list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
+        if create:
+            all_choices = (
+                self.controller.dbfilter.default_mountpoint_choices()
+                )
+        elif 'mountpoint_choices' in partition:
+            all_choices = partition['mountpoint_choices']
+        else:
+            all_choices = []
+        for mp, choice_c, choice in all_choices:
+            list_store.append([mp, choice])
+        self.partition_mount_combo.set_model(list_store)
+        if self.partition_mount_combo.get_entry_text_column() == -1:
+            self.partition_mount_combo.set_entry_text_column(0)
+        current_mountpoint = None
+        if not create:
+            current_mountpoint = \
+              self.controller.dbfilter.get_current_mountpoint(partition)
+        if current_mountpoint is None:
+            current_mountpoint = ''
+        elif not create:
+            iterator = list_store.get_iter_first()
+            while iterator:
+                if list_store[iterator][0] == current_mountpoint:
+                    self.partition_mount_combo.set_active_iter(iterator)
+                    break
+                iterator = list_store.iter_next(iterator)
+        self.partition_mount_combo.get_child().set_text(current_mountpoint)
+        response = self.partition_dialog.run()
+        self.partition_dialog.hide()
 
-        response = self.partition_create_dialog.run()
-        self.partition_create_dialog.hide()
-
-        if (response == Gtk.ResponseType.OK):
+        if create and (response == Gtk.ResponseType.OK):
             if partition['parted']['type'] == 'primary':
                 prilog = PARTITION_TYPE_PRIMARY
             elif partition['parted']['type'] == 'logical':
@@ -1003,142 +997,37 @@ class PageGtk(PageBase):
             else:
                 place = PARTITION_PLACE_END
 
-            method_iter = self.partition_create_use_combo.get_active_iter()
+            method_iter = self.partition_use_combo.get_active_iter()
             if method_iter is None:
                 method = None
             else:
-                model = self.partition_create_use_combo.get_model()
+                model = self.partition_use_combo.get_model()
                 method = model.get_value(method_iter, 1)
 
-            mount_combo = self.partition_create_mount_combo
+            mount_combo = self.partition_mount_combo
             mountpoint = mount_combo.get_child().get_text()
 
             self.controller.allow_change_step(False)
             self.controller.dbfilter.create_partition(
                 devpart,
-                str(self.partition_create_size_spinbutton.get_value()),
+                str(self.partition_size_spinbutton.get_value()),
                 prilog, place, method, mountpoint)
 
-    @plugin.only_this_page
-    def on_partition_create_use_combo_changed(self, combobox):
-        model = combobox.get_model()
-        iterator = combobox.get_active_iter()
-        # If the selected method isn't a filesystem, then selecting a mount
-        # point makes no sense.
-        if iterator is None or model[iterator][0] != 'filesystem':
-            self.partition_create_mount_combo.get_child().set_text('')
-            self.partition_create_mount_combo.set_sensitive(False)
-        else:
-            self.partition_create_mount_combo.set_sensitive(True)
-            mount_model = self.partition_create_mount_combo.get_model()
-            if mount_model is not None:
-                fs = model[iterator][1]
-                mount_model.clear()
-                for mp, choice_c, choice in \
-                    self.controller.dbfilter.default_mountpoint_choices(fs):
-                    mount_model.append([mp])
-
-    @plugin.only_this_page
-    def partman_edit_dialog(self, devpart, partition):
-        from gi.repository import Gtk, GObject
-        if not self.controller.allowed_change_step():
-            return
-
-        self.partition_edit_dialog.show_all()
-
-        current_size = None
-        if ('can_resize' not in partition or not partition['can_resize'] or
-            'resize_min_size' not in partition or
-            'resize_max_size' not in partition):
-            self.partition_edit_size_label.hide()
-            self.partition_edit_size_spinbutton.hide()
-        else:
-            # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
-            # partman expects.
-            min_size_mb = int(partition['resize_min_size']) / 1000000
-            cur_size_mb = int(partition['parted']['size']) / 1000000
-            max_size_mb = int(partition['resize_max_size']) / 1000000
-            # Bad things happen if the current size is out of bounds.
-            min_size_mb = min(min_size_mb, cur_size_mb)
-            max_size_mb = max(cur_size_mb, max_size_mb)
-            self.partition_edit_size_spinbutton.set_adjustment(
-                Gtk.Adjustment(value=cur_size_mb, lower=min_size_mb,
-                               upper=max_size_mb,
-                               step_increment=1, page_increment=100))
-            self.partition_edit_size_spinbutton.set_value(cur_size_mb)
-            current_size = str(self.partition_edit_size_spinbutton.get_value())
-
-        self.partition_edit_use_combo.clear()
-        renderer = Gtk.CellRendererText()
-        self.partition_edit_use_combo.pack_start(renderer, True)
-        self.partition_edit_use_combo.add_attribute(renderer, 'text', 1)
-        list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
-        for script, arg, option in partition['method_choices']:
-            list_store.append([arg, option])
-        self.partition_edit_use_combo.set_model(list_store)
-        current_method = self.controller.dbfilter.get_current_method(partition)
-        if current_method:
-            iterator = list_store.get_iter_first()
-            while iterator:
-                if list_store[iterator][0] == current_method:
-                    self.partition_edit_use_combo.set_active_iter(iterator)
-                    break
-                iterator = list_store.iter_next(iterator)
-
-        if 'id' not in partition:
-            self.partition_edit_format_label.hide()
-            self.partition_edit_format_checkbutton.hide()
-            current_format = False
-        elif 'method' in partition:
-            self.partition_edit_format_label.show()
-            self.partition_edit_format_checkbutton.show()
-            self.partition_edit_format_checkbutton.set_sensitive(
-                'can_activate_format' in partition)
-            current_format = (partition['method'] == 'format')
-        else:
-            self.partition_edit_format_label.show()
-            self.partition_edit_format_checkbutton.show()
-            self.partition_edit_format_checkbutton.set_sensitive(False)
-            current_format = False
-        self.partition_edit_format_checkbutton.set_active(current_format)
-
-        list_store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
-        if 'mountpoint_choices' in partition:
-            for mp, choice_c, choice in partition['mountpoint_choices']:
-                list_store.append([mp, choice])
-        self.partition_edit_mount_combo.set_model(list_store)
-        if self.partition_edit_mount_combo.get_entry_text_column() == -1:
-            self.partition_edit_mount_combo.set_entry_text_column(0)
-        current_mountpoint = self.controller.dbfilter.get_current_mountpoint(
-            partition)
-        if current_mountpoint is not None:
-            self.partition_edit_mount_combo.get_child().set_text(
-                current_mountpoint)
-            iterator = list_store.get_iter_first()
-            while iterator:
-                if list_store[iterator][0] == current_mountpoint:
-                    self.partition_edit_mount_combo.set_active_iter(iterator)
-                    break
-                iterator = list_store.iter_next(iterator)
-
-        response = self.partition_edit_dialog.run()
-        self.partition_edit_dialog.hide()
-
-        if (response == Gtk.ResponseType.OK):
+        if not create and (response == Gtk.ResponseType.OK):
             size = None
             if current_size is not None:
-                size = str(self.partition_edit_size_spinbutton.get_value())
+                size = str(self.partition_size_spinbutton.get_value())
 
-            method_iter = self.partition_edit_use_combo.get_active_iter()
+            method_iter = self.partition_use_combo.get_active_iter()
             if method_iter is None:
                 method = None
             else:
-                model = self.partition_edit_use_combo.get_model()
+                model = self.partition_use_combo.get_model()
                 method = model.get_value(method_iter, 0)
 
             fmt = self.partition_edit_format_checkbutton.get_active()
 
-            mountpoint = self.partition_edit_mount_combo.get_child().get_text()
+            mountpoint = self.partition_mount_combo.get_child().get_text()
 
             if (current_size is not None and size is not None and
                 current_size == size):
@@ -1160,25 +1049,25 @@ class PageGtk(PageBase):
                 self.controller.dbfilter.edit_partition(devpart, **edits)
 
     @plugin.only_this_page
-    def on_partition_edit_use_combo_changed(self, combobox):
+    def on_partition_use_combo_changed(self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
         # If the selected method isn't a filesystem, then selecting a mount
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
-        known_filesystems = ('ext4', 'ext3', 'ext2',
+        known_filesystems = ('ext4', 'ext3', 'ext2', 'filesystem',
                              'btrfs', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
         if iterator is None or model[iterator][0] not in known_filesystems:
-            self.partition_edit_mount_combo.get_child().set_text('')
-            self.partition_edit_mount_combo.set_sensitive(False)
+            self.partition_mount_combo.get_child().set_text('')
+            self.partition_mount_combo.set_sensitive(False)
             self.partition_edit_format_checkbutton.set_sensitive(False)
         else:
-            self.partition_edit_mount_combo.set_sensitive(True)
-            self.partition_edit_format_checkbutton.set_sensitive(True)
+            self.partition_mount_combo.set_sensitive(True)
+            self.partition_format_checkbutton.set_sensitive(True)
             mount_model = self.partition_edit_mount_combo.get_model()
             if mount_model is not None:
-                fs = model[iterator][0]
+                fs = model[iterator][1]
                 mount_model.clear()
                 for mp, choice_c, choice in \
                     self.controller.dbfilter.default_mountpoint_choices(fs):
@@ -1272,9 +1161,9 @@ class PageGtk(PageBase):
                 self.controller.dbfilter.create_label(devpart)
         elif partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
-                self.partman_create_dialog(devpart, partition)
+                self.partman_dialog(devpart, partition)
         else:
-            self.partman_edit_dialog(devpart, partition)
+            self.partman_dialog(devpart, partition, create=False)
 
     def partition_list_get_selection(self):
         model, iterator = (
@@ -1297,11 +1186,11 @@ class PageGtk(PageBase):
 
     def on_partition_list_new_activate(self, unused_widget):
         devpart, partition = self.partition_list_get_selection()
-        self.partman_create_dialog(devpart, partition)
+        self.partman_dialog(devpart, partition)
 
     def on_partition_list_edit_activate(self, unused_widget):
         devpart, partition = self.partition_list_get_selection()
-        self.partman_edit_dialog(devpart, partition)
+        self.partman_dialog(devpart, partition, create=False)
 
     @plugin.only_this_page
     def on_partition_list_delete_activate(self, unused_widget):
@@ -1395,14 +1284,14 @@ class PageGtk(PageBase):
         i = 0
         if not self.segmented_bar_vbox:
             sw = Gtk.ScrolledWindow()
+            sw.set_valign(Gtk.Align.FILL)
             self.segmented_bar_vbox = Gtk.Box()
             self.segmented_bar_vbox.set_orientation(Gtk.Orientation.VERTICAL)
             sw.add_with_viewport(self.segmented_bar_vbox)
             sw.get_child().set_shadow_type(Gtk.ShadowType.NONE)
             sw.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.NEVER)
             sw.show_all()
-            self.part_advanced_vbox.pack_start(sw, False, True, 0)
-            self.part_advanced_vbox.reorder_child(sw, 0)
+            self.part_advanced_grid.attach(sw, 0, 0, 1, 1)
 
         for item in cache_order:
             if item in disk_cache:
