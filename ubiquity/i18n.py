@@ -104,6 +104,7 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
             'partman-basicmethods/text/format',
             'partman-newworld/no_newworld',
             'partman-partitioning',
+            'partman-crypto',
             'partman-target/no_root',
             'partman-target/text/method',
             'grub-installer/bootdev',
@@ -186,16 +187,16 @@ string_questions = {
     'new_size_label': 'partman-partitioning/new_size',
     'partition_create_heading_label': 'partman-partitioning/text/new',
     'partition_create_type_label': 'partman-partitioning/new_partition_type',
-    'partition_create_mount_label':
+    'partition_mount_label':
         'partman-basicfilesystems/text/specify_mountpoint',
-    'partition_create_use_label': 'partman-target/text/method',
+    'partition_use_label': 'partman-target/text/method',
     'partition_create_place_label': 'partman-partitioning/new_partition_place',
-    'partition_edit_use_label': 'partman-target/text/method',
-    'partition_edit_format_label': 'partman-basicmethods/text/format',
-    'partition_edit_mount_label':
-        'partman-basicfilesystems/text/specify_mountpoint',
+    'partition_edit_format_checkbutton': 'partman-basicmethods/text/format',
     'grub_device_dialog': 'grub-installer/bootdev',
     'grub_device_label': 'grub-installer/bootdev',
+    'encryption_algorithm': 'partman-crypto/text/specify_cipher',
+    'partition_encryption_key_size': 'partman-crypto/text/specify_keysize',
+    'crypto_iv_algorithm': 'partman-crypto/text/specify_ivalgorithm',
     # TODO: it would be nice to have a neater way to handle stock buttons
     'quit': 'ubiquity/imported/quit',
     'back': 'ubiquity/imported/go-back',
@@ -219,7 +220,6 @@ def map_widget_name(prefix, name):
         question = string_questions[name]
     else:
         question = '%s/%s' % (prefix, name)
-    print(question)
     return question
 
 

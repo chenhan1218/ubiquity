@@ -18,16 +18,6 @@ Template: ubiquity/text/restart_to_continue
 Type: text
 _Description: Restart to Continue
 
-Template: ubiquity/text/custom_partitioning_title
-Type: text
-_Description: Manual configuration (advanced)
-
-Template: ubiquity/text/custom_partitioning_desc
-Type: text
-_Description:
- Too smart for us? Get your hands dirty with some advanced partitioning
- options.
-
 Template: ubiquity/text/live_installer
 Type: text
 # This is used as a window title.
@@ -381,9 +371,9 @@ Type: text
 _Description:
  We're sorry; the installer crashed. After you close this window, we'll
  allow you to file a bug report using the integrated bug reporting tool.
- This will gather information about your system and your installation 
- process. The details will be sent to our bug tracker and a developer 
- will attend to the problem as soon as possible. 
+ This will gather information about your system and your installation
+ process. The details will be sent to our bug tracker and a developer
+ will attend to the problem as soon as possible.
 
 Template: ubiquity/text/partition_button_new_label
 Type: text
@@ -456,21 +446,21 @@ Type: text
 # Indicates that we do not know how much space is used on this partition.
 _Description: unknown
 
-Template: ubiquity/text/partition_create_dialog
+Template: ubiquity/text/partition_dialog
 Type: text
 _Description: Create partition
 
-Template: ubiquity/text/partition_create_size_label
+Template: ubiquity/text/partition_size_label
 Type: text
-_Description: New partition size in megabytes (1000000 bytes):
+_Description: Size:
 
 Template: ubiquity/text/partition_create_place_beginning
 Type: text
-_Description: Beginning
+_Description: Beginning of this space
 
 Template: ubiquity/text/partition_create_place_end
 Type: text
-_Description: End
+_Description: End of this space
 
 Template: ubiquity/text/partition_create_type_primary
 Type: text
@@ -487,10 +477,6 @@ _Description: Edit partition
 Template: ubiquity/text/partition_edit_heading_label
 Type: text
 _Description: Edit a partition
-
-Template: ubiquity/text/partition_edit_size_label
-Type: text
-_Description: New partition size in megabytes (1000000 bytes):
 
 Template: ubiquity/text/bootloader_group_label
 Type: text
@@ -1368,7 +1354,7 @@ _Description:
  This computer currently has no detected operating systems. What would you
  like to do?
 
-Template: ubiquity/text/use_crypto_title
+Template: ubiquity/text/use_crypto
 Type: text
 _Description:
  Encrypt the new Ubuntu installation for security
@@ -1378,7 +1364,7 @@ Type: text
 _Description:
  You will choose a security key in the next step.
 
-Template: ubiquity/text/use_lvm_title
+Template: ubiquity/text/use_lvm
 Type: text
 _Description:
  Use LVM with the new Ubuntu installation
@@ -1401,7 +1387,7 @@ _Description:
 Template:ubiquity/text/crypto_description
 Type: text
 _Description:
- Disk encryption protects your files in case you lose your computer. It requires you to enter a security key each time the computer starts up. 
+ Disk encryption protects your files in case you lose your computer. It requires you to enter a security key each time the computer starts up.
 
 Template:ubiquity/text/crypto_description_2
 Type: text
@@ -1411,14 +1397,14 @@ _Description:
 Template:ubiquity/text/crypto_warning
 Type: text
 _Description:
- <span foreground="darkred">Warning:</span> If you lose this security key, all data will be lost. If you need to, write down your key and keep it in a safe place elsewhere. 
+ <span foreground="darkred">Warning:</span> If you lose this security key, all data will be lost. If you need to, write down your key and keep it in a safe place elsewhere.
 
-Template:ubiquity/text/crypto_exta_label
+Template:ubiquity/text/crypto_extra_label
 Type: text
 _Description:
  For more security:
 
-Template:ubiquity/text/fill_with_random_data
+Template:ubiquity/text/crypto_overwrite_space
 Type: text
 _Description:
  Overwrite empty disk space
@@ -1428,3 +1414,52 @@ Type: text
 _Description:
  The installation may take much longer.
 
+Template:ubiquity/text/partition_button_lvm
+Type: text
+_description:
+ LVM...
+
+Template:ubiquity/text/partition_lvm_logical_label
+Type: text
+_Description:
+ Volume groups:
+
+Template:ubiquity/text/partition_encryption_options
+Type: text
+_Description:
+ Encryption Options
+
+Template:ubiquity/text/partition_lvm_physical_label
+Type: text
+_Description:
+ Physical volumes:
+
+Template:ubiquity/text/partition_lvm_revert
+Type: text
+_Description:
+ Revert
+
+Template:ubiquity/text/partition_encrypt_checkbutton
+Type: text
+_Description:
+ Encrypt this partition (LUKS)
+
+Template:ubiquity/text/partition_add_units
+Type: text
+_Description:
+ MB
+
+Template:ubiquity/text/parition_lvm_explanation
+Type: text
+_Description:
+ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a single volume.
+
+Template:ubiquity/text/partition_lvm_dialog
+Type: text
+_Description:
+ Logical Volume Mangement
+
+Template:ubiquity/text/partition_encryption_settings
+Type: text
+_Description:
+ Encryption options...

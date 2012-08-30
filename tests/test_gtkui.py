@@ -75,8 +75,12 @@ class TestFrontend(unittest.TestCase):
                     import time
                     time.sleep(3)
                 alloc = ui.live_installer.get_allocation()
+                # width 640, because it is a common small 4:3 width
+                # height 556, because e.g. HP Mini has 580 - 24px (indicators)
+                # Anything smaller will need to use Alt+Ctrl+Pgd/Right
+                # Scrollbars anyone?
                 self.assertLessEqual(alloc.width, 640, page.module.NAME)
-                self.assertLessEqual(alloc.height, 500, page.module.NAME)
+                self.assertLessEqual(alloc.height, 556, page.module.NAME)
                 if page.module.NAME == 'partman':
                     ui.allow_change_step(False)
 
@@ -105,10 +109,11 @@ class TestFrontend(unittest.TestCase):
             whitelist = [
                 # These are calculated and set as the partitioning options are
                 # being calculated.
-                'reuse_partition_desc', 'reuse_partition_title',
-                'replace_partition_desc', 'replace_partition_title',
-                'resize_use_free_desc', 'resize_use_free_title',
-                'use_device_desc', 'use_device_title', 'part_ask_heading',
+                'reuse_partition_desc', 'reuse_partition',
+                'replace_partition_desc', 'replace_partition',
+                'resize_use_free_desc', 'resize_use_free',
+                'use_device_desc', 'use_device', 'part_ask_heading',
+                'custom_partitioning_desc', 'custom_partitioning',
                 # Pulled straight from debconf when the installation medium is
                 # already mounted.
                 'part_advanced_warning_message',
@@ -123,6 +128,8 @@ class TestFrontend(unittest.TestCase):
                 # Pages define a debconf template to look up and use as the
                 # title. If it is not set or not found, the title is hidden.
                 'page_title',
+                # To be calculated and set
+                'partition_lvm_status',
                 ]
             deb_host_arch = subprocess.Popen(
                 ['dpkg-architecture', '-qDEB_HOST_ARCH'],
