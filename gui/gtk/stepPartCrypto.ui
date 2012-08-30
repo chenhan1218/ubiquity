@@ -80,7 +80,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="crypto_exta_label">
+          <object class="GtkLabel" id="crypto_extra_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">end</property>
@@ -96,8 +96,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="fill_with_random_data">
-            <property name="label" translatable="yes">Overwrite empty disk space</property>
+          <object class="GtkCheckButton" id="crypto_overwrite_space">
+            <property name="label" translatable="yes">Overwrite the available space first</property>
             <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -226,7 +226,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Fair Password</property>
+                    <property name="label" translatable="yes">Fair password</property>
                     <attributes>
                       <attribute name="scale" value="0.83333333333329995"/>
                       <attribute name="foreground" value="#ffff8c8c0000"/>
@@ -244,7 +244,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Good Password</property>
+                    <property name="label" translatable="yes">Good password</property>
                     <attributes>
                       <attribute name="scale" value="0.83333333333329995"/>
                       <attribute name="foreground" value="#000064640000"/>
@@ -262,7 +262,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Strong Password</property>
+                    <property name="label" translatable="yes">Strong password</property>
                     <attributes>
                       <attribute name="scale" value="0.83333333333329995"/>
                       <attribute name="foreground" value="#000064640000"/>
@@ -280,7 +280,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Password too short</property>
+                    <property name="label" translatable="yes">Short password</property>
                     <attributes>
                       <attribute name="scale" value="0.83333333333329995"/>
                       <attribute name="foreground" value="#8b8b00000000"/>
@@ -324,7 +324,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Passwords do not match</property>
+                    <property name="label" translatable="yes">Mismatch</property>
                     <attributes>
                       <attribute name="scale" value="0.83333333333329995"/>
                       <attribute name="foreground" value="#8b8b00000000"/>
