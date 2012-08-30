@@ -7,6 +7,7 @@ ubiquity (2.11.25) UNRELEASED; urgency=low
   * Activate the first option by default on the ask page (LP: #1043822)
   * Make the "Use LVM" checkbox visible by default (LP: #1042639)
   * Remove the experimental --enable-partauto-lvm, not needed anymore
+  * Create gui/pixmaps -> ../pixmaps symlink, for unit-tests to find images (LP: #1003890)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 30 Aug 2012 18:45:25 +0100
 
