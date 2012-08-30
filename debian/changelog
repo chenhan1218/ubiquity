@@ -1,6 +1,7 @@
 ubiquity (2.11.25) UNRELEASED; urgency=low
 
   * partAsk.ui, partCrypto.ui: Normalise widget names
+  * Sub-class Gtk.Builder to add get_object_ids method
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 30 Aug 2012 18:45:25 +0100
 

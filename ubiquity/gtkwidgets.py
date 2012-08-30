@@ -461,3 +461,21 @@ class FaceSelector(Gtk.Box):
         self.selected_image.set_from_pixbuf(m[selection][0])
 
 GObject.type_register(FaceSelector)
+
+
+# GtkBuilder should have .get_object_ids() method
+class Builder(Gtk.Builder):
+    def __init__(self):
+        self._widget_ids = set()
+        super(Builder, self).__init__()
+
+    def add_from_file(self, filename):
+        import xml.etree.cElementTree as ET
+        tree = ET.parse(filename)
+        root = tree.getroot()
+        for widgets in root.iter('object'):
+            self._widget_ids.add(widgets.attrib['id'])
+        return super(Builder, self).add_from_file(filename)
+
+    def get_object_ids(self):
+        return self._widget_ids
