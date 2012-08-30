@@ -1,4 +1,4 @@
-ubiquity (2.11.25) UNRELEASED; urgency=low
+ubiquity (2.11.25) quantal; urgency=low
 
   * partAsk.ui, partCrypto.ui: Normalise widget names
   * Sub-class Gtk.Builder to add get_object_ids method
