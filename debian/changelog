@@ -6,7 +6,8 @@ ubiquity (2.11.25) UNRELEASED; urgency=low
   * partAdvanced.ui: Add LVM & Crypto UI but hide by default
   * Activate the first option by default on the ask page (LP: #1043822)
   * Make the "Use LVM" checkbox visible by default (LP: #1042639)
-  
+  * Remove the experimental --enable-partauto-lvm, not needed anymore
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 30 Aug 2012 18:45:25 +0100
 
 ubiquity (2.11.24) quantal; urgency=low

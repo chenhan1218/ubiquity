@@ -492,9 +492,6 @@ def main(oem_config):
                       action='store_true',
                       help='Name widgets in ATK by their GtkBuilder names, '
                            'to support LDTP testing.')
-    parser.add_option('--enable-partauto-lvm', dest='partauto_lvm',
-                      action='store_true',
-                      help='Enable LVM in the automatic partitioner.')
     parser.add_option('--no-webcam', dest='webcam',
                       default=True, action='store_false',
                       help='Disable the webcam page.')
@@ -533,9 +530,6 @@ def main(oem_config):
 
     if options.ldtp:
         os.environ['UBIQUITY_LDTP'] = '1'
-
-    if options.partauto_lvm:
-        os.environ['UBIQUITY_PARTAUTO_LVM'] = '1'
 
     if not options.webcam:
         os.environ['UBIQUITY_NO_WEBCAM'] = '1'
