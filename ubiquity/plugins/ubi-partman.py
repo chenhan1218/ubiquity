@@ -1064,7 +1064,7 @@ class PageGtk(PageBase):
             self.partition_edit_format_checkbutton.set_sensitive(False)
         else:
             self.partition_mount_combo.set_sensitive(True)
-            self.partition_format_checkbutton.set_sensitive(True)
+            self.partition_edit_format_checkbutton.set_sensitive(True)
             mount_model = self.partition_edit_mount_combo.get_model()
             if mount_model is not None:
                 fs = model[iterator][1]
