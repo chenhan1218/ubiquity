@@ -1,3 +1,9 @@
+ubiquity (2.11.26) UNRELEASED; urgency=low
+
+  * Disable alpha warning for Beta 1.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Fri, 31 Aug 2012 13:38:06 +0100
+
 ubiquity (2.11.25) quantal; urgency=low
 
   * partAsk.ui, partCrypto.ui: Normalise widget names
