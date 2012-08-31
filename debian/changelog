@@ -1,8 +1,12 @@
 ubiquity (2.11.26) UNRELEASED; urgency=low
 
+  [ Evan Dandrea ]
   * Disable alpha warning for Beta 1.
 
- -- Evan Dandrea <ev@ubuntu.com>  Fri, 31 Aug 2012 13:38:06 +0100
+  [ Dmitrijs Ledkovs ]
+  * Fix renamed translation strings (LP: #1044299)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 31 Aug 2012 16:28:18 +0100
 
 ubiquity (2.11.25) quantal; urgency=low
 

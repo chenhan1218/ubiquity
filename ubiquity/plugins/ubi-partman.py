@@ -575,12 +575,12 @@ class PageGtk(PageBase):
 
         if 'some_device_crypto' in extra_options:
             title = self.controller.get_string(
-                'ubiquity/text/use_crypto_title')
+                'ubiquity/text/use_crypto')
             desc = self.controller.get_string('ubiquity/text/use_crypto_desc')
             options['some_device_crypto'] = PartitioningOption(title, desc)
 
         if 'some_device_lvm' in extra_options:
-            title = self.controller.get_string('ubiquity/text/use_lvm_title')
+            title = self.controller.get_string('ubiquity/text/use_lvm')
             desc = self.controller.get_string('ubiquity/text/use_lvm_desc')
             options['some_device_lvm'] = PartitioningOption(title, desc)
 
