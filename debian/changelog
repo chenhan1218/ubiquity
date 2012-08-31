@@ -1,4 +1,4 @@
-ubiquity (2.11.26) UNRELEASED; urgency=low
+ubiquity (2.11.26) quantal; urgency=low
 
   [ Evan Dandrea ]
   * Disable alpha warning for Beta 1.
