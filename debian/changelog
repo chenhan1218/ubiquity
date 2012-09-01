@@ -1,3 +1,10 @@
+ubiquity (2.11.27) quantal; urgency=low
+
+  [ Omer Akram ]
+  * Fix manual partinioning edit dialog (LP: #1044545)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 01 Sep 2012 03:09:22 +0100
+
 ubiquity (2.11.26) quantal; urgency=low
 
   [ Evan Dandrea ]
