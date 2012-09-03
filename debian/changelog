@@ -1,3 +1,13 @@
+ubiquity (2.11.29) UNRELEASED; urgency=low
+
+  * Correctly apply styles to the title & progress sections and not the
+    centre piece. This means themes are no longer required to provide non
+    standard @dark_[fb]g_color colors, instead 'menubar' Gtk CSS style is
+    used. This also fixes long standing a11y issues in HighContrast themes
+    & requirements for non-standard color definitions. (LP: #744283)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 04 Sep 2012 00:02:20 +0100
+
 ubiquity (2.11.28) quantal; urgency=low
 
   * Fix display of installation medium mounted grid. (LP: #1044717)

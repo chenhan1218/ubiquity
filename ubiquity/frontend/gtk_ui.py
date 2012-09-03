@@ -259,14 +259,14 @@ class Wizard(BaseFrontend):
         self.set_locales()
 
         # Thin progress bar
-        provider = Gtk.CssProvider()
-        provider.load_from_data(b'''\
-            GtkProgressBar {
-              -GtkProgressBar-min-horizontal-bar-height : 10
-            }''')
+        #provider = Gtk.CssProvider()
+        #provider.load_from_data(b'''\
+        #    GtkProgressBar {
+        #      -GtkProgressBar-min-horizontal-bar-height : 10
+        #    }''')
 
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
-            provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
+        #Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
+        #    provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         # load the main interface
         self.builder.add_from_file('%s/ubiquity.ui' % UIDIR)
@@ -852,22 +852,11 @@ class Wizard(BaseFrontend):
 
         self.live_installer.set_default_icon_from_file(os.path.join(PIXMAPS,
                                                         'ubiquity.png'))
-        provider = Gtk.CssProvider()
-        provider.load_from_data(b'''\
-#live_installer,
-#page_title,
-#install_progress_text,
-#install_details_expander {
-color : @dark_fg_color;
-background-color : @dark_bg_color;
-}
-
-GtkEntry, GtkButton, GtkLabel, GtkIconView, GtkTreeView row, GtkComboBox,
-GtkDrawingArea {
-color : @fg_color
-}''')
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
-            provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+        for eventbox in ['title_eventbox','progress_eventbox']:
+            box = self.builder.get_object(eventbox)
+            style = box.get_style_context()
+            style.add_class('menubar')
+            
         # TODO lazy load
         from gi.repository import Vte
         self.vte = Vte.Terminal()
