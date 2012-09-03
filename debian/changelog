@@ -1,7 +1,9 @@
 ubiquity (2.11.28) quantal; urgency=low
 
   * Fix display of installation medium mounted grid. (LP: #1044717)
-
+    Also used pylint to find check for undefined/missing attributes in the
+    ubi-partman.py. Needs integration into build system.
+ 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 03 Sep 2012 12:51:16 +0100
 
 ubiquity (2.11.27) quantal; urgency=low
