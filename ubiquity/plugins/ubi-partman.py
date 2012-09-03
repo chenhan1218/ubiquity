@@ -1325,7 +1325,7 @@ class PageGtk(PageBase):
 
     def installation_medium_mounted(self, message):
         self.part_advanced_warning_message.set_text(message)
-        self.part_advanced_warning_hbox.show_all()
+        self.partition_warning_grid.show_all()
 
     # Crypto Page
     def info_loop(self, unused_widget):
