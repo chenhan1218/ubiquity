@@ -15,7 +15,7 @@ partconf 1.38
 partman-auto 101ubuntu2
 partman-auto-crypto 19ubuntu1
 partman-auto-loop 0ubuntu21
-partman-auto-lvm 45ubuntu1
+partman-auto-lvm 45ubuntu2
 partman-base 158ubuntu1
 partman-basicfilesystems 74ubuntu1
 partman-basicmethods 50
