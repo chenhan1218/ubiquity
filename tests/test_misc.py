@@ -421,9 +421,21 @@ class GrubDefaultTests(unittest.TestCase):
             ['hd1', 'sdb', 'disk'],
             ]
         self.cdrom_mount = ('/dev/sda', 'iso9660')
-        self.boot_device = '/dev/sdb'
         self.removable_devices = ['/dev/sda']
+        self.boot_device = None
         self.assertEqual('/dev/sdb', misc.grub_default())
+        self.boot_device = '/dev/sdb'
+        self.assertEqual('/dev/sdb', misc.grub_default())
+        self.devices = [
+            ['hd0', 'sda', 'disk'],
+            ['hd1', 'sdb', 'usb'],
+            ]
+        self.cdrom_mount = ('/dev/sdb', 'iso9660')
+        self.removable_devices = ['/dev/sdb']
+        self.boot_device = None
+        self.assertEqual('/dev/sda', misc.grub_default())
+        self.boot_device = '/dev/sda'
+        self.assertEqual('/dev/sda', misc.grub_default())
 
 
 if __name__ == '__main__':
