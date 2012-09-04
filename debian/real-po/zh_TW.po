@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -119,18 +119,11 @@ msgstr "您可能會希望<a href=\"update\">更新本安裝程式</a>。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"這是 ${RELEASE} live ${MEDIUM} 安裝程式的預先發行版。這不是最終發行版"
-"本，${RELEASE} 的最終發行版將會在2012年4月發行。"
 
 #. Type: text
 #. Description
@@ -520,7 +513,7 @@ msgstr "繼續試用"
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Restart Now"
-msgstr "現在就重新啟動電腦"
+msgstr "立即重新啟動"
 
 #. Type: text
 #. Description
@@ -539,13 +532,6 @@ msgstr "安裝程式當掉"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -553,9 +539,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"安裝程式當掉了，很抱歉。在關閉這個視窗後，我們會讓您使用整合的臭蟲回報工具來"
-"提交問題。這會蒐集您系統的相關資訊與安裝程序。詳細內容會傳送至我們的臭蟲追蹤"
-"器，開發者會盡快處理此問題。"
 
 #. Type: text
 #. Description
@@ -667,10 +650,8 @@ msgstr "建立分割區"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "大小"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -723,8 +704,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"安裝程序已完成。您現在可以繼續測試 ${RELEASE}，但您所做出的任何變更或您所儲存"
-"的文件，都只會保留到您重新啟動電腦之前為止。"
+"安裝程序完成。您現在可以繼續試用 ${RELEASE}，但任何您所做出的變更或所儲存的文"
+"件在重新啟動電腦後都會消失。"
 
 #. Type: text
 #. Description
@@ -1355,7 +1336,7 @@ msgstr "安裝程式遭遇到無法補救的錯誤，現在將重新開機。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:199001
 msgid "Preparing to install ${RELEASE}"
-msgstr "正在準備安裝 ${RELEASE}"
+msgstr "準備安裝 ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1371,8 +1352,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"將本電腦連接至 Wi-Fi 網路可讓您安裝第三方軟體、下載更新、自動偵測您的時區、並"
-"安裝您語言的完整支援。"
+"將本電腦連上 Wi-Fi 無線網路可讓您安裝第三方軟體、下載更新、自動偵測時區、並安"
+"裝您語言的完整支援。"
 
 #. Type: text
 #. Description
@@ -1390,7 +1371,7 @@ msgstr "顯示密碼"
 #. Description
 #: ../ubiquity.templates:204001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "我現在還不想連上 wi-fi 無線網路"
+msgstr "現在不想連上 Wi-Fi 無線網路"
 
 #. Type: text
 #. Description
@@ -1489,21 +1470,12 @@ msgstr "有連接至網際網路"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} 使用第三方軟體播放 Flash、MP3 與其他媒體，也用於某些無線硬體裝置。"
-"此類軟體中某些為封閉源碼軟體。該軟體的授權必須遵循其文件內所包含的許可證條"
-"款。"
 
 #. Type: text
 #. Description
@@ -1799,10 +1771,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "要退出安裝嗎？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1821,10 +1791,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "選擇圖片"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1983,35 +1951,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在移除套件"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "手動設定 (進階)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "我們太過自動了嗎？調整一些進階分割選項來活動您的雙手。"
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "新分割區大小，以 MB (1000000 位元組) 為單位："
-
-#~ msgid "Beginning"
-#~ msgstr "開始位置"
-
-#~ msgid "End"
-#~ msgstr "結束位置"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "正在匯入文件與設定..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "轉移文件和設定時發生錯誤"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "轉移資料時發生錯誤。詳情見 /var/log/syslog。安裝會繼續，但某些或全部您要的"
-#~ "文件和設定可能未有轉移至新安裝的系統。"

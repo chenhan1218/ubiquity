@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-17 04:41+0000\n"
+"PO-Revision-Date: 2012-04-17 16:40+0000\n"
 "Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -203,7 +203,7 @@ msgstr "మీరు ఎవరు?"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Choose a picture"
-msgstr "చిత్రం పెట్టు"
+msgstr "చిత్రాన్ని ఎన్నుకోండి"
 
 #. Type: text
 #. Description
@@ -251,13 +251,13 @@ msgstr "వాడుకరి పేరు"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "చిన్న అక్షరముతో ప్రారంభించాలి"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "చిన్న అక్షరాలు, సంఖ్యలు, హైఫెన్లు, మరియు అండర్‌స్కోరులను కలిగివుండవచ్చు."
 
 #. Type: text
 #. Description
@@ -299,25 +299,25 @@ msgstr "ఇతర కంప్యూటర్లతో అనుసంధాన�
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "1 నుండి 63 అక్షరాల మధ్య ఉండాలి."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "అక్షరాలు, సంఖ్యలు, హైఫెన్లు, మరియు చుక్కలు కలిగివుండవచ్చు."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "హైఫెనుతో ప్రారంభించబడకూడదు, ముగించబడకూడదు."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "చుక్క, లేదా \"..\" శ్రేణిని కలిగివుండేట్టు ప్రారంభించకూడదు, అంతముకాకూడదు."
 
 #. Type: text
 #. Description
@@ -365,13 +365,13 @@ msgstr "బలమైన సంకేతపదం"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Log in automatically"
-msgstr "స్వయంచాలకంగా లాగిన్ ఆవ్వు"
+msgstr "స్వయంచాలకంగా ప్రవేశించు"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Require my password to log in"
-msgstr "లాగిన్ అవ్వటానికి నా సంకేతపదం అవసరం"
+msgstr "ప్రవేశించుటకు నా సంకేతపదం అవసరం"
 
 #. Type: text
 #. Description
@@ -385,7 +385,7 @@ msgstr "నా నివాస సంచయాన్ని ఎన్‌ క్�
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
+msgstr "ఈ చిత్రం మీ వాడుకరి పేరుతో బాటుగా ప్రదర్శించబడుతుంది."
 
 #. Type: text
 #. Description
@@ -409,7 +409,7 @@ msgstr "ఒకవేళ మీరు ఏ ఖాతాలను దిగుమ�
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Installation type"
-msgstr "ఇన్స్టాలింగ్ విధానం"
+msgstr "స్థాపన విధానం"
 
 #. Type: text
 #. Description
@@ -537,13 +537,6 @@ msgstr "స్థాపకం క్రాష్ అయింది"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -551,10 +544,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"క్షమించండి. ఇన్స్టాలర్ ఆగిపోయింది. మీరు ఈ విండోని మూసి వేసిన తరువాత, బగ్ రిపోర్టింగ్ సదుపాయాన్ని ఉపయోగించి ఈ "
-"సమస్యను గూర్చి తెలియచేయవచ్చు. బగ్ రిపోర్టింగ్ టూల్ మీ కంప్యూటరు మరియు ఇన్స్టాలింగ్ విధానం గురించి కొంత "
-"సమాచారాన్ని సేకరిస్తుంది. ఈ సమాచారం మా బగ్ ట్రాకర్ కి పంపబడుతుంది. ఎవరో ఒక డెవలపర్ మీ సమస్యను "
-"పరిష్కరించడానికి ప్రయత్నిస్తారు."
 
 #. Type: text
 #. Description
@@ -655,7 +644,7 @@ msgstr "ఖాళీ స్థలం"
 #. Indicates that we do not know how much space is used on this partition.
 #: ../ubiquity.templates:94001
 msgid "unknown"
-msgstr "తెలియని"
+msgstr "తెలియదు"
 
 #. Type: text
 #. Description
@@ -666,10 +655,8 @@ msgstr "పార్టిషన్‌  సృష్టించు"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "పరిమాణం"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -774,7 +761,7 @@ msgstr "స్థాపక కాన్ఫిగరేషన్‌ని తన�
 #. Description
 #: ../ubiquity.templates:112001
 msgid "Installing system"
-msgstr "సిస్టం స్థాపించబడుతోంది"
+msgstr "వ్యవస్థ స్థాపించబడుతోంది"
 
 #. Type: text
 #. Description
@@ -901,7 +888,7 @@ msgstr "లక్ష్య వ్యవస్థను స్వరూపిస�
 #. Description
 #: ../ubiquity.templates:124001
 msgid "Configuring system locales..."
-msgstr "సిస్టం స్థానికీకరణలను స్వరూపిస్తోంది..."
+msgstr "వ్యవస్థ స్థానికీకరణలను స్వరూపిస్తోంది..."
 
 #. Type: text
 #. Description
@@ -925,7 +912,7 @@ msgstr "కీబోర్డును స్వరూపిస్తోంద�
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Creating user..."
-msgstr "వాడుకరి సృష్టించబడుతున్నాడు..."
+msgstr "వాడుకరిని సృష్టిస్తోంది..."
 
 #. Type: text
 #. Description
@@ -943,7 +930,7 @@ msgstr "థర్డ్-పార్టీ సాఫ్ట్‍వేర్ స
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring network..."
-msgstr "నెట్వర్కు స్వరూపించబడుతోంది..."
+msgstr "నెట్‌వర్కు స్వరూపించబడుతోంది..."
 
 #. Type: text
 #. Description
@@ -991,19 +978,19 @@ msgstr "తొలగించడానికి ప్యాకేజీలన�
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "ప్యాకేజీలను డౌన్‌లోడ్ చేస్తోంది (${TIME} మిగిలిఉన్నది)..."
+msgstr "ప్యాకేజీలను దింపుకుంటున్నది (${TIME} మిగిలిఉన్నది)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Downloading package lists..."
-msgstr "ప్యాకేజీ జాబితాలను డౌన్‌లోడ్ చేస్తోంది..."
+msgstr "ప్యాకేజీ జాబితాలను దింపుకుంటున్నది..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "ప్యాకేజీ జాబితాలను డౌన్‌లోడ్ చేస్తోంది (${TIME} మిగిలిఉన్నది)..."
+msgstr "ప్యాకేజీ జాబితాలను దింపుకుంటున్నది (${TIME} మిగిలివున్నది)..."
 
 #. Type: error
 #. Description
@@ -1073,7 +1060,7 @@ msgstr "ప్యాకేజీలను తొలగించునపుడ�
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Error copying network configuration"
-msgstr "నెట్వర్క్ కాన్ఫిగరేషన్‌ని నకలుతీయుటలో దోషం"
+msgstr "నెట్‌వర్క్ స్వరూపణను నకలుతీయుటలో దోషం"
 
 #. Type: error
 #. Description
@@ -1100,6 +1087,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"బ్లూటూత్ అమరికలను నకలుచేస్తున్నపుడు ఒక దోషం సంభవించింది. స్థాపన కొనసాగుతుంది, కానీ బ్లూటూత్ "
+"స్వరూపణం మరలా అమర్చవలసివుంటుంది."
 
 #. Type: error
 #. Description
@@ -1134,7 +1123,7 @@ msgstr "భాష ప్యాక్‌లు స్థాపించబడు�
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "భాష ప్యాక్‌లను డౌన్‌లోడ్ చేస్తోంది (${TIME} మిగిలిఉన్నది)..."
+msgstr "భాష ప్యాక్‌లను దింపుకుంటున్నది (${TIME} మిగిలివున్నది)..."
 
 #. Type: boolean
 #. Description
@@ -1505,21 +1494,12 @@ msgstr "అంతర్జాలానికి అనుసంధానమై�
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} ఫ్లాష్, MP3 మరియు ఇతర మీడియా ప్రదర్శించుటకు మరియు కొన్ని వైరులేని హార్డ్‍వేర్‍తో పనిచేయుటకు "
-"థర్డ్-పార్టీ సాఫ్ట్‍వేర్ వాడుకుంటుంది.ఇందులో కొంత సాఫ్ట్‍వేర్ రహస్య మూలాలకి చెందినది. సాఫ్ట్‍వేర్ మరియు సాఫ్ట్‍వేర్ "
-"యొక్క పత్రీకరణ లైసెన్సు నిబంధనలతో ఇవ్వబడుతోంది."
 
 #. Type: text
 #. Description
@@ -1528,6 +1508,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"ఫ్లుయెండో ఎంపీ3 చొప్పింత ఎంపెగ్ లేయర్-3 తో కూడిన ఆడియో డీకోడింగు సాంకేతికత ఫ్రాన్‌హోఫర్ IIS మరియు టెక్నికలర్ "
+"SA నుండి లైసెన్సు చేయబడింది."
 
 #. Type: text
 #. Description
@@ -1816,10 +1798,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "స్థాపన నుండి నిష్క్రమించాలా?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1838,10 +1818,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "చిత్రం పెట్టు"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2001,36 +1979,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "మానవీయ అమరిక(ఉన్నత)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "మాకున్న తెలివి సరిపోలేదు? ఉన్నత విభజన ఎంపికులు వాడండి."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "కొత్త పార్టిషన్ పరిమాణం మెగాబైట్లలో (1000000 bytes):"
-
-#~ msgid "Beginning"
-#~ msgstr "మొదలు"
-
-#~ msgid "End"
-#~ msgstr "అంతం"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "పత్రాలు మరియు అమరికలను దిగుమతిచేయబడుతున్నాయి..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "పత్రాలు మరియు అమరికలు తెచ్చుటలో దోషం"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "అక్కడినుండి డేటా తెచ్చునపుడు ఒక దోషం సంభవించింది.  మరిన్ని వివరాలు /var/log/syslog లో "
-#~ "కనుక్కొనవచ్చు.  స్థాపన కొనసాగుతుంది, కాని మీరు విన్నవించిన కొన్ని లేదా అన్ని పత్రాలు మరియు అమరికలు "
-#~ "బదిలీ కాకపోవచ్చు."

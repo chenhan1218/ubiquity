@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -660,10 +660,8 @@ msgstr "Create partition"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Size"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1501,22 +1499,12 @@ msgstr "is connected to the Internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} uses third-party software to display Flash, MP3 and other media, "
-"and to work with some wireless hardware. Some of this software is closed-"
-"source. The software is subject to the license terms included with the "
-"software's documentation."
 
 #. Type: text
 #. Description
@@ -1798,10 +1786,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Quit the installation?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1820,10 +1806,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Choose a picture"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1984,39 +1968,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Removing packages"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Manual configuration (advanced)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "New partition size in megabytes (1000000 bytes):"
-
-#~ msgid "Beginning"
-#~ msgstr "Beginning"
-
-#~ msgid "End"
-#~ msgstr "End"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Importing documents and settings..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Error migrating documents and settings"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."

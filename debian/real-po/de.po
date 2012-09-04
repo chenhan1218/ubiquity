@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-12 07:57+0000\n"
-"Last-Translator: Hendrik Knackstedt <Unknown>\n"
+"PO-Revision-Date: 2012-08-24 20:03+0000\n"
+"Last-Translator: Phillip <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Verbindungsaufbau …"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr "Neu starten, um fortzusetzen"
+msgstr "Neustarten, um fortzufahren"
 
 #. Type: text
 #. Description
@@ -124,19 +124,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Dies ist eine vorläufige Veröffentlichung des ${RELEASE} Live-${MEDIUM}-"
-"Installationsprogramms. Es ist nicht die fertige Veröffentlichung; diese "
-"erscheint als ${RELEASE} im April 2012."
+"Dies ist einer Vorabveröffentlichung des ${RELEASE} Live-${MEDIUM} "
+"Installationsprogramms. Es ist keine finale Veröffentlichung; die mit der "
+"finalen Version ${RELEASE} im Oktober 2012 erscheinen wird."
 
 #. Type: text
 #. Description
@@ -325,14 +320,14 @@ msgstr "Es darf nur Buchstaben, Zahlen, Bindestriche und Punkte enthalten."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr "Es darf nicht mit einem Bindestrich beginnen."
+msgstr "Darf nicht mit einem Bindestrich beginnen oder aufhören."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
-"Es darf nicht mit einem Punkt beginnen oder aufhören oder die Abfolge »..« "
+"Darf nicht mit einem Punkt beginnen oder aufhören oder die Abfolge »..« "
 "enthalten."
 
 #. Type: text
@@ -567,13 +562,6 @@ msgstr "Installationsprogramm abgestürzt"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -581,13 +569,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Es tut uns leid; das Installationsprogramm ist abgestürzt. Nachdem Sie "
-"dieses Fenster geschlossen haben, werden wir Ihnen die Möglichkeit geben, "
-"einen Fehlerbericht über das integrierte Werkzeug zur "
-"Fehlerberichterstattung abzugeben. Dieses wird Informationen über Ihr System "
-"sowie Ihren Installationsvorgang sammeln, welche anschließend an unser "
-"Fehlerdatenbank gesendet werden und ein Entwickler wird sich dem Problem so "
-"schnell wie möglich annehmen."
 
 #. Type: text
 #. Description
@@ -699,10 +680,8 @@ msgstr "Partition erstellen"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Größe"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1576,12 +1555,6 @@ msgstr "mit dem Internet verbunden ist"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
@@ -1895,21 +1868,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Die neue Ubuntu-Installation zur Sicherheit verschlüsseln"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Im nächsten Schritt wählen Sie einen Sicherheitsschlüssel aus."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Die Installation beenden?"
+msgstr "LVM für die neue Ubuntu-Installation benutzen"
 
 #. Type: text
 #. Description
@@ -1918,20 +1889,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"LVM wird eingerichtet. Es erlaubt die Erstellung von Abbildern und eine "
+"erleichterte Größenänderung von Partitionen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Bestätigen Sie den Sicherheitsschlüssel:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Wählen Sie ein Bild"
+msgstr "Wählen Sie einen Sicherheitsschlüssel:"
 
 #. Type: text
 #. Description
@@ -1940,12 +1911,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Die Festplattenverschlüsselung schützt Ihre Daten, falls Sie Ihren Rechner "
+"verlieren. Es wird ein Sicherheitsschlüssel benötigt, den Sie bei jedem "
+"Systemstart eingeben müssen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Alle Dateien außerhalb von Ubuntu werden nicht verschlüsselt."
 
 #. Type: text
 #. Description
@@ -1955,24 +1929,28 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Warnung:</span> Falls Sie diesen "
+"Sicherheitsschlüssel verlieren, sind Ihre Daten unwiederbringlich verloren. "
+"Sie können Ihren Sicherheitsschlüssel jedoch aufschreiben und ihn an einem "
+"sicheren Ort verwahren."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Für mehr Sicherheit:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Freien Speicherplatz überschreiben"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Die Installation kann um einiges länger dauern."
 
 #. Type: text
 #. description
@@ -2093,40 +2071,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakete werden entfernt"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Manuelle Konfiguration (fortgeschritten)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Zu schlau für uns? Versuchen Sie sich an den erweiterten "
-#~ "Partitionierungsoptionen."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Neue Partitionsgröße in Megabyte (1.000.000 Bytes):"
-
-#~ msgid "Beginning"
-#~ msgstr "Anfang"
-
-#~ msgid "End"
-#~ msgstr "Ende"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Dokumente und Einstellungen werden importiert …"
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Fehler beim Importieren der Dokumente und Einstellungen"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Ein Fehler ist beim Importieren der Daten aufgetreten. In der Datei »/var/"
-#~ "log/syslog« steht möglicherweise Näheres dazu. Die Installation wird "
-#~ "fortgesetzt, aber einige oder alle Dokumente und Einstellungen der von "
-#~ "Ihnen gewählten Benutzerkonten könnten nicht auf das Zielsystem "
-#~ "übertragen worden sein."

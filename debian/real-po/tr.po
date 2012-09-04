@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-13 15:07+0000\n"
-"Last-Translator: Şâkir Aşçı <Unknown>\n"
+"PO-Revision-Date: 2012-08-31 06:42+0000\n"
+"Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -65,7 +65,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"${RELEASE}'yu; bilgisayarınızda hiçbir değişiklik yapmadan, doğrudan "
+"${RELEASE} sürümünü, bilgisayarınızda hiçbir değişiklik yapmadan; doğrudan "
 "${MEDIUM} üzerinden deneyebilirsiniz."
 
 #. Type: text
@@ -77,14 +77,14 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Veya hazırsanız, mevcut işletim sisteminizin yanına (veya yerine) ${RELEASE} "
-"yükleyebilirsiniz. Bu işlem normalde çok uzun sürmez."
+"sürümünü yükleyebilirsiniz. Bu işlem çok uzun sürmemelidir."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:9001
 msgid "Try ${RELEASE}"
-msgstr "${RELEASE} Dene"
+msgstr "${RELEASE} Sürümünü Dene"
 
 #. Type: text
 #. Description
@@ -123,19 +123,13 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Bu, ${RELEASE} çalışan ${MEDIUM} yükleyicisinin bir ön sürümüdür. Kararlı "
-"bir sürüm değildir; ${RELEASE}'nun kararlı sürümü Nisan 2012'de "
-"yayınlanacaktır."
+"Bu bir ${RELEASE} in canlı ${MEDIUM} yükleyicisini ön sürümüdür. Bu bir son "
+"sürüm değildir; bu ${RELEASE} in son sürümüyle Ekim 2012 de gelecek."
 
 #. Type: text
 #. Description
@@ -153,7 +147,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Warning"
-msgstr "Uyarı"
+msgstr "Dikkat"
 
 #. Type: text
 #. Description
@@ -255,7 +249,7 @@ msgstr "Bir kullanıcı adı seçin:"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Username"
-msgstr "Kullanıcı adı"
+msgstr "Kullanıcı Adı"
 
 #. Type: text
 #. Description
@@ -297,7 +291,7 @@ msgstr "Parolanızı doğrulayın:"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Your computer's name:"
-msgstr "Bilgisayarınızın adı:"
+msgstr "Bilgisayar Adı"
 
 #. Type: text
 #. Description
@@ -492,7 +486,8 @@ msgstr "Önyükleyici olmadan devam edin."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"${RELEASE}'yu başlatabilmek için elle bir önyükleyici kurmanız gerekiyor."
+"${RELEASE} sürümünü başlatabilmek için elle bir önyükleyici kurmanız "
+"gerekiyor."
 
 #. Type: text
 #. Description
@@ -516,7 +511,7 @@ msgstr "Nasıl ilerlemek istiyorsunuz?"
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Skip"
-msgstr "Atla"
+msgstr "Geç"
 
 #. Type: title
 #. Description
@@ -553,13 +548,6 @@ msgstr "Yükleyici çöktü"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -567,11 +555,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Üzgünüz; yükleyici çöktü. Bu pencereyi kapattıktan sonra bütünleşik hata "
-"raporlama aracıyla bir hata raporu oluşturmanızı sağlayacağız. Bu sisteminiz "
-"ve yükleme süreciniz hakkında bilgi toplayacak. Ayrıntılar hata takipçimize "
-"gönderilecek ve bir geliştirici sorunu olabilecek en çabuk şekilde "
-"düzeltmeye çalışacak."
+"Üzgünüz, kurucu çöktü. Bu pencereyi kapattıktans sonra tümleşik hata raporu "
+"aracı ile hata raporu hazırlamanızı sağlayacağız. Bu, sisteminiz ve kurulum "
+"sürecinizle ilgili bilgi toplayacak. Ayrıntılar hata takipçimize "
+"gönderilecek ve geliştirici mümkün olan en kısa sürede sorunla ilgilenecek."
 
 #. Type: text
 #. Description
@@ -683,22 +670,20 @@ msgstr "Bölüm oluştur"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Boyut"
+msgstr "Boyut:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Bu boşluğun başlangıcı"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Bu boşluğun sonu"
 
 #. Type: text
 #. Description
@@ -1541,22 +1526,16 @@ msgstr "internete bağlı"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE}; Flash, MP3 ve diğer ortamları oynatmak için üçüncü parti "
-"yazılımları kullanır. Bunların bir kısmı kapalı kaynaklı yazılımlardır. Söz "
-"konusu yazılımlar, yazılımın ilgili belgelerinde geçen lisans kurallarına "
-"tabidir."
+"${RELEASE} , Flash, MP3 ve diğer ortamları oynatmak için ve bazı grafikler "
+"ve wi-fi donanımlarla çalışmak için üçüncü parti yazılım kullanıyor. Bu "
+"yazılımların bazıları sahiplidir. Yazılım belgelendirmesinde dahil olan "
+"lisans şartlarına tabidir."
 
 #. Type: text
 #. Description
@@ -1855,21 +1834,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Yeni Ubuntu kurulumunu güvenlik için şifrele"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Bir sonraki adımda bir güvenlik anahtarı seçeceksiniz."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Kurulumdan çıkılsın mı?"
+msgstr "Yeni Ubuntu kurulumu ile LVM kullan"
 
 #. Type: text
 #. Description
@@ -1878,20 +1855,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Bu, Mantıksal Birim Yönetimi'ni (LVM) kuracaktır. Görünüm almanıza ve "
+"kolayca bölümleri yeniden boyutlandırmaya izin verir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Güvenlik anahtarını doğrulayın:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Bir resim seçiniz"
+msgstr "Bir güvenlik anahtarı seçin:"
 
 #. Type: text
 #. Description
@@ -1900,12 +1877,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Disk şifreleme, bilgisayarınızı kaybetme durumuna karşı dosyalarınızı "
+"korumaktadır. Bilgisayar her başladığında bir güvenlik anahtarı girmenizi "
+"gerektirmektedir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Ubuntu dışındaki dosyalar şifrelenmeyecektir."
 
 #. Type: text
 #. Description
@@ -1915,30 +1895,33 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Uyarı:</span> Bu güvenlik anahtarını "
+"kaybederseniz tüm veri kaybolacaktır. Gerekirse anahtarınızı yazın ve başka "
+"güvenli bir yerde saklayın."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Daha yüksek güvenlik için:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Boş disk alanının üzerine yaz"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Bu kurulum daha çok sürebilir."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
@@ -1950,7 +1933,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Şifreleme Seçenekleri"
 
 #. Type: text
 #. Description
@@ -1962,13 +1945,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Bu bölümlemeyi şifrele (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1988,7 +1971,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Şifreleme seçenekleri..."
 
 #. Type: title
 #. Description
@@ -2053,38 +2036,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Elle yapılandırma (gelişmiş)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Bizden daha zeki olduğunu mu düşünüyorsun? O zaman seni gelişmiş "
-#~ "bölümleme seçeneklerine alalım."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Megabayt (1000000 bayt) cinsinden yeni bölüm boyutu:"
-
-#~ msgid "Beginning"
-#~ msgstr "Başlangıç"
-
-#~ msgid "End"
-#~ msgstr "Son"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Belge ve ayarlar aktarılıyor..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Belge ve ayarlar aktarılırken bir hata oluştu"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Veri aktarılırken bir hata oluştu. Daha fazla ayrıntıyı /var/log/syslog "
-#~ "içerisinde bulabilirsiniz. Kurulum devam edecek; fakat size gereken belge "
-#~ "ve ayarların bazıları ya da tümü yerleşik sisteme yüklenmemiş olabilir."

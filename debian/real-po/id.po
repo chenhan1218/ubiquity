@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-10 14:09+0000\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"PO-Revision-Date: 2012-08-15 06:59+0000\n"
+"Last-Translator: Mei Hua Song <Unknown>\n"
 "Language-Team: Bahasa Indonesia <debian-l10n-id@gurame.fisika.ui.ac.id>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -123,19 +123,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Ini merupakan pra-rilis dari pemasang ${MEDIUM} live ${RELEASE}. Ini bukan "
-"rilis terakhir; itu akan datang dengan rilis akhir dari ${RELEASE} pada "
-"April 2012."
+"Ini adalah pra-rilis dari ${RELEASE} pemasang live ${MEDIUM}. Ini bukan "
+"rilis akhir; yang akan rilis bersamaan dengan rilis akhir ${RELEASE} di "
+"bulan Oktober 2012."
 
 #. Type: text
 #. Description
@@ -559,13 +554,6 @@ msgstr "Pemasang gagal"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -573,11 +561,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Maaf, installer crash. Setelah Anda menutup jendela ini, Anda akan dapat "
-"melaporkan kutu memakai perkakas pelaporan kutu terintegrasi. Ini akan "
-"mengumpulkan informasi tentang sistem Anda dan proses instalasi Anda. "
-"Rincian akan dikirim ke pelacak kutu kami dan seorang pengembang akan "
-"memeriksa masalah sesegera mungkin."
 
 #. Type: text
 #. Description
@@ -689,10 +672,8 @@ msgstr "Buat partisi"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Ukuran"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1547,23 +1528,16 @@ msgstr "terhubung pada Internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} memanfaatkan perangkat lunak dari pihak ketiga untuk memutar "
-"Flash, MP3 maupun media lainnya, serta untuk bekerja dengan sejumlah "
-"perangkat keras nirkabel. Beberapa perangkat lunak tersebut bersifat "
-"tertutup. Syarat-syarat yang dimiliki oleh lisensi mereka disertakan pada "
-"dokumentasi perangkat lunak tersebut."
+"${RELEASE} menggunakan perangkat lunak pihak ketiga untuk memutar Flash, "
+"MP3, dan media lainnya, dan bekerja sama dengan beberapa perangkat keras "
+"grafis dan wi-fi. Beberapa perangkat lunak ini bersifat tertutup. Perangkat "
+"lunak ini memiliki rujukan lisensi beserta dengan dokumentasinya."
 
 #. Type: text
 #. Description
@@ -1859,21 +1833,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Enkripsi untuk keamanan pemasangan Ubuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Anda akan memilih sandi pada langkah selanjutnya."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Keluar dari instalasi?"
+msgstr "Gunakan LVM bersama dengan pemasangan Ubuntu yang baru"
 
 #. Type: text
 #. Description
@@ -1882,20 +1854,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Ini akan membentuk Pengaturan Volum Logis. Ini juga dapat mengambil gambar "
+"dan mempermudah pengubahan ukuran partisi."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Konfirmasi kunci keamanan:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Pilih suatu gambar"
+msgstr "Pilih kunci keamanan:"
 
 #. Type: text
 #. Description
@@ -1904,12 +1876,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Enkripsi disk akan melindungi berkas-berkas Anda bila komputer Anda hilang. "
+"Enkripsi ini akan meminta kunci pengaman setiap kali komputer dinyalakan."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Semua berkas di luar Ubuntu tidak akan dienkripsi."
 
 #. Type: text
 #. Description
@@ -1919,24 +1893,27 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Peringatan:</span> Jika Anda lupa sandi ini, "
+"Anda akan kehilangan semua data. Tulislah sandi tersebut dan simpan di "
+"tempat yang aman."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Untuk keamanan lebih lanjut:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Timpa ruang kosong pada disk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Proses pemasangan mungkin akan berlangsung lebih lama"
 
 #. Type: text
 #. description
@@ -2056,39 +2033,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Menghapus paket"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Konfigurasi manual (lanjutan)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Terlalu cerdas bagi kami? Silakan untuk sedikit sibuk dengan memakai opsi "
-#~ "pemartisian lanjutan."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Ukuran partisi baru dalam megabita (1000000 bita):"
-
-#~ msgid "Beginning"
-#~ msgstr "Awal"
-
-#~ msgid "End"
-#~ msgstr "Akhir"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Mengimpor dokumen dan setelan..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Galat ketika memigrasikan dokumen dan setelan"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Terjadi galat ketika memindahkan data. Rincian galat tersebut dapat "
-#~ "dilihat pada /var/log/syslog. Instalasi akan berlanjut, tapi beberapa "
-#~ "atau semua dokumen dan setelan yang diminta mungkin tidak dapat dipindah "
-#~ "pada sistem yang saat ini dipasang."

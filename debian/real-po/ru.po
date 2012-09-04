@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-30 02:05+0000\n"
-"Last-Translator: Sergey Sedov <sedov@webmail.perm.ru>\n"
+"PO-Revision-Date: 2012-08-31 13:08+0000\n"
+"Last-Translator: Eugene Marshal <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -122,19 +122,14 @@ msgstr "Вы можете <a href=\"update\">обновить этот уста�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Это предварительный выпуск программы установки для загрузочного ${MEDIUM} "
-"${RELEASE}. Финальный выпуск будет доступен в финальном выпуске ${RELEASE} в "
-"апреле 2012 г."
+"Это предварительный выпуск программы установки ${RELEASE} с носителя "
+"${MEDIUM}. Это не финальный выпуск, он выйдет вместе со стабильным выпуском "
+"${RELEASE} в октябре 2012 года."
 
 #. Type: text
 #. Description
@@ -553,13 +548,6 @@ msgstr "Программа установки аварийно завершил�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -567,11 +555,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"К сожалению, произошло аварийное завершение работы программы установки. "
-"После закрытия этого окна вы сможете отправить отчёт об ошибке, используя "
-"встроенный инструмент отчётов. Он соберёт информацию о системе и процессе "
-"установки. Детали будут отправлены разработчикам для скорого решения этой "
-"проблемы."
+"Извините, произошло аварийное завершение работы программы установки. После "
+"закрытия этого окна, вы можете отправить сообщение об этой неполадке "
+"используя встроенное средство сообщения о неполадках. Будет произведён сбор "
+"сведения о вашей системе и ходе установки. Сведения будут отправлены в нашу "
+"систему учёта ошибок, а также разработчику, который как можно скорее примет "
+"участие в исправлении неполадки."
 
 #. Type: text
 #. Description
@@ -683,10 +672,8 @@ msgstr "Создать раздел"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Размер"
+msgstr "Размер:"
 
 #. Type: text
 #. Description
@@ -1542,23 +1529,17 @@ msgstr "подключен к Интернету"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} использует программное обеспечение от сторонних производителей, "
-"чтобы воспроизводить Flash, MP3 и прочее мультимедиа, а так же для работы с "
-"некоторым беспроводным оборудованием. Часть этого программного обеспечения "
-"выпускается с закрытым кодом. Программное обеспечение попадает под условия "
-"лицензии, включенной в документацию по этому программному обеспечению."
+"${RELEASE} использует стороннее программное обеспечение для воспроизведения "
+"Flash, MP3 и прочих форматов мультимедиа, а также для работы с некоторыми "
+"видеокартами и беспроводными адаптерами. Некоторая его часть — "
+"проприетарная. Для работы с программой нужно заключить лицензионное "
+"соглашение, которое прилагается к его документации."
 
 #. Type: text
 #. Description
@@ -1857,21 +1838,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Зашифровать файлы Ubuntu для повышения безопасности"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Ключ безопасности можно будет выбрать далее."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Прервать установку?"
+msgstr "Использовать LVM при установке"
 
 #. Type: text
 #. Description
@@ -1880,20 +1859,21 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Это действие настроит менеджер логических томов (LVM) при установке. Он "
+"позволяет делать снимки состояния диска и упрощает изменение размера "
+"разделов."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Подтвердите ключ безопасности:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Выберите изображение"
+msgstr "Выберите ключ безопасности:"
 
 #. Type: text
 #. Description
@@ -1902,12 +1882,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Шифрование разделов защищает файлы в случае утери компьютера. При каждом "
+"включении потребуется вводить ключ безопасности."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Файлы за пределами разделов с Ubuntu не будут зашифрованы."
 
 #. Type: text
 #. Description
@@ -1917,60 +1899,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Предупреждение:</span> Если вы потеряете этот "
+"ключ безопасности, то не сможете получить доступ к своим файлам. Если "
+"считаете нужным, запишите свой ключ и храните в безопасном месте."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Для большей безопасности:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Перезаписать пустое дисковое пространство"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Установка может занять значительно больше времени."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Группы логических дисков:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Параметры шифрования"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Физические диски:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Зашифровать этот раздел (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "МБ"
 
 #. Type: text
 #. Description
@@ -1979,18 +1964,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Управление логическими дисками (LVM) позволяет Ubuntu интерпретировать "
+"несколько физических дисков как единый диск."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Управление логическими дисками"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Параметры шифрования..."
 
 #. Type: title
 #. Description
@@ -2055,38 +2042,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Удаление пакетов"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Ручная настройка (для продвинутых пользователей)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Вы достаточно опытны? Испытайте свои навыки в дополнительных параметрах "
-#~ "разметки."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Размер нового раздела в мегабайтах (1000000 байт):"
-
-#~ msgid "Beginning"
-#~ msgstr "Начало"
-
-#~ msgid "End"
-#~ msgstr "Конец"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Импорт документов и настроек..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Ошибка при переносе документов и настроек"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Произошла ошибка при переносе данных. Подробности можно найти в /var/log/"
-#~ "syslog. Установка будет продолжена, но некоторые (или все) документы и "
-#~ "настройки не смогут быть перенесены в устанавливаемую систему."

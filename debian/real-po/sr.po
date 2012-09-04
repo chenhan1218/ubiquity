@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -121,18 +121,11 @@ msgstr "Можда желите да <a href=\"update\">ажурирате ов�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Ово је пред-издање ${RELEASE} пробног ${MEDIUM} инсталера. Ово није коначно "
-"издање; оно ће доћи са коначним издањем ${RELEASE} у априлу 2012."
 
 #. Type: text
 #. Description
@@ -554,13 +547,6 @@ msgstr "Инсталер се урушио"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -568,11 +554,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Жао нам је; инсталер се урушио. Када затворите овај прозор, омогућићемо вам "
-"да попуните извештај о грешци користећи уграђени алат за извештавање о "
-"грешци. Ово ће прикупити информације о вашем систему и о вашем процесу "
-"инсталације. Детаљи ће бити послата нашем пратиоцу грешака и програмер ће се "
-"позабавити проблемом чим то буде било могуће."
 
 #. Type: text
 #. Description
@@ -684,10 +665,8 @@ msgstr "Направи партицију"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Величина"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1543,22 +1522,12 @@ msgstr "је повезан на Интернет"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} користи софтвер трећих лица за приказивање Флеш, МП3 и других "
-"медија и да би радио са неким бежичним хардвером. Неки од ових софтвера јесу "
-"затвореног кôда. Софтвер подлеже условима лиценце приложеним уз "
-"документацију софтвера."
 
 #. Type: text
 #. Description
@@ -1870,10 +1839,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Прекинути инсталацију?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1892,10 +1859,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Изаберите слику"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2056,39 +2021,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Уклањам пакете"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Ручно подешавање (напредно)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Превише знања за нас? Засуците рукаве и испрљајте руке напредним опцијама "
-#~ "партиционисања."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Величина нове партиције у мегабајтима (1000000 бајта):"
-
-#~ msgid "Beginning"
-#~ msgstr "Почетак"
-
-#~ msgid "End"
-#~ msgstr "Крај"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Уносим документа и подешавања..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Грешка приликом пресељавања докумената и поставки"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Дошло је до грешке приликом пресељавања података. Више детаља можете наћи "
-#~ "у „/var/log/syslog“. Инсталација ће се наставити, али неки или сви подаци "
-#~ "и поставке које сте затражили можда неће бити пребачени на инсталирани "
-#~ "систем."

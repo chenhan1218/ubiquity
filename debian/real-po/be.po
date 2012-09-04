@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -123,19 +123,11 @@ msgstr "Магчыма Вы жадаеце <a href=\"update\">абнавіць �
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Гэта папярэдні выпуск праграмы ўсталёўкі для загрузнага ${MEDIUM} "
-"${RELEASE}. Фінальны выпуск будзе даступны ў фінальным выпуску ${RELEASE} у "
-"красавіку 2012"
 
 #. Type: text
 #. Description
@@ -554,13 +546,6 @@ msgstr "Праграма ўсталёўкі аварыйна спынена"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -568,11 +553,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"На жаль, адбылося аварыйнае завяршэнне работы праграмы ўсталёўкі. Пасля "
-"закрыцця гэтага вакна Вы зможаце адправіць рапарт аб памылцы выкарыстоўваючы "
-"ўбудаваны інструмент справаздач. Ён збярэ інфармацыю аб сістэме і працэсе "
-"ўсталёўкі. Дэталі будуць накіраваныя распрацоўнікам для хуткага вырашэння "
-"гэтай праблемы."
 
 #. Type: text
 #. Description
@@ -684,10 +664,8 @@ msgstr "Стварыць раздзел"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Памер"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1545,23 +1523,12 @@ msgstr "падключаны да Інтэрнэту"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"$ {RELEASE} выкарыстоўвае праграмнае забеспячэнне ад іншых вытворцаў, каб "
-"прайграваць Flash, MP3 ды іншыя мультымедыя, а таксама для працы з некаторым "
-"бесправадным абсталяваннем. Частка гэтага праграмнага забеспячэння "
-"выпускаецца з закрытым кодам. Праграмнае забеспячэнне трапляе пад умовы "
-"ліцэнзіі, абумоўленай у дакументацыі па гэтым праграмным забеспячэнні."
 
 #. Type: text
 #. Description
@@ -1872,10 +1839,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Перарваць усталёўку ?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1894,10 +1859,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Абярыце малюнак"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2058,36 +2021,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Выдаленне пакетаў"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Наладзіць уручную (для дасведчаных карыстальнікаў)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "Вам не хапае магчымасцяў? Паспрабуйце дадатковыя опцыі падзелу."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Памер новага раздзелу ў мегабайтах (1000000 байт):"
-
-#~ msgid "Beginning"
-#~ msgstr "Пачатак"
-
-#~ msgid "End"
-#~ msgstr "Канец"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Імпарт дакументаў і настроек ..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Памылка міграцыі дакументаў і наладак"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Адбылася памылка пры пераносе дадзеных. Падрабязнасці можна знайсці ў /"
-#~ "var/log/syslog. Усталёўка будзе працягнутая, але некаторыя (ці ўсе) "
-#~ "дакументы і наладкі не змогуць быць перанесеныя ў усталёўваемую сістэму."

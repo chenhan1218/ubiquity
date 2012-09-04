@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-11 10:04+0000\n"
+"PO-Revision-Date: 2012-08-16 12:12+0000\n"
 "Last-Translator: Ravi Kumar <Unknown>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-11 16:21+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -119,18 +119,11 @@ msgstr "आप <a href=\"अद्यतन\">संस्थापक का �
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"यह ${RELEASE} लाईव ${MEDIUM} संस्थापना का एक पूर्व संस्करण है. यह एक अंतिम रिलीज नहीं "
-"है, जो कि अप्रैल 2012 में ${RELEASE} के अंतिम रिलीज के साथ आ जाएगा."
 
 #. Type: text
 #. Description
@@ -546,13 +539,6 @@ msgstr "संस्थापना ध्वंस हो गया"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -560,10 +546,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"हमें खेद है; इंस्टॉलर क्रैश हो गया है। इस विंडो को बंद करने के बाद, हम आपको समन्वित बग "
-"रिपोर्टिंग टूल की मदद से बग रिपोर्ट फ़ाइल करने देंगे। यह आपके सिस्टम और इंसटॉलेशन प्रक्रिया "
-"के बारे में जानकारी इकट्ठा करेगा। जानकारी हमारे बग ट्रैकर को भेज दिया जाएगा और जल्द से "
-"जल्द डेवलपर समस्या का समाधान करेगा।"
 
 #. Type: text
 #. Description
@@ -675,10 +657,8 @@ msgstr "विभाजन बनाएँ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "आकार"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1522,21 +1502,15 @@ msgstr "अंतर्जाल से संयोजिता है"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} तृतीय पार्टी सॉफ्टवेयर का इस्तेमाल फ्लैश दिखाने, एमपी3 तथा अन्य मिडिया "
-"चलाने, तथा कुछ बेतार हार्डवेयर के साथ काम करने हेतु करता है. यह सॉप्टवेयर सॉफ्टवेयर दस्तावेज "
-"में समाहित लाइसेंस शर्तों के रहते होगा."
+"${RELEASE} तीसरे पक्ष के सॉफ़्टवेयर का उपयोग करता है फ्लैश, एमपी 3 और अन्य मीडिया प्ले "
+"करने लिए, और कुछ ग्राफिक्स और वाई - फाई हार्डवेयर के साथ काम करने के लिए. इनमें से कुछ "
+"सॉफ़्टवेयर स्वाधिकृत है. सॉफ्टवेयर अपनी दस्तावेज़ीकरण के साथ शामिल लाइसेंस शर्तों के अधीन है."
 
 #. Type: text
 #. Description
@@ -1826,21 +1800,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "सुरक्षा के लिए नए उबुन्टू स्थापना काे एन्क्रिप्ट करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "अगले चरण में आप एक सुरक्षा कुंजी का चयन करेंगे."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "संस्थापना छोडें?"
+msgstr "नए उबुन्टू स्थापना के साथ LVM का प्रयोग करें"
 
 #. Type: text
 #. Description
@@ -1854,15 +1826,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "सुरक्षा कुंजी की पुष्टि करें:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "एक चित्र का चयन करें"
+msgstr "सुरक्षा कुंजी चुनें:"
 
 #. Type: text
 #. Description
@@ -1876,7 +1846,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "उबुन्टू के बाहर किसी भी फाइल काे एन्क्रिप्टेड नहीं किया जाएगा."
 
 #. Type: text
 #. Description
@@ -1891,7 +1861,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "अधिक सुरक्षा के लिए:"
 
 #. Type: text
 #. Description
@@ -1903,7 +1873,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "स्थापना अधिक लंबा समय ले सकता है."
 
 #. Type: text
 #. description
@@ -2022,36 +1992,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "हस्तगत विन्यास (उन्नत)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "हमारे लिए पर्याप्त स्मार्ट है? तो कुछ उन्नत विभाजन विकल्प में आपना हाथ डालें."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "नया विभाजन का आकार मेगाबाइट (1000000 बाइट) में हैः"
-
-#~ msgid "Beginning"
-#~ msgstr "प्रारंभ"
-
-#~ msgid "End"
-#~ msgstr "समाप्त"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "दस्तावेजों एवं विन्यासों का आयात कर रहा है।"
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "दस्तावेज तथा विन्यास के प्रवास में त्रुटि"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "दस्तावेज प्रवास के दौरान त्रुटि पाई गई। विस्तृत विवरण /var/log/syslog में मिलेगा. "
-#~ "संस्थापना चालू रहेगा लेकिन आपके द्वारा आग्रहीत कुछ या सभी दास्तावेज तथा विन्यास "
-#~ "संस्थापित तंत्र में स्थानान्तरित नहीं होगा."

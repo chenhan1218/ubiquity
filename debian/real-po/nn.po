@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-13 14:51+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -122,19 +122,11 @@ msgstr "Du kan <a href=\"update\">oppdatera installasjonsprogrammet</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Dette er ei førehandsutgjeving av installasjonprogrammet for ${RELEASE} "
-"${MEDIUM}. Det er ikkje den endelege utgjevinga, det kjem saman med den "
-"ferdige versjonen av ${RELEASE} i april 2012."
 
 #. Type: text
 #. Description
@@ -551,13 +543,6 @@ msgstr "Installasjonsprogrammet krasja"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -565,11 +550,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Installasjonsprogrammet krasja. Når du lèt att dette vindauget, vil du kunne "
-"senda inn ein feilrapport med feilrapporteringverktøyet. Dette vil samla inn "
-"informasjon om systemet ditt og installasjonsprosessen. Detaljane vil "
-"sendast til feilmeldingstenesta, og ein utviklar vil ta hand om problemet så "
-"snart som mogleg."
 
 #. Type: text
 #. Description
@@ -681,10 +661,8 @@ msgstr "Lag partisjon"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Storleik"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1537,22 +1515,12 @@ msgstr "er kopla til internett"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} brukar tredjeparts programvare for vising av Flash, MP3 og andre "
-"media, samt med nokre trådlause nettverkskort. Noko av denne programvara er "
-"lukka kjeldekode. Programvara er underlagt lisensvilkår inkludert i den "
-"aktuelle programvara si dokumentasjon."
 
 #. Type: text
 #. Description
@@ -1856,10 +1824,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Vil du avbryta installasjonen?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1878,10 +1844,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Vel eit bilete"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2042,38 +2006,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjernar pakkar"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Manuelt oppsett (avansert)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "For smart for oss? Bruk avanserte partisjoneringsval og sett i gang sjølv."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Ny partisjonsstorleik i megabyte (1000000 byte):"
-
-#~ msgid "Beginning"
-#~ msgstr "Start"
-
-#~ msgid "End"
-#~ msgstr "Slutt"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Importerer dokument og innstillingar"
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Feil under overføring av dokument og innstillingar"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Det skjedde ein feil under overføring av data. Fleire detaljar finst i /"
-#~ "var/log/syslog. Installasjonen vil halda fram, men nokre eller alle "
-#~ "dokumenta og innstillingane du har valt vil kanskje ikkje vera overført "
-#~ "til det installerte systemet."

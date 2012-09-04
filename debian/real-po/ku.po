@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -656,10 +656,8 @@ msgstr "Beşê biafirîne"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Mezinahî"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1765,10 +1763,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Ji sazkirinê derkeve?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1942,23 +1938,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Bi destan avakirin (pêşve çun)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "Gerti bi xwe bawerî? fermo tujî tevlî beşa pêşva buyîn bibe."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Mezinahiya beşa nû wekî megabyte ((1000000 byte):"
-
-#~ msgid "Beginning"
-#~ msgstr "Destpêk"
-
-#~ msgid "End"
-#~ msgstr "Dawî"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Belge û mîheng tên şandin..."

@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2011-08-13 11:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-05-03 08:39+0000\n"
+"Last-Translator: Jeyaranjan Yogaraj <Unknown>\n"
 "Language-Team: Tamil (Sri-Lanka) <ta_LK@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "இணைக்கப்படுகிறது..."
 
 #. Type: text
 #. Description
@@ -644,10 +644,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "உருவளவு"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1724,10 +1722,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "நிறுவுதலிருந்து வெளியேறுகிறீர்களா?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1901,9 +1897,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Beginning"
-#~ msgstr "தொடக்கம்"
-
-#~ msgid "End"
-#~ msgstr "இறுதி"

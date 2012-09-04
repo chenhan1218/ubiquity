@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -644,10 +644,8 @@ msgstr "भाग बनाउनुहोस्"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "आकार"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1726,10 +1724,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "स्थापना रद्द गर्नुहुन्छ?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1903,15 +1899,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "नयाँ भागको आकार मेगाबाइटमा(१०००००० बाइटहरु ):"
-
-#~ msgid "Beginning"
-#~ msgstr "सुरू"
-
-#~ msgid "End"
-#~ msgstr "अन्त्य"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "कागजात तथा स्थिती आयात गर्दै"

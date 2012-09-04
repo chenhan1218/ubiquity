@@ -8,14 +8,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
 "PO-Revision-Date: 2012-04-03 04:55+0000\n"
-"Last-Translator: tabbernuk <boamaod@gmail.com>\n"
+"Last-Translator: Märt Põder <boamaod@gmail.com>\n"
 "Language-Team: Eesti <linuxiabi@hot.ee>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -42,7 +42,7 @@ msgstr "Paigaldamine"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Paigalda (OEM režiim, ainult tootjatele)"
+msgstr "Paigaldamine (OEM režiim, ainult tootjatele)"
 
 #. Type: text
 #. Description
@@ -121,18 +121,11 @@ msgstr "Soovi korral võid <a href=\"update\">uuendada paigaldajat</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"See on ${RELEASE} eelväljalase laiv-${MEDIUM} paigaldaja. See pole lõplik "
-"väljalase mis tuleb ${RELEASE} väljalaskega 2012 aprillis."
 
 #. Type: text
 #. Description
@@ -551,13 +544,6 @@ msgstr "Paigaldaja krahhis"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -565,10 +551,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Kahjuks paigaldaja jooksis kokku. Pärast selle akna sulgemist saad veast "
-"raporteerida integreeritud vearaporteerija abiga. See kogub kokku andmed "
-"sinu süsteemi ja paigaldusprotsessi kohta. Koostatakse üksikasjaline "
-"vearaport ning arendajad vaatavad selle üle nii pea, kui võimalik."
 
 #. Type: text
 #. Description
@@ -680,10 +662,8 @@ msgstr "Kettajao loomine"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Maht"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1475,7 +1455,7 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d väiksemat kettajagu ei näidata, seda saad kasutada <a href="
+"<small>ühte väiksemat kettajagu ei näidata, seda saad kasutada <a href="
 "\"\">täpsema partitsioonimise vahendi</a> abil</small>"
 
 #. Type: text
@@ -1534,22 +1514,12 @@ msgstr "arvuti on ühendatud internetti"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} kasutab kolmanda osapoole tarkvara Flashi, MP3 ja muu meedia "
-"kuvamiseks ning mõnede juhtmevabade seadmete kasutamiseks. Osa sellest "
-"tarkvarast on kinnise lähtekoodiga. Tarkvara kohta kehtiva litsentsi "
-"tingimused on kaasa pandud tarkvara dokumentatsioonis."
 
 #. Type: text
 #. Description
@@ -1854,10 +1824,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Paigaldamise katkestamine"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1876,10 +1844,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Kasutaja avatari valimine"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2039,38 +2005,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakettide eemaldamine"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Käsitsi seadistamine (asjatundjale)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Pakutu ei vasta su nõudmistele? Kääri käised üles ja määra partitsioonid "
-#~ "ise!"
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Uue kettajao suurus megabaitides (1000000 baiti):"
-
-#~ msgid "Beginning"
-#~ msgstr "Algus"
-
-#~ msgid "End"
-#~ msgstr "Lõpp"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Dokumentide ja seadete importimine..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Tõrge dokumentide ja sätete ületoomisel"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Andmete ületoomisel esines tõrge. Rohkem teavet saab failis /var/log/"
-#~ "syslog. Paigaldus jätkub, aga mõned või kõik dokumendid ja sätted, mis "
-#~ "tuli üle tuua, ei ole paigaldatavasse süsteemi üle kantud."

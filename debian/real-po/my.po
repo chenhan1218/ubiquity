@@ -15,14 +15,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-17 10:24+0000\n"
-"X-Generator: Launchpad (build 15099)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "ချိတ်ဆက်နေပါသည်"
 
 #. Type: text
 #. Description
@@ -207,19 +207,19 @@ msgstr "ရုပ်ပုံအား ရွေးချယ်ပေးပါ�
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Take a photo:"
-msgstr ""
+msgstr "ဓါတ်ပုံရိုက်ယူပါ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "လက်ရှိပုံများမှ ရွေးပါ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take Photo"
-msgstr ""
+msgstr "ဓါတ်ပုံရိုက်ပါ"
 
 #. Type: text
 #. Description
@@ -249,13 +249,13 @@ msgstr "အသုံးပြုသူအမည်"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "စာလုံးသေးနှင့်စပါ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "စာလုံးသေး၊နံပါတ်၊hyphen နှင့် underscores များသာသုံးပါ"
 
 #. Type: text
 #. Description
@@ -297,25 +297,25 @@ msgstr "အခြားကွန်ပျူတာများနှင့် �
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "အနည်းဆုံး ၁ ခုမှ အများဆုံး ၆၃ ခုအထိရှိရမည်"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "အစက်၊ စာလုံး နှင့် ဂဏန်းများသာ ပါဝင်ရမည်"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "hyphen နှင့်စတင်ခြင်း (သို့) အဆုံးသတ်ထားခြင်းမပြုရ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "အစစာလုံးအား \"..\" များ၊ အစက်များ နှင့်မစရပါ"
 
 #. Type: text
 #. Description
@@ -375,7 +375,7 @@ msgstr "log in လုပ်ရန် မိမိ စကားဝှက်လိ
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Encrypt my home folder"
-msgstr "မိမိ home folder ကို  ဝှက်စာပြုလုပ်ထားပါ"
+msgstr "ပင်မဖိုင်တွဲကို  ဝှက်စာပြုလုပ်ထားပါ"
 
 #. Type: text
 #. Description
@@ -383,7 +383,7 @@ msgstr "မိမိ home folder ကို  ဝှက်စာပြုလုပ
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
+msgstr "ဤပုံသည် သင်သုံးစွဲမည့် သုံးစွဲသူအမည်နှင့် အမြဲယှဉ်တွဲပြသနေမည့် ပုံဖြစ်သည်"
 
 #. Type: text
 #. Description
@@ -537,13 +537,6 @@ msgstr "ထည့်သွင်းမှု ပျက်စီးသွား�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -551,10 +544,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"ဝမ်းနည်းပါတယ်။ Installer ပျက်နေပါသည်။ ဤ စာမျက်နှာအားပိတ်ပြီးပါက ကျွန်ုပ်တို့မှ သင့်အား "
-"ထည့်သွင်းပေးထားသည့် bug reporting ကိရိယာဖြင့် bug report တင်ခွင့်ပေးမည်ဖြစ်ပါသည်။ ထိုကိရိယာမှ သင့် "
-"system နှင့် install ပြုလုပ်ခြင်းအဆင့်ဆင့်တို့၏ အချက်အလက်များအား စုစည်းထားမည်ဖြစ်ပါသည်။ အပြည့်အစုံအား "
-"ကျွန်ုပ်တို့၏ အမှားရှာ စနစ်သို့ ထည့်သွင်းပြီး developer အား ဤ ပြဿနာအား အမြန်ဆုံး​ ဖြေရှင်းခိုင်းမည်ဖြစ်သည်။"
 
 #. Type: text
 #. Description
@@ -666,10 +655,8 @@ msgstr "အခန်း ဖန်တီးပါ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "အရွယ်အစား"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1095,7 +1082,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "bluetooth ချိန်ညှိမှု ကူးယူရာတွင် ချို့ယွင်းချက်ဖြစ်နေပါသည်"
 
 #. Type: error
 #. Description
@@ -1105,6 +1092,9 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"bluetooth ပြင်ဆင်ချက်များကူးယူးရာတွင် ချို့ယွင်းချက်ဖြစ်ပွားပါသည်။ ထည့်သွင်းမှုအား "
+"ဆက်လက်လုပ်ဆောင်သွားမည်ဖြစ်ပြီး bluetooth ချိန်ညှိမှုများအား ထည့်သွင်းပြီး စနစ်တွင် ပြန်လည် "
+"ချိန်ညှိပေးရမည်ဖြစ်သည်"
 
 #. Type: error
 #. Description
@@ -1134,7 +1124,7 @@ msgstr "ကျော်ပစ်ရမည့် ကူးယူရမည့် �
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Installing language packs"
-msgstr "ဘာသာစကား အခုအဝေးများ ထည့်သွင်းနေပါသည်"
+msgstr "ဘာသာစကား ထည့်သွင်းနေပါသည်"
 
 #. Type: text
 #. Description
@@ -1399,25 +1389,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:202001
 msgid "Password:"
-msgstr ""
+msgstr "စကားဝှက်-"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
 msgid "Display password"
-msgstr ""
+msgstr "စကားဝှက်ပြမည်"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "လောလောဆယ် wi-fi ကွန်ယက်နှင့်ချိတ်ဆက်မှု မလုပ်လိုသေးပါ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Connect to this network"
-msgstr ""
+msgstr "ဤကွန်ယက်နှင့်ချိတ်ဆက်မည်"
 
 #. Type: text
 #. Description
@@ -1512,21 +1502,12 @@ msgstr "အင်တာနက်သို့ ချိတ်ဆက်ထား�
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} သည် ဖလက်ရှ်၊ အမ်ပီ၃နှင့် အခြား မီဒီယာများ ပြသရန်နှင့်  ကြိုးမဲ့ ကိရိယာများ အလုပ်လုပ်စေရန် "
-"တတိယ ပါဝင်သူ၏ ဆော့ဝဲများကို အသုံးပြုရပါသည်။ အချို့ဆော့ဝဲများသည် ရင်းမြစ်များကို ပိတ်ဆို့ထားပါသည်။ ဆော့ဝဲ၏ "
-"စာရွက်စာတမ်းများတွင် ပါဝင်သည့် လိုင်စင်ခွင့်ပြုချက်များ အတိုင်း ဖြစ်ပါသည်။"
 
 #. Type: text
 #. Description
@@ -1535,6 +1516,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo MP3 တွဲဖက်သုံးဆော့ဖ်ဝဲတွင်  Fraunhofer IIS and Technicolor SA မှ လိုင်စင်ပြုလုပ်ထားသည့် "
+"MPEG Layer-3 အသံပိုင်း နည်းပညာပါဝင်ပါသည်"
 
 #. Type: text
 #. Description
@@ -1825,10 +1808,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "ထည့်သွင်းမှုမှ ထွက်မှာပါလား။"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1847,10 +1828,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "ရုပ်ပုံအား ရွေးချယ်ပေးပါ။"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2009,37 +1988,4 @@ msgstr ""
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
-msgstr "အစုအဝေးများ ဖယ်ရှားခြင်း"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "ကိုယ်တိုင် ပြင်ဆင်ချိန်ညှိမှု (အဆင့်မြင့်)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "အလွန်ကျွမ်းကျင်ပါသလား။ အဆင့်မြင့် DISK အခန်းကန့်ခြင်း ရွေးချယ်စရာများနှင့် လုပ်တောင်ပါ။"
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "အကန့်အသစ်၏ မီဂါဘိုက်အရွယ်အစား  (1000000 bytes):"
-
-#~ msgid "Beginning"
-#~ msgstr "အစပိုင်း"
-
-#~ msgid "End"
-#~ msgstr "အဆုံးပိုင်း"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "စာရွက်စာတမ်းများနှင့် ချိန်ညှိမှုများ တင်သွင်းနေပါသည်..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "စာရွက်စာတမ်းများနှင့် ချိန်ညှိမှုများ ပေါင်းထည့်နေစဉ် ချို့ယွင်းချက် တွေ့ရှိရပါသည်"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "အချက်အလက်များ ပေါင်းထည့်နေစဉ် ချို့ယွင်းချက် တွေ့ရှိရပါသည်။ အသေးစိတ်အချက်အလက်များကို /var/log/"
-#~ "syslog တွင် တွေ့နိုင်ပါသည်။ စနစ်ထည့်သွင်းမှု ဆက်လက်လုပ်ဆောင်ပါမည်။ သို့သော် သင်တောင်းဆိုထားသော အချို့ "
-#~ "စာရွက်စာတမ်းများနှင့် ချိန်ညှိမှုများမှာ ထည့်သွင်းထားသော စနစ်သို့ လွှဲပြောင်းမှု လုပ်ဆောင်မှု မရှိနိုင်ပါ။"
+msgstr "ဆော့ဖ်ဝဲလ်ဖိုင်ထုပ်များ ဖယ်ရှားနေပါသည်"

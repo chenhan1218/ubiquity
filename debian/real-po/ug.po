@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-12 12:43+0000\n"
+"PO-Revision-Date: 2012-08-30 23:54+0000\n"
 "Last-Translator: Gheyret T.Kenji <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-13 14:51+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -121,19 +121,11 @@ msgstr "خالىسىڭىز<a href=\"update\">بۇ ئورناتقۇچنى يېڭ�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"بۇ ${RELEASE} live ${MEDIUM}  ئورناتقۇچنىڭ ئالدىن تارقىتىلغان نەشرى. بۇ "
-"ئاخىرقى تارقىتىش نەشرى ئەمەس، ${RELEASE} نىڭ ئاخىرقى نەشرى 2012- يىلى 4- "
-"ئايدا ئېلان قىلىنىدۇ."
 
 #. Type: text
 #. Description
@@ -554,13 +546,6 @@ msgstr "ئورناتقۇچ بۇزۇلدى"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -568,11 +553,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"كەچۈرۈڭ، ئورناتقۇچ يىمىرىلدى. سىز بۇ كۆزنەكنى ياپقاندىن كېيىن ئىچىگە "
-"ئورۇنلاشتۇرۇلغان كەمتۈك دوكلات قورالى ئارقىلىق بىزگە كەمتۈكلۈك دوكلاتى "
-"يوللىسىڭىز بولىدۇ. ئۇ سىستېما ئۇچۇرى ۋە ئورنىتىش جەريانى ئۇچۇرىڭىزنى "
-"توپلايدۇ. بۇ ئۇچۇرلار بىزنىڭ كەمتۈك ئىزلاش سىستېمىمىزغا يوللىنىدۇ، "
-"ئىجادكارلار ئامالنىڭ بېرىچە ھەل قىلىدۇ."
 
 #. Type: text
 #. Description
@@ -684,22 +664,20 @@ msgstr "دىسكا رايونى قۇر"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "چوڭلۇقى"
+msgstr "چوڭلۇقى:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "مەزكۇر بوشلۇقنىڭ بەشى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "مەزكۇر بوشلۇقنىڭ ئاخىرى"
 
 #. Type: text
 #. Description
@@ -1541,23 +1519,12 @@ msgstr "ئىنتېرنېتقا باغلانغان"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} نىڭدا Flash، MP3 قاتارلىق ۋاسىتىلەرنى كۆرسىتىش ۋە سىمسىز "
-"ئۈسكۈنىلەرنى ئىشلىتىش ئۈچۈن،  ئۈچىنچى تەرەپ(Ubuntu نىڭ ئەمەس) يۇمشاق دېتالى "
-"ئىشلىتىلدى. بۇلارنىڭ بىر قىسىملىرىنىڭ ئەسلى كودى ئوچۇق ئەمەس. بۇ يۇمشاق "
-"دېتاللار ئۇلارنىڭ پۈتۈكلىرى بىلەن بىرگە تەمىنلەنگەن ئىجازەتنامىلەرگە "
-"بويسۇنىدۇ."
 
 #. Type: text
 #. Description
@@ -1851,21 +1818,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "بىخەتەرلىك ئۈچۈن يېڭىدىن ئورنىتىلغان ئۇبۇنتۇنى شىفىرلاڭ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "كېيىنكى باسقۇچتا بىخەتەرلىك ئاچقۇچىنى تاللايسىز."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "ئورنىتىشنى تاشلىۋېتەمسىز؟"
+msgstr "يېڭى ئورنىتىلغان ئۇبۇنتۇدا LVM نى ئىشلىتىش"
 
 #. Type: text
 #. Description
@@ -1874,20 +1839,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"بۇنىڭ بىلەن لوگىكىلىق دىسكا باشقۇرۇش ئورنىتىلىپ، دىسكىنىڭ پۈتۈن تەسۋىرىنى "
+"ئېلىش ۋە رايوننىڭ چوڭلۇقىنى ئۆزگەرتىش ئاسانلىشىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "بىخەتەرلىك ئاچقۇچىنى جەزملەش:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "بىر رەسىم تاللاڭ"
+msgstr "بىخەتەرلىك ئاچقۇچىنى تاللاش:"
 
 #. Type: text
 #. Description
@@ -1901,7 +1866,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "ئۇبۇنتۇنىڭ سىرتىدىكى ھەر قانداق بىر ھۆججەت شىفىرلانمايدۇ."
 
 #. Type: text
 #. Description
@@ -1916,55 +1881,55 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "تېخىمۇ بەك بىخەتەرلىك ئۈچۈن:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "قۇرۇق دىسكا بوشلۇقىنى قاپلاش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "ئورنىتىشقا ئۇزۇنراق ۋاقىت كېتىشى مۇمكىن."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "دىسكا گۇرۇپپىلىرى:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "شىفىرلاش تاللانمىلىرى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "فىزىكىلىق دىسكىلار:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "مەزكۇر رايوننى(LUKS) نى شىفىرلاش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "م ب"
 
 #. Type: text
 #. Description
@@ -1978,13 +1943,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "لوگىكىلىق دىسكا باشقۇرۇش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "شىفىرلاش تاللانمىلىرى..."
 
 #. Type: title
 #. Description
@@ -2049,39 +2014,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "بوغچىلارنى ئۆچۈرۈۋاتىدۇ"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "قولدا سەپلەش(ئالىي)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "بۇنىڭدىنمۇ ياخشى تەڭشىيەلىسىڭىز، دىسكا رايونى تاللانمىلىرىدىن پايدىلىنىپ "
-#~ "ئۆزىڭىز تەڭشىسىڭىزمۇ بولىدۇ."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "مېگابايت (1000000 بايت) بىرلىگىدىكى يېڭى دىسكا رايۇن چوڭلۇقى:"
-
-#~ msgid "Beginning"
-#~ msgstr "بېشى"
-
-#~ msgid "End"
-#~ msgstr "ئاخىرى"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "پۈتۈك ۋە تەڭشەكلەرنى ئەكىرىۋاتىدۇ…"
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "پۈتۈك ۋە تەڭشەكلەرنى يۆتكەۋاتقاندا خاتالىق كۆرۈلدى."
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "پۈتۈك ۋە تەڭشەكلەرنى يۆتكەۋاتقاندا بىر خاتالىق كۆرۈلدى. تەپسىلاتىنى  /var/"
-#~ "log/syslog دىن كۆرۈڭ. ئورنىتىشنى داۋاملاشتۇرغىلى بولىدۇ، بىراق سىز تەلەپ "
-#~ "قىلغان پۈتۈك ۋە تەڭشەكلەرنىڭ بىر قىسمى ياكى ھەممىسى ئورنىتىلغان سىستېمىغا "
-#~ "يۆتكەلمەي قېلىشى مۇمكىن."

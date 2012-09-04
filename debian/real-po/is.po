@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -662,10 +662,8 @@ msgstr "Búa til sneið"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Stærð"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1517,23 +1515,12 @@ msgstr "sé tengd við internetið"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} styðst við hugbúnað frá öðrum aðilum til að vinna með Flash, MP3 "
-"og fleira slíkt, auk þess að nota utanaðkomandi rekla fyrir nokkur þráðlaus "
-"netkort. Sumt af þeim hugbúnaði er lokaður (closed-source). Slíkur "
-"hugbúnaður er háður notkunarskilmálum í notkunarleyfi því sem ætti að fylgja "
-"hugbúnaðinum."
 
 #. Type: text
 #. Description
@@ -1835,10 +1822,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Viltu hætta við uppsetningu?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1857,10 +1842,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Veldu mynd"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2022,39 +2005,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Handvirkar stillingar (ítarlegt)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Of klár fyrir okkur? Dýfðu þér í djúpu laugina og settu saman ýmsa "
-#~ "þróaðri disksneiðingarmöguleika."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Ný sneið í megabætum (1000000 bæti)"
-
-#~ msgid "Beginning"
-#~ msgstr "Upphaf"
-
-#~ msgid "End"
-#~ msgstr "Endir"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Flyt inn skrár og stillingar..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Villa við að yfirfæra skjöl og stillingar"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Villa kom upp við yfirfærslu á gögnum. Nánari lýsingu er hægt að sjá í /"
-#~ "var/log/syslog. Uppsetningin mun halda áfram, en sum eða öll skjöl og "
-#~ "stillingar sem þú baðst um hafa hugsanlega ekki verið færð yfir í nýja "
-#~ "kerfið."

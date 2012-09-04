@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-29 11:51+0000\n"
-"Last-Translator: YannUbuntu <yannubuntu@gmail.com>\n"
+"PO-Revision-Date: 2012-09-01 11:57+0000\n"
+"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -125,19 +125,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Ceci est une version de développement de l’installateur live ${MEDIUM} de  "
-"${RELEASE}. Ceci n’est pas la version finale; celle-ci sera disponible lors "
-"de la sortie officielle de ${RELEASE} en avril 2012."
+"Ceci est une pré-version du ${MEDIUM} d'installation de ${RELEASE}. Ce n'est "
+"pas une version finale; qui sortira avec la version finale de ${RELEASE} en "
+"octobre 2012."
 
 #. Type: text
 #. Description
@@ -564,13 +559,6 @@ msgstr "L’installateur a rencontré une erreur"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -578,12 +566,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Désolé ; l’installateur s’est arrêté de façon anormale. Dès que vous aurez "
-"fermé cette fenêtre, vous pourrez créer un rapport de bogue grâce à l’outil "
-"de rapport de bogues intégré. Ce dernier va rassembler des informations sur "
-"votre système et votre processus d’installation. Les détails seront envoyés "
-"à notre outil de suivi de bogues et un développeur va prendre en charge ce "
-"problème dès que possible."
 
 #. Type: text
 #. Description
@@ -695,10 +677,8 @@ msgstr "Créer une partition"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Taille"
+msgstr "Taille :"
 
 #. Type: text
 #. Description
@@ -1566,22 +1546,17 @@ msgstr "est connecté à l’Internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} utilise des logiciels tiers pour lire les formats Flash, MP3 et "
-"d’autres formats multimédia, ainsi que pour faire fonctionner certains "
-"matériels pour les réseaux sans fil. Certains de ces logiciels sont "
-"propriétaires. Leur licence est disponible dans leur documentation."
+"${RELEASE} utilise des logiciels tiers pour jouer les fichiers Flash, MP3 et "
+"autres fichiers média, et aussi pour pouvoir utiliser certaines cartes "
+"graphiques et matériel wi-fi. Certains de ces logiciels sont sous licence "
+"propriétaire. Le logiciel est soumis aux termes de la licence inclus avec sa "
+"documentation."
 
 #. Type: text
 #. Description
@@ -1883,21 +1858,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Chiffrer la nouvelle installation d'Ubuntu par sécurité"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Vous allez choisir une clé de sécurité à l'étape suivante."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Quitter l’installation ?"
+msgstr "Utiliser LVM avec la nouvelle installation d'Ubuntu"
 
 #. Type: text
 #. Description
@@ -1906,20 +1879,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Ceci va configurer le gestionnaire de volumes logiques. Il permet de prendre "
+"des captures (snapshots) et de redimensionner plus facilement les partitions."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Confirmez la cle de sécurité:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Choisissez une image"
+msgstr "Choisissez une clé de sécurité:"
 
 #. Type: text
 #. Description
@@ -1928,12 +1901,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Le chiffrement du disque protège vos fichiers au cas où vous perdiez votre "
+"ordinateur. Il requiert que vous entriez une clé de sécurité à chaque fois "
+"que l'ordinateur démarre."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Tous les fichiers à l’extérieur d'Ubuntu ne seront pas chiffrés."
 
 #. Type: text
 #. Description
@@ -1943,24 +1919,27 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Attention :</span> Si vous oubliez la clé de "
+"sécurité, toutes les données seront perdues. Si vous en avez besoin, notez "
+"votre clé et conservez-la dans un endroit sûr."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Pour plus de sécurité :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Écraser l'espace disque vide"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "L'installation peut durer plus longtemps."
 
 #. Type: text
 #. description
@@ -1972,25 +1951,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Groupe de volumes :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Options de chiffrement"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volumes physiques:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Chiffrer cette partition (LUKS)"
 
 #. Type: text
 #. Description
@@ -2016,14 +1995,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Options de chiffrement..."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr "Installation en mode OEM (pour les constructeurs uniquement)"
+msgstr "Mode OEM (pour les constructeurs uniquement)"
 
 #. Type: text
 #. Description
@@ -2081,39 +2060,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Suppression des paquets"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Configuration manuelle (mode avancé)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Trop simple pour vous ? Mettez les mains dans le cambouis grâce aux "
-#~ "options de partitionnement avancées."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Taille de la nouvelle partition en Mo (1 000 000 octets) :"
-
-#~ msgid "Beginning"
-#~ msgstr "Début"
-
-#~ msgid "End"
-#~ msgstr "Fin"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Importation des documents et des paramètres..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Erreur lors de la migration des documents et des paramètres"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Une erreur est survenue lors de la migration des données. Vous trouverez "
-#~ "plus de renseignements dans dans /var/log/syslog. L’installation va "
-#~ "continuer, mais tout ou partie des documents et des paramètres n’a pas pu "
-#~ "être transféré sur le système installé."

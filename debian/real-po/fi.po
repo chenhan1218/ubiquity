@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-29 13:36+0000\n"
-"Last-Translator: Timo Jyrinki <timo.jyrinki@canonical.com>\n"
+"PO-Revision-Date: 2012-09-02 17:33+0000\n"
+"Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Yhdistetään..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr "Käynnistä uudelleen jatkaaksesi"
+msgstr "Jatka käynnistämällä tietokone uudelleen"
 
 #. Type: text
 #. Description
@@ -121,18 +121,13 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
 "Tämä on ${RELEASE} -julkaisun live-${MEDIUM}-asennusohjelma. Tämä ei ole "
-"lopullinen julkaisu - lopullinen ${RELEASE} julkaistaan huhtikuussa 2012."
+"lopullinen julkaisu - lopullinen ${RELEASE} julkaistaan lokakuussa 2012."
 
 #. Type: text
 #. Description
@@ -551,13 +546,6 @@ msgstr "Asennusohjelma kaatui"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -565,11 +553,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Pahoittelut, asennusohjelma kaatui. Kun suljet tämän ikkunan, sinulle "
-"tarjoutuu mahdollisuus jättää vikaraportti käyttäen sisään rakennettua "
-"vianraportointityökalua. Tämä kerää tietoja järjestelmästä ja asennuksen "
-"kulusta. Tiedot lähetetään vianseurantajärjestelmäämme, ja asennusohjelman "
-"kehittäjä tutustuu ongelman laatuun niin pian kuin mahdollista."
 
 #. Type: text
 #. Description
@@ -681,10 +664,8 @@ msgstr "Luo osio"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Koko"
+msgstr "Koko:"
 
 #. Type: text
 #. Description
@@ -1542,12 +1523,6 @@ msgstr "tietokone on yhdistetty internetiin"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
@@ -1556,9 +1531,9 @@ msgid ""
 msgstr ""
 "${RELEASE} voi käyttää kolmansien osapuolien ohjelmistoja toistaakseen "
 "Flash-, MP3- ja muita mediatiedostoja sekä toimiakseen joidenkin "
-"langattomien laitteiden kanssa. Jotkin näistä ohjelmistoista ovat suljetun "
-"lähdekoodin ohjelmistoja. Kyseisiä ohjelmistoja koskevat niiden mukana "
-"toimitettavat lisenssiehdot."
+"näytönohjaimien tai langattomien laitteiden kanssa. Osa näistä "
+"ohjelmistoista on suljetun lähdekoodin ohjelmistoja, ja niitä koskevat "
+"mukana toimitettavat lisenssiehdot."
 
 #. Type: text
 #. Description
@@ -1567,7 +1542,7 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Fluendon MP3 -lisäosa sisältää Fraunhofer IIS:n ja Technicolor SA:n "
+"Fluendon MP3-lisäosa sisältää Fraunhofer IIS:n ja Technicolor SA:n "
 "lisensoimaa teknologiaa, jota käytetään MP3-tiedostojen toistamiseen."
 
 #. Type: text
@@ -1854,28 +1829,26 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
-"Tässä tietokoneessa ei tällä hetkellä ole havaittuja asennettuja "
-"käyttöjärjestelmiä. Mitä haluat tehdä?"
+"Tässä tietokoneessa ei havaittu asennettuja käyttöjärjestelmiä. Mitä haluat "
+"tehdä?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Salaa uusi Ubuntu-asennus turvallisuuden vuoksi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Valitset uuden turva-avaimen seuraavassa vaiheessa."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Lopetetaanko asennus?"
+msgstr "Käytä LVM-taltionhallintaa uuden Ubuntu-asennuksen kanssa"
 
 #. Type: text
 #. Description
@@ -1889,15 +1862,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Vahvista turva-avain"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Valitse kuva"
+msgstr "Valitse turva-avain:"
 
 #. Type: text
 #. Description
@@ -1906,12 +1877,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Kovalevyn salaus suojaa tiedostojasi jos hukkaat tietokoneesi tai se "
+"varastetaan. Levyn suojaus vaatii että syötät suojausavaimen joka kerta kun "
+"tietokone käynnistyy."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Mitään Ubuntun ulkopuolisia tiedostoja ei salata"
 
 #. Type: text
 #. Description
@@ -1926,25 +1900,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Lisätäksesi turvallisuutta:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Kirjoita tyhjän levytilan päälle"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Asennus saattaa kestää paljon kauemmin."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
@@ -1968,13 +1942,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Salaa tämä osio (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "Mt"
 
 #. Type: text
 #. Description
@@ -1994,7 +1968,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Salausvalinnat..."
 
 #. Type: title
 #. Description
@@ -2058,39 +2032,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Käsin tehtävät asetukset (edistyneille)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Riittävästi taitoja? Pistä kätesi saveen näillä osioinnin edistyneemmillä "
-#~ "valinnoilla."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Uuden osion koko megatavuissa (1000000 tavua)"
-
-#~ msgid "Beginning"
-#~ msgstr "Alku"
-
-#~ msgid "End"
-#~ msgstr "Loppu"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Tuodaan asiakirjoja ja asetuksia..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Virhe siirrettäessä asiakirjoja ja asetuksia"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Tietoja siirrettäessä tapahtui virhe. Lisätietoja saattaa olla "
-#~ "tiedostossa /var/log/syslog. Asennus jatkuu, mutta joitain pyydetyistä "
-#~ "asiakirjoista tai asetuksista ei ole ehkä siirretty asennettavaan "
-#~ "järjestelmään."

@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -654,10 +654,8 @@ msgstr "ಖಂಡವನ್ನು ನಿರ್ಮಿಸಿ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "ಗಾತ್ರ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1734,10 +1732,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "ಸಂಸ್ಥಾಪನೆಯಿಂದ ನಿರ್ಗಮಿಸಲೇ?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1756,10 +1752,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a password:"
 msgid "Choose a security key:"
-msgstr "ಗುಪ್ತಪದವನ್ನು ಸೂಚಿಸಿ:"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1913,12 +1907,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "ಹೊಸ ವಿಭಾಗದ ಗಾತ್ರ ಮೆಗಾಬೈಟ್ ಗಳಲ್ಲಿ (1000000 ಬೈಟ್ ಗಳು):"
-
-#~ msgid "Beginning"
-#~ msgstr "ಪ್ರಾರಂಭ"
-
-#~ msgid "End"
-#~ msgstr "ಸಮಾಪ್ತಿ"

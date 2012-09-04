@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-18 02:50+0000\n"
+"PO-Revision-Date: 2012-08-31 22:10+0000\n"
 "Last-Translator: Fran Diéguez <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -122,19 +122,13 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Este é un pre-lanzamento do instalador ${MEDIUM} live de ${RELEASE}. Non é "
-"unha versión final; que virá co lanzamento final de ${RELEASE} en abril do "
-"2012."
+"Isto é unha versión previa do instalador ${RELEASE} live ${MEDIUM}. Non é a "
+"versión final que virá con ${RELEASE} en Outubro de 2012."
 
 #. Type: text
 #. Description
@@ -557,13 +551,6 @@ msgstr "O instalador fallou"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -571,11 +558,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Sentímolo, produciuse un erro no instalador. Despois de que peche esta "
-"xanela, permitirémoslle informar  deste erro coa ferramenta de informes "
-"integrada. Isto recopilará información sobre o sistema e o proceso de "
-"instalación, que será enviado ao sistema de seguemento de erros onde un "
-"desenvolvedor atenderá o problema o máis pronto posíbel."
+"Desculpe, mais o instalador quebrou. Cando feche esta xanela poderá enviar "
+"un informe de fallo empregando a ferramenta de informe de fallos integrada. "
+"Esta reúne información sobre o sistema e o proceso de instalación. Os "
+"detalles envíanse ao seguidor de fallos e un desenvolvedor botaralle unha "
+"ollada ao problema o máis axiña posíbel."
 
 #. Type: text
 #. Description
@@ -687,22 +674,20 @@ msgstr "Crear partición"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Tamaño"
+msgstr "Tamaño:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Inicio deste espazo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Fin deste espazo"
 
 #. Type: text
 #. Description
@@ -1548,22 +1533,16 @@ msgstr "está conectado a Internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} usa software de terceiros para reproducir Flash, MP3, outros "
-"tipos de ficheiros multimedia e para facer funcionar algún dispositivos de "
-"hardware sen fíos. Algúns destes son de código pechado. O software está "
-"suxeito aos termos da licenza incluída na documentación correspondente."
+"${RELEASE} usa software de terceiros para reproducir Flash, MP3 e outros "
+"ficheiros multimedia e para traballar con algúns gráficos e dispositivos sen "
+"fíos. Parte de este software é privativo. O software está ligado aos termos "
+"da licenza que se inclúen na súa documentación."
 
 #. Type: text
 #. Description
@@ -1862,21 +1841,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Cifrar a nova instalación de Ubuntu por seguranza"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Deberá elixir unha clave de seguranza no seguinte paso."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Saír da instalación?"
+msgstr "Usar LVM coa nova instalación de Ubuntu"
 
 #. Type: text
 #. Description
@@ -1885,20 +1862,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Isto configurará a Xestión de Volume Lóxico. Permite tomar instantáneas e "
+"redimensionar particións de modo simple."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Confirme a clave de seguranza:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Escolla unha imaxe"
+msgstr "Elixa unha clave de seguranza:"
 
 #. Type: text
 #. Description
@@ -1907,12 +1884,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"O cifrado do disco protexe os seus ficheiros en caso de extravío do equipo. "
+"Terá que introducir unha clave de seguranza cada vez que inicie o equipo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Non se cifrará ningún ficheiro externo a Ubuntu."
 
 #. Type: text
 #. Description
@@ -1922,60 +1901,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Aviso:</span > Seperde esta clave de seguranza "
+"perderá todos os datos. Se é necesario, escriba a clave e gárdea nun lugar "
+"seguro noutro sitio."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Para maior seguranza:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Sobrescribir o espazo baleiro do disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "A instalación pode levar moito máis tempo."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Grupos de volumes:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opcións de cifrado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volumes físicos:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Cifrar esta partición (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1984,18 +1966,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"A xestión de volumes lóxica (LVM) permítelle a Ubuntu tratar múltiples "
+"volumes físicos como un único volume."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Xestión de volumes lóxicos"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Opcións de cifrado..."
 
 #. Type: title
 #. Description
@@ -2060,39 +2044,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Configuración manual (avanzada)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Demasiado intelixente para nós? Ensúciese as mans con algunhas opcións "
-#~ "avanzadas de particionamento."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Novo tamaño da partición en megabytes (1000000 bytes)"
-
-#~ msgid "Beginning"
-#~ msgstr "Comezo"
-
-#~ msgid "End"
-#~ msgstr "Remate"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Importando documentos e configuracións..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Produciuse un erro ao migrar documentos e configuracións"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Produciuse un erro durante a migración de datos. Pode atopar máis "
-#~ "detalles en /var/log/syslog. A instalación continuará, pero algúns ou "
-#~ "todos os documentos e configuracións que vostede solicitou non foron "
-#~ "transferidos ao sistema instalado."

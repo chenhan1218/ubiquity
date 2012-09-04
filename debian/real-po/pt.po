@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-16 23:47+0000\n"
-"Last-Translator: Carlos Manuel <Unknown>\n"
+"PO-Revision-Date: 2012-08-28 20:56+0000\n"
+"Last-Translator: Diogo Faria Correia <diogo_pessoal@hotmail.com>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr "A estabelecer ligação..."
+msgstr "A ligar..."
 
 #. Type: text
 #. Description
@@ -101,43 +101,35 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Você pode desejar ler as <a href=\"release-notes\">notas sobre este "
-"lançamento</a> ou <a href=\"update\">fazer a actualização deste instalador</"
-"a>."
+"Recomendamos a leitura das <a href=\"release-notes\">notas de lançamento</a> "
+"ou <a href=\"update\">actualizar este instalador</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Você pode desejar ler as <a href=\"release-notes\">notas sobre este "
-"lançamento</a>."
+"Recomendamos a leitura das <a href=\"release-notes\">notas de lançamento</"
+"a> ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"Você pode desejar <a href=\"update\">fazer a actualização deste instalador</"
-"a>."
+msgstr "Sugerimos <a href=\"update\">actualizar este instalador</a>."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Esta é uma pré-versão ${RELEASE} do instalador ${MEDIUM}. Não é a versão "
-"final; essa virá com a versão final do ${RELEASE} em Abril de 2012."
+"Esta é a pré-release do ${RELEASE} live ${MEDIUM} installer. Esta não é a "
+"release final. A release final do ${RELEASE} será lançada em Outubro de 2012."
 
 #. Type: text
 #. Description
@@ -148,7 +140,7 @@ msgid ""
 "this program."
 msgstr ""
 "O processo de instalação pode redimensionar ou apagar partições no seu disco "
-"rígido. <b>Faça um backup integral de todos os dados importantes</b> antes "
+"rígido. <b>Faça uma cópia integral de todos os dados importantes</b> antes "
 "de correr este programa."
 
 #. Type: text
@@ -203,7 +195,7 @@ msgstr "Por favor, prima uma das seguintes teclas:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Is the following key present on your keyboard?"
-msgstr "A tecla pedida está presente no seu teclado?"
+msgstr "A seguinte tecla está disponível no seu teclado?"
 
 #. Type: text
 #. Description
@@ -221,13 +213,13 @@ msgstr "Escolha uma imagem"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Take a photo:"
-msgstr "Tirar uma fotografia:"
+msgstr "Tire uma fotografia:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Or choose an existing picture:"
-msgstr "Ou escolher uma fotografia existente:"
+msgstr "Ou escolha uma imagem disponível:"
 
 #. Type: text
 #. Description
@@ -257,7 +249,7 @@ msgstr "Escolha um nome de utilizador:"
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Username"
-msgstr "Nome do Utilizador"
+msgstr "Utilizador"
 
 #. Type: text
 #. Description
@@ -288,13 +280,13 @@ msgstr "Palavra-passe"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Confirm password"
-msgstr "Confirme a palavra-passe"
+msgstr "Confirme a senha"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Confirm your password:"
-msgstr "Confirme a sua Palavra-passe:"
+msgstr "Confirme a sua senha:"
 
 #. Type: text
 #. Description
@@ -364,19 +356,19 @@ msgstr "Palavra-passe fraca"
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Fair password"
-msgstr "Palavra-passe razoável"
+msgstr "Senha razoável"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:51001
 msgid "Good password"
-msgstr "Palavra-passe boa"
+msgstr "Senha boa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Strong password"
-msgstr "Palavra-passe forte"
+msgstr "Senha forte"
 
 #. Type: text
 #. Description
@@ -394,7 +386,7 @@ msgstr "Pedir a minha palavra-passe para iniciar sessão"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Encrypt my home folder"
-msgstr "Encriptar a minha Pasta Pessoal (home)"
+msgstr "Encriptar a minha Pasta Pessoal"
 
 #. Type: text
 #. Description
@@ -403,8 +395,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
-"Esta imagem estará associada ao seu nome de utilizador e exibida junto com "
-"ele todas as vezes."
+"Esta imagem será associada ao seu nome de utilizador e exibida ao seu lado "
+"algumas vezes."
 
 #. Type: text
 #. Description
@@ -531,7 +523,7 @@ msgstr "Ignorar"
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Installation Complete"
-msgstr "Instalação Completa"
+msgstr "Instalação Concluída"
 
 #. Type: text
 #. Description
@@ -557,18 +549,11 @@ msgstr "Encerrar Agora"
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid "Installer crashed"
-msgstr "Ocorreu um erro fatal durante a instalação"
+msgstr "Ocorreu um erro com o instalador"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -576,11 +561,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Lamentamos, mas o instalador encerrou. Depois de fechar esta janela, terá a "
-"possibilidade de enviar um relatório de erro utilizando a ferramenta "
-"integrada de relatórios de erros. Isto irá coletar informações sobre seu "
-"sistema e seu processo de instalação. Os detalhes serão enviados para nosso "
-"sistema e um gestor irá atender o problema o mais rapidamente possível."
 
 #. Type: text
 #. Description
@@ -692,10 +672,8 @@ msgstr "Criar partição"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Tamanho"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1553,22 +1531,12 @@ msgstr "está ligado à Internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"O ${RELEASE} usa software de terceiros para apresentar ficheiro multimídia "
-"tipo Flash, MP3 e outros e ainda para ligar a dispositivos sem-fios. Algum "
-"deste software é de código-fonte fechado, estado por isso sujeito aos termos "
-"das respectivas licenças, incluídas na documentação de cada aplicação."
 
 #. Type: text
 #. Description
@@ -1863,21 +1831,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Encriptar a nova instalação do Ubuntu para uma maior segurança"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Você irá escolher uma chave de segurança no próximo passo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Deseja cancelar a instalação?"
+msgstr "Use o LVM com a nova instalação do Ubuntu"
 
 #. Type: text
 #. Description
@@ -1891,15 +1857,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Re-escreva a sua palavra-passe:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Escolha uma imagem"
+msgstr "Introduza uma palavra-passe:"
 
 #. Type: text
 #. Description
@@ -1913,7 +1877,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Qualquer ficheiro fora do Ubuntu poderá não ser encriptado."
 
 #. Type: text
 #. Description
@@ -1923,24 +1887,27 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Aviso:</span> Se perdeu a chave de segurança, "
+"todas as informações serão perdidas. Se você precisa delas, escreva em baixo "
+"a sua chave de segurança e mantenha-a num lugar seguro."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Para mais segurança:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Substituir o espaço vazio no disco."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "A instalação poderá demorar mais algum tempo até finalizar."
 
 #. Type: text
 #. description
@@ -2062,39 +2029,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A remover pacotes"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Configuração manual (avançado)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Demasiado inteligente? Aventure-se com algumas opções avançadas de "
-#~ "particionamento."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Tamanho da nova partição em megabytes (1000000 bytes):"
-
-#~ msgid "Beginning"
-#~ msgstr "Início"
-
-#~ msgid "End"
-#~ msgstr "Fim"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "A importar documentos e definições..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Erro ao migrar os documentos e as definições"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Ocorreu um erro ao migrar os documentos e as definições. Pode encontrar "
-#~ "mais detalhes em /var/log/syslog. A instalação vai continuar, apesar de "
-#~ "alguns ou todos os documentos e definições que solicitou não terem sido "
-#~ "transferidos para o sistema instalado."

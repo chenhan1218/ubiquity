@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-10 17:53+0000\n"
-"Last-Translator: Сергій Найтінгейл <Unknown>\n"
+"PO-Revision-Date: 2012-08-13 19:50+0000\n"
+"Last-Translator: Max_ym <kontact.cat@gmail.com>\n"
 "Language-Team: uk <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -122,19 +122,11 @@ msgstr "Можливо ви хочете <a href=\"update\">оновити це�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Це  попередній випуск програми встановлення для завантажувального ${MEDIUM} "
-"${RELEASE}. Фінальний випуск буде доступний у фінальному випуску ${RELEASE} "
-"в квітні 2012 р."
 
 #. Type: text
 #. Description
@@ -554,13 +546,6 @@ msgstr "Програма встановлення завершилась ава�
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -568,11 +553,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Ми вибачаємося, але встановлювач зазнав аварії. Після того як Ви закриєте це "
-"вікно, ми дамо Вам можливість надіслати нам файл зі звітом про помилку за "
-"допомогою вбудованого засобу звіту помилок. Він збере інформацію про Вашу "
-"систему та процес встановлення. Подробиці будуть надіслані до нашої сиситеми "
-"обробки помилок і розробник за першої ж нагоди зверне увагу на проблему."
 
 #. Type: text
 #. Description
@@ -684,10 +664,8 @@ msgstr "Створити розділ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Розмір"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1519,7 +1497,7 @@ msgstr "Розділити найбільший розділ"
 #. Description
 #: ../ubiquity.templates:218001
 msgid "For best results, please ensure that this computer:"
-msgstr "Для найкращих результатів, переконайтеся, що цей комп'ютер:"
+msgstr "Для найкращих результатів, переконайтеся, що на цьому комп'ютері:"
 
 #. Type: text
 #. Description
@@ -1538,28 +1516,18 @@ msgstr "підключено до джерела струму"
 #. Description
 #: ../ubiquity.templates:221001
 msgid "is connected to the Internet"
-msgstr "під'єднаний до Інтернету"
+msgstr "є з'єднання з Інтернетом"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} використовує стороннє програмне забезпечення для програвання "
-"Flash, MP3  та інших медіа форматів, а також для роботи з бездротовим "
-"обладнанням. Дещо з даного програмного забезпечення має закрите ядро. І є "
-"об'єктом ліцензійних умов поданих у програмній документації."
 
 #. Type: text
 #. Description
@@ -1867,10 +1835,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Перервати процес встановлення?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1889,10 +1855,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Оберіть зображення"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1921,7 +1885,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Для більшого захисту:"
 
 #. Type: text
 #. Description
@@ -1933,7 +1897,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Встановлення може тривати значно довше."
 
 #. Type: text
 #. description
@@ -2054,39 +2018,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Ручне налаштування (розширене)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Вам не достатньо можливостей? Спробуйте відредагувати параметрі розмітки "
-#~ "вручну."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Новий розмір розділу в мегабайтах (1000000 байтів)"
-
-#~ msgid "Beginning"
-#~ msgstr "Початок"
-
-#~ msgid "End"
-#~ msgstr "Кінець"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Імпортуються документи та налаштування..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Помилка перенесення документів та налаштувань"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Під час перенесення даних виникла помилка. Детальнішу інформацію можна "
-#~ "знайти у файлі /var/log/syslog. Встановлення буде продовжено, але деякі "
-#~ "або і всі вибрані вами документи та налаштування, можливо, не будуть "
-#~ "перенесені до встановленої системи."

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-10 11:19+0000\n"
+"PO-Revision-Date: 2012-04-18 18:14+0000\n"
 "Last-Translator: Kim Boram <boramism@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -120,18 +120,11 @@ msgstr "<a href=\"update\">설치 프로그램 업데이트</a>를 할 수 있�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"이 것은 ${RELEASE} 라이브 ${MEDIUM} 설치 프로그램의 사전 배포판입니다. 이 것"
-"은 최종 배포판이 아닙니다; ${RELEASE}의 최종 배포판은 2012년 4월 출시됩니다."
 
 #. Type: text
 #. Description
@@ -402,8 +395,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"가져올 계절을 선택하십시오. 이 계정의 문서와 설정은 설치를 완료한 후 사용할 "
-"수 있습니다."
+"가져올 계정을 선택하십시오. 이 계정의 문서와 설정은 설치가 완료된 뒤에 사용"
+"할 수 있습니다."
 
 #. Type: text
 #. Description
@@ -547,13 +540,6 @@ msgstr "설치 프로그램 충돌"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -561,10 +547,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"죄송합니다. 설치 프로그램이 충돌했습니다. 이 창을 닫으면 내장된 버그 보고 도"
-"구로 버그를 보고할 수 있습니다. 이 도구는 시스템 정보와 설치 진행 상태를 수집"
-"합니다. 자세한 내용은 버그 추적기로 보내진 후 개발자가 최대한 빠르게 버그를 "
-"수정할 것입니다."
 
 #. Type: text
 #. Description
@@ -676,10 +658,8 @@ msgstr "파티션 만들기"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "크기"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1525,21 +1505,12 @@ msgstr "인터넷에 연결함"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE}은(는) 플래시, MP3나 기타 미디어를 표시하기 위해 서드 파티 소프트웨"
-"어를 사용합니다. 이 소프트웨어는 공개 소프트웨어가 아닙니다. 해당 소프트웨어"
-"는 소프트웨어 문서에 포함된 라이선스의 지배를 받습니다."
 
 #. Type: text
 #. Description
@@ -1841,10 +1812,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "설치 프로그램을 끝내시겠습니까?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1863,10 +1832,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "사진 선택"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2026,37 +1993,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "패키지 제거 중"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "직접 설정 (고급)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "자동으로 설정할 수 없는 경우 고급 파티션 옵션으로 직접 설정하십시오."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "새 파티션 크기를 메가바이트(1000000 바이트)로:"
-
-#~ msgid "Beginning"
-#~ msgstr "시작"
-
-#~ msgid "End"
-#~ msgstr "끝"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "문서와 설정을 가져오는 중..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "문서와 설정을 옮기는 중 오류 발생"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "데이터를 옮기는 중 오류가 발생했습니다. 자세한 내용은 /var/log/syslog 파일"
-#~ "에서 확인할 수 있습니다. 설치 과정은 계속하지만 요청하신 문서의 일부 또는 "
-#~ "모두를 설치한 시스템으로 옮길 수 없을 수 있습니다."

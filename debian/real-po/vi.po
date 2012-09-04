@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-31 11:12+0000\n"
-"Last-Translator: Hai Lang <hailangvn@gmail.com>\n"
+"PO-Revision-Date: 2012-09-04 06:43+0000\n"
+"Last-Translator: Huynh Trong Nghia <Nghia.HT@hotmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -76,15 +76,15 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Hoặc nếu bạn đã sẵn sàng, bạn có thể cài đặt ${RELEASE} bên cạnh (hoặc thay "
-"thế cho) hệ điều hành hiện tại của bạn. Sẽ không mất nhiều thời gian đâu."
+"Hoặc nếu bạn đã sẵn sàng, bạn có thể cài đặt ${RELEASE} song hành (hoặc thay "
+"thế) với hệ điều hành hiện thời của bạn. Sẽ không mất nhiều thời gian đâu."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:9001
 msgid "Try ${RELEASE}"
-msgstr "Dùng thử ${RELEASE}"
+msgstr "Thử ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -121,19 +121,14 @@ msgstr "Có thể bạn muốn <a href=\"update\">cập nhật trình cài đặ
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Đây là bản cài đặt trước khi phát hành của ${RELEASE} chạy trực tiếp từ "
-"${MEDIUM}. Nó không phải là bản phát hành chính thức, ${RELEASE} sẽ được "
-"phát hành chính thức vào tháng Tư năm 2012."
+"Đây là phiên bản tiền phát hành của trình cài đặt ${RELEASE} trực tiếp từ "
+"${MEDIUM}. Và chưa phải là phiên bản cuối cùng; phiên bản cuối cùng của "
+"${RELEASE} sẽ được phát hành vào tháng 10 - 2012."
 
 #. Type: text
 #. Description
@@ -414,8 +409,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Nếu bạn không muốn nhập tài khoản nào thì đừng chọn gì hết mà hãy chuyển "
-"sang trang sau."
+"Nếu bạn không muốn nhập dữ liệu từ bất cứ tài khoản nào thì đừng chọn gì hết "
+"mà hãy chuyển sang trang kế tiếp."
 
 #. Type: text
 #. Description
@@ -448,13 +443,13 @@ msgstr "_Cài đặt ngay"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Quit the installation?"
-msgstr "Thoát cài đặt?"
+msgstr "Thôi cài đặt?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Do you really want to quit the installation now?"
-msgstr "Bạn thực sự muốn thoát cài đặt ngay bây giờ?"
+msgstr "Bạn thực sự muốn thôi cài đặt ngay bây giờ?"
 
 #. Type: text
 #. Description
@@ -469,7 +464,8 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Rất tiếc, có lỗi xảy ra nên không cài được bộ nạp khởi động ở vị trí đã định."
+"Rất tiếc, có lỗi xảy ra nên không cài được bộ nạp khởi động ở vị trí đã được "
+"chỉ định."
 
 #. Type: text
 #. Description
@@ -550,13 +546,6 @@ msgstr "Trình cài đặt đã bị ngắt"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -564,11 +553,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Rất tiếc; trình cài đặt đã bị ngắt. Sau khi đóng cửa sổ này, bạn sẽ có cơ "
-"hội báo cáo tình trạng gặp lỗi bởi trình báo cáo lỗi. Việc đó sẽ thu tập "
-"thông tin về hệ thống máy tính của bạn cũng như về quá trình cài đặt. Những "
-"thông tin đó sẽ được gửi đến trình quản lí lỗi của chúng tôi và lập trình "
-"viên của chúng tôi sẽ tìm cách giải quyết vấn đề khi nào có điều kiện."
+"Chúng tôi rất tiếc; trình cài đặt gặp phải xung đột. Bạn có thể sử dụng công "
+"cụ báo lỗi đi kèm của chúng tôi để gửi báo cáo lên ngay sau khi đóng cửa sổ "
+"này. Công cụ này sẽ thu thập thông tin về hệ thống và cả quá trình cài đặt "
+"của bạn. Thông tin chi tiết sẽ được gửi tới đội phân tích lỗi của chúng tôi "
+"và sẽ cố gắng giải quyết vấn đề trong thời gian sớm nhất."
 
 #. Type: text
 #. Description
@@ -680,22 +669,20 @@ msgstr "Tạo phân vùng"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Dung lượng"
+msgstr "Kích thước:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Điểm đầu của khoảng dung lượng"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Điểm cuối của khoảng dung lượng"
 
 #. Type: text
 #. Description
@@ -1534,22 +1521,15 @@ msgstr "được nối với Internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} sử dụng phần mềm hãng thứ ba để chạy Flash, MP3 cùng các phương "
-"tiện khác, và làm việc với một vài thiết bị phần cứng không dây. Một vài "
-"trong số những phần mềm này là nguồn đóng. Những phần mềm này lệ thuộc vào "
-"các điều khoản giấy phép đính kèm trong tài liệu của phần mềm."
+"${RELEASE} sử dụng các phần mềm của bên thứ ba để chạy Flash, MP3 và các dữ "
+"liệu đa phương tiện khác, đồng thời khi làm việc liên quan đến đồ họa và "
+"thiết bị wi-fi."
 
 #. Type: text
 #. Description
@@ -1840,21 +1820,19 @@ msgstr "Máy tính này hiện không có hệ điều hành nào. Bạn muốn 
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Mã hóa bản cài đặt mới của Unbutu nhằm tăng cường an toàn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Ở bước tiếp theo bạn sẽ phải chọn một khóa bảo mật"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Thoát cài đặt?"
+msgstr "Sử dụng LVM với bản cài đặt mới của Unbutu"
 
 #. Type: text
 #. Description
@@ -1863,20 +1841,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Sắp thiết đặt trình Quản Lí Vùng Vật Lí.  Trình này sẽ cho phép chụp ảnh ghi "
+"chú, và giúp thay đổi kích cỡ phân vùng một cách dễ dàng."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Xác nhận khóa bảo mật:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Chọn một bức ảnh"
+msgstr "Chọn một khóa bảo mật:"
 
 #. Type: text
 #. Description
@@ -1885,12 +1863,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Mã hóa ổ đĩa giúp bảo vệ tập tin của bạn phòng khi bạn làm mất máy tính của "
+"mình. Nó đòi hỏi bạn phải nhập một khóa bảo mật mỗi khi máy tính khởi động."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Bất kì tập tin nào không liên quan đến Unbutu sẽ không được mã hóa."
 
 #. Type: text
 #. Description
@@ -1900,60 +1880,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Cảnh báo:</span> Nếu bạn để mất khóa bảo mật "
+"này, toàn bộ dữ liệu sẽ bị mất. Vì vậy, nếu cần bạn nên ghi lại khóa của "
+"mình và để nó ở một nơi kín đáo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Để tăng thêm bảo mật:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Ghi đè lên khoảng dung lượng đĩa còn trống"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Bản cài đặt có thể sẽ mất khá lâu."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "Công nghệ Quản lí Phân vùngLuận lí (LVM)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Nhóm phân vùng:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Tùy chọn Mã hóa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Phân vùng Vật lí:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Mã hóa phân vùng này (Thiết đặt khóa liên hợp Linux - LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1962,18 +1945,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Công nghệ Quản lí Phân vùng Luận lí (LVM) cho phép Unbutu xem nhiều phân "
+"vùng vật lí khác n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Công nghệ Quản lí Phân vùng Luận lí"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Tùy chọn Mã hóa..."
 
 #. Type: title
 #. Description
@@ -2037,39 +2022,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Đang gỡ bỏ các gói"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Cấu hình thủ công (nâng cao)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Chưa được như ý muốn? Hãy tự mình cấu hình với những tùy chọn phân vùng "
-#~ "nâng cao."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Dung lượng phân vùng mới theo megabyte (1000000 byte):"
-
-#~ msgid "Beginning"
-#~ msgstr "Bắt đầu"
-
-#~ msgid "End"
-#~ msgstr "Kết thúc"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Đang nhập tài liệu và thiết lập..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Gặp lỗi trong khi chuyển tài liệu và cấu hình"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Gặp lỗi sai trong khi di chuyển dữ liệu. Chi tiết có thể xem tại /var/log/"
-#~ "syslog. Việc cài đặt sẽ tiếp tục nhưng có thể một số hoặc tất cả tài liệu "
-#~ "và thiết lập mà bạn yêu cầu chuyển sẽ không có trong hệ điều hành khi cài "
-#~ "đặt xong."

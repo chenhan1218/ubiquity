@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-13 18:46+0000\n"
+"PO-Revision-Date: 2012-09-03 20:06+0000\n"
 "Last-Translator: Aurimas Fišeras <Unknown>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -123,19 +123,11 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Tai yra dar neišleista ${RELEASE} „live ${MEDIUM}“ įdiegimo programa. Tai "
-"dar ne galutinė laida; ji bus išleista kartu su galutine ${RELEASE} laida "
-"2012 m. balandį."
 
 #. Type: text
 #. Description
@@ -559,13 +551,6 @@ msgstr "Diegimo programa lūžo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -573,11 +558,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Atsiprašome, įdiegimo programa užstrigo. Kai užversite šį langą, leisime "
-"jums pranešti apie klaidą naudojant integruotą pranešimo apie klaidą įrankį. "
-"Jis surinks informaciją apie jūsų sistemą ir jūsų įdiegimo procesą. Išsami "
-"informacija bus nusiųsta į mūsų klaidų sekimo sistemą ir kūrėjas pasirūpins "
-"problema kaip galima greičiau."
 
 #. Type: text
 #. Description
@@ -689,10 +669,8 @@ msgstr "Sukurti skirsnį"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Dydis"
+msgstr "Dydis:"
 
 #. Type: text
 #. Description
@@ -1535,7 +1513,7 @@ msgstr "Prašome įsitikinti, kad šis kompiuteris:"
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:219001
 msgid "has at least ${SIZE} available drive space"
-msgstr "turi nemažiau nei ${SIZE} laisvos vietos"
+msgstr "turi bent ${SIZE} laisvos vietos"
 
 #. Type: text
 #. Description
@@ -1553,23 +1531,12 @@ msgstr "yra prijungtas prie interneto"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"Flash, MP3 ir kitiems vaizdo ar garso formatams atkurti bei darbui su kai "
-"kuria belaidžio ryšio aparatine įranga ${RELEASE} naudoja trečiųjų šalių "
-"programinę įrangą. Dalis šių programų yra uždarojo kodo. Tokiai programinei "
-"įrangai galioja licencijos sąlygos, pateiktos tos programinės įrangos "
-"dokumentacijoje."
 
 #. Type: text
 #. Description
@@ -1879,10 +1846,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Nutraukti diegimą?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1901,10 +1866,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Pasirinkite paveikslėlį"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1939,7 +1902,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Perrašyti tuščią vietą diske"
 
 #. Type: text
 #. Description
@@ -1951,25 +1914,25 @@ msgstr ""
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Tomų grupės:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Šifravimo parinktys"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fiziniai tomai:"
 
 #. Type: text
 #. Description
@@ -1981,7 +1944,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -2001,7 +1964,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Šifravimo parinktys..."
 
 #. Type: title
 #. Description
@@ -2065,38 +2028,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Šalinami paketai"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Rankinis konfigūravimas (patyrusiems)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Esate gudresni už mus? Pasiraitokite rankoves ir imkitės išsamaus "
-#~ "skirsnių konfigūravimo."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Naujas skirsnio dydis megabaitais (1000000 baitų):"
-
-#~ msgid "Beginning"
-#~ msgstr "Pradžia"
-
-#~ msgid "End"
-#~ msgstr "Pabaiga"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Perkeliami dokumentai ir nustatymai..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Klaida perkeliant dokumentus bei nustatymus"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Įvyko klaida perkeliant duomenis. Daugiau informacijos rasite /var/log/"
-#~ "syslog. Diegimas bus pratęstas, bet kai kurie, o gal ir visi jūsų "
-#~ "dokumentai bei nustatymai galėjo būti neperkelti į įdiegtą sistemą."

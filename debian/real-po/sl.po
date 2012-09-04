@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-03 15:48+0000\n"
-"Last-Translator: Klemen Košir <klemen.kosir@gmx.com>\n"
+"PO-Revision-Date: 2012-09-03 13:38+0000\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -55,7 +55,7 @@ msgid ""
 msgstr ""
 "Nameščanje poteka v načinu za proizvajalce računalniških sistemov. Vnesite "
 "edinstveno ime za to skupino sistemov. Ime bo shranjeno na nameščenem "
-"sistemu in je lahko v pomoč pri prijavljanju napak."
+"sistemu in se lahko uporabi za pomoč pri poročilih o hroščih."
 
 #. Type: text
 #. Description
@@ -67,7 +67,7 @@ msgid ""
 "from this ${MEDIUM}."
 msgstr ""
 "${RELEASE} lahko preizkusite brez sprememb na računalniku, neposredno z "
-"vstavljenega nosilca(${MEDIUM})."
+"vstavljenega nosilca (${MEDIUM})."
 
 #. Type: text
 #. Description
@@ -122,18 +122,13 @@ msgstr "Lahko <a href=\"update\">posodobite ta namestilnik</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"To je predizdaja namestilnika ${RELEASE} z živega ${MEDUIM}. To ni končna "
-"različica ${RELEASE}, ki bo izšla aprila 2012."
+"To je predhodna izdaja živega namestilnika ${RELEASE} ${MEDIUM}. To ni "
+"končna izdaja; ta bo prišla s končno izdajo ${RELEASE} oktobra 2012."
 
 #. Type: text
 #. Description
@@ -554,13 +549,6 @@ msgstr "Namestilnik se je sesul"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -568,10 +556,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Namestilnik se je sesul. Ko boste to okno zaprli, boste lahko, preko "
-"vgrajenega orodja, poslali poročilo o hrošču.  Orodje zbere podatke o "
-"sistemu in o namestitvi. Podrobnosti bodo poslane sledilniku hroščev in "
-"razvijalci si bodo poročilo ogledal takoj, ko bo to mogoče."
+"Žal nam je; namestitveni program se je sesel. Ko boste zaprli pogovorno "
+"okno, boste lahko sporočili poročilo o napaki z vgrajenim orodjem za "
+"poročanje hroščem. Le-ta bo zbral podatke o vašem sistemu in namestitvenem "
+"opravilu. Podrobnosti bodo poslane našemu sledilniku hroščem in razvijalci "
+"se bodo težavo poskusili odpraviti v najkrajšem možnem času."
 
 #. Type: text
 #. Description
@@ -683,22 +672,20 @@ msgstr "Ustvari razdelek"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Velikost"
+msgstr "Velikost:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Začetek tega prostora"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Konec tega prostora"
 
 #. Type: text
 #. Description
@@ -781,7 +768,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Namestitev je končana. Pred uporabo na novo nameščenega sistema, je treba "
+"Namestitev je končana. Pred uporabo na novo nameščenega sistema je treba "
 "računalnik ponovno zagnati."
 
 #. Type: text
@@ -852,8 +839,8 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Ponavadi do tega pride zaradi nezadostne količine prostora na disku. Ponovno "
-"je treba zagnati namestitev in pri tem izbrati večji razdelek diska, na "
-"katerega naj se sistem namesti."
+"zaženite namestitev in pri tem izberite večji razdelek diska, na katerega "
+"naj se sistem namesti."
 
 #. Type: error
 #. Description
@@ -1540,22 +1527,16 @@ msgstr "je povezan na internet"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} za prikaz Flash, MP3 in drugih predstavnosti ter delo z nekatero "
-"brezžično strojno opremo uporablja programe tretjih oseb. Nekateri izmed teh "
-"programov so zaprtokodni. Programi so izdani pod licenčnimi pogoji, ki so "
-"vključeni v njihovi dokumentaciji."
+"${RELEASE} za predvajanje Flash, MP3 in drugih medijev kot tudi za delo z "
+"grafično in wi-fi strojno opremo uporablja programsko opremo tretjih oseb. "
+"Nekatera programska oprema je lastniško zaščitena. Le-ta je predmet "
+"licenčnih pogojev vključenih v njeno dokumentacijo."
 
 #. Type: text
 #. Description
@@ -1571,7 +1552,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:224001
 msgid "Install this third-party software"
-msgstr "Namestite programe tretjih oseb"
+msgstr "Namesti te programe tretjih oseb"
 
 #. Type: text
 #. Description
@@ -1644,7 +1625,7 @@ msgid ""
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
 "<span foreground=\"darkred\">Opozorilo:</span> To bo izbrisalo vse vaše "
-"programe, dokumente, glasbo, fotografijo in vse druge datoteke na ${OS}."
+"programe, dokumente, glasbo, fotografije in vse druge datoteke na ${OS}."
 
 #. Type: text
 #. Description
@@ -1851,21 +1832,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Šifriraj novo namestitev Ubuntuja zaradi varnostnih razlogov."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "V naslednjem koraku boste izbrali varnostni kjuč."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Ali želite namestitev prekiniti?"
+msgstr "Uporabi LVM z novo namestitvijo Ubuntuja."
 
 #. Type: text
 #. Description
@@ -1874,20 +1853,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"To bo namestilo upravljanje logičnih nosilcev. To omogoča delanje posnetkov "
+"in lažje spreminjanje velikosti razdelkov."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Potrdite varnostni ključ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Izberite sliko"
+msgstr "Izberite varnostni ključ:"
 
 #. Type: text
 #. Description
@@ -1896,12 +1875,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Šifriranje diska zaščiti vaše datoteke v primeru izgube računalnika. "
+"Šifriranje diska od vas zahteva, da vnesete varnostni kjuč vsakič, ko "
+"zaženete računalnik."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Morebitne datoteke zunaj Ubuntuja ne bodo šifrirane."
 
 #. Type: text
 #. Description
@@ -1911,60 +1893,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Warning:</span> Če varnostni ključ izgubite, "
+"bodo vsi podatki izgubljeni.  Če je potrebno, si varnostni kjuč zapišite in "
+"ga shranite na varnem mestu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Za več varnosti:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Prepiši prazen prostor na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Namestitev lahko traja precej dlje."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Skupine nosilcev:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Možnosti šifriranja"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fizični nosilci:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Šifriraj ta razdelek (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1973,18 +1958,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Upravljanje logičnih nosilcev (LVM) dovoljuje Ubuntuju obravnavanje več "
+"fizičnih nosilcev kot en sam nosilec."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Upravljanje logičnih nosilcev"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Možnosti šifriranja ..."
 
 #. Type: title
 #. Description
@@ -2048,38 +2035,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Ročna nastavitev (napredno)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr ""
-#~ "Prepametni za nas? Uporabite napredne možnosti razdeljevanja razdelkov."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Nova velikost razdelka v megabajtih (1.000.000 bajtov):"
-
-#~ msgid "Beginning"
-#~ msgstr "Začetek"
-
-#~ msgid "End"
-#~ msgstr "Konec"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Uvažanje dokumentov in nastavitev ..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Napaka med selitvijo dokumentov in nastavitev"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Med selitvijo dokumentov in nastavitev je prišlo do napake. Podrobnosti "
-#~ "lahko najdete v datoteki /var/log/syslog. Namestitev se bo nadaljevala, "
-#~ "toda nekateri ali celo vsi zahtevani dokumenti in nastavitve morda ne "
-#~ "bodo preneseni v novi sistem."

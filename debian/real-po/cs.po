@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:01+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -124,18 +124,11 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"Toto je vývojové verze instalátoru ${RELEASE} live ${MEDIUM}. Nejedná se o "
-"stabilní vydání, tím bude funální vydání ${RELEASE} v dubnu 2012."
 
 #. Type: text
 #. Description
@@ -553,13 +546,6 @@ msgstr "Instalátor havaroval"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -567,11 +553,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"Je nám to líto, instalace se nezdařila. Po zavření tohoto okna, vám podáme "
-"hlášení o chybě pomocí integrovaného nástroje hlášení chyb. Ten bude "
-"shromažďovat informace o vašem systému a instalaci. Podrobnosti budou "
-"zaslány do našeho systému sledování chyb a vývojář se bude věnovat problému "
-"co nejdříve."
 
 #. Type: text
 #. Description
@@ -683,10 +664,8 @@ msgstr "Vytvořit oddíl"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "Velikost"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1534,22 +1513,12 @@ msgstr "byl připojen k Internetu"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} používá software třetích stran k přehrávání Flash, MP3 a dalších "
-"médií a zajištění funkčnosti některého bezdrátového hardwaru. V některých "
-"případech se jedná o software s uzavřeným zdrojovým kódem. Tento software je "
-"předmětem licenčních podmínek obsažených v dokumentaci k softwaru."
 
 #. Type: text
 #. Description
@@ -1857,10 +1826,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Ukončit instalaci?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1879,10 +1846,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "Vyberte obrázek"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2043,37 +2008,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňování balíků"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "Ruční konfigurace (pokročilé)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "Příliš složité? Zkuste to s pokročilým nastavením diskových oddílů."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "Nová velikost oddílu v megabytech (1000000 bytů):"
-
-#~ msgid "Beginning"
-#~ msgstr "Začátek"
-
-#~ msgid "End"
-#~ msgstr "Konec"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "Importují se dokumenty a nastavení..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "Chyba při přesunu dokumentů a nastavení"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "Při přesunu dat došlo k chybě. Více podrobností můžete nalézt ve /var/log/"
-#~ "syslog. Instalace bude pokračovat, ale některé nebo všechny dokumenty a "
-#~ "nastavení, které požadujete, nemusí být přesunuty do instalovaného "
-#~ "systému."

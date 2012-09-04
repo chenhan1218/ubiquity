@@ -9,21 +9,21 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2011-09-16 11:09+0000\n"
-"Last-Translator: පසිඳු කාවින්ද <Unknown>\n"
+"PO-Revision-Date: 2012-05-07 02:57+0000\n"
+"Last-Translator: පසිඳු කාවින්ද <info@pk-soft.tk>\n"
 "Language-Team: Sinhala <info@hanthana.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "සම්බන්ධ වෙමින්..."
 
 #. Type: text
 #. Description
@@ -208,19 +208,19 @@ msgstr "පින්තූරයක් තෝරන්න"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Take a photo:"
-msgstr ""
+msgstr "පින්තුරයක් ගන්න:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Or choose an existing picture:"
-msgstr ""
+msgstr "හෝ තිබෙන පින්තුරයක් තෝරාගන්න:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take Photo"
-msgstr ""
+msgstr "පින්තුරයක් ගන්න"
 
 #. Type: text
 #. Description
@@ -250,13 +250,13 @@ msgstr "පරිශීලක නාමය"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "කුඩා අකුරකින් ආරම්භ විය යුතුය."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:35001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "කුඩා ප්‍රමාණයේ අකුරු, සංඛ්‍යාංක, සමාස විහ්න, සහ යටි ඉරි පමණක් අඩංගු විය යුතුය."
 
 #. Type: text
 #. Description
@@ -298,25 +298,25 @@ msgstr "වෙනත් පරිගණක වෙත අමතන විට භ�
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "1 ත් 63 අතර අක්ෂර ගණනකින් යුක්ත විය යුතුය."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "අකුරු, සංඛ්‍යාංක, සමාස විහ්න, සහ තිත් පමණක් අඩංගු විය යුතුය."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "සමාස විහ්නයක් සමඟ ආරම්භ හෝ අවසාන නොවිය යුතුය."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "තිතක් සමඟ ආරම්භ හෝ අවසාන නොවිය යුතු අතර \"..\" අන්වය අඩංගු නොවිය යුතුය."
 
 #. Type: text
 #. Description
@@ -385,6 +385,7 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"මෙම පින්තුරය ඔබේ පරිශීලක නාමය සමඟ හවුල් වනු ඇති අතර වේලාවකදී එය පැත්තකින් ප්‍රදර්ශනය වේ."
 
 #. Type: text
 #. Description
@@ -655,10 +656,8 @@ msgstr "කොටසක් තනන්න"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "ප්‍රමාණය"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1080,7 +1079,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "බ්ලුටූත් වින්‍යාසගතකෙරුම පිටපත් කිරීමේ දෝෂය"
 
 #. Type: error
 #. Description
@@ -1090,6 +1089,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"බ්ලුටූත් සැකසුම් පිටපත් කරන අතරතුරදී දෝෂයක් හට ගැනුණි.  ස්ථාපනය දිගටම යයි, නමුත් ස්ථාපිත පද්ධතිය "
+"තුල බ්ලුටූත් වින්‍යාසගතකෙරුම නැවත වරක් සැකසීමට සිදුවේ."
 
 #. Type: error
 #. Description
@@ -1373,30 +1374,33 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"මෙම පරිගණකය වයි-ෆයි ජාලයකට සම්බන්ධ කිරීමෙන් ඔබ හට තුන්වන-පාර්ශවයේ මෘදුකාංග ස්ථාපනය කිරීම, "
+"යාවත්කාලීන බාගත කිරීම, ස්වයංක්‍රීයව ඔබේ වේලා කලාපය හදුනා ගැනීම, සහ ඔබේ භාෂාව සඳහා "
+"සම්පූර්ණ සහය ස්ථාපනය කිරීමට ඉඩ ලබා දේ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:202001
 msgid "Password:"
-msgstr ""
+msgstr "මුරපදය:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:203001
 msgid "Display password"
-msgstr ""
+msgstr "මුරපදය පෙන්වන්න"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:204001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "මට දැන් වයි-ෆයි ජාලයකට සම්බන්ධ වීමට අවශ්‍ය නැහැ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:205001
 msgid "Connect to this network"
-msgstr ""
+msgstr "මෙම ජාලය වෙත සම්බන්ධ වන්න"
 
 #. Type: text
 #. Description
@@ -1424,6 +1428,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>කුඩා විභාජක %d ක් සඟවා ඇත, වැඩිදුර හැසිරවීම සඳහා  <a href=\"\">උසස් කොටස්කර "
+"මෙවලම</a> භාවිතා කරන්න</small>"
 
 #. Type: text
 #. Description
@@ -1432,6 +1438,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>කුඩා විභාජක 1 ක් සඟවා ඇත, වැඩිදුර හැසිරවීම සඳහා  <a href=\"\">උසස් කොටස්කර "
+"මෙවලම</a> භාවිතා කරන්න</small>"
 
 #. Type: text
 #. Description
@@ -1489,21 +1497,12 @@ msgstr "ජාලය වෙත සම්බන්ධයි"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"Flash, MP3 හා වෙනත් මාධ්‍ය ධාවනයට හා ඇතැම් රැහැන් රහිත දෘඩාංග භාවිතයට ${RELEASE} "
-"තෙවන පාර්ශවීය මෘදුකාංග භාවිත කරයි. මෙම ඇතැම් මෘදුකාංග සංවෘත-කේත විය හැක. මෘදුකාංගයේ "
-"බලපත එහි ලේඛන වල අඩංගු වේ."
 
 #. Type: text
 #. Description
@@ -1512,6 +1511,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"fප්‍රෝන්හොfපර් IIS සහ ටෙක්නිකලර් SA ගෙන් බලපත්‍ර සහිතව ෆ්ලුවේන්ඩෝ MP3 ප්ලගිනය සතුව MPEG "
+"Layer-3 ශ්‍රව්‍ය විසංකේතීකරණ තාක්ෂණය අඩංගුය."
 
 #. Type: text
 #. Description
@@ -1797,10 +1798,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "ස්ථාපනයෙන් පිටවෙන්නද?"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1819,10 +1818,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "පින්තූරයක් තෝරන්න"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1982,36 +1979,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "පැකේජ ඉවත්කරමින්"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "හස්තමය හැඩහුරුව (උසස්)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "අපට වඩා බුද්ධිමත්ද? වඩා උසස් කොටස්කිරීම් අභිප්‍රේත වලින් ඔබේ දෑත් අපිරිසිදු කරගන්න."
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "නව කොටස් ප්‍රමාණය මෙගාබයිටයන්ගෙන් (බයිට 1000000):"
-
-#~ msgid "Beginning"
-#~ msgstr "ආරම්භය"
-
-#~ msgid "End"
-#~ msgstr "අවසානය"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "ලේඛන හා සැකසුම් ආයත කරමින්..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "ලේඛන හා සැකසුම් සංක්‍රමණය කරමින්"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "දත්ත සංක්‍රමණයේදී දෝශයක් හට ගැනිනි. /var/log/syslog හීදී වැඩිදුර තොරතුරු දැකිය හැක. "
-#~ "ස්ථාපනය ඉදිරියට යනු ඇත, නමුත් ඔබ ඉල්ලා සිටි ලේඛන හා සැකසුම් සියල්ලම ස්ථාපිත පද්ධතියට හුවමාරු "
-#~ "නොවිය හැක."

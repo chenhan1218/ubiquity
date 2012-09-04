@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-10 19:00+0000\n"
-"X-Generator: Launchpad (build 15070)\n"
+"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
+"X-Generator: Launchpad (build 15901)\n"
 
 #. Type: text
 #. Description
@@ -119,18 +119,11 @@ msgstr "您可能希望 <a href=\"update\">更新安装程序</a>。"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in April 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
-"这是 ${RELEASE} liv﻿e ${MEDIUM} 安装程序的预先发布版。这不是最终发布版"
-"本，${RELEASE} 的最终版将会在 2012 年 4 月发布。"
 
 #. Type: text
 #. Description
@@ -539,13 +532,6 @@ msgstr "安装程序崩溃"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
-#, fuzzy
-#| msgid ""
-#| "We're sorry; the installer crashed. After you close this window, we'll "
-#| "allow you to file a bug report using the integrated bug reporting tool. "
-#| "This will gather information about your system and your installation  "
-#| "process. The details will be sent to our bug tracker and a developer  "
-#| "will attend to the problem as soon as possible."
 msgid ""
 "We're sorry; the installer crashed. After you close this window, we'll allow "
 "you to file a bug report using the integrated bug reporting tool. This will "
@@ -553,9 +539,6 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
-"很抱歉，安装程序发生崩溃了。您在关闭该窗口之后可以使用内置的 bug 汇报工具给我"
-"们发送一个 bug 报告。它会收集您的系统信息和安装过程信息。这些信息将会提交到我"
-"们的 bug 追踪系统，开发者将尽快解决它们。"
 
 #. Type: text
 #. Description
@@ -667,10 +650,8 @@ msgstr "创建分区"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "大小"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1493,20 +1474,12 @@ msgstr "已经连接到互联网"
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:222001
-#, fuzzy
-#| msgid ""
-#| "${RELEASE} uses third-party software to display Flash, MP3 and other "
-#| "media, and to work with some wireless hardware. Some of this software is "
-#| "closed-source. The software is subject to the license terms included with "
-#| "the software's documentation."
 msgid ""
 "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
 "to work with some graphics and wi-fi hardware. Some of this software is "
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} 使用第三方的软件处理 Flash、MP3 等媒体文件，驱动一些无线设备。这其"
-"中有一些软件是闭源的。这些软件受软件文档附带的许可协议限制。"
 
 #. Type: text
 #. Description
@@ -1798,10 +1771,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
-#, fuzzy
-#| msgid "Quit the installation?"
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "退出安装？"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1820,10 +1791,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
-#, fuzzy
-#| msgid "Choose a picture"
 msgid "Choose a security key:"
-msgstr "选择一个图片"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1981,35 +1950,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在删除软件包"
-
-#~ msgid "Manual configuration (advanced)"
-#~ msgstr "手动设置 (高级)"
-
-#~ msgid ""
-#~ "Too smart for us? Get your hands dirty with some advanced partitioning "
-#~ "options."
-#~ msgstr "程序自作聪明？自己动手更改高级分区选项。"
-
-#~ msgid "New partition size in megabytes (1000000 bytes):"
-#~ msgstr "新建分区容量(MB)："
-
-#~ msgid "Beginning"
-#~ msgstr "起始"
-
-#~ msgid "End"
-#~ msgstr "结束"
-
-#~ msgid "Importing documents and settings..."
-#~ msgstr "正在导入文档和设置..."
-
-#~ msgid "Error migrating documents and settings"
-#~ msgstr "迁移文档和设置时发生错误"
-
-#~ msgid ""
-#~ "An error occurred while migrating data.  More details may be found in /"
-#~ "var/log/syslog.  The installation will continue, but some or all of the "
-#~ "documents and settings you requested may not have been transferred to the "
-#~ "installed system."
-#~ msgstr ""
-#~ "在迁移数据时发生错误。更多细节请参阅 /var/log/syslog。安装程序将会继续，但"
-#~ "是您请求的一些文档或设置可能不会迁移到新安装的系统上。"
