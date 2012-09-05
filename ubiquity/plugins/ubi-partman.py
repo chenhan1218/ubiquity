@@ -849,7 +849,11 @@ class PageGtk(PageBase):
             self.partition_create_place_label.hide()
             self.partition_create_place_beginning.hide()
             self.partition_create_place_end.hide()
+            self.partition_create_type_label.hide()
+            self.partition_create_type_primary.hide()
+            self.partition_create_type_logical.hide()
 
+        # TODO xnox 2012-09-05 hide manual crypto/lvm UI until ready
         for widget in ['password_grid', 'crypto_label', 'crypto_warning',
                        'verified_crypto_label', 'crypto_extra_label',
                        'crypto_overwrite_space', 'crypto_extra_time',
@@ -861,7 +865,7 @@ class PageGtk(PageBase):
         # TODO cjwatson 2006-11-01: Because partman doesn't use a question
         # group for these, we have to figure out in advance whether each
         # question is going to be asked.
-        if not create and partition['parted']['type'] == 'pri/log':
+        if create and partition['parted']['type'] == 'pri/log':
             # Is there already a primary partition?
             model = self.partition_list_treeview.get_model()
             for otherpart in [row[1] for row in model]:
@@ -872,10 +876,6 @@ class PageGtk(PageBase):
                     break
             else:
                 self.partition_create_type_primary.set_active(True)
-        else:
-            self.partition_create_type_label.hide()
-            self.partition_create_type_primary.hide()
-            self.partition_create_type_logical.hide()
 
         # Yes, I know, 1000000 bytes is annoying. Sorry. This is what
         # partman expects.
