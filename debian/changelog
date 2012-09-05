@@ -7,6 +7,7 @@ ubiquity (2.11.30) UNRELEASED; urgency=low
     standard @dark_[fb]g_color colors, instead 'menubar' Gtk CSS style is
     used. This also fixes long standing a11y issues in HighContrast themes
     & requirements for non-standard color definitions. (LP: #744283)
+  * Make lables in the segmented bar use the same colours as normal labels.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 05 Sep 2012 12:08:34 +0100
 

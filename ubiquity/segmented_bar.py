@@ -246,6 +246,13 @@ class SegmentedBar(Gtk.DrawingArea):
         self.context = None
         self.fd = None
 
+        test_window = Gtk.Window()
+        test_label = Gtk.Label()
+        test_window.add(test_label)
+        style = test_label.get_style_context()
+        self.text_color = style.get_color(Gtk.StateFlags.NORMAL)
+        self.subtext_color = style.get_color(Gtk.StateFlags.INSENSITIVE)
+        
     def add_segment(self, title, size, color, show_in_bar=True):
         self.do_size_allocate(self.get_allocation())
         self.disk_size += size
@@ -384,7 +391,6 @@ class SegmentedBar(Gtk.DrawingArea):
     def render_labels(self, cr):
         if len(self.segments) == 0:
             return
-        text_color = self.get_style_context().get_color(Gtk.StateFlags.ACTIVE)
         box_stroke_color = Gdk.RGBA(0, 0, 0, 0.6)
         x = 0
         layout = self.create_pango_layout('')
@@ -407,16 +413,14 @@ class SegmentedBar(Gtk.DrawingArea):
             (lw, lh) = layout.get_pixel_size()
 
             cr.move_to(x, 0)
-            text_color.a = 0.9
-            Gdk.cairo_set_source_rgba(cr, text_color)
+            Gdk.cairo_set_source_rgba(cr, self.text_color)
             PangoCairo.show_layout(cr, layout)
             cr.fill()
 
             layout.set_markup('<small>%s</small>' % segment.subtitle, -1)
 
             cr.move_to(x, lh)
-            text_color.a = 0.75
-            Gdk.cairo_set_source_rgba(cr, text_color)
+            Gdk.cairo_set_source_rgba(cr, self.subtext_color)
             PangoCairo.show_layout(cr, layout)
             cr.fill()
             x = x + segment.layout_width + self.segment_label_spacing
