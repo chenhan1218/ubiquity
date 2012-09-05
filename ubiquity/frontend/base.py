@@ -442,7 +442,7 @@ class BaseFrontend:
         # available. If en is not available this would return c.
 
         base_slides_dir = os.path.join(slideshow_dir, 'slides', 'l10n')
-        extra_slides_dir = os.path.join(base_slides_dir, 'extra')
+        extra_slides_dir = os.path.join(slideshow_dir, 'slides', 'extra')
 
         ll_cc = locale.split('.')[0]
         ll = ll_cc.split('_')[0]
