@@ -2,6 +2,11 @@ ubiquity (2.11.30) UNRELEASED; urgency=low
 
   * Allow to select primary/logical partitions, instead of always hiding
     it (LP: #1046175).
+  * Correctly apply styles to the title & progress sections and not the
+    centre piece. This means themes are no longer required to provide non
+    standard @dark_[fb]g_color colors, instead 'menubar' Gtk CSS style is
+    used. This also fixes long standing a11y issues in HighContrast themes
+    & requirements for non-standard color definitions. (LP: #744283)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 05 Sep 2012 12:08:34 +0100
 
