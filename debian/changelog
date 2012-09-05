@@ -1,4 +1,4 @@
-ubiquity (2.11.30) UNRELEASED; urgency=low
+ubiquity (2.11.30) quantal; urgency=low
 
   * Allow to select primary/logical partitions, instead of always hiding
     it (LP: #1046175).
