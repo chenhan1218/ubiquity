@@ -119,7 +119,7 @@ def get_translations(languages=None, core_names=[], extra_prefixes=[]):
              '--config=Name:pipe', '--config=Driver:Pipe',
              '--config=InFd:none',
              '--pattern=^(%s)' % prefixes],
-            stdout=subprocess.PIPE, stderr=devnull,
+            bufsize=8192, stdout=subprocess.PIPE, stderr=devnull,
             # necessary?
             preexec_fn=misc.regain_privileges)
         question = None
