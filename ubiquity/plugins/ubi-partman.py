@@ -1051,6 +1051,17 @@ class PageGtk(PageBase):
                     edits['fmt'] = 'dummy'
                 self.controller.dbfilter.edit_partition(devpart, **edits)
 
+    def plugin_translate(self, lang):
+        symbolic_widgets = ['partition_button_new', 'partition_button_delete']
+        for widget_name in symbolic_widgets:
+            widget = getattr(self, widget_name)
+            text = widget.get_label()
+            if len(text) == 0:
+                continue
+            a11y = widget.get_accessible()
+            a11y.set_name(text)
+            widget.set_label('')
+
     @plugin.only_this_page
     def on_partition_use_combo_changed(self, combobox):
         model = combobox.get_model()
