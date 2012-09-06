@@ -3,6 +3,8 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Buffer reads from debconf-copydb.  Python 3 defaults to unbuffered reads
     from byte streams, which is much slower.
+  * Port oem-config-remove-gtk to Python 3, now that
+    python3-aptdaemon.gtk3widgets exists; the final piece!
 
   [ Dmitrijs Ledkovs ]
   * Allow going from the encryption key setup page, to the disk space
