@@ -20,6 +20,7 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
     Design spec ( http://goo.gl/Kokw5 ) and address confusion about the
     updated screen. (LP: #1045799)
   * Fix the disappearance of crypto password field (LP: #1045716)
+  * Fix misallignment of crypto password fields (LP: #1045712)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Sep 2012 18:26:21 +0100
 

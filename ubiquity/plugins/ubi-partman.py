@@ -219,22 +219,23 @@ class PageGtk(PageBase):
         parent = self.password_grid.get_parent()
         if auto:
             new_parent = self.crypto_grid
-            below = self.crypto_description_2
+            crypto_widgets = [
+                ('crypto_label', 'crypto_description_2', 'bottom', 1, 1),
+                ('password_grid', 'crypto_label', 'right', 1, 2)]
         else:
             new_parent = self.partition_dialog_grid
-            below = self.partition_encrypt_checkbutton
+            crypto_widgets = [
+                ('password_grid', 'partition_encrypt_checkbutton', 'bottom', 1,
+                 2),
+                ('crypto_label', 'password_grid', 'left', 1, 1)]
         if parent == new_parent:
             return
-        crypto_widgets = [
-            ('password_grid', below, 'bottom', 1, 2),
-            ('crypto_label', 'password_grid', 'left', 1, 1),
+        crypto_widgets += [
             ('verified_crypto_label', 'crypto_label', 'bottom', 1, 1),
             ('crypto_warning', 'verified_crypto_label', 'bottom', 2, 1),
             ('crypto_extra_label', 'crypto_warning', 'bottom', 1, 1),
             ('crypto_overwrite_space', 'crypto_extra_label', 'right', 1, 1),
-            ('crypto_extra_time', 'crypto_overwrite_space', 'bottom', 1, 1),
-        ]
-
+            ('crypto_extra_time', 'crypto_overwrite_space', 'bottom', 1, 1)]
         for widget, sibling, direction, width, height in crypto_widgets:
             widget = getattr(self, widget)
             if isinstance(sibling, str):
@@ -245,7 +246,6 @@ class PageGtk(PageBase):
                 parent.remove(widget)
             new_parent.attach_next_to(widget, sibling, direction,
                                       width, height)
-
             widget.show()
         self.crypto_overwrite_space.set_active(False)
 
