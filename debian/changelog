@@ -15,11 +15,11 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
     used. This also fixes long standing a11y issues in HighContrast themes
     & requirements for non-standard color definitions. (LP: #744283)
   * Make lables in the segmented bar use the same colours as normal labels.
-
   * Changing the "Add/Remove/Change Partiontion" buttons to mixed
     symbolic/text buttons should make the screen comply with Ubiquity
     Design spec ( http://goo.gl/Kokw5 ) and address confusion about the
     updated screen. (LP: #1045799)
+  * Fix the disappearance of crypto password field (LP: #1045716)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Sep 2012 18:26:21 +0100
 

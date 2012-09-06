@@ -246,6 +246,7 @@ class PageGtk(PageBase):
             new_parent.attach_next_to(widget, sibling, direction,
                                       width, height)
 
+            widget.show()
         self.crypto_overwrite_space.set_active(False)
 
     def plugin_on_next_clicked(self):
