@@ -295,16 +295,19 @@ class PageGtk(PageBase):
 
         if (self.current_page == self.page_crypto and
             not self.get_crypto_keys()):
+            # Stop until encryption keys are setup
             self.controller.allow_go_forward(False)
             return True
 
-        # We already have all that we need from the user.
+        # Do we have all that we need from the user?
         done_partitioning = \
           (resize and biggest_free) or \
           (use_device and one_disk) or \
           reuse or replace
 
-        if self.current_page == self.page_ask and not done_partitioning:
+        # Looks like not... go to disk space allocation page
+        if (self.current_page in [self.page_ask, self.page_crypto]
+            and not done_partitioning):
             if resize:
                 self.set_page_title(self.resize_use_free.get_label())
                 if 'wubi' in self.extra_options:

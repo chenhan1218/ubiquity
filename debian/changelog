@@ -1,7 +1,12 @@
 ubiquity (2.11.31) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Buffer reads from debconf-copydb.  Python 3 defaults to unbuffered reads
     from byte streams, which is much slower.
+
+  [ Dmitrijs Ledkovs ]
+  * Allow going from the encryption key setup page, to the disk space
+    allocation page. (LP: #1046323)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Sep 2012 18:26:21 +0100
 
