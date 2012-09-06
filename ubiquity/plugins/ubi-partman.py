@@ -344,7 +344,7 @@ class PageGtk(PageBase):
         return False
 
     def plugin_on_back_clicked(self):
-        if self.current_page == self.page_auto:
+        if self.current_page in [self.page_auto, self.page_crypto]:
             title = self.controller.get_string(self.plugin_title)
             self.controller._wizard.page_title.set_markup(
                 '<span size="xx-large">%s</span>' % title)
@@ -353,6 +353,7 @@ class PageGtk(PageBase):
             # If we arrived at a second partitioning page, then the option
             # selected on the first page would not cause the forward button to
             # be marked as Install Now.
+            self.controller.allow_go_forward(True)
             self.controller.toggle_next_button()
             self.plugin_is_install = False
             return True
