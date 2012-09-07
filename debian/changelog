@@ -30,6 +30,7 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
     want a low memory profile, which ubiquity-only mode now.
   * ubiquity-wrapper: Add support for udisks2 inhibit, drop devkit-disks
     inhibit. (LP: #719338)
+  * Prevent progress label to expand & shrink the window (LP: #1046241)
   * Automatic update of included source packages: base-installer
     1.122ubuntu9.
 

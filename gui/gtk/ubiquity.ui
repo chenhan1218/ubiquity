@@ -967,7 +967,10 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Installing...</property>
+                                <property name="label" translatable="yes">Installing something over here but this is so long it does not fit</property>
+                                <property name="wrap">True</property>
+                                <property name="wrap_mode">word-char</property>
+                                <property name="ellipsize">end</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
