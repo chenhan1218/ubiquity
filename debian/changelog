@@ -1,4 +1,4 @@
-ubiquity (2.11.31) UNRELEASED; urgency=low
+ubiquity (2.11.31) quantal; urgency=low
 
   [ Colin Watson ]
   * Buffer reads from debconf-copydb.  Python 3 defaults to unbuffered reads
@@ -38,7 +38,7 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
   * Fixed slideshow_get_available_locale missing new locales in
     extra_slides_dir. (LP: #1046511)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Sep 2012 18:26:21 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 08 Sep 2012 00:47:54 +0100
 
 ubiquity (2.11.30) quantal; urgency=low
 
