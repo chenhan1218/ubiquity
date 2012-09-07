@@ -30,6 +30,8 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
     want a low memory profile, which ubiquity-only mode now.
   * ubiquity-wrapper: Add support for udisks2 inhibit, drop devkit-disks
     inhibit. (LP: #719338)
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu9.
 
   [ Dylan McCall ]
   * Fixed slideshow_get_available_locale missing new locales in
