@@ -22,6 +22,8 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
   * Fix the disappearance of crypto password field (LP: #1045716)
   * Fix misallignment of crypto password fields (LP: #1045712)
   * Make setup security key page go back to ask page (LP: #1045698)
+  * Prevent thunar from automounting, in ubiquity-wrapper (LP: #719338).
+    Automounting should probably be address in some better way on Xfce.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Sep 2012 18:26:21 +0100
 

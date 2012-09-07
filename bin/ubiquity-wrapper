@@ -73,6 +73,11 @@ def main():
             toexec.append(' '.join(inner))
         else:
             toexec.extend(inner)
+        # Stop thunar from auto-mounting, above didn't work?!
+        if osextras.find_on_path('xfconf-query'):
+            for opt in ['automount-drives', 'automount-media', 'autobrowse']:
+                subprocess.call(['xfconf-query', '-c', 'thunar-volman', '-p',
+                              '/%s/enabled' % opt, '-s', 'false'])
     else:
         if frontend is None:
             # Try to detect which frontend will be used by looking for a
