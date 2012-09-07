@@ -205,8 +205,6 @@ ifneq (,$(filter armel armhf,$(DEB_HOST_ARCH)))
 		debian/ubiquity/usr/lib/ubiquity/flash-kernel/flash-kernel-installer
 endif
 ifeq ($(DEB_HOST_ARCH),powerpc)
-	install d-i/source/kboot-installer/debian/postinst \
-		debian/ubiquity/usr/lib/ubiquity/kboot-installer/kboot-installer
 	install d-i/source/yaboot-installer/debian/postinst \
 		debian/ubiquity/usr/lib/ubiquity/yaboot-installer/yaboot-installer
 endif

@@ -1029,13 +1029,6 @@ class Install(install_misc.InstallBase):
                     if ret != 0:
                         raise install_misc.InstallStepError(
                             "FlashKernel failed with code %d" % ret)
-                elif arch == 'powerpc' and subarch == 'ps3':
-                    from ubiquity.components import kbootinstaller
-                    dbfilter = kbootinstaller.KbootInstaller(None, self.db)
-                    ret = dbfilter.run_command(auto_process=True)
-                    if ret != 0:
-                        raise install_misc.InstallStepError(
-                            "KbootInstaller failed with code %d" % ret)
                 elif arch == 'powerpc':
                     from ubiquity.components import yabootinstaller
                     dbfilter = yabootinstaller.YabootInstaller(None, self.db)

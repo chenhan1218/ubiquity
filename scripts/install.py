@@ -275,7 +275,7 @@ class Install(install_misc.InstallBase):
               subarch in ('omap', 'omap4', 'mx5')):
             keep.add('flash-kernel')
             keep.add('u-boot-tools')
-        elif arch == 'powerpc' and subarch != 'ps3':
+        elif arch == 'powerpc':
             keep.add('yaboot')
             keep.add('hfsutils')
 
