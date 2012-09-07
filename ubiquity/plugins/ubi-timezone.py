@@ -21,8 +21,8 @@ from __future__ import print_function
 
 import os
 import re
-import sys
 import time
+from urllib.parse import quote
 
 import debconf
 import icu
@@ -97,10 +97,6 @@ class PageGtk(plugin.PluginUI):
             self.controller.allow_go_forward(True)
 
     def changed(self, entry):
-        try:
-            from urllib.parse import quote
-        except ImportError:
-            from urllib import quote
         from gi.repository import Gtk, GObject, Soup
 
         text = misc.utf8(self.city_entry.get_text())
@@ -118,8 +114,7 @@ class PageGtk(plugin.PluginUI):
 
             if self.geoname_session is None:
                 self.geoname_session = Soup.SessionAsync()
-            url = _geoname_url % (self.geoname_cb_string(quote(text)),
-                                  misc.get_release().version)
+            url = _geoname_url % (quote(text), misc.get_release().version)
             message = Soup.Message.new('GET', url)
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
             self.geoname_session.abort()
@@ -176,9 +171,9 @@ class PageGtk(plugin.PluginUI):
             pass
         elif message.status_code != Soup.KnownStatusCode.OK:
             # Log but otherwise ignore failures.
-            syslog.syslog(self.geoname_cb_string(
+            syslog.syslog(
                 'Geoname lookup for "%s" failed: %d %s' %
-                (text, message.status_code, message.reason_phrase)))
+                (text, message.status_code, message.reason_phrase))
         else:
             try:
                 for result in json.loads(message.response_body.data):
@@ -251,13 +246,6 @@ class PageGtk(plugin.PluginUI):
         completion.pack_start(cell, True)
         completion.set_match_func(match_func, None)
         completion.set_cell_data_func(cell, data_func, None)
-
-    @staticmethod
-    def geoname_cb_string(s):
-        if sys.version >= '3':
-            return s
-        else:
-            return s.encode('UTF-8')
 
 
 class PageKde(plugin.PluginUI):

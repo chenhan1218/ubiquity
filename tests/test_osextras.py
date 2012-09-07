@@ -4,10 +4,7 @@ import errno
 import os
 import shutil
 import tempfile
-try:
-    from test.support import EnvironmentVarGuard
-except ImportError:
-    from test.test_support import EnvironmentVarGuard
+from test.support import EnvironmentVarGuard
 import unittest
 
 from ubiquity import osextras

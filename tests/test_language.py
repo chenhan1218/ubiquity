@@ -2,17 +2,13 @@
 # -*- coding: utf-8; -*-
 
 import os
+from test.support import EnvironmentVarGuard
 import unittest
-try:
-    from test.support import EnvironmentVarGuard
-except ImportError:
-    from test.test_support import EnvironmentVarGuard
 
 from gi.repository import Gtk
 import mock
 
 from ubiquity import i18n, plugin_manager
-from helpers import builtin_patch
 
 
 def side_effect_factory(real_method):
@@ -50,7 +46,7 @@ class OEMUserLanguageTests(unittest.TestCase):
         # GtkIconViewItem GList.
         if 'UBIQUITY_TEST_INSTALLED' not in os.environ:
             real_method = open
-            method = builtin_patch('open')
+            method = mock.patch('builtins.open')
             mocked_method = method.start()
             mocked_method.side_effect = side_effect_factory(real_method)
             self.addCleanup(method.stop)

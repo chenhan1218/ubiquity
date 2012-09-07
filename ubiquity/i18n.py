@@ -27,8 +27,6 @@ import locale
 import sys
 from functools import reduce
 
-import six
-
 from ubiquity import misc, im_switch
 
 
@@ -264,7 +262,7 @@ def ascii_transliterate(exc):
     if ord(s) in range(128):
         return s, exc.start + 1
     else:
-        return six.u(''), exc.start + 1
+        return '', exc.start + 1
 
 codecs.register_error('ascii_transliterate', ascii_transliterate)
 
@@ -301,7 +299,7 @@ def get_languages(current_language_index=-1, only_installable=False):
         # it.
         #   https://bugs.launchpad.net/bugs/1001542
         #   (comment #5 and on)
-        trans = trans.strip(six.u(" \ufeff"))
+        trans = trans.strip(" \ufeff")
 
         if only_installable:
             pkg_name = 'language-pack-%s' % code

@@ -28,10 +28,8 @@ from __future__ import print_function
 
 import os
 import re
-import sys
 
 import debconf
-import six
 
 from ubiquity import validation
 from ubiquity import misc
@@ -515,8 +513,7 @@ class PageKde(PageBase):
         # If the user did not manually enter a username create one for him.
         if not self.username_edited:
             self.page.username.blockSignals(True)
-            new_username = six.text_type(
-                self.page.fullname.text()).split(' ')[0]
+            new_username = str(self.page.fullname.text()).split(' ')[0]
             new_username = new_username.encode('ascii', 'ascii_transliterate')
             new_username = new_username.decode().lower()
             self.page.username.setText(new_username)
@@ -528,7 +525,7 @@ class PageKde(PageBase):
         if not self.hostname_edited:
             self.page.hostname.blockSignals(True)
             self.page.hostname.setText(
-                six.text_type(self.page.username.text()).strip() + self.suffix)
+                str(self.page.username.text()).strip() + self.suffix)
             self.page.hostname.blockSignals(False)
 
         self.username_edited = (self.page.username.text() != '')
@@ -546,19 +543,19 @@ class PageKde(PageBase):
         self.page.fullname.setText(misc.utf8(value))
 
     def get_fullname(self):
-        return six.text_type(self.page.fullname.text())
+        return str(self.page.fullname.text())
 
     def set_username(self, value):
         self.page.username.setText(misc.utf8(value))
 
     def get_username(self):
-        return six.text_type(self.page.username.text())
+        return str(self.page.username.text())
 
     def get_password(self):
-        return six.text_type(self.page.password.text())
+        return str(self.page.password.text())
 
     def get_verified_password(self):
-        return six.text_type(self.page.verified_password.text())
+        return str(self.page.verified_password.text())
 
     def set_auto_login(self, value):
         return self.page.login_auto.setChecked(value)
@@ -593,7 +590,7 @@ class PageKde(PageBase):
         self.page.hostname_error_reason.show()
 
     def get_hostname(self):
-        return six.text_type(self.page.hostname.text())
+        return str(self.page.hostname.text())
 
     def set_hostname(self, value):
         self.page.hostname.setText(value)
@@ -674,10 +671,7 @@ class PageNoninteractive(PageBase):
     def username_error(self, msg):
         """The selected username was bad."""
         print('\nusername error: %s' % msg, file=self.console)
-        if sys.version >= '3':
-            self.username = input('Username: ')
-        else:
-            self.username = raw_input('Username: ')
+        self.username = input('Username: ')
 
     def password_error(self, msg):
         """The selected password was bad."""

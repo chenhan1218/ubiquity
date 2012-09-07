@@ -4,7 +4,6 @@ import os
 
 from PyQt4 import uic
 from PyQt4 import QtGui
-import six
 
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
 from ubiquity import misc
@@ -190,21 +189,21 @@ class PartAuto(QtGui.QWidget):
     def getChoice(self):
         bId = self.autopartition_buttongroup.checkedId()
         if bId > -1:
-            choice = six.text_type(self.autopartitionTexts[bId])
+            choice = str(self.autopartitionTexts[bId])
         else:
             raise AssertionError("no active autopartitioning choice")
 
         if choice == self.resizeChoice:
             # resize choice should have been hidden otherwise
             assert self.resizeSize is not None
-            comboText = six.text_type(self.part_auto_disk_box.currentText())
+            comboText = str(self.part_auto_disk_box.currentText())
             disk_id = self.extra_options['use_device'][1][comboText][0]
             disk_id = disk_id.rsplit('/', 1)[1]
             option = self.extra_options['resize'][disk_id][0]
             return option, '%d B' % self.resizeSize
         elif choice == self.useDeviceChoice:
             return (self.extra_options['use_device'][0],
-                    six.text_type(self.part_auto_disk_box.currentText()))
+                    str(self.part_auto_disk_box.currentText()))
         else:
             return choice, None
 

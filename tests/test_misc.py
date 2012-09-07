@@ -1,19 +1,16 @@
 #!/usr/bin/python3
 
 import grp
+import io
 import os
 import pwd
-try:
-    from test.support import EnvironmentVarGuard, run_unittest
-except ImportError:
-    from test.test_support import EnvironmentVarGuard, run_unittest
+from test.support import EnvironmentVarGuard, run_unittest
 import unittest
 
 # These tests require Mock 0.7.0
 import mock
 
 from ubiquity import misc
-from helpers import builtin_patch, text_file_type
 
 _proc_swaps = [
     'Filename\t\t\t\tType\t\tSize\tUsed\tPriority',
@@ -59,16 +56,16 @@ class MiscTests(unittest.TestCase):
     def setUp(self):
         misc.get_release.release_info = None
 
-    @builtin_patch('open')
+    @mock.patch('builtins.open')
     def test_is_swap(self, mock_open):
-        magic = mock.MagicMock(spec=text_file_type)
+        magic = mock.MagicMock(spec=io.TextIOBase)
         mock_open.return_value = magic
         magic.__enter__.return_value = magic
         magic.__iter__.return_value = iter(_proc_swaps)
         self.assertTrue(misc.is_swap('/dev/sda5'))
         self.assertFalse(misc.is_swap('/dev/sda'))
 
-    @builtin_patch('open')
+    @mock.patch('builtins.open')
     def test_is_swap_fail(self, mock_open):
         mock_open.side_effect = Exception('Ka-blamo!')
         self.assertFalse(misc.is_swap('/dev/sda5'))
@@ -94,9 +91,9 @@ class MiscTests(unittest.TestCase):
         # os.access, raise an exception as a side effect.
         pass
 
-    @builtin_patch('open')
+    @mock.patch('builtins.open')
     def test_get_release(self, mock_open):
-        magic = mock.MagicMock(spec=text_file_type)
+        magic = mock.MagicMock(spec=io.TextIOBase)
         magic.__enter__.return_value = magic
         mock_open.return_value = magic
         magic.readline.return_value = _disk_info
@@ -104,7 +101,7 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(release.name, 'Ubuntu-Server')
         self.assertEqual(release.version, '10.04.1 LTS')
 
-    @builtin_patch('open')
+    @mock.patch('builtins.open')
     def test_get_release_fail(self, mock_open):
         mock_open.side_effect = Exception('Pow!')
         release = misc.get_release()
@@ -128,9 +125,9 @@ class MiscTests(unittest.TestCase):
 
     #    self.assertEqual(misc.windows_startup_folder('/tmp/tmp.XXXXXX'))
 
-    @builtin_patch('open')
+    @mock.patch('builtins.open')
     def test_mount_info(self, mock_open):
-        magic = mock.MagicMock(spec=text_file_type)
+        magic = mock.MagicMock(spec=io.TextIOBase)
         magic.__enter__.return_value = magic
         mock_open.return_value = magic
         # TODO come up with better mountpoints.

@@ -10,17 +10,15 @@ import shutil
 import subprocess
 import syslog
 
-import six
-
 from ubiquity import osextras
 
 
 def utf8(s, errors="strict"):
     """Decode a string as UTF-8 if it isn't already Unicode."""
-    if isinstance(s, six.text_type):
+    if isinstance(s, str):
         return s
     else:
-        return six.text_type(s, "utf-8", errors)
+        return str(s, "utf-8", errors)
 
 
 def is_swap(device):
@@ -402,7 +400,7 @@ def find_in_os_prober(device):
         syslog.syslog(syslog.LOG_ERR, "Error in find_in_os_prober:")
         for line in traceback.format_exc().split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
-    return six.u('')
+    return ''
 
 
 @raise_privileges
@@ -629,10 +627,7 @@ def dmimodel():
 
 
 def set_indicator_keymaps(lang):
-    try:
-        import xml.etree.cElementTree as ElementTree
-    except ImportError:
-        import xml.etree.ElementTree as ElementTree
+    import xml.etree.cElementTree as ElementTree
     from gi.repository import Xkl, GdkX11
     # GdkX11.x11_get_default_xdisplay() segfaults if Gtk hasn't been
     # imported; possibly finer-grained than this, but anything using this

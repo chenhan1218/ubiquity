@@ -20,10 +20,8 @@
 from __future__ import print_function
 
 import os
-import sys
 
 import debconf
-import six
 
 from ubiquity import plugin
 from ubiquity import i18n
@@ -468,15 +466,6 @@ class PageKde(PageBase):
 
         self.plugin_widgets = self.page
 
-    @staticmethod
-    def make_qstring(s):
-        """Python 2/3 compatibility hack."""
-        if sys.version >= '3':
-            return s
-        else:
-            from PyQt4.QtCore import QString
-            return QString(s)
-
     @plugin.only_this_page
     def on_try_ubuntu_clicked(self, *args):
         if not self.controller.allowed_change_step():
@@ -527,11 +516,10 @@ class PageKde(PageBase):
         PageBase.set_language_choices(self, choices, choice_map)
         self.combobox.clear()
         for choice in choices:
-            self.combobox.addItem(self.make_qstring(six.text_type(choice)))
+            self.combobox.addItem(str(choice))
 
     def set_language(self, language):
-        index = self.combobox.findText(
-            self.make_qstring(six.text_type(language)))
+        index = self.combobox.findText(str(language))
         if index < 0:
             self.combobox.addItem("C")
         else:
@@ -550,7 +538,7 @@ class PageKde(PageBase):
         if not lang or not hasattr(self, 'language_choice_map'):
             return None
         else:
-            return self.language_choice_map[six.text_type(lang)][1]
+            return self.language_choice_map[str(lang)][1]
 
     def on_language_selection_changed(self):
         lang = self.selected_language()
@@ -634,7 +622,7 @@ class PageKde(PageBase):
         return self.page.oem_id_entry.setText(text)
 
     def get_oem_id(self):
-        return six.text_type(self.page.oem_id_entry.text())
+        return str(self.page.oem_id_entry.text())
 
 
 class PageDebconf(PageBase):

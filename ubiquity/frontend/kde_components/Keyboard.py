@@ -8,18 +8,15 @@ import sys
 from PyQt4.QtCore import Qt, QRectF
 from PyQt4.QtGui import QWidget, QFont, QPainter, QPen, QPainterPath, QColor
 
-if sys.version >= '3':
-    unichr = chr
-
 IMG_DIR = "/usr/share/ubiquity/qt/images"
 
 
 #U+ , or +U+ ... to string
 def fromUnicodeString(raw):
     if raw[0:2] == "U+":
-        return unichr(int(raw[2:], 16))
+        return chr(int(raw[2:], 16))
     elif raw[0:2] == "+U":
-        return unichr(int(raw[3:], 16))
+        return chr(int(raw[3:], 16))
 
     return ""
 

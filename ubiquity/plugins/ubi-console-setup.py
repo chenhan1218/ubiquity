@@ -22,9 +22,6 @@ from __future__ import print_function
 
 import os
 import re
-import sys
-
-import six
 
 from ubiquity import plugin
 from ubiquity import keyboard_names
@@ -281,15 +278,6 @@ class PageKde(plugin.PluginUI):
             self.page = None
         self.plugin_widgets = self.page
 
-    @staticmethod
-    def make_qstring(s):
-        """Python 2/3 compatibility hack."""
-        if sys.version >= '3':
-            return s
-        else:
-            from PyQt4.QtCore import QString
-            return QString(s)
-
     @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
         layout = self.get_keyboard()
@@ -330,16 +318,14 @@ class PageKde(plugin.PluginUI):
     def set_keyboard_choices(self, choices):
         self.page.keyboard_layout_combobox.clear()
         for choice in sorted(choices):
-            self.page.keyboard_layout_combobox.addItem(self.make_qstring(
-                misc.utf8(choice)))
+            self.page.keyboard_layout_combobox.addItem(misc.utf8(choice))
 
         if self.current_layout is not None:
             self.set_keyboard(self.current_layout)
 
     @plugin.only_this_page
     def set_keyboard(self, layout):
-        index = self.page.keyboard_layout_combobox.findText(self.make_qstring(
-            misc.utf8(layout)))
+        index = self.page.keyboard_layout_combobox.findText(misc.utf8(layout))
 
         if index > -1:
             self.page.keyboard_layout_combobox.setCurrentIndex(index)
@@ -353,18 +339,17 @@ class PageKde(plugin.PluginUI):
         if self.page.keyboard_layout_combobox.currentIndex() < 0:
             return None
 
-        return six.text_type(self.page.keyboard_layout_combobox.currentText())
+        return str(self.page.keyboard_layout_combobox.currentText())
 
     def set_keyboard_variant_choices(self, choices):
         self.page.keyboard_variant_combobox.clear()
         for choice in sorted(choices):
-            self.page.keyboard_variant_combobox.addItem(self.make_qstring(
-                misc.utf8(choice)))
+            self.page.keyboard_variant_combobox.addItem(misc.utf8(choice))
 
     @plugin.only_this_page
     def set_keyboard_variant(self, variant):
-        index = self.page.keyboard_variant_combobox.findText(self.make_qstring(
-            misc.utf8(variant)))
+        index = self.page.keyboard_variant_combobox.findText(
+            misc.utf8(variant))
 
         if index > -1:
             self.page.keyboard_variant_combobox.setCurrentIndex(index)
@@ -385,7 +370,7 @@ class PageKde(plugin.PluginUI):
         if self.page.keyboard_variant_combobox.currentIndex() < 0:
             return None
 
-        return six.text_type(self.page.keyboard_variant_combobox.currentText())
+        return str(self.page.keyboard_variant_combobox.currentText())
 
 
 class PageDebconf(plugin.PluginUI):

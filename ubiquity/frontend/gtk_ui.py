@@ -40,10 +40,7 @@ import traceback
 import syslog
 import atexit
 import gettext
-try:
-    import configparser
-except ImportError:
-    import ConfigParser as configparser
+import configparser
 from functools import reduce
 
 import dbus
@@ -1007,10 +1004,7 @@ class Wizard(BaseFrontend):
         gettext.bindtextdomain(domain, LOCALEDIR)
         self.builder.set_translation_domain(domain)
         gettext.textdomain(domain)
-        kwargs = {}
-        if sys.version < '3':
-            kwargs['unicode'] = 1
-        gettext.install(domain, LOCALEDIR, **kwargs)
+        gettext.install(domain, LOCALEDIR)
 
     def translate_reget(self, lang):
         if lang is None:

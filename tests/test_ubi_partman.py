@@ -2,17 +2,9 @@
 
 from __future__ import unicode_literals
 
-try:
-    # < 3.0
-    from itertools import izip as zip, izip_longest as zip_longest
-except ImportError:
-    # >= 3.0; the zip builtin returns an iterator
-    from itertools import zip_longest
+from itertools import zip_longest
 import os
-try:
-    from test.support import run_unittest
-except ImportError:
-    from test.test_support import run_unittest
+from test.support import run_unittest
 import unittest
 
 import debconf
@@ -20,11 +12,6 @@ import debconf
 import mock
 
 from ubiquity import misc, plugin_manager
-
-
-# Monkey-patch for Python 2/3 compatibility.
-if not hasattr(unittest.TestCase, 'assertCountEqual'):
-    unittest.TestCase.assertCountEqual = unittest.TestCase.assertItemsEqual
 
 
 ubi_partman = plugin_manager.load_plugin('ubi-partman')

@@ -63,7 +63,6 @@ my @basebd = (
     'python3-gi-cairo',
     'python3-mock (>= 0.7.0)',
     'python3-pyicu (>= 1.0)',
-    'python3-six',
     'gir1.2-xkl-1.0',
     'ubuntu-artwork',
     'udev',

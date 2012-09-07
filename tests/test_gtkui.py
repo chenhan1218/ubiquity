@@ -4,10 +4,7 @@
 from __future__ import print_function, unicode_literals
 
 import os
-try:
-    from test.support import EnvironmentVarGuard
-except ImportError:
-    from test.test_support import EnvironmentVarGuard
+from test.support import EnvironmentVarGuard
 import unittest
 
 import mock

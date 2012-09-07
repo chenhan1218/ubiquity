@@ -3,10 +3,7 @@
 
 from __future__ import unicode_literals
 
-try:
-    from test.support import EnvironmentVarGuard
-except ImportError:
-    from test.test_support import EnvironmentVarGuard
+from test.support import EnvironmentVarGuard
 import unittest
 
 import debconf

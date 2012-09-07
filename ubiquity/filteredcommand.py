@@ -25,7 +25,6 @@ import signal
 import subprocess
 
 import debconf
-import six
 
 from ubiquity.debconffilter import DebconfFilter
 from ubiquity import misc
@@ -67,10 +66,7 @@ class UntrustedBase(object):
             # bizarre time formatting code per syslogd
             time_str = time.ctime()[4:19]
             message = fmt % args
-            line = six.u('%s %s: %s') % (time_str, PACKAGE, message)
-            if sys.version < '3':
-                line = line.encode('utf-8')
-            print(line, file=sys.stderr)
+            print('%s %s: %s' % (time_str, PACKAGE, message), file=sys.stderr)
 
 
 class FilteredCommand(UntrustedBase):
@@ -97,7 +93,7 @@ class FilteredCommand(UntrustedBase):
             self.run(None, None)
             return
         self.command = ['log-output', '-t', PACKAGE, '--pass-stdout']
-        if isinstance(prep[0], six.string_types):
+        if isinstance(prep[0], str):
             self.command.append(prep[0])
         else:
             self.command.extend(prep[0])
@@ -165,7 +161,7 @@ class FilteredCommand(UntrustedBase):
             if prep is None:
                 return
             self.command = ['log-output', '-t', PACKAGE, '--pass-stdout']
-            if isinstance(prep[0], six.string_types):
+            if isinstance(prep[0], str):
                 self.command.append(prep[0])
             else:
                 self.command.extend(prep[0])
@@ -338,11 +334,6 @@ class FilteredCommand(UntrustedBase):
 
     def preseed(self, name, value, seen=True):
         value = misc.debconf_escape(value)
-        if sys.version < '3':
-            try:
-                value = value.encode("UTF-8", "ignore")
-            except UnicodeDecodeError:
-                pass
 
         try:
             self.db.set(name, value)

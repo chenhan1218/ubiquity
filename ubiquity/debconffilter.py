@@ -144,10 +144,7 @@ class DebconfFilter:
                 else:
                     raise
 
-        if sys.version >= '3':
-            return ret.decode()
-        else:
-            return ret
+        return ret.decode()
 
     def reply(self, code, text='', log=False):
         if self.escaping and code == 0:

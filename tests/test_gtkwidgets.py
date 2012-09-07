@@ -5,16 +5,12 @@ from __future__ import unicode_literals
 
 import os
 import sys
-try:
-    from test.support import run_unittest
-except ImportError:
-    from test.test_support import run_unittest
+from test.support import run_unittest
 import unittest
 
 import dbus
 from gi.repository import Gtk, TimezoneMap
 import mock
-import six
 
 from ubiquity import gtkwidgets, nm, segmented_bar
 
@@ -39,7 +35,11 @@ class WidgetTests(unittest.TestCase):
     def tearDown(self):
         self.win.hide()
         if self.err:
-            six.reraise(*self.err)
+            exctype, value, tb = self.err
+            if value.__traceback__ is not tb:
+                raise value.with_traceback(tb)
+            else:
+                raise value
 
     def test_segmented_bar(self):
         sb = segmented_bar.SegmentedBar()
