@@ -252,7 +252,7 @@ class SegmentedBar(Gtk.DrawingArea):
         style = test_label.get_style_context()
         self.text_color = style.get_color(Gtk.StateFlags.NORMAL)
         self.subtext_color = style.get_color(Gtk.StateFlags.INSENSITIVE)
-        
+
     def add_segment(self, title, size, color, show_in_bar=True):
         self.do_size_allocate(self.get_allocation())
         self.disk_size += size
