@@ -7,7 +7,6 @@ from __future__ import print_function
 
 import sys
 import os
-import syslog
 import subprocess
 
 sys.path.insert(0, '/usr/lib/ubiquity')
@@ -35,8 +34,7 @@ def main():
 
     if os.getuid() == 0:
         # no privilege escalation required
-        inner = ['/usr/lib/ubiquity/bin/ubiquity']
-        inner.extend(newargv)
+        inner = ['/usr/lib/ubiquity/bin/ubiquity'] + newargv
 
         # Make sure ibus works
         if (os.getenv("GTK_IM_MODULE") == "ibus" and
@@ -57,27 +55,20 @@ def main():
         # Ensure the OOM killer doesn't nom on us.
         with open('/proc/%d/oom_score_adj' % os.getpid(), 'w') as fp:
             fp.write('-1000')
-        # Lock HAL's storage subsystem (or DeviceKit-disks or udisks).
-        if osextras.find_on_path('udisks'):
-            toexec.extend(['udisks', '--inhibit', '--'])
-            toexec.extend(inner)
-        elif osextras.find_on_path('devkit-disks'):
-            toexec.extend(['devkit-disks', '--inhibit', '--'])
-            toexec.extend(inner)
+
+        # Disable storage automounting
+        udisks2 = '/usr/lib/udisks2/udisks2-inhibit'
+        if os.path.isfile(udisks2) and os.access(udisks2, os.X_OK):
+            toexec += [udisks2] + inner
+        elif osextras.find_on_path('udisks'):
+            toexec += ['udisks', '--inhibit', '--'] + inner
         elif (osextras.find_on_path('hal-lock') and
               not os.system('pgrep hald>/dev/null')):
-            toexec.extend(['hal-lock',
-                           '--interface', 'org.freedesktop.Hal.Device.Storage',
-                           '--exclusive', '--run'])
-            # hal-lock has irritating argument passing conventions.
-            toexec.append(' '.join(inner))
+            toexec += ['hal-lock',
+                       '--interface', 'org.freedesktop.Hal.Device.Storage',
+                       '--exclusive', '--run', ' '.join(inner)]
         else:
-            toexec.extend(inner)
-        # Stop thunar from auto-mounting, above didn't work?!
-        if osextras.find_on_path('xfconf-query'):
-            for opt in ['automount-drives', 'automount-media', 'autobrowse']:
-                subprocess.call(['xfconf-query', '-c', 'thunar-volman', '-p',
-                              '/%s/enabled' % opt, '-s', 'false'])
+            toexec += inner
     else:
         if frontend is None:
             # Try to detect which frontend will be used by looking for a
@@ -96,7 +87,7 @@ def main():
         if frontend == 'gtk_ui':
             toexec = ['gksudo', '--preserve-env']
             if desktop:
-                toexec.extend(['--desktop', desktop])
+                toexec += ['--desktop', desktop]
             toexec.append('--')
         elif frontend == 'kde_ui':
             # We need to pass through xauth information.  kdesudo won't do,
