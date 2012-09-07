@@ -25,6 +25,10 @@ ubiquity (2.11.31) UNRELEASED; urgency=low
   * Make setup security key page go back to ask page (LP: #1045698)
   * Prevent thunar from automounting, in ubiquity-wrapper (LP: #719338).
     Automounting should probably be address in some better way on Xfce.
+  * Remove powerpc/ps3 low-memory profile, as it doesn't do anything any
+    more. gnome-session-remove command is no longer present, and the init
+    processes it tried to stop no longer exist under those names. We do
+    want a low memory profile, which ubiquity-only mode now.
 
   [ Dylan McCall ]
   * Fixed slideshow_get_available_locale missing new locales in

@@ -124,41 +124,6 @@ def main():
         toexec.append(sys.argv[0])
         toexec.extend(newargv)
 
-    # Workaround for hang on relatively low-memory PS3 systems (#106683).
-    # Apparently killing a few processes up-front helps.
-    try:
-        lowmem = False
-        archdetect = subprocess.Popen(
-            ['archdetect'], stdout=subprocess.PIPE, universal_newlines=True)
-        arch = archdetect.communicate()[0].strip()
-        if arch == 'powerpc/ps3':
-            with open('/proc/meminfo') as meminfo:
-                for line in meminfo:
-                    if line.startswith('MemTotal:'):
-                        mem = int(line.split()[1])
-                        if mem <= 262144:
-                            lowmem = True
-                            break
-        if lowmem:
-            syslog.syslog("Low memory: killing processes to work around hang")
-            if frontend == 'gtk_ui':
-                for session_process in ('evolution-alarm-notify',
-                                        'gnome-cups-icon',
-                                        'jockey-gtk',
-                                        'update-notifier'):
-                    subprocess.call(['gnome-session-remove',
-                                     session_process])
-            if os.getuid() == 0:
-                subprocess.call(['/etc/init.d/cupsys', 'stop'])
-                subprocess.call(['/etc/init.d/hplip', 'stop'])
-            else:
-                subprocess.call(['sudo', '/etc/init.d/cupsys', 'stop'])
-                subprocess.call(['sudo', '/etc/init.d/hplip', 'stop'])
-    except (KeyboardInterrupt, SystemExit):
-        raise
-    except:
-        pass
-
     if 'UBIQUITY_WRAPPER_DEBUG' in os.environ:
         print(toexec, file=sys.stderr)
     os.execvp(toexec[0], toexec)
