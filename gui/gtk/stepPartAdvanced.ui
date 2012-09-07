@@ -893,18 +893,6 @@ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a
       <action-widget response="-5">okbutton3</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkImage" id="symbolic_add_image">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">17</property>
-    <property name="icon_name">list-add-symbolic</property>
-  </object>
-  <object class="GtkImage" id="symbolic_delete_image">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">17</property>
-    <property name="icon_name">list-remove-symbolic</property>
-  </object>
   <object class="GtkAlignment" id="stepPartAdvanced">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -943,162 +931,6 @@ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a
           <packing>
             <property name="left_attach">0</property>
             <property name="top_attach">1</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkGrid" id="partition_list_buttonbox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkLabel" id="part_advanced_recalculating_label">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">end</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">Recalculating partitions…</property>
-                <property name="ellipsize">end</property>
-              </object>
-              <packing>
-                <property name="left_attach">6</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSpinner" id="part_advanced_recalculating_spinner">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">end</property>
-              </object>
-              <packing>
-                <property name="left_attach">7</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="partition_button_new_label">
-                <property name="label" translatable="yes">New partition table</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="sensitive">False</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="halign">end</property>
-                <property name="use_action_appearance">False</property>
-                <signal name="clicked" handler="on_partition_list_new_label_activate" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="partition_button_lvm">
-                <property name="label" translatable="yes">LVM...</property>
-                <property name="use_action_appearance">False</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">end</property>
-                <property name="use_action_appearance">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">4</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="partition_button_undo">
-                <property name="label" translatable="yes">Revert</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="sensitive">False</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
-                <property name="halign">end</property>
-                <property name="use_action_appearance">False</property>
-                <signal name="clicked" handler="on_partition_list_undo_activate" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">5</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="partition_button_edit">
-                <property name="label" translatable="yes">Change...</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="hexpand">True</property>
-                <property name="use_action_appearance">False</property>
-                <signal name="clicked" handler="on_partition_list_edit_activate" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">2</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="partition_button_new">
-                <property name="label" translatable="yes">Add...</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="use_action_appearance">False</property>
-                <property name="image">symbolic_add_image</property>
-                <property name="always_show_image">True</property>
-                <signal name="clicked" handler="on_partition_list_new_activate" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="partition_button_delete">
-                <property name="label" translatable="yes">Delete</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">start</property>
-                <property name="use_action_appearance">False</property>
-                <property name="image">symbolic_delete_image</property>
-                <property name="always_show_image">True</property>
-                <signal name="clicked" handler="on_partition_list_delete_activate" swapped="no"/>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">2</property>
             <property name="width">1</property>
             <property name="height">1</property>
           </packing>
@@ -1176,6 +1008,164 @@ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a
           <packing>
             <property name="left_attach">0</property>
             <property name="top_attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="partition_list_buttonbox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="part_advanced_recalculating_label">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">Recalculating partitions…</property>
+                <property name="ellipsize">end</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSpinner" id="part_advanced_recalculating_spinner">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="partition_button_new_label">
+                <property name="label" translatable="yes">New partition table</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                <property name="halign">end</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="clicked" handler="on_partition_list_new_label_activate" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="partition_button_lvm">
+                <property name="label" translatable="yes">LVM...</property>
+                <property name="use_action_appearance">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">end</property>
+                <property name="use_action_appearance">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="partition_button_undo">
+                <property name="label" translatable="yes">Revert</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="events">GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK</property>
+                <property name="halign">end</property>
+                <property name="use_action_appearance">False</property>
+                <signal name="clicked" handler="on_partition_list_undo_activate" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolbar" id="partition_toolbar">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="hexpand">True</property>
+                <property name="toolbar_style">icons</property>
+                <property name="show_arrow">False</property>
+                <property name="icon_size">2</property>
+                <child>
+                  <object class="GtkToolButton" id="partition_button_new">
+                    <property name="use_action_appearance">False</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="label" translatable="yes">Add...</property>
+                    <property name="use_underline">True</property>
+                    <property name="icon_name">list-add-symbolic</property>
+                    <signal name="clicked" handler="on_partition_list_new_activate" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToolButton" id="partition_button_delete">
+                    <property name="use_action_appearance">False</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="label" translatable="yes">Delete</property>
+                    <property name="use_underline">True</property>
+                    <property name="icon_name">list-remove-symbolic</property>
+                    <signal name="clicked" handler="on_partition_list_delete_activate" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToolButton" id="partition_button_edit">
+                    <property name="use_action_appearance">False</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="label" translatable="yes">Change...</property>
+                    <property name="use_underline">True</property>
+                    <signal name="clicked" handler="on_partition_list_edit_activate" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
             <property name="width">1</property>
             <property name="height">1</property>
           </packing>

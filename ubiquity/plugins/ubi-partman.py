@@ -181,6 +181,14 @@ class PageGtk(PageBase):
         self.part_auto_select_drive.add_attribute(cell, 'markup', 1)
         self.plugin_widgets = self.page_ask
 
+        # Annoyngly, the inline toolbar has custom background, which
+        # I do not know how to remove =(
+        partition_toolbar_style = self.partition_toolbar.get_style_context()
+        partition_toolbar_style.add_class(Gtk.STYLE_CLASS_INLINE_TOOLBAR)
+        for wdg in self.partition_toolbar.get_children():
+            self.partition_toolbar.child_set_property(wdg, 'homogeneous',
+                                                      False)
+
         # GtkBuilder signal mapping is broken (LP: #852054).
         self.part_auto_hidden_label.connect('activate-link',
                 self.part_auto_hidden_label_activate_link)
