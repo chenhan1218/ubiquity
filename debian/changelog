@@ -4,6 +4,9 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
   * Allow specifying a manual mount point in advanced partitioner
     (LP: #1047275).
 
+  [ Dmitrijs Ledkovs ]
+  * Revert test string, to a user friendly one as it is visible in the UI.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 08 Sep 2012 12:05:56 +0100
 
 ubiquity (2.11.31) quantal; urgency=low
