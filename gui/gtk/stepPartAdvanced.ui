@@ -107,7 +107,7 @@
                 </accessibility>
                 <child internal-child="entry">
                   <object class="GtkEntry" id="combobox-entry4">
-                    <property name="can_focus">False</property>
+                    <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
                   </object>
                 </child>
