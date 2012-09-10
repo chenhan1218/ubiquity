@@ -190,7 +190,7 @@ class Location(object):
 
         try:
             today = datetime.datetime.today()
-        except ValueError:
+        except (ValueError, OverflowError):
             # Some versions of Python have problems with clocks set before
             # the epoch (http://python.org/sf/1646728). Assuming that the
             # time is set to the epoch will at least let us avoid crashing,
