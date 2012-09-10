@@ -21,6 +21,7 @@
 from __future__ import print_function
 
 import fnmatch
+import importlib
 import os
 import sys
 
@@ -31,7 +32,7 @@ PLUGIN_PATH = (os.environ.get('UBIQUITY_PLUGIN_PATH', False)
 def load_plugin(modname):
     sys.path.insert(0, PLUGIN_PATH)
     try:
-        return __import__(modname)
+        return importlib.import_module(modname)
     finally:
         del sys.path[0]
 

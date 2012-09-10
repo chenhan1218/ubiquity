@@ -11,6 +11,7 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
   * Remove a couple of vestiges of migration-assistant.
   * Catch OverflowError as well as ValueError from datetime functions, for
     forward-compatibility with Python 3.3.
+  * Use importlib rather than __import__.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Sat, 08 Sep 2012 12:05:56 +0100
 

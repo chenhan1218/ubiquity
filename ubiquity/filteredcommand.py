@@ -23,6 +23,7 @@ import sys
 import os
 import signal
 import subprocess
+import importlib
 
 import debconf
 
@@ -416,7 +417,7 @@ class FilteredCommand(UntrustedBase):
         self.current_question = question
         if not self.done:
             self.succeeded = False
-            mod = __import__(self.__module__, globals(), locals(), ['NAME'])
+            mod = importlib.import_module(self.__module__)
             self.frontend.set_page(mod.NAME)
             self.enter_ui_loop()
         return self.succeeded
