@@ -4,7 +4,6 @@
 from __future__ import print_function, unicode_literals
 
 import os
-from test.support import EnvironmentVarGuard
 import unittest
 
 import mock
@@ -59,27 +58,25 @@ class TestFrontend(unittest.TestCase):
                      'only testable against a build tree')
     def test_pages_fit_on_a_netbook(self):
         from ubiquity.frontend import gtk_ui
-        with EnvironmentVarGuard() as env:
-            env['UBIQUITY_MIGRATION_ASSISTANT'] = '1'
-            ui = gtk_ui.Wizard('test-ubiquity')
-            ui.translate_pages()
-            for page in ui.pages:
-                ui.set_page(page.module.NAME)
-                ui.refresh()
-                ui.refresh()
-                if 'UBIQUITY_TEST_SHOW_ALL_PAGES' in os.environ:
-                    print(page.module.NAME)
-                    import time
-                    time.sleep(3)
-                alloc = ui.live_installer.get_allocation()
-                # width 640, because it is a common small 4:3 width
-                # height 556, because e.g. HP Mini has 580 - 24px (indicators)
-                # Anything smaller will need to use Alt+Ctrl+Pgd/Right
-                # Scrollbars anyone?
-                self.assertLessEqual(alloc.width, 640, page.module.NAME)
-                self.assertLessEqual(alloc.height, 556, page.module.NAME)
-                if page.module.NAME == 'partman':
-                    ui.allow_change_step(False)
+        ui = gtk_ui.Wizard('test-ubiquity')
+        ui.translate_pages()
+        for page in ui.pages:
+            ui.set_page(page.module.NAME)
+            ui.refresh()
+            ui.refresh()
+            if 'UBIQUITY_TEST_SHOW_ALL_PAGES' in os.environ:
+                print(page.module.NAME)
+                import time
+                time.sleep(3)
+            alloc = ui.live_installer.get_allocation()
+            # width 640, because it is a common small 4:3 width
+            # height 556, because e.g. HP Mini has 580 - 24px (indicators)
+            # Anything smaller will need to use Alt+Ctrl+Pgd/Right
+            # Scrollbars anyone?
+            self.assertLessEqual(alloc.width, 640, page.module.NAME)
+            self.assertLessEqual(alloc.height, 556, page.module.NAME)
+            if page.module.NAME == 'partman':
+                ui.allow_change_step(False)
 
     def test_interface_translated(self):
         import subprocess
