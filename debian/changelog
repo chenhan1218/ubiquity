@@ -18,7 +18,11 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
     ubiquity/frontend/kde_components/PartAuto.py
    - add options for LUKS and LVM automatic partitioning to KDE frontend
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 08 Sep 2012 12:05:56 +0100
+  [ Simon Steinbeiß ]
+  * Disable xfwm4's compositor in ubiquity-dm to prevent screen-corruption
+    (LP: #924909)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 11 Sep 2012 12:40:19 -0400
 
 ubiquity (2.11.31) quantal; urgency=low
 

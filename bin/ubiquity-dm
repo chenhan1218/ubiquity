@@ -388,7 +388,7 @@ EndSection
             if gconfd_running and osextras.find_on_path('metacity'):
                 wm_cmd = ['metacity', '--sm-disable']
             elif osextras.find_on_path('xfwm4'):
-                wm_cmd = ['xfwm4']
+                wm_cmd = ['xfwm4', '--compositor=off']
             elif osextras.find_on_path('matchbox-window-manager'):
                 wm_cmd = ['matchbox-window-manager']
             elif osextras.find_on_path('openbox-lubuntu'):
