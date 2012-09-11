@@ -1429,10 +1429,12 @@ class PageKde(PageBase):
         use_device = self.controller.dbfilter.some_device_desc
         resize_choice = self.controller.dbfilter.resize_desc
         manual_choice = extra_options['manual']
+        lvm_choice = extra_options['some_device_lvm']
+        crypto_choice = extra_options['some_device_crypto']
 
         self.partAuto.setupChoices(None, extra_options,
                                    resize_choice, manual_choice,
-                                   None, use_device)
+                                   None, use_device, lvm_choice, crypto_choice)
 
         self.current_page = self.page
 
@@ -1446,6 +1448,9 @@ class PageKde(PageBase):
 
     def plugin_get_current_page(self):
         return self.current_page
+
+    def get_crypto_keys(self):
+        return self.partAuto.password.text()
 
 
 class PageNoninteractive(PageBase):
