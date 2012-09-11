@@ -6,6 +6,9 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Revert test string, to a user friendly one as it is visible in the UI.
+  * Do not preseed grub-install, if we are not proceeding to install. This
+    should fix ValueError, I/O operation on closed file (LP: #1027648)
+    (LP: #792652)
 
   [ Colin Watson ]
   * Remove a couple of vestiges of migration-assistant.

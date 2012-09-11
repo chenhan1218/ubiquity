@@ -3008,6 +3008,9 @@ class Page(plugin.Plugin):
         return plugin.Plugin.run(self, priority, question)
 
     def ok_handler(self):
+        if self.install_bootloader and not self.is_bootdev_preseeded():
+            self.preseed('grub-installer/bootdev', self.get_grub_choice())
+
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
                 self.ui.get_autopartition_choice()
@@ -3022,11 +3025,6 @@ class Page(plugin.Plugin):
     def is_bootdev_preseeded(self):
         return ('UBIQUITY_AUTOMATIC' in os.environ and
                 self.db.fget('grub-installer/bootdev', 'seen') == 'true')
-
-    def cleanup(self):
-        if self.install_bootloader and not self.is_bootdev_preseeded():
-            self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
-        plugin.Plugin.cleanup(self)
 
     # TODO cjwatson 2006-11-01: Do we still need this?
     def rebuild_cache(self):
