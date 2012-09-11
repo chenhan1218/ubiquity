@@ -1,9 +1,13 @@
 ubiquity (2.11.31) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Buffer reads from debconf-copydb.  Python 3 defaults to unbuffered reads
     from byte streams, which is much slower.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Sep 2012 18:26:21 +0100
+  [ Simon Steinbeiß ]
+  * Disable xfwm4's compositor in ubiquity-dm to prevent screen-corruption (LP: #924909).
+
+ -- Simon Steinbeiß <simon.steinbeiss@elfenbeinturm.at>  Tue, 11 Sep 2012 18:35:28 +0200
 
 ubiquity (2.11.30) quantal; urgency=low
 
