@@ -1,4 +1,4 @@
-ubiquity (2.11.32) UNRELEASED; urgency=low
+ubiquity (2.11.32) quantal; urgency=low
 
   [ Jeremy Bicha ]
   * Allow specifying a manual mount point in advanced partitioner
@@ -27,7 +27,7 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
   * Disable xfwm4's compositor in ubiquity-dm to prevent screen-corruption
     (LP: #924909)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 11 Sep 2012 12:40:19 -0400
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 12 Sep 2012 22:45:51 +0100
 
 ubiquity (2.11.31) quantal; urgency=low
 
