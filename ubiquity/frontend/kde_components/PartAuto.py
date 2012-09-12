@@ -63,7 +63,8 @@ class PartAuto(QtGui.QWidget):
         self.diskLayout = diskLayout
 
     def setupChoices(self, choices, extra_options, resize_choice,
-                     manual_choice, biggest_free_choice, use_device_choice, lvm_choice, crypto_choice):
+                     manual_choice, biggest_free_choice, use_device_choice,
+                     lvm_choice, crypto_choice):
         self._clearInfo()
 
         self.resizeChoice = resize_choice
@@ -192,13 +193,14 @@ class PartAuto(QtGui.QWidget):
         bId += 1
         #add use entire disk options to combobox again
         self.disks.append(disks)
-        
+
         box = QtGui.QHBoxLayout()
         box.addStretch()
         self.autopart_selection_frame.layout().addLayout(box)
 
         self.passwordIcon = QtGui.QLabel()
-        self.passwordIcon.setPixmap(QtGui.QPixmap("/usr/share/icons/oxygen/16x16/status/dialog-password.png"))
+        self.passwordIcon.setPixmap(QtGui.QPixmap(
+            "/usr/share/icons/oxygen/16x16/status/dialog-password.png"))
         box.addWidget(self.passwordIcon)
         self.password = QtGui.QLineEdit()
         self.password.setEchoMode(QtGui.QLineEdit.Password)
@@ -209,7 +211,8 @@ class PartAuto(QtGui.QWidget):
         self.verified_password.textChanged.connect(self.verify_password)
         box.addWidget(self.verified_password)
         self.badPassword = QtGui.QLabel()
-        self.badPassword.setPixmap(QtGui.QPixmap("/usr/share/icons/oxygen/16x16/status/dialog-warning.png"))
+        self.badPassword.setPixmap(QtGui.QPixmap(
+            "/usr/share/icons/oxygen/16x16/status/dialog-warning.png"))
         self.badPassword.hide()
         box.addWidget(self.badPassword)
 

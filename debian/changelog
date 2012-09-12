@@ -8,6 +8,7 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
   * Revert test string, to a user friendly one as it is visible in the UI.
   * Automatic update of included source packages: base-installer
     1.122ubuntu11, partman-auto-lvm 45ubuntu3, tzsetup 1:0.26ubuntu12.
+  * pep8 fixes in Riddell's code
 
   [ Colin Watson ]
   * Remove a couple of vestiges of migration-assistant.
