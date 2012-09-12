@@ -12,6 +12,7 @@ ubiquity (2.11.32) UNRELEASED; urgency=low
   * Catch OverflowError as well as ValueError from datetime functions, for
     forward-compatibility with Python 3.3.
   * Use importlib rather than __import__.
+  * Install fetch-url for apt-setup's local generator (LP: #1049535).
 
   [ Jonathan Riddell ]
   * ubiquity/plugins/ubi-partman.py and
