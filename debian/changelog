@@ -1,3 +1,10 @@
+ubiquity (2.11.32ubuntu1) UNRELEASED; urgency=low
+
+  * Make Add/Remove/Change toolbar not have a background. Thanks to
+    askubuntu and andrewsomething.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 13 Sep 2012 10:39:59 +0100
+
 ubiquity (2.11.32) quantal; urgency=low
 
   [ Jeremy Bicha ]
