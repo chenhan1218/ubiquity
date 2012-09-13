@@ -62,6 +62,7 @@ def drop_all_privileges():
         uid = int(uid)
         os.setreuid(uid, uid)
         os.environ['HOME'] = pwd.getpwuid(uid).pw_dir
+        os.environ['LOGNAME'] = pwd.getpwuid(uid).pw_name
     _dropped_privileges = None
 
 
