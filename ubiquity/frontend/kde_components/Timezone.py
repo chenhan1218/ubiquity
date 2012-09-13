@@ -1,7 +1,5 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
-from __future__ import print_function
-
 import datetime
 import math
 

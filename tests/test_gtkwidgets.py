@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8; -*-
 
-from __future__ import unicode_literals
-
 import os
 import sys
 from test.support import run_unittest

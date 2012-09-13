@@ -18,8 +18,6 @@
 
 # Update the installer from the network.
 
-from __future__ import print_function
-
 import sys
 import os
 import syslog
