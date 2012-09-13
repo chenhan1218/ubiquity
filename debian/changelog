@@ -5,6 +5,7 @@ ubiquity (2.11.33) UNRELEASED; urgency=low
   * Fix TypeError in a debug statement when resize is not possible due to
     small total disk space.
   * Remove more of Python 2 support.  We are not going back to the __future__.
+  * Use py3compile, instead of pycompile.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 13 Sep 2012 10:39:59 +0100
 

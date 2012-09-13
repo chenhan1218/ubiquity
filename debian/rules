@@ -42,7 +42,7 @@ build-stamp:
 
 check:
 	# Sanity-check before upload.
-	find -name debian -prune -o -name \*.py -print | xargs pycompile
+	find -name debian -prune -o -name \*.py -print | xargs py3compile
 	find -type f \( -name \*.pyc -o -name \*.pyo \) -print0 | xargs -0r rm -f
 	find -name __pycache__ -print0 | xargs -0r rm -rf
 	# Check the syntax of any shell scripts.
@@ -117,7 +117,7 @@ endif
 	dh_di_numbers
 
 	# Bits of manual installation that can't be done by dh_install
-	
+
 	install bin/ubiquity-wrapper debian/ubiquity/usr/bin/ubiquity
 	sed 's/@VERSION@/$(VERSION)/g' bin/ubiquity \
 		> debian/ubiquity/usr/lib/ubiquity/bin/ubiquity
