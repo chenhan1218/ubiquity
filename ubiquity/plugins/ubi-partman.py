@@ -2851,8 +2851,7 @@ class Page(plugin.Plugin):
                     too_big = False
                     if self.resize_min_size > self.resize_max_size:
                         # We wont fit here, so don't use this partition.
-                        error = '%s is too small' % self.resize_path
-                        self.debug(error, self.resize_path)
+                        self.debug('%s is too small', self.resize_path)
                         too_big = True
 
                     needed_space = self.swap_size + self.installation_size
