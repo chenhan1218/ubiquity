@@ -12,6 +12,10 @@ ubiquity (2.11.33) UNRELEASED; urgency=low
   * Fix drop_all_privileges to also set LOGNAME which is required by firefox
     to contact an existing instance. (LP: #446679)
 
+  [ Colin Watson ]
+  * Automatic update of included source packages: debian-installer-utils
+    1.91ubuntu4 (LP: #1049535), flash-kernel 3.0~rc.4ubuntu23.
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 13 Sep 2012 10:39:59 +0100
 
 ubiquity (2.11.32) quantal; urgency=low
