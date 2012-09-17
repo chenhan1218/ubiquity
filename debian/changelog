@@ -1,3 +1,12 @@
+ubiquity (2.11.34) UNRELEASED; urgency=low
+
+  * bin/ubiquity-dm: Drop atk-bridge GTK_MODULE as this is now part of
+    GTK+ 3.5.
+  * bin/ubiquity-dm: Add overlay-scrollbar GTK_MODULE as this is now a
+    module. (LP: #1052040)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 17 Sep 2012 23:43:29 +0100
+
 ubiquity (2.11.33) quantal; urgency=low
 
   [ Dmitrijs Ledkovs ]

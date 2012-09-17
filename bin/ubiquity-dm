@@ -354,6 +354,9 @@ EndSection
 
                 accessibility = gsettings.get('org.gnome.desktop.interface',
                     'toolkit-accessibility', self.username)
+
+            # Overlay scrollbars are now a gtk module
+            os.environ['GTK_MODULES'] = 'overlay-scrollbar'
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
                 if (accessibility or 'maybe-ubiquity' in fp.readline() or
@@ -365,7 +368,7 @@ EndSection
                             [launcher, '--launch-immediately'],
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
-                        os.environ['GTK_MODULES'] = 'gail:atk-bridge'
+                        os.environ['GTK_MODULES'] += os.pathsep + 'gail'
 
             # Set a desktop wallpaper.
             with open('/proc/cmdline', 'r') as fp:
