@@ -9,6 +9,8 @@ ubiquity (2.11.34) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Drop reconfiguration of usplash and splashy; they were removed from the
     Ubuntu archive in natty and precise respectively.
+  * Bind-mount /run while running grub-installer, so that the resolver works
+    (LP: #1047550).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 17 Sep 2012 23:43:29 +0100
 

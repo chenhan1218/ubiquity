@@ -984,7 +984,7 @@ class Install(install_misc.InstallBase):
 
         inst_boot = self.db.get('ubiquity/install_bootloader')
         if inst_boot == 'true' and 'UBIQUITY_NO_BOOTLOADER' not in os.environ:
-            binds = ("/proc", "/sys", "/dev")
+            binds = ("/proc", "/sys", "/dev", "/run")
             for bind in binds:
                 misc.execute('mount', '--bind', bind, self.target + bind)
 
@@ -1483,7 +1483,7 @@ class Install(install_misc.InstallBase):
         if not os.path.exists(working):
             return
         install_misc.chroot_setup(self.target)
-        binds = ("/proc", "/sys", "/dev")
+        binds = ("/proc", "/sys", "/dev", "/run")
         try:
             for bind in binds:
                 misc.execute('mount', '--bind', bind, self.target + bind)
