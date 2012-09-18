@@ -868,7 +868,6 @@ class Install(install_misc.InstallBase):
                     configdir, 'resume'), 'w') as configfile:
                     print("RESUME=%s" % resume, file=configfile)
 
-        osextras.unlink_force(self.target_file('etc/usplash.conf'))
         osextras.unlink_force(self.target_file('etc/popularity-contest.conf'))
         try:
             participate = self.db.get('popularity-contest/participate')
@@ -905,8 +904,6 @@ class Install(install_misc.InstallBase):
             pass
 
         packages = ['linux-image-' + self.kernel_version,
-                    'usplash',
-                    'splashy',
                     'popularity-contest',
                     'libpaper1',
                     'ssl-cert']
