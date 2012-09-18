@@ -3114,7 +3114,7 @@ class Page(plugin.Plugin):
             'mountpoint': mountpoint,
             'format': fmt
         }
-        self.activating_crypto = method == 'crypto'        
+        self.activating_crypto = method == 'crypto'
         self.exit_ui_loops()
 
     def delete_partition(self, devpart):
