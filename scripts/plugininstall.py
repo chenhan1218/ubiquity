@@ -984,9 +984,9 @@ class Install(install_misc.InstallBase):
 
         inst_boot = self.db.get('ubiquity/install_bootloader')
         if inst_boot == 'true' and 'UBIQUITY_NO_BOOTLOADER' not in os.environ:
-            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
-            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+            binds = ("/proc", "/sys", "/dev")
+            for bind in binds:
+                misc.execute('mount', '--bind', bind, self.target + bind)
 
             arch, subarch = install_misc.archdetect()
 
@@ -1038,9 +1038,8 @@ class Install(install_misc.InstallBase):
                 raise install_misc.InstallStepError(
                     "No bootloader installer found")
 
-            misc.execute('umount', '-f', self.target + '/proc')
-            misc.execute('umount', '-f', self.target + '/sys')
-            misc.execute('umount', '-f', self.target + '/dev')
+            for bind in binds:
+                misc.execute('umount', '-f', self.target + bind)
 
     def do_remove(self, to_remove, recursive=False):
         self.nested_progress_start()
