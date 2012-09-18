@@ -866,6 +866,9 @@ class PageGtk(PageBase):
             self.partition_create_type_primary.hide()
             self.partition_create_type_logical.hide()
 
+        title = 'partition_dialog' if create else 'partition_edit_dialog'
+        self.partition_dialog.set_title(self.controller.get_string(title))
+
         # TODO xnox 2012-09-05 hide manual crypto/lvm UI until ready
         for widget in ['password_grid', 'crypto_label', 'crypto_warning',
                        'verified_crypto_label', 'crypto_extra_label',
