@@ -1483,18 +1483,17 @@ class Install(install_misc.InstallBase):
         if not os.path.exists(working):
             return
         install_misc.chroot_setup(self.target)
+        binds = ("/proc", "/sys", "/dev")
         try:
-            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
-            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+            for bind in binds:
+                misc.execute('mount', '--bind', bind, self.target + bind)
             subprocess.check_call(['apt-clone', 'restore-new-distro',
                 working, codename, '--destination', self.target],
                 preexec_fn=install_misc.debconf_disconnect)
         finally:
             install_misc.chroot_cleanup(self.target)
-            misc.execute('umount', '-f', self.target + '/proc')
-            misc.execute('umount', '-f', self.target + '/sys')
-            misc.execute('umount', '-f', self.target + '/dev')
+            for bind in binds:
+                misc.execute('umount', '-f', self.target + bind)
 
     def copy_network_config(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
