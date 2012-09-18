@@ -1,10 +1,17 @@
 ubiquity (2.11.34) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * bin/ubiquity-dm: Drop atk-bridge GTK_MODULE as this is now part of
     GTK+ 3.5.
   * bin/ubiquity-dm: Add overlay-scrollbar GTK_MODULE as this is now a
     module. (LP: #1052040)
   * Add manual crypto partitioning (LP: #1042649)
+
+  [ Colin Watson ]
+  * Drop reconfiguration of usplash and splashy; they were removed from the
+    Ubuntu archive in natty and precise respectively.
+  * Bind-mount /run while running grub-installer, so that the resolver works
+    (LP: #1047550).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 17 Sep 2012 23:43:29 +0100
 
