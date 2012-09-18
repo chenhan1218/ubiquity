@@ -887,6 +887,9 @@ class PageGtk(PageBase):
             self.partition_create_type_primary.hide()
             self.partition_create_type_logical.hide()
 
+        title = 'partition_dialog' if create else 'partition_edit_dialog'
+        self.partition_dialog.set_title(self.controller.get_string(title))
+
         # TODO cjwatson 2006-11-01: Because partman doesn't use a question
         # group for these, we have to figure out in advance whether each
         # question is going to be asked.

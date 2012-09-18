@@ -5,6 +5,7 @@ ubiquity (2.11.34) UNRELEASED; urgency=low
     GTK+ 3.5.
   * bin/ubiquity-dm: Add overlay-scrollbar GTK_MODULE as this is now a
     module. (LP: #1052040)
+  * Set create/edit title on the partitioning dialogs (LP: #1048464)
   * Add manual crypto partitioning (LP: #1042649)
 
   [ Colin Watson ]
