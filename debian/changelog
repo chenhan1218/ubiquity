@@ -13,6 +13,9 @@ ubiquity (2.11.34) UNRELEASED; urgency=low
   * Bind-mount /run while running grub-installer, so that the resolver works
     (LP: #1047550).
   * Update translations from Launchpad.
+  * Automatic update of included source packages: choose-mirror 2.40ubuntu1,
+    flash-kernel 3.0~rc.4ubuntu24, grub-installer 1.78ubuntu1, partman-auto
+    103ubuntu1, partman-efi 25ubuntu2, user-setup 1.46ubuntu1.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 17 Sep 2012 23:43:29 +0100
 
