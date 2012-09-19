@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-17 16:40+0000\n"
+"PO-Revision-Date: 2012-09-14 18:08+0000\n"
 "Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: Telugu <  Telugu <ubuntu-l10n-te@lists.launchpad.net>>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -656,7 +656,7 @@ msgstr "పార్టిషన్‌  సృష్టించు"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "పరిమాణం:"
 
 #. Type: text
 #. Description
@@ -1813,13 +1813,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "భద్రతా మీటను ధృవపరచండి:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "భద్రతా మీటను ఎంచుకోండి:"
 
 #. Type: text
 #. Description
@@ -1848,7 +1848,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "మరింత భద్రత కోసం:"
 
 #. Type: text
 #. Description
@@ -1884,7 +1884,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "భౌతిక సంపుటాలు"
 
 #. Type: text
 #. Description
@@ -1896,7 +1896,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "మెబై"
 
 #. Type: text
 #. Description
@@ -1910,7 +1910,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "తార్కిక సంపుటాల నిర్వహణ"
 
 #. Type: text
 #. Description

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-09-01 11:57+0000\n"
-"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
+"PO-Revision-Date: 2012-09-18 10:40+0000\n"
+"Last-Translator: jean-bernard marcon <jean-bernard.marcon@laposte.net>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -131,7 +131,7 @@ msgid ""
 "October 2012."
 msgstr ""
 "Ceci est une pré-version du ${MEDIUM} d'installation de ${RELEASE}. Ce n'est "
-"pas une version finale; qui sortira avec la version finale de ${RELEASE} en "
+"pas une version finale ; qui sortira avec la version finale de ${RELEASE} en "
 "octobre 2012."
 
 #. Type: text
@@ -216,13 +216,13 @@ msgstr "Choisissez une image"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Take a photo:"
-msgstr "Prendre une photo:"
+msgstr "Prendre une photo :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Or choose an existing picture:"
-msgstr "Ou choisir une image existante:"
+msgstr "Ou choisir une image existante :"
 
 #. Type: text
 #. Description
@@ -399,7 +399,7 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
-"Cette image sera associée à votre nom d’utilisateur et sera affichée à coté "
+"Cette image sera associée à votre nom d’utilisateur et sera affichée à côté "
 "de celui-ci à certains endroits."
 
 #. Type: text
@@ -566,6 +566,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Nous sommes désolés ; l'installateur a planté. Lorsque vous fermerez cette "
+"fenêtre, vous pourrez enregistrer un rapport de bogue à l'aide de l'outil de "
+"rapport de bogue intégré. Cet outil rassemblera des informations sur votre "
+"système et sur votre processus d'installation. Les détails seront envoyés "
+"sur notre outil de suivi de bogues et un développeur prendra ce problème en "
+"charge le plus tôt possible."
 
 #. Type: text
 #. Description
@@ -684,13 +690,13 @@ msgstr "Taille :"
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Début de cet espace"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Fin de cet espace"
 
 #. Type: text
 #. Description
@@ -1073,7 +1079,7 @@ msgid ""
 "distributor."
 msgstr ""
 "Ceci peut être dû à l’utilisation d’une ancienne image de l’installateur, ou "
-"bien à un bogue dans certains paquets listés ci-dessous. De plus amples "
+"bien à un bogue dans certains paquets listés ci-dessus. De plus amples "
 "renseignements se trouvent dans /var/log/syslog. L’installateur va essayer "
 "de poursuivre malgré tout, mais il peut échouer à une étape ultérieure et il "
 "ne pourra pas installer ou supprimer d’autre paquets (y compris lui-même "
@@ -1553,9 +1559,9 @@ msgid ""
 "documentation."
 msgstr ""
 "${RELEASE} utilise des logiciels tiers pour jouer les fichiers Flash, MP3 et "
-"autres fichiers média, et aussi pour pouvoir utiliser certaines cartes "
-"graphiques et matériel wi-fi. Certains de ces logiciels sont sous licence "
-"propriétaire. Le logiciel est soumis aux termes de la licence inclus avec sa "
+"autres médias, et aussi pour pouvoir utiliser certaines cartes graphiques et "
+"matériels Wi-Fi. Certains de ces logiciels sont sous licence propriétaire. "
+"Les logiciels sont soumis aux termes des licences incluses dans leur "
 "documentation."
 
 #. Type: text
@@ -1784,7 +1790,7 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
+"<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
 "logiciels, vos documents, photos, musiques et tout autre fichier, aussi bien "
 "pour ${OS} que ${CURDISTRO}."
 
@@ -1803,7 +1809,7 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
+"<span foreground=\"darkred\">Avertissement :</span> Ceci supprimera tous vos "
 "logiciels, documents, photos, musiques, et autres fichiers de tous les "
 "systèmes d’exploitation."
 
@@ -1886,13 +1892,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr "Confirmez la cle de sécurité:"
+msgstr "Confirmez la clé de sécurité :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr "Choisissez une clé de sécurité:"
+msgstr "Choisissez une clé de sécurité :"
 
 #. Type: text
 #. Description
@@ -1919,7 +1925,7 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
-"<span foreground=\"darkred\">Attention :</span> Si vous oubliez la clé de "
+"<span foreground=\"darkred\">Attention :</span> Si vous oubliez la clé de "
 "sécurité, toutes les données seront perdues. Si vous en avez besoin, notez "
 "votre clé et conservez-la dans un endroit sûr."
 
@@ -1945,7 +1951,7 @@ msgstr "L'installation peut durer plus longtemps."
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
@@ -1963,7 +1969,7 @@ msgstr "Options de chiffrement"
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr "Volumes physiques:"
+msgstr "Volumes physiques :"
 
 #. Type: text
 #. Description
@@ -1975,7 +1981,7 @@ msgstr "Chiffrer cette partition (LUKS)"
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "Mo"
 
 #. Type: text
 #. Description
@@ -1984,12 +1990,14 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"La gestion de volumes logiques (LVM) permet à Ubuntu de traiter plusieurs "
+"volumes physiques comme un seul volume."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Gestion de volumes logiques (LVM)"
 
 #. Type: text
 #. Description

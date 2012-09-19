@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-17 20:08+0000\n"
-"Last-Translator: Ibai Oihanguren <Unknown>\n"
+"PO-Revision-Date: 2012-09-06 07:38+0000\n"
+"Last-Translator: Asier Sarasua Garmendia <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -666,7 +666,7 @@ msgstr "Sortu partizioa"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "Tamaina:"
 
 #. Type: text
 #. Description
@@ -1855,13 +1855,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Baieztatu segurtasun-gakoa:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Hautatu segurtasun-gakoa:"
 
 #. Type: text
 #. Description
@@ -1890,7 +1890,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Segurtasun gehiagorako:"
 
 #. Type: text
 #. Description
@@ -1908,37 +1908,37 @@ msgstr ""
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Bolumen-taldeak:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Zifratze-aukerak"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Bolumen fisikoak:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Zifratu partizio hau (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1958,7 +1958,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Zifratze-aukerak..."
 
 #. Type: title
 #. Description

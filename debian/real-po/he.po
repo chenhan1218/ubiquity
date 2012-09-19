@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-13 07:44+0000\n"
+"PO-Revision-Date: 2012-09-07 22:34+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -657,19 +657,19 @@ msgstr "יצירת מחיצה"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "גודל:‏"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "בתחילת שטח זה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "בסוף שטח זה"
 
 #. Type: text
 #. Description
@@ -1790,19 +1790,19 @@ msgstr "לא זוהו מערכות הפעלה כלשהן במחשב זה. מה �
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "הצפנת התקנת אובונטו החדשה להגברת האבטחה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "יתאפשר לך לבחור במפתח אבטחה בשלב הבא."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "יש להשתמש ב־LVM (מנהל כרכים לוגיים) בהתקנת האובונטו החדשה"
 
 #. Type: text
 #. Description
@@ -1811,18 +1811,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"פעולה זו תגדיר ניהול כרכים לוגיים. מערכת זו מאפשרת לייצא תמונת אמת ולשנות את "
+"גדלי המחיצות בקלות."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "אישור מפתח האבטחה:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "יש לבחור במפתח אבטחה:"
 
 #. Type: text
 #. Description
@@ -1836,7 +1838,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "כל הקבצים שמחוץ לאובונטו לא יוצפנו."
 
 #. Type: text
 #. Description
@@ -1851,55 +1853,55 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "לאבטחה הדוקה יותר:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "שכתוב על המקום הריק בכונן"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "ההתקנה צפויה לארוך זמן רב יותר."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "מנהל כרכים לוגיים..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "קבוצות כרכים:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "אפשרויות הצפנה"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "כרכים פיזיים:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "הצפנת מחיצה זו (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "מ״ב"
 
 #. Type: text
 #. Description
@@ -1913,13 +1915,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "ניהול כרכים לוגיים"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "אפשרויות הצפנה..."
 
 #. Type: title
 #. Description
