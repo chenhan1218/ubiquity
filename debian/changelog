@@ -1,4 +1,4 @@
-ubiquity (2.11.34) UNRELEASED; urgency=low
+ubiquity (2.12.0) UNRELEASED; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * bin/ubiquity-dm: Drop atk-bridge GTK_MODULE as this is now part of
