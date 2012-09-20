@@ -1,4 +1,4 @@
-ubiquity (2.12.2) UNRELEASED; urgency=low
+ubiquity (2.12.2) quantal; urgency=low
 
   * Add manual crypto partitioning (LP: #1042649)
 
