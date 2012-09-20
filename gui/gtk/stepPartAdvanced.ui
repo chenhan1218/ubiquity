@@ -4,6 +4,7 @@
   <object class="GtkDialog" id="partition_dialog">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Create partition</property>
+    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
@@ -16,6 +17,7 @@
           <object class="GtkGrid" id="partition_dialog_grid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="valign">start</property>
             <property name="border_width">6</property>
             <property name="row_spacing">6</property>
             <property name="column_spacing">6</property>
@@ -69,6 +71,7 @@
               <object class="GtkComboBox" id="partition_use_combo">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="hexpand">True</property>
                 <accessibility>
                   <relation type="labelled-by" target="partition_use_label"/>
@@ -101,6 +104,7 @@
               <object class="GtkComboBox" id="partition_mount_combo">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="halign">start</property>
                 <property name="has_entry">True</property>
                 <accessibility>
                   <relation type="labelled-by" target="partition_mount_label"/>
@@ -322,33 +326,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="partition_encrypt_checkbutton">
-                <property name="label" translatable="yes">Encrypt this partition (LUKS)</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="use_action_appearance">False</property>
-                <property name="xalign">0</property>
-                <property name="draw_indicator">True</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">6</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
               <placeholder/>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
-            <property name="fill">True</property>
+            <property name="fill">False</property>
             <property name="position">0</property>
           </packing>
         </child>
@@ -390,7 +373,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="okbutton1">
+              <object class="GtkButton" id="partition_dialog_okbutton">
                 <property name="label">gtk-ok</property>
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
@@ -413,7 +396,7 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="pack_type">end</property>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>
@@ -421,7 +404,7 @@
     <action-widgets>
       <action-widget response="0">partition_encryption_settings</action-widget>
       <action-widget response="-6">cancelbutton1</action-widget>
-      <action-widget response="-5">okbutton1</action-widget>
+      <action-widget response="-5">partition_dialog_okbutton</action-widget>
     </action-widgets>
   </object>
   <object class="GtkDialog" id="partition_encryption_options">
@@ -1123,6 +1106,7 @@ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a
                   </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -1138,6 +1122,7 @@ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a
                   </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
                 <child>
@@ -1152,6 +1137,7 @@ Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes as a
                   </object>
                   <packing>
                     <property name="expand">False</property>
+                    <property name="homogeneous">True</property>
                   </packing>
                 </child>
               </object>

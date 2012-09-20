@@ -1,3 +1,9 @@
+ubiquity (2.12.2) UNRELEASED; urgency=low
+
+  * Add manual crypto partitioning (LP: #1042649)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 20 Sep 2012 18:09:10 +0100
+
 ubiquity (2.12.1) quantal; urgency=low
 
   * Automatic update of included source packages: grub-installer

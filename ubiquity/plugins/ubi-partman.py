@@ -128,7 +128,10 @@ class PageGtk(PageBase):
         self.page_advanced = builder.get_object('stepPartAdvanced')
         self.page_crypto = builder.get_object('stepPartCrypto')
 
-        for wdg in builder.get_object_ids():
+        # Get all objects + add internal child(s)
+        all_widgets = builder.get_object_ids()
+        all_widgets.update(['partition_dialog_okbutton'])
+        for wdg in all_widgets:
             setattr(self, wdg, builder.get_object(wdg))
 
         # Crypto page
@@ -233,7 +236,7 @@ class PageGtk(PageBase):
         else:
             new_parent = self.partition_dialog_grid
             crypto_widgets = [
-                ('password_grid', 'partition_encrypt_checkbutton', 'bottom', 1,
+                ('password_grid', 'partition_mount_combo', 'bottom', 1,
                  2),
                 ('crypto_label', 'password_grid', 'left', 1, 1)]
         if parent == new_parent:
@@ -255,7 +258,6 @@ class PageGtk(PageBase):
             new_parent.attach_next_to(widget, sibling, direction,
                                       width, height)
             widget.show()
-        self.crypto_overwrite_space.set_active(False)
 
     def plugin_on_next_clicked(self):
         reuse = self.reuse_partition.get_active()
@@ -296,6 +298,7 @@ class PageGtk(PageBase):
                 self.controller.get_string('ubiquity/text/crypto_label'))
             self.current_page = self.page_crypto
             self.move_crypto_widgets()
+            self.show_encryption_passphrase(crypto)
             self.controller.go_to_page(self.current_page)
             self.controller.toggle_next_button('install_button')
             self.plugin_is_install = True
@@ -848,6 +851,24 @@ class PageGtk(PageBase):
             time = 0
         partition_list_menu.popup(None, None, None, None, button, time)
 
+    def show_encryption_passphrase(self, show_hide):
+        self.crypto_overwrite_space.set_active(False)
+        self.password.set_text('')
+        self.verified_password.set_text('')
+
+        if show_hide:
+            action = 'show'
+            self.info_loop(None)
+        else:
+            action = 'hide'
+            self.controller.allow_go_forward(True)
+            self.partition_dialog_okbutton.set_sensitive(True)
+
+        for widget in ['password_grid', 'crypto_label', 'crypto_warning',
+                       'verified_crypto_label', 'crypto_extra_label',
+                       'crypto_overwrite_space', 'crypto_extra_time']:
+            getattr(getattr(self, widget), action)()
+
     @plugin.only_this_page
     def partman_dialog(self, devpart, partition, create=True):
         from gi.repository import Gtk, GObject
@@ -868,15 +889,6 @@ class PageGtk(PageBase):
 
         title = 'partition_dialog' if create else 'partition_edit_dialog'
         self.partition_dialog.set_title(self.controller.get_string(title))
-
-        # TODO xnox 2012-09-05 hide manual crypto/lvm UI until ready
-        for widget in ['password_grid', 'crypto_label', 'crypto_warning',
-                       'verified_crypto_label', 'crypto_extra_label',
-                       'crypto_overwrite_space', 'crypto_extra_time',
-                       'partition_encrypt_checkbutton']:
-            getattr(self, widget).hide()
-
-        self.partition_dialog.show()
 
         # TODO cjwatson 2006-11-01: Because partman doesn't use a question
         # group for these, we have to figure out in advance whether each
@@ -930,7 +942,7 @@ class PageGtk(PageBase):
                                        GObject.TYPE_STRING,
                                        GObject.TYPE_STRING)
             for method, name, description in (
-                self.controller.dbfilter.use_as(devpart, True)):
+                self.controller.dbfilter.use_as(devpart, True, ['crypto'])):
                 list_store.append([method, name, description])
         else:
             self.partition_use_combo.add_attribute(renderer, 'text', 1)
@@ -994,6 +1006,7 @@ class PageGtk(PageBase):
                     break
                 iterator = list_store.iter_next(iterator)
         self.partition_mount_combo.get_child().set_text(current_mountpoint)
+        self.partition_dialog.show()
         response = self.partition_dialog.run()
         self.partition_dialog.hide()
 
@@ -1079,6 +1092,8 @@ class PageGtk(PageBase):
     def on_partition_use_combo_changed(self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
+        maybe_crypto = iterator and model[iterator][0] == 'crypto'
+        self.show_encryption_passphrase(maybe_crypto)
         # If the selected method isn't a filesystem, then selecting a mount
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
@@ -1090,6 +1105,7 @@ class PageGtk(PageBase):
             self.partition_mount_combo.set_sensitive(False)
             self.partition_edit_format_checkbutton.set_sensitive(False)
         else:
+            self.partition_dialog_okbutton.set_sensitive(True)
             self.partition_mount_combo.set_sensitive(True)
             self.partition_edit_format_checkbutton.set_sensitive(True)
             mount_model = self.partition_mount_combo.get_model()
@@ -1154,14 +1170,8 @@ class PageGtk(PageBase):
                 p.hide()
             self.partition_bars[dev].show()
         for action in self.controller.dbfilter.get_actions(devpart, partition):
-            if action == 'new_label':
-                self.partition_button_new_label.set_sensitive(True)
-            elif action == 'new':
-                self.partition_button_new.set_sensitive(True)
-            elif action == 'edit':
-                self.partition_button_edit.set_sensitive(True)
-            elif action == 'delete':
-                self.partition_button_delete.set_sensitive(True)
+            button_name = 'partition_button_%s' % action
+            getattr(self, button_name).set_sensitive(True)
         self.partition_button_undo.set_sensitive(True)
 
     @plugin.only_this_page
@@ -1364,7 +1374,8 @@ class PageGtk(PageBase):
             complete = False
             self.password_match.set_current_page(
                 self.password_match_pages['empty'])
-            if passw and (len(vpassw) / float(len(passw)) > 0.8):
+            if passw and (not passw.startswith(vpassw)
+                          or len(vpassw) / len(passw) > 0.8):
                 self.password_match.set_current_page(
                     self.password_match_pages['mismatch'])
         else:
@@ -1375,8 +1386,12 @@ class PageGtk(PageBase):
             txt = validation.human_password_strength(passw)[0]
             self.password_strength.set_current_page(
                 self.password_strength_pages[txt])
+        else:
+            self.password_strength.set_current_page(
+                self.password_strength_pages['empty'])
 
         self.controller.allow_go_forward(complete)
+        self.partition_dialog_okbutton.set_sensitive(complete)
         return complete
 
     def get_crypto_keys(self):
@@ -1512,6 +1527,7 @@ class Page(plugin.Plugin):
         self.deleting_partition = None
         self.undoing = False
         self.finish_partitioning = False
+        self.activating_crypto = False
         self.bad_auto_size = False
         self.description_cache = {}
         self.local_progress = False
@@ -1543,6 +1559,8 @@ class Page(plugin.Plugin):
             '^partman/active_partition$',
             '^partman-crypto/passphrase.*',
             '^partman-crypto/weak_passphrase$',
+            '^partman-crypto/confirm.*',
+            '^partman-crypto/mainmenu$',
             '^partman-lvm/confirm.*',
             '^partman-lvm/device_remove_lvm',
             '^partman-partitioning/new_partition_(size|type|place)$',
@@ -1653,21 +1671,13 @@ class Page(plugin.Plugin):
             return description
 
     def method_description(self, method):
+        question = 'partman/method_long/%s' % method
+        if method == 'efi':
+            question = 'partman-efi/text/efi'
         try:
-            question = None
-            if method == 'swap':
-                question = 'partman/method_long/swap'
-            elif method == 'efi':
-                question = 'partman-efi/text/efi'
-            elif method == 'newworld':
-                question = 'partman/method_long/newworld'
-            elif method == 'biosgrub':
-                question = 'partman/method_long/biosgrub'
-            if question is not None:
-                return self.description(question)
+            return self.description(question)
         except debconf.DebconfError:
-            pass
-        return method
+            return method
 
     def filesystem_description(self, filesystem):
         try:
@@ -1675,10 +1685,15 @@ class Page(plugin.Plugin):
         except debconf.DebconfError:
             return filesystem
 
-    def use_as(self, devpart, create, complex_devices=False):
+    def use_as(self, devpart, create, complex_devices=[]):
         """Yields the possible methods that a partition may use.
 
-        If create is True, then only list methods usable on new partitions."""
+        If create is True, then only list methods usable on new partitions.
+        If complex_devices is a white list of LVM/LUKS/MDAMD devices
+        """
+
+        black_list = set(['lvm', 'crypto', 'md'])
+        black_list.difference_update(complex_devices)
 
         # TODO cjwatson 2006-11-01: This is a particular pain; we can't find
         # out the real list of possible uses from partman until after the
@@ -1717,7 +1732,7 @@ class Page(plugin.Plugin):
                     'label' in self.disk_cache[disk] and
                     self.disk_cache[disk]['label'] == 'gpt'):
                     yield (method, method, self.method_description(method))
-            elif not complex_devices and method in ('lvm', 'crypto', 'md'):
+            elif method in black_list:
                 pass
             else:
                 yield (method, method, self.method_description(method))
@@ -1784,7 +1799,8 @@ class Page(plugin.Plugin):
             yield 'new_label'
         if 'can_new' in partition and partition['can_new']:
             yield 'new'
-        if 'id' in partition and partition['parted']['fs'] != 'free':
+        if ('id' in partition and partition['parted']['fs'] != 'free' and
+            not partition.get('locked', False)):
             yield 'edit'
             yield 'delete'
         # TODO cjwatson 2006-12-22: options for whole disks
@@ -1850,6 +1866,19 @@ class Page(plugin.Plugin):
                 self.creating_partition['bad_mountpoint'] = True
             elif self.editing_partition:
                 self.editing_partition['bad_mountpoint'] = True
+        elif question == 'partman-base/partlocked':
+            if self.building_cache:
+                # xnox 2012-09-17:
+                # Bah, the partition we are trying to sniff / cache is
+                # locked due to being active as part of a complex
+                # LVM/LUKS/MD device. I am not sure if it is possible
+                # to 'unlock' partitions from partman. If it is
+                # possible to 'unlock' them, then cache rebuilding
+                # will enter the 'partman/active_partition' question
+                # below and the locked flag should be cleared there.
+                state = self.__state[-1]
+                partition = self.partition_cache[state[1]]
+                partition['locked'] = True
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
         return plugin.Plugin.error(self, priority, question)
@@ -2559,6 +2588,10 @@ class Page(plugin.Plugin):
             self.undoing = False
             self.finish_partitioning = False
 
+            if self.activating_crypto:
+                self.preseed_script(question, menu_options, 'crypto')
+                return True
+
             plugin.Plugin.run(self, priority, question)
 
             if self.finish_partitioning or self.done:
@@ -2701,9 +2734,13 @@ class Page(plugin.Plugin):
                                 parted.readline_part_entry(partition['id'],
                                                            entry)
 
+                # This makes crypto appear in the edit dialog,
+                # possibly with frontend not doing anything useful
+                # with it.
                 partition['method_choices'] = []
                 for use in self.use_as(state[1],
-                                       partition['parted']['fs'] == 'free'):
+                                       partition['parted']['fs'] == 'free',
+                                       ['crypto']):
                     partition['method_choices'].append(use)
 
                 partition['mountpoint_choices'] = []
@@ -2940,8 +2977,9 @@ class Page(plugin.Plugin):
             else:
                 raise AssertionError("Arrived at %s unexpectedly" % question)
 
-        elif question.startswith('partman-lvm/confirm') or \
-          question == 'partman-lvm/device_remove_lvm':
+        elif (question.startswith('partman-lvm/confirm') or
+              question.startswith('partman-crypto/confirm') or
+              question == 'partman-lvm/device_remove_lvm'):
             self.preseed_bool(question, True, seen=False)
             self.succeeded = True
             return True
@@ -2955,6 +2993,14 @@ class Page(plugin.Plugin):
                 return False
             self.preseed(question, self.ui.get_crypto_keys())
             return True
+
+        elif question == 'partman-crypto/mainmenu':
+            if self.activating_crypto:
+                self.activating_crypto = False
+                self.preseed_script(question, menu_options, 'finish')
+                return True
+            else:
+                raise AssertionError("Arrived at %s unexpectedly" % question)
 
         elif question.startswith('partman/confirm'):
             self.db.set('ubiquity/partman-confirm', question[8:])
@@ -3058,6 +3104,7 @@ class Page(plugin.Plugin):
             'method': method,
             'mountpoint': mountpoint
         }
+        self.activating_crypto = method == 'crypto'
         self.exit_ui_loops()
 
     def edit_partition(self, devpart, size=None,
@@ -3070,6 +3117,7 @@ class Page(plugin.Plugin):
             'mountpoint': mountpoint,
             'format': fmt
         }
+        self.activating_crypto = method == 'crypto'
         self.exit_ui_loops()
 
     def delete_partition(self, devpart):
