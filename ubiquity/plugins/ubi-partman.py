@@ -3062,7 +3062,7 @@ class Page(plugin.Plugin):
 
     def ok_handler(self):
         if self.install_bootloader and not self.is_bootdev_preseeded():
-            self.preseed('grub-installer/bootdev', self.get_grub_choice())
+            self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
 
         if self.current_question.endswith('automatically_partition'):
             (autopartition_choice, self.extra_choice) = \
