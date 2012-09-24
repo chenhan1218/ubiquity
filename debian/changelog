@@ -1,4 +1,4 @@
-ubiquity (2.12.3) UNRELEASED; urgency=low
+ubiquity (2.12.3) quantal; urgency=low
 
   * Do not preseed grub-install, if we are not proceeding to install. This
     should fix ValueError, I/O operation on closed file (LP: #1027648)
