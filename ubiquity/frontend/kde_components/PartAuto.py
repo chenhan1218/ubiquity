@@ -63,13 +63,16 @@ class PartAuto(QtGui.QWidget):
         self.diskLayout = diskLayout
 
     def setupChoices(self, choices, extra_options, resize_choice,
-                     manual_choice, biggest_free_choice, use_device_choice):
+                     manual_choice, biggest_free_choice, use_device_choice,
+                     lvm_choice, crypto_choice):
         self._clearInfo()
 
         self.resizeChoice = resize_choice
         self.manualChoice = manual_choice
         self.useDeviceChoice = use_device_choice
         self.extra_options = extra_options
+        self.lvm_choice = lvm_choice
+        self.crypto_choice = crypto_choice
 
         # remove any previous autopartition selections
         for child in self.autopart_selection_frame.children():
@@ -168,6 +171,51 @@ class PartAuto(QtGui.QWidget):
             addBars(bar_frame, before_bar, after_bar)
         self.disks.append(disks)
 
+        #LVM
+        button = QtGui.QRadioButton(
+            self.lvm_choice, self.autopart_selection_frame)
+        self.autopartitionTexts.append(self.lvm_choice)
+        self.autopart_selection_frame.layout().addWidget(button)
+        self.autopartition_buttongroup.addButton(button, bId)
+        button.clicked.connect(self.controller.setNextButtonTextInstallNow)
+        bId += 1
+        #add use entire disk options to combobox again
+        self.disks.append(disks)
+
+        #Crypto
+        button = QtGui.QRadioButton(
+            self.crypto_choice, self.autopart_selection_frame)
+        self.autopartitionTexts.append(self.crypto_choice)
+        self.autopart_selection_frame.layout().addWidget(button)
+        self.autopartition_buttongroup.addButton(button, bId)
+        button.clicked.connect(self.controller.setNextButtonTextInstallNow)
+        self.crypto_button_id = bId
+        bId += 1
+        #add use entire disk options to combobox again
+        self.disks.append(disks)
+
+        box = QtGui.QHBoxLayout()
+        box.addStretch()
+        self.autopart_selection_frame.layout().addLayout(box)
+
+        self.passwordIcon = QtGui.QLabel()
+        self.passwordIcon.setPixmap(QtGui.QPixmap(
+            "/usr/share/icons/oxygen/16x16/status/dialog-password.png"))
+        box.addWidget(self.passwordIcon)
+        self.password = QtGui.QLineEdit()
+        self.password.setEchoMode(QtGui.QLineEdit.Password)
+        self.password.textChanged.connect(self.verify_password)
+        box.addWidget(self.password)
+        self.verified_password = QtGui.QLineEdit()
+        self.verified_password.setEchoMode(QtGui.QLineEdit.Password)
+        self.verified_password.textChanged.connect(self.verify_password)
+        box.addWidget(self.verified_password)
+        self.badPassword = QtGui.QLabel()
+        self.badPassword.setPixmap(QtGui.QPixmap(
+            "/usr/share/icons/oxygen/16x16/status/dialog-warning.png"))
+        self.badPassword.hide()
+        box.addWidget(self.badPassword)
+
         # Manual partitioning.
 
         button = QtGui.QRadioButton(
@@ -204,6 +252,12 @@ class PartAuto(QtGui.QWidget):
         elif choice == self.useDeviceChoice:
             return (self.extra_options['use_device'][0],
                     str(self.part_auto_disk_box.currentText()))
+        elif choice == self.lvm_choice:
+            return (choice,
+                    str(self.part_auto_disk_box.currentText()))
+        elif choice == self.crypto_choice:
+            return (choice,
+                    str(self.part_auto_disk_box.currentText()))
         else:
             return choice, None
 
@@ -224,3 +278,21 @@ class PartAuto(QtGui.QWidget):
         else:
             # If we haven't added any items to the disk combobox, hide it.
             self.part_auto_disk_box.show()
+        #enable the crypto password fields
+        if button_id == self.crypto_button_id:
+            self.passwordIcon.setEnabled(True)
+            self.password.setEnabled(True)
+            self.verified_password.setEnabled(True)
+            self.badPassword.setEnabled(True)
+        else:
+            self.passwordIcon.setEnabled(False)
+            self.password.setEnabled(False)
+            self.verified_password.setEnabled(False)
+            self.badPassword.setEnabled(False)
+
+    #show warning if passwords do not match
+    def verify_password(self):
+        if self.password.text() != self.verified_password.text():
+            self.badPassword.show()
+        else:
+            self.badPassword.hide()

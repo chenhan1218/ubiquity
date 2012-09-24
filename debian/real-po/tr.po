@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-08-31 06:42+0000\n"
-"Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
+"PO-Revision-Date: 2012-09-13 22:34+0000\n"
+"Last-Translator: Hüsamettin Ertürk <hsmertk@gmail.com>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -1927,7 +1927,7 @@ msgstr "LVM..."
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Birim grupları:"
 
 #. Type: text
 #. Description
@@ -1939,7 +1939,7 @@ msgstr "Şifreleme Seçenekleri"
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fiziksel Birimler:"
 
 #. Type: text
 #. Description
@@ -1960,12 +1960,14 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Mantıksal Birim Yönetimi, Ubuntu'nun birden çok fiziksel birime tek bir "
+"birimmiş gibi davranmasını sağlar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Mantıksal Birim Yönetimi"
 
 #. Type: text
 #. Description

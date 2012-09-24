@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-from __future__ import unicode_literals
-
 from itertools import zip_longest
 import os
 from test.support import run_unittest

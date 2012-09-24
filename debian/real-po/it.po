@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-07-19 19:57+0000\n"
+"PO-Revision-Date: 2012-09-13 12:27+0000\n"
 "Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -128,6 +128,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Questa è una versione di pre-rilascio del programma d'installazione Live "
+"${MEDIUM} di ${RELEASE}. Non è la versione finale di ${RELEASE}, prevista "
+"per ottobre 2012."
 
 #. Type: text
 #. Description
@@ -554,6 +557,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Il programma d'installazione ha riscontrato un problema. Una volta chiusa "
+"questa finestra, sarà possibile segnalare tale problema attraverso un "
+"apposito strumento che raccoglie informazioni riguardo il sistema e il "
+"processo d'installazione. La segnalazione verrà inviata al nostro di sistema "
+"di gestione dei problemi e uno sviluppatore controllerà tale segnalazione al "
+"più presto."
 
 #. Type: text
 #. Description
@@ -666,19 +675,19 @@ msgstr "Crea partizione"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "Dimensione:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Inizio di questo spazio"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Fine di questo spazio"
 
 #. Type: text
 #. Description
@@ -738,7 +747,7 @@ msgstr "Indietro"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:106001 ../ubiquity.templates:109001
 msgid "Continue"
-msgstr "Continua"
+msgstr "Avanti"
 
 #. Type: text
 #. Description
@@ -1537,6 +1546,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} utilizza software di terze parti per riprodurre contenuti Flash, "
+"MP3 e altri formati, così come per rendere operative alcune schede video e "
+"periferiche Wi-Fi. Parte di questo software è proprietario e i relativi "
+"termini di licenza sono inclusi nella rispettiva documentazione."
 
 #. Type: text
 #. Description
@@ -1833,19 +1846,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Cifra la nuova installazione Ubuntu per maggiore sicurezza"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Nel passo successivo verrà scelta una chiave di sicurezza."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Usa LVM con la nuova installazione di Ubuntu"
 
 #. Type: text
 #. Description
@@ -1854,18 +1867,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Verrà configurato il Logical Volume Management, che consente di creare "
+"«snapshot» e ridimensionare facilmente le partizioni."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Confermare la chiave di sicurezza:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Scegliere una chiave di sicurezza:"
 
 #. Type: text
 #. Description
@@ -1874,12 +1889,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"La cifratura del disco consente di proteggere i propri file nel caso di "
+"perdita del computer. Richiede l'inserimento di una chiave di sicurezza "
+"all'avvio del computer."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Tutti i file non salvati all'interno di Ubuntu non saranno cifrati."
 
 #. Type: text
 #. Description
@@ -1889,60 +1907,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Attenzione:</span> se la chiave di sicurezza "
+"viene persa, i dati non saranno più accessibili. Se realmente necessario, "
+"trascrivere la chiave e conservarla in un luogo sicuro."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Per una maggiore sicurezza:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Sovrascrivere lo spazio vuoto sul disco"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "L'installazione potrebbe richiedere molto tempo."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Gruppo di volumi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opzioni di cifratura"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volumi fisici:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Cifrare questa partizione (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1951,18 +1972,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logical Volume Management (LVM), il gestore logico dei volumi, consente a "
+"Ubuntu di considerare molteplici volumi come un singolo volume."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logical Volume Mangement"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Opzioni di cifratura..."
 
 #. Type: title
 #. Description

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-08-13 20:27+0000\n"
+"PO-Revision-Date: 2012-09-09 15:15+0000\n"
 "Last-Translator: Ibrahim Saed <ibraheem5000@gmail.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -543,6 +543,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"نأسف للغاية؛ لقد انهار المُثبّت. بعد إغلاقك لهذه النافذة، سنتيح لك تقديم تقرير "
+"عن المشكلة باستخدام الأداة المتكاملة للإبلاغ عن العلل. ستقوم الأداة بجمع "
+"المعلومات عن نظامك وعن عملية تثبيتك. ستُرسل التفاصيل إلى نظام تتبع العلّل "
+"لدينا وسيتم الاهتمام بالمشكلة في أقرب وقت ممكن."
 
 #. Type: text
 #. Description
@@ -655,19 +659,19 @@ msgstr "أنشئ قسما"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "الحجم:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "بداية هذه المساحة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "نهاية هذه المساحة"
 
 #. Type: text
 #. Description
@@ -1786,19 +1790,19 @@ msgstr "لم تُكتشف أي أنظمة تشغيل حالية على هذا ا
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "تشفير تثبيت أبونتو الجديد للأمان"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "ستختار مفتاح أمان في الخطوة التالية."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "استخدام إدارة المساحة المنطقية (LVM) في تثبيت أبونتو الجديد"
 
 #. Type: text
 #. Description
@@ -1807,18 +1811,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"سيقوم هذا بإعداد إدارة المساحة المنطقية. إنه يتيح أخذ اللقطات ويسهّل إعادة "
+"تحجيم أقسام القرص."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "تأكيد مفتاح الأمان:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "اختيار مفتاح أمان:"
 
 #. Type: text
 #. Description
@@ -1827,12 +1833,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"تشفير القرص يحمي ملفاتك في حالة فقدان جهازك الحاسوب. إنه يتطلب منك إدخال "
+"مفتاح الأمان عند كل بدء تشغيل للحاسوب."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "أي ملفات خارج أبونتو لن تكون مشفرة."
 
 #. Type: text
 #. Description
@@ -1842,60 +1850,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">تحذير:</span> إذا فقدت مفتاح الأمان هذا، ستفقد "
+"جميع بياناتك. لذلك لو تطلب الأمر، قم بتدوين مفتاح الأمان في ورقة أو نحو ذلك، "
+"واحتفظ به في مكان آمن."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "لمزيد من الأمان:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "قم بالكتابة على مساحة القرص الفارغة"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "قد تستغرق عملية التثبيت وقتا أطول."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "إدارة المساحة المنطقية..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "مجموعات المساحات:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "خيارات التشفير"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "المساحات الملموسة:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "تشفير هذا القسم (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "م.ب"
 
 #. Type: text
 #. Description
@@ -1904,18 +1915,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"إدارة المساحة المنطقية (LVM) تتيح لأبونتو معالجة المساحات الملموسة المتعددة "
+"كمساحة واحدة."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "إدارة المساحات المنطقية"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "خيارات التشفير..."
 
 #. Type: title
 #. Description

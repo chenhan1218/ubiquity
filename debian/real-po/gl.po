@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-08-31 22:10+0000\n"
-"Last-Translator: Fran Diéguez <Unknown>\n"
+"PO-Revision-Date: 2012-09-14 17:17+0000\n"
+"Last-Translator: Xosé <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -474,7 +474,7 @@ msgstr ""
 #: ../ubiquity.templates:66001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
-"Seleccione un dispositivo diferente para instalar o xestor de arrinque en:"
+"Seleccione un dispositivo diferente para instalar o xestor de arranque en:"
 
 #. Type: text
 #. Description

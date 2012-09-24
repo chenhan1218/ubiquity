@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-08-28 20:56+0000\n"
-"Last-Translator: Diogo Faria Correia <diogo_pessoal@hotmail.com>\n"
+"PO-Revision-Date: 2012-09-10 13:30+0000\n"
+"Last-Translator: Emanuel Ângelo <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -673,19 +673,19 @@ msgstr "Criar partição"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "Tamanho:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Início deste espaço"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Fim deste espaço"
 
 #. Type: text
 #. Description
@@ -1872,6 +1872,8 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"A encriptação de disco protege os seus ficheiros, caso perca o computador. "
+"Obriga a escrever uma chave de segurança sempre que o computador arranca."
 
 #. Type: text
 #. Description
@@ -1937,7 +1939,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Encriptar esta partição (LUKS)"
 
 #. Type: text
 #. Description
@@ -1963,7 +1965,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Opções de encriptação..."
 
 #. Type: title
 #. Description

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-10 15:44+0000\n"
-"Last-Translator: Samir Ribić <Unknown>\n"
+"PO-Revision-Date: 2012-09-10 17:45+0000\n"
+"Last-Translator: CERminator <Unknown>\n"
 "Language-Team: Bosnian <lokal@linux.org.ba>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -126,6 +126,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Ovo je pred-izdanje od ${RELEASE} živog ${MEDIUM} instalera. Ovo nije "
+"konačno izdanje; koje će doći sa konačnim izdanjem od ${RELEASE} oktobra "
+"2012."
 
 #. Type: text
 #. Description
@@ -552,6 +555,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Žao nam je; instaler se srušio. Nakon što zatvorite ovaj prozor, omogućit "
+"ćemo vam da popunite izvještaj o greški koristeći ugrađeni alat za prijavu "
+"grešaka. Time ćemo prikupiti podatke o vašem sistemu i vašem procesu "
+"instalacije. Detalji će biti poslani u naš sistem praćenja grešaka a "
+"razvojni programeri će se pozabaviti problemu što prije."
 
 #. Type: text
 #. Description
@@ -664,19 +672,19 @@ msgstr "Napravi particiju"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "Veličina:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Početak ovog prostora"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Kraj ovog prostora"
 
 #. Type: text
 #. Description
@@ -1527,6 +1535,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} koristi softver do trećih lica za prikaz Flash, MP3 i ostalih "
+"medijalnih datoteka te za rad sa nekim slikama i wi-fi hardverom. Neki od "
+"ovih softvera je vlasnički. Softver je predmet uslova licenciranja "
+"uključenih u njihovu dokumentaciju."
 
 #. Type: text
 #. Description
@@ -1821,19 +1833,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Šifriraj novu Ubuntu instalaciju za sigurnost"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "U sljedećem koraku ćete odabrati sigurnosni ključ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Koristi LVM sa novom Ubuntu instalacijom"
 
 #. Type: text
 #. Description
@@ -1842,18 +1854,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Ovim ćete postaviti Logical Volume Management. On omogućava da se uzmu "
+"pregledi i jednostavnije promjene veličine particija."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Potvrdi sigurnosni ključ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Odaberi sigurnosni ključ:"
 
 #. Type: text
 #. Description
@@ -1862,12 +1876,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Šifriranje diska štiti vaše datoteka u slučaju da izgubite vaš računar. Ono "
+"zahtijeva da se unese sigurnosni ključ svaki put kada se računar pokrene."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Bilo koja datoteka izvan Ubuntu neće biti šifrirana."
 
 #. Type: text
 #. Description
@@ -1877,60 +1893,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Upozorenje:</span> Ako izgubite ovaj sigurnosni "
+"ključ, svi podaci će biti izgubljeni. Ako želite, možete zapisani vaš ključ "
+"i držati ga na nekom sigurnom mjestu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Za više sigurnosti:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Prepiši prazni prostor na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Instalacija će trajati mnogo duže."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Grupe particija:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opcije za šifriranje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fizičke particije:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Šifriraj ovu particiju (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1939,18 +1958,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logical Volume Management (LVM) dopušta Ubuntu da upravlja sa više fizičkih "
+"particija kao sa jednom jedinstvenom particijom."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logical Volume Mangement"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Opcije šifriranja..."
 
 #. Type: title
 #. Description

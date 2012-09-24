@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-from __future__ import print_function
-
 import os
 import sys
 import subprocess
@@ -356,6 +354,9 @@ EndSection
 
                 accessibility = gsettings.get('org.gnome.desktop.interface',
                     'toolkit-accessibility', self.username)
+
+            # Overlay scrollbars are now a gtk module
+            os.environ['GTK_MODULES'] = 'overlay-scrollbar'
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
                 if (accessibility or 'maybe-ubiquity' in fp.readline() or
@@ -367,7 +368,7 @@ EndSection
                             [launcher, '--launch-immediately'],
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
-                        os.environ['GTK_MODULES'] = 'gail:atk-bridge'
+                        os.environ['GTK_MODULES'] += os.pathsep + 'gail'
 
             # Set a desktop wallpaper.
             with open('/proc/cmdline', 'r') as fp:
@@ -388,7 +389,7 @@ EndSection
             if gconfd_running and osextras.find_on_path('metacity'):
                 wm_cmd = ['metacity', '--sm-disable']
             elif osextras.find_on_path('xfwm4'):
-                wm_cmd = ['xfwm4']
+                wm_cmd = ['xfwm4', '--compositor=off']
             elif osextras.find_on_path('matchbox-window-manager'):
                 wm_cmd = ['matchbox-window-manager']
             elif osextras.find_on_path('openbox-lubuntu'):

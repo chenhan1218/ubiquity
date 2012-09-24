@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-03-10 22:03+0000\n"
-"Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
+"PO-Revision-Date: 2012-09-08 15:33+0000\n"
+"Last-Translator: Martin \"sachy\" Šácha <cored.coder@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -129,6 +129,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Toto je vývojové vydání  ${RELEASE} live ${MEDIUM} instalátoru. Není to "
+"konečné vydání, to se objeví až se stabilním vydáním ${RELEASE} v říjnu 2012"
 
 #. Type: text
 #. Description
@@ -553,6 +555,10 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Omlouváme se, ale instalátor havaroval. Po ukončení tohoto okna budete moci "
+"vyplnit hlášení o chybě pomocí integrovaného nástroje, který zjistí "
+"informace o systému a o průběhu instalace. Hlášení bude odesláno vývojářům, "
+"aby mohli tento problém opravit co nejrychleji."
 
 #. Type: text
 #. Description
@@ -665,19 +671,19 @@ msgstr "Vytvořit oddíl"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "Velikost:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Začátek oddílu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Konec oddílu"
 
 #. Type: text
 #. Description
@@ -1519,6 +1525,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} používá nástroje třetích stran k přehrávání Flashe, MP3 a "
+"některých dalších multimédií a také ke zprovoznění některých grafických "
+"karet nebo wi-fi hardware. Některý software je propriterární a je předmětem "
+"licenčních podmínek zahrnutých v dokumentaci."
 
 #. Type: text
 #. Description
@@ -1815,19 +1825,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Zabezpečit instalaci ubuntu šifrováním"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "V dalším kroku si nastavíte bezpečnostní klíč."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Použít LVM při instalaci Ubuntu"
 
 #. Type: text
 #. Description
@@ -1836,18 +1846,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Nastaví Logical Volume Management. Ten umožňuje snadnější tvorbu snapshotů a "
+"změnu velikosti oddílů."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Potvrďte heslo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Vyberte heslo:"
 
 #. Type: text
 #. Description
@@ -1856,12 +1868,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Šifrování disku chrání vaše data v případě odcizení počítače. Po zašifrování "
+"je nutné zadat heslo při každém zapnutí počítače."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Soubory mimo instalaci Ubuntu nebudou zašifrovány."
 
 #. Type: text
 #. Description
@@ -1871,60 +1885,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darked\">Varování</span>Zapomenete-li heslo, všechna data "
+"budou nenávratně ztracena. Chcete-li, napište si heslo na nějaké bezpečné "
+"místo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Pro více bezpečí:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Přepsat volné místo na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Instalace může zabrat více času."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Skupiny svazků:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Volby šifrování"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fyzické disky:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Šifrovat tento oddíl (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1933,18 +1950,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logical Volume Management (LVM) umožní, aby se v Ubuntu jevilo více "
+"fyzických disků jako jeden."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logical Volume Management"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Možnosti šifrování..."
 
 #. Type: title
 #. Description

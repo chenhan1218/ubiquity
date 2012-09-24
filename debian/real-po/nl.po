@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-03 15:49+0000\n"
-"Last-Translator: Corneille <Unknown>\n"
+"PO-Revision-Date: 2012-09-05 22:23+0000\n"
+"Last-Translator: Hannie Dumoleyn <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -126,6 +126,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Dit is een voorlopige versie van het ${RELEASE} live ${MEDIUM}-"
+"installatieprogramma. Het is geen definitieve versie; die verschijnt met de "
+"definitieve uitgave van ${RELEASE} in oktober 2012."
 
 #. Type: text
 #. Description
@@ -558,6 +561,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Het spijt ons; het installatieprogramma is vastgelopen. Nadat u dit venster "
+"gesloten heeft kunt u een fout melden via het geïntegreerde hulpprogramma "
+"voor foutrapportage. Dit programma verzamelt informatie over uw systeem en "
+"uw installatieproces. De details zullen naar onze bugtracker worden "
+"verstuurd en een ontwikkelaar zal het probleem zo snel mogelijk in "
+"behandeling nemen."
 
 #. Type: text
 #. Description
@@ -670,19 +679,19 @@ msgstr "Partitie aanmaken"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "Grootte:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Begin van deze ruimte"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "Einde van deze ruimte"
 
 #. Type: text
 #. Description
@@ -1542,6 +1551,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} gebruikt software van derden voor het afspelen van Flash, MP3 en "
+"andere media, en om te werken met sommige grafische en wi-fi-hardware. "
+"Sommige van deze software is niet-vrij. De software valt onder "
+"licentievoorwaarden die in de documentatie ervan zijn opgenomen."
 
 #. Type: text
 #. Description
@@ -1837,19 +1850,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "De nieuwe Ubuntu-installatie versleutelen voor de veiligheid"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "In de volgende stap zult u een beveiligingssleutel kiezen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "LVM gebruiken bij de nieuwe Ubuntu-installatie"
 
 #. Type: text
 #. Description
@@ -1858,18 +1871,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Hiermee installeert u Logical Volume Management. Het maakt het maken van "
+"snapshots en het gemakkelijk vergroten of verkleinen van partities mogelijk."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "De beveiligingssleutel bevestigen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Een beveiligingssleutel kiezen:"
 
 #. Type: text
 #. Description
@@ -1878,12 +1893,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Schijfversleuteling beschermt uw bestanden in het geval u uw computer kwijt "
+"bent. U dient elke keer dat de computer opstart een beveiligingssleutel in "
+"te voeren."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Bestanden buiten Ubuntu zullen niet worden versleuteld."
 
 #. Type: text
 #. Description
@@ -1893,60 +1911,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Waarschuwing:</span> Als u deze "
+"beveiligingssleutel kwijt bent zullen alle gegevens verloren zijn. Schrijf "
+"zonodig uw sleutel op en bewaar deze op een veilige plaats."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "Voor meer veiligheid:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "lege schijfruimte overschrijven"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "De installatie duurt mogelijk veel langer."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Volumegroepen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Versleutelopties"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fysieke volumes:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Deze partitie versleutelen (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1955,18 +1976,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logical Volume Management (LVM) laat Ubuntu meerdere fysieke volumes "
+"behandelen als een enkel volume."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logical Volume Mangement"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Versleutelopties…"
 
 #. Type: title
 #. Description

@@ -1,7 +1,5 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
-from __future__ import print_function
-
 import datetime
 import math
 
@@ -169,7 +167,7 @@ class TimezoneMap(QtGui.QWidget):
                 painter.setPen(QtCore.Qt.white)
                 painter.drawText(rect, QtCore.Qt.AlignCenter, timestring)
 
-            except ValueError:
+            except (ValueError, OverflowError):
                 # Some versions of Python have problems with clocks set
                 # before the epoch (http://python.org/sf/1646728).
                 # ignore and don't display a string

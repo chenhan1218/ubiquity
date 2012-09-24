@@ -31,8 +31,6 @@
 # with Ubiquity; if not, write to the Free Software Foundation, Inc., 51
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from __future__ import print_function
-
 import sys
 import os
 import subprocess
@@ -316,6 +314,21 @@ class Wizard(BaseFrontend):
                 if isinstance(widget, Gtk.Window):
                     self.toplevels.add(widget)
         self.builder.connect_signals(self)
+
+        # Get the default window background color for the the current
+        # theme and set it as the background for the inline toolbar
+        window_style = self.live_installer.get_style_context()
+        bg = window_style.lookup_color('theme_bg_color')[1].to_string()
+        provider = Gtk.CssProvider()
+        provider.load_from_data(('''\
+            .inline-toolbar.toolbar {
+                background: %s;
+                border-color: transparent;
+                border-width: 0px;
+                padding: 0px;
+            }''' % bg).encode())
+        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
+            provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.stop_debconf()
         self.translate_widgets(reget=True)

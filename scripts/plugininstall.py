@@ -19,8 +19,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from __future__ import print_function
-
 import sys
 import os
 import platform
@@ -870,7 +868,6 @@ class Install(install_misc.InstallBase):
                     configdir, 'resume'), 'w') as configfile:
                     print("RESUME=%s" % resume, file=configfile)
 
-        osextras.unlink_force(self.target_file('etc/usplash.conf'))
         osextras.unlink_force(self.target_file('etc/popularity-contest.conf'))
         try:
             participate = self.db.get('popularity-contest/participate')
@@ -907,8 +904,6 @@ class Install(install_misc.InstallBase):
             pass
 
         packages = ['linux-image-' + self.kernel_version,
-                    'usplash',
-                    'splashy',
                     'popularity-contest',
                     'libpaper1',
                     'ssl-cert']
@@ -989,9 +984,9 @@ class Install(install_misc.InstallBase):
 
         inst_boot = self.db.get('ubiquity/install_bootloader')
         if inst_boot == 'true' and 'UBIQUITY_NO_BOOTLOADER' not in os.environ:
-            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
-            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+            binds = ("/proc", "/sys", "/dev", "/run")
+            for bind in binds:
+                misc.execute('mount', '--bind', bind, self.target + bind)
 
             arch, subarch = install_misc.archdetect()
 
@@ -1043,9 +1038,8 @@ class Install(install_misc.InstallBase):
                 raise install_misc.InstallStepError(
                     "No bootloader installer found")
 
-            misc.execute('umount', '-f', self.target + '/proc')
-            misc.execute('umount', '-f', self.target + '/sys')
-            misc.execute('umount', '-f', self.target + '/dev')
+            for bind in binds:
+                misc.execute('umount', '-f', self.target + bind)
 
     def do_remove(self, to_remove, recursive=False):
         self.nested_progress_start()
@@ -1489,18 +1483,17 @@ class Install(install_misc.InstallBase):
         if not os.path.exists(working):
             return
         install_misc.chroot_setup(self.target)
+        binds = ("/proc", "/sys", "/dev", "/run")
         try:
-            misc.execute('mount', '--bind', '/proc', self.target + '/proc')
-            misc.execute('mount', '--bind', '/sys', self.target + '/sys')
-            misc.execute('mount', '--bind', '/dev', self.target + '/dev')
+            for bind in binds:
+                misc.execute('mount', '--bind', bind, self.target + bind)
             subprocess.check_call(['apt-clone', 'restore-new-distro',
                 working, codename, '--destination', self.target],
                 preexec_fn=install_misc.debconf_disconnect)
         finally:
             install_misc.chroot_cleanup(self.target)
-            misc.execute('umount', '-f', self.target + '/proc')
-            misc.execute('umount', '-f', self.target + '/sys')
-            misc.execute('umount', '-f', self.target + '/dev')
+            for bind in binds:
+                misc.execute('umount', '-f', self.target + bind)
 
     def copy_network_config(self):
         if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:

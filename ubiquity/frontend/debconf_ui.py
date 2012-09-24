@@ -24,8 +24,6 @@
 # Note that this frontend relies on being run under the control of a debconf
 # frontend; the main ubiquity program takes care of this.
 
-from __future__ import print_function
-
 import os
 import signal
 import sys

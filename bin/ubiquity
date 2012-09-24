@@ -14,8 +14,6 @@ Once it has the info, partitioning, format, copy the distro to the disk
 and configure everything.
 '''
 
-from __future__ import print_function
-
 import sys
 import os
 import errno
@@ -26,6 +24,7 @@ import atexit
 import optparse
 import subprocess
 import locale
+import importlib
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -240,13 +239,15 @@ def install(frontend=None, query=False):
     chosen = None
     mod = __import__('ubiquity.frontend', globals(), locals(), frontends)
     for f in frontends:
-        if hasattr(mod, f):
-            chosen = f
-            ui = getattr(mod, f)
-            # Noninteractive implies automatic mode.
-            if f == 'noninteractive':
-                os.environ['UBIQUITY_AUTOMATIC'] = '1'
-            break
+        try:
+            ui = importlib.import_module('ubiquity.frontend.%s' % f)
+        except ImportError:
+            continue
+        chosen = f
+        # Noninteractive implies automatic mode.
+        if f == 'noninteractive':
+            os.environ['UBIQUITY_AUTOMATIC'] = '1'
+        break
     else:
         raise AttributeError('No frontend available; tried %s' %
                              ', '.join(frontends))

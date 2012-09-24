@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-08-30 20:13+0100\n"
-"PO-Revision-Date: 2012-04-05 05:37+0000\n"
-"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
+"PO-Revision-Date: 2012-09-08 11:58+0000\n"
+"Last-Translator: 朱涛 <bill_zt@sina.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-04 12:08+0000\n"
-"X-Generator: Launchpad (build 15901)\n"
+"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
+"X-Generator: Launchpad (build 15971)\n"
 
 #. Type: text
 #. Description
@@ -124,6 +124,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"这是一个  ${MEDIUM} 介质的 ${RELEASE} 预发布 Live 安装包。 ${RELEASE} 将在 "
+"2012 年十二月正式发布。"
 
 #. Type: text
 #. Description
@@ -539,6 +541,9 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"很遗憾，安装程序已经崩溃。等您关闭窗口之后，可以使用内置的错误汇报工具向我们"
+"报告错误。它会收集您的系统和安装过程信息，并会将细节发送到我们的缺陷跟踪系"
+"统，以便开发者尽快查看与处理"
 
 #. Type: text
 #. Description
@@ -651,19 +656,19 @@ msgstr "创建分区"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "大小："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "空间起始位置"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "空间结束位置"
 
 #. Type: text
 #. Description
@@ -1480,6 +1485,8 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} 使用第三方软件播放 Flash、MP3 和其他媒体，并驱动某些图形和无线网络"
+"硬件。其中某些软件是闭源的。这些软件受到其文档中协议条款的约束。"
 
 #. Type: text
 #. Description
@@ -1760,19 +1767,19 @@ msgstr "这台计算机似乎没有安装操作系统。您准备怎么做？"
 #. Description
 #: ../ubiquity.templates:254001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "为了安全起见，将会加密你的新 Ubuntu 安装程序"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:255001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "下一步，你需要选择一个安全密钥。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "给新安装的 Ubuntu 使用 LVM"
 
 #. Type: text
 #. Description
@@ -1780,19 +1787,19 @@ msgstr ""
 msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
-msgstr ""
+msgstr "这将启动逻辑分区管理(LVM)，有快照和调整分区大小等功能。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "确认你的安全密钥"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "请选择一个安全密钥："
 
 #. Type: text
 #. Description
@@ -1801,12 +1808,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"磁盘加密会保护磁盘上的文件，以免因电脑丢失而蒙受损失。但是，每次在计算机启动"
+"时，它会要求你输入一个安全密钥。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Ubuntu 的以外的任何文件将不会被加密。"
 
 #. Type: text
 #. Description
@@ -1816,60 +1825,62 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">警告:</span>如果您丢失了安全密钥，您所有的数据都"
+"会丢失。如果有需要的话，请把您的安全密钥记录并保管在一个安全的地方。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "For more security:"
-msgstr ""
+msgstr "为了能更安全："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "覆盖空磁盘空间"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "安装过程可能需要更长的时间。"
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:266001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Volume groups:"
-msgstr ""
+msgstr "卷组："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Encryption Options"
-msgstr ""
+msgstr "加密选项"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "物理分区"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "加密该分区 (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1878,18 +1889,19 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"逻辑分区管理 (LVM) 可以让 Ubuntu 将多个物理分区作为一个单独的分区来对待。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "逻辑分区管理"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption options..."
-msgstr ""
+msgstr "加密选项..."
 
 #. Type: title
 #. Description

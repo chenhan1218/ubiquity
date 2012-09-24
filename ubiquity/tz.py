@@ -17,8 +17,6 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from __future__ import print_function
-
 import os
 import datetime
 import time
@@ -190,7 +188,7 @@ class Location(object):
 
         try:
             today = datetime.datetime.today()
-        except ValueError:
+        except (ValueError, OverflowError):
             # Some versions of Python have problems with clocks set before
             # the epoch (http://python.org/sf/1646728). Assuming that the
             # time is set to the epoch will at least let us avoid crashing,

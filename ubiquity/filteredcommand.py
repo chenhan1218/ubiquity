@@ -17,12 +17,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from __future__ import print_function
-
 import sys
 import os
 import signal
 import subprocess
+import importlib
 
 import debconf
 
@@ -416,7 +415,7 @@ class FilteredCommand(UntrustedBase):
         self.current_question = question
         if not self.done:
             self.succeeded = False
-            mod = __import__(self.__module__, globals(), locals(), ['NAME'])
+            mod = importlib.import_module(self.__module__)
             self.frontend.set_page(mod.NAME)
             self.enter_ui_loop()
         return self.succeeded
