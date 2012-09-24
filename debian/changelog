@@ -3,6 +3,8 @@ ubiquity (2.12.3) UNRELEASED; urgency=low
   * Do not preseed grub-install, if we are not proceeding to install. This
     should fix ValueError, I/O operation on closed file (LP: #1027648)
     (LP: #792652)
+  * Automatic update of included source packages: yaboot-installer
+    1.1.22ubuntu2.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 24 Sep 2012 11:23:57 +0100
 
