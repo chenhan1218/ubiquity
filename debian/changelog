@@ -1,8 +1,14 @@
 ubiquity (2.12.5) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
   * Change from a KApplication to a QApplication to avoid using DBus, DBus
     as needed by KApplication no longer works with our multiple user changes 
     LP: #1055967
+
+  [ Colin Watson ]
+  * Partially revert r5662 (removal of more Python 2 support, from ubiquity
+    2.11.33).  'from __future__ import print_function' is needed to make
+    pyflakes do its job properly.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 25 Sep 2012 21:11:18 +0100
 

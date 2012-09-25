@@ -14,6 +14,8 @@ Once it has the info, partitioning, format, copy the distro to the disk
 and configure everything.
 '''
 
+from __future__ import print_function
+
 import sys
 import os
 import errno
