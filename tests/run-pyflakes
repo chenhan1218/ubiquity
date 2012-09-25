@@ -23,12 +23,23 @@ module_exclusions = [
     'ReviewBoard.egg-info',
 ]
 
+whitelist = [
+    'bin/oem-config-remove-gtk',
+    'bin/ubiquity',
+    'bin/ubiquity-bluetooth-agent',
+    'bin/ubiquity-dm',
+    'bin/ubiquity-wrapper',
+    'tests/run',
+    'tests/run-frontend',
+    'tests/run-pyflakes',
+]
+
 
 def scan_for_modules():
     return [entry
             for entry in os.listdir(os.getcwd())
             if ((os.path.isdir(entry) or entry.endswith(".py")) and
-                entry not in module_exclusions)]
+                entry not in module_exclusions)] + whitelist
 
 
 def main():
