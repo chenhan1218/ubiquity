@@ -1802,7 +1802,7 @@ class Page(plugin.Plugin):
     def get_actions(self, devpart, partition):
         if devpart is None and partition is None:
             return
-        if 'id' not in partition and partition.get('label','') != 'loop':
+        if 'id' not in partition and partition.get('label', '') != 'loop':
             yield 'new_label'
         if 'can_new' in partition and partition['can_new']:
             yield 'new'
@@ -1811,7 +1811,7 @@ class Page(plugin.Plugin):
         if ('id' in partition and partition['parted']['fs'] != 'free' and
             not partition.get('locked', False)):
             yield 'edit'
-            if disk.get('label','') != 'loop':
+            if disk.get('label', '') != 'loop':
                 yield 'delete'
         # TODO cjwatson 2006-12-22: options for whole disks
 
