@@ -955,13 +955,13 @@ class Wizard(BaseFrontend):
         messageBox = QtGui.QMessageBox()
         messageBox.setWindowTitle(abortTitle)
         messageBox.setText(warning_dialog_label)
-        messageBox.setStandardButtons(QtGui.QMessageBox.Yes | 
-                                                           QtGui.QMessageBox.No)
+        messageBox.setStandardButtons(QtGui.QMessageBox.Yes |
+                                                          QtGui.QMessageBox.No)
         messageBox.setDefaultButton(QtGui.QMessageBox.Yes)
         messageBox.button(QtGui.QMessageBox.Yes).setText(
-                                                       yes.replace('_', '&', 1))
+                                                      yes.replace('_', '&', 1))
         messageBox.button(QtGui.QMessageBox.No).setText(
-                                                        no.replace('_', '&', 1))
+                                                       no.replace('_', '&', 1))
         response = messageBox.exec_()
         if response == QtGui.QMessageBox.Yes:
             self.current_page = None
