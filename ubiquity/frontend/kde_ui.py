@@ -169,13 +169,9 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        misc.drop_privileges_save()
-        try:
-            self.app = QtGui.QApplication([])
-            with open(os.path.join(UIDIR, "style.qss")) as style:
-                self.app.setStyleSheet(style.read())
-        finally:
-            misc.regain_privileges_save()
+        self.app = QtGui.QApplication([])
+        with open(os.path.join(UIDIR, "style.qss")) as style:
+            self.app.setStyleSheet(style.read())
 
         self.app.setWindowIcon(QtGui.QIcon(
          "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
