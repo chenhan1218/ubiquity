@@ -320,7 +320,7 @@ class Wizard(BaseFrontend):
         elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
             self.ui.setWindowIcon(QtGui.QIcon(
-             "/usr/share/icons/oxygen/128x128/categories/preferences-system.png"))
+          "/usr/share/icons/oxygen/128x128/categories/preferences-system.png"))
             flags = self.ui.windowFlags() ^ QtCore.Qt.WindowMinMaxButtonsHint
             if hasattr(QtCore.Qt, 'WindowCloseButtonHint'):
                 flags = flags ^ QtCore.Qt.WindowCloseButtonHint
