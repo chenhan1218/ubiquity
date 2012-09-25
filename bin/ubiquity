@@ -44,7 +44,6 @@ lock = None
 def force_utf8_locale():
     """We must have a UTF-8 locale.  Try to get one."""
     if locale.getpreferredencoding() != "UTF-8":
-        old_lc_all = locale.setlocale(locale.LC_ALL)
         try:
             os.environ["LC_ALL"] = "C.UTF-8"
             locale.setlocale(locale.LC_ALL, "")
@@ -239,7 +238,6 @@ def install(frontend=None, query=False):
     else:
         frontends = [frontend]
     chosen = None
-    mod = __import__('ubiquity.frontend', globals(), locals(), frontends)
     for f in frontends:
         try:
             ui = importlib.import_module('ubiquity.frontend.%s' % f)
