@@ -488,7 +488,8 @@ class PageKde(PageBase):
             misc.execute_root('apt-install', 'oem-config-kde')
 
         from PyQt4.QtGui import QPixmap
-        warningIcon = QPixmap("/usr/share/icons/oxygen/48x48/status/dialog-warning.png")
+        warningIcon = QPixmap(
+                     "/usr/share/icons/oxygen/48x48/status/dialog-warning.png")
         self.page.fullname_error_image.setPixmap(warningIcon)
         self.page.username_error_image.setPixmap(warningIcon)
         self.page.password_error_image.setPixmap(warningIcon)
