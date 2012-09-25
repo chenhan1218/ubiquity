@@ -38,7 +38,6 @@ import traceback
 import sip
 sip.setapi("QVariant", 1)
 from PyQt4 import QtCore, QtGui, uic
-from PyKDE4 import kdeui, kdecore
 
 #import all our custom kde components
 from ubiquity.frontend.kde_components import ProgressDialog, SqueezeLabel
@@ -62,7 +61,7 @@ LOCALEDIR = "/usr/share/locale"
 UIDIR = os.path.join(PATH, 'qt')
 
 
-class UbiquityUI(kdeui.KMainWindow):
+class UbiquityUI(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QMainWindow.__init__(self, parent)
         uic.loadUi(os.path.join(UIDIR, "app.ui"), self)
@@ -170,41 +169,15 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
-        appName = "kubuntu-ubiquity"
-        catalog = ""
-        programName = kdecore.ki18n(b"Installer")
-        ver = "1.0"
-        description = kdecore.ki18n(b"Live CD Installer for Kubuntu")
-        rights = kdecore.KAboutData.License_GPL
-        copy = kdecore.ki18n(b"(c) 2006 Canonical Ltd")
-        text = kdecore.ki18n(b"none")
-        homePage = "http://wiki.kubuntu.org/KubuntuUbiquity"
-        bugEmail = "jriddell@ubuntu.com"
-
-        about = kdecore.KAboutData(
-            appName, catalog, programName, ver, description,
-            rights, copy, text, homePage, bugEmail)
-        about.addAuthor(
-            kdecore.ki18n(b"Jonathan Riddell"),
-            kdecore.KLocalizedString(), "jriddell@ubuntu.com")
-        about.addAuthor(
-            kdecore.ki18n(b"Roman Shtylman"),
-            kdecore.KLocalizedString(), "shtylman@gmail.com")
-        kdecore.KCmdLineArgs.init([""], about)
-
-        # KApplication won't initialise if real UID != effective UID.  On
-        # the other hand, we can't talk to D-Bus unless the effective user
-        # is the live CD user.  Oh dear.  The solution is to use saved IDs:
-        # if we hide our rootliness in the saved IDs, then neither
-        # KApplication nor D-Bus will spot it.
         misc.drop_privileges_save()
         try:
-            self.app = kdeui.KApplication()
+            self.app = QtGui.QApplication([])
             with open(os.path.join(UIDIR, "style.qss")) as style:
                 self.app.setStyleSheet(style.read())
         finally:
             misc.regain_privileges_save()
 
+        self.app.setWindowIcon(QtGui.QIcon("/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         import dbus.mainloop.qt
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
@@ -329,7 +302,7 @@ class Wizard(BaseFrontend):
         # Array to keep callback functions needed by debconf file descriptors.
         self.debconf_callbacks = {}
 
-        self.ui.setWindowIcon(kdeui.KIcon("ubiquity"))
+        self.ui.setWindowIcon(QtGui.QIcon("/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         self.allow_go_backward(False)
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -344,7 +317,7 @@ class Wizard(BaseFrontend):
             self.ui.setWindowTitle(self.get_string('oem_config_title'))
         elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
-            self.ui.setWindowIcon(kdeui.KIcon("preferences-system"))
+            self.ui.setWindowIcon(QtGui.QIcon("/usr/share/icons/oxygen/128x128/categories/preferences-system.png"))
             flags = self.ui.windowFlags() ^ QtCore.Qt.WindowMinMaxButtonsHint
             if hasattr(QtCore.Qt, 'WindowCloseButtonHint'):
                 flags = flags ^ QtCore.Qt.WindowCloseButtonHint
@@ -354,16 +327,16 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.ui.breadcrumb_install.hide()
 
-        self.forwardIcon = kdeui.KIcon("go-next")
+        self.forwardIcon = QtGui.QIcon("/usr/share/icons/oxygen/128x128/actions/go-next.png")
         self.ui.next.setIcon(self.forwardIcon)
 
         #Used for the last step
-        self.applyIcon = kdeui.KIcon("dialog-ok-apply")
+        self.applyIcon = QtGui.QIcon("/usr/share/icons/oxygen/128x128/actions/dialog-ok-apply.png")
 
-        backIcon = kdeui.KIcon("go-previous")
+        backIcon = QtGui.QIcon("/usr/share/icons/oxygen/128x128/actions/go-previous.png")
         self.ui.back.setIcon(backIcon)
 
-        quitIcon = kdeui.KIcon("dialog-close")
+        quitIcon = QtGui.QIcon("/usr/share/icons/oxygen/48x48/actions/dialog-close.png")
         self.ui.quit.setIcon(quitIcon)
 
         self.ui.progressBar.hide()
@@ -972,14 +945,15 @@ class Wizard(BaseFrontend):
         abortTitle = self.get_string("warning_dialog")
         yes = self.get_string('yes', prefix='ubiquity/imported')
         no = self.get_string('no', prefix='ubiquity/imported')
-        if yes and no:
-            yes = kdeui.KGuiItem(yes.replace('_', '&', 1))
-            no = kdeui.KGuiItem(no.replace('_', '&', 1))
-            args = (self.ui, abortTitle, warning_dialog_label, yes, no)
-        else:
-            args = (self.ui, abortTitle, warning_dialog_label)
-        response = kdeui.KMessageBox.questionYesNo(*args)
-        if response == kdeui.KMessageBox.Yes:
+        messageBox = QtGui.QMessageBox()
+        messageBox.setWindowTitle(abortTitle)
+        messageBox.setText(warning_dialog_label)
+        messageBox.setStandardButtons(QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
+        messageBox.setDefaultButton(QtGui.QMessageBox.Yes)
+        messageBox.button(QtGui.QMessageBox.Yes).setText(yes.replace('_', '&', 1))
+        messageBox.button(QtGui.QMessageBox.No).setText(no.replace('_', '&', 1))
+        response = messageBox.exec_()
+        if response == QtGui.QMessageBox.Yes:
             self.current_page = None
             self.quit()
             return True

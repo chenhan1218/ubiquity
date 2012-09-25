@@ -487,9 +487,8 @@ class PageKde(PageBase):
             # The UserSetup component takes care of preseeding passwd/user-uid.
             misc.execute_root('apt-install', 'oem-config-kde')
 
-        iconLoader = KIconLoader()
-        warningIcon = iconLoader.loadIcon(
-            "dialog-warning", KIconLoader.Desktop)
+        from PyQt4.QtGui import QPixmap
+        warningIcon = QPixmap("/usr/share/icons/oxygen/48x48/status/dialog-warning.png")
         self.page.fullname_error_image.setPixmap(warningIcon)
         self.page.username_error_image.setPixmap(warningIcon)
         self.page.password_error_image.setPixmap(warningIcon)

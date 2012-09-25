@@ -1,3 +1,11 @@
+ubiquity (2.12.5) quantal; urgency=low
+
+  * Change from a KApplication to a QApplication to avoid using DBus, DBus
+    as needed by KApplication no longer works with our multiple user changes 
+    LP: #1055967
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 25 Sep 2012 21:11:18 +0100
+
 ubiquity (2.12.4) quantal; urgency=low
 
   * Do not offer to remove partitions nor create partition table on the
