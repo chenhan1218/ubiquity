@@ -1,4 +1,4 @@
-ubiquity (2.12.5) quantal; urgency=low
+ubiquity (2.12.5) UNRELEASED; urgency=low
 
   * Change from a KApplication to a QApplication to avoid using DBus, DBus
     as needed by KApplication no longer works with our multiple user changes 
