@@ -1,4 +1,4 @@
-ubiquity (2.12.4) UNRELEASED; urgency=low
+ubiquity (2.12.4) quantal; urgency=low
 
   * Do not offer to remove partitions nor create partition table on the
     loop mounted devices. (LP: #1055640)
