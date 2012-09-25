@@ -1092,7 +1092,7 @@ class PageGtk(PageBase):
     def on_partition_use_combo_changed(self, combobox):
         model = combobox.get_model()
         iterator = combobox.get_active_iter()
-        maybe_crypto = iterator and model[iterator][0] == 'crypto'
+        maybe_crypto = bool(iterator and model[iterator][0] == 'crypto')
         self.show_encryption_passphrase(maybe_crypto)
         # If the selected method isn't a filesystem, then selecting a mount
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
@@ -1100,21 +1100,18 @@ class PageGtk(PageBase):
         known_filesystems = ('ext4', 'ext3', 'ext2', 'filesystem',
                              'btrfs', 'reiserfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
-        if iterator is None or model[iterator][0] not in known_filesystems:
-            self.partition_mount_combo.get_child().set_text('')
-            self.partition_mount_combo.set_sensitive(False)
-            self.partition_edit_format_checkbutton.set_sensitive(False)
-        else:
+        show = bool(iterator and model[iterator][0] in known_filesystems)
+        self.partition_mount_combo.set_visible(show)
+        self.partition_mount_label.set_visible(show)
+        self.partition_edit_format_checkbutton.set_sensitive(show)
+        mount_model = self.partition_mount_combo.get_model()
+        if show and mount_model:
             self.partition_dialog_okbutton.set_sensitive(True)
-            self.partition_mount_combo.set_sensitive(True)
-            self.partition_edit_format_checkbutton.set_sensitive(True)
-            mount_model = self.partition_mount_combo.get_model()
-            if mount_model is not None:
-                fs = model[iterator][1]
-                mount_model.clear()
-                for mp, choice_c, choice in \
-                    self.controller.dbfilter.default_mountpoint_choices(fs):
-                    mount_model.append([mp, choice])
+            fs = model[iterator][1]
+            mount_model.clear()
+            for mp, choice_c, choice in \
+                self.controller.dbfilter.default_mountpoint_choices(fs):
+                mount_model.append([mp, choice])
 
     def on_partition_list_treeview_button_press_event(self, widget, event):
         from gi.repository import Gdk
