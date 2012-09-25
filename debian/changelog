@@ -7,6 +7,8 @@ ubiquity (2.12.4) UNRELEASED; urgency=low
     device tree. Remove locked flag, otherwise. (LP: #1055819) 
   * Hide mount combo, instead of making it insensitive to reduce clutter
     in the add/edit partition dialog. (LP: #1055815)
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu25, grub-installer 1.78ubuntu3.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 25 Sep 2012 13:10:32 +0100
 
