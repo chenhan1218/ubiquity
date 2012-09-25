@@ -1798,6 +1798,8 @@ class Page(plugin.Plugin):
             self.partition_cache[devpart]['locked'] = True
             return True
         else:
+            if 'locked' in self.partition_cache[devpart]:
+                del(self.partition_cache[devpart]['locked'])
             return False
 
     def get_actions(self, devpart, partition):

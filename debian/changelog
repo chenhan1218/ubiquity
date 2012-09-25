@@ -4,7 +4,7 @@ ubiquity (2.12.4) UNRELEASED; urgency=low
     loop mounted devices. (LP: #1055640)
   * Skip locked partitions when rebuilding cache, in a similar way as
     skipping free disk space, by sniffing locked file in the partman
-    device tree. (LP: #1055819)
+    device tree. Remove locked flag, otherwise. (LP: #1055819) 
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 25 Sep 2012 13:10:32 +0100
 
