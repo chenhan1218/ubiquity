@@ -1792,6 +1792,14 @@ class Page(plugin.Plugin):
         else:
             return False
 
+    def build_locked(self, devpart):
+        if os.path.exists(os.path.join(devpart, 'locked')):
+            self.debug('Partman: %s is locked', devpart)
+            self.partition_cache[devpart]['locked'] = True
+            return True
+        else:
+            return False
+
     def get_actions(self, devpart, partition):
         if devpart is None and partition is None:
             return
@@ -1869,19 +1877,6 @@ class Page(plugin.Plugin):
                 self.creating_partition['bad_mountpoint'] = True
             elif self.editing_partition:
                 self.editing_partition['bad_mountpoint'] = True
-        elif question == 'partman-base/partlocked':
-            if self.building_cache:
-                # xnox 2012-09-17:
-                # Bah, the partition we are trying to sniff / cache is
-                # locked due to being active as part of a complex
-                # LVM/LUKS/MD device. I am not sure if it is possible
-                # to 'unlock' partitions from partman. If it is
-                # possible to 'unlock' them, then cache rebuilding
-                # will enter the 'partman/active_partition' question
-                # below and the locked flag should be cleared there.
-                state = self.__state[-1]
-                partition = self.partition_cache[state[1]]
-                partition['locked'] = True
         self.frontend.error_dialog(self.description(question),
                                    self.extended_description(question))
         return plugin.Plugin.error(self, priority, question)
@@ -1909,7 +1904,7 @@ class Page(plugin.Plugin):
             devpart = self.update_partitions[0]
             if devpart not in self.partition_cache:
                 self.debug('Partman: %s not found in cache', devpart)
-            elif self.build_free(devpart):
+            elif self.build_free(devpart) or self.build_locked(devpart):
                 pass
             else:
                 break
