@@ -1,3 +1,10 @@
+ubiquity (2.12.4) UNRELEASED; urgency=low
+
+  * Do not offer to remove partitions nor create partition table on the
+    loop mounted devices. (LP: #1055640)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 25 Sep 2012 13:10:32 +0100
+
 ubiquity (2.12.3) quantal; urgency=low
 
   * Do not preseed grub-install, if we are not proceeding to install. This
