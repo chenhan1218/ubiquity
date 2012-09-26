@@ -375,6 +375,26 @@ _Description:
  process. The details will be sent to our bug tracker and a developer
  will attend to the problem as soon as possible.
 
+Template: ubiquity/text/a11y_high_contrast
+Type: text
+# An indicator menu item.  The underscore goes before an accelerator key.
+_Description: _High Contrast
+
+Template: ubiquity/text/a11y_screen_reader
+Type: text
+# An indicator menu item.  The underscore goes before an accelerator key.
+_Description: _Screen Reader
+
+Template: ubiquity/text/a11y_keyboard_modifiers
+Type: text
+# An indicator menu item.  The underscore goes before an accelerator key.
+_Description: _Keyboard Modifiers
+
+Template: ubiquity/text/a11y_onscreen_keyboard
+Type: text
+# An indicator menu item.  The underscore goes before an accelerator key.
+_Description: _On-screen Keyboard
+
 Template: ubiquity/text/partition_button_new_label
 Type: text
 # An action, displayed on a button or as a menu item.

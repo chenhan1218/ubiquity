@@ -395,6 +395,9 @@ class Wizard(BaseFrontend):
                 if toplevel.get_name() != 'live_installer':
                     for c in self.all_children(toplevel):
                         widgets.append((c, None))
+        if hasattr(self, "indicator"):
+            for c in self.all_children(self.indicator.get_menu()):
+                widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=False)
         self.set_page_title(current_page, lang)
 
@@ -1111,6 +1114,9 @@ class Wizard(BaseFrontend):
                 elif self.oem_user_config:
                     text = self.get_string('oem_user_config_title', lang)
             widget.set_title(text)
+
+        elif isinstance(widget, Gtk.MenuItem):
+            widget.set_label(text)
 
     def allow_change_step(self, allowed):
         if allowed:

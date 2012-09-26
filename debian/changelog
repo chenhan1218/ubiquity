@@ -1,3 +1,11 @@
+ubiquity (2.12.6) UNRELEASED; urgency=low
+
+  * Make the accessibility indicator menu items translatable (LP: #1040438).
+    Note that this just adds the necessary infrastructure; we still need
+    actual translations for this to be useful.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Sep 2012 00:03:43 +0100
+
 ubiquity (2.12.5) quantal; urgency=low
 
   [ Jonathan Riddell ]
