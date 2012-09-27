@@ -154,6 +154,7 @@ exit 0""", file=f)
     if not os.path.exists(os.path.join(target, 'sys/devices')):
         chrex(target, 'mount', '-t', 'sysfs', 'sysfs', '/sys')
     misc.execute('mount', '--bind', '/dev', os.path.join(target, 'dev'))
+    misc.execute('mount', '--bind', '/run', os.path.join(target, 'run'))
 
     if x11 and 'DISPLAY' in os.environ:
         if 'SUDO_USER' in os.environ:
@@ -187,6 +188,7 @@ def chroot_cleanup(target, x11=False):
 
     chrex(target, 'umount', '/sys')
     chrex(target, 'umount', '/proc')
+    misc.execute('umount', os.path.join(target, 'run'))
     misc.execute('umount', os.path.join(target, 'dev'))
 
     initctl = os.path.join(target, 'sbin/initctl')

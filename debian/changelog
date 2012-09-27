@@ -5,6 +5,8 @@ ubiquity (2.12.6) UNRELEASED; urgency=low
     actual translations for this to be useful.
   * Drop dependency on realpath, not needed since hw-detect 1.89 (ubiquity
     2.11.14).
+  * Bind-mount /run while installing packages in the target chroot, so that
+    name resolution works (LP: #1055326).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Sep 2012 00:03:43 +0100
 
