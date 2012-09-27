@@ -3,6 +3,8 @@ ubiquity (2.12.6) UNRELEASED; urgency=low
   * Make the accessibility indicator menu items translatable (LP: #1040438).
     Note that this just adds the necessary infrastructure; we still need
     actual translations for this to be useful.
+  * Drop dependency on realpath, not needed since hw-detect 1.89 (ubiquity
+    2.11.14).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Sep 2012 00:03:43 +0100
 
