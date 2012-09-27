@@ -9,6 +9,8 @@ ubiquity (2.12.6) UNRELEASED; urgency=low
     name resolution works (LP: #1055326).
   * Update translations from Launchpad (LP: #1056029).
   * Upgrade to Automake 1.11.6.
+  * Automatic update of included source packages: debian-installer-utils
+    1.91ubuntu5, flash-kernel 3.0~rc.4ubuntu26.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Sep 2012 00:03:43 +0100
 
