@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-03-03 20:49+0000\n"
-"Last-Translator: Árni Gunnarsson <Unknown>\n"
+"PO-Revision-Date: 2012-09-26 12:07+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 
 #. Type: text
 #. Description
@@ -42,7 +42,7 @@ msgstr "Uppsetning"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Setja upp (OEM, frumframleiðandur- aðeins fyrir framleiðendur)"
+msgstr "Setja upp (OEM-hamur, fyrir framleiðendur eingöngu)"
 
 #. Type: text
 #. Description
@@ -52,9 +52,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Þú ert að setja upp í ham fyrir kerfisframleiðandur. Sláðu inn sérkennandi "
-"heiti fyrir þennan hóp kerfa. Þetta heiti mun vistað á kerfinu að "
-"uppsetningu lokinni og verður notað við villusendingar."
+"Þú ert að setja upp í kerfisframleiðendaham. Sláðu inn einstakt nafn fyrir "
+"þessa lotu kerfa. Þetta nafn verður vistað á uppsetta kerfinu og getur verið "
+"notað við lúsatilkynningar."
 
 #. Type: text
 #. Description
@@ -65,8 +65,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Þú getur prófað ${RELEASE} beint af þessum ${MEDIUM} diski. án þess að gera "
-"neinar breytingar á tölvunni þinni."
+"Þú getur prófað ${RELEASE} án nokkurra breytinga á þinni tölvu, beint af "
+"þessum $(MEDIUM)."
 
 #. Type: text
 #. Description
@@ -76,9 +76,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Nú, eða ef þú ert undir það búin(n) þá geturðu sett ${RELEASE} upp við hlið "
-"(eða í staðinn fyrir) stýrikerfið sem þú ert með núna.  Þetta ætti ekki að "
-"taka langan tíma."
+"Eða ef þú ert tilbúinn, getur þú sett upp ${RELEASE} við hlið (eða í staðinn "
+"fyrir) þitt núverandi stýrikerfi. Þetta ætti ekki að vera of langdregið."
 
 #. Type: text
 #. Description
@@ -101,15 +100,15 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Þú gætir viljað lesa <a href=\"release-notes\">athugasemdir útgáfunnar</a> "
-"eða <a href=\"update\">uppfært þetta uppsetningaforrit</a>."
+"Þú gætir viljað lesa <a href=\"release-notes\">útgáfuathugasemdirnar</a> eða "
+"<a href=\"update\">uppfæra þetta uppsetningaforrit</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Þú gætir viljað lesa <a href=\"release-notes\">athugasemdir útgáfunnar</a>."
+"Þú gætir viljað lesa <a href=\"release-notes\">útgáfuathugasemdirnar</a>."
 
 #. Type: text
 #. Description
@@ -128,6 +127,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Þetta er forútgáfa af ${RELEASE} live ${MEDIUM} uppsetningaforritinu. Það er "
+"ekki lokaútgáfa; sem mun koma út með ${RELEASE} í Október 2012."
 
 #. Type: text
 #. Description
@@ -137,8 +138,9 @@ msgid ""
 "Be sure to <b>take a full backup of any valuable data</b> before running "
 "this program."
 msgstr ""
-"Uppsetningarferlið gæti breytt stærð disksneiða eða eytt slíkum. Taktu "
-"<b>öryggisafrit af öllum verðmætum gögnum</b> áður en þú heldur áfram."
+"Uppsetningaferillinn gæti breytt stærð eða eytt disksneiðum á disk þínum. "
+"Vertu viss um að <b>gera heilt afrit af öllum verðmætum gögnum</b> áður en "
+"þetta forrit er keyrt."
 
 #. Type: text
 #. Description
@@ -156,49 +158,49 @@ msgstr "Hvar ertu?"
 #. Description
 #: ../ubiquity.templates:18001
 msgid "Keyboard layout"
-msgstr "Lyklaborðið"
+msgstr "Lyklaborðsútfærsla"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose your keyboard layout:"
-msgstr "Veldu hér uppsetningu á lyklaborði:"
+msgstr "Veldu lyklaborðsútfærslu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Type here to test your keyboard"
-msgstr "Skrifaðu hér til að prófa lyklaborðið"
+msgstr "Ritaðu hér til að prófa lykilborð"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Detect Keyboard Layout"
-msgstr "Finna lyklaborðsframsetningu sjálfvirkt"
+msgstr "Greina lyklaborðsútfærslu sjálfvirkt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout..."
-msgstr "Finna lyklaborðsframsetningu sjálfvirkt..."
+msgstr "Greina lyklaborðsútfærslu sjálfvirkt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Please press one of the following keys:"
-msgstr "Ýttu á einn af eftirfarandi lyklum:"
+msgstr "Vinsamlegast ýttu á einn af eftirfarandi lyklum:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Is the following key present on your keyboard?"
-msgstr "Er eftirfarandi lykill til staðar á lyklaborðinu?"
+msgstr "Er eftirfarandi lykill til staðar á lykilborði þínu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:25001
 msgid "Who are you?"
-msgstr "Upplýsingar"
+msgstr "Hver ertu?"
 
 #. Type: text
 #. Description
@@ -228,31 +230,31 @@ msgstr "Taktu mynd"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Your name:"
-msgstr "Nafnið þitt:"
+msgstr "Nafn þitt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Your name"
-msgstr "Nafnið þitt"
+msgstr "Nafn þitt"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Pick a username:"
-msgstr "Veldu þér notandanafn:"
+msgstr "Veldu notendanafn:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "Username"
-msgstr "Notandanafn"
+msgstr "Notendanafn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Must start with a lower-case letter."
-msgstr "Verður að byrja á litlum staf"
+msgstr "Verður að byrja á litlum staf."
 
 #. Type: text
 #. Description
@@ -264,7 +266,7 @@ msgstr "Má einungis innihalda lágstafi, tölustafi, bandstrik eða undirstrik.
 #. Description
 #: ../ubiquity.templates:36001
 msgid "Choose a password:"
-msgstr "Veldu þér lykilorð:"
+msgstr "Veldu lykilorð:"
 
 #. Type: text
 #. Description
@@ -276,25 +278,25 @@ msgstr "Lykilorð"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Confirm password"
-msgstr "Staðfestu lykilorðið"
+msgstr "Staðfesta lykilorð"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Confirm your password:"
-msgstr "Staðfestu lykilorðið þitt:"
+msgstr "Staðfestu lykilorð þitt:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:40001
 msgid "Your computer's name:"
-msgstr "Heiti tölvunnar þinnar:"
+msgstr "Nafn tölvu þinnar:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "The name it uses when it talks to other computers."
-msgstr "Það er nafnið sem hún notar í samskiptum við aðrar tölvur."
+msgstr "Nafnið sem hún notar þegar hún talar við aðrar tölvur."
 
 #. Type: text
 #. Description
@@ -312,7 +314,7 @@ msgstr "Má einungis innihalda bókstafi, tölustafi, bandstrik eða punkta."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr "Má ekki byrja eða enda á bandstriki"
+msgstr "Má ekki byrja eða enda á bandstriki."
 
 #. Type: text
 #. Description
@@ -324,7 +326,7 @@ msgstr "Má ekki byrja eða enda á punkti, eða innihalda rununa \"..\"."
 #. Description
 #: ../ubiquity.templates:46001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr "Þú er núna í villuleitarham. Ekki nota mikilvægt lykilorð!"
+msgstr "Þú keyrir kerfið í villuleitarham. Ekki nota mikilvægt lykilorð!"
 
 #. Type: text
 #. Description
@@ -366,19 +368,19 @@ msgstr "Sterkt lykilorð"
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Log in automatically"
-msgstr "Skrá sig inn sjálfkrafa"
+msgstr "Skrá inn sjálfkrafa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Require my password to log in"
-msgstr "Biðja um lykilorð til að skrá notendur inn"
+msgstr "Krefjast lykilorðs míns til að skrá inn"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Encrypt my home folder"
-msgstr "Dulrita heimamöppuna mína"
+msgstr "Dulrita heimamöppu mína"
 
 #. Type: text
 #. Description
@@ -387,6 +389,7 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"Þessi mynd verður tengd við notendanafn þitt og stundum birt við hlið þess."
 
 #. Type: text
 #. Description
@@ -395,8 +398,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Veldu þá reikninga sem þú villt flytja á milli. Þá munt vera hægt að nálgast "
-"stillingar og skrár af þessum reikningum að uppsetningu lokinni."
+"Veldu þá reikninga sem þú villt flytja inn. Skjölin og stillingarnar fyrir "
+"þessa reikninga verða tiltækar eftir að uppsetningu lýkur."
 
 #. Type: text
 #. Description
@@ -405,8 +408,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Ef þú óskar ekki eftir því að færa neina reikninga, veldu þá ekki neitt og "
-"færðu þig yfir á næstu síðu."
+"Ef þú vilt ekki flytja neina reikninga inn, veldu ekkert og farðu á næstu "
+"síðu."
 
 #. Type: text
 #. Description
@@ -425,7 +428,7 @@ msgstr "Skrár (${SIZE})"
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Prepare partitions"
-msgstr "Undirbúa sneiðar"
+msgstr "Undirbúa disksneiðar"
 
 #. Type: text
 #. Description
@@ -439,19 +442,19 @@ msgstr "Setja _upp núna"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Quit the installation?"
-msgstr "Viltu hætta við uppsetningu?"
+msgstr "Hætta við uppsetningu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Do you really want to quit the installation now?"
-msgstr "Viltu hætta við uppsetninguna?"
+msgstr "Viltu virkilega hætta við uppsetninguna núna?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Bootloader install failed"
-msgstr "Uppsetning ræsistjóra (bootloader) mistókst"
+msgstr "Uppsetningu ræsistjóra mistókst"
 
 #. Type: text
 #. Description
@@ -460,8 +463,8 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Því miður; villa kom upp og það reyndist ekki hægt að setja ræsistjórann upp "
-"á þeim stað sem tiltekinn var."
+"Því miður, upp kom villa og það var ómögulegt að setja upp ræsistjóra á "
+"tilteknum stað."
 
 #. Type: text
 #. Description
@@ -482,8 +485,7 @@ msgstr "Halda áfram án ræsistjóra."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Þú verður sjálf(ur) að setja handvirkt upp ræsistjóra (bootloader) til þess "
-"að geta ræst ${RELEASE}."
+"Þú munt þurfa að setja upp ræsistjórfa handvikt til þess að ræsa $(RELEASE)."
 
 #. Type: text
 #. Description
@@ -539,7 +541,7 @@ msgstr "Slökkva núna"
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid "Installer crashed"
-msgstr "Uppsetningin hrundi"
+msgstr "Uppsetningaforrit hrundi"
 
 #. Type: text
 #. Description
@@ -551,6 +553,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Við biðjumst velvirðingar; uppsetningaforritið hrundi. Eftir að þú lokar "
+"þessum glugga, geturðu sent inn villutikynningu með innbyggða "
+"villutilkynningatólinu. Það mun safna upplýsingum um kerfið þitt og "
+"uppsetningaferilinn. Þessar upplýsingar verða sendar í villurakningarkerfið "
+"okkar og forritari mun sjá um vandamálið eins fljótt og hægt er."
 
 #. Type: text
 #. Description
@@ -672,7 +679,7 @@ msgstr "Notað"
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:97001
 msgid "free space"
-msgstr "tómt pláss"
+msgstr "laust pláss"
 
 #. Type: text
 #. Description
@@ -685,25 +692,25 @@ msgstr "óþekkt"
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Create partition"
-msgstr "Búa til sneið"
+msgstr "Gera disksneið"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Stærð:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Byrjun þessa bils"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Enda þessa bils"
 
 #. Type: text
 #. Description
@@ -715,7 +722,7 @@ msgstr "Aðal"
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Logical"
-msgstr "Röklegur (logical)"
+msgstr "Röklegur"
 
 #. Type: text
 #. Description
@@ -763,7 +770,7 @@ msgstr "Til baka"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001 ../ubiquity.templates:113001
 msgid "Continue"
-msgstr "Áfram"
+msgstr "Halda áfram"
 
 #. Type: text
 #. Description
@@ -799,7 +806,7 @@ msgstr "Athuga með stillingar uppsetningarinnar..."
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Installing system"
-msgstr "Set upp kerfið"
+msgstr "Set upp kerfi"
 
 #. Type: text
 #. Description
@@ -811,7 +818,7 @@ msgstr "Leita að dreifingunni sem á að afrita..."
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Copying files..."
-msgstr "Afrita skrár..."
+msgstr "Afritar skrár..."
 
 #. Type: text
 #. Description
@@ -833,7 +840,7 @@ msgstr "Hef næstum því lokið við að afrita skrárnar..."
 #: ../ubiquity.templates:123001 ../ubiquity.templates:124001
 #: ../ubiquity.templates:125001
 msgid "Installation Failed"
-msgstr "Uppsettning mistókst"
+msgstr "Uppsetning mistókst"
 
 #. Type: error
 #. Description
@@ -925,7 +932,7 @@ msgstr "Afrita uppsetningarannála..."
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Configuring target system..."
-msgstr "Stilli kerfið..."
+msgstr "Stilli tiltekið kerfi..."
 
 #. Type: text
 #. Description
@@ -985,7 +992,7 @@ msgstr "Stilli ræsistjóra..."
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Saving installed packages..."
-msgstr "Vista uppsetta pakka..."
+msgstr "Vistar uppsetta pakka..."
 
 #. Type: text
 #. Description
@@ -1021,19 +1028,19 @@ msgstr "Leita að pökkum sem á að fjarlægja..."
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Hleð niður pökkum (${TIME} eftir)..."
+msgstr "Sæki pakka ($(TIME) eftir)..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Downloading package lists..."
-msgstr "Hleð niður lista yfir pakka..."
+msgstr "Sæki pakkalista..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Hleð niður lista yfir pakka (${TIME} eftir)..."
+msgstr "Sæki pakkalista ($(TIME) eftir)..."
 
 #. Type: error
 #. Description
@@ -1051,13 +1058,13 @@ msgstr "Villa kom upp við að fjarlægja ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error while installing packages"
-msgstr "Villa kom upp við að setja upp pakka"
+msgstr "Villa við uppsetningu pakka"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "An error occurred while installing packages:"
-msgstr "Villa kom upp við að setja upp pakka:"
+msgstr "Villa kom upp við uppsetningu pakka:"
 
 #. Type: error
 #. Description
@@ -1065,7 +1072,7 @@ msgstr "Villa kom upp við að setja upp pakka:"
 #. Description
 #: ../ubiquity.templates:149001 ../ubiquity.templates:150001
 msgid "The following packages are in a broken state:"
-msgstr "Eftirfarandi pakkar virka ekki:"
+msgstr "Eftirtaldir pakkar eru laskaðir:"
 
 #. Type: error
 #. Description
@@ -1092,7 +1099,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Error while removing packages"
-msgstr "Villa kom upp við að fjarlægja pakka"
+msgstr "Villa við að fjarlægja pakka"
 
 #. Type: error
 #. Description
@@ -1121,7 +1128,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:152001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "Villa við afritun bluetooth-stillinga"
 
 #. Type: error
 #. Description
@@ -1924,7 +1931,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Sýndardiskar (volume groups):"
 
 #. Type: text
 #. Description
@@ -1948,7 +1955,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description

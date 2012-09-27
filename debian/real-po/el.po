@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-08-30 18:35+0000\n"
-"Last-Translator: tzem <athmakrigiannis@gmail.com>\n"
+"PO-Revision-Date: 2012-09-21 12:49+0000\n"
+"Last-Translator: Filippos Kolyvas <fkolyvas@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 
 #. Type: text
 #. Description
@@ -129,6 +129,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Αυτή είναι μια προ-έκδοση του εγκαταστάτη ${RELEASE} για ${ MEDIUM} σε "
+"λειτουργία Live. Δεν είναι η τελική έκδοση·  αυτή θα έρθει με την τελική "
+"έκδοση του ${RELEASE}, τον Οκτώβριο του 2012."
 
 #. Type: text
 #. Description
@@ -565,6 +568,12 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Μας συγχωρείτε που το πρόγραμμα εγκατάστασης κατέρρευσε. Αφού κλείσετε αυτό "
+"το παράθυρο, θα σας καθοδηγήσουμε να υποβάλετε μια αναφορά σφάλματος "
+"χρησιμοποιώντας το ενσωματωμένο εργαλείο αναφοράς σφαλμάτων. Αυτό θα "
+"συγκεντρώσει πληροφορίες για το σύστημά σας και για τη διαδικασία "
+"εγκατάστασης. Οι λεπτομέρειες θα σταλούν στον δικό μας καταγραφέα σφαλμάτων "
+"και ένας προγραμματιστής θα ελέγξει το πρόβλημα το συντομότερο δυνατό."
 
 #. Type: text
 #. Description
@@ -705,19 +714,19 @@ msgstr "Δημιουργία κατάτμησης"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Μέγεθος:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Αρχή αυτού του διαστήματος"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Τέλος αυτού του διαστήματος"
 
 #
 # File: ../partman-partitioning.templates, line: 17001
@@ -1584,6 +1593,11 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"Το ${RELEASE} χρησιμοποίει λογισμικό τρίτων για να αναπαράγει Flash, MP3 και "
+"διάφορα άλλα πολυμέσα, και για να δουλεύει με μερικές κάρτες γραφικών και Wi-"
+"fi. Μερικά από αυτά τα προγράμματα είναι ιδιόκτητα και κλειστά. Το λογισμικό "
+"συνοδεύεται με τους όρους χρήσης που συμπεριλαμβάνονται στην αντίστοιχη "
+"τεκμηρίωση."
 
 #. Type: text
 #. Description
@@ -1897,7 +1911,7 @@ msgstr "Θα επιλέξετε ένα κλειδί ασφαλείας στο ε
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Χρήση LVM στη νέα εγκατάσταση του Ubuntu"
 
 #. Type: text
 #. Description
@@ -1906,6 +1920,9 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Αυτό θα εγκαταστήσει τη Διαχείρηση λογικών δίσκων (LVM). Επιτρέπει τη λήψη "
+"στιγμιοτύπων των δεδομένων του δίσκου και την ευκολότερη αλλαγή μεγέθους των "
+"κατατμήσεων."
 
 #. Type: text
 #. Description
@@ -1934,7 +1951,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Οποιοδήποτε αρχείο έξω από το Ubuntu δε θα κρυπτογραφηθεί."
 
 #. Type: text
 #. Description
@@ -1944,6 +1961,9 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Προειδοποίηση:</span> Αν χάσετε αυτό το κλειδί, "
+"θα χαθούν όλα τα δεδομένα. Αν χρειάζεται, γράψτε το κλειδί και φυλάξτε το σε "
+"ασφαλές μέρος."
 
 #. Type: text
 #. Description
@@ -1967,37 +1987,37 @@ msgstr "Η εγκατάσταση μπορεί να διαρκέσει πολύ 
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Ομάδες τόμων:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Επιλογές κρυπτογράφησης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Φυσικοί τόμοι:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Κρυπτογραφήστε αυτό το διαμέρισμα (μέσω LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "ΜΒ"
 
 #. Type: text
 #. Description
@@ -2006,18 +2026,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Η διαχείριση λογικών τόμων (Logical Volume Management) επιτρέπει στο Ubuntu "
+"να αντιμετωπίζει πολλαπλούς φυσικούς τόμους ως έναν ενιαίο τόμο."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Διαχείριση λογικών τόμων (LVM)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Επιλογές κρυπτογράφησης..."
 
 #. Type: title
 #. Description

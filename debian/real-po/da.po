@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-08-10 14:31+0000\n"
+"PO-Revision-Date: 2012-09-26 14:43+0000\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -129,6 +129,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Dette er præ-udgivelsen af ${RELEASE} live ${MEDIUM}-"
+"installationsprogrammet. Det er ikke den endelige udgave; den vil komme med "
+"endelige udgivelse af ${RELEASE} i oktober 2012."
 
 #. Type: text
 #. Description
@@ -556,6 +559,11 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Vi beklager; installationsprogrammet brød ned. Efter du har lukket dette "
+"vindue, så giver vi dig mulighed for at indsende en fejlrapport via det "
+"integrerede værktøj til fejlrapportering. Det vil indsamle information om "
+"dit system og din installationsproces. Detaljerne vil blive sendt til vores "
+"fejlrapporteringssystem, og en udvikler vil tilse problemet snarest muligt."
 
 #. Type: text
 #. Description
@@ -696,19 +704,19 @@ msgstr "Opret partition"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Størrelse:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Begyndelsen af dette område"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Slutningen af dette område"
 
 #. Type: text
 #. Description
@@ -1564,6 +1572,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} bruger programmer fra tredjepart til at afspille Flash, MP3 og "
+"andre medier, samt til at fungere med en del grafik- og wi-fi-enheder. Nogle "
+"af disse programmer er proprietære. Programmerne er underlagt "
+"licensbetingelser som inkluderes i deres dokumentation."
 
 #. Type: text
 #. Description
@@ -1859,19 +1871,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Kryptér den nye Ubuntu-installation af hensyn til sikkerheden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Du vil vælge en sikkerhedsnøgle i det næste trin."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Benyt LVM med den nye Ubuntu-installation"
 
 #. Type: text
 #. Description
@@ -1885,13 +1897,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Bekræft sikkerhedsnøglen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Vælg en sikkerhedsnøgle:"
 
 #. Type: text
 #. Description
@@ -1900,12 +1912,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Kryptering af disken beskytter dine filer, i tilfælde af du mister din "
+"computer. Det kræver at du angiver sikkerhedsnøgle hver gang computeren "
+"starter op."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Enhver fil som er uden for Ubuntu vil ikke blive krypteret."
 
 #. Type: text
 #. Description
@@ -1923,25 +1938,25 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:267001
 msgid "For more security:"
-msgstr ""
+msgstr "For øget sikkerhed:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Overskriv tom diskplads"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Installationen kan tage meget længere tid."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM ..."
 
 #. Type: text
 #. Description
@@ -1953,7 +1968,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Indstillinger for kryptering"
 
 #. Type: text
 #. Description
@@ -1965,13 +1980,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Kryptér denne partition (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1991,7 +2006,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Indstillinger for kryptering ..."
 
 #. Type: title
 #. Description

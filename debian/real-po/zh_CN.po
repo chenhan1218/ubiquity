@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-08 11:58+0000\n"
-"Last-Translator: 朱涛 <bill_zt@sina.com>\n"
+"PO-Revision-Date: 2012-09-26 23:09+0000\n"
+"Last-Translator: Colin Watson <cjwatson@canonical.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 
 #. Type: text
 #. Description
@@ -1821,7 +1821,7 @@ msgstr "这将启动逻辑分区管理(LVM)，有快照和调整分区大小等�
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr "确认你的安全密钥"
+msgstr "确认你的安全密钥："
 
 #. Type: text
 #. Description
@@ -1853,8 +1853,8 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
-"<span foreground=\"darkred\">警告:</span>如果您丢失了安全密钥，您所有的数据都"
-"会丢失。如果有需要的话，请把您的安全密钥记录并保管在一个安全的地方。"
+"<span foreground=\"darkred\">警告：</span>如果您丢失了安全密钥，您所有的数据"
+"都会丢失。如果有需要的话，请把您的安全密钥记录并保管在一个安全的地方。"
 
 #. Type: text
 #. Description

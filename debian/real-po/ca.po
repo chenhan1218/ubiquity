@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-14 11:30+0000\n"
+"PO-Revision-Date: 2012-09-25 10:11+0000\n"
 "Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 
 #. Type: text
 #. Description
@@ -702,13 +702,13 @@ msgstr "Mida:"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Començament d'aquest espai"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Final d'aquest espai"
 
 #. Type: text
 #. Description
@@ -1867,7 +1867,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "En el pas següent triareu la clau de seguretat."
 
 #. Type: text
 #. Description
@@ -1887,13 +1887,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Confirmeu la clau de seguretat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Trieu una clau de seguretat:"
 
 #. Type: text
 #. Description
@@ -1922,31 +1922,31 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:267001
 msgid "For more security:"
-msgstr ""
+msgstr "Per més seguretat:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Sobreescriu l'espai de disc buit"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Això pot fer que la instal·lació trigui molt més."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Grups de volums:"
 
 #. Type: text
 #. Description
@@ -1958,7 +1958,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volums físics:"
 
 #. Type: text
 #. Description
@@ -1984,7 +1984,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Gestió de volums lògics"
 
 #. Type: text
 #. Description

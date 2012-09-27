@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-05 11:26+0000\n"
-"Last-Translator: Dmitriy \"~SH~ [ms]\" Fedorov <Unknown>\n"
+"PO-Revision-Date: 2012-09-22 08:59+0000\n"
+"Last-Translator: Eugene Marshal <Unknown>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 
 #. Type: text
 #. Description
@@ -1872,7 +1872,7 @@ msgstr "Зашифровать файлы Ubuntu для повышения бе�
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr "Ключ безопасности можно будет выбрать далее."
+msgstr "Ключ безопасности можно будет выбрать позднее."
 
 #. Type: text
 #. Description
@@ -1887,7 +1887,7 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
-"Это действие настроит менеджер логических томов (LVM) при установке. Он "
+"Это действие настроит диспетчер логических томов (LVM) при установке. Он "
 "позволяет делать снимки состояния диска и упрощает изменение размера "
 "разделов."
 

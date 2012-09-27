@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-18 10:40+0000\n"
-"Last-Translator: jean-bernard marcon <jean-bernard.marcon@laposte.net>\n"
+"PO-Revision-Date: 2012-09-24 18:50+0000\n"
+"Last-Translator: Nicolas Delvaux <Unknown>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-19 08:01+0000\n"
-"X-Generator: Launchpad (build 15971)\n"
+"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
+"X-Generator: Launchpad (build 16033)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Connexion en cours..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr "Redémarrez pour continuer"
+msgstr "Redémarrer pour continuer"
 
 #. Type: text
 #. Description
@@ -77,7 +77,7 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Ou si vous êtes prêt, vous pouvez installer ${RELEASE} à côté (ou à la "
-"place) de votre système d’exploitation actuel. Cela ne devrait pas prendre "
+"place) de votre système d'exploitation actuel. Cela ne devrait pas prendre "
 "beaucoup de temps."
 
 #. Type: text
@@ -192,13 +192,13 @@ msgstr "Détection de la disposition du clavier…"
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Please press one of the following keys:"
-msgstr "Veuillez appuyer sur l’une des touches suivantes :"
+msgstr "Veuillez appuyer sur l'une des touches suivantes :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Is the following key present on your keyboard?"
-msgstr "Votre clavier est-il doté de cette touche ?"
+msgstr "Cette touche est-elle présente sur votre clavier ?"
 
 #. Type: text
 #. Description
@@ -328,7 +328,7 @@ msgstr "Ne peut pas commencer ou finir par un tiret."
 #: ../ubiquity.templates:45001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
-"Ne peut commencer ou finir par un point, ou contenir la séquence \"..\"."
+"Ne peut commencer ou finir par un point, ni contenir la séquence « .. »."
 
 #. Type: text
 #. Description
@@ -439,7 +439,7 @@ msgstr "Fichiers (${SIZE})"
 #. Description
 #: ../ubiquity.templates:60001
 msgid "Prepare partitions"
-msgstr "Préparation des partitions"
+msgstr "Préparer les partitions"
 
 #. Type: text
 #. Description
@@ -554,7 +554,7 @@ msgstr "Éteindre maintenant"
 #. Description
 #: ../ubiquity.templates:78001 ../ubiquity.templates:79001
 msgid "Installer crashed"
-msgstr "L’installateur a rencontré une erreur"
+msgstr "L’installateur a planté"
 
 #. Type: text
 #. Description
@@ -826,13 +826,13 @@ msgstr "Installation du système"
 #. Description
 #: ../ubiquity.templates:117001
 msgid "Finding the distribution to copy..."
-msgstr "Recherche de la distribution à copier..."
+msgstr "Recherche de la distribution à copier…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:119001
 msgid "Copying files..."
-msgstr "Copie des fichiers..."
+msgstr "Copie des fichiers…"
 
 #. Type: text
 #. Description
@@ -944,13 +944,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Copying installation logs..."
-msgstr "Copie des journaux d’installation..."
+msgstr "Copie des journaux d’installation…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Configuring target system..."
-msgstr "Configuration du système de destination..."
+msgstr "Configuration du système de destination…"
 
 #. Type: text
 #. Description
@@ -962,49 +962,49 @@ msgstr "Configuration des variables linguistiques et régionales…"
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Configuring apt..."
-msgstr "Configuration de apt..."
+msgstr "Configuration de apt…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring time zone..."
-msgstr "Configuration du fuseau horaire..."
+msgstr "Configuration du fuseau horaire…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring keyboard..."
-msgstr "Configuration du clavier..."
+msgstr "Configuration du clavier…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Creating user..."
-msgstr "Création de l’utilisateur..."
+msgstr "Création de l’utilisateur…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring hardware..."
-msgstr "Configuration du matériel..."
+msgstr "Configuration du matériel…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Installing third-party software..."
-msgstr "Installation de logiciels tiers en cours..."
+msgstr "Installation de logiciels tiers en cours…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Configuring network..."
-msgstr "Configuration du réseau..."
+msgstr "Configuration du réseau…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
-msgstr "Configuration du chargeur de d’amorçage..."
+msgstr "Configuration du chargeur de d’amorçage…"
 
 #. Type: text
 #. Description
@@ -1028,37 +1028,37 @@ msgstr "Installation de paquets supplémentaires…"
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Checking for packages to install..."
-msgstr "Vérification des paquets à installer..."
+msgstr "Vérification des paquets à installer…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Removing extra packages..."
-msgstr "Suppression des paquets supplémentaires..."
+msgstr "Suppression des paquets supplémentaires…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Checking for packages to remove..."
-msgstr "Vérification des paquets à supprimer..."
+msgstr "Vérification des paquets à supprimer…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Téléchargement des paquets (fin dans ${TIME})..."
+msgstr "Téléchargement des paquets (fin dans ${TIME})…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Downloading package lists..."
-msgstr "Téléchargement des listes de paquets..."
+msgstr "Téléchargement des listes de paquets…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Téléchargement de la liste des paquets (fin dans ${TIME})..."
+msgstr "Téléchargement des listes des paquets (fin dans ${TIME})…"
 
 #. Type: error
 #. Description
@@ -1186,7 +1186,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:157001
 msgid "Calculating files to skip copying..."
-msgstr "Détermination des fichiers à ne pas copier..."
+msgstr "Détermination des fichiers à ne pas copier…"
 
 #. Type: title
 #. Description
@@ -1198,7 +1198,7 @@ msgstr "Installation des paquets linguistiques"
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Téléchargement des paquets linguistiques (${TIME} restant)..."
+msgstr "Téléchargement des paquets linguistiques (${TIME} restant)…"
 
 #. Type: boolean
 #. Description
@@ -1221,7 +1221,8 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Please close any applications using these mount points."
-msgstr "Veuillez fermer les applications utilisant ces points de montage."
+msgstr ""
+"Veuillez fermer toutes les applications utilisant ces points de montage."
 
 #. Type: boolean
 #. Description
@@ -1254,8 +1255,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Si vous ne revenez à l’outil de partitionnement pour augmenter la taille de "
-"ces partitions, l’installation pourra échouer."
+"Si vous ne revenez pas à l’outil de partitionnement pour augmenter la taille "
+"de ces partitions, l’installation pourra échouer."
 
 #. Type: text
 #. Description
@@ -1311,7 +1312,7 @@ msgstr "Clavier"
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Disk Setup"
-msgstr "Partition du disque dur"
+msgstr "Configuration disque"
 
 #. Type: text
 #. Description
@@ -1510,8 +1511,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d partitions plus petites sont masquées, utilisez l’<a href="
-"\"\">outil de partitionnement avancé</a>  pour plus de contrôle</small>"
+"<small>%d partitions plus petites sont masquées, utilisez <a href="
+"\"\">l’outil de partitionnement avancé</a>  pour plus de contrôle</small>"
 
 #. Type: text
 #. Description
@@ -1520,7 +1521,7 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>Une plus petite partition est masquée, utilisez l’<a href=\"\">outil "
+"<small>Une plus petite partition est masquée, utilisez <a href=\"\">l’outil "
 "de partitionnement avancé</a>  pour plus de contrôle</small>"
 
 #. Type: text
@@ -1866,7 +1867,7 @@ msgid ""
 "do?"
 msgstr ""
 "${OS1} et ${OS2} sont actuellement installés sur cet ordinateur. Que voulez-"
-"vous faire ?"
+"vous faire ?"
 
 #. Type: text
 #. Description
@@ -1973,13 +1974,13 @@ msgstr "Écraser l'espace disque vide"
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr "L'installation peut durer plus longtemps."
+msgstr "L'installation peut durer beaucoup plus longtemps."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr "LVM..."
+msgstr "LVM…"
 
 #. Type: text
 #. Description
@@ -2031,7 +2032,7 @@ msgstr "Gestion de volumes logiques (LVM)"
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr "Options de chiffrement..."
+msgstr "Options de chiffrement…"
 
 #. Type: title
 #. Description
@@ -2056,7 +2057,7 @@ msgstr "Préparer une configuration OEM"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Préparation de la configuration OEM..."
+msgstr "Préparation de la configuration OEM…"
 
 #. Type: text
 #. Description
