@@ -8,6 +8,7 @@ ubiquity (2.12.6) UNRELEASED; urgency=low
   * Bind-mount /run while installing packages in the target chroot, so that
     name resolution works (LP: #1055326).
   * Update translations from Launchpad (LP: #1056029).
+  * Upgrade to Automake 1.11.6.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Sep 2012 00:03:43 +0100
 
