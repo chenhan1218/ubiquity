@@ -1,4 +1,4 @@
-ubiquity (2.12.6) UNRELEASED; urgency=low
+ubiquity (2.12.6) quantal; urgency=low
 
   * Make the accessibility indicator menu items translatable (LP: #1040438).
     Note that this just adds the necessary infrastructure; we still need
@@ -12,7 +12,7 @@ ubiquity (2.12.6) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.91ubuntu5, flash-kernel 3.0~rc.4ubuntu26.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 27 Sep 2012 00:03:43 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 28 Sep 2012 00:41:00 +0100
 
 ubiquity (2.12.5) quantal; urgency=low
 
