@@ -256,7 +256,7 @@ binary-indep: install-stamp
 	dh_shlibdeps
 	dh_gencontrol -- -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
-	dh_builddeb
+	dh_builddeb -Zxz
 
 BINARY_ARCH_OPTIONS := -a
 ifdef UBIQUITY_NO_GTK
@@ -298,7 +298,7 @@ binary-arch: tests install-stamp
 	dh_shlibdeps
 	dh_gencontrol -- -V'console-setup-depends=$(console-setup-depends)' -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
-	dh_builddeb
+	dh_builddeb -Zxz
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install tests

@@ -1,7 +1,11 @@
 ubiquity (2.12.7) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Change calculate_reuse_option logic to allow upgrading development
     releases to final/newer. (LP: #1050562)
+
+  [ Colin Watson ]
+  * Use xz compression for binary packages.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 28 Sep 2012 14:21:13 +0100
 
