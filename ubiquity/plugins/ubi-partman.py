@@ -1933,11 +1933,22 @@ class Page(plugin.Plugin):
         if 'reuse' in self.extra_options:
             reuse = self.extra_options['reuse']
             if len(reuse) == 1:
-                ubuntu = misc.find_in_os_prober(reuse[0][1])
-                # TODO: come up with a better version check than this by using
-                # SUBST with DISTRIB_ID and DISTRIB_RELEASE in partman-auto.
-                # FIXME: this currently breaks as we now strip out "(11.04)".
-                if '(%s)' % release.version in ubuntu:
+                ubuntu, current_version = \
+                  misc.find_in_os_prober(reuse[0][1], with_version=True)
+                final = current_version in ubuntu
+                try:
+                    new_version = re.split(
+                        ".*([0-9]{2}\.[0-9]{2}).*", release.version)
+
+                    if current_version == '' or len(new_version) < 2:
+                        return None
+
+                    new_version = new_version[1]
+
+                except ValueError:
+                    return None
+
+                if current_version == new_version and final:
                     # "Windows (or Mac, ...) and the current version of Ubuntu
                     # are present" case
                     q = 'ubiquity/partitioner/ubuntu_reinstall'
@@ -1945,25 +1956,13 @@ class Page(plugin.Plugin):
                     title = self.description(q)
                     desc = self.extended_description(q)
                     return PartitioningOption(title, desc)
-                else:
+
+                if current_version <= new_version:
                     # "Windows (or Mac, ...) and an older version of Ubuntu are
                     # present" case
 
                     # Only allow reuse with newer install media
                     # also block reuse when invalid version number or codename
-                    try:
-                        current_version = re.split(
-                            ".*([0-9]{2}\.[0-9]{2}).*", ubuntu)
-                        new_version = re.split(
-                            ".*([0-9]{2}\.[0-9]{2}).*", release.version)
-
-                        if len(current_version) < 2 or len(new_version) < 2:
-                            return None
-
-                        if float(current_version[1]) >= float(new_version[1]):
-                            return None
-                    except ValueError:
-                        return None
 
                     q = 'ubiquity/partitioner/ubuntu_upgrade'
                     self.db.subst(q, 'CURDISTRO', ubuntu)

@@ -536,7 +536,14 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
     # 'This computer currently has Ubuntu 10.04 on it.'
     def test_older_ubuntu_only(self):
         operating_system = 'Ubuntu 10.04'
-        misc.find_in_os_prober.return_value = operating_system
+        operating_version = '10.04'
+
+        def side_effect(*args, **kwargs):
+            if 'with_version' in kwargs:
+                return operating_system, operating_version
+            return operating_system
+
+        misc.find_in_os_prober.side_effect = side_effect
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
@@ -575,7 +582,14 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
     # 'This computer currently has Ubuntu 12.04 on it.'
     def test_same_ubuntu_only(self):
         operating_system = 'Ubuntu 12.04'
-        misc.find_in_os_prober.return_value = operating_system
+        operating_version = '12.04'
+
+        def side_effect(*args, **kwargs):
+            if 'with_version' in kwargs:
+                return operating_system, operating_version
+            return operating_system
+
+        misc.find_in_os_prober.side_effect = side_effect
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
@@ -611,7 +625,14 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
     # 'This computer currently has Ubuntu 90.10 on it.'
     def test_newer_ubuntu_only(self):
         operating_system = 'Ubuntu 90.10'
-        misc.find_in_os_prober.return_value = operating_system
+        operating_version = '90.10'
+
+        def side_effect(*args, **kwargs):
+            if 'with_version' in kwargs:
+                return operating_system, operating_version
+            return operating_system
+
+        misc.find_in_os_prober.side_effect = side_effect
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ext4')
         layout = {'=dev=sda': [part]}
         self.page.extra_options = {}

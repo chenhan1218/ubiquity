@@ -1,3 +1,10 @@
+ubiquity (2.12.7) UNRELEASED; urgency=low
+
+  * Change calculate_reuse_option logic to allow upgrading development
+    releases to final/newer. (LP: #1050562)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 28 Sep 2012 14:21:13 +0100
+
 ubiquity (2.12.6) quantal; urgency=low
 
   * Make the accessibility indicator menu items translatable (LP: #1040438).

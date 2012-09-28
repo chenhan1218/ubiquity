@@ -376,16 +376,17 @@ def grub_default():
 
 
 _os_prober_oslist = {}
+_os_prober_osvers = {}
 _os_prober_called = False
 
 
-def find_in_os_prober(device):
+def find_in_os_prober(device, with_version=False):
     """Look for the device name in the output of os-prober.
 
     Return the friendly name of the device, or the empty string on error.
     """
     try:
-        oslist = os_prober()
+        oslist, osvers = os_prober()
         if device in oslist:
             ret = oslist[device]
         elif is_swap(device):
@@ -393,7 +394,12 @@ def find_in_os_prober(device):
         else:
             syslog.syslog('Device %s not found in os-prober output' % device)
             ret = ''
-        return utf8(ret, errors='replace')
+        ret = utf8(ret, errors='replace')
+        ver = utf8(osvers.get(device, ''), errors='replace')
+        if with_version:
+            return ret, ver
+        else:
+            return ret
     except (KeyboardInterrupt, SystemExit):
         pass
     except:
@@ -407,6 +413,7 @@ def find_in_os_prober(device):
 @raise_privileges
 def os_prober():
     global _os_prober_oslist
+    global _os_prober_osvers
     global _os_prober_called
 
     if not _os_prober_called:
@@ -418,13 +425,15 @@ def os_prober():
         for res in result:
             res = res.split(':')
             if res[2] == 'Ubuntu':
+                version = [v for v in re.findall('[0-9.]*', res[1]) if v][0]
                 # Get rid of the superfluous (development version) (11.04)
                 text = re.sub('\s*\(.*\).*', '', res[1])
                 _os_prober_oslist[res[0]] = text
+                _os_prober_osvers[res[0]] = version
             else:
                 # Get rid of the bootloader indication. It's not relevant here.
                 _os_prober_oslist[res[0]] = res[1].replace(' (loader)', '')
-    return _os_prober_oslist
+    return _os_prober_oslist, _os_prober_osvers
 
 
 @raise_privileges
