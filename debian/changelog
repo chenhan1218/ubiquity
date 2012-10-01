@@ -3,6 +3,8 @@ ubiquity (2.12.7) UNRELEASED; urgency=low
   [ Dmitrijs Ledkovs ]
   * Change calculate_reuse_option logic to allow upgrading development
     releases to final/newer. (LP: #1050562)
+  * Automatic update of included source packages: partman-auto
+    103ubuntu2 (LP: #1050562), partman-crypto 54ubuntu2. (LP: #1056707)
 
   [ Colin Watson ]
   * Use xz compression for binary packages.
