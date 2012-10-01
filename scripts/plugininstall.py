@@ -90,6 +90,20 @@ def cleanup_after(func):
     return wrapper
 
 
+class PluginProgress:
+    def __init__(self, db):
+        self._db = db
+
+    def info(self, title):
+        self._db.progress('INFO', title)
+
+    def get(self, question):
+        return self._db.get(question)
+
+    def substitute(self, template, substr, data):
+        self._db.subst(template, substr, data)
+
+
 class Install(install_misc.InstallBase):
     def __init__(self):
         install_misc.InstallBase.__init__(self)
@@ -183,6 +197,8 @@ class Install(install_misc.InstallBase):
         self.next_region()
         self.db.progress('INFO', 'ubiquity/install/network')
         self.configure_network()
+
+        self.configure_locale()
 
         self.next_region()
         self.db.progress('INFO', 'ubiquity/install/apt')
@@ -521,30 +537,39 @@ class Install(install_misc.InstallBase):
                     line += " arp %d" % if_name[0]
                     print(line, file=iftab)
 
+    def run_plugin(self, plugin):
+        """Run a single install plugin."""
+        self.next_region()
+        # set a generic info message in case plugin doesn't provide one
+        self.db.progress('INFO', 'ubiquity/install/title')
+        inst = plugin.Install(None, db=self.db)
+        ret = inst.install(self.target, PluginProgress(self.db))
+        if ret:
+            raise install_misc.InstallStepError(
+                "Plugin %s failed with code %s" % (plugin.NAME, ret))
+
+    def configure_locale(self):
+        """Configure the locale by running the language plugin.
+
+        We need to do this as early as possible so that apt can emit
+        properly-localised messages when running in the target system.
+        """
+        try:
+            language_plugin = [
+                plugin for plugin in self.plugins
+                if plugin_manager.get_mod_string(plugin, "NAME") ==
+                    "language"][0]
+        except IndexError:
+            return
+        self.run_plugin(language_plugin)
+        # Don't run this plugin again.
+        self.plugins = [
+            plugin for plugin in self.plugins if plugin != language_plugin]
+
     def configure_plugins(self):
         """Apply plugin settings to installed system."""
-        class Progress:
-            def __init__(self, db):
-                self._db = db
-
-            def info(self, title):
-                self._db.progress('INFO', title)
-
-            def get(self, question):
-                return self._db.get(question)
-
-            def substitute(self, template, substr, data):
-                self._db.subst(template, substr, data)
-
         for plugin in self.plugins:
-            self.next_region()
-            # set a generic info message in case plugin doesn't provide one
-            self.db.progress('INFO', 'ubiquity/install/title')
-            inst = plugin.Install(None, db=self.db)
-            ret = inst.install(self.target, Progress(self.db))
-            if ret:
-                raise install_misc.InstallStepError(
-                    "Plugin %s failed with code %s" % (plugin.NAME, ret))
+            self.run_plugin(plugin)
 
     def configure_apt(self):
         """Configure /etc/apt/sources.list."""

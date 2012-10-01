@@ -157,9 +157,10 @@ endif
 			> debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
 		chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/$$x; \
 	done
-	sed 's,/usr/share/localechooser,/usr/lib/ubiquity/localechooser,g' \
-		d-i/source/localechooser/post-base-installer.d/05localechooser \
-		> debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
+	cp -a d-i/source/localechooser/post-base-installer.d/05localechooser \
+		debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
+	patch debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer \
+		< d-i/patches/localechooser-post-base-installer.patch
 	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
 	sed 's/\\\$${!TAB}/ /g' \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser \

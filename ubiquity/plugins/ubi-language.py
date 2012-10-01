@@ -19,6 +19,7 @@
 
 from __future__ import print_function
 
+import locale
 import os
 
 import debconf
@@ -739,6 +740,12 @@ class Install(plugin.InstallPlugin):
         rv = plugin.InstallPlugin.install(
             self, target, progress, *args, **kwargs)
         if not rv:
+            if 'UBIQUITY_OEM_USER_CONFIG' not in os.environ:
+                # Start using the newly-generated locale, if possible.
+                try:
+                    locale.setlocale(locale.LC_ALL, '')
+                except locale.Error:
+                    pass
             # fontconfig configuration needs to be adjusted based on the
             # selected locale (from language-selector-common.postinst). Ignore
             # errors.
