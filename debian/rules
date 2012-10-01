@@ -256,7 +256,7 @@ binary-indep: install-stamp
 	dh_shlibdeps
 	dh_gencontrol -- -Vmangled-version='$(MANGLED_VERSION)'
 	dh_md5sums
-	dh_builddeb -Zxz
+	dh_builddeb -- -Zxz
 
 BINARY_ARCH_OPTIONS := -a
 ifdef UBIQUITY_NO_GTK
