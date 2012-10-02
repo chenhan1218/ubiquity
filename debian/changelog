@@ -1,9 +1,15 @@
 ubiquity (2.12.8) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Before starting to do anything with apt, generate the locale in the
     target system, copy it out, and start using it (LP: #644736).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 01 Oct 2012 17:14:27 +0100
+  [ Stéphane Graber ]
+  * Replace use of assert in install_misc by a check, revert and exception
+    so that errors can be ignored by the caller, useful for langpacks.
+    (LP: #898787)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 01 Oct 2012 15:17:29 -0400
 
 ubiquity (2.12.7) quantal; urgency=low
 

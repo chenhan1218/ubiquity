@@ -519,7 +519,12 @@ def mark_install(cache, pkg):
                 if brokenpkgs == new_brokenpkgs:
                     break  # we can do nothing more
                 brokenpkgs = new_brokenpkgs
-            assert cache._depcache.broken_count == 0
+
+            if cache._depcache.broken_count > 0:
+                # We have a conflict we couldn't solve
+                cache.clear()
+                raise InstallStepError(
+                        "Unable to install '%s' due to conflicts." % pkg)
 
 
 def expand_dependencies_simple(cache, keep, to_remove, recommends=True):
@@ -636,7 +641,12 @@ def get_remove_list(cache, to_remove, recursive=False):
                         removed |= broken_removed
                 else:
                     removed.add(pkg)
-                assert cache._depcache.broken_count == 0
+                if cache._depcache.broken_count > 0:
+                    # We have a conflict we couldn't solve
+                    cache.clear()
+                    raise InstallStepError(
+                        "Unable to remove packages due to conflicts.")
+
         if not removed:
             break
         to_remove -= removed
