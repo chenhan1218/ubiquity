@@ -3,6 +3,7 @@ ubiquity (2.12.8) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Before starting to do anything with apt, generate the locale in the
     target system, copy it out, and start using it (LP: #644736).
+  * Update translations from Launchpad.
 
   [ Stéphane Graber ]
   * Replace use of assert in install_misc by a check, revert and exception

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-05-27 01:02+0000\n"
+"PO-Revision-Date: 2012-10-01 19:29+0000\n"
 "Last-Translator: Rūdolfs Mazurs <Unknown>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
-"X-Generator: Launchpad (build 16033)\n"
+"X-Launchpad-Export-Date: 2012-10-02 23:20+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 
 #. Type: text
 #. Description
@@ -53,9 +53,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Jūs instalējat sistēmu ražotāja režīmā. Lūdzu, ievadiet unikālu vārdu šai "
-"sistēmu grupai. Šis vārds tiks saglabāts instalētajā sistēmā un noderēs, "
-"apstrādājot problēmu ziņojumus."
+"Jūs instalējat sistēmu ražotāja režīmā. Lūdzu, ievadiet unikālu nosaukumu "
+"šai sistēmu grupai. Šis nosaukums tiks saglabāts instalētajā sistēmā un "
+"noderēs, apstrādājot problēmu ziņojumus."
 
 #. Type: text
 #. Description
@@ -127,6 +127,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Šis ir ${RELEASE} pirms laidiena dzīvā ${MEDIUM} instalators. Šī nav beigu "
+"versija; tā iznāks līdz ar ${RELEASE} beigu versiju 2012. gada oktobrī."
 
 #. Type: text
 #. Description
@@ -137,7 +139,7 @@ msgid ""
 "this program."
 msgstr ""
 "Instalēšanas procesa laikā jūsu cietā diska nodalījumi var tikt dzēsti vai "
-"to izmērs - mainīts. Lūdzu, nodrošinieties ar <b>pilnu jums nozīmīgu datu "
+"to izmērs — mainīts. Lūdzu, nodrošinieties ar <b>pilnu jums nozīmīgu datu "
 "rezerves kopiju</b> pirms šīs programmas palaišanas."
 
 #. Type: text
@@ -552,34 +554,38 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Diemžēl instalators avarēja. Pēc loga aizvēšanas varēsiet iesniegt kļūdas "
+"ziņojumu, izmantojot integrēto kļūdu ziņošanas rīku. Tas ievāks informāciju "
+"par šo sistēmu un instalēšanas procesu. Šī informācija tiks nosūtīta kļūdu "
+"sekotājam un izstrādātāji pieķersies pie šīs problēmas pie pirmās iespējas."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Augsts kontrasts"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "Ekrāna la_sītājs"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "Tastatūras modifi_katori"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Ekrāna tastatūra"
 
 #. Type: text
 #. Description
@@ -692,19 +698,19 @@ msgstr "Izveidot nodalījumu"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Izmērs:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Vietas sākumā."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Vietas beigās."
 
 #. Type: text
 #. Description
@@ -1550,6 +1556,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} izmanto trešās puses programmatūru, lai atskaņotu Flash, MP3 un "
+"citus multimedijus, kā arī, lai darbotos dažas video kartes un bezvadu tikla "
+"aparatūra. Ne visa šī programmatūra ir brīva. Programmatūras izmantošanu "
+"ierobežo licencēšanas noteikumi, kas ir iekļauti šajā dokumentācijā."
 
 #. Type: text
 #. Description
@@ -1637,7 +1647,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu ${OS} "
+"<span foreground=\"darkred\">Brīdinājums:</span> tas dzēsīs visas jūsu ${OS} "
 "programmas, dokumentus, fotogrāfijas, mūziku, un jebkuras citas datnes."
 
 #. Type: text
@@ -1706,7 +1716,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu "
+"<span foreground=\"darkred\">Brīdinājums:</span> tas dzēsīs visas jūsu "
 "${CURDISTRO} programmas, dokumentus, fotogrāfijas, mūziku, un jebkuras citas "
 "datnes."
 
@@ -1757,7 +1767,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Brīdinājums:</span> Tiks dzēstas visas datnes "
+"<span foreground=\"darkred\">Brīdinājums:</span> tiks dzēstas visas datnes "
 "uz diska."
 
 #. Type: text
@@ -1776,8 +1786,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu "
-"programmas, dokumentus, fotogrāfijas, mūziku, un jebkurus citus failus gan "
+"<span foreground=\"darkred\">Brīdinājums:</span> tas dzēsīs visas jūsu "
+"programmas, dokumentus, fotogrāfijas, mūziku, un jebkuras citas datnes gan "
 "${OS}, gan ${CURDISTRO}."
 
 #. Type: text
@@ -1795,7 +1805,7 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Brīdinājums:</span> Tas dzēsīs visas jūsu "
+"<span foreground=\"darkred\">Brīdinājums:</span> tas dzēsīs visas jūsu "
 "programmas, dokumentus, fotogrāfijas, mūziku, un jebkuras citas datnes visās "
 "operētājsistēmās."
 
@@ -1843,19 +1853,19 @@ msgstr "Uz šī datora nav atrastas operētājsistēmas. Ko vēlaties darīt?"
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Šifrēt jauno Ubuntu instalāciju drošības dēļ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Nākamajā solī jūs izvēlēsities drošības atslēgu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Lietot LVM ar jauno Ubuntu instalāciju"
 
 #. Type: text
 #. Description
@@ -1864,18 +1874,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Šis solis iestatīts loģisko sējumu pārvaldību (LVM). Tas ļaus veidot "
+"sistēmas momentuzņēmumus un atvieglos nodalījumu izmēru maiņu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Apstipriniet drošības atslēgu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Izvēlieties drošības atslēgu:"
 
 #. Type: text
 #. Description
@@ -1884,12 +1896,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Diska šifrēšana aizsargā datnes, ja esat pazaudējuši datoru. Tā liek ievadīt "
+"drošības atslēgu katru reizi, kad ieslēgsiet datoru."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Visas datnes ārpus Ubuntu netiks šifrētas."
 
 #. Type: text
 #. Description
@@ -1899,60 +1913,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Brīdinājums:</span> ja pazaudēsiet šo drošības "
+"atslēgu, visi dati pazudīs. Ja nepieciešams, pierakstiet savu atslēgu un "
+"turiet to drošā vietā kaut kur citur."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "For more security:"
-msgstr ""
+msgstr "Vairāk drošībai:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Pārrakstīt tukšo diska vietu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Instalēšana var aizņemt daudz vairāk laika."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Sējumu grupas:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Šifrēšanas opcijas"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fiziskie sējumi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Šifrēt šo nodalījumu (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1961,18 +1978,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Loģisko sējumu pārvaldība (LVM) ļauj Ubuntu izmantot vairākus fiziskus "
+"sējumus kā vienu sējumu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Loģisko sējumu pārvaldība"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Šifrēšanas opcijas..."
 
 #. Type: title
 #. Description

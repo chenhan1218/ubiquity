@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-09 08:59+0000\n"
-"Last-Translator: Paco Molinero <paco@byasl.com>\n"
+"PO-Revision-Date: 2012-10-02 06:56+0000\n"
+"Last-Translator: Monkey <monkey.libre@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
-"X-Generator: Launchpad (build 16033)\n"
+"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 
 #. Type: text
 #. Description
@@ -177,19 +177,19 @@ msgstr "Escriba aquí para comprobar su teclado"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Detect Keyboard Layout"
-msgstr "Detectar distribución del teclado"
+msgstr "Detectar la distribución del teclado"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout..."
-msgstr "Detectar distribución del teclado..."
+msgstr "Detectar la distribución del teclado…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Please press one of the following keys:"
-msgstr "Presione alguna de las teclas siguientes:"
+msgstr "Pulse alguna de las teclas siguientes:"
 
 #. Type: text
 #. Description
@@ -225,7 +225,7 @@ msgstr "O elija una imagen existente:"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "Take Photo"
-msgstr "Capturar foto"
+msgstr "Tome una foto"
 
 #. Type: text
 #. Description
@@ -255,7 +255,7 @@ msgstr "Usuario"
 #. Description
 #: ../ubiquity.templates:34001
 msgid "Must start with a lower-case letter."
-msgstr "Debe comenzar con una letra minúscula"
+msgstr "Debe comenzar con una letra minúscula."
 
 #. Type: text
 #. Description
@@ -280,7 +280,7 @@ msgstr "Contraseña"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Confirm password"
-msgstr "Confirmar contraseña"
+msgstr "Confirme la contraseña"
 
 #. Type: text
 #. Description
@@ -316,7 +316,7 @@ msgstr "Solo puede contener letras, números, guiones y puntos."
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr "No puede empezar o terminar con un guión"
+msgstr "No puede empezar o terminar con un guion."
 
 #. Type: text
 #. Description
@@ -561,7 +561,7 @@ msgstr ""
 "Lo sentimos, el instalador se estropeó. Después de cerrar esta ventana, "
 "podrá presentar un informe de fallo usando la herramienta de informe de "
 "errores integrada. Esto recopilará información sobre el sistema y el proceso "
-"de instalación. Los detalles serán enviados a nuestro gestor de fallos y un "
+"de instalación. Los detalles se enviarán a nuestro gestor de fallos y un "
 "desarrollador atenderá el problema lo antes posible."
 
 #. Type: text
@@ -569,28 +569,28 @@ msgstr ""
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "Contraste _alto"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Lector de pantalla"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Modificadores de teclado"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Teclado en pantalla"
 
 #. Type: text
 #. Description
@@ -611,7 +611,7 @@ msgstr "Añadir..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:87001
 msgid "Change..."
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #. Type: text
 #. Description
@@ -756,7 +756,7 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"La instalación ha terminado. Puede continuar probando ${RELEASE} ahora pero, "
+"La instalación ha terminado. Puede continuar probando ${RELEASE} ahora pero "
 "mientras no reinicie el equipo, cualquier cambio que haga o documento que "
 "guarde no se conservará."
 
@@ -868,9 +868,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Esto se debe a que no hay suficiente espacio en disco para completar la "
-"instalación en la partición seleccionada. Por favor, abra el instalador de "
-"nuevo y seleccione una partición más grande en donde instalar."
+"Esto se debe a que no hay suficiente espacio en el disco para completar la "
+"instalación en la partición seleccionada. Abra el instalador de nuevo y "
+"seleccione una partición más grande en donde instalar."
 
 #. Type: error
 #. Description
@@ -947,31 +947,31 @@ msgstr "Configurando los idiomas del sistema..."
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Configuring apt..."
-msgstr "Configurando APT..."
+msgstr "Configurando apt…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring time zone..."
-msgstr "Configurando la zona horaria..."
+msgstr "Configurando la zona horaria…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring keyboard..."
-msgstr "Configurando el teclado..."
+msgstr "Configurando el teclado…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Creating user..."
-msgstr "Creando usuario..."
+msgstr "Creando el usuario…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring hardware..."
-msgstr "Configurando el hardware..."
+msgstr "Configurando el hardware…"
 
 #. Type: text
 #. Description
@@ -1019,7 +1019,7 @@ msgstr "Comprobando los paquetes a instalar..."
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Removing extra packages..."
-msgstr "Desinstalando los paquetes adicionales..."
+msgstr "Desinstalando los paquetes adicionales…"
 
 #. Type: text
 #. Description
@@ -1091,13 +1091,13 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Esto puede deberse a que se está usando una imagen antigua del instalador, o "
+"Esto puede deberse a que se está usando una imagen antigua del instalador o "
 "a un error en algunos de los paquetes listados a continuación. Puede "
 "encontrar más detalles en /var/log/syslog. El instalador intentará continuar "
-"de todas formas, pero puede fallar en un punto posterior, y no será capaz de "
+"de todas formas, pero puede fallar en un punto posterior y no será capaz de "
 "instalar o desinstalar otros paquetes (incluyendo, posiblemente, él mismo) "
 "del sistema instalado. Debería buscar primero nuevas versiones de su imagen "
-"del instalador, o notificar el problema a su distribuidor."
+"del instalador o notificar el problema a su distribuidor."
 
 #. Type: error
 #. Description
@@ -1126,8 +1126,8 @@ msgid ""
 "installed system."
 msgstr ""
 "Se produjo un error al copiar la configuración de red. La instalación "
-"continuará, pero la configuración de la red tendrá que ser creada de nuevo "
-"en el sistema instalado."
+"continuará, pero tendrá que crear de nuevo la configuración de la red en el "
+"sistema instalado."
 
 #. Type: error
 #. Description
@@ -1204,9 +1204,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Please close any applications using these mount points."
-msgstr ""
-"Por favor, cierre cualquier aplicación que este usando estos puntos de "
-"montaje."
+msgstr "Cierre cualquier aplicación que esté usando estos puntos de montaje."
 
 #. Type: boolean
 #. Description
@@ -1709,7 +1707,7 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"Puede crear particiones, redimensionarlas, o elegir varias particiones para "
+"Puede crear particiones, redimensionarlas o elegir varias particiones para "
 "${DISTRO}."
 
 #. Type: text
@@ -1831,7 +1829,7 @@ msgstr "Instalar ${DISTRO} junto a ellos"
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:254001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr "Este equipo tiene instalado actualmente ${OS}. ¿Qué desea hacer?"
+msgstr "Este equipo tiene instalado actualmente ${OS}. ¿Qué quiere hacer?"
 
 #. Type: text
 #. Description
@@ -1842,7 +1840,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
-"Este equipo tiene instalados actualmente ${OS1} y ${OS2}. ¿Qué desea hacer?"
+"Este equipo tiene instalados actualmente ${OS1} y ${OS2}. ¿Qué quiere hacer?"
 
 #. Type: text
 #. Description
@@ -1852,7 +1850,7 @@ msgid ""
 "like to do?"
 msgstr ""
 "Este equipo tiene instalados actualmente varios sistemas operativos. ¿Qué "
-"desea hacer?"
+"quiere hacer?"
 
 #. Type: text
 #. Description
@@ -1862,7 +1860,7 @@ msgid ""
 "like to do?"
 msgstr ""
 "En este equipo no se ha detectado actualmente ningún sistema operativo. ¿Qué "
-"desea hacer?"
+"quiere hacer?"
 
 #. Type: text
 #. Description
@@ -1993,14 +1991,14 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
-"La Gestión de volúmenes (JVM) permite que Ubuntu trate múltiples volúmenes "
-"físicos como un solo volumen."
+"La Gestión de Volumen Lógico (LVM) permite que Ubuntu trate múltiples "
+"volúmenes físicos como un solo volumen."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr "Gestión del volumen lógico"
+msgstr "Gestión de volumen lógico"
 
 #. Type: text
 #. Description
@@ -2013,7 +2011,7 @@ msgstr "Opciones de cifrado..."
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr "Modo OEM (sólo para fabricantes)"
+msgstr "Modo OEM (solo para fabricantes)"
 
 #. Type: text
 #. Description

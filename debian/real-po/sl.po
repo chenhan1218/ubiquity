@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-03 13:38+0000\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"PO-Revision-Date: 2012-09-29 07:55+0000\n"
+"Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
-"X-Generator: Launchpad (build 16033)\n"
+"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 
 #. Type: text
 #. Description
@@ -567,28 +567,28 @@ msgstr ""
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Visok kontrast"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Bralnik zaslona"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Spremenilniki tipkovnice"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Zaslonska tipkovnica"
 
 #. Type: text
 #. Description
@@ -796,7 +796,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Namestitev je končana. Pred uporabo na novo nameščenega sistema je treba "
+"Namestitev je končana. Pred uporabo na novo nameščenega sistema morate "
 "računalnik ponovno zagnati."
 
 #. Type: text
@@ -1432,7 +1432,7 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"Povezovanje tega računalnika z omrežjem wi-fi vam omogoča namestitev "
+"Povezovanje tega računalnika z brezžičnim omrežjem vam omogoča namestitev "
 "programov tretjih oseb, prejem posodobitev, samodejno zaznavanje vašega "
 "časovnega pasu in namestitev polne podpore za vaš jezik."
 
@@ -1446,7 +1446,7 @@ msgstr "Geslo:"
 #. Description
 #: ../ubiquity.templates:207001
 msgid "Display password"
-msgstr "Prikaži geslo"
+msgstr "Pokaži geslo"
 
 #. Type: text
 #. Description
@@ -1561,10 +1561,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} za predvajanje Flash, MP3 in drugih medijev kot tudi za delo z "
-"grafično in wi-fi strojno opremo uporablja programsko opremo tretjih oseb. "
-"Nekatera programska oprema je lastniško zaščitena. Le-ta je predmet "
-"licenčnih pogojev vključenih v njeno dokumentacijo."
+"${RELEASE} za predvajanje Flash, MP3 in drugih medijev in za delo z nekatero "
+"grafično in brezžično strojno opremo uporablja programsko opremo tretjih "
+"oseb. Nekatera programska oprema je lastniško zaščitena in predmet licenčnih "
+"pogojev vključenih v njeno dokumentacijo."
 
 #. Type: text
 #. Description
@@ -1580,7 +1580,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid "Install this third-party software"
-msgstr "Namesti te programe tretjih oseb"
+msgstr "Namesti programe tretjih oseb"
 
 #. Type: text
 #. Description

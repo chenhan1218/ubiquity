@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-03-13 19:04+0000\n"
-"Last-Translator: Bence Lukács <Unknown>\n"
+"PO-Revision-Date: 2012-09-30 12:50+0000\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
-"X-Generator: Launchpad (build 16033)\n"
+"X-Launchpad-Export-Date: 2012-10-02 23:20+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 
 #. Type: text
 #. Description
@@ -126,6 +126,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Ez a(z) ${RELEASE} live ${MEDIUM} telepítő előzetes kiadása. Ez még nem a "
+"végleges kiadás, az a(z) ${RELEASE} végleges kiadásában lesz elérhető, 2012 "
+"októberében."
 
 #. Type: text
 #. Description
@@ -555,34 +558,39 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Elnézést, a telepítő összeomlott. Ezen ablak bezárása után lehetősége lesz a "
+"hiba bejelentésére az integrált hibajelentő eszközzel. Ez információkat fog "
+"gyűjteni a rendszerről és a telepítési folyamatról. A részletek elküldésre "
+"kerülnek a hibajelentőnkbe, és egy fejlesztő foglalkozni fog a problémával, "
+"amint az lehetséges."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Nagy kontraszt"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Képernyőolvasó"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Billentyűmódosítók"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "Kép_ernyő-billentyűzet"
 
 #. Type: text
 #. Description
@@ -695,19 +703,19 @@ msgstr "Partíció létrehozása"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Méret:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "A hely kezdete"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "A hely vége"
 
 #. Type: text
 #. Description
@@ -1556,6 +1564,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"A(z) ${RELEASE} harmadik féltől származó szoftverekkel támogatja a Flash-"
+"megjelenítést, az MP3 és más médiaformátumok lejátszását és néhány Wi-Fi "
+"hardvert. Ezen szoftverek egy része zárt forrású, és ezekre a "
+"dokumentációikban szereplő licencek vonatkoznak."
 
 #. Type: text
 #. Description
@@ -1852,19 +1864,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Az új Ubuntu telepítés titkosítása biztonsági okból"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "A következő lépésben kiválaszthatja a biztonsági kulcsot."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "LVM használata az új Ubuntu telepítésen"
 
 #. Type: text
 #. Description
@@ -1873,18 +1885,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Ezzel telepíti a logikai kötetkezelőt, amellyel pillanatképeket hozhat létre "
+"a kötetekről, és átméretezheti a partíciókat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "A biztonsági kulcs megerősítése:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Válasszon egy biztonsági kulcsot:"
 
 #. Type: text
 #. Description
@@ -1893,12 +1907,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"A lemeztitkosítás megvédi fájljait a számítógép elvesztése esetén. A "
+"biztonsági kulcsot a számítógép minden indulásakor meg kell adnia."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Az Ubuntun kívüli fájlok nem lesznek titkosítva."
 
 #. Type: text
 #. Description
@@ -1908,60 +1924,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Figyelmeztetés:</span> A biztonsági kulcs "
+"nélkül nem férhet hozzá az adataihoz. Szükség esetén írja le a biztonsági "
+"kulcsot, és tárolja biztonságos helyen, a számítógéptől távol."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "For more security:"
-msgstr ""
+msgstr "A biztonság növelése érdekében:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Az üres lemezterület felülírása."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "A telepítés sokkal tovább tarthat."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Kötetcsoportok:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Titkosítási beállítások"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fizikai kötetek:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Partíció titkosítása (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1970,18 +1989,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"A logikai kötetkezelés (LVM) segítségével az Ubuntu több fizikai kötetet egy "
+"kötetként tud kezelni."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logikai kötetkezelés"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Titkosítási beállítások…"
 
 #. Type: title
 #. Description

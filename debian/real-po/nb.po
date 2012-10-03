@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
-"X-Generator: Launchpad (build 16033)\n"
+"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 
 #. Type: text
 #. Description
@@ -42,7 +42,7 @@ msgstr "Installer"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Installer (OEM modus, for maskinprodusenter)"
+msgstr "Installer (OEM-modus, for maskinprodusenter)"
 
 #. Type: text
 #. Description
@@ -2003,7 +2003,7 @@ msgstr "Gjør klart for OEM-konfigurasjon"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Gjør klart for OEM-konfigurasjon ..."
+msgstr "Gjør klart for OEM-konfigurasjon …"
 
 #. Type: text
 #. Description
@@ -2020,10 +2020,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Når du starter opp det nye systemet vil du kunne logge inn som brukeren "
-"'oem' med passordet du satte i under installasjonen. Denne brukeren har også "
-"administrative rettigheter via 'sudo'. Du kan da gjøre de endringene du "
-"ønsker i systemet."
+"Når du starter opp det nye systemet, vil du kunne logge inn som brukeren "
+"­«oem» med passordet du valgte under installasjonen. Denne brukeren har også "
+"administrative rettigheter via «sudo». Du kan da gjøre eventuelle endringer "
+"på systemet."
 
 #. Type: text
 #. Description

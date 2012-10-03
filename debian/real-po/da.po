@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-09-26 14:43+0000\n"
-"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
+"PO-Revision-Date: 2012-09-30 14:56+0000\n"
+"Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-26 23:12+0000\n"
-"X-Generator: Launchpad (build 16033)\n"
+"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 "X-Poedit-Language: Danish\n"
 
 #. Type: text
@@ -1892,6 +1892,8 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Dette vil konfigurere logisk diskenhedshåndtering (LVM). Det gør det muligt "
+"at danne øjebliksbilleder og nemmere at ændre størrelse på partitioner."
 
 #. Type: text
 #. Description
@@ -1962,7 +1964,7 @@ msgstr "LVM ..."
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Diskenhedsgrupper:"
 
 #. Type: text
 #. Description
@@ -1974,7 +1976,7 @@ msgstr "Indstillinger for kryptering"
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fysiske diskenheder:"
 
 #. Type: text
 #. Description
@@ -1995,12 +1997,14 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logisk diskenhedshåndtering (LVM) lader Ubuntu behandle flere fysiske "
+"delarkiver som ét enkelt delarkiv."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logisk diskenhedshåndtering (LVM)"
 
 #. Type: text
 #. Description
