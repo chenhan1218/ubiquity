@@ -1,4 +1,4 @@
-ubiquity (2.12.8) UNRELEASED; urgency=low
+ubiquity (2.12.8) quantal; urgency=low
 
   [ Colin Watson ]
   * Before starting to do anything with apt, generate the locale in the
@@ -10,7 +10,7 @@ ubiquity (2.12.8) UNRELEASED; urgency=low
     so that errors can be ignored by the caller, useful for langpacks.
     (LP: #898787)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 01 Oct 2012 15:17:29 -0400
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2012 09:11:16 +0100
 
 ubiquity (2.12.7) quantal; urgency=low
 
