@@ -11,20 +11,24 @@ from ubiquity import i18n
 
 _uidir = "/usr/share/ubiquity/qt/"
 
+
 def get_string(name, lang=None, prefix=None):
     """Get the string name in the given lang or a default."""
     if lang is None and 'LANG' in os.environ:
         lang = os.environ['LANG']
     return i18n.get_string(name, lang, prefix)
 
+
 def addBars(parent, before_bar, after_bar):
     frame = QtGui.QWidget(parent)
     frame.setLayout(QtGui.QVBoxLayout())
     frame.layout().setSpacing(0)
 
-    frame.layout().addWidget(QtGui.QLabel(get_string('ubiquity/text/partition_layout_before')))
+    frame.layout().addWidget(QtGui.QLabel(
+            get_string('ubiquity/text/partition_layout_before')))
     frame.layout().addWidget(before_bar)
-    frame.layout().addWidget(QtGui.QLabel(get_string('ubiquity/text/partition_layout_after')))
+    frame.layout().addWidget(QtGui.QLabel(
+            get_string('ubiquity/text/partition_layout_after')))
     frame.layout().addWidget(after_bar)
 
     parent.layout().addWidget(frame)
