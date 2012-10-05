@@ -10,6 +10,10 @@ ubiquity (2.12.8) quantal; urgency=low
     so that errors can be ignored by the caller, useful for langpacks.
     (LP: #898787)
 
+  [ Jonathan Riddell ]
+  * KDE PartAuto.py Translate strings which previously were not translated.
+    Thanks to Pantelis Koukousoulas
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2012 09:11:16 +0100
 
 ubiquity (2.12.7) quantal; urgency=low
