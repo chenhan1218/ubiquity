@@ -2,7 +2,7 @@ ubiquity (2.12.9) UNRELEASED; urgency=low
 
   [ Oliver Grawert ]
   * drop recommends of redboot-tools so the package can go to universe
-  (LP: #1064271)
+    (LP: #1064271)
 
   [ Colin Watson ]
   * Try to install a signed kernel if base-installer asks for one.
