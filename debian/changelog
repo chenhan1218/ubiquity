@@ -1,4 +1,4 @@
-ubiquity (2.12.9) UNRELEASED; urgency=low
+ubiquity (2.12.9) quantal; urgency=low
 
   [ Jonathan Riddell ]
   * KDE PartAuto.py Translate strings which previously were not translated.
@@ -17,7 +17,7 @@ ubiquity (2.12.9) UNRELEASED; urgency=low
     1.122ubuntu12, console-setup 1.70ubuntu6, flash-kernel 3.0~rc.4ubuntu27,
     grub-installer 1.78ubuntu5.
 
- -- Oliver Grawert <ogra@ubuntu.com>  Tue, 09 Oct 2012 11:58:03 +0200
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Oct 2012 16:21:17 +0100
 
 ubiquity (2.12.8) quantal; urgency=low
 
