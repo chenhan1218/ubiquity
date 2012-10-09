@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-10-02 21:10+0000\n"
+"PO-Revision-Date: 2012-10-09 07:49+0000\n"
 "Last-Translator: Joan Duran <jodufi@gmail.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
-"X-Generator: Launchpad (build 16061)\n"
+"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
+"X-Generator: Launchpad (build 16112)\n"
 
 #. Type: text
 #. Description
@@ -126,6 +126,10 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Aquesta és una versió en desenvolupament de l'instal·lador en ${MEDIUM} "
+"autònom del sistema operatiu ${RELEASE}. No és una versió final, la qual "
+"estarà disponible amb l'alliberament del sistema operatiu ${RELEASE} a "
+"l'octubre de 2012."
 
 #. Type: text
 #. Description
@@ -556,13 +560,18 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Ho sentim, l'instal·lador ha fallat. Després de tancar aquesta finestra, "
+"podreu crear un informe d'error utilitzant l'eina integrada d'informació "
+"d'errors. Aquesta recopilarà informació sobre el sistema i el procés "
+"d'instal·lació. Els detalls s'enviaran al nostre gestor d'errors i un "
+"desenvolupador s'encarregarà del problema quan pugui."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "Contrast _alt"
 
 #. Type: text
 #. Description
@@ -576,14 +585,14 @@ msgstr "_Lector de pantalla"
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Modificadors de teclat"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Teclat en pantalla"
 
 #. Type: text
 #. Description
@@ -1562,6 +1571,11 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"El sistema operatiu ${RELEASE} utilitza programari de tercers per permetre "
+"la reproducció dels formats Flash, MP3 i d'altres, així com per permetre el "
+"funcionament de cert maquinari de xarxa sense fil. Algunes d'aquestes "
+"aplicacions no són programari lliure, i estan sotmeses a les condicions de "
+"llicència incloses en la seva documentació."
 
 #. Type: text
 #. Description
@@ -1861,7 +1875,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Encripta  la instal·lació nova de l'Ubuntu per seguretat"
 
 #. Type: text
 #. Description
@@ -1873,7 +1887,7 @@ msgstr "En el pas següent triareu la clau de seguretat."
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Utilitza el LVM amb la instal·lació nova de l'Ubuntu"
 
 #. Type: text
 #. Description
@@ -1882,6 +1896,8 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Això configurarà la gestió de volums lògics, la qual permet fer instantànies "
+"i canviar la mida de particions de manera senzilla."
 
 #. Type: text
 #. Description
@@ -1902,12 +1918,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"L'encriptació de discs protegeix els fitxers en cas que perdeu l'ordinador. "
+"Us caldrà escriure una clau de seguretat cada cop que s'inicïi l'ordinador."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "No s'encriptarà cap fitxer extern a l'Ubuntu"
 
 #. Type: text
 #. Description
@@ -1917,6 +1935,9 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Atenció:</span> Si perdeu aquesta clau de "
+"seguretat, perdreu totes les dades. Si voleu, la podeu escriure i guardar-la "
+"en un lloc segur."
 
 #. Type: text
 #. Description
@@ -1952,7 +1973,7 @@ msgstr "Grups de volums:"
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opcions d'encriptació"
 
 #. Type: text
 #. Description
@@ -1964,7 +1985,7 @@ msgstr "Volums físics:"
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Encripta aquesta partició (LUKS)"
 
 #. Type: text
 #. Description
@@ -1979,6 +2000,8 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"La gestió de volums lògics (LVM) permet que l'Ubuntu tracti diversos volums "
+"físics com un sol volum."
 
 #. Type: text
 #. Description
@@ -1990,7 +2013,7 @@ msgstr "Gestió de volums lògics"
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Opcions d'encriptació..."
 
 #. Type: title
 #. Description

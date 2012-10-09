@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-08-24 12:23+0000\n"
-"Last-Translator: Iñigo Varela <malditoastur@gmail.com>\n"
+"PO-Revision-Date: 2012-10-04 14:52+0000\n"
+"Last-Translator: Xuacu Saturio <xuacusk8@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
-"X-Generator: Launchpad (build 16061)\n"
+"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
+"X-Generator: Launchpad (build 16112)\n"
 
 #. Type: text
 #. Description
@@ -558,34 +558,39 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Sentímoslo, l'instalador falló. Cuando zarres esta ventana, te permitiremos "
+"unviar un informe de fallu usando la ferramienta d'informes integrada. Esta "
+"recoyerá información del sistema y del procesu d'instalación. Los detalles "
+"s'unviarán al nuesu sistema de siguimientu de fallos y un desendolcador "
+"revisará esti problema tán aína como se pueda."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "Contraste _altu"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Llector de pantalla"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "Ca_mbiadores de tecláu"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "Tecláu en _pantalla"
 
 #. Type: text
 #. Description
@@ -698,19 +703,19 @@ msgstr "Facer partición"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Tamañu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Al entamu d'esti espaciu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Al final d'esti espaciu"
 
 #. Type: text
 #. Description
@@ -1946,37 +1951,37 @@ msgstr "La instalación pue llevar daqué de tiempu."
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Grupos de volumes:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opciones de cifráu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volumes físicos:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Cifrar esta partición (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1985,18 +1990,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logical Volume Management (LVM) permite qu'Ubuntu trate múltiples volumes "
+"físicos como un únicu volume."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Logical Volume Mangement"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Opciones de cifráu..."
 
 #. Type: title
 #. Description

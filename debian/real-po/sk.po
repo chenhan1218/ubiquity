@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-03-30 11:33+0000\n"
-"Last-Translator: helix84 <Unknown>\n"
+"PO-Revision-Date: 2012-10-03 13:33+0000\n"
+"Last-Translator: Michael Krištof <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-02 23:20+0000\n"
-"X-Generator: Launchpad (build 16061)\n"
+"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
+"X-Generator: Launchpad (build 16112)\n"
 
 #. Type: text
 #. Description
@@ -125,6 +125,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Toto  je vývojová verzia (pre-release) inštalátora ${RELEASE} live "
+"${MEDIUM}. Nie je to konečné vydanie. Konečné vydanie ${RELEASE} bude "
+"zverejnené v októbri 2012."
 
 #. Type: text
 #. Description
@@ -550,34 +553,39 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Ospravedlňujeme sa, ale inštalácia zlyhala. Po zatvorení tohto okna "
+"dostanete možnosť vytvoriť hlásenie o chybe prostredníctvom integrovaného "
+"nástroja na hlásanie chýb. Ten zozbiera informácie o vašom systéme a "
+"inštalačnom procese. Výsledok bude zaslaný do systému na sledovanie chýb a "
+"vývojár ho bude riešiť hneď ako to bude možné."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Vysoký kontrast"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "Čítačka _obrazovky"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "Modifikátory _klávesov"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "Klávesnica na _obrazovke"
 
 #. Type: text
 #. Description
@@ -690,19 +698,19 @@ msgstr "Vytvoriť oblasť"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "Veľkosť:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Začiatok tohto priestoru"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "Koniec tohto priestoru"
 
 #. Type: text
 #. Description
@@ -1550,6 +1558,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} používa softvér tretích strán na prehrávanie obsahu Flash, MP3 a "
+"iných multimédií, na prácu s grafikou a hardvérom Wi-Fi. Na niektoré časti "
+"tohto softvéru sa uplatňujú autorské práva. Softvér podlieha licenčným "
+"podmienkam, ktoré nájdete v jeho dokumentácii."
 
 #. Type: text
 #. Description
@@ -1846,19 +1858,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Zašifrovať novú inštaláciu Ubuntu kvôli zvýšeniu bezpečnosti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "V ďalšom kroku si vyberiete bezpečnostný kľúč."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Použiť v novej inštalácii Ubuntu LVM"
 
 #. Type: text
 #. Description
@@ -1867,18 +1879,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Týmto sa nastaví Správa logických zväzkov - LVM (Logical Volume Management). "
+"Umožňuje robenie snímkov a jednoduchšiu zmenu veľkosti diskových oblastí."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Potvrďte bezpečnostný kľúč:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Zvoľte si bezpečnostný kľúč:"
 
 #. Type: text
 #. Description
@@ -1887,12 +1901,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Šifrovanie disku chráni vaše súbory v prípade, že počítač stratíte. Vyžaduje "
+"zadanie bezpečnostného kľúča pri každom zapnutí počítača."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Žiadne súbory mimo Ubuntu sa nebudú šifrovať."
 
 #. Type: text
 #. Description
@@ -1902,60 +1918,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Upozornenie:</span> Ak stratíte (zabudnete) "
+"tento bezpečnostný kľúč, všetky dáta budú stratené. Pre prípad potreby si "
+"tento bezpečnostný kľúč niekam zapíšte a uložte na bezpečné miesto."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "For more security:"
-msgstr ""
+msgstr "Na lepšie zabezpečenie:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Prepísať prázdne miesto na disku"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Inštalácia môže trvať podstatne dlhšie."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Skupiny zväzkov:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Možnosti šifrovania"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fyzické zväzky:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Zašifrovať túto oblasť (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1964,18 +1983,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Správa logických zväzkov (LVM) umožňuje Ubuntu pracovať s viacerými "
+"fyzickými zväzkami ako s jedným."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "Správa logických zväzkov (LVM)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Možnosti šifrovania..."
 
 #. Type: title
 #. Description

@@ -8,6 +8,7 @@ ubiquity (2.12.9) UNRELEASED; urgency=low
   * Try to install a signed kernel if base-installer asks for one.
   * If the SecureBoot EFI variable is set, then ensure that
     grub-efi-amd64-signed and shim-signed remain installed.
+  * Update translations from Launchpad.
 
  -- Oliver Grawert <ogra@ubuntu.com>  Tue, 09 Oct 2012 11:58:03 +0200
 

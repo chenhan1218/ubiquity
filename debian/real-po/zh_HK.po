@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-09-27 00:03+0100\n"
-"PO-Revision-Date: 2012-03-24 16:28+0000\n"
-"Last-Translator: Anthony Wong <anthony.wong@canonical.com>\n"
+"PO-Revision-Date: 2012-10-09 03:12+0000\n"
+"Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-02 23:21+0000\n"
-"X-Generator: Launchpad (build 16061)\n"
+"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
+"X-Generator: Launchpad (build 16112)\n"
 
 #. Type: text
 #. Description
@@ -124,6 +124,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"這是 ${RELEASE} live ${MEDIUM} 安裝程式的預先發行版。這不是最終發行版；"
+"${RELEASE} 的最終發行版將於2012年10月發行。"
 
 #. Type: text
 #. Description
@@ -539,34 +541,37 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"我們非常抱歉；安裝程式已崩潰。在您關閉此視窗之後，我們讓您使用整合的臭蟲回報"
+"工具來撰寫一份臭蟲回報。它會收集您系統的相關資訊，以及安裝過程的資料。相關細"
+"節會傳送至我們的臭蟲追蹤器中，開發者會盡可能關注這個問題。"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "高反差(_H)"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "螢幕閱讀器(_S)"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "鍵盤特殊鍵(_K)"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "螢幕鍵盤(_O)"
 
 #. Type: text
 #. Description
@@ -679,19 +684,19 @@ msgstr "建立分割區"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Size:"
-msgstr ""
+msgstr "大小："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "此空間的開頭"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "End of this space"
-msgstr ""
+msgstr "此空間的結尾"
 
 #. Type: text
 #. Description
@@ -1503,6 +1508,9 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} 使用第三方軟件來播放 Flash、MP3 與其他媒體，此外還能讓一些顯示卡"
+"與 wi-fi 無線硬件能正常運作。這些軟件之中有些是專有授權。該軟件以其文件自身內"
+"含的授權條款另行授權。"
 
 #. Type: text
 #. Description
@@ -1787,19 +1795,19 @@ msgstr "這台電腦目前未偵測到有作業系統。您想要怎麼處理？
 #. Description
 #: ../ubiquity.templates:258001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "為新的 Ubuntu 安裝使用加密以提昇安全性"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:259001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "下個步驟中您需要選擇一道安全金鑰"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:260001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "為新的 Ubuntu 安裝使用 LVM"
 
 #. Type: text
 #. Description
@@ -1807,19 +1815,19 @@ msgstr ""
 msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
-msgstr ""
+msgstr "這會設置邏輯儲存區管理。它讓您可以擷取快照，並輕鬆地重新調整分割大小。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "確認安全金鑰："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "請決定安全金鑰："
 
 #. Type: text
 #. Description
@@ -1828,12 +1836,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"磁碟加密可在您遺失電腦時保護您的檔案。每當您電腦啟動時它皆會要求您輸入安全金"
+"鑰。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "任何 Ubuntu 之外的檔案皆不會被加密。"
 
 #. Type: text
 #. Description
@@ -1843,60 +1853,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">警告：</span>若您遺忘此安全金鑰，所有的資料將付"
+"諸流水。若您有需要的話，請將您的金鑰抄寫下來，並將它小心儲藏在其他安全的地"
+"方。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:267001
 msgid "For more security:"
-msgstr ""
+msgstr "取得更高的安全性："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "覆寫空的磁碟空間"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "安裝程序可能耗費更久的時間。"
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:270001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Volume groups:"
-msgstr ""
+msgstr "儲存區群組："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "Encryption Options"
-msgstr ""
+msgstr "加密選項"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "實體儲存區："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "加密此分割區 (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1905,18 +1918,19 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"邏輯儲存區管理 (LVM) 讓 Ubuntu 可將多個實體儲存區視為單一個儲存區來管理。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Logical Volume Mangement"
-msgstr ""
+msgstr "邏輯儲存區管理"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "Encryption options..."
-msgstr ""
+msgstr "加密選項..."
 
 #. Type: title
 #. Description
