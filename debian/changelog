@@ -9,6 +9,9 @@ ubiquity (2.12.9) UNRELEASED; urgency=low
   * If the SecureBoot EFI variable is set, then ensure that
     grub-efi-amd64-signed and shim-signed remain installed.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu12, console-setup 1.70ubuntu6, flash-kernel 3.0~rc.4ubuntu27,
+    grub-installer 1.78ubuntu5.
 
  -- Oliver Grawert <ogra@ubuntu.com>  Tue, 09 Oct 2012 11:58:03 +0200
 
