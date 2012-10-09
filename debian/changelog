@@ -1,5 +1,9 @@
 ubiquity (2.12.9) UNRELEASED; urgency=low
 
+  [ Jonathan Riddell ]
+  * KDE PartAuto.py Translate strings which previously were not translated.
+    Thanks to Pantelis Koukousoulas
+
   [ Oliver Grawert ]
   * drop recommends of redboot-tools so the package can go to universe
     (LP: #1064271)
@@ -26,10 +30,6 @@ ubiquity (2.12.8) quantal; urgency=low
   * Replace use of assert in install_misc by a check, revert and exception
     so that errors can be ignored by the caller, useful for langpacks.
     (LP: #898787)
-
-  [ Jonathan Riddell ]
-  * KDE PartAuto.py Translate strings which previously were not translated.
-    Thanks to Pantelis Koukousoulas
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 03 Oct 2012 09:11:16 +0100
 
