@@ -1447,6 +1447,7 @@ class Install(install_misc.InstallBase):
 
         if arch in ('amd64', 'i386'):
             for pkg in ('grub', 'grub-pc', 'grub-efi', 'grub-efi-amd64',
+                        'grub-efi-amd64-signed', 'shim-signed',
                         'lilo'):
                 if pkg not in keep:
                     difference.add(pkg)
