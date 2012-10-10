@@ -1,9 +1,9 @@
-ubiquity (2.12.10) UNRELEASED; urgency=low
+ubiquity (2.12.10) quantal; urgency=low
 
   * Don't leave signed kernels installed if base-installer doesn't ask for
     one, to avoid unnecessarily increasing the cost of upgrades.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Oct 2012 23:39:07 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 10 Oct 2012 23:40:27 +0100
 
 ubiquity (2.12.9) quantal; urgency=low
 
