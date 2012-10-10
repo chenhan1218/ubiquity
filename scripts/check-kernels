@@ -61,6 +61,24 @@ done
 
 if [ -z "$compatible" ] && [ -z "$install_new" ]; then
 	for kernel in $kernels; do
+		# If base-installer didn't ask for a signed kernel, then
+		# consider signed kernels incompatible.  This isn't
+		# technically true - they'll boot - but it saves leaving a
+		# kernel installed that users probably won't need but will
+		# have to upgrade.
+		case $preferred_kernels in
+		    *linux-signed-*)
+			;;
+		    *)
+			case $kernel in
+			    linux-signed-*)
+				incompatible="${incompatible:+$incompatible }$kernel"
+				continue
+				;;
+			esac
+			;;
+		esac
+
 		if arch_check_usable_kernel "$kernel" "$flavour"; then
 			compatible="${compatible:+$compatible }$kernel"
 		else
