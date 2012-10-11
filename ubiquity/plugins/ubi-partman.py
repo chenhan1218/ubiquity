@@ -546,6 +546,7 @@ class PageGtk(PageBase):
 
     def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
+        self.bootloader_grid.show()
         options = misc.grub_options()
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)

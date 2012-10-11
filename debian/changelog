@@ -1,3 +1,9 @@
+ubiquity (2.12.11) UNRELEASED; urgency=low
+
+  * Reveal grub combo box, only when setting grub options. (LP: #1064391)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 11 Oct 2012 11:55:33 +0100
+
 ubiquity (2.12.10) quantal; urgency=low
 
   * Don't leave signed kernels installed if base-installer doesn't ask for
