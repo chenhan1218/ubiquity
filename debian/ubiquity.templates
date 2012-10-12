@@ -167,7 +167,7 @@ _Description: Username
 
 Template: ubiquity/text/username_extra_label
 Type: text
-_Description: If more than one person will use this computer, you can set up multiple accounts after installation.
+_Description: &lt;small&gt;If more than one person will use this computer, you can set up multiple accounts after installation.&lt;/small&gt;
 
 Template: ubiquity/text/username_error_badfirstchar
 Type: text
@@ -183,7 +183,7 @@ _Description: Choose a password:
 
 Template: ubiquity/text/password_extra_label
 Type: text
-_Description: Enter the same password twice, so that it can be checked for typing errors.
+_Description: &lt;small&gt;Enter the same password twice, so that it can be checked for typing errors.&lt;/small&gt;
 
 Template: ubiquity/text/password_inactive_label
 Type: text
