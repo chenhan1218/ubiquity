@@ -725,7 +725,7 @@ class Wizard(BaseFrontend):
                 text = text.replace("&lt;small&gt;", "")
                 text = text.replace("&lt;/small&gt;", "")
                 widget.setText("<small>" + text + "</small>")
-                print("TEXT "+widget.text())
+                print("TEXT " + widget.text())
             elif ('group_label' in name or 'warning_label' in name or
                   name in ('drives_label', 'partition_method_label')):
                 widget.setText("<strong>" + text + "</strong>")
