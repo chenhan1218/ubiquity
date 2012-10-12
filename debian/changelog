@@ -7,7 +7,11 @@ ubiquity (2.12.11) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update translations from Launchpad.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 11 Oct 2012 11:55:33 +0100
+  [ Jonathan Riddell ]
+  * Remove formatting from recently added strings to ubiquity.template
+    LP: #1065989
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 12 Oct 2012 14:43:20 +0100
 
 ubiquity (2.12.10) quantal; urgency=low
 
