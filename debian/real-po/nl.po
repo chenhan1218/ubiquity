@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-09 16:20+0100\n"
-"PO-Revision-Date: 2012-09-29 06:32+0000\n"
-"Last-Translator: Hannie Dumoleyn <Unknown>\n"
+"PO-Revision-Date: 2012-10-10 22:18+0000\n"
+"Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
-"X-Generator: Launchpad (build 16112)\n"
+"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
+"X-Generator: Launchpad (build 16130)\n"
 
 #. Type: text
 #. Description
@@ -257,6 +257,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Indien meer dan één persoon deze computer zal gaan gebruiken, "
+"kunt u meerdere gebruikersaccounts aanmaken na installatie.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -285,6 +287,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Voer hetzelfde wachtwoord twee keer in, zodat het kan worden "
+"gecontroleerd op tikfouten.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -451,7 +455,7 @@ msgstr "Bestanden (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Waar zou u Kubuntu willen installeren?"
 
 #. Type: text
 #. Description
@@ -1902,13 +1906,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Before:"
-msgstr ""
+msgstr "Voor:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "After:"
-msgstr ""
+msgstr "Na:"
 
 #. Type: text
 #. Description

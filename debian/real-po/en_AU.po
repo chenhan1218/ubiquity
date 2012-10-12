@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-09 16:20+0100\n"
-"PO-Revision-Date: 2012-09-30 01:02+0000\n"
-"Last-Translator: Joel Addison <jaddi27@gmail.com>\n"
+"PO-Revision-Date: 2012-10-10 12:33+0000\n"
+"Last-Translator: Jared Norris <jrnorris@gmail.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
-"X-Generator: Launchpad (build 16112)\n"
+"X-Launchpad-Export-Date: 2012-10-12 10:06+0000\n"
+"X-Generator: Launchpad (build 16130)\n"
 
 #. Type: text
 #. Description
@@ -257,6 +257,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;If more than one person will use this computer, you can set up "
+"multiple accounts after installation.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -283,6 +285,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Enter the same password twice, so that it can be checked for "
+"typing errors.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -445,7 +449,7 @@ msgstr "Files (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Where would you like to install Kubuntu?"
 
 #. Type: text
 #. Description
@@ -1878,13 +1882,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Before:"
-msgstr ""
+msgstr "Before:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "After:"
-msgstr ""
+msgstr "After:"
 
 #. Type: text
 #. Description

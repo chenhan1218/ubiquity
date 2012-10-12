@@ -1,6 +1,10 @@
 ubiquity (2.12.11) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Reveal grub combo box, only when setting grub options. (LP: #1064391)
+
+  [ Colin Watson ]
+  * Update translations from Launchpad.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 11 Oct 2012 11:55:33 +0100
 

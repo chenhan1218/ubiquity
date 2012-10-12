@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-09 16:20+0100\n"
-"PO-Revision-Date: 2012-08-30 23:54+0000\n"
+"PO-Revision-Date: 2012-10-09 23:59+0000\n"
 "Last-Translator: Gheyret T.Kenji <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-09 13:01+0000\n"
-"X-Generator: Launchpad (build 16112)\n"
+"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
+"X-Generator: Launchpad (build 16130)\n"
 
 #. Type: text
 #. Description
@@ -254,6 +254,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;ئەگەر كومپيۇتېرنى بىر قانچە كىشى ئىشلىتىدىغان ئىش بولسا، "
+"ئورنىتىپ بولغاندىن كېيىنمۇ يېڭى ئىشلەتكۈچىلەرنى قوشۇشقا بولىدۇ.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -280,6 +282,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;خاتالىقتىن ساقلىنىش ئۈچۈن ئوخشاش ئىمنى ئىككى قېتىم كىرگۈزۈڭ."
+"&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -443,7 +447,7 @@ msgstr "ھۆججەتلەر (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "كۇبۇنتۇنى قەيەرگە ئورنىتىسىز؟"
 
 #. Type: text
 #. Description
@@ -1868,13 +1872,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Before:"
-msgstr ""
+msgstr "ئىلگىرى:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "After:"
-msgstr ""
+msgstr "داۋامى:"
 
 #. Type: text
 #. Description
