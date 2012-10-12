@@ -2,6 +2,7 @@ ubiquity (2.12.11) UNRELEASED; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Reveal grub combo box, only when setting grub options. (LP: #1064391)
+    And use a frontend callback to do so. Thanks Colin for idea & patch.
 
   [ Colin Watson ]
   * Update translations from Launchpad.
