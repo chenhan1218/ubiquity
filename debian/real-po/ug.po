@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-09 16:20+0100\n"
-"PO-Revision-Date: 2012-10-09 23:59+0000\n"
+"PO-Revision-Date: 2012-10-13 00:33+0000\n"
 "Last-Translator: Gheyret T.Kenji <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2012-10-15 11:01+0000\n"
+"X-Generator: Launchpad (build 16137)\n"
 
 #. Type: text
 #. Description
@@ -126,6 +126,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"بۇ ${RELEASE} live ${MEDIUM} نىڭ ئورنتاقۇسىنىڭ ئالدىن كۆرۈش نەشرى بولۇپ، ئەڭ "
+"ئاخىرقى رەسمىي نەشرى ئەمەس. ${RELEASE}  رەسمىي نەشرى 2012-يىلى ئوغۇز ئېيىدا "
+"تارقىتىلىدۇ."
 
 #. Type: text
 #. Description
@@ -592,21 +595,21 @@ msgstr ""
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:85001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "ئېكران ئوقۇغۇ(_S)"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:86001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "سۈپەتلىگۈچى كۇنۇپكىلار(_K)"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:87001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "ئېكران كۇنۇپكىسى(_O)"
 
 #. Type: text
 #. Description
@@ -1927,6 +1930,9 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"دىسكىنى شىفىرلاش ئارقىلىق، كومپيۇتېرىڭىز يوقىلىپ كەتكەندە دىسكىڭىزدىكى "
+"ھۆججەتلەرنى باشقىلارنىڭ كۆرۈۋېلىشىدىن ساقلانغىلى بولىدۇ. بىراق بۇنى "
+"ئىشلەتكەندە ھەر قېتىم كومپيۇتېر قوزغالغاندا ئىمنى كىرگۈزۈشنى تەلەپ قىلىدۇ."
 
 #. Type: text
 #. Description
@@ -2004,6 +2010,8 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"لوگىكىلىق دىسكا باشقۇرۇش، ئۇبۇنتۇغا نۇرغۇنلىغان فىزىكىلىق دىسكىلارنى بىرلا "
+"دىسكا سۈپىتىدە باشقۇرۇش ئىقتىدارىنى ئاتا قىلىدۇ."
 
 #. Type: text
 #. Description
