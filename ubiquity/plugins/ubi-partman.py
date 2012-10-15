@@ -1203,6 +1203,8 @@ class PageGtk(PageBase):
         elif partition['parted']['fs'] == 'free':
             if 'can_new' in partition and partition['can_new']:
                 self.partman_dialog(devpart, partition)
+        elif partition.get('locked', False):
+            return
         else:
             self.partman_dialog(devpart, partition, create=False)
 
