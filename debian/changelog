@@ -12,6 +12,8 @@ ubiquity (2.12.13) UNRELEASED; urgency=low
     specific device rather than scan for / and /boot.
     Update Gtk and Kde code to pass that parameter when in auto mode.
     (LP: #1066173)
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu13, partman-auto 103ubuntu4.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 15 Oct 2012 17:46:53 +0100
 
