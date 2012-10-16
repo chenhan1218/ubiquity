@@ -2,26 +2,27 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Yuri Chornoivan <yurchor@ukr.net>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-09 16:20+0100\n"
-"PO-Revision-Date: 2012-10-11 10:33+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
-"Language-Team: uk <>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-10-16 10:16+0000\n"
+"Last-Translator: yurchor <Unknown>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:04+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2012-10-16 17:01+0000\n"
+"X-Generator: Launchpad (build 16152)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr "З’єднання..."
+msgstr "З’єднання…"
 
 #. Type: text
 #. Description
@@ -127,6 +128,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "October 2012."
 msgstr ""
+"Це тестовий випуск програми для встановлення портативної версії ${RELEASE} з "
+"${MEDIUM}. Цей випуск не є остаточним, очікуйте на остаточний випуск "
+"${RELEASE} у жовтні 2012 року."
 
 #. Type: text
 #. Description
@@ -179,7 +183,7 @@ msgstr "Визначити розкладку клавіатури"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Detect Keyboard Layout..."
-msgstr "Визначити розкладку клавіатури..."
+msgstr "Визначити розкладку клавіатури…"
 
 #. Type: text
 #. Description
@@ -254,6 +258,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Якщо цим комп’ютером користуватиметься декілька осіб, ви можете "
+"створити потрібні облікові записи вже після встановлення.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -280,6 +286,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Введіть пароль двічі, щоб уникнути можливих друкарських помилок "
+"під час його введення.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -309,7 +317,7 @@ msgstr "Назва вашого комп'ютера:"
 #. Description
 #: ../ubiquity.templates:43001
 msgid "The name it uses when it talks to other computers."
-msgstr "Ім'я, що вікористовується для зв'язку з іншими комп'ютерами."
+msgstr "Назва, яка використовується для зв'язку з іншими комп'ютерами."
 
 #. Type: text
 #. Description
@@ -469,7 +477,7 @@ msgstr "Перервати процес встановлення?"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Do you really want to quit the installation now?"
-msgstr "Ви дійсно бажаете перервати процес встановлення?"
+msgstr "Ви справді хочете перервати процес встановлення?"
 
 #. Type: text
 #. Description
@@ -575,55 +583,61 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Вибачте! Програма для встановлення завершила роботу у аварійному режимі. "
+"Після того, як ви закриєте це вікно, ми надамо вам змогу створити звіт щодо "
+"вади за допомогою вбудованого інструмента для звітування. Цим інструментом "
+"буде зібрано дані щодо вашої системи та процедури встановлення. Ці дані буде "
+"надіслано до системи стеження за вадами нашого дистрибутива. Розробники "
+"спробують виправити ваду якомога швидше."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Висока контрастність"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:85001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Читання з екрана"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:86001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Клавішні модифікатори"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:87001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Екранна клавіатура"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:88001
 msgid "New Partition Table..."
-msgstr "Нова таблиця розділів..."
+msgstr "Нова таблиця розділів…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:89001
 msgid "Add..."
-msgstr "Додати..."
+msgstr "Додати…"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:90001
 msgid "Change..."
-msgstr "Змінити..."
+msgstr "Змінити…"
 
 #. Type: text
 #. Description
@@ -645,7 +659,7 @@ msgstr "Повернути"
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Recalculating partitions..."
-msgstr "Перерахунок розділів..."
+msgstr "Перерахунок розділів…"
 
 #. Type: text
 #. Description
@@ -721,13 +735,13 @@ msgstr "Розмір:"
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Початок цієї області"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
 msgid "End of this space"
-msgstr ""
+msgstr "Кінець цієї області"
 
 #. Type: text
 #. Description
@@ -817,7 +831,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Verifying the installation configuration..."
-msgstr "Перевірка конфігурації встановлення..."
+msgstr "Перевірка конфігурації встановлення…"
 
 #. Type: title
 #. Description
@@ -829,19 +843,19 @@ msgstr "Встановлення системи"
 #. Description
 #: ../ubiquity.templates:120001
 msgid "Finding the distribution to copy..."
-msgstr "Пошук файлів для копіювання..."
+msgstr "Пошук файлів для копіювання…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:122001
 msgid "Copying files..."
-msgstr "Копіювання файлів..."
+msgstr "Копіювання файлів…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:123001
 msgid "Almost finished copying files..."
-msgstr "Майже закінчив копіювання файлів..."
+msgstr "Майже закінчив копіювання файлів…"
 
 #. Type: error
 #. Description
@@ -870,7 +884,8 @@ msgstr "Спроба встановлення зазнала невдачі"
 #: ../ubiquity.templates:124001 ../ubiquity.templates:125001
 #: ../ubiquity.templates:126001 ../ubiquity.templates:127001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Програма установки виявила помилку копіювання файлів на жорсткий диск:"
+msgstr ""
+"Програма для встановлення виявила помилку копіювання файлів на жорсткий диск:"
 
 #. Type: error
 #. Description
@@ -940,121 +955,121 @@ msgstr "Наступний файл не відповідає його дійс�
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Copying installation logs..."
-msgstr "Копіювання логів установки..."
+msgstr "Копіювання журналу встановлення…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring target system..."
-msgstr "Конфігурація цільової системи..."
+msgstr "Налаштовування системи призначення…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:131001
 msgid "Configuring system locales..."
-msgstr "Налаштування ситемних локалей"
+msgstr "Налаштовування локалей системи…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:132001
 msgid "Configuring apt..."
-msgstr "Налаштування apt..."
+msgstr "Налаштовування apt…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:133001
 msgid "Configuring time zone..."
-msgstr "Налаштування часового поясу..."
+msgstr "Налаштовування часового поясу…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Configuring keyboard..."
-msgstr "Налаштування клавіатури..."
+msgstr "Налаштовування клавіатури…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Creating user..."
-msgstr "Створення користувача..."
+msgstr "Створення запису користувача…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Configuring hardware..."
-msgstr "Налаштування обладнання..."
+msgstr "Налаштовування обладнання…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:137001
 msgid "Installing third-party software..."
-msgstr "Встановлення стороннього програмного забезпечення..."
+msgstr "Встановлення стороннього програмного забезпечення…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:138001
 msgid "Configuring network..."
-msgstr "Налаштування мережі..."
+msgstr "Налаштовування мережі…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:139001
 msgid "Configuring boot loader..."
-msgstr "Налаштування завантажувача..."
+msgstr "Налаштування завантажувача…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Saving installed packages..."
-msgstr "Збереження встановлених пакетів..."
+msgstr "Збереження встановлених пакетів…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Restoring previously installed packages..."
-msgstr "Відновлення раніше встановлених пакетів..."
+msgstr "Відновлення раніше встановлених пакетів…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Installing additional packages..."
-msgstr "Встановлення додаткових пакунків..."
+msgstr "Встановлення додаткових пакунків…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Checking for packages to install..."
-msgstr "Перевірка пакунків для встановлення..."
+msgstr "Перевірка пакунків для встановлення…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Removing extra packages..."
-msgstr "Вилучення зайвих пакунків..."
+msgstr "Вилучення зайвих пакунків…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:145001
 msgid "Checking for packages to remove..."
-msgstr "Пошук пакунків для вилучення..."
+msgstr "Пошук пакунків для вилучення…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Завантаження пакунків (залишилось ${TIME})..."
+msgstr "Завантаження пакунків (залишилось ${TIME})…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Downloading package lists..."
-msgstr "Завантаження списків пакунків..."
+msgstr "Завантаження списків пакунків…"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Завантаження списків пакунків (залишилось ${TIME})..."
+msgstr "Завантаження списків пакунків (залишилось ${TIME})…"
 
 #. Type: error
 #. Description
@@ -1078,7 +1093,7 @@ msgstr "Помилка встановлення пакунків"
 #. Description
 #: ../ubiquity.templates:152001
 msgid "An error occurred while installing packages:"
-msgstr "Під час установки пакунків виникла помилка:"
+msgstr "Під час встановлення пакунків сталася помилка:"
 
 #. Type: error
 #. Description
@@ -1102,14 +1117,14 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Це могло статися через використання застарілого образу програми установки, "
-"або внаслідок помилки в деяких пакунках, перерахованих вище. Більш детальну "
-"інформацію можна знайти у файлі /var/log/syslog. Програма установки спробує "
-"продовжити роботу незважаючи на це, але пізніше може знову зазнати невдачі. "
-"Можливо вона буде не в змозі встановити або вилучити інші пакунки "
-"встановленої системи (або і саму себе). Пошукайте, перш за все, більш нові "
-"версії образу програми установки, або надішліть звіт про помилку "
-"постачальнику."
+"Це могло статися через використання застарілого образу програми для "
+"встановлення, або внаслідок помилки в деяких пакунках, вказаних вище. "
+"Детальнішу інформацію можна знайти у файлі /var/log/syslog. Програма для "
+"встановлення спробує продовжити роботу незважаючи на це, але пізніше може "
+"знову зазнати невдачі. Можливо, вона буде не в змозі встановити або вилучити "
+"інші пакунки встановленої системи (або і саму себе). Пошукайте, перш за все, "
+"новіші версії образу програми для встановлення, або надішліть звіт про "
+"помилку постачальнику."
 
 #. Type: error
 #. Description
@@ -1145,7 +1160,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Error copying bluetooth configuration"
-msgstr "Помилка копіювання конфігурації Bluetooth"
+msgstr "Помилка копіювання налаштувань Bluetooth"
 
 #. Type: error
 #. Description
@@ -1155,15 +1170,15 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Сталась помилка під час копіювання конфігурації Bluetooth. Установка "
-"продовжиться, втім Bluetooth необхідно буде налаштувати знову, на "
-"встановленій системі."
+"Під час копіювання налаштувань Bluetooth сталася помилка. Встановлення буде "
+"продовжено, але Bluetooth необхідно буде налаштувати знову, на встановленій "
+"системі."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Error restoring installed applications"
-msgstr "Помилка при відновленні встановлених програм"
+msgstr "Помилка під час відновлення встановлених програм"
 
 #. Type: error
 #. Description
@@ -1173,15 +1188,15 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Виникла помилка під час відновлення попередньо встановлених програм.  "
-"Інсталяція продовжиться, але ви повинні самостійно переустановити деякі "
-"програми після перезавантаження комп'тера"
+"Під час відновлення попередньо встановлених програм сталася помилка. "
+"Встановлення буде продовжено, але вам слід переустановити деякі програми "
+"після перезавантаження комп'ютера."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:160001
 msgid "Calculating files to skip copying..."
-msgstr "Підрахунок файлів, які пропускаються..."
+msgstr "Визначення файлів, які не слід копіювати…"
 
 #. Type: title
 #. Description
@@ -1193,7 +1208,7 @@ msgstr "Встановлення пакунків локалізації"
 #. Description
 #: ../ubiquity.templates:162001
 msgid "Downloading language packs (${TIME} remaining)..."
-msgstr "Завантаження пакунків локалізації (залишилось ${TIME})..."
+msgstr "Завантаження пакунків локалізації (залишилось ${TIME})…"
 
 #. Type: boolean
 #. Description
@@ -1208,9 +1223,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Програмі установки необхідно застосувати зміни до таблиці розділів, але вона "
-"не може цього зробити через неможливість розмонтування розділів на наступних "
-"точках монтування:"
+"Програмі для встановлення потрібно застосувати зміни до таблиці розділів, "
+"але вона не може цього зробити через неможливість розмонтування розділів на "
+"наступних точках монтування:"
 
 #. Type: boolean
 #. Description
@@ -1224,7 +1239,8 @@ msgstr ""
 #: ../ubiquity.templates:171001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Хочете, щоб програма установки спробувала розмонтувати ці розділи ще раз?"
+"Хочете, щоб програма для встановлення спробувала розмонтувати ці розділи ще "
+"раз?"
 
 #. Type: boolean
 #. Description
@@ -1318,7 +1334,7 @@ msgstr "Інформація про користувача"
 #. Description
 #: ../ubiquity.templates:190001
 msgid "installation process"
-msgstr "процес установки"
+msgstr "процес встановлення"
 
 #. Type: text
 #. Description
@@ -1578,6 +1594,11 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"У ${RELEASE} для відтворення Flash, MP3 та інших даних та роботи з деяким "
+"обладнанням для обробки графічної інформації та роботи у мережах wi-fi "
+"використовується стороннє програмне забезпечення. Частина з цього "
+"програмного забезпечення має закриті коди. Умови ліцензування такого "
+"програмного забезпечення викладено у документації до нього."
 
 #. Type: text
 #. Description
@@ -1782,8 +1803,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Попереждення:</span> Ця дія вилучить усі файли "
-"на диску."
+"<span foreground=\"darkred\">Попередження:</span> у результаті виконання "
+"цієї дії буде вилучено всі файли на диску."
 
 #. Type: text
 #. Description
@@ -1886,19 +1907,19 @@ msgstr "Після:"
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Зашифрувати дані встановленої Ubuntu для їхнього убезпечення"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Ключ захисту можна буде вибрати на наступному кроці."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Використати LVM для нововстановленої Ubuntu"
 
 #. Type: text
 #. Description
@@ -1907,6 +1928,9 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"За допомогою цього пункту можна наказати використовувати керування "
+"логічнимитомами (LVM). За допомогою такого керування можна буде створювати "
+"знімки системи та спростити зміну розмірів її розділів."
 
 #. Type: text
 #. Description
@@ -1918,7 +1942,7 @@ msgstr "Підтвердіть код захисту:"
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Виберіть ключ захисту:"
 
 #. Type: text
 #. Description
@@ -1935,7 +1959,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:270001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Всі файли, які не стосуються розділу з Ubuntu не буде зашифровано."
 
 #. Type: text
 #. Description
@@ -1945,6 +1969,9 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Попередження:</span> якщо раптом ви втратите "
+"цей ключ захисту, всі дані буде втрачено разом з ним. Щоб забезпечити "
+"надійне відтворення ключа, запишіть його десь і зберігайте у надійному місці."
 
 #. Type: text
 #. Description
@@ -1968,7 +1995,7 @@ msgstr "Встановлення може тривати значно довше
 #. description
 #: ../ubiquity.templates:275001
 msgid "LVM..."
-msgstr "LVM..."
+msgstr "LVM…"
 
 #. Type: text
 #. Description
@@ -1986,13 +2013,13 @@ msgstr "Параметри шифрування"
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Фізичні томи:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Зашифрувати цей розділ (LUKS)"
 
 #. Type: text
 #. Description
@@ -2007,18 +2034,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Керування логічними томами (LVM) надає Ubuntu змогу працювати з набором "
+"фізичних томів (дисків чи розділів) як з одним томом."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Керування логічними томами (LVM)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:284001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Параметри шифрування…"
 
 #. Type: title
 #. Description
@@ -2043,7 +2072,7 @@ msgstr "Підготувати до OEM конфігурації"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Підготовка до OEM конфігурації ..."
+msgstr "Підготовка до OEM конфігурації …"
 
 #. Type: text
 #. Description
@@ -2060,10 +2089,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Після запуску свіжевстановленої системи Ви зможете розпочати роботу з "
-"логіном користувача 'oem' та обраним раніше паролем; користувач 'oem' може "
-"набути прав адміністратора за допомоги команди 'sudo'. Після цього Ви "
-"зможете вносити будь-які необхідні зміні до системи."
+"Після запуску свіжевстановленої системи Ви зможете розпочати роботу з ім’ям "
+"користувача «oem» та вибраним раніше паролем; користувач 'oem' може набути "
+"прав адміністратора за допомоги команди «sudo». Після цього Ви зможете "
+"вносити до системи будь-які необхідні зміни."
 
 #. Type: text
 #. Description

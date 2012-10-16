@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-09 16:20+0100\n"
-"PO-Revision-Date: 2012-09-06 07:38+0000\n"
-"Last-Translator: Asier Sarasua Garmendia <Unknown>\n"
+"PO-Revision-Date: 2012-10-15 23:23+0000\n"
+"Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2012-10-16 17:00+0000\n"
+"X-Generator: Launchpad (build 16152)\n"
 
 #. Type: text
 #. Description
@@ -1581,6 +1581,11 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE}(e)k hirugarrengoen softwarea darabil Flash-a, MP3ak eta beste "
+"zenbait multimedia erreproduzitzeko, eta baita grafikoekin edo haririk "
+"gabeko sareekin loturiko hainbat hardware funtzionarazteko ere. Software "
+"hauetariko batzuk jabedunak dira. Softwarea berekin batera datorren "
+"dokumentazioko lizentziaren baldintzei loturik dago."
 
 #. Type: text
 #. Description
@@ -1891,13 +1896,13 @@ msgstr "Ondoren:"
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Zifratu Ubunturen instalazio berria segurtasunerako"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Hurrengo pausoan segurtasun-gakoa aukeratuko duzu."
 
 #. Type: text
 #. Description
@@ -1932,12 +1937,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Diskoaren zifratzeak zure fitxategiak babesten ditu, baldin ordenagailua "
+"galtzen baduzu. Ordenagailua abiarazten den aldiro segurtasun-gako bat "
+"sartzera behartuko zaitu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Ubuntutik kanpo dauden fitxategiak ez dira zifratuko."
 
 #. Type: text
 #. Description
@@ -1947,6 +1955,9 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Abisua:</span> Segurtasun-gakoa galtzen baduzu, "
+"datu guztiak galduko dituzu. Beharrezko baderitzozu, idatzi gakoa nonbait "
+"eta gorde leku seguruan."
 
 #. Type: text
 #. Description
@@ -1958,13 +1969,13 @@ msgstr "Segurtasun gehiagorako:"
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Gainidatzi diskoko leku hutsa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Instalazioa askoz motelagoa izan daiteke."
 
 #. Type: text
 #. description

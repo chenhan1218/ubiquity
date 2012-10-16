@@ -6,6 +6,7 @@ ubiquity (2.12.13) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Fix "Mangement" typo (thanks, Yuri Chornoivan; LP: #1067228).
+  * Update translations from Launchpad.
 
   [ Stéphane Graber ]
   * Add an extra parameter to grub_default so that the UI can force it to use a
