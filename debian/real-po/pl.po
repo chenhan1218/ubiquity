@@ -2038,7 +2038,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
-msgid "Logical Volume Mangement"
+msgid "Logical Volume Management"
 msgstr "Zarządzanie logicznymi wolumenami"
 
 #. Type: text

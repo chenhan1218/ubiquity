@@ -1971,7 +1971,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
-msgid "Logical Volume Mangement"
+msgid "Logical Volume Management"
 msgstr "తార్కిక సంపుటాల నిర్వహణ"
 
 #. Type: text

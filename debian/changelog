@@ -1,7 +1,11 @@
 ubiquity (2.12.13) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Do not allow to edit locked partitions via double click in the Gtk
     Treeview. (LP: #1057690)
+
+  [ Colin Watson ]
+  * Fix "Mangement" typo (thanks, Yuri Chornoivan; LP: #1067228).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 15 Oct 2012 17:46:53 +0100
 

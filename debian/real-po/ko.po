@@ -2009,7 +2009,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
-msgid "Logical Volume Mangement"
+msgid "Logical Volume Management"
 msgstr "논리 볼륨 관리(LVM)"
 
 #. Type: text

@@ -1956,7 +1956,7 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
-msgid "Logical Volume Mangement"
+msgid "Logical Volume Management"
 msgstr "逻辑分区管理"
 
 #. Type: text

@@ -1499,7 +1499,7 @@ _Description:
 Template:ubiquity/text/partition_lvm_dialog
 Type: text
 _Description:
- Logical Volume Mangement
+ Logical Volume Management
 
 Template:ubiquity/text/partition_encryption_settings
 Type: text
