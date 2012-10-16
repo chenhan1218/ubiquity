@@ -1,4 +1,4 @@
-ubiquity (2.12.13) UNRELEASED; urgency=low
+ubiquity (2.12.13) quantal-proposed; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Do not allow to edit locked partitions via double click in the Gtk
@@ -16,7 +16,7 @@ ubiquity (2.12.13) UNRELEASED; urgency=low
   * Automatic update of included source packages: base-installer
     1.122ubuntu13, partman-auto 103ubuntu4.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 15 Oct 2012 17:46:53 +0100
+ -- Stéphane Graber <stgraber@ubuntu.com>  Tue, 16 Oct 2012 19:12:03 +0200
 
 ubiquity (2.12.12) quantal-proposed; urgency=low
 
