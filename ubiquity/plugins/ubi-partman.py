@@ -574,6 +574,15 @@ class PageGtk(PageBase):
             return self.grub_device_entry.get_model().get_value(i, 0)
         else:
             self.debug('No active iterator for grub device entry.')
+            disk = self.get_autopartition_choice()
+            if isinstance(disk, tuple) and len(disk) == 2:
+                disk_string = disk[1]
+                disk_fields = disk_string.split(None, 3)
+                if len(disk_fields) >= 3:
+                    disk_path = "/dev/%s" % disk_fields[2].strip("()")
+                    if os.path.exists(disk_path):
+                        return misc.grub_default(boot=disk_path)
+
             return misc.grub_default()
 
     def set_autopartition_heading(self, heading):
@@ -1444,6 +1453,15 @@ class PageKde(PageBase):
         if choice:
             return choice
         else:
+            disk = self.get_autopartition_choice()
+            if isinstance(disk, tuple) and len(disk) == 2:
+                disk_string = disk[1]
+                disk_fields = disk_string.split(None, 3)
+                if len(disk_fields) >= 3:
+                    disk_path = "/dev/%s" % disk_fields[2].strip("()")
+                    if os.path.exists(disk_path):
+                        return misc.grub_default(boot=disk_path)
+
             return misc.grub_default()
 
     def set_autopartition_heading(self, heading):

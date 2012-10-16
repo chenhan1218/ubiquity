@@ -7,6 +7,12 @@ ubiquity (2.12.13) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Fix "Mangement" typo (thanks, Yuri Chornoivan; LP: #1067228).
 
+  [ Stéphane Graber ]
+  * Add an extra parameter to grub_default so that the UI can force it to use a
+    specific device rather than scan for / and /boot.
+    Update Gtk and Kde code to pass that parameter when in auto mode.
+    (LP: #1066173)
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 15 Oct 2012 17:46:53 +0100
 
 ubiquity (2.12.12) quantal-proposed; urgency=low
