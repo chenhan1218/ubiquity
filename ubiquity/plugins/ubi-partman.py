@@ -574,17 +574,11 @@ class PageGtk(PageBase):
             return self.grub_device_entry.get_model().get_value(i, 0)
         else:
             self.debug('No active iterator for grub device entry.')
-            disk = self.get_autopartition_choice()
-            if isinstance(disk, tuple) and len(disk) == 2:
-                disk_string = disk[1]
-                # Can be None for Manual partitioning & other setups
-                # See LP: #1067566
-                if disk_string:
-                    disk_fields = disk_string.split(None, 3)
-                if disk_string and len(disk_fields) >= 3:
-                    disk_path = "/dev/%s" % disk_fields[2].strip("()")
-                    if os.path.exists(disk_path):
-                        return misc.grub_default(boot=disk_path)
+            disk = self.get_current_disk_partman_id()
+            if isinstance(disk, str) and disk:
+                disk_path = disk.replace("=", "/")
+                if os.path.exists(disk_path):
+                    return misc.grub_default(boot=disk_path)
 
             return misc.grub_default()
 
@@ -1451,22 +1445,26 @@ class PageKde(PageBase):
         options = misc.grub_options()
         self.partMan.setGrubOptions(options, default, grub_installable)
 
+    def get_current_disk_partman_id(self):
+        comboText = str(self.partAuto.part_auto_disk_box.currentText())
+        if not comboText or comboText not in \
+            self.partAuto.extra_options['use_device'][1]:
+            return None
+
+        partman_id = self.partAuto.extra_options['use_device'][1][comboText][0]
+        disk_id = partman_id.rsplit('/', 1)[1]
+        return disk_id
+
     def get_grub_choice(self):
         choice = self.partMan.getGrubChoice()
         if choice:
             return choice
         else:
-            disk = self.get_autopartition_choice()
-            if isinstance(disk, tuple) and len(disk) == 2:
-                disk_string = disk[1]
-                # Can be None for Manual partitioning & other setups
-                # See LP: #1067566
-                if disk_string:
-                    disk_fields = disk_string.split(None, 3)
-                if disk_string and len(disk_fields) >= 3:
-                    disk_path = "/dev/%s" % disk_fields[2].strip("()")
-                    if os.path.exists(disk_path):
-                        return misc.grub_default(boot=disk_path)
+            disk = self.get_current_disk_partman_id()
+            if isinstance(disk, str) and disk:
+                disk_path = disk.replace("=", "/")
+                if os.path.exists(disk_path):
+                    return misc.grub_default(boot=disk_path)
 
             return misc.grub_default()
 

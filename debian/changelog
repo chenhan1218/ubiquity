@@ -1,3 +1,12 @@
+ubiquity (2.12.16) UNRELEASED; urgency=low
+
+  * Change get_grub_choice implementation to use get_current_disk_partman_id
+    instead of get_autopartition_choice so it doesn't need to parse strings.
+    Implement get_current_disk_partman_id in Kde frontend to use the same code.
+    (LP: #1067691)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Wed, 17 Oct 2012 14:29:11 +0200
+
 ubiquity (2.12.15) quantal-proposed; urgency=low
 
   * Make sure not to remove the signed kernel if we need it (LP: #1067659).
