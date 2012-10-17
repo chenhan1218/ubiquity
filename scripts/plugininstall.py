@@ -802,6 +802,7 @@ class Install(install_misc.InstallBase):
         self.progress_region(1, 2)
         if install_kernels:
             self.do_install(install_kernels)
+            install_misc.record_installed(install_kernels)
             if new_kernel_pkg:
                 cache = Cache()
                 cached_pkg = install_misc.get_cache_pkg(cache, new_kernel_pkg)

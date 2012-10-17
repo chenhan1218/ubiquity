@@ -278,6 +278,7 @@ class Install(install_misc.InstallBase):
                         if sb_var_file.read(1) == b"\x01":
                             keep.add('grub-efi-amd64-signed')
                             keep.add('shim-signed')
+                            keep.add('linux-signed-generic')
             else:
                 keep.add('grub')
                 keep.add('grub-pc')
