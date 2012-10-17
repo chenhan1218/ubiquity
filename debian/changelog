@@ -44,6 +44,13 @@ ubiquity (2.13.0) raring; urgency=low
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Nov 2012 15:27:43 +0000
 
+ubiquity (2.12.17) UNRELEASED; urgency=low
+
+  * Clear "Read release notes or update the installer" if neither action
+    are possible. (LP: #1066302)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 17 Oct 2012 14:29:17 +0100
+
 ubiquity (2.12.16) quantal-proposed; urgency=low
 
   * Change get_grub_choice implementation to use get_current_disk_partman_id

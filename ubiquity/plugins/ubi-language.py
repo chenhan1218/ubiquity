@@ -350,6 +350,8 @@ class PageGtk(PageBase):
             elif self.update_installer:
                 text = i18n.get_string('update_installer_only', lang)
                 self.release_notes_label.set_markup(text)
+            else:
+                self.release_notes_label.set_markup('')
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
