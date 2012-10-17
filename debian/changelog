@@ -48,6 +48,8 @@ ubiquity (2.12.17) UNRELEASED; urgency=low
 
   * Clear "Read release notes or update the installer" if neither action
     are possible. (LP: #1066302)
+  * If there is only one disk & use_device recipe is used, change next step
+    button to "Install Now". (LP: #1050044)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 17 Oct 2012 14:29:17 +0100
 

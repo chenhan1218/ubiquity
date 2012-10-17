@@ -305,7 +305,7 @@ class PageGtk(PageBase):
             self.show_encryption_passphrase(crypto)
             self.controller.go_to_page(self.current_page)
             self.controller.toggle_next_button('install_button')
-            self.plugin_is_install = True
+            self.plugin_is_install = one_disk
             self.info_loop(None)
             return True
 
@@ -418,6 +418,9 @@ class PageGtk(PageBase):
             return True
         elif (self.resize_use_free.get_active() and
                 'biggest_free' in self.extra_options):
+            return True
+        elif (self.use_device.get_active() and
+              len(self.extra_options['use_device'][1]) == 1):
             return True
         else:
             return False
