@@ -1,3 +1,11 @@
+ubiquity (2.12.13ubuntu1) UNRELEASED; urgency=low
+
+  * Add extra checks when determining boot parameter for grub_default,
+    which prevents crashing the installer upton entering manual
+    partitioning (LP: #1067566)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 17 Oct 2012 05:29:04 +0100
+
 ubiquity (2.12.13) quantal-proposed; urgency=low
 
   [ Dmitrijs Ledkovs ]

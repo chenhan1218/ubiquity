@@ -577,8 +577,11 @@ class PageGtk(PageBase):
             disk = self.get_autopartition_choice()
             if isinstance(disk, tuple) and len(disk) == 2:
                 disk_string = disk[1]
-                disk_fields = disk_string.split(None, 3)
-                if len(disk_fields) >= 3:
+                # Can be None for Manual partitioning & other setups
+                # See LP: #1067566
+                if disk_string:
+                    disk_fields = disk_string.split(None, 3)
+                if disk_string and len(disk_fields) >= 3:
                     disk_path = "/dev/%s" % disk_fields[2].strip("()")
                     if os.path.exists(disk_path):
                         return misc.grub_default(boot=disk_path)
@@ -1456,8 +1459,11 @@ class PageKde(PageBase):
             disk = self.get_autopartition_choice()
             if isinstance(disk, tuple) and len(disk) == 2:
                 disk_string = disk[1]
-                disk_fields = disk_string.split(None, 3)
-                if len(disk_fields) >= 3:
+                # Can be None for Manual partitioning & other setups
+                # See LP: #1067566
+                if disk_string:
+                    disk_fields = disk_string.split(None, 3)
+                if disk_string and len(disk_fields) >= 3:
                     disk_path = "/dev/%s" % disk_fields[2].strip("()")
                     if os.path.exists(disk_path):
                         return misc.grub_default(boot=disk_path)
