@@ -1,4 +1,4 @@
-ubiquity (2.12.13ubuntu1) UNRELEASED; urgency=low
+ubiquity (2.12.14) quantal-proposed; urgency=low
 
   * Add extra checks when determining boot parameter for grub_default,
     which prevents crashing the installer upton entering manual
