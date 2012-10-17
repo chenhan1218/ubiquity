@@ -1,11 +1,11 @@
-ubiquity (2.12.15) UNRELEASED; urgency=low
+ubiquity (2.12.15) quantal-proposed; urgency=low
 
   * Make sure not to remove the signed kernel if we need it (LP: #1067659).
   * Copy the signed kernel from /cdrom/casper/vmlinuz.efi.signed.
     /cdrom/casper/vmlinuz needs to remain unsigned to avoid breaking
     checksums.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Oct 2012 11:34:11 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 17 Oct 2012 11:38:04 +0100
 
 ubiquity (2.12.14) quantal-proposed; urgency=low
 
