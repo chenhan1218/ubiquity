@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-09 16:20+0100\n"
+"POT-Creation-Date: 2012-10-19 15:25+0100\n"
 "PO-Revision-Date: 2012-10-04 13:15+0000\n"
 "Last-Translator: Tennom <Unknown>\n"
 "Language-Team: Tibetan <bo@li.org>\n"
@@ -119,10 +119,15 @@ msgstr "ཁྱོད་ཀྱིས་ <a href=\"update\">སྒྲིག་འ�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"October 2012."
+"April 2013."
 msgstr ""
 "འདི་ནི་${RELEASE} ${MEDIUM} སྒྲིག་འཇུག་ཆས་ཀྱི་གོང་དུ་འགྲེམ་སྤེལ་བྱས་པའི་པར་གཞི་ཞིག་ཡིན་པ་ལས་ཆེས་"
 "མཐའ་མཇུག་གི་འགྲེམ་སྤེལ་དེ་མ་ཡིན། ཆེས་མཐའ་མཇུག་གི་${RELEASE} འགྲེམ་སྤེལ་དེ་2012 ཟླ་བཅུ་བ་ནང་དུ་"

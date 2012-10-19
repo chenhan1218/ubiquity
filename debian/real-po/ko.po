@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-09 16:20+0100\n"
+"POT-Creation-Date: 2012-10-19 15:25+0100\n"
 "PO-Revision-Date: 2012-10-11 11:20+0000\n"
 "Last-Translator: Kim Boram <boramism@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -120,10 +120,15 @@ msgstr "<a href=\"update\">설치 프로그램 업데이트</a>를 할 수 있�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"October 2012."
+"April 2013."
 msgstr ""
 "이 프로그램은 정식 배포 이전 단계의 ${RELEASE} live ${MEDIUM} 설치 프로그램입"
 "니다. 최종 배포 버전이 아니며 ${RELEASE}의 정식 버전은 2012년 10월에 발표할 "

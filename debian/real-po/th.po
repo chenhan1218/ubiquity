@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-09 16:20+0100\n"
+"POT-Creation-Date: 2012-10-19 15:25+0100\n"
 "PO-Revision-Date: 2012-05-08 01:00+0000\n"
 "Last-Translator: Manop Pornpeanvichanon(มานพ พรเพียรวิชานนท์) <Unknown>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -122,7 +122,7 @@ msgstr "คุณอาจต้องการที่จะ <a href=\"update\
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"October 2012."
+"April 2013."
 msgstr ""
 
 #. Type: text

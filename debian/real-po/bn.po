@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-09 16:20+0100\n"
+"POT-Creation-Date: 2012-10-19 15:25+0100\n"
 "PO-Revision-Date: 2012-09-19 08:50+0000\n"
 "Last-Translator: Syed Muhammad Mahmudul Haque <mmhyamin@gmail.com>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -123,10 +123,15 @@ msgstr "আপনি ইচ্ছে করলে <a href=\"update\">এই ই�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
+#, fuzzy
+#| msgid ""
+#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
+#| "not a final release; that will come with the final release of ${RELEASE} "
+#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"October 2012."
+"April 2013."
 msgstr ""
 "এই প্রকাশনটি মূল ${RELEASE} প্রকাশনার সরাসরি ${MEDIUM} ইন্সটল যোগ্য পূর্ববর্তী "
 "প্রকাশনা। এটা চুড়ান্ত প্রকাশনা নয়; ওটা আসবে চুড়ান্ত ${RELEASE} প্রকাশনার সাথে যা "

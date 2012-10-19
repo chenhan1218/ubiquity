@@ -1,3 +1,9 @@
+ubiquity (2.13.0) UNRELEASED; urgency=low
+
+  * Re-enable alpha warning for raring.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Oct 2012 15:26:28 +0100
+
 ubiquity (2.12.16) quantal-proposed; urgency=low
 
   * Change get_grub_choice implementation to use get_current_disk_partman_id

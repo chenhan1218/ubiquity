@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2012-10-09 16:20+0100\n"
+"POT-Creation-Date: 2012-10-19 15:25+0100\n"
 "PO-Revision-Date: 2012-03-19 21:32+0000\n"
 "Last-Translator: Soltan Dzmitry <Unknown>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -126,7 +126,7 @@ msgstr "Магчыма Вы жадаеце <a href=\"update\">абнавіць �
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
-"October 2012."
+"April 2013."
 msgstr ""
 
 #. Type: text
