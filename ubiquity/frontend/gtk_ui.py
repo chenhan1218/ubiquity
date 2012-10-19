@@ -1706,21 +1706,16 @@ class Wizard(BaseFrontend):
                 text = option
             if text is None:
                 text = option
-            buttons.extend((text, len(buttons) / 2 + 1))
-        dialog = Gtk.Dialog(
-            title, self.live_installer, Gtk.DialogFlags.MODAL, tuple(buttons))
-        vbox = Gtk.Box()
-        vbox.set_orientation(Gtk.Orientation.VERTICAL)
-        vbox.set_border_width(5)
-        label = Gtk.Label(label=msg)
-        label.set_line_wrap(True)
-        label.set_selectable(False)
-        vbox.pack_start(label, True, True, 0)
-        vbox.show_all()
-        dialog.get_content_area().pack_start(vbox, True, True, 0)
-        response = dialog.run()
+            buttons.append((text, len(buttons) / 2 + 1))
+
+        self.ubi_question_dialog.set_title(title)
+        self.question_label.set_text(msg)
+        for text, response_id in buttons:
+            self.ubi_question_dialog.add_button(text, response_id)
+        self.ubi_question_dialog.show_all()
+        response = self.ubi_question_dialog.run()
         self.allow_change_step(saved_allowed_change_step)
-        dialog.hide()
+        self.ubi_question_dialog.hide()
         if response < 0:
             # something other than a button press, probably destroyed
             return None

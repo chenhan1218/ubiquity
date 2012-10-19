@@ -52,6 +52,7 @@ ubiquity (2.12.17) UNRELEASED; urgency=low
     button to "Install Now". (LP: #1050044)
   * When auto-partitioning is not possible, allow to manually partition
     the same drive installation medium is on. (LP: #1053030)
+  * Fix the question_dialog height-for-width (LP: #862270)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 17 Oct 2012 14:29:17 +0100
 
