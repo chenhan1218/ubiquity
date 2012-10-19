@@ -747,10 +747,4 @@ class Install(plugin.InstallPlugin):
                     locale.setlocale(locale.LC_ALL, '')
                 except locale.Error:
                     pass
-            # fontconfig configuration needs to be adjusted based on the
-            # selected locale (from language-selector-common.postinst). Ignore
-            # errors.
-            misc.execute(
-                'chroot', target, 'fontconfig-voodoo',
-                '--auto', '--force', '--quiet')
         return rv

@@ -51,6 +51,8 @@ ubiquity (2.13.0) raring; urgency=low
   * When auto-partitioning is not possible, allow to manually partition
     the same drive installation medium is on. (LP: #1053030)
   * Fix the question_dialog height-for-width (LP: #862270)
+  * Fonconfig-voodoo is gone, not sure if some other "fontconfig"ury
+    should be called instead. (LP: #1043031)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Nov 2012 15:27:43 +0000
 
