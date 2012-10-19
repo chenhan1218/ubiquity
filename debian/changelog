@@ -32,6 +32,7 @@ ubiquity (2.13.1) raring; urgency=low
 
 ubiquity (2.13.0) raring; urgency=low
 
+  [ Colin Watson ]
   * Re-enable alpha warning for raring.
   * If there is a signed kernel but no unsigned one on the installation
     medium, then use sbattach to remove the signature and construct the
@@ -42,10 +43,7 @@ ubiquity (2.13.0) raring; urgency=low
     partman-ext3 72ubuntu1, partman-jfs 37, partman-newworld 28, preseed
     1.55ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Nov 2012 15:27:43 +0000
-
-ubiquity (2.12.17) UNRELEASED; urgency=low
-
+  [ Dmitrijs Ledkovs ]
   * Clear "Read release notes or update the installer" if neither action
     are possible. (LP: #1066302)
   * If there is only one disk & use_device recipe is used, change next step
@@ -54,7 +52,7 @@ ubiquity (2.12.17) UNRELEASED; urgency=low
     the same drive installation medium is on. (LP: #1053030)
   * Fix the question_dialog height-for-width (LP: #862270)
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 17 Oct 2012 14:29:17 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Nov 2012 15:27:43 +0000
 
 ubiquity (2.12.16) quantal-proposed; urgency=low
 
