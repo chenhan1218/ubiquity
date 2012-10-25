@@ -45,6 +45,17 @@ WEIGHT = 10
 #  - take the oauth token and put into the users keyring (how?)
 #  - make the keyring unlocked by default
 
+class UbuntuSSO(object):
+
+    def login(self, username, password,
+              callback, errback):
+        pass
+    
+    def register(self, username, password,
+                 callback, errback):
+        pass
+
+
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
 
