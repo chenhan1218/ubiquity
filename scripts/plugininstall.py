@@ -342,7 +342,9 @@ class Install(install_misc.InstallBase):
         target_user = self.db.get('passwd/username')
         uid, gid = self._get_uid_gid_on_target(target_user)
         if os.path.exists(OAUTH_TOKEN_PATH) and uid and gid:
-            # XXX: not copy but put into keyring really
+            # XXX: not copy but put into keyring really - we may need
+            # to the import on first login if its too complicated to setup
+            # the keyring-daemon in the target chroot
             targetpath = self.target_file(
                 'home', target_user, '.ubuntuone_oauth_token')
             shutil.copy2(OAUTH_TOKEN_PATH, targetpath)
