@@ -27,6 +27,9 @@ AFTER = 'usersetup'
 WEIGHT = 10
 
 # TODO:
+#  - rename this all to ubuntu sso instead of ubuntuone to avoid confusion
+#    that we force people to sign up for payed services on install (?) where
+#    what we want is to make it super simple to use our services
 #  - take the username from the usersetup step when creating the token
 #  - get a design for the UI
 #    * to create a new account
@@ -34,6 +37,11 @@ WEIGHT = 10
 #    * deal with forgoten passwords
 #    * skip account creation
 #  - implement actual logic/verification etc *cough*
+#    * make next button sensitive/insensitive depending on valid choice
+#    * requires the logic to login/create accounts without email verify
+#    * simplified way to talk to login.ubuntu.com as the installer
+#      won't have twisted, either piston-mini-client based (and embedd
+#      it) or entirely hand done via something like the spawn helper
 #  - take the oauth token and put into the users keyring (how?)
 #  - make the keyring unlocked by default
 
@@ -54,6 +62,7 @@ class PageGtk(plugin.PluginUI):
                 setattr(self, Gtk.Buildable.get_name(obj), obj)
         self.page = builder.get_object('stepUbuntuOne')
         self.plugin_widgets = self.page
+        self.oauth_token = None
 
     def plugin_get_current_page(self):
         self.page.show_all()
@@ -65,7 +74,13 @@ class PageGtk(plugin.PluginUI):
         return False
 
     def plugin_on_next_clicked(self):
-        # stop/save what needs saving
+        # verify that we actually have a valid token or that the 
+        # user skiped the sso creation
+        if self.oauth_token is not None:
+            # XXX: security, security, security! is the dir secure? if
+            #      not ensure mode 0600 
+            with open('/var/lib/ubiquity/ubuntuone_oauth_token', "w") as fp:
+                fp.write(self.oauth_token)
         return False
 
     def plugin_translate(self, lang):

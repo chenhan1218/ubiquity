@@ -206,6 +206,7 @@ class Install(install_misc.InstallBase):
 
         self.configure_plugins()
         self.configure_face()
+        self.configure_oauth_token()
 
         self.next_region()
         self.run_target_config_hooks()
@@ -309,9 +310,8 @@ class Install(install_misc.InstallBase):
 
         self.db.progress('SET', self.end)
 
-    def configure_face(self):
-        PHOTO_PATH = '/var/lib/ubiquity/webcam_photo.png'
-        target_user = self.db.get('passwd/username')
+    def _get_uid_gid_on_target(self, target_user):
+        """Helper that gets the uid/gid of the username in the target chroot"""
         uid = subprocess.Popen(
             ['chroot', self.target, 'sudo', '-u', target_user, '--',
              'id', '-u'], stdout=subprocess.PIPE, universal_newlines=True)
@@ -324,10 +324,28 @@ class Install(install_misc.InstallBase):
             uid = int(uid)
             gid = int(gid)
         except ValueError:
-            return
-        if os.path.exists(PHOTO_PATH):
+            return (None, None)
+        return uid, gid
+
+    def configure_face(self):
+        PHOTO_PATH = '/var/lib/ubiquity/webcam_photo.png'
+        target_user = self.db.get('passwd/username')
+        uid, gid = self._get_uid_gid_on_target(target_user)
+        if os.path.exists(PHOTO_PATH) and uid and gid:
             targetpath = self.target_file('home', target_user, '.face')
             shutil.copy2(PHOTO_PATH, targetpath)
+            os.lchown(targetpath, uid, gid)
+
+    # XXX: I am untested
+    def configure_oauth_token(self):
+        OAUTH_TOKEN_PATH = '/var/lib/ubiquity/ubuntuone_oauth_token'
+        target_user = self.db.get('passwd/username')
+        uid, gid = self._get_uid_gid_on_target(target_user)
+        if os.path.exists(OAUTH_TOKEN_PATH) and uid and gid:
+            # XXX: not copy but put into keyring really
+            targetpath = self.target_file(
+                'home', target_user, '.ubuntuone_oauth_token')
+            shutil.copy2(OAUTH_TOKEN_PATH, targetpath)
             os.lchown(targetpath, uid, gid)
 
     def configure_python(self):
