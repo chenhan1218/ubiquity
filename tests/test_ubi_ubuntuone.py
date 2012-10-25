@@ -27,4 +27,9 @@ class TestPageGtk(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # run tests in a sourcetree with:
+    #   UBIQUITY_GLADE=./gui/gtk \
+    #   UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
+    #   PYTHONPATH=. python3 tests/test_ubi_ubuntuone.py
+    run_unittest(TestPageGtk)
+

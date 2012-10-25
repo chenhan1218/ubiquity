@@ -18,7 +18,6 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
-import sys
 
 from ubiquity import plugin
 
@@ -27,6 +26,16 @@ NAME = 'ubuntuone'
 AFTER = 'usersetup'
 WEIGHT = 10
 
+# TODO:
+#  - take the username from the usersetup step when creating the token
+#  - get a design for the UI
+#    * to create a new account
+#    * to login into a existing account
+#    * deal with forgoten passwords
+#    * skip account creation
+#  - implement actual logic/verification etc *cough*
+#  - take the oauth token and put into the users keyring (how?)
+#  - make the keyring unlocked by default
 
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
