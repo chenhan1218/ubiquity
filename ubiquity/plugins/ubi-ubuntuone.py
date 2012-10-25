@@ -1,0 +1,64 @@
+# -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
+
+# Copyright (C) 2012 Canonical Ltd.
+# Written by Michael Vogt <mvo@ubuntu.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+import os
+import sys
+
+from ubiquity import plugin
+
+
+NAME = 'ubuntuone'
+AFTER = 'usersetup'
+WEIGHT = 10
+
+
+class PageGtk(plugin.PluginUI):
+    plugin_title = 'ubiquity/text/ubuntuone_heading_label'
+
+    def __init__(self, controller, *args, **kwargs):
+        from gi.repository import Gtk
+        self.controller = controller
+        builder = Gtk.Builder()
+        self.controller.add_builder(builder)
+        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'],
+            'stepUbuntuOne.ui'))
+        builder.connect_signals(self)
+        # make the widgets available under their gtkbuilder name
+        for obj in builder.get_objects():
+            if issubclass(type(obj), Gtk.Buildable):
+                setattr(self, Gtk.Buildable.get_name(obj), obj)
+        self.page = builder.get_object('stepUbuntuOne')
+        self.plugin_widgets = self.page
+
+    def plugin_get_current_page(self):
+        self.page.show_all()
+        # do setup stuff
+        return self.page
+
+    def plugin_on_back_clicked(self):
+        # stop whatever needs stopping
+        return False
+
+    def plugin_on_next_clicked(self):
+        # stop/save what needs saving
+        return False
+
+    def plugin_translate(self, lang):
+        # ???
+        pass
