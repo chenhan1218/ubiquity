@@ -13,9 +13,18 @@ class MockController(object):
     def __init__(self):
         self.oem_user_config = None
         self.oem_config = None
+        self.dbfilter = None
+        self._allow_go_foward = True
+        self._allow_go_backward = True
 
     def add_builder(self, builder):
         pass
+
+    def allow_go_forward(self, v):
+        self._allow_go_forward = v
+
+    def allow_go_backward(self, v):
+        self._allow_go_backward = v
 
 
 if __name__ == "__main__":

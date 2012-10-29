@@ -20,6 +20,7 @@
 import os
 
 from ubiquity import plugin
+from ubiquity.plugin import InstallPlugin
 
 
 NAME = 'ubuntuone'
@@ -50,7 +51,7 @@ class UbuntuSSO(object):
     def login(self, username, password,
               callback, errback):
         pass
-    
+
     def register(self, username, password,
                  callback, errback):
         pass
@@ -85,11 +86,11 @@ class PageGtk(plugin.PluginUI):
         return False
 
     def plugin_on_next_clicked(self):
-        # verify that we actually have a valid token or that the 
+        # verify that we actually have a valid token or that the
         # user skiped the sso creation
         if self.oauth_token is not None:
             # XXX: security, security, security! is the dir secure? if
-            #      not ensure mode 0600 
+            #      not ensure mode 0600
             with open('/var/lib/ubiquity/ubuntuone_oauth_token', "w") as fp:
                 fp.write(self.oauth_token)
         return False
@@ -97,3 +98,10 @@ class PageGtk(plugin.PluginUI):
     def plugin_translate(self, lang):
         # ???
         pass
+
+
+# FIXME: should we use this here instead of:
+#         configure_oauth_token() in  scripts/plugininstall.py ?
+#class Install(InstallPlugin):
+#    def install(self, target, progress, *args, **kwargs):
+#        pass
