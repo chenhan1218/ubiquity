@@ -5,6 +5,8 @@ from gi.repository import Gtk
 from ubiquity.plugin_manager import load_plugin
 import sys
 
+# we could use this as the base for the MockController as well
+#   from ubiquity.frontend.base import Controller
 
 class MockController(object):
 
