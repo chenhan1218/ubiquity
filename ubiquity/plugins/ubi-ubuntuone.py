@@ -20,7 +20,7 @@
 import os
 
 from ubiquity import plugin
-from ubiquity.plugin import InstallPlugin
+#from ubiquity.plugin import InstallPlugin
 
 
 NAME = 'ubuntuone'
