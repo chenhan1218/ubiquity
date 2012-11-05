@@ -32,4 +32,3 @@ if __name__ == '__main__':
     #   UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
     #   PYTHONPATH=. python3 tests/test_ubi_ubuntuone.py
     run_unittest(TestPageGtk)
-
