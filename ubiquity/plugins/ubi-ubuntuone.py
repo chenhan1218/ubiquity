@@ -28,6 +28,7 @@ AFTER = 'usersetup'
 WEIGHT = 10
 
 # TODO:
+#  - network awareness (steal from timezone map page)
 #  - rename this all to ubuntu sso instead of ubuntuone to avoid confusion
 #    that we force people to sign up for payed services on install (?) where
 #    what we want is to make it super simple to use our services
