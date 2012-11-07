@@ -1,6 +1,9 @@
 ubiquity (2.13.0) UNRELEASED; urgency=low
 
   * Re-enable alpha warning for raring.
+  * If there is a signed kernel but no unsigned one on the installation
+    medium, then use sbattach to remove the signature and construct the
+    unsigned kernel on the fly.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Oct 2012 15:26:28 +0100
 
