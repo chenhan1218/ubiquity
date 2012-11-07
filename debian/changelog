@@ -1,4 +1,4 @@
-ubiquity (2.13.0) UNRELEASED; urgency=low
+ubiquity (2.13.0) raring; urgency=low
 
   * Re-enable alpha warning for raring.
   * If there is a signed kernel but no unsigned one on the installation
@@ -10,7 +10,7 @@ ubiquity (2.13.0) UNRELEASED; urgency=low
     partman-ext3 72ubuntu1, partman-jfs 37, partman-newworld 28, preseed
     1.55ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Oct 2012 15:26:28 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Nov 2012 15:27:43 +0000
 
 ubiquity (2.12.16) quantal-proposed; urgency=low
 
