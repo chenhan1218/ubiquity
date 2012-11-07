@@ -13,11 +13,13 @@ from ubiquity import plugin_manager
 ubi_ubuntuone = plugin_manager.load_plugin('ubi-ubuntuone')
 
 
-class TestPageGtk(unittest.TestCase):
-
+class BaseTestPageGtk(unittest.TestCase):
+    
     def setUp(self):
         mock_controller = mock.Mock()
         self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=mock.Mock())
+    
+class TestPageGtk(BaseTestPageGtk):
 
     def test_ui_visible(self):
         self.page.plugin_get_current_page()
@@ -49,6 +51,39 @@ class TestPageGtk(unittest.TestCase):
         with open(tmp_token.name, "r") as fp:
             self.assertEqual(fp.read(), '{"token": "none"}')
 
+    def test_verify_email_entry(self):
+        self.assertFalse(self.page._verify_email_entry("meep"))
+        self.assertTrue(self.page._verify_email_entry("mup@example.com"))
+    
+    def test_verify_password_entry(self):
+        self.assertFalse(self.page._verify_password_entry(""))
+        self.assertTrue(self.page._verify_password_entry("xxx"))
+
+
+class RegisterTestCase(BaseTestPageGtk):
+
+    def test_register_allow_go_forward_not_yet(self):
+        self.page.entry_email.set_text("foo")
+        self.page.controller.allow_go_forward.assert_called_with(False)
+
+    def test_register_allow_go_foward(self):
+        self.page.entry_email.set_text("foo@bar.com")
+        self.page.controller.allow_go_forward.assert_called_with(True)
+
+
+class LoginTestCase(BaseTestPageGtk):
+
+    def test_login_allow_go_forward_not_yet(self):
+        self.page.entry_existing_email.set_text("foo")
+        self.page.entry_existing_password.set_text("pass")
+        self.page.controller.allow_go_forward.assert_called_with(False)
+
+    def test_login_allow_go_foward(self):
+        self.page.button_have_account.clicked()
+        self.page.entry_existing_email.set_text("foo@bar.com")
+        self.page.entry_existing_password.set_text("pass")
+        self.page.controller.allow_go_forward.assert_called_with(True)
+
 
 if __name__ == '__main__':
     # run tests in a sourcetree with:
@@ -57,4 +92,4 @@ if __name__ == '__main__':
     UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
     PYTHONPATH=. python3 tests/test_ubi_ubuntuone.py
     """
-    run_unittest(TestPageGtk)
+    unittest.main()

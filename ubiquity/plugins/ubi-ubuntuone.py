@@ -17,6 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import re
 import os
 import json
 import syslog
@@ -98,6 +99,7 @@ class PageGtk(plugin.PluginUI):
         self.online = False
         # the worker
         self.ubuntu_sso = UbuntuSSO()
+        self.info_loop(None)
 
     def plugin_set_online_state(self, state):
         self.online = state
@@ -167,6 +169,26 @@ class PageGtk(plugin.PluginUI):
     def on_button_skip_account_clicked(self, button):
         self.oauth_token = None
         self.plugin_on_next_clicked()
+
+    def _verify_email_entry(self, email):
+        EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
+        match = re.match(EMAIL_REGEXP, email)
+        return (match is not None)
+
+    def _verify_password_entry(self, password):
+        return len(password) > 0
+
+    def info_loop(self, widget):
+        complete = False
+        if self.notebook_main.get_current_page() == PAGE_REGISTER:
+            email = self.entry_email.get_text()
+            complete = self._verify_email_entry(email)
+        elif self.notebook_main.get_current_page() == PAGE_LOGIN:
+            email = self.entry_existing_email.get_text()
+            password = self.entry_existing_password.get_text()
+            complete = (self._verify_email_entry(email) and
+                        self._verify_password_entry(password))
+        self.controller.allow_go_forward(complete)
 
 # FIXME: should we use this here instead of:
 #         configure_oauth_token() in  scripts/plugininstall.py ?

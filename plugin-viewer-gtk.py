@@ -22,7 +22,8 @@ sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins && sudo cp gui/gtk/*.ui /us
 
 class MockController(object):
 
-    def __init__(self):
+    def __init__(self, parent):
+        self.parent = parent
         self.oem_user_config = None
         self.oem_config = None
         self.dbfilter = None
@@ -34,10 +35,11 @@ class MockController(object):
 
     def allow_go_forward(self, v):
         self._allow_go_forward = v
+        self.parent.button_next.set_sensitive(v)
 
     def allow_go_backward(self, v):
         self._allow_go_backward = v
-
+        self.parent.button_back.set_sensitive(v)
 
 if __name__ == "__main__":
     """
@@ -47,26 +49,29 @@ if __name__ == "__main__":
     """
     plugin_name = sys.argv[1]
     plugin_module = load_plugin(plugin_name)
-    mock_controller = MockController()
+
+    win = Gtk.Window()
+    win.button_next = Gtk.Button("next")
+    win.button_back = Gtk.Button("back")
+
+    mock_controller = MockController(win)
     page_gtk = plugin_module.PageGtk(mock_controller)
 
-    button_next = Gtk.Button("next")
-    button_next.connect(
+
+    win.button_next.connect(
         "clicked", lambda b: page_gtk.plugin_on_next_clicked())
-    button_prev = Gtk.Button("prev")
-    button_prev.connect(
+    win.button_back.connect(
         "clicked", lambda b: page_gtk.plugin_on_back_clicked())
 
     button_box = Gtk.ButtonBox(spacing=12)
     button_box.set_layout(Gtk.ButtonBoxStyle.END)
-    button_box.pack_start(button_prev, True, True, 6)
-    button_box.pack_start(button_next, True, True, 6)
+    button_box.pack_start(win.button_back, True, True, 6)
+    button_box.pack_start(win.button_next, True, True, 6)
 
     box = Gtk.VBox()
     box.pack_start(page_gtk.page, True, True, 6)
     box.pack_start(button_box, True, True, 6)
 
-    win = Gtk.Window()
     win.add(box)
     win.connect("destroy", Gtk.main_quit)
     win.show_all()
