@@ -27,6 +27,11 @@ NAME = 'ubuntuone'
 AFTER = 'usersetup'
 WEIGHT = 10
 
+(PAGE_REGISTER,
+ PAGE_LOGIN,
+ PAGE_SPINNER,
+ ) = range(3)
+
 # TODO:
 #  - network awareness (steal from timezone map page)
 #  - rename this all to ubuntu sso instead of ubuntuone to avoid confusion
@@ -49,11 +54,11 @@ WEIGHT = 10
 
 class UbuntuSSO(object):
 
-    def login(self, username, password,
+    def login(self, email, password,
               callback, errback):
         pass
 
-    def register(self, username, password,
+    def register(self, email, password,
                  callback, errback):
         pass
 
@@ -73,7 +78,9 @@ class PageGtk(plugin.PluginUI):
         for obj in builder.get_objects():
             if issubclass(type(obj), Gtk.Buildable):
                 setattr(self, Gtk.Buildable.get_name(obj), obj)
+        builder.connect_signals(self)
         self.page = builder.get_object('stepUbuntuOne')
+        self.notebook_main.set_show_tabs(False)
         self.plugin_widgets = self.page
         self.oauth_token = None
 
@@ -100,6 +107,15 @@ class PageGtk(plugin.PluginUI):
         # ???
         pass
 
+    def on_button_have_account_clicked(self, button):
+        self.notebook_main.set_current_page(PAGE_LOGIN)
+
+    def on_button_need_account_clicked(self, button):
+        self.notebook_main.set_current_page(PAGE_REGISTER)
+
+    def on_button_skip_account_clicked(self, button):
+        self.oauth_token = None
+        self.plugin_on_next_clicked()
 
 # FIXME: should we use this here instead of:
 #         configure_oauth_token() in  scripts/plugininstall.py ?
