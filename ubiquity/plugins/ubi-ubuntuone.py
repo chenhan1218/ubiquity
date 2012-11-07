@@ -54,6 +54,8 @@ WEIGHT = 10
 #      won't have twisted, either piston-mini-client based (and embedd
 #      it) or entirely hand done via something like the spawn helper
 #  - take the oauth token and put into the users keyring (how?)
+#    * probably on first login as the keyring is using a daemon that is 
+#      not available on the target fs
 #  - make the keyring unlocked by default
 
 
