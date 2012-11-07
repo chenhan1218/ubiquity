@@ -5,7 +5,7 @@ import tempfile
 import unittest
 
 import mock
-from gi.repository import Gtk
+from gi.repository import Gtk, GObject
 
 from ubiquity import plugin_manager
 
@@ -42,15 +42,6 @@ class TestPageGtk(BaseTestPageGtk):
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_REGISTER)
     
-    def test_click_next(self):
-        tmp_token = tempfile.NamedTemporaryFile()
-        self.page.OAUTH_TOKEN_FILE = tmp_token.name
-        self.page.plugin_on_next_clicked()
-        self.assertEqual(self.page.notebook_main.get_current_page(),
-                         ubi_ubuntuone.PAGE_SPINNER)
-        with open(tmp_token.name, "r") as fp:
-            self.assertEqual(fp.read(), '{"token": "none"}')
-
     def test_verify_email_entry(self):
         self.assertFalse(self.page._verify_email_entry("meep"))
         self.assertTrue(self.page._verify_email_entry("mup@example.com"))
@@ -58,6 +49,28 @@ class TestPageGtk(BaseTestPageGtk):
     def test_verify_password_entry(self):
         self.assertFalse(self.page._verify_password_entry(""))
         self.assertTrue(self.page._verify_password_entry("xxx"))
+
+
+class MockSSOTestCase(BaseTestPageGtk):
+
+    class MockUbuntuSSO():
+        def mock_done(self, callback, errback):
+            callback({'token': 'nonex'})
+            Gtk.main_quit()
+        def register(self, email, passw, callback, errback):
+            GObject.idle_add(self.mock_done, callback, errback)
+        def login(self, email, passw, callback, errback):
+            GObject.idle_add(self.mock_done, callback, errback)
+
+    def test_click_next(self):
+        self.page.ubuntu_sso = self.MockUbuntuSSO()
+        tmp_token = tempfile.NamedTemporaryFile()
+        self.page.OAUTH_TOKEN_FILE = tmp_token.name
+        self.page.plugin_on_next_clicked()
+        self.assertEqual(self.page.notebook_main.get_current_page(),
+                         ubi_ubuntuone.PAGE_SPINNER)
+        with open(tmp_token.name, "r") as fp:
+            self.assertEqual(fp.read(), '{"token": "nonex"}')
 
 
 class RegisterTestCase(BaseTestPageGtk):
