@@ -4,6 +4,11 @@ ubiquity (2.13.0) UNRELEASED; urgency=low
   * If there is a signed kernel but no unsigned one on the installation
     medium, then use sbattach to remove the signature and construct the
     unsigned kernel on the fly.
+  * Automatic update of included source packages: choose-mirror 2.44ubuntu1,
+    clock-setup 0.113ubuntu1, partconf 1.40, partman-base 161ubuntu1,
+    partman-basicfilesystems 76ubuntu1, partman-basicmethods 51,
+    partman-ext3 72ubuntu1, partman-jfs 37, partman-newworld 28, preseed
+    1.55ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 19 Oct 2012 15:26:28 +0100
 
