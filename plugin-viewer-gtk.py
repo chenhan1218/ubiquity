@@ -51,7 +51,11 @@ if __name__ == "__main__":
     page_gtk = plugin_module.PageGtk(mock_controller)
 
     button_next = Gtk.Button("next")
+    button_next.connect(
+        "clicked", lambda b: page_gtk.plugin_on_next_clicked())
     button_prev = Gtk.Button("prev")
+    button_prev.connect(
+        "clicked", lambda b: page_gtk.plugin_on_back_clicked())
 
     button_box = Gtk.ButtonBox(spacing=12)
     button_box.set_layout(Gtk.ButtonBoxStyle.END)

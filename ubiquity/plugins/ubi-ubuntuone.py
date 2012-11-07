@@ -18,6 +18,9 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
+import json
+import syslog
+import uuid
 
 from ubiquity import plugin
 #from ubiquity.plugin import InstallPlugin
@@ -52,23 +55,33 @@ WEIGHT = 10
 #  - take the oauth token and put into the users keyring (how?)
 #  - make the keyring unlocked by default
 
+
 class UbuntuSSO(object):
 
     def login(self, email, password,
               callback, errback):
-        pass
+        # XXX: make it actually do something useful
+        print("login: %s " % email)
+        from gi.repository import GObject
+        GObject.timeout_add(1500, lambda: callback({ 'token': 'none'}))
 
     def register(self, email, password,
                  callback, errback):
-        pass
+        # XXX: make it actually do something useful
+        print("register: %s " % email)
+        from gi.repository import GObject
+        GObject.timeout_add(1500, lambda: callback({ 'token': 'none'}))
 
 
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
+    
+    OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
 
     def __init__(self, controller, *args, **kwargs):
         from gi.repository import Gtk
         self.controller = controller
+        # add builder/signals
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
         builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'],
@@ -78,35 +91,73 @@ class PageGtk(plugin.PluginUI):
         for obj in builder.get_objects():
             if issubclass(type(obj), Gtk.Buildable):
                 setattr(self, Gtk.Buildable.get_name(obj), obj)
-        builder.connect_signals(self)
         self.page = builder.get_object('stepUbuntuOne')
         self.notebook_main.set_show_tabs(False)
         self.plugin_widgets = self.page
         self.oauth_token = None
+        self.online = False
+        # the worker
+        self.ubuntu_sso = UbuntuSSO()
+
+    def plugin_set_online_state(self, state):
+        self.online = state
 
     def plugin_get_current_page(self):
         self.page.show_all()
-        # do setup stuff
+        self.notebook_main.set_current_page(PAGE_REGISTER)
         return self.page
 
     def plugin_on_back_clicked(self):
         # stop whatever needs stopping
         return False
 
-    def plugin_on_next_clicked(self):
-        # verify that we actually have a valid token or that the
-        # user skiped the sso creation
+    def plugin_on_next_clicked(self, skip_creation=False):
+        from gi.repository import Gtk
+        if skip_creation:
+            return False
+        if self.notebook_main.get_current_page() == PAGE_REGISTER:
+            # create a random password
+            password = uuid.uuid4()
+            self.ubuntu_sso.register(self.entry_email.get_text(),
+                                     password,
+                                     callback=self._ubuntu_sso_callback,
+                                     errback=self._ubuntu_sso_errback)
+        elif self.notebook_main.get_current_page() == PAGE_LOGIN:
+            self.ubuntu_sso.login(self.entry_existing_email.get_text(),
+                                  self.entry_existing_password.get_text(),
+                                  callback=self._ubuntu_sso_callback,
+                                  errback=self._ubuntu_sso_errback)
+        else:
+            raise AssertionError("Should never be reached happen")
+
+        self.notebook_main.set_current_page(PAGE_SPINNER)
+        self.spinner_connect.start()
+        Gtk.main()
+        self.spinner_connect.stop()
+
         if self.oauth_token is not None:
             # XXX: security, security, security! is the dir secure? if
             #      not ensure mode 0600
-            with open('/var/lib/ubiquity/ubuntuone_oauth_token', "w") as fp:
-                fp.write(self.oauth_token)
+            with open(self.OAUTH_TOKEN_FILE, "w") as fp:
+                fp.write(json.dumps(self.oauth_token))
         return False
 
     def plugin_translate(self, lang):
         # ???
         pass
 
+    # callbacks 
+    def _ubuntu_sso_callback(self, oauth_token):
+        from gi.repository import Gtk
+        self.oauth_token = oauth_token
+        Gtk.main_quit()
+
+    def _ubuntu_sso_errback(self, error):
+        from gi.repository import Gtk
+        syslog.syslog("ubuntu sso failed: '%s'" % error)
+        Gtk.main_quit()
+
+    # signals
     def on_button_have_account_clicked(self, button):
         self.notebook_main.set_current_page(PAGE_LOGIN)
 
