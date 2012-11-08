@@ -19,7 +19,6 @@
 
 from __future__ import print_function
 
-from IN import INT_MAX
 import os
 import subprocess
 import sys
@@ -32,17 +31,6 @@ NAME = 'prepare'
 AFTER = 'language'
 WEIGHT = 11
 OEM = False
-
-JOCKEY = 'com.ubuntu.DeviceDriver'
-JOCKEY_PATH = '/DeviceDriver'
-
-# From dbus-python:
-#  if (timeout_s > ((double)INT_MAX) / 1000.0) {
-#     PyErr_SetString(PyExc_ValueError, "Timeout too long");
-#     return NULL;
-# }
-# timeout_ms = (int)(timeout_s * 1000.0);
-MAX_DBUS_TIMEOUT = INT_MAX / 1000.0
 
 
 # TODO: This cannot be a non-debconf plugin after all as OEMs may want to
