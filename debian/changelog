@@ -1,4 +1,4 @@
-ubiquity (2.13.2) UNRELEASED; urgency=low
+ubiquity (2.13.2) raring; urgency=low
 
   * Try to copy signed kernel from vmlinuz.efi in preference to
     vmlinuz.efi.signed; vmlinuz.efi is friendlier to archaic 8.3 file name
@@ -7,7 +7,7 @@ ubiquity (2.13.2) UNRELEASED; urgency=low
     partman-auto-lvm 46ubuntu1, partman-crypto 55ubuntu1, partman-lvm
     82ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 12 Nov 2012 15:07:06 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 12 Nov 2012 15:11:08 +0000
 
 ubiquity (2.13.1) raring; urgency=low
 
