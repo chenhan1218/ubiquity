@@ -193,7 +193,7 @@ class Install(install_misc.InstallBase):
             subarch = None
 
         for prefix in ('vmlinux', 'vmlinuz'):
-            for suffix in ('', '.efi.signed'):
+            for suffix in ('', '.efi', '.efi.signed'):
                 kernel = os.path.join(self.casper_path, prefix) + suffix
                 if os.path.exists(kernel):
                     return kernel
@@ -529,15 +529,20 @@ class Install(install_misc.InstallBase):
             release = os.uname()[2]
             target_kernel = os.path.join(bootdir, '%s-%s' % (prefix, release))
             copies = [(kernel, target_kernel)]
-            if kernel.endswith(".efi.signed"):
+            # ISO9660 images may have to use .efi rather than .efi.signed in
+            # order to support being booted using isolinux, which must abide
+            # by archaic 8.3 restrictions.
+            if kernel.endswith(".efi") or kernel.endswith(".efi.signed"):
                 # No unsigned kernel.  We'll construct it using sbsigntool.
                 # Copy this one directly to the target signed location.
                 copies.append((kernel, "%s.efi.signed" % target_kernel))
-            else:
-                if os.path.exists("%s.efi.signed" % kernel):
-                    copies.append(
-                        ("%s.efi.signed" % kernel,
-                         "%s.efi.signed" % target_kernel))
+            elif os.path.exists("%s.efi" % kernel):
+                copies.append(
+                    ("%s.efi" % kernel, "%s.efi.signed" % target_kernel))
+            elif os.path.exists("%s.efi.signed" % kernel):
+                copies.append(
+                    ("%s.efi.signed" % kernel,
+                     "%s.efi.signed" % target_kernel))
             for source, target in copies:
                 osextras.unlink_force(target)
                 install_misc.copy_file(self.db, source, target, md5_check)
@@ -549,7 +554,7 @@ class Install(install_misc.InstallBase):
                 except Exception:
                     # We can live with timestamps being wrong.
                     pass
-            if kernel.endswith(".efi.signed"):
+            if kernel.endswith(".efi") or kernel.endswith(".efi.signed"):
                 # Construct the unsigned kernel.
                 subprocess.check_call(["sbattach", "--remove", target_kernel])
 
