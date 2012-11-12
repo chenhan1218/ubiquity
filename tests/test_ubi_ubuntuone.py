@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-from test.support import run_unittest
 import tempfile
 import unittest
 
@@ -33,11 +32,11 @@ class TestPageGtk(BaseTestPageGtk):
     
     def test_switch_pages(self):
         self.page.plugin_get_current_page()
-        self.page.button_have_account.clicked()
+        self.page.linkbutton_have_account.clicked()
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_LOGIN)
-        self.page.button_need_account.clicked()
+        self.page.linkbutton_need_account.clicked()
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_REGISTER)
@@ -92,7 +91,7 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.controller.allow_go_forward.assert_called_with(False)
 
     def test_login_allow_go_foward(self):
-        self.page.button_have_account.clicked()
+        self.page.linkbutton_have_account.clicked()
         self.page.entry_existing_email.set_text("foo@bar.com")
         self.page.entry_existing_password.set_text("pass")
         self.page.controller.allow_go_forward.assert_called_with(True)
@@ -105,4 +104,6 @@ if __name__ == '__main__':
     UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
     PYTHONPATH=. python3 tests/test_ubi_ubuntuone.py
     """
+    #from test.support import run_unittest
+    # run_unittest()
     unittest.main()
