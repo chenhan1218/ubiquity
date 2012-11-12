@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 
-from gi.repository import Gtk
-
-from ubiquity.plugin_manager import load_plugin
+import os
 import sys
+
+from gi.repository import Gtk
 
 # we could use this as the base for the MockController as well
 #   from ubiquity.frontend.base import Controller
 
 # to test for real:
 #   - qemu create -f qcow2 random-image 80G
-#   - get a VM and boot with 
+#   - get a VM and boot with
 #     kvm -snapshot -hda random-image -cdrom quantal-desktop.iso -boot d -m 1600
 # Run:
 """
-sudo apt-get install bzr 
+sudo apt-get install bzr
 bzr co --lightweight lp:~mvo/ubiquity/ssologin
 cd ssologin
 sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins && sudo cp gui/gtk/*.ui /usr/share/ubiquity/gtk && sudo ./bin/ubiquity
@@ -42,11 +42,18 @@ class MockController(object):
         self.parent.button_back.set_sensitive(v)
 
 if __name__ == "__main__":
-    """
-    UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
-    UBIQUITY_GLADE=./gui/gtk \
+    """ Run with:
     ./plugin-viewer-gtk.py ubi-ubuntuone
     """
+    # setup env
+    for envvar, path in (
+            ("UBIQUITY_PLUGIN_PATH", "./ubiquity/plugins"),
+            ("UBIQUITY_GLADE", "./gui/gtk")):
+        if os.path.exists(path):
+            os.environ[envvar] = path
+    # ... and then import the plugin_manager
+    from ubiquity.plugin_manager import load_plugin
+
     plugin_name = sys.argv[1]
     plugin_module = load_plugin(plugin_name)
 
