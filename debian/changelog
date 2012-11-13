@@ -1,6 +1,8 @@
 ubiquity (2.13.3) UNRELEASED; urgency=low
 
   * Use simplified form of super(), available from Python 3.
+  * Fix target kernel file names when only a signed kernel is present on the
+    installation medium (LP: #1077388).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 13 Nov 2012 11:25:02 +0000
 
