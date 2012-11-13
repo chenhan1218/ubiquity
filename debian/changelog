@@ -1,3 +1,9 @@
+ubiquity (2.13.3) UNRELEASED; urgency=low
+
+  * Use simplified form of super(), available from Python 3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 13 Nov 2012 11:25:02 +0000
+
 ubiquity (2.13.2) raring; urgency=low
 
   * Try to copy signed kernel from vmlinuz.efi in preference to
