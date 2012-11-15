@@ -91,7 +91,7 @@
                       <object class="GtkLabel" id="label11">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">First name:</property>
+                        <property name="label" translatable="yes">Password:</property>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -104,7 +104,7 @@
                       <object class="GtkLabel" id="label12">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Surname:</property>
+                        <property name="label" translatable="yes">Password:</property>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -114,7 +114,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="entry_first_name">
+                      <object class="GtkEntry" id="entry_new_password">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
@@ -127,7 +127,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="entry_sure_name">
+                      <object class="GtkEntry" id="entry_new_password2">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
