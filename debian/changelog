@@ -1,6 +1,9 @@
 ubiquity (2.13.4) UNRELEASED; urgency=low
 
   * Port the webcam support to GStreamer 1.0.
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu14, debian-installer-utils 1.91ubuntu6, flash-kernel
+    3.0~rc.4ubuntu28.
 
  -- Iain Lane <iain.lane@canonical.com>  Thu, 22 Nov 2012 14:35:21 +0000
 
