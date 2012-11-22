@@ -1,3 +1,9 @@
+ubiquity (2.13.4) UNRELEASED; urgency=low
+
+  * Port the webcam support to GStreamer 1.0.
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 22 Nov 2012 14:35:21 +0000
+
 ubiquity (2.13.3) raring; urgency=low
 
   * Use simplified form of super(), available from Python 3.
