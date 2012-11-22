@@ -77,7 +77,7 @@ class UserSetupTests(unittest.TestCase):
             'hostname_error_badchar',
             'hostname_error_badhyphen',
             'hostname_error_baddots',
-            ], '-abc..123$' + 'a' * 64)
+        ], '-abc..123$' + 'a' * 64)
         self.assertHostnameErrors([], 'abc123')
 
     def assertUsernameErrors(self, errors, username):

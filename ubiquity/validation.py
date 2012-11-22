@@ -107,10 +107,11 @@ def password_strength(password):
         upper = 3
     if symbol > 3:
         symbol = 3
-    strength = (((length * 0.1) - 0.2)
-               + (digit * 0.1)
-               + (symbol * 0.15)
-               + (upper * 0.1))
+    strength = (
+        ((length * 0.1) - 0.2) +
+        (digit * 0.1) +
+        (symbol * 0.15) +
+        (upper * 0.1))
     if strength > 1:
         strength = 1
     if strength < 0:

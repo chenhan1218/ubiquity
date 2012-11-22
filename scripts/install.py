@@ -130,8 +130,9 @@ class Install(install_misc.InstallBase):
                     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
                     os.setpgid(0, 0)
 
-                self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
-                    stdout=subprocess.PIPE, preexec_fn=subprocess_setup)
+                self.update_proc = subprocess.Popen(
+                    cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                    preexec_fn=subprocess_setup)
             try:
                 self.copy_all()
             except EnvironmentError as e:
@@ -254,7 +255,7 @@ class Install(install_misc.InstallBase):
         if not use_restricted:
             for pkg in cache.keys():
                 if (cache[pkg].is_installed and
-                    cache[pkg].section.startswith('restricted/')):
+                        cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
 
         # Keep packages we explicitly installed.
@@ -423,7 +424,7 @@ class Install(install_misc.InstallBase):
 
                 # Is the path blacklisted?
                 if (not stat.S_ISDIR(st.st_mode) and
-                    '/%s' % relpath in self.blacklist):
+                        '/%s' % relpath in self.blacklist):
                     if debug:
                         syslog.syslog('Not copying %s' % relpath)
                     continue
@@ -701,7 +702,7 @@ class Install(install_misc.InstallBase):
                     "Failed to unmount %s" % mountpoint)
         for dev in devs:
             if (dev != '' and dev != 'unused' and
-                not misc.execute('losetup', '-d', dev)):
+                    not misc.execute('losetup', '-d', dev)):
                 raise install_misc.InstallStepError(
                     "Failed to detach loopback device %s" % dev)
 

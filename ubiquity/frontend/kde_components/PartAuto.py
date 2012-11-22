@@ -25,10 +25,10 @@ def addBars(parent, before_bar, after_bar):
     frame.layout().setSpacing(0)
 
     frame.layout().addWidget(QtGui.QLabel(
-            get_string('ubiquity/text/partition_layout_before')))
+        get_string('ubiquity/text/partition_layout_before')))
     frame.layout().addWidget(before_bar)
     frame.layout().addWidget(QtGui.QLabel(
-            get_string('ubiquity/text/partition_layout_after')))
+        get_string('ubiquity/text/partition_layout_after')))
     frame.layout().addWidget(after_bar)
 
     parent.layout().addWidget(frame)
@@ -106,9 +106,8 @@ class PartAuto(QtGui.QWidget):
             disks = []
             for disk_id in extra_options['resize']:
                 # information about what can be resized
-                unused, min_size, max_size, pref_size, \
-                resize_path, unused, unused = \
-                    extra_options['resize'][disk_id]
+                _, min_size, max_size, pref_size, resize_path, _, _ = (
+                    extra_options['resize'][disk_id])
 
                 for text, path in extra_options['use_device'][1].items():
                     path = path[0]

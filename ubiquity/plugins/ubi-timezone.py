@@ -177,11 +177,9 @@ class PageGtk(plugin.PluginUI):
         else:
             try:
                 for result in json.loads(message.response_body.data):
-                    model.append([result['name'],
-                                result['admin1'],
-                                result['country'],
-                                result['latitude'],
-                                result['longitude']])
+                    model.append([
+                        result['name'], result['admin1'], result['country'],
+                        result['latitude'], result['longitude']])
 
                 # Only cache positive results.
                 self.geoname_cache[text] = model
@@ -664,7 +662,7 @@ class Page(plugin.Plugin):
             # for the number part.  icu does not indicate a 'translation
             # failure' like this in any way...
             if (translated is None or
-                re.search('.*[-+][0-9][0-9]:?[0-9][0-9]$', translated)):
+                    re.search('.*[-+][0-9][0-9]:?[0-9][0-9]$', translated)):
                 # Wasn't something that icu understood...
                 name = self.get_fallback_translation_for_tz(
                     country_code, location.zone)
@@ -705,7 +703,7 @@ class Page(plugin.Plugin):
     def cleanup(self):
         plugin.Plugin.cleanup(self)
         self.ui.controller.set_locale(
-                i18n.reset_locale(self.frontend, just_country=True))
+            i18n.reset_locale(self.frontend, just_country=True))
 
 
 class Install(plugin.InstallPlugin):
