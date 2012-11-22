@@ -207,7 +207,7 @@ def start_debconf():
         state = 0
         for line in orig_debconfrc:
             if (state == 0 and
-                line.rstrip('\n') and not line.startswith('#')):
+                    line.rstrip('\n') and not line.startswith('#')):
                 state = 1
             elif state == 1 and not line.rstrip('\n'):
                 print('Reshow: true', file=debconfrc_file)
@@ -363,9 +363,10 @@ def copy_debconf():
         patterns.append('^console-setup/')
 
     for q in patterns:
-        misc.execute_root('debconf-copydb', 'configdb', 'targetdb', '-p', q,
-                     '--config=Name:targetdb', '--config=Driver:File',
-                     '--config=Mode:0644', '--config=Filename:%s' % targetdb)
+        misc.execute_root(
+            'debconf-copydb', 'configdb', 'targetdb', '-p', q,
+            '--config=Name:targetdb', '--config=Driver:File',
+            '--config=Mode:0644', '--config=Filename:%s' % targetdb)
 
 
 def unmount_target():

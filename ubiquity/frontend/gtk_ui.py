@@ -262,7 +262,8 @@ class Wizard(BaseFrontend):
               -GtkProgressBar-min-horizontal-bar-height : 10
             }''')
 
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(),
             provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         # load the main interface
@@ -329,7 +330,8 @@ class Wizard(BaseFrontend):
                 border-width: 0px;
                 padding: 0px;
             }''' % bg).encode())
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(),
             provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.stop_debconf()
@@ -341,7 +343,7 @@ class Wizard(BaseFrontend):
         if osextras.find_on_path('casper-a11y-enable'):
             with open('/proc/cmdline') as fp:
                 if ('UBIQUITY_GREETER' in os.environ or self.oem_user_config or
-                   'only-ubiquity' in fp.read()):
+                        'only-ubiquity' in fp.read()):
                     try:
                         from gi.repository import AppIndicator3 as AppIndicator
                         self.indicator = AppIndicator.Indicator.new(
@@ -417,7 +419,7 @@ class Wizard(BaseFrontend):
         """Crash handler."""
 
         if (issubclass(exctype, KeyboardInterrupt) or
-            issubclass(exctype, SystemExit)):
+                issubclass(exctype, SystemExit)):
             return
 
         # Restore the default cursor if we were using a spinning cursor on the
@@ -645,10 +647,10 @@ class Wizard(BaseFrontend):
 
     def a11y_profile_keys(self, window, event):
         if (event.state & Gdk.ModifierType.CONTROL_MASK and
-            event.keyval == Gdk.keyval_from_name('h')):
+                event.keyval == Gdk.keyval_from_name('h')):
             self.a11y_profile_high_contrast_activate()
         elif (event.state & Gdk.ModifierType.CONTROL_MASK and
-              event.keyval == Gdk.keyval_from_name('s')):
+                event.keyval == Gdk.keyval_from_name('s')):
             self.a11y_profile_screen_reader_activate()
 
     def a11y_profile_high_contrast_activate(self, widget=None):
@@ -711,12 +713,12 @@ class Wizard(BaseFrontend):
         self.allow_change_step(True)
 
         # Auto-connecting signals with additional parameters does not work.
-        self.grub_new_device_entry.connect('changed', self.grub_verify_loop,
-            self.grub_fail_okbutton)
+        self.grub_new_device_entry.connect(
+            'changed', self.grub_verify_loop, self.grub_fail_okbutton)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.debconf_progress_start(0, self.pageslen,
-                self.get_string('ubiquity/install/checking'))
+            self.debconf_progress_start(
+                0, self.pageslen, self.get_string('ubiquity/install/checking'))
             self.debconf_progress_cancellable(False)
             self.refresh()
 
@@ -786,7 +788,7 @@ class Wizard(BaseFrontend):
         elif not (self.get_reboot_seen() or self.get_shutdown_seen()):
             self.live_installer.hide()
             if ('UBIQUITY_ONLY' in os.environ or
-                'UBIQUITY_GREETER' in os.environ):
+                    'UBIQUITY_GREETER' in os.environ):
                 txt = self.get_string('ubiquity/finished_restart_only')
                 self.quit_button.hide()
             else:
@@ -865,8 +867,8 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
 
-        self.live_installer.set_default_icon_from_file(os.path.join(PIXMAPS,
-                                                        'ubiquity.png'))
+        self.live_installer.set_default_icon_from_file(
+            os.path.join(PIXMAPS, 'ubiquity.png'))
         for eventbox in ['title_eventbox', 'progress_eventbox']:
             box = self.builder.get_object(eventbox)
             style = box.get_style_context()
@@ -876,10 +878,11 @@ class Wizard(BaseFrontend):
         from gi.repository import Vte
         self.vte = Vte.Terminal()
         self.install_details_sw.add(self.vte)
-        self.vte.fork_command_full(0, None,
-            ['/bin/busybox', 'tail', '-f', '/var/log/installer/debug',
-                              '-f', '/var/log/syslog', '-q'],
-            None, 0, None, None)
+        tail_cmd = [
+            '/bin/busybox', 'tail', '-f', '/var/log/installer/debug',
+            '-f', '/var/log/syslog', '-q',
+        ]
+        self.vte.fork_command_full(0, None, tail_cmd, None, 0, None, None)
         self.vte.set_font_from_string("Ubuntu Mono 8")
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window
@@ -925,7 +928,7 @@ class Wizard(BaseFrontend):
 
         # Parse the slideshow size early to prevent the window from growing
         if (self.oem_user_config and
-            os.path.exists('/usr/share/oem-config-slideshow')):
+                os.path.exists('/usr/share/oem-config-slideshow')):
             self.slideshow = '/usr/share/oem-config-slideshow'
         else:
             self.slideshow = '/usr/share/ubiquity-slideshow'
@@ -951,8 +954,8 @@ class Wizard(BaseFrontend):
 
     def set_window_hints(self, widget):
         if (self.oem_user_config or
-            'UBIQUITY_ONLY' in os.environ or
-            'UBIQUITY_GREETER' in os.environ):
+                'UBIQUITY_ONLY' in os.environ or
+                'UBIQUITY_GREETER' in os.environ):
             f = (Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE |
                  Gdk.WMFunction.MOVE)
             if not self.oem_user_config:
@@ -961,14 +964,15 @@ class Wizard(BaseFrontend):
 
     def lockdown_environment(self):
         atexit.register(self.unlock_environment)
-        for key in (
+        keys = (
             ('com.canonical.indicator.session', 'suppress-logout-menuitem'),
             ('com.canonical.indicator.session',
              'suppress-logout-restart-shutdown'),
             ('com.canonical.indicator.session', 'suppress-restart-menuitem'),
             ('com.canonical.indicator.session', 'suppress-shutdown-menuitem'),
             ('org.gnome.desktop.lockdown', 'disable-user-switching'),
-            ):
+        )
+        for key in keys:
             gs_schema = key[0]
             gs_key = key[1]
             gs_previous = '%s/%s' % (gs_schema, gs_key)
@@ -991,14 +995,15 @@ class Wizard(BaseFrontend):
 
     def unlock_environment(self):
         syslog.syslog('Reverting lockdown of the desktop environment.')
-        for key in (
+        keys = (
             ('com.canonical.indicator.session', 'suppress-logout-menuitem'),
             ('com.canonical.indicator.session',
              'suppress-logout-restart-shutdown'),
             ('com.canonical.indicator.session', 'suppress-restart-menuitem'),
             ('com.canonical.indicator.session', 'suppress-shutdown-menuitem'),
             ('org.gnome.desktop.lockdown', 'disable-user-switching'),
-            ):
+        )
+        for key in keys:
             gs_schema = key[0]
             gs_key = key[1]
             gs_previous = '%s/%s' % (gs_schema, gs_key)
@@ -1040,8 +1045,9 @@ class Wizard(BaseFrontend):
         core_names.append('ubiquity/text/update_installer_only')
         core_names.append('ubiquity/text/USB')
         core_names.append('ubiquity/text/CD')
-        for stock_item in ('cancel', 'close', 'go-back', 'go-forward',
-                            'ok', 'quit'):
+        stock_items = (
+            'cancel', 'close', 'go-back', 'go-forward', 'ok', 'quit')
+        for stock_item in stock_items:
             core_names.append('ubiquity/imported/%s' % stock_item)
         prefixes = []
         for p in self.pages:

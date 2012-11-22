@@ -345,7 +345,7 @@ class DebconfFilter:
                     progress_val = int(params[1])
                     for widget in self.find_widgets(
                             [self.progress_bars[0], 'PROGRESS'],
-                             'progress_set'):
+                            'progress_set'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
                         if not widget.progress_set(self.progress_bars[0],
@@ -355,7 +355,7 @@ class DebconfFilter:
                     progress_inc = int(params[1])
                     for widget in self.find_widgets(
                             [self.progress_bars[0], 'PROGRESS'],
-                             'progress_step'):
+                            'progress_step'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
                         if not widget.progress_step(self.progress_bars[0],
@@ -365,7 +365,7 @@ class DebconfFilter:
                     progress_info = params[1]
                     for widget in self.find_widgets(
                             [self.progress_bars[0], 'PROGRESS'],
-                             'progress_info'):
+                            'progress_info'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
                         if not widget.progress_info(self.progress_bars[0],
@@ -374,7 +374,7 @@ class DebconfFilter:
                 elif subcommand == 'STOP' and len(params) == 1:
                     for widget in self.find_widgets(
                             [self.progress_bars[0], 'PROGRESS'],
-                             'progress_stop'):
+                            'progress_stop'):
                         self.debug('filter', 'widget found for',
                                    self.progress_bars[0])
                         widget.progress_stop()

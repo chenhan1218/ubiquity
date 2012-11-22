@@ -52,8 +52,9 @@ class TimezoneTests(unittest.TestCase):
         expected = (('Eastern', 'United States'), ('Eastern', 'Canada'))
         for x in m:
             results.append((x[0], x[2]))
-        self.assertEqual(len(results), 2,
-                msg='expected: %s\ngot: %s' % (str(expected), str(results)))
+        self.assertEqual(
+            len(results), 2,
+            msg='expected: %s\ngot: %s' % (str(expected), str(results)))
         self.assertEqual(set(results), set(expected))
         # unicode, LP: #831533
         self.gtk.city_entry.set_text('♥')

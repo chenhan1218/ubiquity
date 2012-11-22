@@ -420,7 +420,7 @@ class FaceSelector(Gtk.Box):
         if os.path.exists(FACES_PATH):
             for path in sorted(os.listdir(FACES_PATH)):
                 pb = GdkPixbuf.Pixbuf.new_from_file(
-                                    os.path.join(FACES_PATH, path))
+                    os.path.join(FACES_PATH, path))
                 m.append([pb])
 
     def translate(self, lang):

@@ -124,8 +124,7 @@ class PageGtk(PageBase):
                     self.try_ubuntu.set_sensitive(False)
                     self.controller.go_forward()
                 self.install_ubuntu.connect('clicked', inst)
-                self.try_ubuntu.connect('clicked',
-                    self.on_try_ubuntu_clicked)
+                self.try_ubuntu.connect('clicked', self.on_try_ubuntu_clicked)
             self.try_install_text_label = builder.get_object(
                 'try_install_text_label')
             # We do not want to show the yet to be substituted strings
@@ -178,8 +177,8 @@ class PageGtk(PageBase):
                 column.set_sizing(Gtk.TreeViewColumnSizing.GROW_ONLY)
                 self.treeview.append_column(column)
                 selection = self.treeview.get_selection()
-                selection.connect('changed',
-                                    self.on_language_selection_changed)
+                selection.connect(
+                    'changed', self.on_language_selection_changed)
             self.treeview.set_model(list_store)
 
     def set_language(self, language):
@@ -574,8 +573,8 @@ class PageKde(PageBase):
                 self.page.release_notes_label.show()
                 QTimer.singleShot(300, self.check_returncode)
                 self.timer = QTimer(self.page)
-                self.timer.connect(self.timer, SIGNAL("timeout()"),
-                    self.check_returncode)
+                self.timer.connect(
+                    self.timer, SIGNAL("timeout()"), self.check_returncode)
                 self.timer.start(300)
             else:
                 self.page.release_notes_label.hide()
@@ -596,8 +595,8 @@ class PageKde(PageBase):
             else:
                 self.update_installer = False
             self.update_release_notes_label()
-            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
-                self.check_returncode)
+            self.timer.disconnect(
+                self.timer, SIGNAL("timeout()"), self.check_returncode)
 
     def update_release_notes_label(self):
         lang = self.selected_language()
@@ -666,15 +665,15 @@ class Page(plugin.Plugin):
 
         localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
         if ('UBIQUITY_FRONTEND' in os.environ and
-            os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui'):
+                os.environ['UBIQUITY_FRONTEND'] == 'debconf_ui'):
             localechooser_script += '-debconf'
 
         questions = ['localechooser/languagelist']
         environ = {
             'PATH': '/usr/lib/ubiquity/localechooser:' + os.environ['PATH'],
-            }
+        }
         if ('UBIQUITY_FRONTEND' in os.environ and
-            os.environ['UBIQUITY_FRONTEND'] == "debconf_ui"):
+                os.environ['UBIQUITY_FRONTEND'] == "debconf_ui"):
             environ['TERM_FRAMEBUFFER'] = '1'
         else:
             environ['OVERRIDE_SHOW_ALL_LANGUAGES'] = '1'
@@ -710,7 +709,7 @@ class Page(plugin.Plugin):
             new_language = self.ui.get_language()
             self.preseed(self.language_question, new_language)
             if (self.initial_language is None or
-                self.initial_language != new_language):
+                    self.initial_language != new_language):
                 self.db.reset('debian-installer/country')
         if self.ui.controller.oem_config:
             self.preseed('oem-config/id', self.ui.get_oem_id())
@@ -732,7 +731,7 @@ class Install(plugin.InstallPlugin):
                 'sh', '-c',
                 '/usr/lib/ubiquity/localechooser/post-base-installer ' +
                 '&& /usr/lib/ubiquity/localechooser/finish-install',
-                ]
+            ]
         return command, []
 
     def install(self, target, progress, *args, **kwargs):

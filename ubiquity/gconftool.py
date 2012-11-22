@@ -113,7 +113,7 @@ def set_list(key, listtype, value):
     subprocess.call(['gconftool-2', '--config-source', gconf_dir, '--set', key,
                      '--type', 'list', '--list-type', listtype,
                      '[%s]' % value_string],
-                     preexec_fn=misc.drop_all_privileges)
+                    preexec_fn=misc.drop_all_privileges)
 
 
 def unset(key):

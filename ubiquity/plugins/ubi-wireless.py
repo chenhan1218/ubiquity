@@ -96,7 +96,7 @@ class PageGtk(plugin.PluginUI):
             self.next_normal = True
         else:
             if (not self.nmwidget.is_row_an_ap() or
-                self.nmwidget.is_row_connected()):
+                    self.nmwidget.is_row_connected()):
                 frontend.translate_widget(frontend.next)
                 self.next_normal = True
             else:

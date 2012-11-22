@@ -124,7 +124,7 @@ class TestFrontend(unittest.TestCase):
                 'page_title',
                 # To be calculated and set
                 'partition_lvm_status',
-                ]
+            ]
             deb_host_arch = subprocess.Popen(
                 ['dpkg-architecture', '-qDEB_HOST_ARCH'],
                 stdout=subprocess.PIPE,

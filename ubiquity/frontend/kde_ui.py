@@ -104,9 +104,10 @@ class UbiquityUI(QtGui.QMainWindow):
         p.drawImage(0, 0, self.scaledBgImage)
 
     def resizeEvent(self, re):
-        self.scaledBgImage = self.bgImage.scaled(self.width(), self.height(),
-                                        QtCore.Qt.KeepAspectRatioByExpanding,
-                                        QtCore.Qt.SmoothTransformation)
+        self.scaledBgImage = self.bgImage.scaled(
+            self.width(), self.height(),
+            QtCore.Qt.KeepAspectRatioByExpanding,
+            QtCore.Qt.SmoothTransformation)
 
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -176,7 +177,7 @@ class Wizard(BaseFrontend):
             self.app.setStyleSheet(style.read())
 
         self.app.setWindowIcon(QtGui.QIcon(
-         "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
+            "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         import dbus.mainloop.qt
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
@@ -302,7 +303,7 @@ class Wizard(BaseFrontend):
         self.debconf_callbacks = {}
 
         self.ui.setWindowIcon(QtGui.QIcon(
-         "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
+            "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         self.allow_go_backward(False)
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -318,7 +319,8 @@ class Wizard(BaseFrontend):
         elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
             self.ui.setWindowIcon(QtGui.QIcon(
-          "/usr/share/icons/oxygen/128x128/categories/preferences-system.png"))
+                "/usr/share/icons/oxygen/128x128/categories/"
+                "preferences-system.png"))
             flags = self.ui.windowFlags() ^ QtCore.Qt.WindowMinMaxButtonsHint
             if hasattr(QtCore.Qt, 'WindowCloseButtonHint'):
                 flags = flags ^ QtCore.Qt.WindowCloseButtonHint
@@ -329,19 +331,19 @@ class Wizard(BaseFrontend):
             self.ui.breadcrumb_install.hide()
 
         self.forwardIcon = QtGui.QIcon(
-         "/usr/share/icons/oxygen/128x128/actions/go-next.png")
+            "/usr/share/icons/oxygen/128x128/actions/go-next.png")
         self.ui.next.setIcon(self.forwardIcon)
 
         #Used for the last step
         self.applyIcon = QtGui.QIcon(
-         "/usr/share/icons/oxygen/128x128/actions/dialog-ok-apply.png")
+            "/usr/share/icons/oxygen/128x128/actions/dialog-ok-apply.png")
 
         backIcon = QtGui.QIcon(
-         "/usr/share/icons/oxygen/128x128/actions/go-previous.png")
+            "/usr/share/icons/oxygen/128x128/actions/go-previous.png")
         self.ui.back.setIcon(backIcon)
 
         quitIcon = QtGui.QIcon(
-         "/usr/share/icons/oxygen/48x48/actions/dialog-close.png")
+            "/usr/share/icons/oxygen/48x48/actions/dialog-close.png")
         self.ui.quit.setIcon(quitIcon)
 
         self.ui.progressBar.hide()
@@ -353,7 +355,7 @@ class Wizard(BaseFrontend):
         """Crash handler."""
 
         if (issubclass(exctype, KeyboardInterrupt) or
-            issubclass(exctype, SystemExit)):
+                issubclass(exctype, SystemExit)):
             return
 
         tbtext = ''.join(traceback.format_exception(exctype, excvalue, exctb))
@@ -390,8 +392,8 @@ class Wizard(BaseFrontend):
     def check_returncode(self, *args):
         from PyQt4.QtCore import SIGNAL
         if not BaseFrontend.check_returncode(self, args):
-            self.timer.disconnect(self.timer, SIGNAL("timeout()"),
-                self.check_returncode)
+            self.timer.disconnect(
+                self.timer, SIGNAL("timeout()"), self.check_returncode)
 
     def set_online_state(self, state):
         for p in self.pages:
@@ -428,8 +430,8 @@ class Wizard(BaseFrontend):
         self.ui.quit.clicked.connect(self.on_quit_clicked)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.debconf_progress_start(0, self.pageslen,
-                self.get_string('ubiquity/install/checking'))
+            self.debconf_progress_start(
+                0, self.pageslen, self.get_string('ubiquity/install/checking'))
             self.progressDialog.setWindowTitle(
                 self.get_string('ubiquity/install/title'))
             self.refresh()
@@ -510,7 +512,7 @@ class Wizard(BaseFrontend):
                 self.quit()
             elif not (self.get_reboot_seen() or self.get_shutdown_seen()):
                 if ('UBIQUITY_ONLY' in os.environ or
-                    'UBIQUITY_GREETER' in os.environ):
+                        'UBIQUITY_GREETER' in os.environ):
                     quitText = self.get_string(
                         'ubiquity/finished_restart_only')
                 quitText = quitText.replace(
@@ -524,7 +526,7 @@ class Wizard(BaseFrontend):
                     messageBox.addButton(shutdownButtonText,
                                          QtGui.QMessageBox.AcceptRole)
                 if ('UBIQUITY_ONLY' not in os.environ and
-                    'UBIQUITY_GREETER' not in os.environ):
+                        'UBIQUITY_GREETER' not in os.environ):
                     messageBox.addButton(
                         quitButtonText, QtGui.QMessageBox.RejectRole)
                 messageBox.setWindowFlags(messageBox.windowFlags() |
@@ -786,11 +788,11 @@ class Wizard(BaseFrontend):
         # FIXME QMessageBox seems to have lost the ability to set custom
         # labels so for now we have to get by with these not-entirely
         # meaningful stock labels
-        answer = QtGui.QMessageBox.warning(self.ui,
-                                     '%s crashed' % self.dbfilter_status[0],
-                                     text, QtGui.QMessageBox.Retry,
-                                     QtGui.QMessageBox.Ignore,
-                                     QtGui.QMessageBox.Close)
+        answer = QtGui.QMessageBox.warning(
+            self.ui, '%s crashed' % self.dbfilter_status[0], text,
+            QtGui.QMessageBox.Retry,
+            QtGui.QMessageBox.Ignore,
+            QtGui.QMessageBox.Close)
         self.dbfilter_status = None
         syslog.syslog('dbfilter_handle_status: answer %d' % answer)
         if answer == QtGui.QMessageBox.Ignore:
@@ -957,13 +959,13 @@ class Wizard(BaseFrontend):
         messageBox = QtGui.QMessageBox()
         messageBox.setWindowTitle(abortTitle)
         messageBox.setText(warning_dialog_label)
-        messageBox.setStandardButtons(QtGui.QMessageBox.Yes |
-                                                          QtGui.QMessageBox.No)
+        messageBox.setStandardButtons(
+            QtGui.QMessageBox.Yes | QtGui.QMessageBox.No)
         messageBox.setDefaultButton(QtGui.QMessageBox.Yes)
         messageBox.button(QtGui.QMessageBox.Yes).setText(
-                                                      yes.replace('_', '&', 1))
+            yes.replace('_', '&', 1))
         messageBox.button(QtGui.QMessageBox.No).setText(
-                                                       no.replace('_', '&', 1))
+            no.replace('_', '&', 1))
         response = messageBox.exec_()
         if response == QtGui.QMessageBox.Yes:
             self.current_page = None
