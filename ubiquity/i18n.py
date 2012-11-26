@@ -30,8 +30,7 @@ from functools import reduce
 from ubiquity import misc, im_switch
 
 
-# if 'just_country' is True, only the country is changing
-def reset_locale(frontend, just_country=False):
+def reset_locale(frontend):
     frontend.start_debconf()
     di_locale = frontend.db.get('debian-installer/locale')
     if not di_locale:
@@ -47,9 +46,6 @@ def reset_locale(frontend, just_country=False):
         except locale.Error as e:
             print('locale.setlocale failed: %s (LANG=%s)' % (e, di_locale),
                   file=sys.stderr)
-        if not just_country:
-            misc.execute_root(
-                'fontconfig-voodoo', '--auto', '--force', '--quiet')
         im_switch.start_im()
     return di_locale
 

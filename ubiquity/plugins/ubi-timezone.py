@@ -702,8 +702,7 @@ class Page(plugin.Plugin):
 
     def cleanup(self):
         plugin.Plugin.cleanup(self)
-        self.ui.controller.set_locale(
-            i18n.reset_locale(self.frontend, just_country=True))
+        self.ui.controller.set_locale(i18n.reset_locale(self.frontend))
 
 
 class Install(plugin.InstallPlugin):

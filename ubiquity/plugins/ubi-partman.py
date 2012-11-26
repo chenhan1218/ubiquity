@@ -271,7 +271,9 @@ class PageGtk(PageBase):
         use_device = self.use_device.get_active()
         biggest_free = 'biggest_free' in self.extra_options
         crypto = self.use_crypto.get_active()
-        disks = self.extra_options['use_device'][1]
+        disks = self.extra_options.get('use_device', [])
+        if disks:
+            disks = disks[1]
         one_disk = len(disks) == 1
 
         if custom:
@@ -305,7 +307,7 @@ class PageGtk(PageBase):
             self.show_encryption_passphrase(crypto)
             self.controller.go_to_page(self.current_page)
             self.controller.toggle_next_button('install_button')
-            self.plugin_is_install = True
+            self.plugin_is_install = one_disk
             self.info_loop(None)
             return True
 
@@ -418,6 +420,9 @@ class PageGtk(PageBase):
             return True
         elif (self.resize_use_free.get_active() and
                 'biggest_free' in self.extra_options):
+            return True
+        elif (self.use_device.get_active() and
+              len(self.extra_options['use_device'][1]) == 1):
             return True
         else:
             return False
@@ -2052,6 +2057,10 @@ class Page(plugin.Plugin):
         '''
         options = {}
         release = misc.get_release()
+        if not operating_systems:
+            operating_systems = []
+        if not ubuntu_systems:
+            ubuntu_systems = []
         os_count = len(operating_systems)
         wubi_option = 'wubi' in self.extra_options
 
@@ -2073,6 +2082,11 @@ class Page(plugin.Plugin):
         title = self.description(q)
         desc = self.extended_description(q)
         options['manual'] = PartitioningOption(title, desc)
+
+        # Panda board without SD-card does not have use_device options
+        # quit here for now
+        if 'use_device' not in self.extra_options:
+            return options
 
         if os_count == 0:
             # "There are no operating systems present" case
@@ -2390,6 +2404,17 @@ class Page(plugin.Plugin):
 
         elif question == 'partman/choose_partition':
             self.autopartition_question = None  # not autopartitioning any more
+
+            if 'manual' not in self.extra_options:
+                # Couldn't autopartition hence the partAsk page was skipped.
+                self.extra_options['manual'] = self.manual_desc
+                options = self.calculate_autopartitioning_options(False, False)
+                self.ui.set_autopartition_options(options, self.extra_options)
+                if hasattr(self.ui, 'plugin_on_next_clicked'):
+                    self.ui.plugin_on_next_clicked()
+                # Here be dragons...
+                self.preseed('ubiquity/partman-skip-unmount', 'true',
+                             seen=False)
 
             if not self.building_cache and self.update_partitions:
                 # Rebuild our cache of just these partitions.
