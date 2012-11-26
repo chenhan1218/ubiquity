@@ -1,3 +1,9 @@
+ubiquity (2.13.5) UNRELEASED; urgency=low
+
+  * Add basic support for compiz.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 28 Nov 2012 11:56:09 +0000
+
 ubiquity (2.13.4) raring; urgency=low
 
   [ Colin Watson ]
