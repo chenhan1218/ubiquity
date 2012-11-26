@@ -2415,7 +2415,7 @@ class Page(plugin.Plugin):
                 # Here be dragons...
                 self.preseed('ubiquity/partman-skip-unmount', 'true',
                              seen=False)
-                    
+
             if not self.building_cache and self.update_partitions:
                 # Rebuild our cache of just these partitions.
                 self.__state = [['', None, None]]
