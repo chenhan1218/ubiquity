@@ -122,7 +122,7 @@ class PageGtk(plugin.PluginUI):
                 GLib.source_remove(self.geoname_timeout_id)
             self.geoname_timeout_id = \
                 GLib.timeout_add_seconds(2, self.geoname_timeout,
-                                            (text, model))
+                                         (text, model))
             self.geoname_session.queue_message(message, self.geoname_cb,
                                                (text, model))
 

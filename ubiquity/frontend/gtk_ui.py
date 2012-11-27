@@ -468,7 +468,6 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
     def network_change(self, online=False):
-        from gi.repository import GLib
         if not online:
             self.set_online_state(False)
             return

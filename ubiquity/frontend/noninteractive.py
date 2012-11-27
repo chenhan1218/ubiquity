@@ -138,8 +138,8 @@ class Wizard(BaseFrontend):
         be called when input events are received."""
 
         GLib.io_add_watch(from_debconf,
-                             GLib.IO_IN | GLib.IO_ERR | GLib.IO_HUP,
-                             self.watch_debconf_fd_helper, process_input)
+                          GLib.IO_IN | GLib.IO_ERR | GLib.IO_HUP,
+                          self.watch_debconf_fd_helper, process_input)
 
     def watch_debconf_fd_helper(self, source, cb_condition, callback):
         debconf_condition = 0
