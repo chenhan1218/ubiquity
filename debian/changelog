@@ -17,6 +17,9 @@ ubiquity (2.13.4) UNRELEASED; urgency=low
     should be available as well.
   * Fix test_translated, after moving question dialog into glade from
     construction by hand.
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu14, debian-installer-utils 1.91ubuntu6, flash-kernel
+    3.0~rc.4ubuntu28.
 
   [ Martin Pitt ]
   * ubiquity/gtkwidgets.py: Don't use GObject.constants, just use the
