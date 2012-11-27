@@ -13,6 +13,10 @@ ubiquity (2.13.4) UNRELEASED; urgency=low
   * Fix the question_dialog height-for-width (LP: #862270)
   * Fonconfig-voodoo is gone, not sure if some other "fontconfig"ury
     should be called instead. (LP: #1043031)
+  * Fix partman test_windows_only: if resize option is available, use_disk
+    should be available as well.
+  * Fix test_translated, after moving question dialog into glade from
+    construction by hand.
 
   [ Martin Pitt ]
   * ubiquity/gtkwidgets.py: Don't use GObject.constants, just use the
