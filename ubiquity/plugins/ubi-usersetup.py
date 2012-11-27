@@ -405,17 +405,17 @@ class PageGtk(PageBase):
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             # Let's not call this every time the user presses a key.
-            from gi.repository import GObject
+            from gi.repository import GLib
             if self.hostname_timeout_id:
-                GObject.source_remove(self.hostname_timeout_id)
-            self.hostname_timeout_id = GObject.timeout_add(
+                GLib.source_remove(self.hostname_timeout_id)
+            self.hostname_timeout_id = GLib.timeout_add(
                 300, self.hostname_timeout, widget)
 
     def lookup_result(self, resolver, result, unused):
-        from gi.repository import GObject
+        from gi.repository import GLib
         try:
             resolver.lookup_by_name_finish(result)
-        except GObject.GError:
+        except GLib.GError:
             pass
         else:
             # FIXME: i18n
@@ -437,10 +437,10 @@ class PageGtk(PageBase):
             hostname, None, self.bogus_lookup_result, None)
 
     def bogus_lookup_result(self, resolver, result, unused):
-        from gi.repository import GObject
+        from gi.repository import GLib
         try:
             resolver.lookup_by_name_finish(result)
-        except GObject.GError:
+        except GLib.GError:
             self.resolver_ok = True
         else:
             self.resolver_ok = False

@@ -302,13 +302,13 @@ class PageGtk(PageBase):
             w.show()
 
     def plugin_set_online_state(self, state):
-        from gi.repository import GObject
+        from gi.repository import GLib
         if self.release_notes_label:
             if self.timeout_id:
-                GObject.source_remove(self.timeout_id)
+                GLib.source_remove(self.timeout_id)
             if state:
                 self.release_notes_label.show()
-                self.timeout_id = GObject.timeout_add(
+                self.timeout_id = GLib.timeout_add(
                     300, self.check_returncode)
             else:
                 self.release_notes_label.hide()

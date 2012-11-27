@@ -4,7 +4,7 @@ import string
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
 DBusGMainLoop(set_as_default=True)
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, GLib
 
 NM = 'org.freedesktop.NetworkManager'
 NM_DEVICE = 'org.freedesktop.NetworkManager.Device'
@@ -174,8 +174,8 @@ class NetworkManager:
 
     def queue_build_cache(self, *args):
         if self.timeout_id:
-            GObject.source_remove(self.timeout_id)
-        self.timeout_id = GObject.timeout_add(500, self.build_cache)
+            GLib.source_remove(self.timeout_id)
+        self.timeout_id = GLib.timeout_add(500, self.build_cache)
 
     def properties_changed(self, props, path=None):
         if 'Strength' in props:
@@ -275,8 +275,8 @@ class NetworkManagerTreeView(Gtk.TreeView):
 
         def queue_rows_changed(*args):
             if self.rows_changed_id:
-                GObject.source_remove(self.rows_changed_id)
-            self.rows_changed_id = GObject.idle_add(self.rows_changed)
+                GLib.source_remove(self.rows_changed_id)
+            self.rows_changed_id = GLib.idle_add(self.rows_changed)
 
         model.connect('row-inserted', queue_rows_changed)
         model.connect('row-deleted', queue_rows_changed)

@@ -18,6 +18,9 @@ ubiquity (2.13.4) UNRELEASED; urgency=low
   * ubiquity/gtkwidgets.py: Don't use GObject.constants, just use the
     constants from GObject as intended. Fixes a crash with pygobject
     3.7.2.
+  * Use glib API from the GLib GI module instead of GObject. The latter
+    has been deprecated for a long time and triggers warnings with pygobject
+    3.7.2.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 22 Nov 2012 16:25:28 +0000
 
