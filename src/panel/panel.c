@@ -216,6 +216,7 @@ on_realize(GtkWidget *win, gpointer data) {
 	width = gdk_screen_width();
 	gtk_window_set_decorated (GTK_WINDOW (win), FALSE);
 	set_strut(GTK_WINDOW(win), width, 0, allocation.height, allocation.height, 0, width);
+	gtk_widget_set_size_request(GTK_WIDGET (win), width, -1);
 	// We don't care about showing the panel on all desktops just yet.
 	gtk_window_stick (GTK_WINDOW (win));
 	gtk_window_set_type_hint(GTK_WINDOW(win), GDK_WINDOW_TYPE_HINT_DOCK);
