@@ -1,6 +1,8 @@
-ubiquity (2.13.5) UNRELEASED; urgency=low
+ubiquity (2.13.5) raring; urgency=low
 
   * Add basic support for compiz.
+  * Automatic update of included source packages: hw-detect 1.91ubuntu1,
+    partman-btrfs 10ubuntu1.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 28 Nov 2012 11:56:09 +0000
 
