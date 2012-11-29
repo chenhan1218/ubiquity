@@ -160,10 +160,11 @@ class PageGtk(plugin.PluginUI):
         self.spinner_connect.stop()
 
         if self.oauth_token is not None:
-            # XXX: security, security, security! is the dir secure? if
-            #      not ensure mode 0600
+            # security, security, security! ensure mode 0600
+            old_umask = os.umask(0o077)
             with open(self.OAUTH_TOKEN_FILE, "w") as fp:
                 fp.write(self.oauth_token)
+            os.umask(old_umask)
         return False
 
     def plugin_translate(self, lang):
@@ -240,4 +241,5 @@ class Install(plugin.InstallPlugin):
                 'home', target_user, '.ubuntuone_oauth_token')
             shutil.copy2(OAUTH_TOKEN_FILE, targetpath)
             os.lchown(targetpath, uid, gid)
-
+            os.chmod(targetpath, 0o600)
+            os.remove(OAUTH_TOKEN_FILE)
