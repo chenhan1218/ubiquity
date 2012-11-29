@@ -65,6 +65,9 @@ class UbuntuSSO(object):
     def _child_exited(self, pid, status, data):
         stdin_fd, stdout_fd, stderr_fd, callback, errback, user_data = data
         exit_code = os.WEXITSTATUS(status)
+        # the delayed reading will only work if the amount of data is
+        # small enough to not cause the pipe to block which on most
+        # system is ok as "ulimit -p" shows 8 pages by default (4k)
         stdout = os.read(stdout_fd, 1024).decode("utf-8")
         stderr = os.read(stderr_fd, 1024).decode("utf-8")
         if exit_code == 0:
