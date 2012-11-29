@@ -99,19 +99,30 @@ class LoginTestCase(BaseTestPageGtk):
 
 class UbuntuSSOHelperTestCase(unittest.TestCase):
     
+    def setUp(self):
+        self.callback = mock.Mock()
+        self.callback.side_effect = lambda *args: self.loop.quit()
+        self.errback = mock.Mock()
+        self.errback.side_effect = lambda *args: self.loop.quit()
+        self.loop = GLib.MainLoop(GLib.main_context_default())
+        self.sso_helper = ubi_ubuntuone.UbuntuSSO()
+
     def test_spawning_error(self):
-        callback = mock.Mock()
-        callback.side_effect = lambda *args: loop.quit()
-        errback = mock.Mock()
-        errback.side_effect = lambda *args: loop.quit()
-        loop = GLib.MainLoop(GLib.main_context_default())
-        sso_helper = ubi_ubuntuone.UbuntuSSO()
-        sso_helper.login("foo@example.com", "nopass",
-                         callback, errback)
-        loop.run()
-        self.assertTrue(errback.called)
-        self.assertFalse(callback.called)
-        #print(errback.call_args)
+        self.sso_helper.login("foo@example.com", "nopass",
+                              self.callback, self.errback)
+        self.loop.run()
+        self.assertTrue(self.errback.called)
+        self.assertFalse(self.callback.called)
+
+    def test_spawning_success(self):
+        self.sso_helper.BINARY = "/bin/echo"
+        self.sso_helper.login("foo@example.com", "nopass",
+                              self.callback, self.errback, data="data")
+        self.loop.run()
+        self.assertFalse(self.errback.called)
+        self.assertTrue(self.callback.called)
+        # ensure stdout is captured and data is also send
+        self.callback.assert_called_with("--login foo@example.com\n", "data")
 
 
 if __name__ == '__main__':
