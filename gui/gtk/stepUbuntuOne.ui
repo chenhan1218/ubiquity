@@ -119,6 +119,7 @@
                         <property name="can_focus">True</property>
                         <property name="visibility">False</property>
                         <property name="invisible_char">•</property>
+                        <signal name="changed" handler="info_loop" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -133,6 +134,7 @@
                         <property name="can_focus">True</property>
                         <property name="visibility">False</property>
                         <property name="invisible_char">•</property>
+                        <signal name="changed" handler="info_loop" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>

@@ -216,7 +216,11 @@ class PageGtk(plugin.PluginUI):
         complete = False
         if self.notebook_main.get_current_page() == PAGE_REGISTER:
             email = self.entry_email.get_text()
-            complete = self._verify_email_entry(email)
+            password = self.entry_new_password.get_text()
+            password2 = self.entry_new_password2.get_text()
+            complete = (self._verify_email_entry(email) and
+                        len(password) > 0 and
+                        (password == password2))
         elif self.notebook_main.get_current_page() == PAGE_LOGIN:
             email = self.entry_existing_email.get_text()
             password = self.entry_existing_password.get_text()
