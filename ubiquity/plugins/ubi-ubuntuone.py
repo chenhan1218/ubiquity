@@ -90,13 +90,11 @@ class UbuntuSSO(object):
         else:
             errback("Failed to spawn %s" % cmd, data)
 
-    def login(self, email, password,
-              callback, errback, data=None):
+    def login(self, email, password, callback, errback, data=None):
         cmd = [self.BINARY, "--login", email]
         self._spawn_sso_helper(cmd, password, callback, errback, data)
                          
-    def register(self, email, password,
-                 callback, errback, data=None):
+    def register(self, email, password, callback, errback, data=None):
         cmd = [self.BINARY, "--register", email]
         self._spawn_sso_helper(cmd, password, callback, errback, data)
 

@@ -53,13 +53,13 @@ class TestPageGtk(BaseTestPageGtk):
 class MockSSOTestCase(BaseTestPageGtk):
 
     class MockUbuntuSSO():
-        def mock_done(self, callback, errback):
-            callback({'token': 'nonex'})
+        def mock_done(self, callback, errback, data):
+            callback("{'token': 'nonex'}", data)
             Gtk.main_quit()
-        def register(self, email, passw, callback, errback):
-            GObject.idle_add(self.mock_done, callback, errback)
-        def login(self, email, passw, callback, errback):
-            GObject.idle_add(self.mock_done, callback, errback)
+        def register(self, email, passw, callback, errback, data):
+            GObject.idle_add(self.mock_done, callback, errback, data)
+        def login(self, email, passw, callback, errback, data):
+            GObject.idle_add(self.mock_done, callback, errback, data)
 
     def test_click_next(self):
         self.page.ubuntu_sso = self.MockUbuntuSSO()
@@ -69,7 +69,7 @@ class MockSSOTestCase(BaseTestPageGtk):
         self.assertEqual(self.page.notebook_main.get_current_page(),
                          ubi_ubuntuone.PAGE_SPINNER)
         with open(tmp_token.name, "r") as fp:
-            self.assertEqual(fp.read(), '{"token": "nonex"}')
+            self.assertEqual(fp.read(), "{'token': 'nonex'}")
 
 
 class RegisterTestCase(BaseTestPageGtk):
@@ -80,6 +80,8 @@ class RegisterTestCase(BaseTestPageGtk):
 
     def test_register_allow_go_foward(self):
         self.page.entry_email.set_text("foo@bar.com")
+        self.page.entry_new_password.set_text("pw")
+        self.page.entry_new_password2.set_text("pw")
         self.page.controller.allow_go_forward.assert_called_with(True)
 
 
