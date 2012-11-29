@@ -111,7 +111,7 @@ class UbuntuSSOHelperTestCase(unittest.TestCase):
         loop.run()
         self.assertTrue(errback.called)
         self.assertFalse(callback.called)
-        print(errback.call_args)
+        #print(errback.call_args)
 
 
 if __name__ == '__main__':

@@ -67,16 +67,16 @@ class UbuntuSSO(object):
     BINARY = "/usr/bin/ubuntu-sso-cli"
 
     def _child_exited(self, pid, status, data):
-        stdin_fd, stdout_fd, stderr_fd, callback, errback = data
+        stdin_fd, stdout_fd, stderr_fd, callback, errback, user_data = data
         exit_code = os.WEXITSTATUS(status)
         stdout = os.read(stdout_fd, 1024).decode("utf-8")
         stderr = os.read(stderr_fd, 1024).decode("utf-8")
         if exit_code == 0:
-            callback(stdout)
+            callback(stdout, user_data)
         else:
-            errback(stderr)
+            errback(stderr, user_data)
 
-    def _spawn_sso_helper(self, cmd, password, callback, errback):
+    def _spawn_sso_helper(self, cmd, password, callback, errback, data):
         from gi.repository import GLib
         res, pid, stdin_fd, stdout_fd, stderr_fd = GLib.spawn_async_with_pipes(
             "/", cmd, None, 
@@ -87,21 +87,19 @@ class UbuntuSSO(object):
             os.write(stdin_fd, "\n".encode("utf-8"))
             GLib.child_watch_add(
                 GLib.PRIORITY_DEFAULT, pid, self._child_exited, 
-                (stdin_fd, stdout_fd, stderr_fd, callback, errback))
+                (stdin_fd, stdout_fd, stderr_fd, callback, errback, data))
         else:
-            errback("Failed to spawn %s" % cmd)
-
-
+            errback("Failed to spawn %s" % cmd, data)
 
     def login(self, email, password,
-              callback, errback):
+              callback, errback, data=None):
         cmd = [self.BINARY, "--login", email]
-        self._spawn_sso_helper(cmd, password, callback, errback)
+        self._spawn_sso_helper(cmd, password, callback, errback, data)
                          
     def register(self, email, password,
-                 callback, errback):
+                 callback, errback, data=None):
         cmd = [self.BINARY, "--register", email]
-        self._spawn_sso_helper(cmd, password, callback, errback)
+        self._spawn_sso_helper(cmd, password, callback, errback, data)
 
 
 class PageGtk(plugin.PluginUI):
@@ -148,17 +146,17 @@ class PageGtk(plugin.PluginUI):
         if skip_creation:
             return False
         if self.notebook_main.get_current_page() == PAGE_REGISTER:
-            # create a random password
-            password = uuid.uuid4()
             self.ubuntu_sso.register(self.entry_email.get_text(),
-                                     password,
+                                     self.entry_new_password.get_text(),
                                      callback=self._ubuntu_sso_callback,
-                                     errback=self._ubuntu_sso_errback)
+                                     errback=self._ubuntu_sso_errback,
+                                     data=PAGE_REGISTER)
         elif self.notebook_main.get_current_page() == PAGE_LOGIN:
             self.ubuntu_sso.login(self.entry_existing_email.get_text(),
                                   self.entry_existing_password.get_text(),
                                   callback=self._ubuntu_sso_callback,
-                                  errback=self._ubuntu_sso_errback)
+                                  errback=self._ubuntu_sso_errback,
+                                  data=PAGE_LOGIN)
         else:
             raise AssertionError("Should never be reached happen")
 
@@ -171,7 +169,7 @@ class PageGtk(plugin.PluginUI):
             # XXX: security, security, security! is the dir secure? if
             #      not ensure mode 0600
             with open(self.OAUTH_TOKEN_FILE, "w") as fp:
-                fp.write(json.dumps(self.oauth_token))
+                fp.write(self.oauth_token)
         return False
 
     def plugin_translate(self, lang):
@@ -179,14 +177,20 @@ class PageGtk(plugin.PluginUI):
         pass
 
     # callbacks 
-    def _ubuntu_sso_callback(self, oauth_token):
+    def _ubuntu_sso_callback(self, oauth_token, data):
         from gi.repository import Gtk
         self.oauth_token = oauth_token
         Gtk.main_quit()
 
-    def _ubuntu_sso_errback(self, error):
+    def _ubuntu_sso_errback(self, error, data):
         from gi.repository import Gtk
         syslog.syslog("ubuntu sso failed: '%s'" % error)
+        self.notebook_main.set_current_page(data)
+        if data == PAGE_REGISTER:
+            err = "Error registering account"
+        else:
+            err = "Error loging into the account"
+        self.label_global_error.set_markup("<b><big>%s</big></b>" % err)
         Gtk.main_quit()
 
     # signals
