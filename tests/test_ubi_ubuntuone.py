@@ -4,7 +4,7 @@ import tempfile
 import unittest
 
 import mock
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject, GLib
 
 from ubiquity import plugin_manager
 
@@ -95,6 +95,23 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.entry_existing_email.set_text("foo@bar.com")
         self.page.entry_existing_password.set_text("pass")
         self.page.controller.allow_go_forward.assert_called_with(True)
+
+
+class UbuntuSSOHelperTestCase(unittest.TestCase):
+    
+    def test_spawning_error(self):
+        callback = mock.Mock()
+        callback.side_effect = lambda *args: loop.quit()
+        errback = mock.Mock()
+        errback.side_effect = lambda *args: loop.quit()
+        loop = GLib.MainLoop(GLib.main_context_default())
+        sso_helper = ubi_ubuntuone.UbuntuSSO()
+        sso_helper.login("foo@example.com", "nopass",
+                         callback, errback)
+        loop.run()
+        self.assertTrue(errback.called)
+        self.assertFalse(callback.called)
+        print(errback.call_args)
 
 
 if __name__ == '__main__':

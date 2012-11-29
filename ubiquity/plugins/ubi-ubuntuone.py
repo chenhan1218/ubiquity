@@ -61,19 +61,47 @@ WEIGHT = 10
 
 class UbuntuSSO(object):
 
+    # this will need the helper 
+    #   lp:~mvo/+junk/cli-sso-login installed
+
+    BINARY = "/usr/bin/ubuntu-sso-cli"
+
+    def _child_exited(self, pid, status, data):
+        stdin_fd, stdout_fd, stderr_fd, callback, errback = data
+        exit_code = os.WEXITSTATUS(status)
+        stdout = os.read(stdout_fd, 1024).decode("utf-8")
+        stderr = os.read(stderr_fd, 1024).decode("utf-8")
+        if exit_code == 0:
+            callback(stdout)
+        else:
+            errback(stderr)
+
+    def _spawn_sso_helper(self, cmd, password, callback, errback):
+        from gi.repository import GLib
+        res, pid, stdin_fd, stdout_fd, stderr_fd = GLib.spawn_async_with_pipes(
+            "/", cmd, None, 
+            (GLib.SpawnFlags.LEAVE_DESCRIPTORS_OPEN|
+             GLib.SpawnFlags.DO_NOT_REAP_CHILD), None, None)
+        if res:
+            os.write(stdin_fd, password.encode("utf-8"))
+            os.write(stdin_fd, "\n".encode("utf-8"))
+            GLib.child_watch_add(
+                GLib.PRIORITY_DEFAULT, pid, self._child_exited, 
+                (stdin_fd, stdout_fd, stderr_fd, callback, errback))
+        else:
+            errback("Failed to spawn %s" % cmd)
+
+
+
     def login(self, email, password,
               callback, errback):
-        # XXX: make it actually do something useful
-        print("login: %s " % email)
-        from gi.repository import GObject
-        GObject.timeout_add(1500, lambda: callback({ 'token': 'none'}))
-
+        cmd = [self.BINARY, "--login", email]
+        self._spawn_sso_helper(cmd, password, callback, errback)
+                         
     def register(self, email, password,
                  callback, errback):
-        # XXX: make it actually do something useful
-        print("register: %s " % email)
-        from gi.repository import GObject
-        GObject.timeout_add(1500, lambda: callback({ 'token': 'none'}))
+        cmd = [self.BINARY, "--register", email]
+        self._spawn_sso_helper(cmd, password, callback, errback)
 
 
 class PageGtk(plugin.PluginUI):
