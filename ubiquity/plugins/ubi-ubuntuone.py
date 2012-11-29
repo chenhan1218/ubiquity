@@ -19,12 +19,10 @@
 
 import re
 import os
-import json
+import shutil
 import syslog
-import uuid
 
 from ubiquity import plugin
-#from ubiquity.plugin import InstallPlugin
 
 
 NAME = 'ubuntuone'
@@ -35,6 +33,9 @@ WEIGHT = 10
  PAGE_LOGIN,
  PAGE_SPINNER,
  ) = range(3)
+
+OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
+
 
 # TODO:
 #  - network awareness (steal from timezone map page)
@@ -47,12 +48,7 @@ WEIGHT = 10
 #    * to login into a existing account
 #    * deal with forgoten passwords
 #    * skip account creation
-#  - implement actual logic/verification etc *cough*
-#    * make next button sensitive/insensitive depending on valid choice
-#    * requires the logic to login/create accounts without email verify
-#    * simplified way to talk to login.ubuntu.com as the installer
-#      won't have twisted, either piston-mini-client based (and embedd
-#      it) or entirely hand done via something like the spawn helper
+#  - run the ubuntu-sso-cli helper
 #  - take the oauth token and put into the users keyring (how?)
 #    * probably on first login as the keyring is using a daemon that is 
 #      not available on the target fs
@@ -105,8 +101,6 @@ class UbuntuSSO(object):
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
     
-    OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
-
     def __init__(self, controller, *args, **kwargs):
         from gi.repository import Gtk
         self.controller = controller
@@ -228,8 +222,22 @@ class PageGtk(plugin.PluginUI):
                         self._verify_password_entry(password))
         self.controller.allow_go_forward(complete)
 
-# FIXME: should we use this here instead of:
-#         configure_oauth_token() in  scripts/plugininstall.py ?
-#class Install(InstallPlugin):
-#    def install(self, target, progress, *args, **kwargs):
-#        pass
+
+class Install(plugin.InstallPlugin):
+
+    def install(self, target, progress, *args, **kwargs):
+        self.configure_oauth_token()
+
+    # XXX: I am untested
+    def configure_oauth_token(self):
+        target_user = self.db.get('passwd/username')
+        uid, gid = self._get_uid_gid_on_target(target_user)
+        if os.path.exists(OAUTH_TOKEN_FILE) and uid and gid:
+            # XXX: not copy but put into keyring really - we may need
+            # to the import on first login if its too complicated to setup
+            # the keyring-daemon in the target chroot
+            targetpath = self.target_file(
+                'home', target_user, '.ubuntuone_oauth_token')
+            shutil.copy2(OAUTH_TOKEN_FILE, targetpath)
+            os.lchown(targetpath, uid, gid)
+
