@@ -4,7 +4,7 @@ ubiquity (2.13.5) raring; urgency=low
   * Automatic update of included source packages: hw-detect 1.91ubuntu1,
     partman-btrfs 10ubuntu1.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 28 Nov 2012 11:56:09 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 29 Nov 2012 09:37:42 +0000
 
 ubiquity (2.13.4) raring; urgency=low
 
