@@ -119,6 +119,7 @@ class PageGtk(plugin.PluginUI):
         self.plugin_widgets = self.page
         self.oauth_token = None
         self.online = False
+        self.label_global_error.set_text("")
         # the worker
         self.ubuntu_sso = UbuntuSSO()
         self.info_loop(None)
@@ -197,7 +198,7 @@ class PageGtk(plugin.PluginUI):
 
     def on_button_skip_account_clicked(self, button):
         self.oauth_token = None
-        self.plugin_on_next_clicked()
+        self.plugin_on_next_clicked(skip_creation=True)
 
     def _verify_email_entry(self, email):
         EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
