@@ -119,6 +119,7 @@ class PageGtk(plugin.PluginUI):
         self.notebook_main.set_show_tabs(False)
         self.plugin_widgets = self.page
         self.oauth_token = None
+        self.skip_step = False
         self.online = False
         self.label_global_error.set_text("")
         # the worker
@@ -137,9 +138,9 @@ class PageGtk(plugin.PluginUI):
         # stop whatever needs stopping
         return False
 
-    def plugin_on_next_clicked(self, skip_creation=False):
+    def plugin_on_next_clicked(self):
         from gi.repository import Gtk
-        if skip_creation:
+        if self.skip_step:
             return False
         if self.notebook_main.get_current_page() == PAGE_REGISTER:
             self.ubuntu_sso.register(self.entry_email.get_text(),
@@ -161,13 +162,16 @@ class PageGtk(plugin.PluginUI):
         Gtk.main()
         self.spinner_connect.stop()
 
-        if self.oauth_token is not None:
+        # stop moving forward if there is a error
+        if self.oauth_token is None:
+            return True
+        else:
             # security, security, security! ensure mode 0600
             old_umask = os.umask(0o077)
-            with open(self.OAUTH_TOKEN_FILE, "w") as fp:
+            with open(OAUTH_TOKEN_FILE, "w") as fp:
                 fp.write(self.oauth_token)
             os.umask(old_umask)
-        return False
+            return False
 
     def plugin_translate(self, lang):
         # ???
@@ -199,7 +203,9 @@ class PageGtk(plugin.PluginUI):
 
     def on_button_skip_account_clicked(self, button):
         self.oauth_token = None
-        self.plugin_on_next_clicked(skip_creation=True)
+        self.skip_step = True
+        # XXX: programmatically trigger "next" in the controller?
+        #self.plugin_on_next_clicked(skip_creation=True)
 
     def _verify_email_entry(self, email):
         EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
