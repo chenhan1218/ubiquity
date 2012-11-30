@@ -56,6 +56,22 @@ OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
 #  - make the keyring unlocked by default
 
 
+# TESTING end-to-end for real
+# 
+# * get a raring cdimage
+# * run:
+#    kvm -m 1500 -hda /path/to/random-image -cdrom /path/to/raring-arch.iso \
+#        -boot d
+# * in the VM install cli-sso-login from lp:~mvo/+junk/cli-sso-login
+# * bzr co --lightweight lp:~mvo/ubiquity/ssologin 
+# * cd ssologin
+# * sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
+# * sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
+# * sudo cp gui/gtk//*.ui /usr/share/ubiquity/gtk
+# * sudo cp bin/ubiquity /usr/bin
+# * sudo ubiquity
+
+
 class UbuntuSSO(object):
 
     # this will need the helper 
