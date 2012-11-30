@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+import os
+import syslog
+import sys
+
+from gi.repository import GnomeKeyring, GLib
+
+if __name__ == "__main__":
+
+    if not "DBUS_SESSION_BUS_ADDRESS" in os.environ:
+        os.environ["DBUS_SESSION_BUS_ADDRESS"] = "autolaunch:"
+
+    password = sys.stdin.readline()
+    token = sys.stdin.readline()
+
+    # we create the keyring using the users login password
+    KEYRING_NAME = "login"
+    TOKEN_NAME = "Ubuntu one"
+    res = GnomeKeyring.create_sync(KEYRING_NAME, password)
+    if res == GnomeKeyring.Result.OK:
+        res = GnomeKeyring.item_create_sync(
+            KEYRING_NAME,
+            GnomeKeyring.ItemType.GENERIC_SECRET,
+            TOKEN_NAME,
+            GLib.Array(),
+            token,
+            True)
+        syslog.syslog("failed to create item '%s': %s" % (TOKEN_NAME, res))
+    else:
+        syslog.syslog("failed to create keyring '%s': %s" % (KEYRING_NAME, res))

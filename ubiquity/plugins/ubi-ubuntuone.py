@@ -192,24 +192,20 @@ class PageGtk(plugin.PluginUI):
             return False
 
     def _create_keyring_and_store_u1_token(self, token):
-        # XXX: only the sync versions are exported so we can either
-        #      move this into the cli helper or fix the GIR
-        from gi.repository import GnomeKeyring, GLib
-        # we create the keyring using the users login password
-        KEYRING_NAME = "login"
-        TOKEN_NAME = "Ubuntu one"
-        res = GnomeKeyring.create_sync(KEYRING_NAME, self._user_password)
-        if res == GnomeKeyring.Result.OK:
-            res = GnomeKeyring.item_create_sync(
-                KEYRING_NAME,
-                GnomeKeyring.ItemType.GENERIC_SECRET,
-                TOKEN_NAME,
-                GLib.Array(),
-                token,
-                True)
-            syslog.syslog("failed to create item '%s'" % TOKEN_NAME)
-        else:
-            syslog.syslog("failed to create keyring '%s'" % KEYRING_NAME)
+        # we can not do this here as the keyring is using dbus this
+        # proces runs as root, it only works with 
+        # XXX: we might even be able to do this in the "install" phase?!?
+        p = subprocess.Popen(
+            ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
+            stdin=subprocess.PIPE,
+            preexec_fn=misc.drop_all_privileges,
+            universal_newline=True)
+        p.stdin.write(self._user_password)
+        p.stdin.write("\n")
+        p.stdin.write(token)
+        p.stdin.write("\n")
+        res = p.wait()
+        syslog.syslog("keyring helper returned %s" % res)
 
     def plugin_translate(self, lang):
         pasw = self.controller.get_string('password_inactive_label', lang)
