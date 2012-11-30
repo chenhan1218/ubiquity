@@ -19,6 +19,7 @@
 
 import re
 import os
+import subprocess
 import shutil
 import syslog
 
@@ -34,10 +35,6 @@ WEIGHT = 10
  PAGE_SPINNER,
  ) = range(3)
 
-# XXX: store the token in the DB instead (just like the user password)
-#      and pull out there during "Install" (?)
-OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
-
 # TODO:
 #  - network awareness (steal from timezone map page)
 #  - rename this all to ubuntu sso instead of ubuntuone to avoid confusion
@@ -50,10 +47,11 @@ OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
 #    * deal with forgoten passwords
 #    * skip account creation
 #  - run the ubuntu-sso-cli helper
-#  - take the oauth token and put into the users keyring (how?)
-#    * probably on first login as the keyring is using a daemon that is 
-#      not available on the target fs
-#  - make the keyring unlocked by default
+#  - take the oauth token and put into the users keyring: 
+#    * create the keyring using the ubiquity user and use
+#      the users password to encrypt it and copy it in place during
+#      the Install plugin phase
+
 
 
 # TESTING end-to-end for real
@@ -183,13 +181,30 @@ class PageGtk(plugin.PluginUI):
         if self.oauth_token is None:
             return True
         else:
-            with misc.raised_privileges():
-                # security, security, security! ensure mode 0600
-                old_umask = os.umask(0o077)
-                with open(OAUTH_TOKEN_FILE, "w") as fp:
-                    fp.write(self.oauth_token)
-                os.umask(old_umask)
+            self._create_keyring_and_store_u1_token(self.oauth_token)
             return False
+
+    def _create_keyring_and_store_u1_token(self, token):
+        # XXX: only the sync versions are exported so we can either
+        #      move this into the cli helper or fix the GIR
+        from gi.repository import GnomeKeyring, GLib
+        # XXX: cargo culting, why .dbfiler.db.get() and not .db.get()
+        # we create the keyring using the users login password
+        pw = self.controller.dbfilter.db.get('passwd/user-password')
+        KEYRING_NAME = "login"
+        TOKEN_NAME = "Ubuntu one"
+        res = GnomeKeyring.create_sync(KEYRING_NAME, pw)
+        if res == GnomeKeyring.Result.OK:
+            res = GnomeKeyring.item_create_sync(
+                KEYRING_NAME,
+                GnomeKeyring.ItemType.GENERIC_SECRET,
+                TOKEN_NAME,
+                GLib.Array(),
+                token,
+                True)
+            syslog.syslog("failed to create item '%s'" % TOKEN_NAME)
+        else:
+            syslog.syslog("failed to create keyring '%s'" % KEYRING_NAME)
 
     def plugin_translate(self, lang):
         pasw = self.controller.get_string('password_inactive_label', lang)
@@ -263,15 +278,23 @@ class Install(plugin.InstallPlugin):
 
     # XXX: I am untested
     def configure_oauth_token(self):
+        KEYRING_FILE = '/home/ubuntu/.local/share/keyrings/login.keyring'
         target_user = self.db.get('passwd/username')
         uid, gid = self._get_uid_gid_on_target(target_user)
-        if os.path.exists(OAUTH_TOKEN_FILE) and uid and gid:
-            # XXX: not copy but put into keyring really - we may need
-            # to the import on first login if its too complicated to setup
-            # the keyring-daemon in the target chroot
+        if os.path.exists(KEYRING_FILE) and uid and gid:
             targetpath = self.target_file(
-                'home', target_user, '.ubuntuone_oauth_token')
-            shutil.copy2(OAUTH_TOKEN_FILE, targetpath)
+                'home', target_user, '.local', 'share', 'keyrings', 
+                'login.keyring')
+            basedir = os.path.dirname(targetpath)
+            # ensure we have the basedir with the righ permissions
+            if not os.path.exists(basedir):
+                basedir_in_chroot = os.path.join(
+                    "home", target_user, ".local", "share", "keyrings")
+                subprocess.call(
+                    ["chroot", self.target, 
+                     "sudo", "-u", str(uid), 
+                     "mkdir", "-p", basedir_in_chroot])
+            shutil.copy2(KEYRING_FILE, targetpath)
             os.lchown(targetpath, uid, gid)
             os.chmod(targetpath, 0o600)
-            os.remove(OAUTH_TOKEN_FILE)
+            os.chmod(basedir, 0o700)

@@ -53,8 +53,11 @@ class TestPageGtk(BaseTestPageGtk):
 class MockSSOTestCase(BaseTestPageGtk):
 
     class MockUbuntuSSO():
+
+        TOKEN = "{'token': 'nonex'}"
+
         def mock_done(self, callback, errback, data):
-            callback("{'token': 'nonex'}", data)
+            callback(self.TOKEN, data)
             Gtk.main_quit()
         def register(self, email, passw, callback, errback, data):
             GObject.idle_add(self.mock_done, callback, errback, data)
@@ -63,13 +66,12 @@ class MockSSOTestCase(BaseTestPageGtk):
 
     def test_click_next(self):
         self.page.ubuntu_sso = self.MockUbuntuSSO()
-        tmp_token = tempfile.NamedTemporaryFile()
-        self.page.OAUTH_TOKEN_FILE = tmp_token.name
-        self.page.plugin_on_next_clicked()
-        self.assertEqual(self.page.notebook_main.get_current_page(),
-                         ubi_ubuntuone.PAGE_SPINNER)
-        with open(tmp_token.name, "r") as fp:
-            self.assertEqual(fp.read(), "{'token': 'nonex'}")
+        with mock.patch.object(
+            self.page, "_create_keyring_and_store_u1_token") as m_create:
+            self.page.plugin_on_next_clicked()
+            self.assertEqual(self.page.notebook_main.get_current_page(),
+                             ubi_ubuntuone.PAGE_SPINNER)
+            m_create.assert_called_with(self.page.ubuntu_sso.TOKEN)
 
 
 class RegisterTestCase(BaseTestPageGtk):
