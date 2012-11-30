@@ -11,8 +11,8 @@ if __name__ == "__main__":
     if not "DBUS_SESSION_BUS_ADDRESS" in os.environ:
         os.environ["DBUS_SESSION_BUS_ADDRESS"] = "autolaunch:"
 
-    password = sys.stdin.readline()
-    token = sys.stdin.readline()
+    password = sys.stdin.readline().strip("\n")
+    token = sys.stdin.readline().strip("\n")
 
     # we create the keyring using the users login password
     KEYRING_NAME = "login"
