@@ -194,7 +194,8 @@ class PageGtk(plugin.PluginUI):
     def _create_keyring_and_store_u1_token(self, token):
         # we can not do this here as the keyring is using dbus this
         # proces runs as root, it only works with 
-        # XXX: we might even be able to do this in the "install" phase?!?
+        # XXX: we might even be able to do this in the "install" phase
+        #      if we manage to get the DISPLAY accross
         p = subprocess.Popen(
             ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
             stdin=subprocess.PIPE,
@@ -281,8 +282,12 @@ class Install(plugin.InstallPlugin):
     def configure_oauth_token(self):
         KEYRING_FILE = '/home/ubuntu/.local/share/keyrings/login.keyring'
         target_user = self.db.get('passwd/username')
-        uid, gid = self._get_uid_gid_on_target(target_user)
-        if os.path.exists(KEYRING_FILE) and uid and gid:
+        # stolen from: plugininstall.py, is there a better way?
+        uid = subprocess.Popen(
+            ['chroot', self.target, 'sudo', '-u', target_user, '--',
+             'id', '-u'], stdout=subprocess.PIPE, universal_newlines=True)
+        uid = int(uid)
+        if os.path.exists(KEYRING_FILE) and uid:
             targetpath = self.target_file(
                 'home', target_user, '.local', 'share', 'keyrings', 
                 'login.keyring')
@@ -296,6 +301,6 @@ class Install(plugin.InstallPlugin):
                      "sudo", "-u", str(uid), 
                      "mkdir", "-p", basedir_in_chroot])
             shutil.copy2(KEYRING_FILE, targetpath)
-            os.lchown(targetpath, uid, gid)
+            os.lchown(targetpath, uid, uid)
             os.chmod(targetpath, 0o600)
             os.chmod(basedir, 0o700)
