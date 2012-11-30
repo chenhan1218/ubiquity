@@ -204,8 +204,7 @@ class PageGtk(plugin.PluginUI):
     def on_button_skip_account_clicked(self, button):
         self.oauth_token = None
         self.skip_step = True
-        # XXX: programmatically trigger "next" in the controller?
-        #self.plugin_on_next_clicked(skip_creation=True)
+        self.controller.go_forward()
 
     def _verify_email_entry(self, email):
         EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
