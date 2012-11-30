@@ -199,7 +199,7 @@ class PageGtk(plugin.PluginUI):
             ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
             stdin=subprocess.PIPE,
             preexec_fn=misc.drop_all_privileges,
-            universal_newline=True)
+            universal_newlines=True)
         p.stdin.write(self._user_password)
         p.stdin.write("\n")
         p.stdin.write(token)
