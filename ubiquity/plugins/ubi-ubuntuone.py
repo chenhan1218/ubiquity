@@ -275,20 +275,25 @@ class PageGtk(plugin.PluginUI):
 
 class Install(plugin.InstallPlugin):
 
+    KEYRING_FILE = '/home/ubuntu/.local/share/keyrings/login.keyring'
+
     def install(self, target, progress, *args, **kwargs):
-        self.configure_oauth_token()
+        self.configure_oauth_token(target)
+
+    def _get_target_uid(self, target_path, target_user):
+        # stolen from: plugininstall.py, is there a better way?
+        p = subprocess.Popen(
+            ['chroot', target_path, 'sudo', '-u', target_user, '--',
+             'id', '-u'], stdout=subprocess.PIPE, universal_newlines=True)
+        uid = int(p.communicate()[0].strip('\n'))
+        return uid
 
     # XXX: I am untested
-    def configure_oauth_token(self):
-        KEYRING_FILE = '/home/ubuntu/.local/share/keyrings/login.keyring'
+    def configure_oauth_token(self, target):
         target_user = self.db.get('passwd/username')
-        # stolen from: plugininstall.py, is there a better way?
-        uid = subprocess.Popen(
-            ['chroot', self.target, 'sudo', '-u', target_user, '--',
-             'id', '-u'], stdout=subprocess.PIPE, universal_newlines=True)
-        uid = int(uid)
-        if os.path.exists(KEYRING_FILE) and uid:
-            targetpath = self.target_file(
+        uid = self._get_target_uid(target, target_user)
+        if os.path.exists(self.KEYRING_FILE) and uid:
+            targetpath = os.path.join(target,
                 'home', target_user, '.local', 'share', 'keyrings', 
                 'login.keyring')
             basedir = os.path.dirname(targetpath)
@@ -297,10 +302,9 @@ class Install(plugin.InstallPlugin):
                 basedir_in_chroot = os.path.join(
                     "home", target_user, ".local", "share", "keyrings")
                 subprocess.call(
-                    ["chroot", self.target, 
-                     "sudo", "-u", str(uid), 
+                    ["chroot", target,  "sudo", "-u", target_user, "--",
                      "mkdir", "-p", basedir_in_chroot])
-            shutil.copy2(KEYRING_FILE, targetpath)
+            shutil.copy2(self.KEYRING_FILE, targetpath)
             os.lchown(targetpath, uid, uid)
             os.chmod(targetpath, 0o600)
             os.chmod(basedir, 0o700)
