@@ -178,8 +178,13 @@ class PageGtk(plugin.PluginUI):
     def plugin_translate(self, lang):
         pasw = self.controller.get_string('password_inactive_label', lang)
         self.entry_new_password.set_placeholder_text(pasw)
-        self.entry_new_password2.set_placeholder_text(pasw)
         self.entry_existing_password.set_placeholder_text(pasw)
+        pasw_again = self.controller.get_string(
+            'password_again_inactive_label', lang)
+        self.entry_new_password2.set_placeholder_text(pasw_again)
+        email_p = self.controller.get_string('email_inactive_label', lang)
+        self.entry_email.set_placeholder_text(email_p)
+        self.entry_existing_email.set_placeholder_text(email_p)
 
     # callbacks 
     def _ubuntu_sso_callback(self, oauth_token, data):
