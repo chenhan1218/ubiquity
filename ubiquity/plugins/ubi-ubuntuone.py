@@ -22,7 +22,7 @@ import os
 import shutil
 import syslog
 
-from ubiquity import plugin
+from ubiquity import plugin, misc
 
 
 NAME = 'ubuntuone'
@@ -167,10 +167,11 @@ class PageGtk(plugin.PluginUI):
             return True
         else:
             # security, security, security! ensure mode 0600
-            old_umask = os.umask(0o077)
-            with open(OAUTH_TOKEN_FILE, "w") as fp:
-                fp.write(self.oauth_token)
-            os.umask(old_umask)
+            with misc.raised_privileges():
+                old_umask = os.umask(0o077)
+                with open(OAUTH_TOKEN_FILE, "w") as fp:
+                    fp.write(self.oauth_token)
+                os.umask(old_umask)
             return False
 
     def plugin_translate(self, lang):
