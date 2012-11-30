@@ -30,6 +30,12 @@ class MockController(object):
         self._allow_go_foward = True
         self._allow_go_backward = True
 
+    def go_forward(self):
+        self.parent.button_next.clicked()
+
+    def get_string(self, s, lang):
+        return "get_string: %s (lang=%s)" % (s, lang)
+
     def add_builder(self, builder):
         pass
 
@@ -41,10 +47,16 @@ class MockController(object):
         self._allow_go_backward = v
         self.parent.button_back.set_sensitive(v)
 
+
 if __name__ == "__main__":
     """ Run with:
     ./plugin-viewer-gtk.py ubi-ubuntuone
     """
+    def _on_button_next_clicked(button):
+        stop = page_gtk.plugin_on_next_clicked()
+        if not stop:
+            Gtk.main_quit()
+
     # setup env
     for envvar, path in (
             ("UBIQUITY_PLUGIN_PATH", "./ubiquity/plugins"),
@@ -63,10 +75,10 @@ if __name__ == "__main__":
 
     mock_controller = MockController(win)
     page_gtk = plugin_module.PageGtk(mock_controller)
-
+    page_gtk.plugin_translate("en")
 
     win.button_next.connect(
-        "clicked", lambda b: page_gtk.plugin_on_next_clicked())
+        "clicked", _on_button_next_clicked)
     win.button_back.connect(
         "clicked", lambda b: page_gtk.plugin_on_back_clicked())
 

@@ -34,8 +34,9 @@ WEIGHT = 10
  PAGE_SPINNER,
  ) = range(3)
 
+# XXX: store the token in the DB instead (just like the user password)
+#      and pull out there during "Install" (?)
 OAUTH_TOKEN_FILE = '/var/lib/ubiquity/ubuntuone_oauth_token'
-
 
 # TODO:
 #  - network awareness (steal from timezone map page)
@@ -166,8 +167,8 @@ class PageGtk(plugin.PluginUI):
         if self.oauth_token is None:
             return True
         else:
-            # security, security, security! ensure mode 0600
             with misc.raised_privileges():
+                # security, security, security! ensure mode 0600
                 old_umask = os.umask(0o077)
                 with open(OAUTH_TOKEN_FILE, "w") as fp:
                     fp.write(self.oauth_token)
@@ -175,8 +176,10 @@ class PageGtk(plugin.PluginUI):
             return False
 
     def plugin_translate(self, lang):
-        # ???
-        pass
+        pasw = self.controller.get_string('password_inactive_label', lang)
+        self.entry_new_password.set_placeholder_text(pasw)
+        self.entry_new_password2.set_placeholder_text(pasw)
+        self.entry_existing_password.set_placeholder_text(pasw)
 
     # callbacks 
     def _ubuntu_sso_callback(self, oauth_token, data):
