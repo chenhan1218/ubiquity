@@ -39,10 +39,10 @@ class StylizedFrame(Gtk.Alignment):
     __gproperties__ = {
         'radius': (
             GObject.TYPE_INT, 'Radius', 'The radius of the rounded corners.',
-            0, GObject.constants.G_MAXINT, 10, GObject.PARAM_READWRITE),
+            0, GObject.G_MAXINT, 10, GObject.PARAM_READWRITE),
         'width': (
             GObject.TYPE_INT, 'Width', 'The width of the outline.',
-            0, GObject.constants.G_MAXINT, 1, GObject.PARAM_READWRITE),
+            0, GObject.G_MAXINT, 1, GObject.PARAM_READWRITE),
     }
 
     def __init__(self):
@@ -93,15 +93,15 @@ class ResizeWidget(Gtk.HPaned):
         'part_size': (
             GObject.TYPE_UINT64, 'Partition size',
             'The size of the partition being resized',
-            1, GObject.constants.G_MAXUINT64, 100, GObject.PARAM_READWRITE),
+            1, GObject.G_MAXUINT64, 100, GObject.PARAM_READWRITE),
         'min_size': (
             GObject.TYPE_UINT64, 'Minimum size',
             'The minimum size that the existing partition can be resized to',
-            0, GObject.constants.G_MAXUINT64, 0, GObject.PARAM_READWRITE),
+            0, GObject.G_MAXUINT64, 0, GObject.PARAM_READWRITE),
         'max_size': (
             GObject.TYPE_UINT64, 'Maximum size',
             'The maximum size that the existing partition can be resized to',
-            1, GObject.constants.G_MAXUINT64, 100, GObject.PARAM_READWRITE)
+            1, GObject.G_MAXUINT64, 100, GObject.PARAM_READWRITE)
     }
 
     def do_get_property(self, prop):
@@ -424,7 +424,7 @@ class FaceSelector(Gtk.Box):
         if os.path.exists(FACES_PATH):
             for path in sorted(os.listdir(FACES_PATH)):
                 pb = GdkPixbuf.Pixbuf.new_from_file(
-                                    os.path.join(FACES_PATH, path))
+                    os.path.join(FACES_PATH, path))
                 m.append([pb])
 
     def translate(self, lang):
@@ -471,7 +471,7 @@ GObject.type_register(FaceSelector)
 class Builder(Gtk.Builder):
     def __init__(self):
         self._widget_ids = set()
-        super(Builder, self).__init__()
+        super().__init__()
 
     def add_from_file(self, filename):
         import xml.etree.cElementTree as ET
@@ -479,7 +479,7 @@ class Builder(Gtk.Builder):
         root = tree.getroot()
         for widgets in root.iter('object'):
             self._widget_ids.add(widgets.attrib['id'])
-        return super(Builder, self).add_from_file(filename)
+        return super().add_from_file(filename)
 
     def get_object_ids(self):
         return self._widget_ids

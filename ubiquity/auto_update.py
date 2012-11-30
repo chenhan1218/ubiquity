@@ -47,7 +47,7 @@ class CacheProgressDebconfProgressAdapter(apt.progress.base.OpProgress):
             0, 100, self.frontend.get_string('reading_package_information'))
 
     def update(self, percent=None):
-        super(CacheProgressDebconfProgressAdapter, self).update(percent)
+        super().update(percent)
         self.frontend.debconf_progress_set(self.percent)
         self.frontend.refresh()
 

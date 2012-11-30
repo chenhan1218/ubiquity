@@ -130,8 +130,9 @@ class Install(install_misc.InstallBase):
                     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
                     os.setpgid(0, 0)
 
-                self.update_proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
-                    stdout=subprocess.PIPE, preexec_fn=subprocess_setup)
+                self.update_proc = subprocess.Popen(
+                    cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                    preexec_fn=subprocess_setup)
             try:
                 self.copy_all()
             except EnvironmentError as e:
@@ -193,19 +194,20 @@ class Install(install_misc.InstallBase):
             subarch = None
 
         for prefix in ('vmlinux', 'vmlinuz'):
-            kernel = os.path.join(self.casper_path, prefix)
-            if os.path.exists(kernel):
-                return kernel
-
-            if subarch:
-                kernel = os.path.join(self.casper_path, subarch, prefix)
-                if os.path.exists(kernel):
+            for suffix in ('', '.efi', '.efi.signed'):
+                kernel = os.path.join(self.casper_path, prefix)
+                if os.path.exists(kernel + suffix):
                     return kernel
 
-                kernel = os.path.join(self.casper_path,
-                                      '%s-%s' % (prefix, subarch))
-                if os.path.exists(kernel):
-                    return kernel
+                if subarch:
+                    kernel = os.path.join(self.casper_path, subarch, prefix)
+                    if os.path.exists(kernel + suffix):
+                        return kernel
+
+                    kernel = os.path.join(self.casper_path,
+                                          '%s-%s' % (prefix, subarch))
+                    if os.path.exists(kernel + suffix):
+                        return kernel
 
         return None
 
@@ -253,7 +255,7 @@ class Install(install_misc.InstallBase):
         if not use_restricted:
             for pkg in cache.keys():
                 if (cache[pkg].is_installed and
-                    cache[pkg].section.startswith('restricted/')):
+                        cache[pkg].section.startswith('restricted/')):
                     difference.add(pkg)
 
         # Keep packages we explicitly installed.
@@ -422,7 +424,7 @@ class Install(install_misc.InstallBase):
 
                 # Is the path blacklisted?
                 if (not stat.S_ISDIR(st.st_mode) and
-                    '/%s' % relpath in self.blacklist):
+                        '/%s' % relpath in self.blacklist):
                     if debug:
                         syslog.syslog('Not copying %s' % relpath)
                     continue
@@ -526,11 +528,27 @@ class Install(install_misc.InstallBase):
             prefix = os.path.basename(kernel).split('-', 1)[0]
             release = os.uname()[2]
             target_kernel = os.path.join(bootdir, '%s-%s' % (prefix, release))
-            copies = [(kernel, target_kernel)]
-            if os.path.exists("%s.efi.signed" % kernel):
-                copies.append(
-                    ("%s.efi.signed" % kernel,
-                     "%s.efi.signed" % target_kernel))
+            copies = []
+
+            # ISO9660 images may have to use .efi rather than .efi.signed in
+            # order to support being booted using isolinux, which must abide
+            # by archaic 8.3 restrictions.
+            for suffix in (".efi", ".efi.signed"):
+                if os.path.exists(kernel + suffix):
+                    signed_kernel = kernel + suffix
+                    break
+            else:
+                signed_kernel = None
+
+            if os.path.exists(kernel):
+                copies.append((kernel, target_kernel))
+            elif signed_kernel is not None:
+                # No unsigned kernel.  We'll construct it using sbsigntool.
+                copies.append((signed_kernel, target_kernel))
+
+            if signed_kernel is not None:
+                copies.append((signed_kernel, "%s.efi.signed" % target_kernel))
+
             for source, target in copies:
                 osextras.unlink_force(target)
                 install_misc.copy_file(self.db, source, target, md5_check)
@@ -542,6 +560,10 @@ class Install(install_misc.InstallBase):
                 except Exception:
                     # We can live with timestamps being wrong.
                     pass
+
+            if not os.path.exists(kernel) and signed_kernel is not None:
+                # Construct the unsigned kernel.
+                subprocess.check_call(["sbattach", "--remove", target_kernel])
 
         os.umask(old_umask)
 
@@ -680,7 +702,7 @@ class Install(install_misc.InstallBase):
                     "Failed to unmount %s" % mountpoint)
         for dev in devs:
             if (dev != '' and dev != 'unused' and
-                not misc.execute('losetup', '-d', dev)):
+                    not misc.execute('losetup', '-d', dev)):
                 raise install_misc.InstallStepError(
                     "Failed to detach loopback device %s" % dev)
 

@@ -110,7 +110,17 @@ else
 	done
 	for kernel in $incompatible; do
 		echo "$kernel" >> /var/lib/ubiquity/remove-kernels
-		kernel_to_headers "$kernel" >>/var/lib/ubiquity/remove-kernels
+		case $kernel in
+		    linux-signed-*)
+			# If the entire flavour is incompatible, then we'll
+			# find out about that separately.  Otherwise,
+			# removing the signed kernel doesn't merit removing
+			# headers too.
+			;;
+		    *)
+			kernel_to_headers "$kernel" >>/var/lib/ubiquity/remove-kernels
+			;;
+		esac
 	done
 fi
 
