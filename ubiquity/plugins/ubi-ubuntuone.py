@@ -66,6 +66,7 @@ WEIGHT = 10
 # * sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
 # * sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
 # * sudo cp gui/gtk//*.ui /usr/share/ubiquity/gtk
+# * sudo cp scripts/* /usr/share/ubiquity/
 # * sudo cp bin/ubiquity /usr/bin
 # * sudo ubiquity
 
