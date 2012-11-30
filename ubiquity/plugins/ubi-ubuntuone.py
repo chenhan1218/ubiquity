@@ -114,6 +114,13 @@ class UbuntuSSO(object):
         self._spawn_sso_helper(cmd, password, callback, errback, data)
 
 
+class Page(plugin.Plugin):
+
+    def prepare(self, unfiltered=False):
+        self.ui._user_password = self.db.get('passwd/user-password') 
+        return plugin.Plugin.prepare(unfiltered)
+
+
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
     
@@ -188,12 +195,10 @@ class PageGtk(plugin.PluginUI):
         # XXX: only the sync versions are exported so we can either
         #      move this into the cli helper or fix the GIR
         from gi.repository import GnomeKeyring, GLib
-        # XXX: cargo culting, why .dbfiler.db.get() and not .db.get()
         # we create the keyring using the users login password
-        pw = self.controller.dbfilter.db.get('passwd/user-password')
         KEYRING_NAME = "login"
         TOKEN_NAME = "Ubuntu one"
-        res = GnomeKeyring.create_sync(KEYRING_NAME, pw)
+        res = GnomeKeyring.create_sync(KEYRING_NAME, self._user_password)
         if res == GnomeKeyring.Result.OK:
             res = GnomeKeyring.item_create_sync(
                 KEYRING_NAME,
