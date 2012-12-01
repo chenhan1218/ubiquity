@@ -1,11 +1,11 @@
-ubiquity (2.13.6) UNRELEASED; urgency=low
+ubiquity (2.13.6) raring; urgency=low
 
   * Don't remove kernel headers just because we're removing signed kernel
     images of the same flavour (LP: #1070427).
   * Automatic update of included source packages: yaboot-installer
     1.1.25ubuntu2.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 29 Nov 2012 17:08:58 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 29 Nov 2012 17:13:37 +0000
 
 ubiquity (2.13.5) raring; urgency=low
 
