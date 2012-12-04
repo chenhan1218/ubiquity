@@ -345,6 +345,12 @@ class Install(plugin.InstallPlugin):
             targetpath = os.path.join(
                 target, 'home', target_user, '.local', 'share', 'keyrings',
                 'login.keyring')
+            # skip copy if the target already exists, this can happen
+            # if e.g. the user selected reinstall-with-keep-home
+            if os.path.exists(targetpath):
+                syslog.syslog("keyring path: '%s' already exists, skip copy" %
+                              targetpath)
+                return
             basedir = os.path.dirname(targetpath)
             # ensure we have the basedir with the righ permissions
             if not os.path.exists(basedir):
