@@ -46,11 +46,6 @@ WEIGHT = 10
 #    * to login into a existing account
 #    * deal with forgoten passwords
 #    * skip account creation
-#  - run the ubuntu-sso-cli helper
-#  - take the oauth token and put into the users keyring: 
-#    * create the keyring using the ubiquity user and use
-#      the users password to encrypt it and copy it in place during
-#      the Install plugin phase
 
 
 
@@ -84,8 +79,8 @@ class UbuntuSSO(object):
         # the delayed reading will only work if the amount of data is
         # small enough to not cause the pipe to block which on most
         # system is ok as "ulimit -p" shows 8 pages by default (4k)
-        stdout = os.read(stdout_fd, 1024).decode("utf-8")
-        stderr = os.read(stderr_fd, 1024).decode("utf-8")
+        stdout = os.read(stdout_fd, 2048).decode("utf-8")
+        stderr = os.read(stderr_fd, 2048).decode("utf-8")
         if exit_code == 0:
             callback(stdout, user_data)
         else:
@@ -182,21 +177,31 @@ class PageGtk(plugin.PluginUI):
 
         self.notebook_main.set_current_page(PAGE_SPINNER)
         self.spinner_connect.start()
+        # the ubuntu_sso.{login,register} will stop this loop when its done
         Gtk.main()
         self.spinner_connect.stop()
 
-        # stop moving forward if there is a error
+        # if there is no token at this point, there is a error, 
+        # so stop moving forward
         if self.oauth_token is None:
             return True
-        else:
-            self._create_keyring_and_store_u1_token(self.oauth_token)
-            return False
+
+        # all good, create a (encrypted) keyring and store the token for later
+        self._create_keyring_and_store_u1_token(self.oauth_token)
+        return False
 
     def _create_keyring_and_store_u1_token(self, token):
-        # we can not do this here as the keyring is using dbus this
-        # proces runs as root, it only works with 
+        """Helper that spawns a external helper to create the keyring"""
+        # this needs to be a external helper as ubiquity is running as
+        # root and it seems that anything other than "drop_all_privileges"
+        # will not trigger the correct dbus activation for the 
+        # gnome-keyring daemon
+        #
         # XXX: we might even be able to do this in the "install" phase
-        #      if we manage to get the DISPLAY accross
+        #      if we manage to get the DISPLAY/XAUTHORITY environment
+        #      accross for correct dbus activation of the keyring daemon.
+        #      This would allow to drop the (cumbersome) store on livefs
+        #      and then copy over into the real thing
         p = subprocess.Popen(
             ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
             stdin=subprocess.PIPE,
@@ -219,21 +224,27 @@ class PageGtk(plugin.PluginUI):
         email_p = self.controller.get_string('email_inactive_label', lang)
         self.entry_email.set_placeholder_text(email_p)
         self.entry_existing_email.set_placeholder_text(email_p)
-
+        # error messages
+        self._error_register = self.controller.get_string(
+            'error_register', lang)
+        self._error_login = self.controller.get_string(
+            'error_login', lang)
     # callbacks 
     def _ubuntu_sso_callback(self, oauth_token, data):
+        """Called when a oauth token was aquired successfully from the helper"""
         from gi.repository import Gtk
         self.oauth_token = oauth_token
         Gtk.main_quit()
 
     def _ubuntu_sso_errback(self, error, data):
+        """Called when a error acquiring the oauth token from the helper"""
         from gi.repository import Gtk
         syslog.syslog("ubuntu sso failed: '%s'" % error)
         self.notebook_main.set_current_page(data)
         if data == PAGE_REGISTER:
-            err = "Error registering account"
+            err = self._error_register
         else:
-            err = "Error loging into the account"
+            err = self._error_login
         self.label_global_error.set_markup("<b><big>%s</big></b>" % err)
         Gtk.main_quit()
 
@@ -250,14 +261,19 @@ class PageGtk(plugin.PluginUI):
         self.controller.go_forward()
 
     def _verify_email_entry(self, email):
+        """Return True if the email address looks valid"""
         EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
         match = re.match(EMAIL_REGEXP, email)
         return (match is not None)
 
     def _verify_password_entry(self, password):
+        """Return True if there is a valid password"""
         return len(password) > 0
 
     def info_loop(self, widget):
+        """Run each time the user inputs something to make controlls 
+           sensitive or insensitive
+        """
         complete = False
         if self.notebook_main.get_current_page() == PAGE_REGISTER:
             email = self.entry_email.get_text()

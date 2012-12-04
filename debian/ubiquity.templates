@@ -153,6 +153,18 @@ Template: ubiquity/text/ubuntuone_heading_label
 Type: text
 _Description: Setup Ubuntu ONE
 
+Template: ubiquity/text/ubuntuone_heading_label
+Type: text
+_Description: Setup Ubuntu ONE
+
+Template: ubiquity/text/error_register
+Type: text
+_Description: Error registering account
+
+Template: ubiquity/text/error_login
+Type: text
+_Description: Error loging into the account
+
 Template: ubiquity/text/email_inactive_label
 Type: text
 _Description: Enter your E-Mail address
