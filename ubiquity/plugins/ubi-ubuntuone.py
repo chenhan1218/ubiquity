@@ -130,6 +130,19 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         from gi.repository import Gtk
         self.controller = controller
+        # check if we are needed at all
+        if ('UBIQUITY_AUTOMATIC' in os.environ or
+                'UBIQUITY_NO_SSO' in os.environ):
+            self.page = None
+            return
+        # check dependencies
+        try:
+            from gi.repository import GnomeKeyring
+            assert(GnomeKeyring)
+        except ImportError as e:
+            syslog.syslog("skipping SSO page, no GnomeKeyring (%s)" % e)
+            self.page = None
+            return
         # add builder/signals
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
