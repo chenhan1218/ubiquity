@@ -54,15 +54,21 @@ WEIGHT = 10
 # * run:
 #    kvm -m 1500 -hda /path/to/random-image -cdrom /path/to/raring-arch.iso \
 #        -boot d
-# * in the VM install cli-sso-login from lp:~mvo/+junk/cli-sso-login
-# * bzr co --lightweight lp:~mvo/ubiquity/ssologin
-# * cd ssologin
-# * sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
-# * sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
-# * sudo cp gui/gtk//*.ui /usr/share/ubiquity/gtk
-# * sudo cp scripts/* /usr/share/ubiquity/
-# * sudo cp bin/ubiquity /usr/bin
-# * sudo ubiquity
+# * in the VM:
+#   - add universe
+#   - sudo apt-get install bzr build-essential python3-setuptools debhelper python3-piston-mini-client
+#   - bzr co lp:~mvo/+junk/cli-sso-login
+#   - (cd cli-sso-login; dpkg-buildpackage; sudo dpkg -i ../python3*.deb)
+#
+#   - install cli-sso-login from 
+#   - bzr co --lightweight lp:~mvo/ubiquity/ssologin
+#   - cd ssologin
+#   - sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
+#   - sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
+#   - sudo cp gui/gtk//*.ui /usr/share/ubiquity/gtk
+#   - sudo cp scripts/* /usr/share/ubiquity/
+#   - sudo cp bin/ubiquity /usr/bin
+#   - sudo ubiquity
 
 
 class UbuntuSSO(object):
@@ -196,11 +202,23 @@ class PageGtk(plugin.PluginUI):
         # will not trigger the correct dbus activation for the
         # gnome-keyring daemon
         #
-        # XXX: we might even be able to do this in the "install" phase
-        #      if we manage to get the DISPLAY/XAUTHORITY environment
-        #      accross for correct dbus activation of the keyring daemon.
-        #      This would allow to drop the (cumbersome) store on livefs
-        #      and then copy over into the real thing
+        # mvo: We could do this in the "install" phase too, but more fragile
+        #      I think, here is what would be required:
+        #      - copy over XAUTHORITY to /target/home/$targetuser/.Xauthority
+        #      - chown $targetuser.$targetuser \
+        #            /target/home/$targetuser/.Xauthority
+        #      - (bind)mount /proc in /target
+        #      - run "dbus-uuidgen --ensure" in /target to get a dbus 
+        #        machine-id
+        #      - run the helper with:
+        #        chroot /target sudo -u $targetuser HOME=/home/$targetuser \
+        #         XAUTHORITY=/home/$targetuser/.Xauthority \
+        #         DBUS_SESSION_BUS_ADDRESS="autolaunch:" \
+        #         ubuntuone-keyring-helper
+        #      - ensure that the dbus-daemon and gnome-keyring-daemon that
+        #        get spawned in /target get killed so that /target can
+        #        get unmounted again
+        #      - umount /proc
         p = subprocess.Popen(
             ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
             stdin=subprocess.PIPE,
