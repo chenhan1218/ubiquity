@@ -17,8 +17,10 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+import pwd
 import re
 import os
+import os.path
 import subprocess
 import shutil
 import syslog
@@ -310,8 +312,6 @@ class PageGtk(plugin.PluginUI):
 
 class Install(plugin.InstallPlugin):
 
-    KEYRING_FILE = '/home/ubuntu/.local/share/keyrings/login.keyring'
-
     def install(self, target, progress, *args, **kwargs):
         self.configure_oauth_token(target)
 
@@ -323,11 +323,25 @@ class Install(plugin.InstallPlugin):
         uid = int(p.communicate()[0].strip('\n'))
         return uid
 
+    def _get_casper_user_keyring_file_path(self):
+        # stolen (again) from pluginstall.py
+        try:
+            casper_user = pwd.getpwuid(999).pw_name
+        except KeyError:
+            # We're on a weird system where the casper user isn't uid 999
+            # just stop there
+            return ""
+        casper_user_home = os.path.expanduser('~%s' % casper_user)
+        keyring_file = os.path.join(casper_user_home, ".local", "share",
+                                    "keyrings", "login.keyring")
+        return keyring_file
+
     # XXX: I am untested
     def configure_oauth_token(self, target):
         target_user = self.db.get('passwd/username')
         uid = self._get_target_uid(target, target_user)
-        if os.path.exists(self.KEYRING_FILE) and uid:
+        keyring_file = self._get_casper_user_keyring_file_path()
+        if os.path.exists(keyring_file) and uid:
             targetpath = os.path.join(
                 target, 'home', target_user, '.local', 'share', 'keyrings',
                 'login.keyring')
