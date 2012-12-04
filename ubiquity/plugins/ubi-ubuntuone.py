@@ -48,15 +48,14 @@ WEIGHT = 10
 #    * skip account creation
 
 
-
 # TESTING end-to-end for real
-# 
+#
 # * get a raring cdimage
 # * run:
 #    kvm -m 1500 -hda /path/to/random-image -cdrom /path/to/raring-arch.iso \
 #        -boot d
 # * in the VM install cli-sso-login from lp:~mvo/+junk/cli-sso-login
-# * bzr co --lightweight lp:~mvo/ubiquity/ssologin 
+# * bzr co --lightweight lp:~mvo/ubiquity/ssologin
 # * cd ssologin
 # * sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
 # * sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
@@ -68,7 +67,7 @@ WEIGHT = 10
 
 class UbuntuSSO(object):
 
-    # this will need the helper 
+    # this will need the helper
     #   lp:~mvo/+junk/cli-sso-login installed
 
     BINARY = "/usr/bin/ubuntu-sso-cli"
@@ -89,14 +88,14 @@ class UbuntuSSO(object):
     def _spawn_sso_helper(self, cmd, password, callback, errback, data):
         from gi.repository import GLib
         res, pid, stdin_fd, stdout_fd, stderr_fd = GLib.spawn_async_with_pipes(
-            "/", cmd, None, 
-            (GLib.SpawnFlags.LEAVE_DESCRIPTORS_OPEN|
+            "/", cmd, None,
+            (GLib.SpawnFlags.LEAVE_DESCRIPTORS_OPEN |
              GLib.SpawnFlags.DO_NOT_REAP_CHILD), None, None)
         if res:
             os.write(stdin_fd, password.encode("utf-8"))
             os.write(stdin_fd, "\n".encode("utf-8"))
             GLib.child_watch_add(
-                GLib.PRIORITY_DEFAULT, pid, self._child_exited, 
+                GLib.PRIORITY_DEFAULT, pid, self._child_exited,
                 (stdin_fd, stdout_fd, stderr_fd, callback, errback, data))
         else:
             errback("Failed to spawn %s" % cmd, data)
@@ -104,7 +103,7 @@ class UbuntuSSO(object):
     def login(self, email, password, callback, errback, data=None):
         cmd = [self.BINARY, "--login", email]
         self._spawn_sso_helper(cmd, password, callback, errback, data)
-                         
+
     def register(self, email, password, callback, errback, data=None):
         cmd = [self.BINARY, "--register", email]
         self._spawn_sso_helper(cmd, password, callback, errback, data)
@@ -113,21 +112,21 @@ class UbuntuSSO(object):
 class Page(plugin.Plugin):
 
     def prepare(self, unfiltered=False):
-        self.ui._user_password = self.db.get('passwd/user-password') 
+        self.ui._user_password = self.db.get('passwd/user-password')
         return plugin.Plugin.prepare(unfiltered)
 
 
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
-    
+
     def __init__(self, controller, *args, **kwargs):
         from gi.repository import Gtk
         self.controller = controller
         # add builder/signals
         builder = Gtk.Builder()
         self.controller.add_builder(builder)
-        builder.add_from_file(os.path.join(os.environ['UBIQUITY_GLADE'],
-            'stepUbuntuOne.ui'))
+        builder.add_from_file(
+            os.path.join(os.environ['UBIQUITY_GLADE'], 'stepUbuntuOne.ui'))
         builder.connect_signals(self)
         # make the widgets available under their gtkbuilder name
         for obj in builder.get_objects():
@@ -181,7 +180,7 @@ class PageGtk(plugin.PluginUI):
         Gtk.main()
         self.spinner_connect.stop()
 
-        # if there is no token at this point, there is a error, 
+        # if there is no token at this point, there is a error,
         # so stop moving forward
         if self.oauth_token is None:
             return True
@@ -194,7 +193,7 @@ class PageGtk(plugin.PluginUI):
         """Helper that spawns a external helper to create the keyring"""
         # this needs to be a external helper as ubiquity is running as
         # root and it seems that anything other than "drop_all_privileges"
-        # will not trigger the correct dbus activation for the 
+        # will not trigger the correct dbus activation for the
         # gnome-keyring daemon
         #
         # XXX: we might even be able to do this in the "install" phase
@@ -229,9 +228,10 @@ class PageGtk(plugin.PluginUI):
             'error_register', lang)
         self._error_login = self.controller.get_string(
             'error_login', lang)
-    # callbacks 
+
+    # callbacks
     def _ubuntu_sso_callback(self, oauth_token, data):
-        """Called when a oauth token was aquired successfully from the helper"""
+        """Called when a oauth token was returned successfully"""
         from gi.repository import Gtk
         self.oauth_token = oauth_token
         Gtk.main_quit()
@@ -271,7 +271,7 @@ class PageGtk(plugin.PluginUI):
         return len(password) > 0
 
     def info_loop(self, widget):
-        """Run each time the user inputs something to make controlls 
+        """Run each time the user inputs something to make controlls
            sensitive or insensitive
         """
         complete = False
@@ -310,8 +310,8 @@ class Install(plugin.InstallPlugin):
         target_user = self.db.get('passwd/username')
         uid = self._get_target_uid(target, target_user)
         if os.path.exists(self.KEYRING_FILE) and uid:
-            targetpath = os.path.join(target,
-                'home', target_user, '.local', 'share', 'keyrings', 
+            targetpath = os.path.join(
+                target, 'home', target_user, '.local', 'share', 'keyrings',
                 'login.keyring')
             basedir = os.path.dirname(targetpath)
             # ensure we have the basedir with the righ permissions

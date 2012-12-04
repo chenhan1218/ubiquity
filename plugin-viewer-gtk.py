@@ -8,17 +8,6 @@ from gi.repository import Gtk
 # we could use this as the base for the MockController as well
 #   from ubiquity.frontend.base import Controller
 
-# to test for real:
-#   - qemu create -f qcow2 random-image 80G
-#   - get a VM and boot with
-#     kvm -snapshot -hda random-image -cdrom quantal-desktop.iso -boot d -m 1600
-# Run:
-"""
-sudo apt-get install bzr
-bzr co --lightweight lp:~mvo/ubiquity/ssologin
-cd ssologin
-sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins && sudo cp gui/gtk/*.ui /usr/share/ubiquity/gtk && sudo ./bin/ubiquity
-"""
 
 class MockController(object):
 

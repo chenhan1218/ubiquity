@@ -13,11 +13,12 @@ ubi_ubuntuone = plugin_manager.load_plugin('ubi-ubuntuone')
 
 
 class BaseTestPageGtk(unittest.TestCase):
-    
+
     def setUp(self):
         mock_controller = mock.Mock()
         self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=mock.Mock())
-    
+
+
 class TestPageGtk(BaseTestPageGtk):
 
     def test_ui_visible(self):
@@ -27,9 +28,9 @@ class TestPageGtk(BaseTestPageGtk):
     def test_init_ui(self):
         self.page.plugin_get_current_page()
         self.assertEqual(
-            self.page.notebook_main.get_current_page(), 
+            self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_REGISTER)
-    
+
     def test_switch_pages(self):
         self.page.plugin_get_current_page()
         self.page.linkbutton_have_account.clicked()
@@ -40,11 +41,11 @@ class TestPageGtk(BaseTestPageGtk):
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_REGISTER)
-    
+
     def test_verify_email_entry(self):
         self.assertFalse(self.page._verify_email_entry("meep"))
         self.assertTrue(self.page._verify_email_entry("mup@example.com"))
-    
+
     def test_verify_password_entry(self):
         self.assertFalse(self.page._verify_password_entry(""))
         self.assertTrue(self.page._verify_password_entry("xxx"))
@@ -59,15 +60,17 @@ class MockSSOTestCase(BaseTestPageGtk):
         def mock_done(self, callback, errback, data):
             callback(self.TOKEN, data)
             Gtk.main_quit()
+
         def register(self, email, passw, callback, errback, data):
             GObject.idle_add(self.mock_done, callback, errback, data)
+
         def login(self, email, passw, callback, errback, data):
             GObject.idle_add(self.mock_done, callback, errback, data)
 
     def test_click_next(self):
         self.page.ubuntu_sso = self.MockUbuntuSSO()
         with mock.patch.object(
-            self.page, "_create_keyring_and_store_u1_token") as m_create:
+                self.page, "_create_keyring_and_store_u1_token") as m_create:
             self.page.plugin_on_next_clicked()
             self.assertEqual(self.page.notebook_main.get_current_page(),
                              ubi_ubuntuone.PAGE_SPINNER)
@@ -102,7 +105,7 @@ class LoginTestCase(BaseTestPageGtk):
 
 
 class UbuntuSSOHelperTestCase(unittest.TestCase):
-    
+
     def setUp(self):
         self.callback = mock.Mock()
         self.callback.side_effect = lambda *args: self.loop.quit()
