@@ -1,6 +1,8 @@
 ubiquity (2.13.7) UNRELEASED; urgency=low
 
   * Use dh-autoreconf to avoid huge diffs when the autotools are updated.
+  * Optimise all PNGs and tell pkgbinarymangler not to do so again, to save
+    build time.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 05 Dec 2012 12:29:59 +0000
 
