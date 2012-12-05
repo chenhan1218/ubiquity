@@ -1705,7 +1705,7 @@ class Wizard(BaseFrontend):
                 text = option
             if text is None:
                 text = option
-            buttons.append((text, len(buttons) / 2 + 1))
+            buttons.append((text, len(buttons) + 1))
 
         self.ubi_question_dialog.set_title(title)
         self.question_label.set_text(msg)
