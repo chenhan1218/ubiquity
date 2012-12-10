@@ -1709,6 +1709,9 @@ class Wizard(BaseFrontend):
 
         self.ubi_question_dialog.set_title(title)
         self.question_label.set_text(msg)
+        actions = self.ubi_question_dialog.get_action_area()
+        for action in actions.get_children():
+            actions.remove(action)
         for text, response_id in buttons:
             self.ubi_question_dialog.add_button(text, response_id)
         self.ubi_question_dialog.show_all()

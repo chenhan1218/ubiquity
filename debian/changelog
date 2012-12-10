@@ -1,7 +1,14 @@
 ubiquity (2.13.8) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Honour base-installer/kernel/altmeta when deciding which kernels to
     install or keep installed.
+
+  [ Dmitrijs Ledkovs ]
+  * Moving question dialog to use a glade ui file, made it non
+    "re-entrant" safe, i.e. it started to remember previous action area
+    buttons. The fix is to clear action area, all other parts of the
+    dialog are always reset with something fresh. (LP: #1087823)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 06 Dec 2012 17:19:09 +0000
 
