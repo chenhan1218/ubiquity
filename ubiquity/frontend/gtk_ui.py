@@ -905,6 +905,7 @@ class Wizard(BaseFrontend):
                 self.get_string('oem_user_config_title'))
             self.live_installer.set_icon_name("preferences-system")
             self.quit.hide()
+            self.back.hide()
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             # Hide the notebook until the first page is ready.
@@ -1263,6 +1264,11 @@ class Wizard(BaseFrontend):
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
+            
+        # If we are in oem-config and not on the first page, unhide the back
+        # button. 
+        if self.oem_user_config and self.pagesindex > 0:
+            self.back.show()
         return True
 
     def set_page_title(self, page, lang=None):

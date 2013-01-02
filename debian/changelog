@@ -1,3 +1,9 @@
+ubiquity (2.13.9) UNRELEASED; urgency=low
+
+  * Hide the back button at the beginning of oem-config.
+
+ -- Kent Baxley <kent.baxley@canonical.com>  Wed, 02 Jan 2013 17:18:56 -0600
+
 ubiquity (2.13.8) UNRELEASED; urgency=low
 
   [ Colin Watson ]
