@@ -76,6 +76,8 @@ class NetworkManager:
         self.timeout_id = 0
         self.start(state_changed)
         self.active_connection = None
+        self.active_device_obj = None
+        self.active_conn = None
 
     def start(self, state_changed=None):
         self.bus = dbus.SystemBus()
@@ -128,13 +130,23 @@ class NetworkManager:
         obj = dbus.Dictionary(signature='sa{sv}')
         if passphrase:
             obj['802-11-wireless-security'] = {'psk': passphrase}
-        self.active_connection = self.manager.AddAndActivateConnection(
-            obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path),
-            signature='a{sa{sv}}oo')[1]
+        self.active_conn, self.active_connection = (
+            self.manager.AddAndActivateConnection(
+                obj, dbus.ObjectPath(device), dbus.ObjectPath(saved_path),
+                signature='a{sa{sv}}oo'))
+        self.active_device_obj = device_obj
 
     def disconnect_from_ap(self):
         if self.active_connection is not None:
             self.manager.DeactivateConnection(self.active_connection)
+            self.active_connection = None
+        if self.active_device_obj is not None:
+            self.active_device_obj.Disconnect()
+            self.active_device_obj = None
+        if self.active_conn is not None:
+            conn_obj = self.bus.get_object(NM, self.active_conn)
+            conn_obj.Delete()
+            self.active_conn = None
 
     def build_passphrase_cache(self):
         self.passphrases_cache = {}
