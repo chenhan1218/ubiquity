@@ -9,6 +9,7 @@ ubiquity (2.13.8) UNRELEASED; urgency=low
     "re-entrant" safe, i.e. it started to remember previous action area
     buttons. The fix is to clear action area, all other parts of the
     dialog are always reset with something fresh. (LP: #1087823)
+  * ubiquity-dm: compiz actually doesn't have bg-image.
 
   [ Scott Kitterman ]
   * Change encrypt home question to checkbox and indent it under the login
@@ -19,7 +20,7 @@ ubiquity (2.13.8) UNRELEASED; urgency=low
   * Fix multiple issues with Back/Stop and Continue/Connect buttons on
     wireless page (LP: #883615).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 06 Dec 2012 17:19:09 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 04 Jan 2013 13:56:31 +0000
 
 ubiquity (2.13.7) raring; urgency=low
 

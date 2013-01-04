@@ -408,14 +408,11 @@ EndSection
                     'openbox-lubuntu, openbox, compiz)')
 
             if background_image:
-                if wm_cmd[0] == 'compiz':
-                    wm_cmd.extend(['--bg-image', background_image])
-                else:
-                    extras.append(
-                        subprocess.Popen(
-                            ['/usr/lib/ubiquity/wallpaper', background_image],
-                            stdin=null, stdout=logfile, stderr=logfile,
-                            preexec_fn=self.drop_privileges))
+                extras.append(
+                    subprocess.Popen(
+                        ['/usr/lib/ubiquity/wallpaper', background_image],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
 
             wm = subprocess.Popen(
                 wm_cmd, stdin=null, stdout=logfile, stderr=logfile,
