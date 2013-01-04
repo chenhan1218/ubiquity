@@ -10,6 +10,8 @@ ubiquity (2.13.8) UNRELEASED; urgency=low
     buttons. The fix is to clear action area, all other parts of the
     dialog are always reset with something fresh. (LP: #1087823)
   * ubiquity-dm: compiz actually doesn't have bg-image.
+  * ubi-partman: Do not allow to select encryption without lvm
+    (LP: #1093957).
 
   [ Scott Kitterman ]
   * Change encrypt home question to checkbox and indent it under the login
