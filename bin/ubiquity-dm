@@ -484,7 +484,7 @@ EndSection
                         if osextras.find_on_path('orca'):
                             time.sleep(15)
                             extras.append(subprocess.Popen(
-                                ['orca', '-n'],
+                                ['orca'],
                                 stdin=null, stdout=logfile, stderr=logfile,
                                 preexec_fn=self.drop_privileges))
         elif self.frontend == 'kde_ui':

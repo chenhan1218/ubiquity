@@ -22,6 +22,10 @@ ubiquity (2.13.8) UNRELEASED; urgency=low
   * Fix multiple issues with Back/Stop and Continue/Connect buttons on
     wireless page (LP: #883615).
 
+  [ Luke Yelavich ]
+  * bin/ubiquity-dm, ubiquity/frontend/gtk_ui.py: Remove a non-existant
+    command-line flag from Orca calls.
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 04 Jan 2013 13:56:31 +0000
 
 ubiquity (2.13.7) raring; urgency=low

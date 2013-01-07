@@ -669,7 +669,7 @@ class Wizard(BaseFrontend):
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
         if osextras.find_on_path('orca'):
             self.orca_process = subprocess.Popen(
-                ['orca', '-n'], preexec_fn=misc.drop_all_privileges)
+                ['orca'], preexec_fn=misc.drop_all_privileges)
 
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(
