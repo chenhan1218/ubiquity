@@ -389,7 +389,7 @@ class PageGtk(PageBase):
                 self.use_lvm.set_active(True)
             if w == self.use_lvm and not w.get_active():
                 self.use_crypto.set_active(False)
-        
+
     # Automatic partitioning page
 
     def get_current_disk_partman_id(self):

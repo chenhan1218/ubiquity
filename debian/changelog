@@ -12,6 +12,12 @@ ubiquity (2.13.8) UNRELEASED; urgency=low
   * ubiquity-dm: compiz actually doesn't have bg-image.
   * ubi-partman: Do not allow to select encryption without lvm
     (LP: #1093957).
+  * Automatic update of included source packages: debian-installer-utils
+    1.94ubuntu1, flash-kernel 3.0~rc.4ubuntu29, localechooser
+    2.49ubuntu1, netcfg 1.68ubuntu17, partman-auto 105ubuntu2, partman-
+    auto-lvm 46ubuntu2, partman-base 163ubuntu1, partman-ext3 74ubuntu1,
+    partman-jfs 38, partman-partitioning 89ubuntu1, partman-target
+    80ubuntu1, preseed 1.57ubuntu2, user-setup 1.47ubuntu1.
 
   [ Scott Kitterman ]
   * Change encrypt home question to checkbox and indent it under the login
