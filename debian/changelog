@@ -5,7 +5,7 @@ ubiquity (2.13.9) UNRELEASED; urgency=low
     command-line flag from Orca calls.
 
   [ Kent Baxley ]
-  * Hide the back button at the beginning of oem-config.
+  * Hide the back button at the beginning of oem-config (LP: #1095692).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 09 Jan 2013 15:40:19 +0000
 
