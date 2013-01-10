@@ -1268,10 +1268,7 @@ class Wizard(BaseFrontend):
         # If we are in oem-config, ensure the back button is displayed if
         # and only if we are not on the first page.
         if self.oem_user_config:
-            if self.pagesindex > 0:
-                self.back.show()
-            else:
-                self.back.hide()
+            self.back.set_visible(self.pagesindex > 0)
         return True
 
     def set_page_title(self, page, lang=None):
