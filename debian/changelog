@@ -1,4 +1,4 @@
-ubiquity (2.13.9) UNRELEASED; urgency=low
+ubiquity (2.13.9) raring; urgency=low
 
   [ Luke Yelavich ]
   * bin/ubiquity-dm, ubiquity/frontend/gtk_ui.py: Remove a non-existant
@@ -7,7 +7,7 @@ ubiquity (2.13.9) UNRELEASED; urgency=low
   [ Kent Baxley ]
   * Hide the back button at the beginning of oem-config (LP: #1095692).
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 09 Jan 2013 15:40:19 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 10 Jan 2013 11:58:23 +0000
 
 ubiquity (2.13.8) raring; urgency=low
 
