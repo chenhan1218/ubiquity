@@ -1264,11 +1264,14 @@ class Wizard(BaseFrontend):
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
-            
-        # If we are in oem-config and not on the first page, unhide the back
-        # button. 
-        if self.oem_user_config and self.pagesindex > 0:
-            self.back.show()
+
+        # If we are in oem-config, ensure the back button is displayed if
+        # and only if we are not on the first page.
+        if self.oem_user_config:
+            if self.pagesindex > 0:
+                self.back.show()
+            else:
+                self.back.hide()
         return True
 
     def set_page_title(self, page, lang=None):
