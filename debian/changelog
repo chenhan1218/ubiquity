@@ -2,6 +2,9 @@ ubiquity (2.13.10) UNRELEASED; urgency=low
 
   * Only force mirror/country to the value of debian-installer/country if it
     is empty or has not been preseeded (LP: #732221).
+  * For automatic installs, set debian-installer/country to a country
+    matching time/zone when starting up the timezone plugin, since its
+    ok_handler will typically never be called (LP: #1098577).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 11 Jan 2013 17:17:27 +0000
 
