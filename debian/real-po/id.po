@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:04+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -123,19 +123,11 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Ini adalah pra-rilis dari ${RELEASE} pemasang live ${MEDIUM}. Ini bukan "
-"rilis akhir; yang akan rilis bersamaan dengan rilis akhir ${RELEASE} di "
-"bulan Oktober 2012."
 
 #. Type: text
 #. Description

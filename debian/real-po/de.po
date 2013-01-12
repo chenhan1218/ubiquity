@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-10 19:49+0000\n"
-"Last-Translator: H.-W. S. <Unknown>\n"
+"PO-Revision-Date: 2012-12-30 21:03+0000\n"
+"Last-Translator: Hendrik Knackstedt <Unknown>\n"
 "Language-Team: Debian German <debian-l10n-german@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:04+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -124,19 +124,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Dies ist einer Vorabveröffentlichung des ${RELEASE} Live-${MEDIUM} "
-"Installationsprogramms. Es ist keine finale Veröffentlichung; die mit der "
-"finalen Version ${RELEASE} im Oktober 2012 erscheinen wird."
+"Dies ist eine Vorabveröffentlichung des ${RELEASE}-Live-${MEDIUM}-"
+"Installationsprogramms. Es ist keine finale Veröffentlichung; diese wird mit "
+"der finalen Veröffentlichung von ${RELEASE} im April 2013 erscheinen."
 
 #. Type: text
 #. Description
@@ -266,7 +261,7 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
-"&lt;small&gt;Falls mehr als eine Person diesen Rechenr verwendet, können Sie "
+"&lt;small&gt;Falls mehr als eine Person diesen Rechner verwendet, können Sie "
 "nach der Installation zusätzliche Benutzer einrichten.&lt;/small&gt;"
 
 #. Type: text

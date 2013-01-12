@@ -7,6 +7,7 @@ ubiquity (2.13.10) UNRELEASED; urgency=low
     ok_handler will typically never be called (LP: #1098577).
   * Save a random seed to the installed system so that it has better entropy
     on first boot (LP: #1098299).
+  * Update translations from Launchpad (LP: #1096923).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 11 Jan 2013 17:17:27 +0000
 

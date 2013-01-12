@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-02 23:27+0000\n"
-"Last-Translator: Hasan Yılmaz <iletisim@hasanyilmaz.net>\n"
+"PO-Revision-Date: 2013-01-03 18:28+0000\n"
+"Last-Translator: Basri <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:04+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:33+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -52,9 +52,6 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Şu an, sistem üreticisi kipinde yükleme yapıyorsunuz. Lütfen, bu toplu "
-"sistem kümesi için benzersiz bir ad girin. Girdiğiniz ad, kurulan sistemde "
-"saklanacaktır ve hata raporlarında kullanılabilir."
 
 #. Type: text
 #. Description
@@ -123,18 +120,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Bu bir ${RELEASE} in canlı ${MEDIUM} yükleyicisini ön sürümüdür. Bu bir son "
-"sürüm değildir; bu ${RELEASE} in son sürümüyle Ekim 2012 de gelecek."
+"Bu ${RELEASE} dağıtımının canlı ${MEDIUM} kurulum programının ön sürümü olup "
+"nihai sürüm değildir. Son sürüm, Nisan 2013'te ${RELEASE} dağıtımının son "
+"sürümü ile birlikte yayınlanacaktır."
 
 #. Type: text
 #. Description
@@ -452,7 +445,7 @@ msgstr "Dosyalar (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Kubuntu'yu nereye kurmak istersiniz?"
 
 #. Type: text
 #. Description

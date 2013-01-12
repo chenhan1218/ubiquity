@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -282,6 +282,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Introduceţi aceeaşi parolă de două ori pentru a putea fi "
+"verificată de erorile de tastare.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -446,7 +448,7 @@ msgstr "Fișiere (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Unde vreţi să instalaţi Kubuntu?"
 
 #. Type: text
 #. Description
@@ -580,34 +582,39 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Ne pare rău, programul de instalare a eşuat. După ce închideţi această "
+"fereastră, puteţi raporta eroarea folosind instrumentul integrat de "
+"raportare a erorilor. Acesta va aduna informaţii despre sistem şi procesul "
+"de instalare. Detaliile vor fi trimise programului de gestionare a erorilor "
+"şi un programator va verifica problema cât mai curând."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Contrast înalt"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:85001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "Cititor de _Ecran"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:86001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Modificări tastatură"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:87001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Tastatură pe ecran"
 
 #. Type: text
 #. Description
@@ -720,19 +727,19 @@ msgstr "Creează partiția"
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Size:"
-msgstr ""
+msgstr "Dimensiune:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Începutul acestui spațiu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
 msgid "End of this space"
-msgstr ""
+msgstr "Sfârșitul acestui spațiu"
 
 #. Type: text
 #. Description
@@ -1899,19 +1906,19 @@ msgstr "După:"
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Criptează noua instalare Ubuntu pentru securitate"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:264001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Vei alege o cheie de securitate la pasul următor."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Foloseste LVM cu noua instalare Ubuntu"
 
 #. Type: text
 #. Description
@@ -1925,13 +1932,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:267001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Confirmă cheia de securitate:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Alege o cheie de securitate:"
 
 #. Type: text
 #. Description
@@ -1940,12 +1947,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Criptarea discului protejează fisierele în cazul în care pierdeți "
+"calculatorul. Vă solicită introducerea unei parole de securitate de fiecare "
+"dată când pornește calculatorul."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Orice fișiere din afara Ubuntu nu vor fi criptate."
 
 #. Type: text
 #. Description
@@ -1955,54 +1965,57 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Avertizare:</span> Dacă pierzi această parolă, "
+"toate datele vor fi pierdute. Dacă trebuie, notează parola și ține-o la un "
+"loc sigur în altă parte."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "For more security:"
-msgstr ""
+msgstr "Pentru mai multă securitate:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Suprascrie spațiul liber"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Instalarea ar putea dura mai mult"
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:275001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Grupe de volume:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:277001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opțiuni de criptare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volume fizice:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Criptează această partiție (LUKS)"
 
 #. Type: text
 #. Description
