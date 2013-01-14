@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:06+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 "X-Language: bn_BD\n"
 
 #. Type: text
@@ -123,19 +123,11 @@ msgstr "আপনি ইচ্ছে করলে <a href=\"update\">এই ই�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"এই প্রকাশনটি মূল ${RELEASE} প্রকাশনার সরাসরি ${MEDIUM} ইন্সটল যোগ্য পূর্ববর্তী "
-"প্রকাশনা। এটা চুড়ান্ত প্রকাশনা নয়; ওটা আসবে চুড়ান্ত ${RELEASE} প্রকাশনার সাথে যা "
-"আপনি অক্টোবর ২০১২ তে পাবেন।"
 
 #. Type: text
 #. Description

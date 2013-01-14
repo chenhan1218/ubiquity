@@ -481,6 +481,8 @@ class TestCalculateAutopartitioningOptions(unittest.TestCase):
         part = ubi_partman.Partition('/dev/sda1', 0, '1234-1234', 'ntfs')
         layout = {'=dev=sda': [part]}
         self.page.extra_options = {}
+        self.page.extra_options['use_device'] = ('debconf-return-value',
+                                                 [{'disk-desc': 0}])
         self.page.extra_options['resize'] = {
             '=dev=sda': ['', 0, 0, 0, '', 0, 'ntfs']}
 

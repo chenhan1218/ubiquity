@@ -97,7 +97,7 @@ class PageGtk(plugin.PluginUI):
             self.controller.allow_go_forward(True)
 
     def changed(self, entry):
-        from gi.repository import Gtk, GObject, Soup
+        from gi.repository import Gtk, GObject, GLib, Soup
 
         text = misc.utf8(self.city_entry.get_text())
         if not text:
@@ -119,10 +119,10 @@ class PageGtk(plugin.PluginUI):
             message.request_headers.append('User-agent', 'Ubiquity/1.0')
             self.geoname_session.abort()
             if self.geoname_timeout_id is not None:
-                GObject.source_remove(self.geoname_timeout_id)
+                GLib.source_remove(self.geoname_timeout_id)
             self.geoname_timeout_id = \
-                GObject.timeout_add_seconds(2, self.geoname_timeout,
-                                            (text, model))
+                GLib.timeout_add_seconds(2, self.geoname_timeout,
+                                         (text, model))
             self.geoname_session.queue_message(message, self.geoname_cb,
                                                (text, model))
 
@@ -157,12 +157,12 @@ class PageGtk(plugin.PluginUI):
     def geoname_cb(self, session, message, user_data):
         import syslog
         import json
-        from gi.repository import GObject, Soup
+        from gi.repository import GLib, Soup
 
         text, model = user_data
 
         if self.geoname_timeout_id is not None:
-            GObject.source_remove(self.geoname_timeout_id)
+            GLib.source_remove(self.geoname_timeout_id)
             self.geoname_timeout_id = None
         self.geoname_add_tzdb(text, model)
 
@@ -192,7 +192,7 @@ class PageGtk(plugin.PluginUI):
 
     def setup_page(self):
         # TODO Put a frame around the completion to add contrast (LP: #605908)
-        from gi.repository import Gtk, GObject
+        from gi.repository import Gtk, GLib
         from gi.repository import TimezoneMap
         self.tzdb = ubiquity.tz.Database()
         self.tzmap = TimezoneMap.TimezoneMap()
@@ -207,8 +207,8 @@ class PageGtk(plugin.PluginUI):
 
         def queue_entry_changed(entry):
             if self.timeout_id:
-                GObject.source_remove(self.timeout_id)
-            self.timeout_id = GObject.timeout_add(300, self.changed, entry)
+                GLib.source_remove(self.timeout_id)
+            self.timeout_id = GLib.timeout_add(300, self.changed, entry)
 
         self.city_entry.connect('changed', queue_entry_changed)
         completion = Gtk.EntryCompletion()
@@ -426,7 +426,10 @@ class Page(plugin.Plugin):
             self.collator = icu.Collator.createInstance(icu.Locale(locale))
         except:
             self.collator = None
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+        if 'UBIQUITY_AUTOMATIC' in os.environ:
+            if self.db.fget('time/zone', 'seen') == 'true':
+                self.set_di_country(self.db.get('time/zone'))
+        else:
             self.db.fset('time/zone', 'seen', 'false')
             cc = self.db.get('debian-installer/country')
             try:
@@ -688,22 +691,23 @@ class Page(plugin.Plugin):
             pass
         return rv
 
+    def set_di_country(self, zone):
+        location = self.tzdb.get_loc(zone)
+        if location:
+            self.preseed('debian-installer/country', location.country)
+
     def ok_handler(self):
         zone = self.ui.get_timezone()
         if zone is None:
             zone = self.db.get('time/zone')
         else:
             self.preseed('time/zone', zone)
-        for location in self.tzdb.locations:
-            if location.zone == zone:
-                self.preseed('debian-installer/country', location.country)
-                break
+        self.set_di_country(zone)
         plugin.Plugin.ok_handler(self)
 
     def cleanup(self):
         plugin.Plugin.cleanup(self)
-        self.ui.controller.set_locale(
-            i18n.reset_locale(self.frontend, just_country=True))
+        self.ui.controller.set_locale(i18n.reset_locale(self.frontend))
 
 
 class Install(plugin.InstallPlugin):

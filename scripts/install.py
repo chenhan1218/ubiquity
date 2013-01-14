@@ -280,7 +280,14 @@ class Install(install_misc.InstallBase):
                         if sb_var_file.read(1) == b"\x01":
                             keep.add('grub-efi-amd64-signed')
                             keep.add('shim-signed')
-                            keep.add('linux-signed-generic')
+                            try:
+                                altmeta = self.db.get(
+                                    'base-installer/kernel/altmeta')
+                                if altmeta:
+                                    altmeta = '-%s' % altmeta
+                            except debconf.DebconfError:
+                                altmeta = ''
+                            keep.add('linux-signed-generic%s' % altmeta)
             else:
                 keep.add('grub')
                 keep.add('grub-pc')

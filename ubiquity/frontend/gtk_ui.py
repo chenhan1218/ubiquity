@@ -49,7 +49,7 @@ DBusGMainLoop(set_as_default=True)
 
 #in query mode we won't be in X, but import needs to pass
 if 'DISPLAY' in os.environ:
-    from gi.repository import Gtk, Gdk, GObject
+    from gi.repository import Gtk, Gdk, GObject, GLib
     GObject.threads_init()
     from ubiquity import gtkwidgets
 
@@ -468,13 +468,12 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
     def network_change(self, online=False):
-        from gi.repository import GObject
         if not online:
             self.set_online_state(False)
             return
         if self.timeout_id:
-            GObject.source_remove(self.timeout_id)
-        self.timeout_id = GObject.timeout_add(300, self.check_returncode)
+            GLib.source_remove(self.timeout_id)
+        self.timeout_id = GLib.timeout_add(300, self.check_returncode)
 
     def set_online_state(self, state):
         for p in self.pages:
@@ -670,7 +669,7 @@ class Wizard(BaseFrontend):
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
         if osextras.find_on_path('orca'):
             self.orca_process = subprocess.Popen(
-                ['orca', '-n'], preexec_fn=misc.drop_all_privileges)
+                ['orca'], preexec_fn=misc.drop_all_privileges)
 
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(
@@ -751,7 +750,7 @@ class Wizard(BaseFrontend):
 
                 if self.dbfilter is not None and self.dbfilter != old_dbfilter:
                     self.allow_change_step(False)
-                    GObject.idle_add(
+                    GLib.idle_add(
                         lambda: self.dbfilter.start(auto_process=True))
 
                 page.controller.dbfilter = self.dbfilter
@@ -906,6 +905,7 @@ class Wizard(BaseFrontend):
                 self.get_string('oem_user_config_title'))
             self.live_installer.set_icon_name("preferences-system")
             self.quit.hide()
+            self.back.hide()
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             # Hide the notebook until the first page is ready.
@@ -1264,6 +1264,11 @@ class Wizard(BaseFrontend):
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
+
+        # If we are in oem-config, ensure the back button is displayed if
+        # and only if we are not on the first page.
+        if self.oem_user_config:
+            self.back.set_visible(self.pagesindex > 0)
         return True
 
     def set_page_title(self, page, lang=None):
@@ -1448,17 +1453,17 @@ class Wizard(BaseFrontend):
     # Callbacks provided to components.
 
     def watch_debconf_fd(self, from_debconf, process_input):
-        GObject.io_add_watch(from_debconf,
-                             GObject.IO_IN | GObject.IO_ERR | GObject.IO_HUP,
-                             self.watch_debconf_fd_helper, process_input)
+        GLib.io_add_watch(from_debconf,
+                          GLib.IO_IN | GLib.IO_ERR | GLib.IO_HUP,
+                          self.watch_debconf_fd_helper, process_input)
 
     def watch_debconf_fd_helper(self, source, cb_condition, callback):
         debconf_condition = 0
-        if (cb_condition & GObject.IO_IN) != 0:
+        if (cb_condition & GLib.IO_IN) != 0:
             debconf_condition |= filteredcommand.DEBCONF_IO_IN
-        if (cb_condition & GObject.IO_ERR) != 0:
+        if (cb_condition & GLib.IO_ERR) != 0:
             debconf_condition |= filteredcommand.DEBCONF_IO_ERR
-        if (cb_condition & GObject.IO_HUP) != 0:
+        if (cb_condition & GLib.IO_HUP) != 0:
             debconf_condition |= filteredcommand.DEBCONF_IO_HUP
 
         return callback(source, debconf_condition)
@@ -1706,21 +1711,19 @@ class Wizard(BaseFrontend):
                 text = option
             if text is None:
                 text = option
-            buttons.extend((text, len(buttons) / 2 + 1))
-        dialog = Gtk.Dialog(
-            title, self.live_installer, Gtk.DialogFlags.MODAL, tuple(buttons))
-        vbox = Gtk.Box()
-        vbox.set_orientation(Gtk.Orientation.VERTICAL)
-        vbox.set_border_width(5)
-        label = Gtk.Label(label=msg)
-        label.set_line_wrap(True)
-        label.set_selectable(False)
-        vbox.pack_start(label, True, True, 0)
-        vbox.show_all()
-        dialog.get_content_area().pack_start(vbox, True, True, 0)
-        response = dialog.run()
+            buttons.append((text, len(buttons) + 1))
+
+        self.ubi_question_dialog.set_title(title)
+        self.question_label.set_text(msg)
+        actions = self.ubi_question_dialog.get_action_area()
+        for action in actions.get_children():
+            actions.remove(action)
+        for text, response_id in buttons:
+            self.ubi_question_dialog.add_button(text, response_id)
+        self.ubi_question_dialog.show_all()
+        response = self.ubi_question_dialog.run()
         self.allow_change_step(saved_allowed_change_step)
-        dialog.hide()
+        self.ubi_question_dialog.hide()
         if response < 0:
             # something other than a button press, probably destroyed
             return None
@@ -1756,7 +1759,7 @@ class Wizard(BaseFrontend):
 
         def quit_quit():
             # Wait until we're actually out of this main loop
-            GObject.idle_add(idle_quit)
+            GLib.idle_add(idle_quit)
             return False
 
         if self.pending_quits == 0:

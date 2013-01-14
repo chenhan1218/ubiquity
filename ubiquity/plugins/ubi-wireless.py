@@ -60,6 +60,7 @@ class PageGtk(plugin.PluginUI):
         self.nmwidget.connect('connection', self.state_changed)
         self.nmwidget.connect('selection_changed', self.selection_changed)
         self.nmwidget.connect('pw_validated', self.pw_validated)
+        self.no_wireless = builder.get_object('no_wireless')
         self.use_wireless = builder.get_object('use_wireless')
         self.use_wireless.connect('toggled', self.wireless_toggled)
         self.plugin_widgets = self.page
@@ -137,6 +138,7 @@ class PageGtk(plugin.PluginUI):
             frontend.connecting_spinner.hide()
             frontend.connecting_spinner.stop()
             frontend.connecting_label.hide()
+            self.no_wireless.set_active(True)
             return False
 
     def plugin_on_next_clicked(self):
@@ -163,7 +165,7 @@ class PageGtk(plugin.PluginUI):
             self.controller.allow_go_forward(True)
 
             frontend.translate_widget(frontend.back)
-            self.back_normal = False
+            self.back_normal = True
             frontend.back.set_sensitive(True)
         else:
             frontend.connecting_spinner.show()

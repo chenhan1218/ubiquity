@@ -29,10 +29,12 @@ my %builddeps;
 # Always include base ubiquity build dependencies.
 my @basebd = (
     'apt',
+    'autopoint',
     'dctrl-tools',
     'debconf (>= 1.5.43)',
     'debconf-utils',
     'debhelper (>= 9)',
+    'dh-autoreconf',
     'dh-di (>= 3)',
     'dpkg-dev (>= 1.14.4)',
     'gir1.2-soup-2.4',

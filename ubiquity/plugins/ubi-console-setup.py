@@ -106,10 +106,10 @@ class PageGtk(plugin.PluginUI):
     def on_keyboard_layout_selected(self, *args):
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             # Let's not call this every time the user presses a key.
-            from gi.repository import GObject
+            from gi.repository import GLib
             if self.keyboard_layout_timeout_id:
-                GObject.source_remove(self.keyboard_layout_timeout_id)
-            self.keyboard_layout_timeout_id = GObject.timeout_add(
+                GLib.source_remove(self.keyboard_layout_timeout_id)
+            self.keyboard_layout_timeout_id = GLib.timeout_add(
                 600, self.keyboard_layout_timeout)
         else:
             self.keyboard_layout_timeout()
@@ -128,10 +128,10 @@ class PageGtk(plugin.PluginUI):
     def on_keyboard_variant_selected(self, *args):
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
             # Let's not call this every time the user presses a key.
-            from gi.repository import GObject
+            from gi.repository import GLib
             if self.keyboard_variant_timeout_id:
-                GObject.source_remove(self.keyboard_variant_timeout_id)
-            self.keyboard_variant_timeout_id = GObject.timeout_add(
+                GLib.source_remove(self.keyboard_variant_timeout_id)
+            self.keyboard_variant_timeout_id = GLib.timeout_add(
                 600, self.keyboard_variant_timeout)
         else:
             self.keyboard_variant_timeout()

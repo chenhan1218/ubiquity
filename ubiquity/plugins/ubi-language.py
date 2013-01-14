@@ -302,13 +302,13 @@ class PageGtk(PageBase):
             w.show()
 
     def plugin_set_online_state(self, state):
-        from gi.repository import GObject
+        from gi.repository import GLib
         if self.release_notes_label:
             if self.timeout_id:
-                GObject.source_remove(self.timeout_id)
+                GLib.source_remove(self.timeout_id)
             if state:
                 self.release_notes_label.show()
-                self.timeout_id = GObject.timeout_add(
+                self.timeout_id = GLib.timeout_add(
                     300, self.check_returncode)
             else:
                 self.release_notes_label.hide()
@@ -350,6 +350,8 @@ class PageGtk(PageBase):
             elif self.update_installer:
                 text = i18n.get_string('update_installer_only', lang)
                 self.release_notes_label.set_markup(text)
+            else:
+                self.release_notes_label.set_markup('')
 
     def set_oem_id(self, text):
         return self.oem_id_entry.set_text(text)
@@ -745,10 +747,4 @@ class Install(plugin.InstallPlugin):
                     locale.setlocale(locale.LC_ALL, '')
                 except locale.Error:
                     pass
-            # fontconfig configuration needs to be adjusted based on the
-            # selected locale (from language-selector-common.postinst). Ignore
-            # errors.
-            misc.execute(
-                'chroot', target, 'fontconfig-voodoo',
-                '--auto', '--force', '--quiet')
         return rv

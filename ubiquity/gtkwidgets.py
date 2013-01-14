@@ -39,10 +39,10 @@ class StylizedFrame(Gtk.Alignment):
     __gproperties__ = {
         'radius': (
             GObject.TYPE_INT, 'Radius', 'The radius of the rounded corners.',
-            0, GObject.constants.G_MAXINT, 10, GObject.PARAM_READWRITE),
+            0, GObject.G_MAXINT, 10, GObject.PARAM_READWRITE),
         'width': (
             GObject.TYPE_INT, 'Width', 'The width of the outline.',
-            0, GObject.constants.G_MAXINT, 1, GObject.PARAM_READWRITE),
+            0, GObject.G_MAXINT, 1, GObject.PARAM_READWRITE),
     }
 
     def __init__(self):
@@ -93,15 +93,15 @@ class ResizeWidget(Gtk.HPaned):
         'part_size': (
             GObject.TYPE_UINT64, 'Partition size',
             'The size of the partition being resized',
-            1, GObject.constants.G_MAXUINT64, 100, GObject.PARAM_READWRITE),
+            1, GObject.G_MAXUINT64, 100, GObject.PARAM_READWRITE),
         'min_size': (
             GObject.TYPE_UINT64, 'Minimum size',
             'The minimum size that the existing partition can be resized to',
-            0, GObject.constants.G_MAXUINT64, 0, GObject.PARAM_READWRITE),
+            0, GObject.G_MAXUINT64, 0, GObject.PARAM_READWRITE),
         'max_size': (
             GObject.TYPE_UINT64, 'Maximum size',
             'The maximum size that the existing partition can be resized to',
-            1, GObject.constants.G_MAXUINT64, 100, GObject.PARAM_READWRITE)
+            1, GObject.G_MAXUINT64, 100, GObject.PARAM_READWRITE)
     }
 
     def do_get_property(self, prop):

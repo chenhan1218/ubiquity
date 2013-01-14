@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-03 13:33+0000\n"
-"Last-Translator: Michael Krištof <Unknown>\n"
+"PO-Revision-Date: 2012-10-16 21:34+0000\n"
+"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:06+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Pripája sa..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr "Pokračujte po reštarte"
+msgstr "Pokračujte po reštartovaní"
 
 #. Type: text
 #. Description
@@ -36,7 +36,7 @@ msgstr "Pokračujte po reštarte"
 #. Description
 #: ../ubiquity.templates:5001 ../ubiquity.templates:189001
 msgid "Install"
-msgstr "Inštalovať"
+msgstr "Inštalácia"
 
 #. Type: text
 #. Description
@@ -65,8 +65,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"${RELEASE} môžete skúsiť bez akýchkoľvek zmien na svojom počítači, priamo z "
-"tohto ${MEDIUM}."
+"${RELEASE} si môžete vyskúšať bez vykonania akýchkoľvek zmien na svojom "
+"počítači priamo z tohto ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -100,14 +100,14 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Môžete si prečítať <a href=\"release-notes\">Poznámky k vydaniu</a> alebo <a "
+"Môžete si prečítať <a href=\"release-notes\">poznámky k vydaniu</a> alebo <a "
 "href=\"update\">aktualizovať tento inštalátor</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "Môžete si prečítať <a href=\"release-notes\">Poznámky k vydaniu</a>."
+msgstr "Môžete si prečítať <a href=\"release-notes\">poznámky k vydaniu</a>."
 
 #. Type: text
 #. Description
@@ -120,19 +120,11 @@ msgstr "Môžete <a href=\"update\">aktualizovať tento inštalátor</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Toto  je vývojová verzia (pre-release) inštalátora ${RELEASE} live "
-"${MEDIUM}. Nie je to konečné vydanie. Konečné vydanie ${RELEASE} bude "
-"zverejnené v októbri 2012."
 
 #. Type: text
 #. Description
@@ -168,7 +160,7 @@ msgstr "Rozloženie klávesnice"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Choose your keyboard layout:"
-msgstr "Vyberte rozloženie svojej klávesnice:"
+msgstr "Vyberte rozloženie vašej klávesnice:"
 
 #. Type: text
 #. Description
@@ -261,6 +253,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Ak tento počítač bude používať viac ako jedna osoba, môžete po "
+"inštalácii nastaviť viaceré účty.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -287,6 +281,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Zadajte rovnaké heslo dvakrát, aby bolo možné skontrolovať, či "
+"ste v ňom neurobili preklep.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -449,7 +445,7 @@ msgstr "Súbory (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Kam by ste chceli nainštalovať Kubuntu?"
 
 #. Type: text
 #. Description
@@ -469,13 +465,13 @@ msgstr "Na_inštalovať teraz"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Quit the installation?"
-msgstr "Ukončiť inštaláciu?"
+msgstr "Ukončenie inštalácie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "Do you really want to quit the installation now?"
-msgstr "Chcete skutočne ukončiť inštaláciu?"
+msgstr "Naozaj chcete ukončiť inštaláciu teraz?"
 
 #. Type: text
 #. Description
@@ -1239,7 +1235,7 @@ msgstr "Chcete, aby sa inštalátor opäť pokúsil tieto oblasti odpojiť?"
 #. Description
 #: ../ubiquity.templates:177001
 msgid "Do you want to return to the partitioner?"
-msgstr "Chcete sa vrátiť do menu rozdeľovania?"
+msgstr "Chcete sa vrátiť do ponuky rozdeľovania?"
 
 #. Type: boolean
 #. Description
@@ -1258,7 +1254,7 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Ak sa nevrátite späť do menu rozdeľovania a nezväčšíte tieto oblasti, "
+"Ak sa nevrátite späť do ponuky rozdeľovania a nezväčšíte tieto oblasti, "
 "inštalácia môže zlyhať."
 
 #. Type: text
@@ -1440,7 +1436,7 @@ msgstr "Inštalátor zistil neopraviteľnú chybu a vykoná reštart."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:206001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Pripravuje sa inštalácia ${RELEASE}"
+msgstr "Príprava inštalácie ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1604,7 +1600,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Install this third-party software"
-msgstr "Nainštalovať tento softvér od tretích strán"
+msgstr "Nainštalovať softvér od tretích strán"
 
 #. Type: text
 #. Description
@@ -1666,7 +1662,7 @@ msgstr "[zmeníte písaním sem]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:245001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "Nahradiť ${OS} za ${DISTRO}"
+msgstr "Nahradiť ${OS} s ${DISTRO}"
 
 #. Type: text
 #. Description

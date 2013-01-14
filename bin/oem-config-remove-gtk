@@ -26,10 +26,10 @@ import sys
 import glob
 
 from aptdaemon.gtk3widgets import AptProgressDialog
-from gi.repository import GObject, Gtk
+from gi.repository import GLib, Gtk
 from aptdaemon import client, enums
 
-loop = GObject.MainLoop()
+loop = GLib.MainLoop()
 
 
 def _on_failure(error):
