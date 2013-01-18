@@ -1,5 +1,6 @@
 ubiquity (2.13.10) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Only force mirror/country to the value of debian-installer/country if it
     is empty or has not been preseeded (LP: #732221).
   * For automatic installs, set debian-installer/country to a country
@@ -8,6 +9,9 @@ ubiquity (2.13.10) UNRELEASED; urgency=low
   * Save a random seed to the installed system so that it has better entropy
     on first boot (LP: #1098299).
   * Update translations from Launchpad (LP: #1096923).
+
+  [ Iain Lane ]
+  * Port the webcam support to GStreamer 1.0.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 11 Jan 2013 17:17:27 +0000
 

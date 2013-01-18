@@ -312,7 +312,7 @@ libubiwebcam_la_LIBADD = $(WEBCAM_LIBS)
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_COMPILER_ARGS = --includedir=$(srcdir)
 @HAVE_INTROSPECTION_TRUE@INTROSPECTION_GIRS = UbiquityWebcam-1.0.gir
 @HAVE_INTROSPECTION_TRUE@introspection_sources = $(libubiwebcam_la_SOURCES)
-@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 Gst-0.10
+@HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_INCLUDES = GObject-2.0 Gtk-3.0 Gst-1.0
 @HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_CFLAGS = $(INCLUDES) --identifier-prefix=Ubiquity
 @HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_LIBS = libubiwebcam.la
 @HAVE_INTROSPECTION_TRUE@UbiquityWebcam_1_0_gir_FILES = $(introspection_sources)
