@@ -426,7 +426,7 @@ class Page(plugin.Plugin):
             self.collator = icu.Collator.createInstance(icu.Locale(locale))
         except:
             self.collator = None
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
             if self.db.fget('time/zone', 'seen') == 'true':
                 self.set_di_country(self.db.get('time/zone'))
         else:

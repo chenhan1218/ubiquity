@@ -3137,7 +3137,7 @@ class Page(plugin.Plugin):
         self.exit_ui_loops()
 
     def is_bootdev_preseeded(self):
-        return ('UBIQUITY_AUTOMATIC' in os.environ and
+        return (self.is_automatic and
                 self.db.fget('grub-installer/bootdev', 'seen') == 'true')
 
     # TODO cjwatson 2006-11-01: Do we still need this?

@@ -403,7 +403,7 @@ class PageGtk(PageBase):
     def on_hostname_changed(self, widget):
         self.hostname_edited = (widget.get_text() != '')
 
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+        if not self.is_automatic:
             # Let's not call this every time the user presses a key.
             from gi.repository import GLib
             if self.hostname_timeout_id:
@@ -753,8 +753,7 @@ class Page(plugin.Plugin):
         self.ui.info_loop(None)
 
         # Trigger the bogus DNS server detection
-        if (not 'UBIQUITY_AUTOMATIC' in os.environ and
-                hasattr(self.ui, 'detect_bogus_result')):
+        if (not self.is_automatic and hasattr(self.ui, 'detect_bogus_result')):
             self.ui.detect_bogus_result()
 
         # We intentionally don't listen to passwd/auto-login or

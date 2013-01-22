@@ -445,6 +445,10 @@ class Wizard(BaseFrontend):
 
             self.backup = False
             page = self.pages[self.pagesindex]
+            automatic = False
+            if hasattr(page.ui, 'is_automatic'):
+                automatic = page.ui.is_automatic
+
             if not page.filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
@@ -477,7 +481,7 @@ class Wizard(BaseFrontend):
                     self.process_step()
                     if not self.stay_on_page:
                         self.pagesindex = self.pagesindex + 1
-                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                    if automatic:
                         # if no debconf_progress, create another one, set
                         # start to pageindex
                         self.debconf_progress_step(1)

@@ -68,7 +68,7 @@ class PageGtk(PreparePageBase):
     restricted_package_name = 'ubuntu-restricted-addons'
 
     def __init__(self, controller, *args, **kwargs):
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
             self.page = None
             return
         self.controller = controller
@@ -140,7 +140,7 @@ class PageKde(PreparePageBase):
 
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.qtwidgets import StateBox
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
             self.page = None
             return
         self.controller = controller

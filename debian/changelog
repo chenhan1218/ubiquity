@@ -9,6 +9,8 @@ ubiquity (2.13.10) UNRELEASED; urgency=low
   * Save a random seed to the installed system so that it has better entropy
     on first boot (LP: #1098299).
   * Update translations from Launchpad (LP: #1096923).
+  * Refactor handling of automatic mode to make it easier to override checks
+    for it in plugins.
 
   [ Iain Lane ]
   * Port the webcam support to GStreamer 1.0.

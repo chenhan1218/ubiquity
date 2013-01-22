@@ -39,7 +39,7 @@ class PageGtk(plugin.PluginUI):
         # which we DO use in the Wireless step UI.
         from ubiquity import misc, nm
         from gi.repository import Gtk
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
             self.page = None
             return
         # Check whether we can talk to NM at all (e.g. debugging ubiquity

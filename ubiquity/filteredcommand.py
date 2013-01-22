@@ -69,6 +69,16 @@ class UntrustedBase(object):
             message = fmt % args
             print('%s %s: %s' % (time_str, PACKAGE, message), file=sys.stderr)
 
+    @property
+    def is_automatic(self):
+        """Is this command running in automatic mode?
+
+        In automatic mode, the UI will only be displayed if there are
+        questions to ask that have not been preseeded; otherwise the UI will
+        be skipped.  Some UIs may never display anything in automatic mode.
+        """
+        return "UBIQUITY_AUTOMATIC" in os.environ
+
 
 class FilteredCommand(UntrustedBase):
     def __init__(self, frontend, db=None, ui=None):
@@ -112,7 +122,7 @@ class FilteredCommand(UntrustedBase):
         widgets = {}
         for pattern in question_patterns:
             widgets[pattern] = self
-        self.dbfilter = DebconfFilter(self.db, widgets)
+        self.dbfilter = DebconfFilter(self.db, widgets, self.is_automatic)
 
         # TODO: Set as unseen all questions that we're going to ask.
 
