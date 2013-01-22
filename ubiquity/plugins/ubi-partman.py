@@ -38,8 +38,6 @@ WEIGHT = 11
 # Not useful in oem-config.
 OEM = False
 
-GRUB_OPTIONS = []
-
 PartitioningOption = namedtuple('PartitioningOption', ['title', 'desc'])
 Partition = namedtuple('Partition', ['device', 'size', 'id', 'filesystem'])
 
@@ -201,6 +199,9 @@ class PageGtk(PageBase):
         # GtkBuilder signal mapping is broken (LP: #852054).
         self.part_auto_hidden_label.connect(
             'activate-link', self.part_auto_hidden_label_activate_link)
+
+        # Define a list to save grub imformation
+        self.grub_options = []
 
     def plugin_get_current_page(self):
         if self.current_page == self.page_ask:
@@ -569,9 +570,8 @@ class PageGtk(PageBase):
         from gi.repository import Gtk, GObject
         options = misc.grub_options()
 
-        global GRUB_OPTIONS
-        GRUB_OPTIONS = []
-        GRUB_OPTIONS = options
+        # Now save grub information
+        self.grub_options = options
 
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
@@ -849,8 +849,7 @@ class PageGtk(PageBase):
         if not model[iterator][1]:
             return
         partition = model[iterator][1]
-        global GRUB_OPTIONS
-        options = GRUB_OPTIONS
+        options = self.grub_options
         if 'id' not in partition:
             cell.set_property('text', '')
         elif (partition['parted']['fs'] != 'free'
@@ -858,6 +857,7 @@ class PageGtk(PageBase):
             for opt in options:
                 if partition['parted']['path'] in opt:
                     cell.set_property('text', '%s' % opt[1])
+                    break
         elif partition['parted']['type'] == 'unusable':
             cell.set_property('text', '')
         else:
