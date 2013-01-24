@@ -132,6 +132,8 @@ class PageGtk(PageBase):
         self.page_advanced = builder.get_object('stepPartAdvanced')
         self.page_crypto = builder.get_object('stepPartCrypto')
 
+
+
         # Get all objects + add internal child(s)
         all_widgets = builder.get_object_ids()
         all_widgets.update(['partition_dialog_okbutton'])
