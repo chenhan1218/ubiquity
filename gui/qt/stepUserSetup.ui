@@ -509,54 +509,38 @@
    </item>
    <item>
     <widget class="QWidget" name="widget_6" native="true">
-     <widget class="QCheckBox" name="login_encrypt">
-      <property name="geometry">
-       <rect>
-        <x>27</x>
-        <y>27</y>
-        <width>291</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Require Password and decrypt home to login</string>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="login_auto">
-      <property name="geometry">
-       <rect>
-        <x>346</x>
-        <y>2</y>
-        <width>139</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Log in Automatically</string>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="login_pass">
-      <property name="geometry">
-       <rect>
-        <x>2</x>
-        <y>2</y>
-        <width>193</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Require my password to log in</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="login_pass">
+        <property name="text">
+         <string>Require my password to log in</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="login_auto">
+        <property name="text">
+         <string>Log in Automatically</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="login_encrypt">
+        <property name="text">
+         <string>Require Password and decrypt home to login</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

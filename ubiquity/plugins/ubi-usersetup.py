@@ -505,6 +505,7 @@ class PageKde(PageBase):
         #self.page.verified_password.textChanged[str].connect(
         #    self.on_verified_password_changed)
         self.page.login_pass.clicked[bool].connect(self.on_login_pass_clicked)
+        self.page.login_auto.clicked[bool].connect(self.on_login_auto_clicked)
 
         self.page.password_debug_warning_label.setVisible(
             'UBIQUITY_DEBUG' in os.environ)
@@ -565,6 +566,9 @@ class PageKde(PageBase):
 
     def on_login_pass_clicked(self, checked):
         self.page.login_encrypt.setEnabled(checked)
+
+    def on_login_auto_clicked(self, checked):
+        self.page.login_encrypt.setEnabled(not(checked))
 
     def set_encrypt_home(self, value):
         self.page.login_encrypt.setChecked(value)
