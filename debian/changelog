@@ -18,6 +18,11 @@ ubiquity (2.13.10) UNRELEASED; urgency=low
   [ Jonathan Riddell ]
   * Fix widget layout and logic (LP: #1066225)
 
+  [ Dmitrijs Ledkovs ]
+  * Automatic update of included source packages: partman-
+    basicfilesystems 76ubuntu4, partman-efi 25ubuntu4, partman-
+    partitioning 89ubuntu2, partman-target 81ubuntu1.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 11 Jan 2013 17:17:27 +0000
 
 ubiquity (2.13.9) raring; urgency=low
