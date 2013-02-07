@@ -96,3 +96,12 @@ ubiquity/frontend/*.bak
 ubiquity/frontend/liveinstaller.py
 ubiquity/frontend/crashdialog.py
 d-i/sources.list.local
+debian/autoreconf.after
+debian/autoreconf.before
+desktop/Makefile.in
+pixmaps/Makefile.in
+src/Makefile.in
+src/mockresolver/Makefile.in
+src/panel/Makefile.in
+src/wallpaper/Makefile.in
+src/webcam/Makefile.in
