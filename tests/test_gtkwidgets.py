@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8; -*-
 
-import os
 import sys
 from test.support import run_unittest
 import unittest
@@ -60,33 +59,6 @@ class WidgetTests(unittest.TestCase):
         self.win.show_all()
         self.win.connect('destroy', Gtk.main_quit)
         gtkwidgets.refresh()
-
-    @mock.patch('ubiquity.misc.drop_privileges')
-    @mock.patch('ubiquity.misc.regain_privileges')
-    def test_face_selector_save_to(self, *args):
-        from gi.repository import GdkPixbuf, Gst
-        Gst.init(sys.argv)
-        WRITE_TO = '/tmp/nonexistent-directory/windows_square.png'
-        fs = gtkwidgets.FaceSelector(None)
-        fs.selected_image = Gtk.Image()
-        PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
-        png = os.path.join(PATH, 'pixmaps', 'windows_square.png')
-        pb = GdkPixbuf.Pixbuf.new_from_file(png)
-        fs.selected_image.set_from_pixbuf(pb)
-        fs.save_to(WRITE_TO)
-        self.assertTrue(os.path.exists(WRITE_TO))
-        import shutil
-        shutil.rmtree(os.path.dirname(WRITE_TO))
-
-    def test_face_selector_translated(self):
-        fs = gtkwidgets.FaceSelector(MockController())
-        fs.translate('zz')
-        self.assertEqual('zz: webcam_photo_label', fs.photo_label.get_text())
-        self.assertEqual(
-            'zz: webcam_existing_label', fs.existing_label.get_text())
-        self.assertEqual(
-            'zz: webcam_take_button',
-            fs.webcam.get_property('take-button').get_label())
 
     def test_state_box(self):
         sb = gtkwidgets.StateBox('foobar')
