@@ -745,13 +745,16 @@
                             <property name="left_padding">20</property>
                             <property name="right_padding">20</property>
                             <child>
-                              <object class="GtkBox" id="hbox_navigation">
+                              <object class="GtkGrid" id="grid1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="row_spacing">6</property>
+                                <property name="column_spacing">6</property>
                                 <child>
                                   <object class="GtkAlignment" id="alignment1">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="halign">start</property>
                                     <child>
                                       <object class="GtkBox" id="hbox_connecting">
                                         <property name="visible">True</property>
@@ -782,34 +785,19 @@
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">0</property>
+                                    <property name="width">1</property>
+                                    <property name="height">1</property>
                                   </packing>
                                 </child>
                                 <child>
                                   <object class="GtkButtonBox" id="navigation_control">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="hexpand">True</property>
                                     <property name="spacing">6</property>
                                     <property name="layout_style">end</property>
-                                    <child>
-                                      <object class="GtkButton" id="quit">
-                                        <property name="label">gtk-quit</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="can_default">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_underline">True</property>
-                                        <property name="use_stock">True</property>
-                                        <signal name="clicked" handler="on_quit_clicked" swapped="no"/>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
                                     <child>
                                       <object class="GtkButton" id="back">
                                         <property name="label">gtk-go-back</property>
@@ -822,9 +810,10 @@
                                         <signal name="clicked" handler="on_back_clicked" swapped="no"/>
                                       </object>
                                       <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="expand">True</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                        <property name="secondary">True</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -842,14 +831,16 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">2</property>
+                                        <property name="pack_type">end</property>
+                                        <property name="position">1</property>
                                       </packing>
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
+                                    <property name="left_attach">0</property>
+                                    <property name="top_attach">1</property>
+                                    <property name="width">1</property>
+                                    <property name="height">1</property>
                                   </packing>
                                 </child>
                               </object>

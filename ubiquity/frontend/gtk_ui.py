@@ -907,7 +907,6 @@ class Wizard(BaseFrontend):
             self.live_installer.set_title(
                 self.get_string('oem_user_config_title'))
             self.live_installer.set_icon_name("preferences-system")
-            self.quit.hide()
             self.back.hide()
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
@@ -987,7 +986,6 @@ class Wizard(BaseFrontend):
 
             gsettings.set(gs_schema, gs_key, True)
 
-        self.quit.hide()
         f = (Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE |
              Gdk.WMFunction.MOVE)
         if not 'UBIQUITY_ONLY' in os.environ:
@@ -1015,8 +1013,6 @@ class Wizard(BaseFrontend):
                 gs_value = self.gsettings_previous[gs_previous]
                 gsettings.set(gs_schema, gs_key, gs_value)
 
-        if not self.oem_user_config:
-            self.quit.show()
         f = Gdk.WMFunction.RESIZE | Gdk.WMFunction.MAXIMIZE | \
             Gdk.WMFunction.MOVE | Gdk.WMFunction.CLOSE
         if not 'UBIQUITY_ONLY' in os.environ:
