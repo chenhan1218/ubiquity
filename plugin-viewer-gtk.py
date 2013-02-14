@@ -4,10 +4,14 @@ import os
 import sys
 
 from gi.repository import Gtk
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default=True)
 
 # we could use this as the base for the MockController as well
 #   from ubiquity.frontend.base import Controller
 
+# for testing online status
+from ubiquity.misc import add_connection_watch
 
 class MockController(object):
 
@@ -70,6 +74,8 @@ if __name__ == "__main__":
         "clicked", _on_button_next_clicked)
     win.button_back.connect(
         "clicked", lambda b: page_gtk.plugin_on_back_clicked())
+
+    add_connection_watch(page_gtk.plugin_set_online_state)
 
     button_box = Gtk.ButtonBox(spacing=12)
     button_box.set_layout(Gtk.ButtonBoxStyle.END)
