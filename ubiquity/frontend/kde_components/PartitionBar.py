@@ -24,7 +24,11 @@
 
 from PyQt4 import QtCore, QtGui
 
-from ubiquity.misc import format_size
+from ubiquity.misc import format_size, find_in_os_prober
+
+
+def name_from_path(path):
+    return find_in_os_prober(path) or path.replace('/dev/', '')
 
 
 class Partition:
@@ -54,7 +58,7 @@ class Partition:
             elif fs == 'swap':
                 self.name = 'swap'
             else:
-                self.name = path.replace('/dev/', '')
+                self.name = name_from_path(path)
         else:
             self.name = name
 
