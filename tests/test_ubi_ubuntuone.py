@@ -44,7 +44,9 @@ class TestPageGtk(BaseTestPageGtk):
 
     def test_verify_email_entry(self):
         self.assertFalse(self.page._verify_email_entry("meep"))
-        self.assertTrue(self.page._verify_email_entry("mup@example.com"))
+        self.assertTrue(self.page._verify_email_entry("mup.frb@example.com"))
+        self.assertTrue(self.page._verify_email_entry("mup@example"))
+        self.assertTrue(self.page._verify_email_entry("mup\@foo.com@example"))
 
     def test_verify_password_entry(self):
         self.assertFalse(self.page._verify_password_entry(""))

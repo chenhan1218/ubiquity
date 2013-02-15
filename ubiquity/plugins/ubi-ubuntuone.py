@@ -95,6 +95,7 @@ class UbuntuSSO(object):
 
     def _spawn_sso_helper(self, cmd, password, callback, errback, data):
         from gi.repository import GLib
+        print("SSO spawning cmd=%r" % cmd)
         res, pid, stdin_fd, stdout_fd, stderr_fd = GLib.spawn_async_with_pipes(
             "/", cmd, None,
             (GLib.SpawnFlags.LEAVE_DESCRIPTORS_OPEN |
@@ -295,9 +296,7 @@ class PageGtk(plugin.PluginUI):
 
     def _verify_email_entry(self, email):
         """Return True if the email address looks valid"""
-        EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
-        match = re.match(EMAIL_REGEXP, email)
-        return (match is not None)
+        return '@' in email
 
     def _verify_password_entry(self, password):
         """Return True if there is a valid password"""
