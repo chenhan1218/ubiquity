@@ -1,32 +1,5 @@
 /** main stylesheet */
 
-#centralwidget {
-}
-
-#minimize_button {
-    background-image: url(/usr/share/ubiquity/qt/images/minimize.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    border: none;
-}
-
-#main_frame {
-	border-width: 13px;
-	border-image: url(/usr/share/ubiquity/qt/images/main_frame_border.png) 13px;
-	
-    background-image: url(/usr/share/ubiquity/qt/images/single_pixel.png);
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-origin: border;
-    
-    padding: 0px;
-    padding-bottom: 0px;
-}
-
-#main_widget {
-}
-
 #distro_name_label,
 #distro_release_label,
 #install_process_label {

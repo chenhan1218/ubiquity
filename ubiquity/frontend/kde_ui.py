@@ -90,24 +90,7 @@ class UbiquityUI(QtGui.QMainWindow):
         self.distro_name_label.setText(distro_name)
         self.distro_release_label.setText(distro_release)
 
-        self.minimize_button.clicked.connect(self.showMinimized)
-
         self.setWindowTitle("%s %s" % (distro_name, distro_release))
-
-        # don't use stylesheet cause we want to scale the wallpaper for various
-        # screen sizes as well as support larger screens
-        self.bgImage = QtGui.QImage("/usr/share/wallpapers/kde-default.png")
-        self.scaledBgImage = self.bgImage
-
-    def paintEvent(self, pe):
-        p = QtGui.QPainter(self)
-        p.drawImage(0, 0, self.scaledBgImage)
-
-    def resizeEvent(self, re):
-        self.scaledBgImage = self.bgImage.scaled(
-            self.width(), self.height(),
-            QtCore.Qt.KeepAspectRatioByExpanding,
-            QtCore.Qt.SmoothTransformation)
 
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
@@ -183,31 +166,16 @@ class Wizard(BaseFrontend):
 
         self.ui = UbiquityUI()
 
-        # handle smaller screens (old school eee pc
-        if (QtGui.QApplication.desktop().screenGeometry().height() < 560):
-            self.ui.main_frame.setFixedHeight(470)
-            with open(os.path.join(UIDIR, "style_small.qss")) as style:
-                self.ui.main_frame.setStyleSheet(style.read())
-
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
         self.ui.content_widget.setVisible(False)
 
         if 'UBIQUITY_GREETER' in os.environ:
-            self.ui.minimize_button.hide()
-
-        self.ui.setWindowState(
-            self.ui.windowState() ^ QtCore.Qt.WindowFullScreen)
+            self.ui.setWindowState(
+                self.ui.windowState() ^ QtCore.Qt.WindowFullScreen)
 
         self.ui.setWizard(self)
-        # self.ui.setWindowFlags(QtCore.Qt.Window |
-        # QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowTitleHint |
-        # QtCore.Qt.WindowMinMaxButtonsHint)
-
-        #hide the minimize button if in "install only" mode
-        if 'UBIQUITY_ONLY' in os.environ or 'UBIQUITY_GREETER' in os.environ:
-            self.ui.minimize_button.setVisible(False)
 
         self.stackLayout = QtGui.QStackedLayout(self.ui.widgetStack)
 
