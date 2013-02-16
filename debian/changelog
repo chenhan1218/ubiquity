@@ -1,4 +1,4 @@
-ubiquity (2.13.11) UNRELEASED; urgency=low
+ubiquity (2.13.11) raring; urgency=low
 
   * Remove remaining autofoo cruft from the source tree and ignore it. We
     are using dh-autoreconf.
@@ -9,7 +9,7 @@ ubiquity (2.13.11) UNRELEASED; urgency=low
     wallpaper app should be fixed or something like xloadimage could be
     used.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 16 Feb 2013 07:01:14 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 16 Feb 2013 07:18:44 +0000
 
 ubiquity (2.13.10) raring; urgency=low
 
