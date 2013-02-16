@@ -2,8 +2,14 @@ ubiquity (2.13.11) UNRELEASED; urgency=low
 
   * Remove remaining autofoo cruft from the source tree and ignore it. We
     are using dh-autoreconf.
+  * If available, Use gnome-settings-daemon to set the wallpaper, instead
+    of the wallpaper app. Supports changing background and screen size
+    changes (e.g. like on nexus7). For derivatives that do not ship g-s-d,
+    the wallpaper should be draw by their respective native means or the
+    wallpaper app should be fixed or something like xloadimage could be
+    used.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 07 Feb 2013 17:47:38 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 16 Feb 2013 07:01:14 +0000
 
 ubiquity (2.13.10) raring; urgency=low
 
