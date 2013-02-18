@@ -1132,8 +1132,9 @@ class Wizard(BaseFrontend):
             cursor = self.watch
         else:
             cursor = None
-        if (hasattr(self, "live_installer") and
-            self.live_installer.get_parent_window()):
+        if (
+                hasattr(self, "live_installer") and
+                self.live_installer.get_parent_window()):
             self.live_installer.get_parent_window().set_cursor(cursor)
         set_root_cursor(cursor)
         self.busy_cursor = busy
