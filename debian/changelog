@@ -1,3 +1,10 @@
+ubiquity (2.13.12) UNRELEASED; urgency=low
+
+  * While displaying question or error dialogs, only change the busy cursor
+    state rather than also allowing changing step (LP: #1095684).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Feb 2013 16:22:13 +0000
+
 ubiquity (2.13.11) raring; urgency=low
 
   * Remove remaining autofoo cruft from the source tree and ignore it. We

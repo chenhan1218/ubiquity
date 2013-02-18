@@ -239,7 +239,7 @@ class Wizard(BaseFrontend):
 
         # To get a "busy mouse":
         self.watch = Gdk.Cursor.new(Gdk.CursorType.WATCH)
-        set_root_cursor(self.watch)
+        self.set_busy_cursor(True)
         atexit.register(set_root_cursor)
 
         self.laptop = misc.execute("laptop-detect")
@@ -425,7 +425,7 @@ class Wizard(BaseFrontend):
         # Restore the default cursor if we were using a spinning cursor on the
         # root window.
         try:
-            set_root_cursor()
+            self.set_busy_cursor(False)
         except Exception:
             pass
 
@@ -801,7 +801,7 @@ class Wizard(BaseFrontend):
                 with open('/var/run/reboot-required', "w"):
                     pass
             self.finished_dialog.set_keep_above(True)
-            set_root_cursor()
+            self.set_busy_cursor(False)
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()
@@ -1127,14 +1127,19 @@ class Wizard(BaseFrontend):
         elif isinstance(widget, Gtk.MenuItem):
             widget.set_label(text)
 
-    def allow_change_step(self, allowed):
-        if allowed:
-            cursor = None
-        else:
+    def set_busy_cursor(self, busy):
+        if busy:
             cursor = self.watch
-        if self.live_installer.get_parent_window():
+        else:
+            cursor = None
+        if (hasattr(self, "live_installer") and
+            self.live_installer.get_parent_window()):
             self.live_installer.get_parent_window().set_cursor(cursor)
         set_root_cursor(cursor)
+        self.busy_cursor = busy
+
+    def allow_change_step(self, allowed):
+        self.set_busy_cursor(not allowed)
         self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
@@ -1360,7 +1365,7 @@ class Wizard(BaseFrontend):
         """Quit installer cleanly."""
         # Let the user know we're shutting down.
         self.finished_dialog.get_window().set_cursor(self.watch)
-        set_root_cursor(self.watch)
+        self.set_busy_cursor(True)
         self.quit_button.set_sensitive(False)
         self.reboot_button.set_sensitive(False)
         self.refresh()
@@ -1648,11 +1653,8 @@ class Wizard(BaseFrontend):
     def error_dialog(self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         if not msg:
             msg = title
         dialog = Gtk.MessageDialog(
@@ -1660,7 +1662,7 @@ class Wizard(BaseFrontend):
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
         dialog.set_title(title)
         dialog.run()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         dialog.hide()
         if fatal:
             self.return_to_partitioning()
@@ -1699,11 +1701,8 @@ class Wizard(BaseFrontend):
 
     def question_dialog(self, title, msg, options, use_templates=True):
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         if not msg:
             msg = title
         buttons = []
@@ -1725,7 +1724,7 @@ class Wizard(BaseFrontend):
             self.ubi_question_dialog.add_button(text, response_id)
         self.ubi_question_dialog.show_all()
         response = self.ubi_question_dialog.run()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         self.ubi_question_dialog.hide()
         if response < 0:
             # something other than a button press, probably destroyed
