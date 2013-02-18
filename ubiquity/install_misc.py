@@ -906,8 +906,9 @@ class InstallBase:
             self.nested_progress_end()
             return
 
-        for pkg in to_install:
-            mark_install(cache, pkg)
+        with cache.actiongroup():
+            for pkg in to_install:
+                mark_install(cache, pkg)
 
         self.db.progress('SET', 1)
         self.progress_region(1, 10)

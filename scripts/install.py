@@ -318,19 +318,21 @@ class Install(install_misc.InstallBase):
             if not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x)}
 
         confirmed_remove = set()
-        for pkg in sorted(difference):
-            if pkg in confirmed_remove:
-                continue
-            would_remove = install_misc.get_remove_list(
-                cache, [pkg], recursive=True)
-            if would_remove <= difference:
-                confirmed_remove |= would_remove
-                # Leave these marked for removal in the apt cache to speed
-                # up further calculations.
-            else:
-                for removedpkg in would_remove:
-                    cachedpkg = install_misc.get_cache_pkg(cache, removedpkg)
-                    cachedpkg.mark_keep()
+        with cache.actiongroup():
+            for pkg in sorted(difference):
+                if pkg in confirmed_remove:
+                    continue
+                would_remove = install_misc.get_remove_list(
+                    cache, [pkg], recursive=True)
+                if would_remove <= difference:
+                    confirmed_remove |= would_remove
+                    # Leave these marked for removal in the apt cache to
+                    # speed up further calculations.
+                else:
+                    for removedpkg in would_remove:
+                        cachedpkg = install_misc.get_cache_pkg(
+                            cache, removedpkg)
+                        cachedpkg.mark_keep()
         difference = confirmed_remove
 
         if len(difference) == 0:

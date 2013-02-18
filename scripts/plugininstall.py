@@ -1094,7 +1094,8 @@ class Install(install_misc.InstallBase):
             self.nested_progress_end()
             return
 
-        install_misc.get_remove_list(cache, to_remove, recursive)
+        with cache.actiongroup():
+            install_misc.get_remove_list(cache, to_remove, recursive)
 
         self.db.progress('SET', 1)
         self.progress_region(1, 5)
