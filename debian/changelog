@@ -1,10 +1,15 @@
 ubiquity (2.13.12) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * While displaying question or error dialogs, only change the busy cursor
     state rather than also allowing changing step (LP: #1095684).
   * Use an action group when marking packages for install or delete in the
     apt cache; this is much faster when many packages are involved, since it
     avoids repeating autoremoval calculations over and over again.
+
+  [ Aurélien Gâteau ]
+  * KDE frontend: show name of installed OS for as partition name if
+    available
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Feb 2013 16:22:13 +0000
 
