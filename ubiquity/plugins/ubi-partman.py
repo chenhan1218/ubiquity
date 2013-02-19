@@ -25,12 +25,9 @@ import signal
 
 import debconf
 
-from ubiquity import plugin
-from ubiquity import parted_server
-from ubiquity import misc
-from ubiquity import osextras
-from ubiquity import validation
+from ubiquity import misc, osextras, parted_server, plugin, validation
 from ubiquity.install_misc import archdetect
+
 
 NAME = 'partman'
 AFTER = 'prepare'

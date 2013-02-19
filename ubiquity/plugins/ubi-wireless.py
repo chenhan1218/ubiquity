@@ -33,12 +33,13 @@ class PageGtk(plugin.PluginUI):
 
     def __init__(self, controller, *args, **kwargs):
         import dbus
+        from gi.repository import Gtk
 
         # NOTE: Import 'nm' even though it's not used in this function as
         # importing it as the side effect of registering NetworkManagerWidget
         # which we DO use in the Wireless step UI.
         from ubiquity import misc, nm
-        from gi.repository import Gtk
+
         if self.is_automatic:
             self.page = None
             return
@@ -88,6 +89,7 @@ class PageGtk(plugin.PluginUI):
 
     def selection_changed(self, unused):
         from ubiquity import nm
+
         self.have_selection = True
         self.use_wireless.set_active(True)
         assert self.state is not None
@@ -124,6 +126,7 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_skip_page(self):
         from ubiquity import nm
+
         if not nm.wireless_hardware_present():
             return True
         else:
@@ -154,6 +157,7 @@ class PageGtk(plugin.PluginUI):
 
     def state_changed(self, unused, state):
         from ubiquity import nm
+
         self.state = state
         frontend = self.controller._wizard
         if not self.use_wireless.get_active():

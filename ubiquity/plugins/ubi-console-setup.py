@@ -23,10 +23,8 @@ from __future__ import print_function
 import os
 import re
 
-from ubiquity import plugin
-from ubiquity import keyboard_names
-from ubiquity import misc
-from ubiquity import osextras
+from ubiquity import keyboard_names, misc, osextras, plugin
+
 
 NAME = 'console_setup'
 AFTER = 'timezone'

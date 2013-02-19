@@ -41,8 +41,7 @@ from apt.progress.text import AcquireProgress
 import apt_pkg
 import debconf
 
-from ubiquity import misc
-from ubiquity import osextras
+from ubiquity import misc, osextras
 from ubiquity.casper import get_casper
 
 

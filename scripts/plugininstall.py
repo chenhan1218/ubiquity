@@ -21,33 +21,30 @@
 
 from __future__ import print_function
 
-import sys
+import fcntl
+import gzip
 import os
 import platform
-import stat
-import re
-import textwrap
-import shutil
-import subprocess
-import struct
-import socket
-import fcntl
-import traceback
-import syslog
-import gzip
 import pwd
+import re
+import shutil
+import socket
+import stat
+import struct
+import subprocess
+import sys
+import syslog
+import textwrap
+import traceback
 
-import debconf
 import apt_pkg
 from apt.cache import Cache
+import debconf
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from ubiquity import misc
-from ubiquity import install_misc
-from ubiquity import osextras
-from ubiquity import plugin_manager
-from ubiquity.components import apt_setup, hw_detect, check_kernels
+from ubiquity import install_misc, misc, osextras, plugin_manager
+from ubiquity.components import apt_setup, check_kernels, hw_detect
 
 
 INTERFACES_TEXT = """\

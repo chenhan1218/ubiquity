@@ -6,6 +6,7 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
   * Use an action group when marking packages for install or delete in the
     apt cache; this is much faster when many packages are involved, since it
     avoids repeating autoremoval calculations over and over again.
+  * Sort and consolidate imports.
 
   [ Aurélien Gâteau ]
   * KDE frontend: show name of installed OS as partition name if

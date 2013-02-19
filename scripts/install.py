@@ -21,24 +21,22 @@
 
 from __future__ import print_function
 
-import sys
-import os
 import errno
+import os
+import signal
 import stat
 import subprocess
-import time
+import sys
 import syslog
-import signal
+import time
 
-import debconf
 import apt_pkg
 from apt.cache import Cache
+import debconf
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from ubiquity import misc
-from ubiquity import install_misc
-from ubiquity import osextras
+from ubiquity import install_misc, misc, osextras
 
 
 class Install(install_misc.InstallBase):

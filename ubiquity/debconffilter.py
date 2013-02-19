@@ -19,17 +19,18 @@
 
 from __future__ import print_function
 
-import sys
-import os
-import fcntl
-import signal
 import errno
-import subprocess
+import fcntl
+import os
 import re
+import signal
+import subprocess
+import sys
 
 import debconf
 
 from ubiquity import misc
+
 
 # Each widget should have a run(self, priority, question) method; this
 # should ask the question in whatever way is appropriate, and may then

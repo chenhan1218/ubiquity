@@ -24,11 +24,8 @@ import os
 
 import debconf
 
-from ubiquity import plugin
-from ubiquity import i18n
-from ubiquity import misc
-from ubiquity import auto_update
-from ubiquity import osextras
+from ubiquity import auto_update, i18n, misc, osextras, plugin
+
 
 NAME = 'language'
 AFTER = None

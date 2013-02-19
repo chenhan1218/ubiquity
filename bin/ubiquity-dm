@@ -2,31 +2,30 @@
 
 from __future__ import print_function
 
-import os
-import sys
-import subprocess
-import time
-import signal
 import errno
-import imp
 import grp
+import imp
+import os
 import pwd
+import signal
+import subprocess
+import sys
+import time
 
 import debconf
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-import ubiquity.frontend
-from ubiquity import osextras
-from ubiquity import gsettings
-from ubiquity import gconftool
-from ubiquity.misc import create_bool, utf8
+from ubiquity import gconftool, gsettings, osextras
 from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
+import ubiquity.frontend
+from ubiquity.misc import create_bool, utf8
 
 
 def ck_open_session(uid):
     import dbus
+
     bus = dbus.SystemBus()
     manager_obj = bus.get_object(
         'org.freedesktop.ConsoleKit', '/org/freedesktop/ConsoleKit/Manager')

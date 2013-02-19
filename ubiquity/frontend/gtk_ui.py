@@ -33,15 +33,15 @@
 
 from __future__ import print_function
 
-import sys
-import os
-import subprocess
-import traceback
-import syslog
 import atexit
-import gettext
 import configparser
 from functools import reduce
+import gettext
+import os
+import subprocess
+import sys
+import syslog
+import traceback
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
@@ -55,11 +55,11 @@ if 'DISPLAY' in os.environ:
 
 from ubiquity import (
     filteredcommand, gconftool, gsettings, i18n, validation, misc, osextras)
-from ubiquity.plugin import Plugin
 from ubiquity.components import install, plugininstall, partman_commit
-import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
+from ubiquity.plugin import Plugin
+import ubiquity.progressposition
 
 # We create class attributes dynamically from UI files, and it's far too
 # tedious to list them all.

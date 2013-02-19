@@ -24,7 +24,7 @@
 
 from PyQt4 import QtCore, QtGui
 
-from ubiquity.misc import format_size, find_in_os_prober
+from ubiquity.misc import find_in_os_prober, format_size
 
 
 def name_from_path(path):

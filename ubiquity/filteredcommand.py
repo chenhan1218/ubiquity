@@ -19,16 +19,17 @@
 
 from __future__ import print_function
 
-import sys
+import importlib
 import os
 import signal
 import subprocess
-import importlib
+import sys
 
 import debconf
 
-from ubiquity.debconffilter import DebconfFilter
 from ubiquity import misc
+from ubiquity.debconffilter import DebconfFilter
+
 
 # We identify as this to debconf.
 PACKAGE = 'ubiquity'

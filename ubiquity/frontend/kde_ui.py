@@ -41,16 +41,13 @@ import sip
 sip.setapi("QVariant", 1)
 from PyQt4 import QtCore, QtGui, uic
 
-#import all our custom kde components
-from ubiquity.frontend.kde_components import ProgressDialog, SqueezeLabel
-
-from ubiquity import filteredcommand, i18n
-from ubiquity import misc
-from ubiquity.plugin import Plugin
+from ubiquity import filteredcommand, i18n, misc
 from ubiquity.components import partman_commit, install, plugininstall
-import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
+from ubiquity.frontend.kde_components import ProgressDialog, SqueezeLabel
+from ubiquity.plugin import Plugin
+import ubiquity.progressposition
 
 
 # Define global path

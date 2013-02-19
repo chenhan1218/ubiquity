@@ -31,9 +31,7 @@ import re
 
 import debconf
 
-from ubiquity import validation
-from ubiquity import misc
-from ubiquity import plugin
+from ubiquity import misc, plugin, validation
 
 
 NAME = 'usersetup'

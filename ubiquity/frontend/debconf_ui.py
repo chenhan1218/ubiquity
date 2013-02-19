@@ -33,10 +33,10 @@ import textwrap
 
 import debconf
 
-from ubiquity.frontend.base import BaseFrontend, Controller
-from ubiquity.plugin import Plugin
 from ubiquity import i18n
 from ubiquity.components import install, plugininstall
+from ubiquity.frontend.base import BaseFrontend, Controller
+from ubiquity.plugin import Plugin
 
 
 class PersistentDebconfCommunicator(debconf.Debconf):

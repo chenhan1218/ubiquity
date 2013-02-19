@@ -28,9 +28,9 @@
 # launched, and kill them off again when switching languages.
 
 import os
-import subprocess
-import signal
 import shlex
+import signal
+import subprocess
 
 from ubiquity import misc
 
