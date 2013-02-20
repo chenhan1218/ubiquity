@@ -24,6 +24,11 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
   * KDE frontend: show name of installed OS as partition name if
     available
 
+  [ Dmitrijs Ledkovs ]
+  * Make panel.c aware of screen & display changes, prevents visual
+    artefacts on nexus7 when screen is changing or external monitor is
+    plugged in and resolution is changes.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Feb 2013 16:22:13 +0000
 
 ubiquity (2.13.11) raring; urgency=low
