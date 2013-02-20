@@ -8,6 +8,9 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
     avoids repeating autoremoval calculations over and over again.
   * Sort and consolidate imports.
   * Fix ordering of encryption password strength indications (LP: #1068391).
+  * At the end of the language install plugin, read all locale-related keys
+    from (/target)/etc/default/locale and set them in the installer's own
+    environment.
 
   [ Aurélien Gâteau ]
   * KDE frontend: show name of installed OS as partition name if
