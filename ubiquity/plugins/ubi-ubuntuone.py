@@ -63,10 +63,6 @@ WEIGHT = 10
 # * in the VM:
 #   - add universe
 #   - sudo apt-get install bzr build-essential python3-setuptools debhelper
-#   - bzr co lp:~mvo/+junk/cli-sso-login
-#   - (cd cli-sso-login; dpkg-buildpackage; sudo dpkg -i ../python3*.deb)
-#
-#   - install cli-sso-login from
 #   - bzr co --lightweight lp:~mvo/ubiquity/ssologin
 #   - cd ssologin
 #   - sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
