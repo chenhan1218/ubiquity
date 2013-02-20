@@ -53,39 +53,19 @@ class TestPageGtk(BaseTestPageGtk):
         self.assertTrue(self.page._verify_password_entry("xxx"))
 
 
-class MockSSOTestCase(BaseTestPageGtk):
-
-    class MockUbuntuSSO():
-
-        TOKEN = "{'token': 'nonex'}"
-
-        def mock_done(self, callback, errback, data):
-            callback(self.TOKEN, data)
-            Gtk.main_quit()
-
-        def register(self, email, passw, callback, errback, data):
-            GObject.idle_add(self.mock_done, callback, errback, data)
-
-        def login(self, email, passw, callback, errback, data):
-            GObject.idle_add(self.mock_done, callback, errback, data)
-
-    def test_click_next(self):
-        self.page.ubuntu_sso = self.MockUbuntuSSO()
-        with mock.patch.object(
-                self.page, "_create_keyring_and_store_u1_token") as m_create:
-            self.page.plugin_on_next_clicked()
-            self.assertEqual(self.page.notebook_main.get_current_page(),
-                             ubi_ubuntuone.PAGE_SPINNER)
-            m_create.assert_called_with(self.page.ubuntu_sso.TOKEN)
-
-
 class RegisterTestCase(BaseTestPageGtk):
 
-    def test_register_allow_go_forward_not_yet(self):
+    def test_allow_go_forward_not_without_any_password(self):
         self.page.entry_email.set_text("foo")
         self.page.controller.allow_go_forward.assert_called_with(False)
 
-    def test_register_allow_go_foward(self):
+    def test_allow_go_foward_not_without_matching_password(self):
+        self.page.entry_email.set_text("foo@bar.com")
+        self.page.entry_new_password.set_text("pw")
+        self.page.entry_new_password2.set_text("pwd")
+        self.page.controller.allow_go_forward.assert_called_with(False)
+
+    def test_allow_go_foward(self):
         self.page.entry_email.set_text("foo@bar.com")
         self.page.entry_new_password.set_text("pw")
         self.page.entry_new_password2.set_text("pw")
@@ -104,34 +84,6 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.entry_existing_email.set_text("foo@bar.com")
         self.page.entry_existing_password.set_text("pass")
         self.page.controller.allow_go_forward.assert_called_with(True)
-
-
-class UbuntuSSOHelperTestCase(unittest.TestCase):
-
-    def setUp(self):
-        self.callback = mock.Mock()
-        self.callback.side_effect = lambda *args: self.loop.quit()
-        self.errback = mock.Mock()
-        self.errback.side_effect = lambda *args: self.loop.quit()
-        self.loop = GLib.MainLoop(GLib.main_context_default())
-        self.sso_helper = ubi_ubuntuone.UbuntuSSO()
-
-    def test_spawning_error(self):
-        self.sso_helper.login("foo@example.com", "nopass",
-                              self.callback, self.errback)
-        self.loop.run()
-        self.assertTrue(self.errback.called)
-        self.assertFalse(self.callback.called)
-
-    def test_spawning_success(self):
-        self.sso_helper.BINARY = "/bin/echo"
-        self.sso_helper.login("foo@example.com", "nopass",
-                              self.callback, self.errback, data="data")
-        self.loop.run()
-        self.assertFalse(self.errback.called)
-        self.assertTrue(self.callback.called)
-        # ensure stdout is captured and data is also send
-        self.callback.assert_called_with("--login foo@example.com\n", "data")
 
 
 if __name__ == '__main__':
