@@ -11,6 +11,14 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
   * At the end of the language install plugin, read all locale-related keys
     from (/target)/etc/default/locale and set them in the installer's own
     environment.
+  * If the combination of language and location does not identify a
+    supported combined locale, use a locale based on the language for
+    translation-like locale categories and pick one based on the location
+    for other locale categories (LP: #1094872).  There are still some
+    locations where we cannot pick a language element of a location-based
+    locale because this is unclear or contentious, and in those cases we
+    stick to the old behaviour of having the locale only reflect the
+    country.
 
   [ Aurélien Gâteau ]
   * KDE frontend: show name of installed OS as partition name if
