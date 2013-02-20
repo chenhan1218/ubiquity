@@ -86,6 +86,31 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.controller.allow_go_forward.assert_called_with(True)
 
 
+@mock.patch.object(Gtk, 'main')
+class NextButtonActionTestCase(BaseTestPageGtk):
+
+    def test_call_register(self, mock_gtk_main):
+        self.page.entry_email.set_text("foo@bar.com")
+        self.page.entry_new_password.set_text("pw")
+        self.page.entry_new_password2.set_text("pw")
+        self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)
+
+        with mock.patch.object(self.page,
+                               'register_new_sso_account') as mock_register:
+            self.page.plugin_on_next_clicked()
+            mock_register.assert_called_once_with("foo@bar.com", "pw",
+                                                  displayname=None)
+
+    def test_call_login(self, mock_gtk_main):
+        self.page.entry_existing_email.set_text("foo")
+        self.page.entry_existing_password.set_text("pass")
+        self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_LOGIN)
+
+        with mock.patch.object(self.page, 'login_to_sso') as mock_login:
+            self.page.plugin_on_next_clicked()
+            mock_login.assert_called_once_with("foo", "pass", "Ubuntu One")
+
+
 if __name__ == '__main__':
     # run tests in a sourcetree with:
     """
