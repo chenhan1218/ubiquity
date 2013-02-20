@@ -54,7 +54,7 @@ if 'DISPLAY' in os.environ:
     from ubiquity import gtkwidgets
 
 from ubiquity import (
-    filteredcommand, gconftool, gsettings, i18n, validation, misc, osextras)
+    filteredcommand, gsettings, i18n, validation, misc, osextras)
 from ubiquity.components import install, plugininstall, partman_commit
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
@@ -208,7 +208,6 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.all_widgets = set()
-        self.gconf_previous = {}
         self.gsettings_previous = {}
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'quit', 'back', 'next',
@@ -512,18 +511,27 @@ class Wizard(BaseFrontend):
         return previous
 
     def disable_terminal(self):
-        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
-        self.gconf_previous[terminal_key] = gconftool.get(terminal_key)
-        gconftool.set(terminal_key, 'string', 'disabled')
+        gs_schema = 'org.gnome.settings-daemon.plugins.media-keys'
+        gs_key = 'terminal'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        if gs_previous in self.gsettings_previous:
+            return
+
+        gs_value = gsettings.get(gs_schema, gs_key)
+        self.gsettings_previous[gs_previous] = gs_value
+
+        if gs_value:
+            gsettings.set(gs_schema, gs_key, '')
+
         atexit.register(self.enable_terminal)
 
     def enable_terminal(self):
-        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
-        if self.gconf_previous[terminal_key] == '':
-            gconftool.unset(terminal_key)
-        else:
-            gconftool.set(terminal_key, 'string',
-                          self.gconf_previous[terminal_key])
+        gs_schema = 'org.gnome.settings-daemon.plugins.media-keys'
+        gs_key = 'terminal'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = self.gsettings_previous[gs_previous]
+
+        gsettings.set(gs_schema, gs_key, gs_value)
 
     def disable_screensaver(self):
         gs_schema = 'org.gnome.desktop.screensaver'
