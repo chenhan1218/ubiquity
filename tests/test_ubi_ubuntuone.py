@@ -3,7 +3,7 @@
 import unittest
 
 import mock
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk
 
 from ubiquity import plugin_manager
 
