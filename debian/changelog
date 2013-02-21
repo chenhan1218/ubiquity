@@ -33,6 +33,8 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
   * Migrate remaining gconf settings to gsettings in ubiquity-dm.
   * Refactor ubiquity-dm, now that there is less code.
   * Remove gconftool.py.
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu6, hw-detect 1.92ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Feb 2013 16:22:13 +0000
 
