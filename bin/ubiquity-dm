@@ -342,8 +342,8 @@ EndSection
             if background_image:
                 background_url = 'file://' + background_image
             else:
-                background_url = "''"                
-                
+                background_url = "''"
+
             accessibility = False
             if gsettings._gsettings_exists():
                 accessibility = gsettings.get(
@@ -383,7 +383,7 @@ EndSection
                         ['gsettings', 'set', gs_schema, gs_key, gs_value],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
-                    
+
             # Accessibility infrastructure
             with open('/proc/cmdline', 'r') as fp:
                 if (accessibility or 'maybe-ubiquity' in fp.readline() or
