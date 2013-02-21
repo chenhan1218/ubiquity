@@ -1,4 +1,4 @@
-ubiquity (2.13.12) UNRELEASED; urgency=low
+ubiquity (2.13.12) raring; urgency=low
 
   [ Colin Watson ]
   * While displaying question or error dialogs, only change the busy cursor
@@ -37,7 +37,7 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
   * Automatic update of included source packages: grub-installer
     1.78ubuntu6, hw-detect 1.92ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Feb 2013 16:22:13 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 02:53:43 +0000
 
 ubiquity (2.13.11) raring; urgency=low
 
