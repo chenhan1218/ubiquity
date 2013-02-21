@@ -1,3 +1,10 @@
+ubiquity (2.13.13) UNRELEASED; urgency=low
+
+  * Bump Standards version and override some lintian tags (ubiquity is
+    weird).
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
+
 ubiquity (2.13.12) raring; urgency=low
 
   [ Colin Watson ]
