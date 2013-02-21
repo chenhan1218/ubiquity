@@ -373,9 +373,10 @@ EndSection
                 ]
 
                 gsd = '/usr/lib/gnome-settings-daemon/gnome-settings-daemon'
-                extras.append(subprocess.Popen(
-                    [gsd], stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
+                if osextras.find_on_path(gsd):
+                    extras.append(subprocess.Popen(
+                        [gsd], stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
