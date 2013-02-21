@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-import tempfile
 import unittest
 
 import mock
-from gi.repository import Gtk, GObject, GLib
+from gi.repository import Gtk, GObject
 
 from ubiquity import plugin_manager
 
