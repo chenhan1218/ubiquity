@@ -31,6 +31,7 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
   * Update disable/enable ctrl+alt+t terminal to use gsettings keys,
     instead of gconf.
   * Migrate remaining gconf settings to gsettings in ubiquity-dm.
+  * Make sure to correctly set picture-uri. (LP: #1128597)
   * Refactor ubiquity-dm, now that there is less code.
   * Remove gconftool.py.
   * Automatic update of included source packages: grub-installer
