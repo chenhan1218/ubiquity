@@ -30,6 +30,9 @@ ubiquity (2.13.12) UNRELEASED; urgency=low
     plugged in and resolution is changes.
   * Update disable/enable ctrl+alt+t terminal to use gsettings keys,
     instead of gconf.
+  * Migrate remaining gconf settings to gsettings in ubiquity-dm.
+  * Refactor ubiquity-dm, now that there is less code.
+  * Remove gconftool.py.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Mon, 18 Feb 2013 16:22:13 +0000
 
