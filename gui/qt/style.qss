@@ -87,7 +87,7 @@
     font-size: 10pt;
 }
 
-#widgetStack {
+#pageMode {
 	padding: 5px;
 	padding-top: 0px;
 	padding-bottom: 0px;
