@@ -157,15 +157,21 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.label_global_error.get_text(),
                          "tstmsg")
 
-    def test_login_to_sso(self, mock_gtk_main, mock_syslog):
+    @patch('json.dumps')
+    def test_login_to_sso(self, mock_json_dumps, mock_gtk_main, mock_syslog):
         email = 'email'
         password = 'pass'
         token_name = 'tok'
         service_url = 'url/'
         json_ct = 'application/json'
-        expected_json = json.dumps(dict(email=email,
-                                        password=password,
-                                        token_name=token_name))
+        expected_dict = dict(email=email,
+                             password=password,
+                             token_name=token_name)
+        # NOTE: in order to avoid failing tests when dict key ordering
+        # changes, we pass the actual dict by mocking json.dumps. This
+        # way we can compare the dicts instead of their
+        # serializations.
+        mock_json_dumps.return_value = expected_dict
         with patch.multiple(self.page, soup=DEFAULT, session=DEFAULT) as mocks:
             typeobj = type(mocks['soup'].MemoryUse)
             typeobj.COPY = PropertyMock(return_value=sentinel.COPY)
@@ -173,22 +179,27 @@ class SSOAPITestCase(BaseTestPageGtk):
             expected = [call.Message.new("POST", 'url/tokens'),
                         call.Message.new().set_request(json_ct,
                                                        sentinel.COPY,
-                                                       expected_json,
-                                                       len(expected_json)),
+                                                       expected_dict,
+                                                       len(expected_dict)),
                         call.Message.new().request_headers.append('Accept',
                                                                   json_ct)]
             self.assertEqual(mocks['soup'].mock_calls,
                              expected)
 
-    def test_register_new_sso_account(self, mock_gtk_main, mock_syslog):
+    @patch('json.dumps')
+    def test_register_new_sso_account(self, mock_json_dumps, mock_gtk_main,
+                                      mock_syslog):
         email = 'email'
         password = 'pass'
         service_url = 'url/'
         displayname = 'mr tester'
         json_ct = 'application/json'
-        expected_json = json.dumps(dict(email=email,
-                                        displayname=displayname,
-                                        password=password))
+        expected_dict = dict(email=email,
+                             displayname=displayname,
+                             password=password)
+
+        # See test_login_to_sso for comment about patching json.dumps():
+        mock_json_dumps.return_value = expected_dict
         with patch.multiple(self.page, soup=DEFAULT, session=DEFAULT) as mocks:
             typeobj = type(mocks['soup'].MemoryUse)
             typeobj.COPY = PropertyMock(return_value=sentinel.COPY)
@@ -197,8 +208,8 @@ class SSOAPITestCase(BaseTestPageGtk):
             expected = [call.Message.new("POST", 'url/accounts'),
                         call.Message.new().set_request(json_ct,
                                                        sentinel.COPY,
-                                                       expected_json,
-                                                       len(expected_json)),
+                                                       expected_dict,
+                                                       len(expected_dict)),
                         call.Message.new().request_headers.append('Accept',
                                                                   json_ct)]
             self.assertEqual(mocks['soup'].mock_calls,
