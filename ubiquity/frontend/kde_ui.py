@@ -323,10 +323,16 @@ class Wizard(BaseFrontend):
             "/usr/share/icons/oxygen/48x48/actions/dialog-close.png")
         self.ui.quit.setIcon(quitIcon)
 
-        self.ui.progressBar.hide()
-        self.ui.progressCancel.hide()
+        self._show_progress_bar(False)
 
         misc.add_connection_watch(self.network_change)
+
+    def _show_progress_bar(self, show):
+        if show:
+            widget = self.ui.progress_widget
+        else:
+            widget = self.ui.progress_placeholder
+        self.ui.progress_stack.setCurrentWidget(widget)
 
     def _create_breadcrumb(self, name):
         label = QtGui.QLabel()
@@ -1201,7 +1207,7 @@ class Wizard(BaseFrontend):
             self.finished_pages = True
             if self.finished_installing or self.oem_user_config:
                 self.debconf_progress_info('')
-                self.ui.progressBar.show()
+                self._show_progress_bar(True)
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
 
@@ -1210,7 +1216,7 @@ class Wizard(BaseFrontend):
             # starts, it does so with the most recent changes.
             self.stop_debconf()
             self.start_debconf()
-            self.ui.progressBar.show()
+            self._show_progress_bar(True)
             self.installing = True
             from ubiquity.debconfcommunicator import DebconfCommunicator
             if self.parallel_db is not None:
@@ -1236,7 +1242,7 @@ class Wizard(BaseFrontend):
                 dbfilter = plugininstall.Install(self)
                 dbfilter.start(auto_process=True)
             else:
-                self.ui.progressBar.hide()
+                self._show_progress_bar(False)
 
         elif finished_step == 'ubiquity.components.plugininstall':
             self.installing = False
@@ -1272,7 +1278,7 @@ class Wizard(BaseFrontend):
             self.ui.next.setIcon(self.forwardIcon)
             self.translate_widget(self.ui.next)
             self.installing = False
-            self.ui.progressBar.hide()
+            self._show_progress_bar(False)
             self.ui.quit.show()
 
     def error_dialog(self, title, msg, fatal=True):
