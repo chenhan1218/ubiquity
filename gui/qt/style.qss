@@ -105,15 +105,3 @@
 	border-radius: 5px;
 	border: 1px solid #bac8d1;
 }
-
-#progressBar {
-    background-color: #b0bfc2;
-    border-radius: 3px;
-    border: 1px solid grey;
-    text-align: center;
-}
-
-#progressBar::chunk {
-    border-radius: 3px;
-    background-color: #94a7ac;
-}
