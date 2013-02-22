@@ -456,9 +456,10 @@ EndSection
                     preexec_fn=self.drop_privileges)
                 extras.append(proc)
 
-            if osextras.find_on_path('pcmanfm'):
+            if (os.path.exists('/usr/share/lubuntu/wallpapers/lubuntu-default-wallpaper.png') and
+                    osextras.find_on_path('feh')):
                 proc = subprocess.Popen(
-                    ['pcmanfm', '--set-wallpaper=/usr/share/lubuntu/wallpapers/lubuntu-default-wallpaper.png'],
+                    ['feh', '--bg-max=/usr/share/lubuntu/wallpapers/lubuntu-default-wallpaper.png'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges)
                 extras.append(proc)
