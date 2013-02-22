@@ -1,9 +1,13 @@
 ubiquity (2.13.13) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Bump Standards version and override some lintian tags (ubiquity is
     weird).
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
+  [ Julien Lavergne ]
+  * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Fri, 22 Feb 2013 22:44:40 +0100
 
 ubiquity (2.13.12) raring; urgency=low
 
