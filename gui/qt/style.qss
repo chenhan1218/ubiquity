@@ -6,13 +6,9 @@
 	font-family: sans-serif;
 }
 
-#distro_name_label {
-	color: #00aad4;
-	font-size: 12pt;
-}
-
+#distro_name_label,
 #distro_release_label {
-	color: #00ccff;
+	color: #0088aa;
 	font-size: 12pt;
 }
 
