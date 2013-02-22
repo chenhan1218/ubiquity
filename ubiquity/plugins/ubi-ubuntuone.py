@@ -119,7 +119,9 @@ class PageGtk(plugin.PluginUI):
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
-        self.session.add_feature(Soup.Logger.new(Soup.LoggerLogLevel.BODY, -1))
+        if "DEBUG_SSO_API" in os.environ:
+            self.session.add_feature(Soup.Logger.new(Soup.LoggerLogLevel.BODY,
+                                                     -1))
 
         self.info_loop(None)
 
