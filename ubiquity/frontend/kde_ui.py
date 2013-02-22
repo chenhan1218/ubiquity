@@ -550,6 +550,7 @@ class Wizard(BaseFrontend):
         webView.setFixedSize(700, 420)
         webView.load(QtCore.QUrl(slides))
 
+        self.ui.navigation.hide()
         self.ui.pageMode.setCurrentIndex(1)
         self.ui.pageMode.widget(1).layout().addWidget(webView)
         webView.show()
