@@ -45,7 +45,7 @@ from ubiquity import filteredcommand, i18n, misc
 from ubiquity.components import partman_commit, install, plugininstall
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
-from ubiquity.frontend.kde_components import ProgressDialog, SqueezeLabel
+from ubiquity.frontend.kde_components import ProgressDialog
 from ubiquity.plugin import Plugin
 import ubiquity.progressposition
 
@@ -186,7 +186,7 @@ class Wizard(BaseFrontend):
                 mod.ui = mod.ui_class(mod.controller)
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
-                breadcrumb = mod.ui.get('plugin_breadcrumb')
+                breadcrumb = mod.ui.get('plugin_breadcrumb') or '------' # Use a placeholder if none defined
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -205,23 +205,15 @@ class Wizard(BaseFrontend):
                         return rv
                     mod.widgets = fill_out(widgets)
                     mod.optional_widgets = fill_out(optional_widgets)
-                    if not hasattr(mod.ui, 'plugin_breadcrumb'):
-                        breadcrumb = '------'  # just a placeholder
-                    if breadcrumb:
-                        mod.breadcrumb_question = breadcrumb
-                        mod.breadcrumb = SqueezeLabel.SqueezeLabel()
-                        mod.breadcrumb.setObjectName(mod.breadcrumb_question)
-                        # Room for install crumb.
-                        label_index = self.ui.steps_widget.layout().count() - 2
-                        self.ui.steps_widget.layout().insertWidget(
-                            label_index, mod.breadcrumb)
-                    else:
-                        mod.breadcrumb_question = None
-                        # Page intentionally didn't want a label (intro).
-                        mod.breadcrumb = None
+
+                    mod.breadcrumb_question = breadcrumb
+                    mod.breadcrumb = self._create_breadcrumb(mod.breadcrumb_question)
+
                     self.pageslen += 1
                     self.pages.append(mod)
         self.user_pageslen = self.pageslen
+
+        self.breadcrumb_install = self._create_breadcrumb('breadcrumb_install')
 
         # declare attributes
         self.language_questions = (
@@ -295,7 +287,7 @@ class Wizard(BaseFrontend):
             self.ui.quit.hide()
             # TODO cjwatson 2010-04-07: provide alternative strings instead
             self.ui.install_process_label.hide()
-            self.ui.breadcrumb_install.hide()
+            self.breadcrumb_install.hide()
 
         self.forwardIcon = QtGui.QIcon(
             "/usr/share/icons/oxygen/128x128/actions/go-next.png")
@@ -317,6 +309,14 @@ class Wizard(BaseFrontend):
         self.ui.progressCancel.hide()
 
         misc.add_connection_watch(self.network_change)
+
+    def _create_breadcrumb(self, name):
+        label = QtGui.QLabel()
+        label.setObjectName(name)
+        label.setWordWrap(True)
+        layout = self.ui.steps_widget.layout()
+        layout.insertWidget(layout.count() - 1, label) # "- 1" to insert before the bottom spacer
+        return label
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -467,7 +467,7 @@ class Wizard(BaseFrontend):
             for page in self.pages:
                 if page.breadcrumb:
                     page.breadcrumb.setStyleSheet(inactiveSS)
-            self.ui.breadcrumb_install.setStyleSheet(currentSS)
+            self.breadcrumb_install.setStyleSheet(currentSS)
             self.start_slideshow()
             self.run_main_loop()
 
@@ -832,7 +832,7 @@ class Wizard(BaseFrontend):
                     page.breadcrumb.setStyleSheet(activeSS)
                 else:
                     page.breadcrumb.setStyleSheet(inactiveSS)
-        self.ui.breadcrumb_install.setStyleSheet(activeSS)
+        self.breadcrumb_install.setStyleSheet(activeSS)
 
         if is_install:
             self.ui.next.setText(

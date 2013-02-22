@@ -26,10 +26,10 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="maximumSize">
+      <property name="minimumSize">
        <size>
         <width>150</width>
-        <height>16777215</height>
+        <height>0</height>
        </size>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -37,14 +37,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="SqueezeLabel" name="breadcrumb_install">
-         <property name="text">
-          <string>Install</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_3">
+        <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -326,13 +319,6 @@
    </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>SqueezeLabel</class>
-   <extends>QLabel</extends>
-   <header>ubiquity.frontend.kde_components.SqueezeLabel</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
