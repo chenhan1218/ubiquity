@@ -265,9 +265,6 @@ class Wizard(BaseFrontend):
             "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         self.allow_go_backward(False)
 
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            self.ui.show()
-
         self.stop_debconf()
         self.translate_widgets(reget=True)
 
@@ -405,6 +402,10 @@ class Wizard(BaseFrontend):
 
         # Start the interface
         self.set_current_page(0)
+
+        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+            # Only show now so that the window does not show empty, then resize itself and show content
+            self.ui.show()
 
         while(self.pagesindex < self.pageslen):
             if self.current_page is None:
