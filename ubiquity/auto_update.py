@@ -20,14 +20,15 @@
 
 from __future__ import print_function
 
-import sys
 import os
+import sys
 import syslog
 
 import apt
 import apt_pkg
 
 from ubiquity import misc
+
 
 MAGIC_MARKER = "/var/run/ubiquity.updated"
 # Make sure that ubiquity is last, otherwise apt may try to install another

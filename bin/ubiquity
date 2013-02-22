@@ -16,23 +16,21 @@ and configure everything.
 
 from __future__ import print_function
 
-import sys
-import os
+import atexit
 import errno
 import fcntl
-import shutil
-import syslog
-import atexit
-import optparse
-import subprocess
-import locale
 import importlib
+import locale
+import optparse
+import os
+import shutil
+import subprocess
+import sys
+import syslog
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from ubiquity import misc
-from ubiquity import im_switch
-from ubiquity import osextras
+from ubiquity import im_switch, misc, osextras
 
 
 VERSION = '@VERSION@'

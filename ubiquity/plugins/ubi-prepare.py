@@ -23,8 +23,7 @@ import os
 import subprocess
 import sys
 
-from ubiquity import plugin
-from ubiquity import misc, osextras, i18n, upower
+from ubiquity import i18n, misc, osextras, plugin, upower
 
 
 NAME = 'prepare'

@@ -41,16 +41,13 @@ import sip
 sip.setapi("QVariant", 1)
 from PyQt4 import QtCore, QtGui, uic
 
-#import all our custom kde components
-from ubiquity.frontend.kde_components import ProgressDialog, SqueezeLabel
-
-from ubiquity import filteredcommand, i18n
-from ubiquity import misc
-from ubiquity.plugin import Plugin
+from ubiquity import filteredcommand, i18n, misc
 from ubiquity.components import partman_commit, install, plugininstall
-import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
+from ubiquity.frontend.kde_components import ProgressDialog, SqueezeLabel
+from ubiquity.plugin import Plugin
+import ubiquity.progressposition
 
 
 # Define global path
@@ -258,6 +255,8 @@ class Wizard(BaseFrontend):
         self.finished_installing = False
         self.finished_pages = False
         self.parallel_db = None
+
+        self.set_busy_cursor(True)
 
         self.laptop = misc.execute("laptop-detect")
 
@@ -723,12 +722,16 @@ class Wizard(BaseFrontend):
             print("WARNING: unknown widget: " + name)
             print("Type: ", type(widget))
 
-    def allow_change_step(self, allowed):
-        if allowed:
-            cursor = QtGui.QCursor(QtCore.Qt.ArrowCursor)
-        else:
+    def set_busy_cursor(self, busy):
+        if busy:
             cursor = QtGui.QCursor(QtCore.Qt.WaitCursor)
+        else:
+            cursor = QtGui.QCursor(QtCore.Qt.ArrowCursor)
         self.ui.setCursor(cursor)
+        self.busy_cursor = busy
+
+    def allow_change_step(self, allowed):
+        self.set_busy_cursor(not allowed)
         self.ui.back.setEnabled(allowed and self.allowed_go_backward)
         self.ui.next.setEnabled(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
@@ -999,7 +1002,7 @@ class Wizard(BaseFrontend):
 
         # Enabling next button
         self.allow_go_forward(True)
-        self.ui.setCursor(QtGui.QCursor(QtCore.Qt.WaitCursor))
+        self.set_busy_cursor(True)
 
         if self.dbfilter is not None:
             self.dbfilter.cancel_handler()
@@ -1251,14 +1254,11 @@ class Wizard(BaseFrontend):
 
     def error_dialog(self, title, msg, fatal=True):
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         # TODO: cancel button as well if capb backup
         QtGui.QMessageBox.warning(self.ui, title, msg, QtGui.QMessageBox.Ok)
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         if fatal:
             self.return_to_partitioning()
 
@@ -1267,11 +1267,8 @@ class Wizard(BaseFrontend):
         # I doubt we'll ever need more than three buttons.
         assert len(options) <= 3, options
 
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         buttons = {}
         messageBox = QtGui.QMessageBox(QtGui.QMessageBox.Question, title, msg,
                                        QtGui.QMessageBox.NoButton, self.ui)
@@ -1294,7 +1291,7 @@ class Wizard(BaseFrontend):
             buttons[button] = option
 
         response = messageBox.exec_()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
 
         if response < 0:
             return None

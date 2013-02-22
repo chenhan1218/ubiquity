@@ -3,7 +3,7 @@ from __future__ import print_function
 import sys
 
 from PyQt4.QtCore import Qt
-from PyQt4.QtGui import QLabel, QHBoxLayout, QPixmap, QFrame, QPalette
+from PyQt4.QtGui import QFrame, QHBoxLayout, QLabel, QPalette, QPixmap
 
 
 class StateBox(QFrame):
