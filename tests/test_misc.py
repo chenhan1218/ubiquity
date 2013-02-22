@@ -12,6 +12,7 @@ import mock
 
 from ubiquity import misc
 
+
 _proc_swaps = [
     'Filename\t\t\t\tType\t\tSize\tUsed\tPriority',
     '/dev/sda5                               partition\t1046524\t56160\t-1']

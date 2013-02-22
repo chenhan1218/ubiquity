@@ -1,3 +1,51 @@
+ubiquity (2.13.13) UNRELEASED; urgency=low
+
+  * Bump Standards version and override some lintian tags (ubiquity is
+    weird).
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
+
+ubiquity (2.13.12) raring; urgency=low
+
+  [ Colin Watson ]
+  * While displaying question or error dialogs, only change the busy cursor
+    state rather than also allowing changing step (LP: #1095684).
+  * Use an action group when marking packages for install or delete in the
+    apt cache; this is much faster when many packages are involved, since it
+    avoids repeating autoremoval calculations over and over again.
+  * Sort and consolidate imports.
+  * Fix ordering of encryption password strength indications (LP: #1068391).
+  * At the end of the language install plugin, read all locale-related keys
+    from (/target)/etc/default/locale and set them in the installer's own
+    environment.
+  * If the combination of language and location does not identify a
+    supported combined locale, use a locale based on the language for
+    translation-like locale categories and pick one based on the location
+    for other locale categories (LP: #1094872).  There are still some
+    locations where we cannot pick a language element of a location-based
+    locale because this is unclear or contentious, and in those cases we
+    stick to the old behaviour of having the locale only reflect the
+    country.
+
+  [ Aurélien Gâteau ]
+  * KDE frontend: show name of installed OS as partition name if
+    available
+
+  [ Dmitrijs Ledkovs ]
+  * Make panel.c aware of screen & display changes, prevents visual
+    artefacts on nexus7 when screen is changing or external monitor is
+    plugged in and resolution is changes.
+  * Update disable/enable ctrl+alt+t terminal to use gsettings keys,
+    instead of gconf.
+  * Migrate remaining gconf settings to gsettings in ubiquity-dm.
+  * Make sure to correctly set picture-uri. (LP: #1128597)
+  * Refactor ubiquity-dm, now that there is less code.
+  * Remove gconftool.py.
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu6, hw-detect 1.92ubuntu1.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 02:53:43 +0000
+
 ubiquity (2.13.11) raring; urgency=low
 
   * Remove remaining autofoo cruft from the source tree and ignore it. We

@@ -2,12 +2,13 @@
 
 from __future__ import print_function
 
-import sys
 import os
+import sys
 
 from PyQt4 import QtGui
 
 from ubiquity.frontend.kde_components.PartAuto import PartAuto
+
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)

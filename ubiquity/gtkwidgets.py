@@ -1,8 +1,14 @@
 import os
 
 import cairo
-from gi.repository import Gtk, Gdk, GObject, Pango
-from gi.repository import UbiquityWebcam, GdkPixbuf
+from gi.repository import (
+    GObject,
+    Gdk,
+    GdkPixbuf,
+    Gtk,
+    Pango,
+    UbiquityWebcam,
+)
 
 from ubiquity import misc
 

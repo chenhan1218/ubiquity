@@ -41,8 +41,7 @@ from apt.progress.text import AcquireProgress
 import apt_pkg
 import debconf
 
-from ubiquity import misc
-from ubiquity import osextras
+from ubiquity import misc, osextras
 from ubiquity.casper import get_casper
 
 
@@ -906,8 +905,9 @@ class InstallBase:
             self.nested_progress_end()
             return
 
-        for pkg in to_install:
-            mark_install(cache, pkg)
+        with cache.actiongroup():
+            for pkg in to_install:
+                mark_install(cache, pkg)
 
         self.db.progress('SET', 1)
         self.progress_region(1, 10)
