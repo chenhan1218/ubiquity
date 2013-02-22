@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
+import http.client
+import json
 import unittest
 
-import mock
+from mock import call, DEFAULT, Mock, patch, PropertyMock, sentinel
 from gi.repository import Gtk
 
 from ubiquity import plugin_manager
@@ -14,8 +16,8 @@ ubi_ubuntuone = plugin_manager.load_plugin('ubi-ubuntuone')
 class BaseTestPageGtk(unittest.TestCase):
 
     def setUp(self):
-        mock_controller = mock.Mock()
-        self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=mock.Mock())
+        mock_controller = Mock()
+        self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=Mock())
 
 
 class TestPageGtk(BaseTestPageGtk):
@@ -85,7 +87,7 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.controller.allow_go_forward.assert_called_with(True)
 
 
-@mock.patch.object(Gtk, 'main')
+@patch.object(Gtk, 'main')
 class NextButtonActionTestCase(BaseTestPageGtk):
 
     def test_call_register(self, mock_gtk_main):
@@ -94,8 +96,8 @@ class NextButtonActionTestCase(BaseTestPageGtk):
         self.page.entry_new_password2.set_text("pw")
         self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)
 
-        with mock.patch.object(self.page,
-                               'register_new_sso_account') as mock_register:
+        with patch.object(self.page,
+                          'register_new_sso_account') as mock_register:
             self.page.plugin_on_next_clicked()
             mock_register.assert_called_once_with("foo@bar.com", "pw",
                                                   displayname=None)
@@ -105,9 +107,102 @@ class NextButtonActionTestCase(BaseTestPageGtk):
         self.page.entry_existing_password.set_text("pass")
         self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_LOGIN)
 
-        with mock.patch.object(self.page, 'login_to_sso') as mock_login:
+        with patch.object(self.page, 'login_to_sso') as mock_login:
             self.page.plugin_on_next_clicked()
             mock_login.assert_called_once_with("foo", "pass", "Ubuntu One")
+
+
+@patch('syslog.syslog')
+@patch.object(Gtk, 'main')
+class SSOAPITestCase(BaseTestPageGtk):
+
+    def _call_handle_soup_message_done(self, status,
+                                       response_body, from_page):
+        mock_session = Mock()
+        mock_msg = Mock()
+        cfgstr = ('response_body.flatten.return_value'
+                  '.get_data.return_value.decode.return_value')
+        cfg = {cfgstr: response_body}
+        mock_msg.configure_mock(**cfg)
+        mock_status_code = PropertyMock(return_value=status)
+        type(mock_msg).status_code = mock_status_code
+
+        self.page._handle_soup_message_done(mock_session, mock_msg, from_page)
+        self.assertEqual(self.page.notebook_main.get_current_page(),
+                         from_page)
+
+    def test_handle_done_OK(self, mock_gtk_main, mock_syslog):
+        expected_body = "TESTBODY"
+        self._call_handle_soup_message_done(http.client.OK,
+                                            expected_body,
+                                            ubi_ubuntuone.PAGE_REGISTER)
+        self.assertEqual(self.page.oauth_token,
+                         expected_body)
+
+    def test_handle_done_CREATED(self, mock_gtk_main, mock_syslog):
+        expected_body = "TESTBODY"
+        self._call_handle_soup_message_done(http.client.CREATED,
+                                            expected_body,
+                                            ubi_ubuntuone.PAGE_REGISTER)
+        self.assertEqual(self.page.oauth_token,
+                         expected_body)
+
+    def test_handle_done_error(self, mock_gtk_main, mock_syslog):
+        expected_body = json.dumps({"message": "tstmsg"})
+        # GONE or anything other than OK/CREATED:
+        self._call_handle_soup_message_done(http.client.GONE,
+                                            expected_body,
+                                            ubi_ubuntuone.PAGE_REGISTER)
+        self.assertEqual(self.page.oauth_token, None)
+        self.assertEqual(self.page.label_global_error.get_text(),
+                         "tstmsg")
+
+    def test_login_to_sso(self, mock_gtk_main, mock_syslog):
+        email = 'email'
+        password = 'pass'
+        token_name = 'tok'
+        service_url = 'url/'
+        json_ct = 'application/json'
+        expected_json = json.dumps(dict(email=email,
+                                        password=password,
+                                        token_name=token_name))
+        with patch.multiple(self.page, soup=DEFAULT, session=DEFAULT) as mocks:
+            typeobj = type(mocks['soup'].MemoryUse)
+            typeobj.COPY = PropertyMock(return_value=sentinel.COPY)
+            self.page.login_to_sso(email, password, token_name, service_url)
+            expected = [call.Message.new("POST", 'url/tokens'),
+                        call.Message.new().set_request(json_ct,
+                                                       sentinel.COPY,
+                                                       expected_json,
+                                                       len(expected_json)),
+                        call.Message.new().request_headers.append('Accept',
+                                                                  json_ct)]
+            self.assertEqual(mocks['soup'].mock_calls,
+                             expected)
+
+    def test_register_new_sso_account(self, mock_gtk_main, mock_syslog):
+        email = 'email'
+        password = 'pass'
+        service_url = 'url/'
+        displayname = 'mr tester'
+        json_ct = 'application/json'
+        expected_json = json.dumps(dict(email=email,
+                                        displayname=displayname,
+                                        password=password))
+        with patch.multiple(self.page, soup=DEFAULT, session=DEFAULT) as mocks:
+            typeobj = type(mocks['soup'].MemoryUse)
+            typeobj.COPY = PropertyMock(return_value=sentinel.COPY)
+            self.page.register_new_sso_account(email, password,
+                                               displayname, service_url)
+            expected = [call.Message.new("POST", 'url/accounts'),
+                        call.Message.new().set_request(json_ct,
+                                                       sentinel.COPY,
+                                                       expected_json,
+                                                       len(expected_json)),
+                        call.Message.new().request_headers.append('Accept',
+                                                                  json_ct)]
+            self.assertEqual(mocks['soup'].mock_calls,
+                             expected)
 
 
 if __name__ == '__main__':
