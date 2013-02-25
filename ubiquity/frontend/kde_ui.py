@@ -487,15 +487,7 @@ class Wizard(BaseFrontend):
             self.app.processEvents()
 
         if self.current_page is not None:
-            borderCSS = (
-                "border-width: 6px; border-image: "
-                "url(/usr/share/ubiquity/qt/images/label_border.png) 6px;")
-            currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
-            inactiveSS = "color: %s; " % "#b3b3b3"
-            for page in self.pages:
-                if page.breadcrumb:
-                    page.breadcrumb.setStyleSheet(inactiveSS)
-            self.breadcrumb_install.setStyleSheet(currentSS)
+            self._update_breadcrumbs('__install')
             self.start_slideshow()
             self.run_main_loop()
 
@@ -540,6 +532,32 @@ class Wizard(BaseFrontend):
                 self.shutdown()
 
         return self.returncode
+
+    def _update_breadcrumbs(self, active_page_name):
+        borderCSS = (
+            "border-width: 6px; border-image: "
+            "url(/usr/share/ubiquity/qt/images/label_border.png) 6px;")
+        todoSS = "color: %s; " % "#666666"
+        doneSS = "color: %s; " % "#b3b3b3"
+        currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
+
+        done = True
+        for page in self.pages:
+            if not page.breadcrumb:
+                continue
+            if page.module.NAME == active_page_name:
+                page.breadcrumb.setStyleSheet(currentSS)
+                done = False
+            else:
+                if done:
+                    page.breadcrumb.setStyleSheet(doneSS)
+                else:
+                    page.breadcrumb.setStyleSheet(todoSS)
+
+        if active_page_name == '__install':
+            self.breadcrumb_install.setStyleSheet(currentSS)
+        else:
+            self.breadcrumb_install.setStyleSheet(todoSS)
 
     def start_slideshow(self):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
@@ -825,18 +843,10 @@ class Wizard(BaseFrontend):
         self.run_automation_error_cmd()
         self.ui.show()
 
-        borderCSS = (
-            "border-width: 6px; border-image: "
-            "url(/usr/share/ubiquity/qt/images/label_border.png) 6px;")
-        activeSS = "color: %s; " % "#666666"
-        inactiveSS = "color: %s; " % "#b3b3b3"
-        currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
-
         #set all the steps active
         #each step will set its previous ones as inactive
         #this handles the ability to go back
 
-        found = False
         is_install = False
         for page in self.pages:
             if page.module.NAME == n:
@@ -852,16 +862,8 @@ class Wizard(BaseFrontend):
                 index = self.stackLayout.indexOf(cur)
                 self.add_history(page, cur)
                 self.set_current_page(index)
-                if page.breadcrumb:
-                    page.breadcrumb.setStyleSheet(currentSS)
-                found = True
                 is_install = page.ui.get('plugin_is_install')
-            elif page.breadcrumb:
-                if found:
-                    page.breadcrumb.setStyleSheet(activeSS)
-                else:
-                    page.breadcrumb.setStyleSheet(inactiveSS)
-        self.breadcrumb_install.setStyleSheet(activeSS)
+        self._update_breadcrumbs(n)
 
         if is_install:
             self.ui.next.setText(
