@@ -25,6 +25,7 @@ import os
 import os.path
 import platform
 import pwd
+import socket
 import subprocess
 import shutil
 import syslog
@@ -35,7 +36,10 @@ from ubiquity import plugin, misc
 
 PLUGIN_VERSION = "1.0"
 UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
-U1_TOKEN_NAME = "Ubuntu One"
+
+TOKEN_SEPARATOR = ' @ '
+SEPARATOR_REPLACEMENT = ' AT '
+U1_APP_NAME = "Ubuntu One"
 
 (TOKEN_CALLBACK_ACTION,
  PING_CALLBACK_ACTION) = range(2)
@@ -94,6 +98,12 @@ def get_ping_info():
                   platform_arch=platform.machine(),
                   client_version=PLUGIN_VERSION)
     return (url, params)
+
+
+def get_token_name():
+    computer_name = socket.gethostname().replace(TOKEN_SEPARATOR,
+                                                 SEPARATOR_REPLACEMENT)
+    return TOKEN_SEPARATOR.join((U1_APP_NAME, computer_name))
 
 
 class PageGtk(plugin.PluginUI):
@@ -278,7 +288,7 @@ class PageGtk(plugin.PluginUI):
             email = self.entry_existing_email.get_text()
             password = self.entry_existing_password.get_text()
             try:
-                self.login_to_sso(email, password, U1_TOKEN_NAME)
+                self.login_to_sso(email, password, get_token_name())
             except Exception:
                 syslog.syslog("exception in login_to_sso: %r" %
                               traceback.format_exc())

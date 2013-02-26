@@ -14,6 +14,20 @@ from ubiquity import plugin_manager
 ubi_ubuntuone = plugin_manager.load_plugin('ubi-ubuntuone')
 
 
+@patch('socket.gethostname')
+class TokenNameTestCase(unittest.TestCase):
+
+    def test_simple_token_name(self, mock_gethostname):
+        mock_gethostname.return_value = 'simple'
+        name = ubi_ubuntuone.get_token_name()
+        self.assertEqual(name, "Ubuntu One @ simple")
+
+    def test_complex_token_name(self, mock_gethostname):
+        mock_gethostname.return_value = 'simple @ complex'
+        name = ubi_ubuntuone.get_token_name()
+        self.assertEqual(name, "Ubuntu One @ simple AT complex")
+
+
 class BaseTestPageGtk(unittest.TestCase):
 
     def setUp(self):
@@ -109,8 +123,11 @@ class NextButtonActionTestCase(BaseTestPageGtk):
         self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_LOGIN)
 
         with patch.object(self.page, 'login_to_sso') as mock_login:
-            self.page.plugin_on_next_clicked()
-            mock_login.assert_called_once_with("foo", "pass", "Ubuntu One")
+            with patch.object(ubi_ubuntuone,
+                              'get_token_name') as mock_token_name:
+                mock_token_name.return_value = 'tokenname'
+                self.page.plugin_on_next_clicked()
+                mock_login.assert_called_once_with("foo", "pass", 'tokenname')
 
 
 @patch('syslog.syslog')
