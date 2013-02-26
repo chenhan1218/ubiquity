@@ -22,30 +22,67 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from PyQt4 import QtCore, QtGui
+from PyQt4.QtCore import Qt
 
 __all__ = ["Breadcrumb"]
 
 
-class Breadcrumb(QtGui.QLabel):
+class Breadcrumb(QtGui.QFrame):
     TODO = 0
     CURRENT = 1
     DONE = 2
 
     def __init__(self, parent=None):
-        QtGui.QLabel.__init__(self, parent)
-        self.setWordWrap(True)
+        QtGui.QFrame.__init__(self, parent)
+        self.setProperty("isBreadcrumb", True)
+
+        self._tickLabel = QtGui.QLabel()
+        fm = self._tickLabel.fontMetrics()
+        self._tickLabel.setFixedWidth(fm.width(" M "))
+        self._tickLabel.setAlignment(Qt.AlignTop | Qt.AlignRight)
+
+        self._mainLabel = QtGui.QLabel()
+        self._mainLabel.setAlignment(Qt.AlignTop | Qt.AlignLeft)
+        self._mainLabel.setWordWrap(True)
+
+        layout = QtGui.QHBoxLayout(self)
+        layout.addWidget(self._tickLabel)
+        layout.addWidget(self._mainLabel)
+
         self.setState(Breadcrumb.TODO)
 
     def setState(self, state):
+        self._tickLabel.setText(_TICK_DICT[state])
         self.setStyleSheet(_CSS_DICT[state])
+
+    def setText(self, text):
+        self._mainLabel.setText(text)
+
+    def text(self):
+        return self._mainLabel.text()
+
+
+_TICK_DICT = {
+    Breadcrumb.TODO: "•",
+    Breadcrumb.CURRENT: "‣",
+    Breadcrumb.DONE: "✓",
+}
 
 
 _CSS_DICT = {
-    Breadcrumb.TODO: "color: #666666",
+    Breadcrumb.TODO: "",
     Breadcrumb.CURRENT: """
-        color: #0088aa;
-        border-width: 6px;
-        border-image: url(/usr/share/ubiquity/qt/images/label_border.png) 6px;
+        QFrame {
+            border-top-width: 10px;
+            border-bottom-width: 10px;
+            background-image: none;
+            border-image: url(/usr/share/ubiquity/qt/images/breadcrumb.png) 10px;
+        }
+        .QLabel {
+            color: #333;
+            border-width: 0px;
+            border-image: none;
+        }
         """,
-    Breadcrumb.DONE: "color: #b3b3b3",
+    Breadcrumb.DONE: "",
 }

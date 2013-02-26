@@ -90,27 +90,6 @@ class UbiquityUI(QtGui.QMainWindow):
 
         self.setWindowTitle("%s %s" % (distro_name, distro_release))
 
-        self._setupBg()
-
-    def _setupBg(self):
-        # Use the wallpaper as default, but with a white overlay to ensure
-        # texts remain readable
-        self.bgImage = QtGui.QImage("/usr/share/wallpapers/kde-default.png")
-        painter = QtGui.QPainter(self.bgImage)
-        painter.fillRect(self.bgImage.rect(), QtGui.QColor(255, 255, 255, 210))
-        painter.end()
-        self.scaledBgImage = self.bgImage
-
-    def paintEvent(self, pe):
-        p = QtGui.QPainter(self)
-        p.drawImage(0, 0, self.scaledBgImage)
-
-    def resizeEvent(self, re):
-        self.scaledBgImage = self.bgImage.scaled(
-            self.width(), self.height(),
-            QtCore.Qt.KeepAspectRatioByExpanding,
-            QtCore.Qt.SmoothTransformation)
-
     def setWizard(self, wizardRef):
         self.wizard = wizardRef
 
@@ -729,7 +708,7 @@ class Wizard(BaseFrontend):
         if text is None:
             return
 
-        if isinstance(widget, QtGui.QLabel):
+        if isinstance(widget, (QtGui.QLabel, Breadcrumb)):
             if name == 'select_language_label' and self.oem_user_config:
                 text = self.get_string(
                     'select_language_oem_user_label', lang, prefix)
