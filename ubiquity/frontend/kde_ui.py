@@ -93,8 +93,8 @@ class UbiquityUI(QtGui.QMainWindow):
         self._setupBg()
 
     def _setupBg(self):
-        # Use the wallpaper as default, but with a white overlay to ensure texts
-        # remain readable
+        # Use the wallpaper as default, but with a white overlay to ensure
+        # texts remain readable
         self.bgImage = QtGui.QImage("/usr/share/wallpapers/kde-default.png")
         painter = QtGui.QPainter(self.bgImage)
         painter.fillRect(self.bgImage.rect(), QtGui.QColor(255, 255, 255, 210))
@@ -208,7 +208,8 @@ class Wizard(BaseFrontend):
                 mod.ui = mod.ui_class(mod.controller)
                 widgets = mod.ui.get('plugin_widgets')
                 optional_widgets = mod.ui.get('plugin_optional_widgets')
-                breadcrumb = mod.ui.get('plugin_breadcrumb') or '------' # Use a placeholder if none defined
+                # Use a placeholder for breadcrumb if none defined
+                breadcrumb = mod.ui.get('plugin_breadcrumb') or '------'
                 if widgets or optional_widgets:
                     def fill_out(widget_list):
                         rv = []
@@ -229,7 +230,7 @@ class Wizard(BaseFrontend):
                     mod.optional_widgets = fill_out(optional_widgets)
 
                     mod.breadcrumb_question = breadcrumb
-                    mod.breadcrumb = self._create_breadcrumb(mod.breadcrumb_question)
+                    mod.breadcrumb = self._create_breadcrumb(breadcrumb)
 
                     self.pageslen += 1
                     self.pages.append(mod)
@@ -339,7 +340,8 @@ class Wizard(BaseFrontend):
         widget = Breadcrumb()
         widget.setObjectName(name)
         layout = self.ui.steps_widget.layout()
-        layout.insertWidget(layout.count() - 1, widget) # "- 1" to insert before the bottom spacer
+        # "- 1" to insert before the bottom spacer
+        layout.insertWidget(layout.count() - 1, widget)
         return widget
 
     def excepthook(self, exctype, excvalue, exctb):
@@ -431,7 +433,8 @@ class Wizard(BaseFrontend):
         self.set_current_page(0)
 
         if not 'UBIQUITY_AUTOMATIC' in os.environ:
-            # Only show now so that the window does not show empty, then resize itself and show content
+            # Only show now so that the window does not show empty, then resize
+            # itself and show content
             self.ui.show()
 
         while(self.pagesindex < self.pageslen):

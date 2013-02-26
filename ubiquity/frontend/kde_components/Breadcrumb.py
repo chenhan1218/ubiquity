@@ -25,10 +25,12 @@ from PyQt4 import QtCore, QtGui
 
 __all__ = ["Breadcrumb"]
 
+
 class Breadcrumb(QtGui.QLabel):
     TODO = 0
     CURRENT = 1
     DONE = 2
+
     def __init__(self, parent=None):
         QtGui.QLabel.__init__(self, parent)
         self.setWordWrap(True)
@@ -36,6 +38,7 @@ class Breadcrumb(QtGui.QLabel):
 
     def setState(self, state):
         self.setStyleSheet(_CSS_DICT[state])
+
 
 _CSS_DICT = {
     Breadcrumb.TODO: "color: #666666",

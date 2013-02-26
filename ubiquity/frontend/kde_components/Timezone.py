@@ -36,7 +36,9 @@ class TimezoneMap(QtGui.QWidget):
         self.pixmap = QtGui.QPixmap("%s/bg.png" % self.imagePath)
         self.setMinimumSize(self.pixmap.size() / 2)
         self.setMaximumSize(self.pixmap.size())
-        policy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
+        policy = QtGui.QSizePolicy(
+            QtGui.QSizePolicy.Preferred,
+            QtGui.QSizePolicy.Preferred)
         policy.setHeightForWidth(True)
         self.setSizePolicy(policy)
 
