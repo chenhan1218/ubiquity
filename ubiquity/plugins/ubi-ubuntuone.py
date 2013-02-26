@@ -19,18 +19,26 @@
 
 import http.client
 import json
+from oauthlib.oauth1 import (Client, SIGNATURE_HMAC,
+                             SIGNATURE_TYPE_AUTH_HEADER)
 import os
 import os.path
+import platform
 import pwd
 import subprocess
 import shutil
 import syslog
 import traceback
+from urllib.parse import urlencode
 
 from ubiquity import plugin, misc
 
+PLUGIN_VERSION = "1.0"
 UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
 U1_TOKEN_NAME = "Ubuntu One"
+
+(TOKEN_CALLBACK_ACTION,
+ PING_CALLBACK_ACTION) = range(2)
 
 NAME = 'ubuntuone'
 AFTER = 'usersetup'
@@ -79,6 +87,15 @@ class Page(plugin.Plugin):
         return plugin.Plugin.prepare(unfiltered)
 
 
+def get_ping_info():
+    url = "https://one.ubuntu.com/oauth/sso-finished-so-get-tokens/{email}"
+    params = dict(platform=platform.system(),
+                  platform_version=platform.release(),
+                  platform_arch=platform.machine(),
+                  client_version=PLUGIN_VERSION)
+    return (url, params)
+
+
 class PageGtk(plugin.PluginUI):
     plugin_title = 'ubiquity/text/ubuntuone_heading_label'
 
@@ -114,8 +131,10 @@ class PageGtk(plugin.PluginUI):
         self.skip_step = False
         self.online = False
         self.label_global_error.set_text("")
+        self._generic_error = "error"
 
         self.oauth_token = None
+        self.ping_successful = False
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
@@ -133,14 +152,16 @@ class PageGtk(plugin.PluginUI):
         body = json.dumps({'email': email,
                            'password': password,
                            'token_name': token_name})
-        message = self.soup.Message.new("POST", service_url + "tokens")
+        tokens_url = service_url + "tokens/oauth"
+        message = self.soup.Message.new("POST", tokens_url)
         message.set_request('application/json',
                             self.soup.MemoryUse.COPY,
                             body, len(body))
         message.request_headers.append('Accept', 'application/json')
 
         self.session.queue_message(message, self._handle_soup_message_done,
-                                   PAGE_LOGIN)
+                                   dict(action=TOKEN_CALLBACK_ACTION,
+                                        from_page=PAGE_LOGIN))
 
     def register_new_sso_account(self, email, password, displayname=None,
                                  service_url=UBUNTU_SSO_URL):
@@ -152,35 +173,73 @@ class PageGtk(plugin.PluginUI):
         if displayname:
             params['displayname'] = displayname
         body = json.dumps(params)
-        message = self.soup.Message.new("POST", service_url + "accounts")
+        accounts_url = service_url + "accounts"
+        message = self.soup.Message.new("POST", accounts_url)
         message.set_request('application/json',
                             self.soup.MemoryUse.COPY,
                             body, len(body))
         message.request_headers.append('Accept', 'application/json')
 
         self.session.queue_message(message, self._handle_soup_message_done,
-                                   PAGE_REGISTER)
+                                   dict(action=TOKEN_CALLBACK_ACTION,
+                                        from_page=PAGE_REGISTER))
 
-    def _handle_soup_message_done(self, session, message, from_page):
+    def _handle_soup_message_done(self, session, message, info):
         """Handle message completion, check for errors."""
         from gi.repository import Gtk
         syslog.syslog("soup message status code %r" % message.status_code)
         content = message.response_body.flatten().get_data().decode("utf-8")
 
         if message.status_code in [http.client.OK, http.client.CREATED]:
-            self.oauth_token = content
+            if info['action'] == TOKEN_CALLBACK_ACTION:
+                self.oauth_token = content
+            elif info['action'] == PING_CALLBACK_ACTION:
+                self.ping_successful = True
         else:
-            response_dict = json.loads(content)
-            self.notebook_main.set_current_page(from_page)
-            self.label_global_error.set_markup("<b><big>%s</big></b>" %
-                                               response_dict["message"])
+            self.notebook_main.set_current_page(info['from_page'])
+
             syslog.syslog("Error in soup message: %r" % message.reason_phrase)
             syslog.syslog("Error response headers: %r" %
                           message.get_property("response-headers"))
             syslog.syslog("error response body: %r " %
                           message.response_body.flatten().get_data())
 
+            try:
+                response_dict = json.loads(content)
+                error_message = response_dict["message"]
+            except ValueError:
+                error_message = self._generic_error
+
+            self.label_global_error.set_markup("<b><big>%s</big></b>" %
+                                               error_message)
+
         Gtk.main_quit()
+
+    def ping_u1_url(self, email, from_page):
+        """Sign and GET a URL to enable U1 server access."""
+        token = json.loads(self.oauth_token)
+
+        oauth_client = Client(token['consumer_key'],
+                              token['consumer_secret'],
+                              token['token_key'],
+                              token['token_secret'],
+                              signature_method=SIGNATURE_HMAC,
+                              signature_type=SIGNATURE_TYPE_AUTH_HEADER)
+
+        url, params = get_ping_info()
+        url = url.format(email=email)
+        url += "?" + urlencode(params)
+        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        signed_url, signed_headers, _ = oauth_client.sign(url, "GET", {},
+                                                          headers=headers)
+        message = self.soup.Message.new("GET", signed_url)
+
+        for k, v in signed_headers.items():
+            message.request_headers.append(k, v)
+
+        self.session.queue_message(message, self._handle_soup_message_done,
+                                   dict(action=PING_CALLBACK_ACTION,
+                                        from_page=from_page))
 
     def plugin_set_online_state(self, state):
         self.online = state
@@ -213,6 +272,7 @@ class PageGtk(plugin.PluginUI):
             except Exception:
                 syslog.syslog("exception in register_new_sso_account: %r" %
                               traceback.format_exc())
+                return True
 
         elif from_page == PAGE_LOGIN:
             email = self.entry_existing_email.get_text()
@@ -222,6 +282,7 @@ class PageGtk(plugin.PluginUI):
             except Exception:
                 syslog.syslog("exception in login_to_sso: %r" %
                               traceback.format_exc())
+                return True
 
         else:
             raise AssertionError("'Next' from invalid page: %r" % from_page)
@@ -229,12 +290,24 @@ class PageGtk(plugin.PluginUI):
         # Start a subordinate event loop - _handle_soup_message_done stops it.
         Gtk.main()
 
-        self.spinner_connect.stop()
-
         # if there is no token at this point, there is a error,
         # so stop moving forward
         if self.oauth_token is None:
             syslog.syslog("Error getting oauth_token, not creating keyring")
+            return True
+
+        try:
+            self.ping_u1_url(email, from_page)
+        except Exception:
+            syslog.syslog("exception in ping_u1_url: %r" %
+                          traceback.format_exc())
+
+        Gtk.main()
+
+        self.spinner_connect.stop()
+
+        if not self.ping_successful:
+            syslog.syslog("Error pinging U1 URL, not creating keyring")
             return True
 
         # all good, create a (encrypted) keyring and store the token for later
@@ -277,6 +350,8 @@ class PageGtk(plugin.PluginUI):
             'error_register', lang)
         self._error_login = self.controller.get_string(
             'error_login', lang)
+        self._generic_error = self.controller.get_string(
+            'generic_error', lang)
 
     # signals
     def on_button_have_account_clicked(self, button):
