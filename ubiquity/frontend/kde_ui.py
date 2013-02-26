@@ -46,6 +46,7 @@ from ubiquity.components import partman_commit, install, plugininstall
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
 from ubiquity.frontend.kde_components import ProgressDialog
+from ubiquity.frontend.kde_components.Breadcrumb import Breadcrumb
 from ubiquity.plugin import Plugin
 import ubiquity.progressposition
 
@@ -335,12 +336,11 @@ class Wizard(BaseFrontend):
         self.ui.progress_stack.setCurrentWidget(widget)
 
     def _create_breadcrumb(self, name):
-        label = QtGui.QLabel()
-        label.setObjectName(name)
-        label.setWordWrap(True)
+        widget = Breadcrumb()
+        widget.setObjectName(name)
         layout = self.ui.steps_widget.layout()
-        layout.insertWidget(layout.count() - 1, label) # "- 1" to insert before the bottom spacer
-        return label
+        layout.insertWidget(layout.count() - 1, widget) # "- 1" to insert before the bottom spacer
+        return widget
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -534,30 +534,23 @@ class Wizard(BaseFrontend):
         return self.returncode
 
     def _update_breadcrumbs(self, active_page_name):
-        borderCSS = (
-            "border-width: 6px; border-image: "
-            "url(/usr/share/ubiquity/qt/images/label_border.png) 6px;")
-        todoSS = "color: %s; " % "#666666"
-        doneSS = "color: %s; " % "#b3b3b3"
-        currentSS = "%s color: %s; " % (borderCSS, "#0088aa")
-
         done = True
         for page in self.pages:
             if not page.breadcrumb:
                 continue
             if page.module.NAME == active_page_name:
-                page.breadcrumb.setStyleSheet(currentSS)
+                page.breadcrumb.setState(Breadcrumb.CURRENT)
                 done = False
             else:
                 if done:
-                    page.breadcrumb.setStyleSheet(doneSS)
+                    page.breadcrumb.setState(Breadcrumb.DONE)
                 else:
-                    page.breadcrumb.setStyleSheet(todoSS)
+                    page.breadcrumb.setState(Breadcrumb.TODO)
 
         if active_page_name == '__install':
-            self.breadcrumb_install.setStyleSheet(currentSS)
+            page.breadcrumb.setState(Breadcrumb.CURRENT)
         else:
-            self.breadcrumb_install.setStyleSheet(todoSS)
+            page.breadcrumb.setState(Breadcrumb.TODO)
 
     def start_slideshow(self):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
