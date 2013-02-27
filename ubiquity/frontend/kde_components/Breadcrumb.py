@@ -72,17 +72,17 @@ _TICK_DICT = {
 _CSS_DICT = {
     Breadcrumb.TODO: "",
     Breadcrumb.CURRENT: """
-        QFrame {
-            border-top-width: 10px;
-            border-bottom-width: 10px;
-            background-image: none;
-            border-image: url(/usr/share/ubiquity/qt/images/breadcrumb.png) 10px;
-        }
-        .QLabel {
-            color: #333;
-            border-width: 0px;
-            border-image: none;
-        }
-        """,
+    QFrame {
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        background-image: none;
+        border-image: url(/usr/share/ubiquity/qt/images/breadcrumb.png) 10px;
+    }
+    .QLabel {
+        color: #333;
+        border-width: 0px;
+        border-image: none;
+    }
+    """,
     Breadcrumb.DONE: "",
 }
