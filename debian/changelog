@@ -10,7 +10,7 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
 
   [ Colin Watson ]
   * Decode the output of apt_pkg.size_to_str() if necessary when
-    substituting it into Unicode strings (LP: #1132918).
+    substituting it into Unicode strings (LP: #877756, #1132918).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
