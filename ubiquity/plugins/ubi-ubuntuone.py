@@ -1,7 +1,6 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
-# Copyright (C) 2012 Canonical Ltd.
-# Written by Michael Vogt <mvo@ubuntu.com>
+# Copyright (C) 2012-2013 Canonical Ltd.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -54,36 +53,6 @@ WEIGHT = 10
  PAGE_SPINNER,
  ) = range(3)
 
-# TODO:
-#  - network awareness (steal from timezone map page)
-#  - rename this all to ubuntu sso instead of ubuntuone to avoid confusion
-#    that we force people to sign up for payed services on install (?) where
-#    what we want is to make it super simple to use our services
-#  - take the username from the usersetup step when creating the token
-#  - get a design for the UI
-#    * to create a new account
-#    * to login into a existing account
-#    * deal with forgoten passwords
-#    * skip account creation
-
-
-# TESTING end-to-end for real
-#
-# * get a raring cdimage
-# * run:
-#    kvm -m 1500 -hda /path/to/random-image -cdrom /path/to/raring-arch.iso \
-#        -boot d
-# * in the VM:
-#   - add universe
-#   - sudo apt-get install bzr build-essential python3-setuptools debhelper
-#   - bzr co --lightweight lp:~mvo/ubiquity/ssologin
-#   - cd ssologin
-#   - sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
-#   - sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
-#   - sudo cp gui/gtk//*.ui /usr/share/ubiquity/gtk
-#   - sudo cp scripts/* /usr/share/ubiquity/
-#   - sudo cp bin/ubiquity /usr/bin
-#   - sudo ubiquity
 
 class Page(plugin.Plugin):
 
