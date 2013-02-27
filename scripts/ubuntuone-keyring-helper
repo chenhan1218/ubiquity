@@ -15,17 +15,24 @@ if __name__ == "__main__":
     token = sys.stdin.readline().strip("\n")
 
     # we create the keyring using the users login password
-    KEYRING_NAME = "login"
-    TOKEN_NAME = "Ubuntu one"
+    KEYRING_NAME = os.environ.get("U1_TEST_KEYRING_NAME", "login")
+    TOKEN_NAME = "Ubuntu One"
+
     res = GnomeKeyring.create_sync(KEYRING_NAME, password)
-    if res == GnomeKeyring.Result.OK:
-        res = GnomeKeyring.item_create_sync(
-            KEYRING_NAME,
-            GnomeKeyring.ItemType.GENERIC_SECRET,
-            TOKEN_NAME,
-            GLib.Array(),
-            token,
-            True)
+
+    if res != GnomeKeyring.Result.OK:
+        syslog.syslog("failed to create keyring '%s': %s" % (KEYRING_NAME, res))        
+        sys.exit(1)
+
+    (status, item_id) = GnomeKeyring.item_create_sync(
+        KEYRING_NAME,
+        GnomeKeyring.ItemType.GENERIC_SECRET,
+        TOKEN_NAME,
+        GLib.Array(),
+        token,
+        True)
+    if status != GnomeKeyring.Result.OK:
         syslog.syslog("failed to create item '%s': %s" % (TOKEN_NAME, res))
-    else:
-        syslog.syslog("failed to create keyring '%s': %s" % (KEYRING_NAME, res))
+        sys.exit(1)
+
+    syslog.syslog("Success, created item %r in keyring %r" % (TOKEN_NAME, KEYRING_NAME))

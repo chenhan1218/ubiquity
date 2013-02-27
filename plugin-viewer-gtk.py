@@ -70,6 +70,10 @@ if __name__ == "__main__":
     page_gtk = plugin_module.PageGtk(mock_controller)
     page_gtk.plugin_translate("en")
 
+    # this user password is for the Ubuntu SSO plugin, to test keyring
+    # creation.
+    page_gtk._user_password = "test keyring password"
+
     win.button_next.connect(
         "clicked", _on_button_next_clicked)
     win.button_back.connect(
