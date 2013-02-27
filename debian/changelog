@@ -2,6 +2,10 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
 
   * Bump Standards version and override some lintian tags (ubiquity is
     weird).
+  * Override expander style, which is hardcoded in light-themes to a
+    light color. (LP: #1100922)
+  * Consolidate CssProvider and add make minimal progress bar width 10px,
+    in preparation for dot-progress of all steps.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
