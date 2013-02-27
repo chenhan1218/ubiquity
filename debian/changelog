@@ -1,11 +1,16 @@
 ubiquity (2.13.13) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Bump Standards version and override some lintian tags (ubiquity is
     weird).
   * Override expander style, which is hardcoded in light-themes to a
     light color. (LP: #1100922)
   * Consolidate CssProvider and add make minimal progress bar width 10px,
     in preparation for dot-progress of all steps.
+
+  [ Colin Watson ]
+  * Decode the output of apt_pkg.size_to_str() if necessary when
+    substituting it into Unicode strings (LP: #1132918).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
