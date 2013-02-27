@@ -14,17 +14,14 @@ from ubiquity import plugin_manager
 ubi_ubuntuone = plugin_manager.load_plugin('ubi-ubuntuone')
 
 
-@patch('socket.gethostname')
 class TokenNameTestCase(unittest.TestCase):
 
-    def test_simple_token_name(self, mock_gethostname):
-        mock_gethostname.return_value = 'simple'
-        name = ubi_ubuntuone.get_token_name()
+    def test_simple_token_name(self):
+        name = ubi_ubuntuone.get_token_name('simple')
         self.assertEqual(name, "Ubuntu One @ simple")
 
-    def test_complex_token_name(self, mock_gethostname):
-        mock_gethostname.return_value = 'simple @ complex'
-        name = ubi_ubuntuone.get_token_name()
+    def test_complex_token_name(self):
+        name = ubi_ubuntuone.get_token_name('simple @ complex')
         self.assertEqual(name, "Ubuntu One @ simple AT complex")
 
 
@@ -33,6 +30,7 @@ class BaseTestPageGtk(unittest.TestCase):
     def setUp(self):
         mock_controller = Mock()
         self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=Mock())
+        self.page.db = Mock(name='db')
 
 
 class TestPageGtk(BaseTestPageGtk):
@@ -102,35 +100,58 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.controller.allow_go_forward.assert_called_with(True)
 
 
+@patch('syslog.syslog', new=print)
+@patch.object(ubi_ubuntuone, 'get_token_name')
 @patch.object(Gtk, 'main')
 class NextButtonActionTestCase(BaseTestPageGtk):
 
-    def test_call_register(self, mock_gtk_main):
+    def _call_register(self, mock_token_name, create_success=True):
+        mock_token_name.return_value = 'tokenname'
+
         self.page.entry_email.set_text("foo@bar.com")
         self.page.entry_new_password.set_text("pw")
         self.page.entry_new_password2.set_text("pw")
         self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)
 
-        with patch.object(self.page,
-                          'register_new_sso_account') as mock_register:
-            self.page.plugin_on_next_clicked()
-            mock_register.assert_called_once_with("foo@bar.com", "pw",
-                                                  displayname=None)
+        def set_page_register_success(*args, **kwargs):
+            self.page.account_creation_successful = create_success
 
-    def test_call_login(self, mock_gtk_main):
+        with patch.multiple(self.page,
+                            register_new_sso_account=DEFAULT,
+                            login_to_sso=DEFAULT) as mocks:
+            mr = mocks['register_new_sso_account']
+            mr.side_effect = set_page_register_success
+
+            self.page.plugin_on_next_clicked()
+
+            # TODO displayname is temporarily just the email, pending UI
+            mr.assert_called_once_with("foo@bar.com", "pw", "foo@bar.com")
+
+            if create_success:
+                ml = mocks['login_to_sso']
+                ml.assert_called_once_with("foo@bar.com", "pw", 'tokenname',
+                                           ubi_ubuntuone.PAGE_REGISTER)
+
+    def test_call_register_success(self, mock_gtk_main, mock_token_name):
+        self._call_register(mock_token_name)
+
+    def test_call_register_err(self, mock_gtk_main, mock_token_name):
+        self._call_register(mock_token_name, create_success=False)
+
+    def test_call_login(self, mock_gtk_main, mock_token_name):
+        mock_token_name.return_value = 'tokenname'
+
         self.page.entry_existing_email.set_text("foo")
         self.page.entry_existing_password.set_text("pass")
         self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_LOGIN)
 
         with patch.object(self.page, 'login_to_sso') as mock_login:
-            with patch.object(ubi_ubuntuone,
-                              'get_token_name') as mock_token_name:
-                mock_token_name.return_value = 'tokenname'
-                self.page.plugin_on_next_clicked()
-                mock_login.assert_called_once_with("foo", "pass", 'tokenname')
+            self.page.plugin_on_next_clicked()
+            mock_login.assert_called_once_with("foo", "pass", 'tokenname',
+                                               ubi_ubuntuone.PAGE_LOGIN)
 
 
-@patch('syslog.syslog')
+@patch('syslog.syslog', new=print)
 @patch.object(Gtk, 'main')
 class SSOAPITestCase(BaseTestPageGtk):
 
@@ -149,7 +170,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.notebook_main.get_current_page(),
                          from_page)
 
-    def test_handle_done_token_OK(self, mock_gtk_main, mock_syslog):
+    def test_handle_done_token_OK(self, mock_gtk_main):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
@@ -157,7 +178,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.oauth_token,
                          expected_body)
 
-    def test_handle_done_token_CREATED(self, mock_gtk_main, mock_syslog):
+    def test_handle_done_token_CREATED(self, mock_gtk_main):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.CREATED,
                                expected_body,
@@ -166,14 +187,14 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.oauth_token,
                          expected_body)
 
-    def test_handle_done_ping_OK(self, mock_gtk_main, mock_syslog):
+    def test_handle_done_ping_OK(self, mock_gtk_main):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.PING_CALLBACK_ACTION,
                                ubi_ubuntuone.PAGE_REGISTER)
         self.assertTrue(self.page.ping_successful)
 
-    def test_handle_done_ping_CREATED(self, mock_gtk_main, mock_syslog):
+    def test_handle_done_ping_CREATED(self, mock_gtk_main):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.CREATED,
                                expected_body,
@@ -181,7 +202,7 @@ class SSOAPITestCase(BaseTestPageGtk):
                                ubi_ubuntuone.PAGE_REGISTER)
         self.assertTrue(self.page.ping_successful)
 
-    def test_handle_done_error_token(self, mock_gtk_main, mock_syslog):
+    def test_handle_done_error_token(self, mock_gtk_main):
         expected_body = json.dumps({"message": "tstmsg"})
         # GONE or anything other than OK/CREATED:
         self._call_handle_done(http.client.GONE, expected_body,
@@ -191,7 +212,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.label_global_error.get_text(),
                          "tstmsg")
 
-    def test_handle_done_error_ping(self, mock_gtk_main, mock_syslog):
+    def test_handle_done_error_ping(self, mock_gtk_main):
         expected_body = "error"
         with patch.object(self.page.label_global_error,
                           'get_text') as mock_get_text:
@@ -205,11 +226,10 @@ class SSOAPITestCase(BaseTestPageGtk):
                              "err")
 
     @patch('json.dumps')
-    def test_login_to_sso(self, mock_json_dumps, mock_gtk_main, mock_syslog):
+    def test_login_to_sso(self, mock_json_dumps, mock_gtk_main):
         email = 'email'
         password = 'pass'
         token_name = 'tok'
-        service_url = 'url/'
         json_ct = 'application/json'
         expected_dict = {'email': email,
                          'password': password,
@@ -222,8 +242,11 @@ class SSOAPITestCase(BaseTestPageGtk):
         with patch.multiple(self.page, soup=DEFAULT, session=DEFAULT) as mocks:
             typeobj = type(mocks['soup'].MemoryUse)
             typeobj.COPY = PropertyMock(return_value=sentinel.COPY)
-            self.page.login_to_sso(email, password, token_name, service_url)
-            expected = [call.Message.new("POST", 'url/tokens/oauth'),
+            self.page.login_to_sso(email, password, token_name,
+                                   ubi_ubuntuone.PAGE_LOGIN)
+            expected = [call.Message.new("POST",
+                                         ubi_ubuntuone.UBUNTU_SSO_URL +
+                                         'tokens/oauth'),
                         call.Message.new().set_request(json_ct,
                                                        sentinel.COPY,
                                                        expected_dict,
@@ -243,11 +266,9 @@ class SSOAPITestCase(BaseTestPageGtk):
             self.assertEqual(mocks['session'].mock_calls, e)
 
     @patch('json.dumps')
-    def test_register_new_sso_account(self, mock_json_dumps, mock_gtk_main,
-                                      mock_syslog):
+    def test_register_new_sso_account(self, mock_json_dumps, mock_gtk_main):
         email = 'email'
         password = 'pass'
-        service_url = 'url/'
         displayname = 'mr tester'
         json_ct = 'application/json'
         expected_dict = {'email': email,
@@ -260,8 +281,10 @@ class SSOAPITestCase(BaseTestPageGtk):
             typeobj = type(mocks['soup'].MemoryUse)
             typeobj.COPY = PropertyMock(return_value=sentinel.COPY)
             self.page.register_new_sso_account(email, password,
-                                               displayname, service_url)
-            expected = [call.Message.new("POST", 'url/accounts'),
+                                               displayname)
+            expected = [call.Message.new("POST",
+                                         ubi_ubuntuone.UBUNTU_SSO_URL +
+                                         'accounts'),
                         call.Message.new().set_request(json_ct,
                                                        sentinel.COPY,
                                                        expected_dict,
@@ -271,7 +294,7 @@ class SSOAPITestCase(BaseTestPageGtk):
             self.assertEqual(mocks['soup'].mock_calls,
                              expected)
 
-            info = {'action': ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
+            info = {'action': ubi_ubuntuone.ACCOUNT_CALLBACK_ACTION,
                     'from_page': ubi_ubuntuone.PAGE_REGISTER}
 
             e = [call.queue_message(mocks['soup'].Message.new.return_value,
@@ -283,7 +306,7 @@ class SSOAPITestCase(BaseTestPageGtk):
     @patch('json.loads')
     @patch.multiple(ubi_ubuntuone, Client=DEFAULT, get_ping_info=DEFAULT)
     def test_ping_u1_url(self, mock_json_loads,
-                         mock_gtk_main, mock_syslog, Client, get_ping_info):
+                         mock_gtk_main, Client, get_ping_info):
 
         from_page = 1
         email = 'email'

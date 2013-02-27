@@ -25,7 +25,6 @@ import os
 import os.path
 import platform
 import pwd
-import socket
 import subprocess
 import shutil
 import syslog
@@ -36,13 +35,15 @@ from ubiquity import plugin, misc
 
 PLUGIN_VERSION = "1.0"
 UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
+UBUNTU_ONE_URL = "https://one.ubuntu.com/"
 
 TOKEN_SEPARATOR = ' @ '
 SEPARATOR_REPLACEMENT = ' AT '
 U1_APP_NAME = "Ubuntu One"
 
-(TOKEN_CALLBACK_ACTION,
- PING_CALLBACK_ACTION) = range(2)
+(ACCOUNT_CALLBACK_ACTION,
+ TOKEN_CALLBACK_ACTION,
+ PING_CALLBACK_ACTION) = range(3)
 
 NAME = 'ubuntuone'
 AFTER = 'usersetup'
@@ -92,7 +93,8 @@ class Page(plugin.Plugin):
 
 
 def get_ping_info():
-    url = "https://one.ubuntu.com/oauth/sso-finished-so-get-tokens/{email}"
+    base = os.environ.get("UBUNTU_ONE_URL", UBUNTU_ONE_URL)
+    url = base + "oauth/sso-finished-so-get-tokens/{email}"
     params = dict(platform=platform.system(),
                   platform_version=platform.release(),
                   platform_arch=platform.machine(),
@@ -100,9 +102,9 @@ def get_ping_info():
     return (url, params)
 
 
-def get_token_name():
-    computer_name = socket.gethostname().replace(TOKEN_SEPARATOR,
-                                                 SEPARATOR_REPLACEMENT)
+def get_token_name(hostname):
+    computer_name = hostname.replace(TOKEN_SEPARATOR,
+                                     SEPARATOR_REPLACEMENT)
     return TOKEN_SEPARATOR.join((U1_APP_NAME, computer_name))
 
 
@@ -145,6 +147,7 @@ class PageGtk(plugin.PluginUI):
 
         self.oauth_token = None
         self.ping_successful = False
+        self.account_creation_successful = False
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
@@ -154,14 +157,14 @@ class PageGtk(plugin.PluginUI):
 
         self.info_loop(None)
 
-    def login_to_sso(self, email, password, token_name,
-                     service_url=UBUNTU_SSO_URL):
+    def login_to_sso(self, email, password, token_name, from_page):
         """Queue POST message to /tokens to get oauth token.
         See _handle_soup_message_done() for completion details.
         """
         body = json.dumps({'email': email,
                            'password': password,
                            'token_name': token_name})
+        service_url = os.environ.get("UBUNTU_SSO_URL", UBUNTU_SSO_URL)
         tokens_url = service_url + "tokens/oauth"
         message = self.soup.Message.new("POST", tokens_url)
         message.set_request('application/json',
@@ -171,18 +174,17 @@ class PageGtk(plugin.PluginUI):
 
         self.session.queue_message(message, self._handle_soup_message_done,
                                    dict(action=TOKEN_CALLBACK_ACTION,
-                                        from_page=PAGE_LOGIN))
+                                        from_page=from_page))
 
-    def register_new_sso_account(self, email, password, displayname=None,
-                                 service_url=UBUNTU_SSO_URL):
+    def register_new_sso_account(self, email, password, displayname):
         """Queue POST to /accounts to register new account and get token.
         See _handle_soup_message_done() for completion details.
         """
         params = {'email': email,
-                  'password': password}
-        if displayname:
-            params['displayname'] = displayname
+                  'password': password,
+                  'displayname': displayname}
         body = json.dumps(params)
+        service_url = os.environ.get("UBUNTU_SSO_URL", UBUNTU_SSO_URL)
         accounts_url = service_url + "accounts"
         message = self.soup.Message.new("POST", accounts_url)
         message.set_request('application/json',
@@ -191,13 +193,14 @@ class PageGtk(plugin.PluginUI):
         message.request_headers.append('Accept', 'application/json')
 
         self.session.queue_message(message, self._handle_soup_message_done,
-                                   dict(action=TOKEN_CALLBACK_ACTION,
+                                   dict(action=ACCOUNT_CALLBACK_ACTION,
                                         from_page=PAGE_REGISTER))
 
     def _handle_soup_message_done(self, session, message, info):
         """Handle message completion, check for errors."""
         from gi.repository import Gtk
-        syslog.syslog("soup message status code %r" % message.status_code)
+        syslog.syslog("soup message ({}) code: {}".format(info,
+                                                          message.status_code))
         content = message.response_body.flatten().get_data().decode("utf-8")
 
         if message.status_code in [http.client.OK, http.client.CREATED]:
@@ -205,6 +208,8 @@ class PageGtk(plugin.PluginUI):
                 self.oauth_token = content
             elif info['action'] == PING_CALLBACK_ACTION:
                 self.ping_successful = True
+            elif info['action'] == ACCOUNT_CALLBACK_ACTION:
+                self.account_creation_successful = True
         else:
             self.notebook_main.set_current_page(info['from_page'])
 
@@ -273,35 +278,44 @@ class PageGtk(plugin.PluginUI):
         self.spinner_connect.start()
 
         if from_page == PAGE_REGISTER:
+
+            # First create new account before getting token:
             email = self.entry_email.get_text()
             password = self.entry_new_password.get_text()
-            displayname = None # TODO get from UI
+            displayname = email # TODO get real displayname from UI
+
             try:
-                self.register_new_sso_account(email, password,
-                                              displayname=displayname)
+                self.register_new_sso_account(email, password, displayname)
             except Exception:
                 syslog.syslog("exception in register_new_sso_account: %r" %
                               traceback.format_exc())
                 return True
 
+            Gtk.main()
+
+            if not self.account_creation_successful:
+                syslog.syslog("Error registering SSO account, exiting.")
+                return True
+
         elif from_page == PAGE_LOGIN:
             email = self.entry_existing_email.get_text()
             password = self.entry_existing_password.get_text()
-            try:
-                self.login_to_sso(email, password, get_token_name())
-            except Exception:
-                syslog.syslog("exception in login_to_sso: %r" %
-                              traceback.format_exc())
-                return True
 
         else:
             raise AssertionError("'Next' from invalid page: %r" % from_page)
 
-        # Start a subordinate event loop - _handle_soup_message_done stops it.
+        # Now get the token, regardless of which page we came from
+        try:
+            hostname = self.db.get('netcfg/get_hostname')
+            self.login_to_sso(email, password, get_token_name(hostname),
+                              from_page)
+        except Exception:
+            syslog.syslog("exception in login_to_sso: %r" %
+                          traceback.format_exc())
+            return True
+
         Gtk.main()
 
-        # if there is no token at this point, there is a error,
-        # so stop moving forward
         if self.oauth_token is None:
             syslog.syslog("Error getting oauth_token, not creating keyring")
             return True

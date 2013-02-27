@@ -77,6 +77,9 @@ if __name__ == "__main__":
 
     add_connection_watch(page_gtk.plugin_set_online_state)
 
+    # fake debconf interface:
+    page_gtk.db = {'netcfg/get_hostname': 'test hostname'}
+
     button_box = Gtk.ButtonBox(spacing=12)
     button_box.set_layout(Gtk.ButtonBoxStyle.END)
     button_box.pack_start(win.button_back, True, True, 6)
