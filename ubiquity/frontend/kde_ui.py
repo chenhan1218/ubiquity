@@ -135,15 +135,11 @@ class Controller(ubiquity.frontend.base.Controller):
     def get_string(self, name, lang=None, prefix=None):
         return self._wizard.get_string(name, lang, prefix)
 
-    def setNextButtonTextInstallNow(self, checked):
-        self._wizard.ui.next.setText(
-            self.get_string('install_button').replace('_', '&', 1))
-        self._wizard.ui.next.setIcon(self._wizard.applyIcon)
+    def setNextButtonTextInstallNow(self):
+        self._wizard.update_next_button(install=True)
 
-    def setNextButtonTextNext(self, checked):
-        self._wizard.ui.next.setText(
-            self.get_string('next').replace('_', '&', 1))
-        self._wizard.ui.next.setIcon(self._wizard.forwardIcon)
+    def setNextButtonTextNext(self):
+        self._wizard.update_next_button(install=False)
 
 
 class Wizard(BaseFrontend):
@@ -288,13 +284,7 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.breadcrumb_install.hide()
 
-        self.forwardIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/128x128/actions/go-next.png")
-        self.ui.next.setIcon(self.forwardIcon)
-
-        #Used for the last step
-        self.applyIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/128x128/actions/dialog-ok-apply.png")
+        self.update_next_button(install=False)
 
         backIcon = QtGui.QIcon(
             "/usr/share/icons/oxygen/128x128/actions/go-previous.png")
@@ -814,6 +804,18 @@ class Wizard(BaseFrontend):
         else:
             return 0
 
+    def update_next_button(self, install=None):
+        if install:
+            text = self.get_string('install_button')
+            icon = "dialog-ok-apply"
+        else:
+            text = self.get_string('next')
+            icon = "go-next"
+        text = text.replace('_', '&', 1)
+
+        self.ui.next.setIcon(QtGui.QIcon.fromTheme(icon))
+        self.ui.next.setText(text)
+
     def set_page(self, n):
         self.run_automation_error_cmd()
         self.ui.show()
@@ -840,14 +842,7 @@ class Wizard(BaseFrontend):
                 is_install = page.ui.get('plugin_is_install')
         self._update_breadcrumbs(n)
 
-        if is_install:
-            self.ui.next.setText(
-                self.get_string('install_button').replace('_', '&', 1))
-            self.ui.next.setIcon(self.applyIcon)
-        else:
-            self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
-            self.ui.next.setIcon(self.forwardIcon)
-            self.translate_widget(self.ui.next)
+        self.update_next_button(install=is_install)
 
         if self.pagesindex == 0:
             self.allow_go_backward(False)
