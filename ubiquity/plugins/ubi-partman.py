@@ -2153,8 +2153,8 @@ class Page(plugin.Plugin):
         elif os_count == 2 and len(ubuntu_systems) == 1:
             # TODO: verify that ubuntu_systems[0] is the same partition as one
             # of the ones offered in the replace options.
+            ubuntu = ubuntu_systems[0]
             if 'replace' in self.extra_options:
-                ubuntu = ubuntu_systems[0]
                 q = 'ubiquity/partitioner/ubuntu_format'
                 self.db.subst(q, 'CURDISTRO', ubuntu)
                 title = self.description(q)

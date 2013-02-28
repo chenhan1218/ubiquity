@@ -21,6 +21,9 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
 
   [ Julien Lavergne ]
   * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
+  
+  [ Ma Jun (Kylin Team) ]
+  * Fix referencing variable before assignment (LP: #945027)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
