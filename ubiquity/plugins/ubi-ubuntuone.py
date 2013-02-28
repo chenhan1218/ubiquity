@@ -1,7 +1,6 @@
 # -*- coding: utf-8; Mode: Python; indent-tabs-mode: nil; tab-width: 4 -*-
 
-# Copyright (C) 2012 Canonical Ltd.
-# Written by Michael Vogt <mvo@ubuntu.com>
+# Copyright (C) 2012-2013 Canonical Ltd.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,16 +16,33 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import pwd
-import re
+import http.client
+import json
+from oauthlib.oauth1 import (Client, SIGNATURE_HMAC,
+                             SIGNATURE_TYPE_AUTH_HEADER)
 import os
 import os.path
+import platform
+import pwd
 import subprocess
 import shutil
 import syslog
+import traceback
+from urllib.parse import urlencode
 
 from ubiquity import plugin, misc
 
+PLUGIN_VERSION = "1.0"
+UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
+UBUNTU_ONE_URL = "https://one.ubuntu.com/"
+
+TOKEN_SEPARATOR = ' @ '
+SEPARATOR_REPLACEMENT = ' AT '
+U1_APP_NAME = "Ubuntu One"
+
+(ACCOUNT_CALLBACK_ACTION,
+ TOKEN_CALLBACK_ACTION,
+ PING_CALLBACK_ACTION) = range(3)
 
 NAME = 'ubuntuone'
 AFTER = 'usersetup'
@@ -37,91 +53,29 @@ WEIGHT = 10
  PAGE_SPINNER,
  ) = range(3)
 
-# TODO:
-#  - network awareness (steal from timezone map page)
-#  - rename this all to ubuntu sso instead of ubuntuone to avoid confusion
-#    that we force people to sign up for payed services on install (?) where
-#    what we want is to make it super simple to use our services
-#  - take the username from the usersetup step when creating the token
-#  - get a design for the UI
-#    * to create a new account
-#    * to login into a existing account
-#    * deal with forgoten passwords
-#    * skip account creation
-
-
-# TESTING end-to-end for real
-#
-# * get a raring cdimage
-# * run:
-#    kvm -m 1500 -hda /path/to/random-image -cdrom /path/to/raring-arch.iso \
-#        -boot d
-# * in the VM:
-#   - add universe
-#   - sudo apt-get install bzr build-essential python3-setuptools debhelper python3-piston-mini-client
-#   - bzr co lp:~mvo/+junk/cli-sso-login
-#   - (cd cli-sso-login; dpkg-buildpackage; sudo dpkg -i ../python3*.deb)
-#
-#   - install cli-sso-login from 
-#   - bzr co --lightweight lp:~mvo/ubiquity/ssologin
-#   - cd ssologin
-#   - sudo cp ubiquity/plugins/* /usr/lib/ubiquity/plugins
-#   - sudo cp ubiquity/* /usr/lib/ubiquity/ubiquity
-#   - sudo cp gui/gtk//*.ui /usr/share/ubiquity/gtk
-#   - sudo cp scripts/* /usr/share/ubiquity/
-#   - sudo cp bin/ubiquity /usr/bin
-#   - sudo ubiquity
-
-
-class UbuntuSSO(object):
-
-    # this will need the helper
-    #   lp:~mvo/+junk/cli-sso-login installed
-
-    BINARY = "/usr/bin/ubuntu-sso-cli"
-
-    def _child_exited(self, pid, status, data):
-        stdin_fd, stdout_fd, stderr_fd, callback, errback, user_data = data
-        exit_code = os.WEXITSTATUS(status)
-        # the delayed reading will only work if the amount of data is
-        # small enough to not cause the pipe to block which on most
-        # system is ok as "ulimit -p" shows 8 pages by default (4k)
-        stdout = os.read(stdout_fd, 2048).decode("utf-8")
-        stderr = os.read(stderr_fd, 2048).decode("utf-8")
-        if exit_code == 0:
-            callback(stdout, user_data)
-        else:
-            errback(stderr, user_data)
-
-    def _spawn_sso_helper(self, cmd, password, callback, errback, data):
-        from gi.repository import GLib
-        res, pid, stdin_fd, stdout_fd, stderr_fd = GLib.spawn_async_with_pipes(
-            "/", cmd, None,
-            (GLib.SpawnFlags.LEAVE_DESCRIPTORS_OPEN |
-             GLib.SpawnFlags.DO_NOT_REAP_CHILD), None, None)
-        if res:
-            os.write(stdin_fd, password.encode("utf-8"))
-            os.write(stdin_fd, "\n".encode("utf-8"))
-            GLib.child_watch_add(
-                GLib.PRIORITY_DEFAULT, pid, self._child_exited,
-                (stdin_fd, stdout_fd, stderr_fd, callback, errback, data))
-        else:
-            errback("Failed to spawn %s" % cmd, data)
-
-    def login(self, email, password, callback, errback, data=None):
-        cmd = [self.BINARY, "--login", email]
-        self._spawn_sso_helper(cmd, password, callback, errback, data)
-
-    def register(self, email, password, callback, errback, data=None):
-        cmd = [self.BINARY, "--register", email]
-        self._spawn_sso_helper(cmd, password, callback, errback, data)
-
 
 class Page(plugin.Plugin):
 
     def prepare(self, unfiltered=False):
         self.ui._user_password = self.db.get('passwd/user-password')
+        self.ui.hostname = self.db.get('netcfg/get_hostname')
         return plugin.Plugin.prepare(unfiltered)
+
+
+def get_ping_info():
+    base = os.environ.get("UBUNTU_ONE_URL", UBUNTU_ONE_URL)
+    url = base + "oauth/sso-finished-so-get-tokens/{email}"
+    params = dict(platform=platform.system(),
+                  platform_version=platform.release(),
+                  platform_arch=platform.machine(),
+                  client_version=PLUGIN_VERSION)
+    return (url, params)
+
+
+def get_token_name(hostname):
+    computer_name = hostname.replace(TOKEN_SEPARATOR,
+                                     SEPARATOR_REPLACEMENT)
+    return TOKEN_SEPARATOR.join((U1_APP_NAME, computer_name))
 
 
 class PageGtk(plugin.PluginUI):
@@ -156,13 +110,125 @@ class PageGtk(plugin.PluginUI):
         self.page = builder.get_object('stepUbuntuOne')
         self.notebook_main.set_show_tabs(False)
         self.plugin_widgets = self.page
-        self.oauth_token = None
         self.skip_step = False
         self.online = False
+
         self.label_global_error.set_text("")
-        # the worker
-        self.ubuntu_sso = UbuntuSSO()
+        self._generic_error = "error"
+
+        self.oauth_token = None
+        self.ping_successful = False
+        self.account_creation_successful = False
+
+        self.hostname = ""
+
+        from gi.repository import Soup
+        self.soup = Soup
+        self.session = Soup.SessionAsync()
+        if "DEBUG_SSO_API" in os.environ:
+            self.session.add_feature(Soup.Logger.new(Soup.LoggerLogLevel.BODY,
+                                                     -1))
+
         self.info_loop(None)
+
+    def login_to_sso(self, email, password, token_name, from_page):
+        """Queue POST message to /tokens to get oauth token.
+        See _handle_soup_message_done() for completion details.
+        """
+        body = json.dumps({'email': email,
+                           'password': password,
+                           'token_name': token_name})
+        service_url = os.environ.get("UBUNTU_SSO_URL", UBUNTU_SSO_URL)
+        tokens_url = service_url + "tokens/oauth"
+        message = self.soup.Message.new("POST", tokens_url)
+        message.set_request('application/json',
+                            self.soup.MemoryUse.COPY,
+                            body, len(body))
+        message.request_headers.append('Accept', 'application/json')
+
+        self.session.queue_message(message, self._handle_soup_message_done,
+                                   dict(action=TOKEN_CALLBACK_ACTION,
+                                        from_page=from_page))
+
+    def register_new_sso_account(self, email, password, displayname):
+        """Queue POST to /accounts to register new account and get token.
+        See _handle_soup_message_done() for completion details.
+        """
+        params = {'email': email,
+                  'password': password,
+                  'displayname': displayname}
+        body = json.dumps(params)
+        service_url = os.environ.get("UBUNTU_SSO_URL", UBUNTU_SSO_URL)
+        accounts_url = service_url + "accounts"
+        message = self.soup.Message.new("POST", accounts_url)
+        message.set_request('application/json',
+                            self.soup.MemoryUse.COPY,
+                            body, len(body))
+        message.request_headers.append('Accept', 'application/json')
+
+        self.session.queue_message(message, self._handle_soup_message_done,
+                                   dict(action=ACCOUNT_CALLBACK_ACTION,
+                                        from_page=PAGE_REGISTER))
+
+    def _handle_soup_message_done(self, session, message, info):
+        """Handle message completion, check for errors."""
+        from gi.repository import Gtk
+        syslog.syslog("soup message ({}) code: {}".format(info,
+                                                          message.status_code))
+        content = message.response_body.flatten().get_data().decode("utf-8")
+
+        if message.status_code in [http.client.OK, http.client.CREATED]:
+            if info['action'] == TOKEN_CALLBACK_ACTION:
+                self.oauth_token = content
+            elif info['action'] == PING_CALLBACK_ACTION:
+                self.ping_successful = True
+            elif info['action'] == ACCOUNT_CALLBACK_ACTION:
+                self.account_creation_successful = True
+        else:
+            self.notebook_main.set_current_page(info['from_page'])
+
+            syslog.syslog("Error in soup message: %r" % message.reason_phrase)
+            syslog.syslog("Error response headers: %r" %
+                          message.get_property("response-headers"))
+            syslog.syslog("error response body: %r " %
+                          message.response_body.flatten().get_data())
+
+            try:
+                response_dict = json.loads(content)
+                error_message = response_dict["message"]
+            except ValueError:
+                error_message = self._generic_error
+
+            self.label_global_error.set_markup("<b><big>%s</big></b>" %
+                                               error_message)
+
+        Gtk.main_quit()
+
+    def ping_u1_url(self, email, from_page):
+        """Sign and GET a URL to enable U1 server access."""
+        token = json.loads(self.oauth_token)
+
+        oauth_client = Client(token['consumer_key'],
+                              token['consumer_secret'],
+                              token['token_key'],
+                              token['token_secret'],
+                              signature_method=SIGNATURE_HMAC,
+                              signature_type=SIGNATURE_TYPE_AUTH_HEADER)
+
+        url, params = get_ping_info()
+        url = url.format(email=email)
+        url += "?" + urlencode(params)
+        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        signed_url, signed_headers, _ = oauth_client.sign(url, "GET", {},
+                                                          headers=headers)
+        message = self.soup.Message.new("GET", signed_url)
+
+        for k, v in signed_headers.items():
+            message.request_headers.append(k, v)
+
+        self.session.queue_message(message, self._handle_soup_message_done,
+                                   dict(action=PING_CALLBACK_ACTION,
+                                        from_page=from_page))
 
     def plugin_set_online_state(self, state):
         self.online = state
@@ -180,34 +246,72 @@ class PageGtk(plugin.PluginUI):
         from gi.repository import Gtk
         if self.skip_step:
             return False
-        if self.notebook_main.get_current_page() == PAGE_REGISTER:
-            self.ubuntu_sso.register(self.entry_email.get_text(),
-                                     self.entry_new_password.get_text(),
-                                     callback=self._ubuntu_sso_callback,
-                                     errback=self._ubuntu_sso_errback,
-                                     data=PAGE_REGISTER)
-        elif self.notebook_main.get_current_page() == PAGE_LOGIN:
-            self.ubuntu_sso.login(self.entry_existing_email.get_text(),
-                                  self.entry_existing_password.get_text(),
-                                  callback=self._ubuntu_sso_callback,
-                                  errback=self._ubuntu_sso_errback,
-                                  data=PAGE_LOGIN)
-        else:
-            raise AssertionError("Should never be reached happen")
 
+        from_page = self.notebook_main.get_current_page()
         self.notebook_main.set_current_page(PAGE_SPINNER)
         self.spinner_connect.start()
-        # the ubuntu_sso.{login,register} will stop this loop when its done
+
+        if from_page == PAGE_REGISTER:
+
+            # First create new account before getting token:
+            email = self.entry_email.get_text()
+            password = self.entry_new_password.get_text()
+            displayname = email # TODO get real displayname from UI
+
+            try:
+                self.register_new_sso_account(email, password, displayname)
+            except Exception:
+                syslog.syslog("exception in register_new_sso_account: %r" %
+                              traceback.format_exc())
+                return True
+
+            Gtk.main()
+
+            if not self.account_creation_successful:
+                syslog.syslog("Error registering SSO account, exiting.")
+                return True
+
+        elif from_page == PAGE_LOGIN:
+            email = self.entry_existing_email.get_text()
+            password = self.entry_existing_password.get_text()
+
+        else:
+            raise AssertionError("'Next' from invalid page: %r" % from_page)
+
+        # Now get the token, regardless of which page we came from
+        try:
+            self.login_to_sso(email, password,
+                              get_token_name(self.hostname),
+                              from_page)
+        except Exception:
+            syslog.syslog("exception in login_to_sso: %r" %
+                          traceback.format_exc())
+            return True
+
         Gtk.main()
+
+        if self.oauth_token is None:
+            syslog.syslog("Error getting oauth_token, not creating keyring")
+            return True
+
+        try:
+            self.ping_u1_url(email, from_page)
+        except Exception:
+            syslog.syslog("exception in ping_u1_url: %r" %
+                          traceback.format_exc())
+
+        Gtk.main()
+
         self.spinner_connect.stop()
 
-        # if there is no token at this point, there is a error,
-        # so stop moving forward
-        if self.oauth_token is None:
+        if not self.ping_successful:
+            syslog.syslog("Error pinging U1 URL, not creating keyring")
             return True
 
         # all good, create a (encrypted) keyring and store the token for later
-        self._create_keyring_and_store_u1_token(self.oauth_token)
+        rv = self._create_keyring_and_store_u1_token(self.oauth_token)
+        if rv != 0:
+            return True
         return False
 
     def _create_keyring_and_store_u1_token(self, token):
@@ -216,24 +320,6 @@ class PageGtk(plugin.PluginUI):
         # root and it seems that anything other than "drop_all_privileges"
         # will not trigger the correct dbus activation for the
         # gnome-keyring daemon
-        #
-        # mvo: We could do this in the "install" phase too, but more fragile
-        #      I think, here is what would be required:
-        #      - copy over XAUTHORITY to /target/home/$targetuser/.Xauthority
-        #      - chown $targetuser.$targetuser \
-        #            /target/home/$targetuser/.Xauthority
-        #      - (bind)mount /proc in /target
-        #      - run "dbus-uuidgen --ensure" in /target to get a dbus 
-        #        machine-id
-        #      - run the helper with:
-        #        chroot /target sudo -u $targetuser HOME=/home/$targetuser \
-        #         XAUTHORITY=/home/$targetuser/.Xauthority \
-        #         DBUS_SESSION_BUS_ADDRESS="autolaunch:" \
-        #         ubuntuone-keyring-helper
-        #      - ensure that the dbus-daemon and gnome-keyring-daemon that
-        #        get spawned in /target get killed so that /target can
-        #        get unmounted again
-        #      - umount /proc
         p = subprocess.Popen(
             ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
             stdin=subprocess.PIPE,
@@ -245,6 +331,7 @@ class PageGtk(plugin.PluginUI):
         p.stdin.write("\n")
         res = p.wait()
         syslog.syslog("keyring helper returned %s" % res)
+        return res
 
     def plugin_translate(self, lang):
         pasw = self.controller.get_string('password_inactive_label', lang)
@@ -261,25 +348,8 @@ class PageGtk(plugin.PluginUI):
             'error_register', lang)
         self._error_login = self.controller.get_string(
             'error_login', lang)
-
-    # callbacks
-    def _ubuntu_sso_callback(self, oauth_token, data):
-        """Called when a oauth token was returned successfully"""
-        from gi.repository import Gtk
-        self.oauth_token = oauth_token
-        Gtk.main_quit()
-
-    def _ubuntu_sso_errback(self, error, data):
-        """Called when a error acquiring the oauth token from the helper"""
-        from gi.repository import Gtk
-        syslog.syslog("ubuntu sso failed: '%s'" % error)
-        self.notebook_main.set_current_page(data)
-        if data == PAGE_REGISTER:
-            err = self._error_register
-        else:
-            err = self._error_login
-        self.label_global_error.set_markup("<b><big>%s</big></b>" % err)
-        Gtk.main_quit()
+        self._generic_error = self.controller.get_string(
+            'generic_error', lang)
 
     # signals
     def on_button_have_account_clicked(self, button):
@@ -295,9 +365,7 @@ class PageGtk(plugin.PluginUI):
 
     def _verify_email_entry(self, email):
         """Return True if the email address looks valid"""
-        EMAIL_REGEXP = "[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+"
-        match = re.match(EMAIL_REGEXP, email)
-        return (match is not None)
+        return '@' in email
 
     def _verify_password_entry(self, password):
         """Return True if there is a valid password"""
