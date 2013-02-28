@@ -12,6 +12,9 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   * Decode the output of apt_pkg.size_to_str() if necessary when
     substituting it into Unicode strings (LP: #877756, #1132918).
 
+  [ Julien Lavergne ]
+  * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
 ubiquity (2.13.12) raring; urgency=low

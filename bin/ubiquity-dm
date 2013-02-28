@@ -326,6 +326,7 @@ EndSection
                     '/usr/share/backgrounds/edubuntu_default.png',
                     '/usr/share/xfce4/backdrops/macinnis_wallpaper.png',
                     '/usr/share/xfce4/backdrops/xubuntu-precise-right.png',
+                    '/usr/share/lubuntu/wallpapers/lubuntu-default-wallpaper.png',
                     '/usr/share/backgrounds/warty-final-ubuntu.png'):
                 exists = os.access(background, os.R_OK)
                 if exists:
@@ -378,6 +379,12 @@ EndSection
                         [gsd], stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
 
+                elif background_image and osextras.find_on_path('feh'):
+                    subprocess.call(
+                        ['feh', '--bg-fill', background_image],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges)
+
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
                         ['gsettings', 'set', gs_schema, gs_key, gs_value],
@@ -415,13 +422,6 @@ EndSection
                     'No window manager found (tried '
                     'metacity, xfwm4, matchbox-window-manager, '
                     'openbox-lubuntu, openbox, compiz)')
-
-            if background_image and not gsettings._gsettings_exists():
-                extras.append(
-                    subprocess.Popen(
-                        ['/usr/lib/ubiquity/wallpaper', background_image],
-                        stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
 
             wm = subprocess.Popen(
                 wm_cmd, stdin=null, stdout=logfile, stderr=logfile,
