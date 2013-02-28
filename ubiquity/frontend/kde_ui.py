@@ -47,6 +47,7 @@ import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
 from ubiquity.frontend.kde_components import ProgressDialog
 from ubiquity.frontend.kde_components.Breadcrumb import Breadcrumb
+from ubiquity.frontend.kde_components import qssutils
 from ubiquity.plugin import Plugin
 import ubiquity.progressposition
 
@@ -150,8 +151,7 @@ class Wizard(BaseFrontend):
         sys.excepthook = self.excepthook
 
         self.app = QtGui.QApplication([])
-        with open(os.path.join(UIDIR, "style.qss")) as style:
-            self.app.setStyleSheet(style.read())
+        self._apply_stylesheet()
 
         self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity"))
         import dbus.mainloop.qt
@@ -301,6 +301,10 @@ class Wizard(BaseFrontend):
         # "- 1" to insert before the bottom spacer
         layout.insertWidget(layout.count() - 1, widget)
         return widget
+
+    def _apply_stylesheet(self):
+        qss = qssutils.load("style.qss", ltr=QtGui.QApplication.isLeftToRight())
+        self.app.setStyleSheet(qss)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -564,7 +568,11 @@ class Wizard(BaseFrontend):
         else:
             locale = QtCore.QLocale(lang)
             direction = locale.textDirection()
+
+        if direction == self.app.layoutDirection():
+            return
         self.app.setLayoutDirection(direction)
+        self._apply_stylesheet()
         self.update_back_button()
         self.update_next_button()
 

@@ -24,8 +24,9 @@
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import Qt
 
-__all__ = ["Breadcrumb"]
+from ubiquity.frontend.kde_components import qssutils
 
+__all__ = ["Breadcrumb"]
 
 class Breadcrumb(QtGui.QFrame):
     TODO = 0
@@ -70,41 +71,49 @@ class Breadcrumb(QtGui.QFrame):
         return super(Breadcrumb, self).event(event)
 
     def _updateFromState(self):
-        if QtGui.QApplication.isRightToLeft():
-            dct = _TICK_DICT_RTL
+        _initDicts()
+        if QtGui.QApplication.isLeftToRight():
+            tickDict = _TICK_DICT_LTR
+            qssDict = _QSS_DICT_LTR
         else:
-            dct = _TICK_DICT_LTR
-        self._tickLabel.setText(dct[self._state])
-        self.setStyleSheet(_CSS_DICT[self._state])
+            tickDict = _TICK_DICT_RTL
+            qssDict = _QSS_DICT_RTL
+        self._tickLabel.setText(tickDict[self._state])
+        self.setStyleSheet(qssDict[self._state])
 
 
-_TICK_DICT_LTR = {
-    Breadcrumb.TODO: "•",
-    Breadcrumb.CURRENT: "▸",
-    Breadcrumb.DONE: "✓",
-}
-
-_TICK_DICT_RTL = {
-    Breadcrumb.TODO: "•",
-    Breadcrumb.CURRENT: "◂",
-    Breadcrumb.DONE: "✓",
-}
+_TICK_DICT_RTL = {}
+_TICK_DICT_LTR = {}
+_QSS_DICT_RTL = {}
+_QSS_DICT_LTR = {}
 
 
-_CSS_DICT = {
-    Breadcrumb.TODO: "",
-    Breadcrumb.CURRENT: """
-    QFrame {
-        border-top-width: 10px;
-        border-bottom-width: 10px;
-        background-image: none;
-        border-image: url(/usr/share/ubiquity/qt/images/breadcrumb.png) 10px;
+def _initDicts():
+    # Postpone initialization until we need them: reading and processing text
+    # files at import time is rude.
+    global _TICK_DICT_LTR, _TICK_DICT_RTL, _QSS_DICT_RTL, _QSS_DICT_LTR
+    if _TICK_DICT_LTR:
+        return
+    _TICK_DICT_LTR = {
+        Breadcrumb.TODO: "•",
+        Breadcrumb.CURRENT: "▸",
+        Breadcrumb.DONE: "✓",
     }
-    .QLabel {
-        color: #333;
-        border-width: 0px;
-        border-image: none;
+
+    _TICK_DICT_RTL = {
+        Breadcrumb.TODO: "•",
+        Breadcrumb.CURRENT: "◂",
+        Breadcrumb.DONE: "✓",
     }
-    """,
-    Breadcrumb.DONE: "",
-}
+
+    _QSS_DICT_LTR = {
+        Breadcrumb.TODO: "",
+        Breadcrumb.CURRENT: qssutils.load("breadcrumb_current.qss", ltr=True),
+        Breadcrumb.DONE: "",
+    }
+
+    _QSS_DICT_RTL = {
+        Breadcrumb.TODO: "",
+        Breadcrumb.CURRENT: qssutils.load("breadcrumb_current.qss", ltr=False),
+        Breadcrumb.DONE: "",
+    }
