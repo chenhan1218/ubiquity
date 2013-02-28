@@ -561,7 +561,6 @@ class Wizard(BaseFrontend):
 
         webView.load(QtCore.QUrl(slides))
 
-
     def set_layout_direction(self, lang=None):
         if not lang:
             lang = self.locale
