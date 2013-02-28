@@ -279,8 +279,8 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.breadcrumb_install.hide()
 
+        self.update_back_button()
         self.update_next_button(install=False)
-        self.ui.back.setIcon(QtGui.QIcon.fromTheme("go-previous"))
         self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
 
         self._show_progress_bar(False)
@@ -565,6 +565,9 @@ class Wizard(BaseFrontend):
         else:
             direction = QtCore.Qt.LeftToRight
         self.app.setLayoutDirection(direction)
+        self.update_back_button()
+        self.update_next_button()
+
 
     def all_children(self, parentWidget=None):
         if parentWidget is None:
@@ -793,13 +796,26 @@ class Wizard(BaseFrontend):
         else:
             return 0
 
+    def update_back_button(self):
+        if QtGui.QApplication.isRightToLeft():
+            icon = "go-next"
+        else:
+            icon = "go-previous"
+        self.ui.back.setIcon(QtGui.QIcon.fromTheme(icon))
+
     def update_next_button(self, install=None):
+        if install is None:
+            install = self.ui.next.icon().name() == "dialog-ok-apply"
+
         if install:
             text = self.get_string('install_button')
             icon = "dialog-ok-apply"
         else:
             text = self.get_string('next')
-            icon = "go-next"
+            if QtGui.QApplication.isRightToLeft():
+                icon = "go-previous"
+            else:
+                icon = "go-next"
         text = text.replace('_', '&', 1)
 
         self.ui.next.setIcon(QtGui.QIcon.fromTheme(icon))
