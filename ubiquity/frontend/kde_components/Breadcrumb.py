@@ -28,6 +28,7 @@ from ubiquity.frontend.kde_components import qssutils
 
 __all__ = ["Breadcrumb"]
 
+
 class Breadcrumb(QtGui.QFrame):
     TODO = 0
     CURRENT = 1
@@ -66,7 +67,7 @@ class Breadcrumb(QtGui.QFrame):
         return self._mainLabel.text()
 
     def event(self, event):
-        if event.type() in (QtCore.QEvent.ApplicationLayoutDirectionChange, QtCore.QEvent.LayoutDirectionChange):
+        if event.type() == QtCore.QEvent.LayoutDirectionChange:
             self._updateFromState()
         return super(Breadcrumb, self).event(event)
 

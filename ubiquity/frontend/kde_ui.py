@@ -303,7 +303,8 @@ class Wizard(BaseFrontend):
         return widget
 
     def _apply_stylesheet(self):
-        qss = qssutils.load("style.qss", ltr=QtGui.QApplication.isLeftToRight())
+        qss = qssutils.load("style.qss",
+                            ltr=QtGui.QApplication.isLeftToRight())
         self.app.setStyleSheet(qss)
 
     def excepthook(self, exctype, excvalue, exctb):
@@ -575,7 +576,6 @@ class Wizard(BaseFrontend):
         self._apply_stylesheet()
         self.update_back_button()
         self.update_next_button()
-
 
     def all_children(self, parentWidget=None):
         if parentWidget is None:

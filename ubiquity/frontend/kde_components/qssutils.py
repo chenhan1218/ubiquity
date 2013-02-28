@@ -26,6 +26,7 @@ from string import Template
 
 UIDIR = "/usr/share/ubiquity/qt"
 
+
 def load(filename, ltr):
     with open(os.path.join(UIDIR, filename)) as style:
         tmpl = Template(style.read())
