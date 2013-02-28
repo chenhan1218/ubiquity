@@ -45,7 +45,7 @@ if __name__ == "__main__":
         token,
         True)
     if status != GnomeKeyring.Result.OK:
-        syslog.syslog("failed to create item '%s': %s" % (token_name, res))
+        syslog.syslog("failed to create item '%s': %s" % (token_name, status))
         sys.exit(1)
 
     syslog.syslog("Success, created item %r in keyring %r" % (token_name, keyring_name))
