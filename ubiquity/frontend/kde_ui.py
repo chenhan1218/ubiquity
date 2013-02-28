@@ -153,8 +153,7 @@ class Wizard(BaseFrontend):
         with open(os.path.join(UIDIR, "style.qss")) as style:
             self.app.setStyleSheet(style.read())
 
-        self.app.setWindowIcon(QtGui.QIcon(
-            "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
+        self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity"))
         import dbus.mainloop.qt
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
@@ -259,8 +258,6 @@ class Wizard(BaseFrontend):
         # Array to keep callback functions needed by debconf file descriptors.
         self.debconf_callbacks = {}
 
-        self.ui.setWindowIcon(QtGui.QIcon(
-            "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         self.allow_go_backward(False)
 
         self.stop_debconf()
@@ -272,9 +269,7 @@ class Wizard(BaseFrontend):
             self.ui.setWindowTitle(self.get_string('oem_config_title'))
         elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
-            self.ui.setWindowIcon(QtGui.QIcon(
-                "/usr/share/icons/oxygen/128x128/categories/"
-                "preferences-system.png"))
+            self.ui.setWindowIcon(QtGui.QIcon.fromTheme("preferences-system"))
             flags = self.ui.windowFlags() ^ QtCore.Qt.WindowMinMaxButtonsHint
             if hasattr(QtCore.Qt, 'WindowCloseButtonHint'):
                 flags = flags ^ QtCore.Qt.WindowCloseButtonHint
@@ -285,14 +280,8 @@ class Wizard(BaseFrontend):
             self.breadcrumb_install.hide()
 
         self.update_next_button(install=False)
-
-        backIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/128x128/actions/go-previous.png")
-        self.ui.back.setIcon(backIcon)
-
-        quitIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/48x48/actions/dialog-close.png")
-        self.ui.quit.setIcon(quitIcon)
+        self.ui.back.setIcon(QtGui.QIcon.fromTheme("go-previous"))
+        self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
 
         self._show_progress_bar(False)
 
