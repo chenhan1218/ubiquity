@@ -49,11 +49,14 @@ class Breadcrumb(QtGui.QFrame):
         layout.addWidget(self._tickLabel)
         layout.addWidget(self._mainLabel)
 
+        self._state = None
         self.setState(Breadcrumb.TODO)
 
     def setState(self, state):
-        self._tickLabel.setText(_TICK_DICT[state])
-        self.setStyleSheet(_CSS_DICT[state])
+        if self._state == state:
+            return
+        self._state = state
+        self._updateFromState()
 
     def setText(self, text):
         self._mainLabel.setText(text)
@@ -61,10 +64,29 @@ class Breadcrumb(QtGui.QFrame):
     def text(self):
         return self._mainLabel.text()
 
+    def event(self, event):
+        if event.type() in (QtCore.QEvent.ApplicationLayoutDirectionChange, QtCore.QEvent.LayoutDirectionChange):
+            self._updateFromState()
+        return super(Breadcrumb, self).event(event)
 
-_TICK_DICT = {
+    def _updateFromState(self):
+        if QtGui.QApplication.isRightToLeft():
+            dct = _TICK_DICT_RTL
+        else:
+            dct = _TICK_DICT_LTR
+        self._tickLabel.setText(dct[self._state])
+        self.setStyleSheet(_CSS_DICT[self._state])
+
+
+_TICK_DICT_LTR = {
     Breadcrumb.TODO: "•",
-    Breadcrumb.CURRENT: "‣",
+    Breadcrumb.CURRENT: "▸",
+    Breadcrumb.DONE: "✓",
+}
+
+_TICK_DICT_RTL = {
+    Breadcrumb.TODO: "•",
+    Breadcrumb.CURRENT: "◂",
     Breadcrumb.DONE: "✓",
 }
 
