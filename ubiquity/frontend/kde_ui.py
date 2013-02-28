@@ -557,13 +557,13 @@ class Wizard(BaseFrontend):
     def set_layout_direction(self, lang=None):
         if not lang:
             lang = self.locale
-        # TODO: At the moment we have to special-case languages. This will
-        # be easier to fix when we move to cdebconf and have the
-        # debconf/text-direction template easily available.
-        if lang.startswith('ar') or lang.startswith('he'):
+        if lang in ("ug",):
+            # Special case for languages for which Qt does not know the script
+            # direction
             direction = QtCore.Qt.RightToLeft
         else:
-            direction = QtCore.Qt.LeftToRight
+            locale = QtCore.QLocale(lang)
+            direction = locale.textDirection()
         self.app.setLayoutDirection(direction)
         self.update_back_button()
         self.update_next_button()
