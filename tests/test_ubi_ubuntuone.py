@@ -175,7 +175,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
                                ubi_ubuntuone.PAGE_REGISTER)
-        self.assertEqual(self.page.oauth_token,
+        self.assertEqual(self.page.oauth_token_json,
                          expected_body)
 
     def test_handle_done_token_CREATED(self, mock_gtk_main):
@@ -184,7 +184,7 @@ class SSOAPITestCase(BaseTestPageGtk):
                                expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
                                ubi_ubuntuone.PAGE_REGISTER)
-        self.assertEqual(self.page.oauth_token,
+        self.assertEqual(self.page.oauth_token_json,
                          expected_body)
 
     def test_handle_done_ping_OK(self, mock_gtk_main):
@@ -208,7 +208,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self._call_handle_done(http.client.GONE, expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
                                ubi_ubuntuone.PAGE_REGISTER)
-        self.assertEqual(self.page.oauth_token, None)
+        self.assertEqual(self.page.oauth_token_json, None)
         self.assertEqual(self.page.label_global_error.get_text(),
                          "tstmsg")
 
@@ -322,7 +322,7 @@ class SSOAPITestCase(BaseTestPageGtk):
                                         'token_secret': 'ts'}
 
         with patch.multiple(self.page, soup=DEFAULT, session=DEFAULT,
-                            oauth_token=sentinel.token) as mocks:
+                            oauth_token_json=sentinel.token) as mocks:
             self.page.ping_u1_url(email, from_page)
 
             mock_json_loads.assert_called_once_with(sentinel.token)
@@ -351,6 +351,30 @@ class SSOAPITestCase(BaseTestPageGtk):
 
             self.assertEqual(mocks['session'].mock_calls, e)
 
+
+class CreateKeyringTestCase(BaseTestPageGtk):
+
+    @patch('ubiquity.misc.drop_all_privileges', sentinel.drop_privs)
+    @patch('subprocess.PIPE', sentinel.PIPE)
+    @patch('subprocess.Popen')
+    @patch('os.environ.get')
+    def test_create_keyring_urlencoded(self, mock_os_env_get, mock_Popen):
+        mock_os_env_get.return_value = 'cmd'
+        d_json = json.dumps({'A': 'b/f'})
+        self.page._user_password = "test password"
+        self.page._create_keyring_and_store_u1_token(d_json)
+
+        mock_Popen.assert_called_with(['cmd'], stdin=sentinel.PIPE,
+                                      preexec_fn=sentinel.drop_privs)
+        mock_stdin = mock_Popen.return_value
+
+        e = [call.stdin.write(b'test password'),
+             call.stdin.write(b'\n'),
+             call.stdin.write(b'A=b%2Ff'),
+             call.stdin.write(b'\n'),
+             call.wait()]
+
+        mock_stdin.assert_has_calls(e)
 
 if __name__ == '__main__':
     # run tests in a sourcetree with:

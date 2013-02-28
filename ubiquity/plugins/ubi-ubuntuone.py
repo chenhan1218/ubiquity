@@ -116,7 +116,7 @@ class PageGtk(plugin.PluginUI):
         self.label_global_error.set_text("")
         self._generic_error = "error"
 
-        self.oauth_token = None
+        self.oauth_token_json = None
         self.ping_successful = False
         self.account_creation_successful = False
 
@@ -179,7 +179,7 @@ class PageGtk(plugin.PluginUI):
 
         if message.status_code in [http.client.OK, http.client.CREATED]:
             if info['action'] == TOKEN_CALLBACK_ACTION:
-                self.oauth_token = content
+                self.oauth_token_json = content
             elif info['action'] == PING_CALLBACK_ACTION:
                 self.ping_successful = True
             elif info['action'] == ACCOUNT_CALLBACK_ACTION:
@@ -206,7 +206,7 @@ class PageGtk(plugin.PluginUI):
 
     def ping_u1_url(self, email, from_page):
         """Sign and GET a URL to enable U1 server access."""
-        token = json.loads(self.oauth_token)
+        token = json.loads(self.oauth_token_json)
 
         oauth_client = Client(token['consumer_key'],
                               token['consumer_secret'],
@@ -290,7 +290,7 @@ class PageGtk(plugin.PluginUI):
 
         Gtk.main()
 
-        if self.oauth_token is None:
+        if self.oauth_token_json is None:
             syslog.syslog("Error getting oauth_token, not creating keyring")
             return True
 
@@ -309,28 +309,32 @@ class PageGtk(plugin.PluginUI):
             return True
 
         # all good, create a (encrypted) keyring and store the token for later
-        rv = self._create_keyring_and_store_u1_token(self.oauth_token)
+        rv = self._create_keyring_and_store_u1_token(self.oauth_token_json)
         if rv != 0:
+            syslog.syslog("Error creating keyring, u1 token not saved.")
             return True
+
         return False
 
-    def _create_keyring_and_store_u1_token(self, token):
+    def _create_keyring_and_store_u1_token(self, token_json):
         """Helper that spawns a external helper to create the keyring"""
         # this needs to be a external helper as ubiquity is running as
         # root and it seems that anything other than "drop_all_privileges"
         # will not trigger the correct dbus activation for the
         # gnome-keyring daemon
-        p = subprocess.Popen(
-            ["/usr/share/ubiquity/ubuntuone-keyring-helper"],
-            stdin=subprocess.PIPE,
-            preexec_fn=misc.drop_all_privileges,
-            universal_newlines=True)
-        p.stdin.write(self._user_password)
-        p.stdin.write("\n")
-        p.stdin.write(token)
-        p.stdin.write("\n")
+
+        token_dict = json.loads(token_json)
+        urlencoded_token = urlencode(token_dict)
+
+        cmd = os.environ.get("U1_KEYRING_HELPER",
+                             "/usr/share/ubiquity/ubuntuone-keyring-helper")
+        p = subprocess.Popen([cmd], stdin=subprocess.PIPE,
+                             preexec_fn=misc.drop_all_privileges)
+        p.stdin.write(self._user_password.encode("utf-8"))
+        p.stdin.write(b"\n")
+        p.stdin.write(urlencoded_token.encode("utf-8"))
+        p.stdin.write(b"\n")
         res = p.wait()
-        syslog.syslog("keyring helper returned %s" % res)
         return res
 
     def plugin_translate(self, lang):
