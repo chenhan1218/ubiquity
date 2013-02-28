@@ -13,10 +13,11 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
     substituting it into Unicode strings (LP: #877756, #1132918).
 
   [ Aurélien Gâteau ]
-  * Turns the Ubiquity KDE window into a regular window and rework 
-    the layout of widgets to provide more space to the main content. 
-    The labels on the left now wrap to the next line if they are too long, 
+  * Turns the Ubiquity KDE window into a regular window and rework
+    the layout of widgets to provide more space to the main content.
+    The labels on the left now wrap to the next line if they are too long,
     ensuring they are never truncated.
+  * KDE: Improve the layout of Prepare step
 
   [ Julien Lavergne ]
   * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
