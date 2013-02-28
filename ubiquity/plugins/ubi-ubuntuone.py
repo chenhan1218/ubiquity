@@ -444,7 +444,7 @@ class Install(plugin.InstallPlugin):
                 subprocess.call(
                     ["chroot", target,  "sudo", "-u", target_user, "--",
                      "mkdir", "-p", basedir_in_chroot])
-            shutil.copy2(self.KEYRING_FILE, targetpath)
+            shutil.copy2(keyring_file, targetpath)
             os.lchown(targetpath, uid, uid)
             os.chmod(targetpath, 0o600)
             os.chmod(basedir, 0o700)
