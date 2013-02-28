@@ -105,7 +105,9 @@ class WidgetTests(unittest.TestCase):
         self.assertEqual(gtkwidgets.gtk_to_cairo_color('white'),
                          (1.0, 1.0, 1.0))
         self.assertEqual(gtkwidgets.gtk_to_cairo_color('black'), (0, 0, 0))
-        self.assertEqual(gtkwidgets.gtk_to_cairo_color('green'), (0, 1.0, 0))
+        # After all these years a discrepancy between X11 green and CSS
+        # green was noticed
+        self.assertEqual(gtkwidgets.gtk_to_cairo_color('#00ff00'), (0, 1.0, 0))
         self.assertEqual(gtkwidgets.gtk_to_cairo_color('red'), (1.0, 0, 0))
         self.assertEqual(gtkwidgets.gtk_to_cairo_color('blue'), (0, 0, 1.0))
 
