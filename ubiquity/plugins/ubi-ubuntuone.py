@@ -58,6 +58,7 @@ class Page(plugin.Plugin):
 
     def prepare(self, unfiltered=False):
         self.ui._user_password = self.db.get('passwd/user-password')
+        self.ui.hostname = self.db.get('netcfg/get_hostname')
         return plugin.Plugin.prepare(unfiltered)
 
 
@@ -111,12 +112,16 @@ class PageGtk(plugin.PluginUI):
         self.plugin_widgets = self.page
         self.skip_step = False
         self.online = False
+
         self.label_global_error.set_text("")
         self._generic_error = "error"
 
         self.oauth_token = None
         self.ping_successful = False
         self.account_creation_successful = False
+
+        self.hostname = ""
+
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
@@ -275,8 +280,8 @@ class PageGtk(plugin.PluginUI):
 
         # Now get the token, regardless of which page we came from
         try:
-            hostname = self.db.get('netcfg/get_hostname')
-            self.login_to_sso(email, password, get_token_name(hostname),
+            self.login_to_sso(email, password,
+                              get_token_name(self.hostname),
                               from_page)
         except Exception:
             syslog.syslog("exception in login_to_sso: %r" %
