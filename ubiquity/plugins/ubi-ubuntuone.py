@@ -324,6 +324,11 @@ class PageGtk(plugin.PluginUI):
         # gnome-keyring daemon
 
         token_dict = json.loads(token_json)
+        # duplicate two keys in the stored token, for compatibility
+        # with clients expecting V1 API keys. See bug LP: #1136590 to
+        # check if we can remove this.
+        token_dict['token'] = token_dict['token_key']
+        token_dict['name'] = token_dict['token_name']
         urlencoded_token = urlencode(token_dict)
 
         cmd = os.environ.get("U1_KEYRING_HELPER",
