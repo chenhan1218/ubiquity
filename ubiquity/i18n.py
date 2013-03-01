@@ -19,15 +19,15 @@
 
 from __future__ import print_function
 
+import codecs
+from functools import reduce
+import locale
+import os
 import re
 import subprocess
-import codecs
-import os
-import locale
 import sys
-from functools import reduce
 
-from ubiquity import misc, im_switch
+from ubiquity import im_switch, misc
 
 
 def reset_locale(frontend):

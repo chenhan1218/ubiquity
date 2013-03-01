@@ -32,13 +32,12 @@ import sys
 
 from gi.repository import GLib
 
-from ubiquity import filteredcommand, i18n
-from ubiquity import misc
+from ubiquity import filteredcommand, i18n, misc
 from ubiquity.components import install, plugininstall, partman_commit
-from ubiquity.plugin import Plugin
-import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
+from ubiquity.plugin import Plugin
+import ubiquity.progressposition
 
 
 class Wizard(BaseFrontend):

@@ -730,12 +730,14 @@ class TestPageGtk(unittest.TestCase):
         # Without this, GtkBuilder cannot construct ResizeWidget and
         # PartitionBox widgets.
         from ubiquity import gtkwidgets
+
         gtkwidgets  # pacify pyflakes
         controller = mock.Mock()
         self.gtk = ubi_partman.PageGtk(controller)
 
     def test_advanced_page_link(self):
         from ubiquity import gtkwidgets
+
         self.gtk.part_auto_hidden_label.emit('activate-link', '')
         gtkwidgets.refresh()
         self.gtk.controller.go_forward.assert_called_once_with()

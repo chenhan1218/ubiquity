@@ -21,33 +21,30 @@
 
 from __future__ import print_function
 
-import sys
+import fcntl
+import gzip
 import os
 import platform
-import stat
-import re
-import textwrap
-import shutil
-import subprocess
-import struct
-import socket
-import fcntl
-import traceback
-import syslog
-import gzip
 import pwd
+import re
+import shutil
+import socket
+import stat
+import struct
+import subprocess
+import sys
+import syslog
+import textwrap
+import traceback
 
-import debconf
 import apt_pkg
 from apt.cache import Cache
+import debconf
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from ubiquity import misc
-from ubiquity import install_misc
-from ubiquity import osextras
-from ubiquity import plugin_manager
-from ubiquity.components import apt_setup, hw_detect, check_kernels
+from ubiquity import install_misc, misc, osextras, plugin_manager
+from ubiquity.components import apt_setup, check_kernels, hw_detect
 
 
 INTERFACES_TEXT = """\
@@ -309,6 +306,7 @@ class Install(install_misc.InstallBase):
         self.db.progress('SET', self.count)
         self.db.progress('INFO', 'ubiquity/install/log_files')
         self.copy_logs()
+        self.save_random_seed()
 
         self.db.progress('SET', self.end)
 
@@ -1098,7 +1096,8 @@ class Install(install_misc.InstallBase):
             self.nested_progress_end()
             return
 
-        install_misc.get_remove_list(cache, to_remove, recursive)
+        with cache.actiongroup():
+            install_misc.get_remove_list(cache, to_remove, recursive)
 
         self.db.progress('SET', 1)
         self.progress_region(1, 5)
@@ -1717,6 +1716,44 @@ class Install(install_misc.InstallBase):
                 shutil.move(path, self.target_file('var/log/installer'))
         except IOError:
             pass
+
+    def save_random_seed(self):
+        """Save random seed to the target system.
+
+        This arranges for the installed system to have better entropy on
+        first boot.
+        """
+        if 'UBIQUITY_OEM_USER_CONFIG' in os.environ:
+            return
+
+        try:
+            st = os.stat("/dev/urandom")
+        except OSError:
+            return
+        if not stat.S_ISCHR(st.st_mode):
+            return
+        if not os.path.isdir(self.target_file("var/lib/urandom")):
+            return
+
+        poolbytes = 512
+        try:
+            with open("/proc/sys/kernel/random/poolsize") as poolsize:
+                poolbits = int(poolsize.readline())
+                if poolbits:
+                    poolbytes = int((poolbits + 7) / 8)
+        except IOError:
+            pass
+
+        old_umask = os.umask(0o077)
+        try:
+            with open("/dev/urandom", "rb") as urandom:
+                with open(self.target_file("var/lib/urandom/random-seed"),
+                          "wb") as seed:
+                    seed.write(urandom.read(poolbytes))
+        except IOError:
+            pass
+        finally:
+            os.umask(old_umask)
 
     def cleanup(self):
         """Miscellaneous cleanup tasks."""

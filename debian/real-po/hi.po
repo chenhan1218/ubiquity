@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-08-16 12:12+0000\n"
-"Last-Translator: Ravi Kumar <Unknown>\n"
+"PO-Revision-Date: 2013-01-05 17:59+0000\n"
+"Last-Translator: Anish M. <Unknown>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:04+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -251,6 +251,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;यदि इस कम्पयुटर  का प्रयोग एक से अधिक लोग करेंगे तो आप स्थापना के पश्चात "
+"एकाधिक खाते खोल सकते हैं . &lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -277,6 +279,7 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;शब्दकूट को दोबारा डालें ताकि टंकक त्रुटीयां जांची जा सकें .&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -439,7 +442,7 @@ msgstr "फ़ाइल (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "आप कुबनटु को कहां स्थापित करना चाहेंगे ।"
 
 #. Type: text
 #. Description
@@ -568,34 +571,38 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"हम क्षमा चाहते हैं, क्योंकि संस्थापक ध्वंस हो गया है । इस विन्डो को बंद करने के बाद हम आपको "
+"एकीकृत बग रिर्पोटींग साधन के द्वारा बग रिर्पोट करने देंगे । यह आपके तंत्र तथा अद्यतन "
+"प्रक्रीया के बारे में जानकारी एकत्रित करेगा । यह विवरण हमारे बग ट्रैकर को भेजा जायेगा तथा "
+"कोई एक विकासक, शिघ्रातिशिघ्र  इस समस्या पर ध्यान देगा ।"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_उच्च विषमता (high contrast)"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:85001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_चित्रपट पाठक"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:86001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_कुंजीपटल परिर्वतक"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:87001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_चित्रपट कुंजीपटल"
 
 #. Type: text
 #. Description
@@ -708,19 +715,19 @@ msgstr "विभाजन बनाएँ"
 #. Description
 #: ../ubiquity.templates:103001
 msgid "Size:"
-msgstr ""
+msgstr "आकारः"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:104001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "इस स्थान के आरम्भ से ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:105001
 msgid "End of this space"
-msgstr ""
+msgstr "इस स्थान का अंत ।"
 
 #. Type: text
 #. Description
@@ -1883,6 +1890,8 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"यह लोगिकल वोलयुम मानागमेनट को स्थापित कर देगा । यह सनेपसौट लेने देता है  तथा विभाजनों "
+"के आसानी से आकार बदलनें में मदद करता है ।"
 
 #. Type: text
 #. Description
@@ -1903,6 +1912,9 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"अगर आप अपना कम्पयुटर खो देते हैं तो डिस्क  एनक्रिपस्न आपकी फाईलों की रक्षा करता है ।   "
+"डिस्क  एनक्रिपस्न (disk encryption) करने के बाद हर बार  कम्पयुटर के आरम्भ होने पर आपको "
+"सुरक्षा कुंजी डालने की आवश्यकता होगी ।"
 
 #. Type: text
 #. Description
@@ -1918,6 +1930,9 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">चेतावनी:</span> अगर आप सुरक्षा कुंजी खो देते हैं तोे आपका "
+"सारा डेटा गायब हो जायेगा।  अगर आपको आवश्यकता हो तो अपनी सुरक्षा कुंजी को लिख लें तथा "
+"किसी अन्य सुरक्षित स्थान पर संभाल कर रख लें ।"
 
 #. Type: text
 #. Description
@@ -1929,7 +1944,7 @@ msgstr "अधिक सुरक्षा के लिए:"
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "डिस्क में पड़े खाली स्थान को अधिलेखित करें ।"
 
 #. Type: text
 #. Description
@@ -1941,13 +1956,13 @@ msgstr "स्थापना अधिक लंबा समय ले सक�
 #. description
 #: ../ubiquity.templates:275001
 msgid "LVM..."
-msgstr ""
+msgstr "एल वी एम"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "Volume groups:"
-msgstr ""
+msgstr "वॉल्यूम समूह:"
 
 #. Type: text
 #. Description
@@ -1959,19 +1974,19 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "भौतिक खंड"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "इस विभाजन को गोपित करें (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:281001
 msgid "MB"
-msgstr ""
+msgstr "मे.बा."
 
 #. Type: text
 #. Description
@@ -1980,18 +1995,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"लॉजिकल वॉल्यूम प्रबंधन उबुनटु को एकाधिक भोतिक खंडों को एकल वोल्युम की तरह व्यवहार करने "
+"देता है ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "लॉज़िकल वॉल्यूम व्यवस्थापन:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:284001
 msgid "Encryption options..."
-msgstr ""
+msgstr "गोपनियता विकल्प"
 
 #. Type: title
 #. Description

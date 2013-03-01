@@ -27,9 +27,7 @@ from urllib.parse import quote
 import debconf
 import icu
 
-from ubiquity import plugin
-from ubiquity import i18n
-from ubiquity import misc
+from ubiquity import i18n, misc, plugin
 import ubiquity.tz
 
 
@@ -426,7 +424,10 @@ class Page(plugin.Plugin):
             self.collator = icu.Collator.createInstance(icu.Locale(locale))
         except:
             self.collator = None
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
+            if self.db.fget('time/zone', 'seen') == 'true':
+                self.set_di_country(self.db.get('time/zone'))
+        else:
             self.db.fset('time/zone', 'seen', 'false')
             cc = self.db.get('debian-installer/country')
             try:
@@ -688,16 +689,18 @@ class Page(plugin.Plugin):
             pass
         return rv
 
+    def set_di_country(self, zone):
+        location = self.tzdb.get_loc(zone)
+        if location:
+            self.preseed('debian-installer/country', location.country)
+
     def ok_handler(self):
         zone = self.ui.get_timezone()
         if zone is None:
             zone = self.db.get('time/zone')
         else:
             self.preseed('time/zone', zone)
-        for location in self.tzdb.locations:
-            if location.zone == zone:
-                self.preseed('debian-installer/country', location.country)
-                break
+        self.set_di_country(zone)
         plugin.Plugin.ok_handler(self)
 
     def cleanup(self):
