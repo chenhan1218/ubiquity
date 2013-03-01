@@ -256,7 +256,7 @@ class PageGtk(plugin.PluginUI):
             # First create new account before getting token:
             email = self.entry_email.get_text()
             password = self.entry_new_password.get_text()
-            displayname = email # TODO get real displayname from UI
+            displayname = email  # TODO get real displayname from UI
 
             try:
                 self.register_new_sso_account(email, password, displayname)
