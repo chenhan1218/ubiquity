@@ -197,6 +197,9 @@ class PageGtk(PageBase):
         self.part_auto_hidden_label.connect(
             'activate-link', self.part_auto_hidden_label_activate_link)
 
+        # Define a list to save grub imformation
+        self.grub_options = []
+
     def plugin_get_current_page(self):
         if self.current_page == self.page_ask:
             self.plugin_is_install = self.part_ask_option_is_install()
@@ -562,11 +565,11 @@ class PageGtk(PageBase):
 
     def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
-        options = misc.grub_options()
+        self.grub_options = misc.grub_options()
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
         selected = False
-        for opt in options:
+        for opt in self.grub_options:
             path = opt[0]
             if grub_installable.get(path, False):
                 i = l.append(opt)
@@ -833,6 +836,19 @@ class PageGtk(PageBase):
             # partman expects.
             size_mb = int(partition['resize_min_size']) / 1000000
             cell.set_property('text', '%d MB' % size_mb)
+
+    def partman_column_syst(self, unused_column, cell, model, iterator,
+                            user_data):
+        cell.set_property('text', '')
+        if not (model[iterator][1] and 'id' in model[iterator][1]):
+            return
+        partition = model[iterator][1]['parted']
+        if (partition['fs'] not in ('free', 'linux-swap') and
+                partition['type'] != 'unusable'):
+            for opt in self.grub_options:
+                if partition['path'] in opt:
+                    cell.set_property('text', '%s' % opt[1])
+                    break
 
     @plugin.only_this_page
     def partman_popup(self, widget, event):
@@ -1325,6 +1341,13 @@ class PageGtk(PageBase):
             column_used.set_cell_data_func(cell_used, self.partman_column_used)
             column_used.set_sizing(Gtk.TreeViewColumnSizing.AUTOSIZE)
             self.partition_list_treeview.append_column(column_used)
+
+            cell_syst = Gtk.CellRendererText()
+            column_syst = Gtk.TreeViewColumn(
+                self.controller.get_string('partition_column_syst'), cell_syst)
+            column_syst.set_cell_data_func(cell_syst, self.partman_column_syst)
+            column_syst.set_sizing(Gtk.TreeViewColumnSizing.AUTOSIZE)
+            self.partition_list_treeview.append_column(column_syst)
 
             self.partition_list_treeview.set_model(partition_tree_model)
 

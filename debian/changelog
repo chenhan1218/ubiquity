@@ -26,6 +26,9 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   [ Ma Jun (Kylin Team) ]
   * Fix referencing variable before assignment (LP: #945027)
 
+  [ Kobe Lee ]
+  * Show OS column in manual partitioning page. (LP: #1100694)
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
 ubiquity (2.13.12) raring; urgency=low
