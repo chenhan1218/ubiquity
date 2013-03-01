@@ -8,6 +8,8 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   * Consolidate CssProvider and add make minimal progress bar width 10px,
     in preparation for dot-progress of all steps.
   * Fix colour unit test, the green is no longer what it used to be...
+  * Switch to "NotShowIn=KDE" for ubiquity-gtk desktop files, as most !kde
+    desktop environments use gtk frontend.
 
   [ Colin Watson ]
   * Decode the output of apt_pkg.size_to_str() if necessary when
