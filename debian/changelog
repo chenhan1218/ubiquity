@@ -24,12 +24,16 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
 
   [ Julien Lavergne ]
   * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
-  
+
   [ Ma Jun (Kylin Team) ]
   * Fix referencing variable before assignment (LP: #945027)
 
   [ Kobe Lee ]
   * Show OS column in manual partitioning page. (LP: #1100694)
+
+  [ Stéphane Graber ]
+  * Fix crash in ubi-console-setup when quickly moving back and worth between
+    pages. (LP: #944614)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
