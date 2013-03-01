@@ -87,9 +87,7 @@ class PartMan(QtGui.QWidget):
                 # data for bar display
                 size = int(partition['parted']['size'])
                 fs = partition['parted']['fs']
-                path = partition['parted']['path'].replace("/dev/", "")
-                if fs == "free":
-                    path = fs
+                path = partition['parted']['path']
                 partition_bar.addPartition(path, size, fs)
 
         self.partition_list_treeview.reset()

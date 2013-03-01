@@ -23,8 +23,7 @@ import os
 import subprocess
 import sys
 
-from ubiquity import plugin
-from ubiquity import misc, osextras, i18n, upower
+from ubiquity import i18n, misc, osextras, plugin, upower
 
 
 NAME = 'prepare'
@@ -68,7 +67,7 @@ class PageGtk(PreparePageBase):
     restricted_package_name = 'ubuntu-restricted-addons'
 
     def __init__(self, controller, *args, **kwargs):
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
             self.page = None
             return
         self.controller = controller
@@ -140,7 +139,7 @@ class PageKde(PreparePageBase):
 
     def __init__(self, controller, *args, **kwargs):
         from ubiquity.qtwidgets import StateBox
-        if 'UBIQUITY_AUTOMATIC' in os.environ:
+        if self.is_automatic:
             self.page = None
             return
         self.controller = controller
@@ -205,8 +204,7 @@ class PageKde(PreparePageBase):
     def plugin_translate(self, lang):
         PreparePageBase.plugin_translate(self, lang)
         # gtk does the ${RELEASE} replace for the title in gtk_ui but we do
-        # it per plugin because our title widget is per plugin.  Also add
-        # Bold here (not sure how the gtk side keeps that formatting).
+        # it per plugin because our title widget is per plugin
         release = misc.get_release()
         widgets = (
             self.page.prepare_heading_label,
@@ -217,7 +215,6 @@ class PageKde(PreparePageBase):
             text = widget.text()
             text = text.replace('${RELEASE}', release.name)
             text = text.replace('Ubuntu', 'Kubuntu')
-            text = "<b>" + text + "</b>"
             widget.setText(text)
 
 

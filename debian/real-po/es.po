@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-10 09:22+0000\n"
+"PO-Revision-Date: 2013-01-04 19:48+0000\n"
 "Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:06+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:33+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -123,18 +123,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Esto es una versión previa del instalador ${RELEASE} live ${MEDIUM}. No es "
-"la versión final que vendrá con ${RELEASE} en Octubre de 2012."
+"Este es un lanzamiento previo del instalador del «live ${MEDIUM}» de "
+"${RELEASE}. No es una versión final, que vendrá junto con el lanzamiento "
+"final de ${RELEASE} en abril de 2013."
 
 #. Type: text
 #. Description
@@ -505,7 +501,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:69001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Elija un dispositivo diferente para instalar el gestor de arranque en:"
+msgstr "Elija un dispositivo diferente donde instalar el gestor de arranque:"
 
 #. Type: text
 #. Description
@@ -1175,8 +1171,8 @@ msgid ""
 "in the installed system."
 msgstr ""
 "Ocurrió un error al copiar la configuración de Bluetooth. La instalación "
-"continuará, pero se necesitará configurar Bluetooth de nuevo en el sistema "
-"instalado."
+"continuará, pero se necesitará configurar el Bluetooth de nuevo en el "
+"sistema instalado."
 
 #. Type: error
 #. Description

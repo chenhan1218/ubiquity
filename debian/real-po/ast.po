@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-04 14:52+0000\n"
-"Last-Translator: Xuacu Saturio <xuacusk8@gmail.com>\n"
+"PO-Revision-Date: 2012-10-19 20:47+0000\n"
+"Last-Translator: ivarela <malditoastur@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:04+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -123,18 +123,11 @@ msgstr "Ye dable que quieras <a href=\"update\">anovar esti instalador</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Esto ye una versión previa del instalador ${RELEASE} live ${MEDIUM}. Nun ye "
-"la versión final que vendrá con ${RELEASE} n'Ochobre de 2012."
 
 #. Type: text
 #. Description
@@ -263,6 +256,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Si esti equipu va usalu más d'una persona, pues configurar "
+"delles cuentes dempués de la instalación.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -290,6 +285,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Introduz la mesma contraseña dos vegaes, de mou que puedan "
+"comprobase fallos de tecléu.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -454,7 +451,7 @@ msgstr "Ficheros (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "¿Aú quies instalar Kubuntu?"
 
 #. Type: text
 #. Description

@@ -23,10 +23,8 @@ from __future__ import print_function
 import os
 import re
 
-from ubiquity import plugin
-from ubiquity import keyboard_names
-from ubiquity import misc
-from ubiquity import osextras
+from ubiquity import keyboard_names, misc, osextras, plugin
+
 
 NAME = 'console_setup'
 AFTER = 'timezone'
@@ -104,7 +102,7 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_layout_selected(self, *args):
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+        if not self.is_automatic:
             # Let's not call this every time the user presses a key.
             from gi.repository import GLib
             if self.keyboard_layout_timeout_id:
@@ -126,7 +124,7 @@ class PageGtk(plugin.PluginUI):
 
     @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
-        if not 'UBIQUITY_AUTOMATIC' in os.environ:
+        if not self.is_automatic:
             # Let's not call this every time the user presses a key.
             from gi.repository import GLib
             if self.keyboard_variant_timeout_id:
@@ -510,7 +508,7 @@ class Page(plugin.Plugin):
             # checked by hand. The seen flag on
             # keyboard-configuration/layout is used internally by
             # keyboard-configuration, so we can't just force it to true.
-            if ('UBIQUITY_AUTOMATIC' in os.environ and
+            if (self.is_automatic and
                 self.db.fget(
                     'keyboard-configuration/layoutcode', 'seen') == 'true'):
                 return True

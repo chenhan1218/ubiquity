@@ -21,24 +21,22 @@
 
 from __future__ import print_function
 
-import sys
-import os
 import errno
+import os
+import signal
 import stat
 import subprocess
-import time
+import sys
 import syslog
-import signal
+import time
 
-import debconf
 import apt_pkg
 from apt.cache import Cache
+import debconf
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
-from ubiquity import misc
-from ubiquity import install_misc
-from ubiquity import osextras
+from ubiquity import install_misc, misc, osextras
 
 
 class Install(install_misc.InstallBase):
@@ -280,7 +278,14 @@ class Install(install_misc.InstallBase):
                         if sb_var_file.read(1) == b"\x01":
                             keep.add('grub-efi-amd64-signed')
                             keep.add('shim-signed')
-                            keep.add('linux-signed-generic')
+                            try:
+                                altmeta = self.db.get(
+                                    'base-installer/kernel/altmeta')
+                                if altmeta:
+                                    altmeta = '-%s' % altmeta
+                            except debconf.DebconfError:
+                                altmeta = ''
+                            keep.add('linux-signed-generic%s' % altmeta)
             else:
                 keep.add('grub')
                 keep.add('grub-pc')
@@ -311,19 +316,21 @@ class Install(install_misc.InstallBase):
             if not os.path.exists('/var/lib/dpkg/info/%s.prerm' % x)}
 
         confirmed_remove = set()
-        for pkg in sorted(difference):
-            if pkg in confirmed_remove:
-                continue
-            would_remove = install_misc.get_remove_list(
-                cache, [pkg], recursive=True)
-            if would_remove <= difference:
-                confirmed_remove |= would_remove
-                # Leave these marked for removal in the apt cache to speed
-                # up further calculations.
-            else:
-                for removedpkg in would_remove:
-                    cachedpkg = install_misc.get_cache_pkg(cache, removedpkg)
-                    cachedpkg.mark_keep()
+        with cache.actiongroup():
+            for pkg in sorted(difference):
+                if pkg in confirmed_remove:
+                    continue
+                would_remove = install_misc.get_remove_list(
+                    cache, [pkg], recursive=True)
+                if would_remove <= difference:
+                    confirmed_remove |= would_remove
+                    # Leave these marked for removal in the apt cache to
+                    # speed up further calculations.
+                else:
+                    for removedpkg in would_remove:
+                        cachedpkg = install_misc.get_cache_pkg(
+                            cache, removedpkg)
+                        cachedpkg.mark_keep()
         difference = confirmed_remove
 
         if len(difference) == 0:

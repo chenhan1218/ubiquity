@@ -25,12 +25,9 @@ import signal
 
 import debconf
 
-from ubiquity import plugin
-from ubiquity import parted_server
-from ubiquity import misc
-from ubiquity import osextras
-from ubiquity import validation
+from ubiquity import misc, osextras, parted_server, plugin, validation
 from ubiquity.install_misc import archdetect
+
 
 NAME = 'partman'
 AFTER = 'prepare'
@@ -199,6 +196,9 @@ class PageGtk(PageBase):
         # GtkBuilder signal mapping is broken (LP: #852054).
         self.part_auto_hidden_label.connect(
             'activate-link', self.part_auto_hidden_label_activate_link)
+
+        # Define a list to save grub imformation
+        self.grub_options = []
 
     def plugin_get_current_page(self):
         if self.current_page == self.page_ask:
@@ -383,6 +383,13 @@ class PageGtk(PageBase):
     def set_disk_layout(self, layout):
         self.disk_layout = layout
 
+    def on_crypto_lvm_toggled(self, w):
+        if self.use_crypto.get_active():
+            if w == self.use_crypto:
+                self.use_lvm.set_active(True)
+            if w == self.use_lvm and not w.get_active():
+                self.use_crypto.set_active(False)
+
     # Automatic partitioning page
 
     def get_current_disk_partman_id(self):
@@ -558,11 +565,11 @@ class PageGtk(PageBase):
 
     def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
-        options = misc.grub_options()
+        self.grub_options = misc.grub_options()
         l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.grub_device_entry.set_model(l)
         selected = False
-        for opt in options:
+        for opt in self.grub_options:
             path = opt[0]
             if grub_installable.get(path, False):
                 i = l.append(opt)
@@ -829,6 +836,19 @@ class PageGtk(PageBase):
             # partman expects.
             size_mb = int(partition['resize_min_size']) / 1000000
             cell.set_property('text', '%d MB' % size_mb)
+
+    def partman_column_syst(self, unused_column, cell, model, iterator,
+                            user_data):
+        cell.set_property('text', '')
+        if not (model[iterator][1] and 'id' in model[iterator][1]):
+            return
+        partition = model[iterator][1]['parted']
+        if (partition['fs'] not in ('free', 'linux-swap') and
+                partition['type'] != 'unusable'):
+            for opt in self.grub_options:
+                if partition['path'] in opt:
+                    cell.set_property('text', '%s' % opt[1])
+                    break
 
     @plugin.only_this_page
     def partman_popup(self, widget, event):
@@ -1321,6 +1341,13 @@ class PageGtk(PageBase):
             column_used.set_cell_data_func(cell_used, self.partman_column_used)
             column_used.set_sizing(Gtk.TreeViewColumnSizing.AUTOSIZE)
             self.partition_list_treeview.append_column(column_used)
+
+            cell_syst = Gtk.CellRendererText()
+            column_syst = Gtk.TreeViewColumn(
+                self.controller.get_string('partition_column_syst'), cell_syst)
+            column_syst.set_cell_data_func(cell_syst, self.partman_column_syst)
+            column_syst.set_sizing(Gtk.TreeViewColumnSizing.AUTOSIZE)
+            self.partition_list_treeview.append_column(column_syst)
 
             self.partition_list_treeview.set_model(partition_tree_model)
 
@@ -2149,8 +2176,8 @@ class Page(plugin.Plugin):
         elif os_count == 2 and len(ubuntu_systems) == 1:
             # TODO: verify that ubuntu_systems[0] is the same partition as one
             # of the ones offered in the replace options.
+            ubuntu = ubuntu_systems[0]
             if 'replace' in self.extra_options:
-                ubuntu = ubuntu_systems[0]
                 q = 'ubiquity/partitioner/ubuntu_format'
                 self.db.subst(q, 'CURDISTRO', ubuntu)
                 title = self.description(q)
@@ -3130,7 +3157,7 @@ class Page(plugin.Plugin):
         self.exit_ui_loops()
 
     def is_bootdev_preseeded(self):
-        return ('UBIQUITY_AUTOMATIC' in os.environ and
+        return (self.is_automatic and
                 self.db.fget('grub-installer/bootdev', 'seen') == 'true')
 
     # TODO cjwatson 2006-11-01: Do we still need this?

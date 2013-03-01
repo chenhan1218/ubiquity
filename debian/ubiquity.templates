@@ -484,6 +484,11 @@ Type: text
 # this partition is used by data.
 _Description: Used
 
+Template: ubiquity/text/partition_column_syst
+Type: text
+# A column heading in the partitioner.
+_Description: System
+
 Template: ubiquity/text/partition_free_space
 Type: text
 # Indicates unpartitioned free space on a disk.

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-10 05:49+0000\n"
-"Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
+"PO-Revision-Date: 2013-01-08 21:54+0000\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:06+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -28,7 +28,7 @@ msgstr "Povezovanje ..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr "Za nadaljevanje ponovno zaženite računalnik"
+msgstr "Pred nadaljevanjem je treba ponovno zagnati računalnik"
 
 #. Type: text
 #. Description
@@ -122,18 +122,13 @@ msgstr "Lahko <a href=\"update\">posodobite ta namestilnik</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"To je predhodna izdaja živega namestilnika ${RELEASE} ${MEDIUM}. To ni "
-"končna izdaja; ta bo prišla s končno izdajo ${RELEASE} oktobra 2012."
+"To je preizkusna različica sistema ${RELEASE} na živem namestitvenem nosilcu "
+"${MEDIUM}. Končna različica sistema ${RELEASE} bo na voljo do aprila 2013."
 
 #. Type: text
 #. Description

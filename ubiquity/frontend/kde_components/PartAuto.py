@@ -5,9 +5,9 @@ import os
 from PyQt4 import uic
 from PyQt4 import QtGui
 
+from ubiquity import i18n, misc
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
-from ubiquity import misc
-from ubiquity import i18n
+
 
 _uidir = "/usr/share/ubiquity/qt/"
 
@@ -168,9 +168,9 @@ class PartAuto(QtGui.QWidget):
                 before_bar.addPartition(p.device, int(p.size), p.filesystem)
             if before_bar.diskSize > 0:
                 after_bar.addPartition(
-                    release_name, before_bar.diskSize, 'auto')
+                    '', before_bar.diskSize, 'auto', name=release_name)
             else:
-                after_bar.addPartition(release_name, 1, 'auto')
+                after_bar.addPartition('', 1, 'auto', name=release_name)
 
             addBars(bar_frame, before_bar, after_bar)
         self.disks.append(disks)

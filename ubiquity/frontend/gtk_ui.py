@@ -33,15 +33,15 @@
 
 from __future__ import print_function
 
-import sys
-import os
-import subprocess
-import traceback
-import syslog
 import atexit
-import gettext
 import configparser
 from functools import reduce
+import gettext
+import os
+import subprocess
+import sys
+import syslog
+import traceback
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
@@ -54,12 +54,12 @@ if 'DISPLAY' in os.environ:
     from ubiquity import gtkwidgets
 
 from ubiquity import (
-    filteredcommand, gconftool, gsettings, i18n, validation, misc, osextras)
-from ubiquity.plugin import Plugin
+    filteredcommand, gsettings, i18n, validation, misc, osextras)
 from ubiquity.components import install, plugininstall, partman_commit
-import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
+from ubiquity.plugin import Plugin
+import ubiquity.progressposition
 
 # We create class attributes dynamically from UI files, and it's far too
 # tedious to list them all.
@@ -208,7 +208,6 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.all_widgets = set()
-        self.gconf_previous = {}
         self.gsettings_previous = {}
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'quit', 'back', 'next',
@@ -239,7 +238,7 @@ class Wizard(BaseFrontend):
 
         # To get a "busy mouse":
         self.watch = Gdk.Cursor.new(Gdk.CursorType.WATCH)
-        set_root_cursor(self.watch)
+        self.set_busy_cursor(True)
         atexit.register(set_root_cursor)
 
         self.laptop = misc.execute("laptop-detect")
@@ -255,13 +254,22 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        # Thin progress bar
+        # Get the default window background color for the the current
+        # theme and set it as the background for the inline toolbar
+        # Make a thin Progress bar
         provider = Gtk.CssProvider()
         provider.load_from_data(b'''\
+            .inline-toolbar.toolbar {
+                background: @theme_bg_color;
+                border-color: transparent;
+                border-width: 0px;
+                padding: 0px;
+            }
             GtkProgressBar {
-              -GtkProgressBar-min-horizontal-bar-height : 10
-            }''')
-
+              -GtkProgressBar-min-horizontal-bar-height : 10;
+              -GtkProgressBar-min-horizontal-bar-width : 10;
+            }
+            ''')
         Gtk.StyleContext.add_provider_for_screen(
             Gdk.Screen.get_default(),
             provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
@@ -318,21 +326,8 @@ class Wizard(BaseFrontend):
                     self.toplevels.add(widget)
         self.builder.connect_signals(self)
 
-        # Get the default window background color for the the current
-        # theme and set it as the background for the inline toolbar
-        window_style = self.live_installer.get_style_context()
-        bg = window_style.lookup_color('theme_bg_color')[1].to_string()
-        provider = Gtk.CssProvider()
-        provider.load_from_data(('''\
-            .inline-toolbar.toolbar {
-                background: %s;
-                border-color: transparent;
-                border-width: 0px;
-                padding: 0px;
-            }''' % bg).encode())
-        Gtk.StyleContext.add_provider_for_screen(
-            Gdk.Screen.get_default(),
-            provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
+        next_style = self.next.get_style_context()
+        next_style.add_class('ubiquity-next')
 
         self.stop_debconf()
         self.translate_widgets(reget=True)
@@ -425,7 +420,7 @@ class Wizard(BaseFrontend):
         # Restore the default cursor if we were using a spinning cursor on the
         # root window.
         try:
-            set_root_cursor()
+            self.set_busy_cursor(False)
         except Exception:
             pass
 
@@ -512,18 +507,27 @@ class Wizard(BaseFrontend):
         return previous
 
     def disable_terminal(self):
-        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
-        self.gconf_previous[terminal_key] = gconftool.get(terminal_key)
-        gconftool.set(terminal_key, 'string', 'disabled')
+        gs_schema = 'org.gnome.settings-daemon.plugins.media-keys'
+        gs_key = 'terminal'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        if gs_previous in self.gsettings_previous:
+            return
+
+        gs_value = gsettings.get(gs_schema, gs_key)
+        self.gsettings_previous[gs_previous] = gs_value
+
+        if gs_value:
+            gsettings.set(gs_schema, gs_key, '')
+
         atexit.register(self.enable_terminal)
 
     def enable_terminal(self):
-        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
-        if self.gconf_previous[terminal_key] == '':
-            gconftool.unset(terminal_key)
-        else:
-            gconftool.set(terminal_key, 'string',
-                          self.gconf_previous[terminal_key])
+        gs_schema = 'org.gnome.settings-daemon.plugins.media-keys'
+        gs_key = 'terminal'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = self.gsettings_previous[gs_previous]
+
+        gsettings.set(gs_schema, gs_key, gs_value)
 
     def disable_screensaver(self):
         gs_schema = 'org.gnome.desktop.screensaver'
@@ -669,7 +673,7 @@ class Wizard(BaseFrontend):
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
         if osextras.find_on_path('orca'):
             self.orca_process = subprocess.Popen(
-                ['orca', '-n'], preexec_fn=misc.drop_all_privileges)
+                ['orca'], preexec_fn=misc.drop_all_privileges)
 
     def a11y_profile_keyboard_modifiers_activate(self, widget=None):
         subprocess.call(
@@ -732,6 +736,9 @@ class Wizard(BaseFrontend):
             if hasattr(page.ui, 'plugin_skip_page'):
                 if page.ui.plugin_skip_page():
                     skip = True
+            automatic = False
+            if hasattr(page.ui, 'is_automatic'):
+                automatic = page.ui.is_automatic
 
             if not skip and not page.filter_class:
                 # This page is just a UI page
@@ -763,7 +770,7 @@ class Wizard(BaseFrontend):
                     self.process_step()
                     if not self.stay_on_page:
                         self.pagesindex = self.pagesindex + 1
-                    if 'UBIQUITY_AUTOMATIC' in os.environ:
+                    if automatic:
                         # if no debconf_progress, create another one, set
                         # start to pageindex
                         self.debconf_progress_step(1)
@@ -798,7 +805,7 @@ class Wizard(BaseFrontend):
                 with open('/var/run/reboot-required', "w"):
                     pass
             self.finished_dialog.set_keep_above(True)
-            set_root_cursor()
+            self.set_busy_cursor(False)
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()
@@ -868,7 +875,8 @@ class Wizard(BaseFrontend):
 
         self.live_installer.set_default_icon_from_file(
             os.path.join(PIXMAPS, 'ubiquity.png'))
-        for eventbox in ['title_eventbox', 'progress_eventbox']:
+        for eventbox in ['title_eventbox', 'progress_eventbox',
+                         'install_details_expander']:
             box = self.builder.get_object(eventbox)
             style = box.get_style_context()
             style.add_class('menubar')
@@ -905,6 +913,7 @@ class Wizard(BaseFrontend):
                 self.get_string('oem_user_config_title'))
             self.live_installer.set_icon_name("preferences-system")
             self.quit.hide()
+            self.back.hide()
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             # Hide the notebook until the first page is ready.
@@ -1123,14 +1132,19 @@ class Wizard(BaseFrontend):
         elif isinstance(widget, Gtk.MenuItem):
             widget.set_label(text)
 
-    def allow_change_step(self, allowed):
-        if allowed:
-            cursor = None
-        else:
+    def set_busy_cursor(self, busy):
+        if busy:
             cursor = self.watch
-        if self.live_installer.get_parent_window():
+        else:
+            cursor = None
+        if (hasattr(self, "live_installer") and
+                self.live_installer.get_parent_window()):
             self.live_installer.get_parent_window().set_cursor(cursor)
         set_root_cursor(cursor)
+        self.busy_cursor = busy
+
+    def allow_change_step(self, allowed):
+        self.set_busy_cursor(not allowed)
         self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
@@ -1263,6 +1277,11 @@ class Wizard(BaseFrontend):
             self.allow_go_backward(False)
         elif 'UBIQUITY_AUTOMATIC' not in os.environ:
             self.allow_go_backward(True)
+
+        # If we are in oem-config, ensure the back button is displayed if
+        # and only if we are not on the first page.
+        if self.oem_user_config:
+            self.back.set_visible(self.pagesindex > 0)
         return True
 
     def set_page_title(self, page, lang=None):
@@ -1351,7 +1370,7 @@ class Wizard(BaseFrontend):
         """Quit installer cleanly."""
         # Let the user know we're shutting down.
         self.finished_dialog.get_window().set_cursor(self.watch)
-        set_root_cursor(self.watch)
+        self.set_busy_cursor(True)
         self.quit_button.set_sensitive(False)
         self.reboot_button.set_sensitive(False)
         self.refresh()
@@ -1639,11 +1658,8 @@ class Wizard(BaseFrontend):
     def error_dialog(self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         if not msg:
             msg = title
         dialog = Gtk.MessageDialog(
@@ -1651,7 +1667,7 @@ class Wizard(BaseFrontend):
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
         dialog.set_title(title)
         dialog.run()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         dialog.hide()
         if fatal:
             self.return_to_partitioning()
@@ -1690,11 +1706,8 @@ class Wizard(BaseFrontend):
 
     def question_dialog(self, title, msg, options, use_templates=True):
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         if not msg:
             msg = title
         buttons = []
@@ -1705,15 +1718,18 @@ class Wizard(BaseFrontend):
                 text = option
             if text is None:
                 text = option
-            buttons.append((text, len(buttons) / 2 + 1))
+            buttons.append((text, len(buttons) + 1))
 
         self.ubi_question_dialog.set_title(title)
         self.question_label.set_text(msg)
+        actions = self.ubi_question_dialog.get_action_area()
+        for action in actions.get_children():
+            actions.remove(action)
         for text, response_id in buttons:
             self.ubi_question_dialog.add_button(text, response_id)
         self.ubi_question_dialog.show_all()
         response = self.ubi_question_dialog.run()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         self.ubi_question_dialog.hide()
         if response < 0:
             # something other than a button press, probably destroyed

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-16 10:16+0000\n"
-"Last-Translator: yurchor <Unknown>\n"
+"PO-Revision-Date: 2012-10-16 21:32+0000\n"
+"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-16 17:01+0000\n"
-"X-Generator: Launchpad (build 16152)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -123,19 +123,11 @@ msgstr "Можливо ви хочете <a href=\"update\">оновити це�
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Це тестовий випуск програми для встановлення портативної версії ${RELEASE} з "
-"${MEDIUM}. Цей випуск не є остаточним, очікуйте на остаточний випуск "
-"${RELEASE} у жовтні 2012 року."
 
 #. Type: text
 #. Description

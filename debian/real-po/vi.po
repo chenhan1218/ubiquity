@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-10-02 11:47+0000\n"
+"PO-Revision-Date: 2012-10-19 10:36+0000\n"
 "Last-Translator: Huynh Trong Nghia <Nghia.HT@hotmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -121,19 +121,11 @@ msgstr "Có thể bạn muốn <a href=\"update\">cập nhật trình cài đặ
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Đây là phiên bản tiền phát hành của trình cài đặt ${RELEASE} trực tiếp từ "
-"${MEDIUM}. Và chưa phải là phiên bản cuối cùng; phiên bản cuối cùng của "
-"${RELEASE} sẽ được phát hành vào tháng 10 - 2012."
 
 #. Type: text
 #. Description
@@ -262,6 +254,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Nếu có nhiều người cùng sử dụng máy này, bạn có thể thiết đặt "
+"nhiều tài khoản sau khi cài đặt.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -288,6 +282,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Nhập mật khẩu hai lần, để chắc rằng không có sơ suất nào cả."
+"&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -450,7 +446,7 @@ msgstr "Các tập tin (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Bạn muốn cài đặt Kubuntu ở chỗ nào?"
 
 #. Type: text
 #. Description

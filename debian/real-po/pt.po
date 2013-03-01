@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2012-10-19 15:25+0100\n"
-"PO-Revision-Date: 2012-09-10 13:30+0000\n"
+"PO-Revision-Date: 2012-10-24 19:17+0000\n"
 "Last-Translator: Emanuel Ângelo <Unknown>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-12 10:05+0000\n"
-"X-Generator: Launchpad (build 16130)\n"
+"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
+"X-Generator: Launchpad (build 16420)\n"
 
 #. Type: text
 #. Description
@@ -123,18 +123,11 @@ msgstr "Sugerimos <a href=\"update\">actualizar este instalador</a>."
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #. MEDIUM is a variable substituted into this string, and may be 'CD'
 #: ../ubiquity.templates:15001
-#, fuzzy
-#| msgid ""
-#| "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#| "not a final release; that will come with the final release of ${RELEASE} "
-#| "in October 2012."
 msgid ""
 "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is not "
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
-"Esta é a pré-release do ${RELEASE} live ${MEDIUM} installer. Esta não é a "
-"release final. A release final do ${RELEASE} será lançada em Outubro de 2012."
 
 #. Type: text
 #. Description
@@ -290,6 +283,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Introduza a mesma palavra-chave duas vezes, de modo que possam "
+"ser verificados erros de introdução.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -456,7 +451,7 @@ msgstr "Ficheiros (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Onde deseja instalar o Kubuntu?"
 
 #. Type: text
 #. Description
@@ -588,20 +583,26 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Lamentamos; o instalador fechou inesperadamente. Depois de encerrar esta "
+"janela, permitiremos que envie um relatório sobre este erro, usando a "
+"ferramenta de submissão de erros. Isto irá reunir informação sobre o seu "
+"sistema e sobre o processo de instalação. Os detalhes serão enviados para o "
+"nosso registo de erros e um programador irá resolver o problema assim que "
+"possível."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Alto Contraste"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:85001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Leitor de Ecrã"
 
 #. Type: text
 #. Description
@@ -615,7 +616,7 @@ msgstr ""
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:87001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Teclado no ecrã"
 
 #. Type: text
 #. Description
@@ -1592,6 +1593,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} usa software de terceiros para mostrar conteúdos em Flash, MP3 e "
+"outros media, e para funcionar com algum hardware gráfico e de wi-fi. Algum "
+"deste software é proprietário, estando sujeito a termos de licenciamento "
+"incluídos na sua documentação."
 
 #. Type: text
 #. Description
@@ -1919,6 +1924,9 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Isto irá preparar a Gestão de Volumes Lógicos (Logical Volume Management). "
+"Permite tirar fotografias do disco  e facilita o redimensionamento de "
+"partições."
 
 #. Type: text
 #. Description
@@ -1982,7 +1990,7 @@ msgstr "A instalação poderá demorar mais algum tempo até finalizar."
 #. description
 #: ../ubiquity.templates:275001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
@@ -1994,13 +2002,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:277001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Opções de Encriptação"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Volumes físicos:"
 
 #. Type: text
 #. Description
@@ -2012,7 +2020,7 @@ msgstr "Encriptar esta partição (LUKS)"
 #. Description
 #: ../ubiquity.templates:281001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -2021,12 +2029,14 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Gestão de Volumes Lógicos (Logical Volume Management - LVM) permite que o "
+"Ubuntu trate múltiplos volumes físicos como se fossem um único."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Gestão de volumes lógicos"
 
 #. Type: text
 #. Description

@@ -21,14 +21,12 @@ from __future__ import print_function
 
 import locale
 import os
+import re
 
 import debconf
 
-from ubiquity import plugin
-from ubiquity import i18n
-from ubiquity import misc
-from ubiquity import auto_update
-from ubiquity import osextras
+from ubiquity import auto_update, i18n, misc, osextras, plugin
+
 
 NAME = 'language'
 AFTER = None
@@ -736,15 +734,66 @@ class Install(plugin.InstallPlugin):
             ]
         return command, []
 
+    def _pam_env_lines(self, fd):
+        """Yield a sequence of logical lines from a PAM environment file."""
+        buf = ""
+        for line in fd:
+            line = line.lstrip()
+            if line and line[0] != "#":
+                if "#" in line:
+                    line = line[:line.index("#")]
+                for i in range(len(line) - 1, -1, -1):
+                    if line[i].isspace():
+                        break
+                if line[i] == "\\":
+                    # Continuation line.
+                    buf = line[:i]
+                else:
+                    buf += line
+                    yield buf
+                    buf = ""
+        if buf:
+            yield buf
+
+    def _pam_env_parse_file(self, path):
+        """Parse a PAM environment file just as pam_env does.
+
+        We use this for reading /etc/default/locale after configuring it.
+        """
+        try:
+            with open(path) as fd:
+                for line in self._pam_env_lines(fd):
+                    line = line.lstrip()
+                    if not line or line[0] == "#":
+                        continue
+                    if line.startswith("export "):
+                        line = line[7:]
+                    line = re.sub(r"[#\n].*", "", line)
+                    if not re.match(r"^[A-Z_]+=", line):
+                        continue
+                    # pam_env's handling of quoting is crazy, but in this
+                    # case it's better to imitate it than to fix it.
+                    key, value = line.split("=", 1)
+                    if value.startswith('"') or value.startswith("'"):
+                        value = re.sub(r"[\"'](.|$)", r"\1", value[1:])
+                    yield key, value
+        except IOError:
+            pass
+
     def install(self, target, progress, *args, **kwargs):
         progress.info('ubiquity/install/locales')
         rv = plugin.InstallPlugin.install(
             self, target, progress, *args, **kwargs)
         if not rv:
+            locale_file = "/etc/default/locale"
             if 'UBIQUITY_OEM_USER_CONFIG' not in os.environ:
-                # Start using the newly-generated locale, if possible.
-                try:
-                    locale.setlocale(locale.LC_ALL, '')
-                except locale.Error:
-                    pass
+                locale_file = "/target%s" % locale_file
+            for key, value in self._pam_env_parse_file(locale_file):
+                if key in ("LANG", "LANGUAGE") or key.startswith("LC_"):
+                    os.environ[key] = value
+            # Start using the newly-generated locale, if possible.
+            try:
+                locale.setlocale(locale.LC_ALL, '')
+            except locale.Error:
+                pass
         return rv
