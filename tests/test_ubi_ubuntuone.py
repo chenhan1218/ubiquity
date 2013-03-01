@@ -102,7 +102,7 @@ class LoginTestCase(BaseTestPageGtk):
 
 @patch('syslog.syslog', new=print)
 @patch.object(ubi_ubuntuone, 'get_token_name')
-@patch.object(Gtk, 'main')
+@patch('gi.repository.Gtk')
 class NextButtonActionTestCase(BaseTestPageGtk):
 
     def _call_register(self, mock_token_name, create_success=True):
@@ -132,13 +132,13 @@ class NextButtonActionTestCase(BaseTestPageGtk):
                 ml.assert_called_once_with("foo@bar.com", "pw", 'tokenname',
                                            ubi_ubuntuone.PAGE_REGISTER)
 
-    def test_call_register_success(self, mock_gtk_main, mock_token_name):
+    def test_call_register_success(self, mock_gtk, mock_token_name):
         self._call_register(mock_token_name)
 
-    def test_call_register_err(self, mock_gtk_main, mock_token_name):
+    def test_call_register_err(self, mock_gtk, mock_token_name):
         self._call_register(mock_token_name, create_success=False)
 
-    def test_call_login(self, mock_gtk_main, mock_token_name):
+    def test_call_login(self, mock_gtk, mock_token_name):
         mock_token_name.return_value = 'tokenname'
 
         self.page.entry_existing_email.set_text("foo")
@@ -152,7 +152,7 @@ class NextButtonActionTestCase(BaseTestPageGtk):
 
 
 @patch('syslog.syslog', new=print)
-@patch.object(Gtk, 'main')
+@patch('gi.repository.Gtk')
 class SSOAPITestCase(BaseTestPageGtk):
 
     def _call_handle_done(self, status, response_body, action, from_page):
@@ -170,7 +170,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.notebook_main.get_current_page(),
                          from_page)
 
-    def test_handle_done_token_OK(self, mock_gtk_main):
+    def test_handle_done_token_OK(self, mock_gtk):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
@@ -178,7 +178,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.oauth_token_json,
                          expected_body)
 
-    def test_handle_done_token_CREATED(self, mock_gtk_main):
+    def test_handle_done_token_CREATED(self, mock_gtk):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.CREATED,
                                expected_body,
@@ -187,14 +187,14 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.oauth_token_json,
                          expected_body)
 
-    def test_handle_done_ping_OK(self, mock_gtk_main):
+    def test_handle_done_ping_OK(self, mock_gtk):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.PING_CALLBACK_ACTION,
                                ubi_ubuntuone.PAGE_REGISTER)
         self.assertTrue(self.page.ping_successful)
 
-    def test_handle_done_ping_CREATED(self, mock_gtk_main):
+    def test_handle_done_ping_CREATED(self, mock_gtk):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.CREATED,
                                expected_body,
@@ -202,7 +202,7 @@ class SSOAPITestCase(BaseTestPageGtk):
                                ubi_ubuntuone.PAGE_REGISTER)
         self.assertTrue(self.page.ping_successful)
 
-    def test_handle_done_error_token(self, mock_gtk_main):
+    def test_handle_done_error_token(self, mock_gtk):
         expected_body = json.dumps({"message": "tstmsg"})
         # GONE or anything other than OK/CREATED:
         self._call_handle_done(http.client.GONE, expected_body,
@@ -212,7 +212,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self.assertEqual(self.page.label_global_error.get_text(),
                          "tstmsg")
 
-    def test_handle_done_error_ping(self, mock_gtk_main):
+    def test_handle_done_error_ping(self, mock_gtk):
         expected_body = "error"
         with patch.object(self.page.label_global_error,
                           'get_text') as mock_get_text:
@@ -226,7 +226,7 @@ class SSOAPITestCase(BaseTestPageGtk):
                              "err")
 
     @patch('json.dumps')
-    def test_login_to_sso(self, mock_json_dumps, mock_gtk_main):
+    def test_login_to_sso(self, mock_json_dumps, mock_gtk):
         email = 'email'
         password = 'pass'
         token_name = 'tok'
@@ -266,7 +266,7 @@ class SSOAPITestCase(BaseTestPageGtk):
             self.assertEqual(mocks['session'].mock_calls, e)
 
     @patch('json.dumps')
-    def test_register_new_sso_account(self, mock_json_dumps, mock_gtk_main):
+    def test_register_new_sso_account(self, mock_json_dumps, mock_gtk):
         email = 'email'
         password = 'pass'
         displayname = 'mr tester'
@@ -306,7 +306,7 @@ class SSOAPITestCase(BaseTestPageGtk):
     @patch('json.loads')
     @patch.multiple(ubi_ubuntuone, Client=DEFAULT, get_ping_info=DEFAULT)
     def test_ping_u1_url(self, mock_json_loads,
-                         mock_gtk_main, Client, get_ping_info):
+                         mock_gtk, Client, get_ping_info):
 
         from_page = 1
         email = 'email'
