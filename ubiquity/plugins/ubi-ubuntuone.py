@@ -316,6 +316,14 @@ class PageGtk(plugin.PluginUI):
 
         return False
 
+    def _duplicate_token_data_for_v1(self, token_dict):
+        """Duplicate two keys in the stored token, for compatibility
+         with clients expecting V1 API keys. See bug LP: #1136590 to
+         check if we can remove this."""
+        token_dict['token'] = token_dict['token_key']
+        token_dict['name'] = token_dict['token_name']
+        return token_dict
+
     def _create_keyring_and_store_u1_token(self, token_json):
         """Helper that spawns a external helper to create the keyring"""
         # this needs to be a external helper as ubiquity is running as
@@ -324,11 +332,7 @@ class PageGtk(plugin.PluginUI):
         # gnome-keyring daemon
 
         token_dict = json.loads(token_json)
-        # duplicate two keys in the stored token, for compatibility
-        # with clients expecting V1 API keys. See bug LP: #1136590 to
-        # check if we can remove this.
-        token_dict['token'] = token_dict['token_key']
-        token_dict['name'] = token_dict['token_name']
+        token_dict = self._duplicate_token_data_for_v1(token_dict)
         urlencoded_token = urlencode(token_dict)
 
         cmd = os.environ.get("U1_KEYRING_HELPER",

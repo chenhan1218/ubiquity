@@ -354,15 +354,29 @@ class SSOAPITestCase(BaseTestPageGtk):
 
 class CreateKeyringTestCase(BaseTestPageGtk):
 
+    def test_duplicate_token_data_for_v1(self):
+        token = dict(token_key="token_key",
+                     token_name="token_name",
+                     other_key="other")
+        newtoken = self.page._duplicate_token_data_for_v1(token)
+        self.assertEqual(newtoken["token"], "token_key")
+        self.assertEqual(newtoken["name"], "token_name")
+        self.assertEqual(newtoken["other_key"], "other")
+
     @patch('ubiquity.misc.drop_all_privileges', sentinel.drop_privs)
     @patch('subprocess.PIPE', sentinel.PIPE)
     @patch('subprocess.Popen')
     @patch('os.environ.get')
     def test_create_keyring_urlencoded(self, mock_os_env_get, mock_Popen):
         mock_os_env_get.return_value = 'cmd'
-        d_json = json.dumps({'A': 'b/f'})
+        fake_token_dict = {'A': 'b/f'}
+        d_json = json.dumps(fake_token_dict)
         self.page._user_password = "test password"
-        self.page._create_keyring_and_store_u1_token(d_json)
+        with patch.object(self.page,
+                          '_duplicate_token_data_for_v1') as mock_dup:
+            mock_dup.side_effect = lambda x: x
+            self.page._create_keyring_and_store_u1_token(d_json)
+            mock_dup.assert_called_once_with(fake_token_dict)
 
         mock_Popen.assert_called_with(['cmd'], stdin=sentinel.PIPE,
                                       preexec_fn=sentinel.drop_privs)
