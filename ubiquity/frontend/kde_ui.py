@@ -39,7 +39,7 @@ import traceback
 # kde gui specifics
 import sip
 sip.setapi("QVariant", 1)
-from PyQt4 import QtCore, QtGui, uic
+from PyQt4 import QtCore, QtGui, QtWebKit, uic
 
 from ubiquity import filteredcommand, i18n, misc
 from ubiquity.components import partman_commit, install, plugininstall
@@ -279,6 +279,7 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.breadcrumb_install.hide()
 
+        self.ui.pageMode.setCurrentWidget(self.ui.setup_page)
         self.update_back_button()
         self.update_next_button(install=False)
         self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
@@ -400,6 +401,13 @@ class Wizard(BaseFrontend):
             # itself and show content
             self.ui.show()
 
+        if 'UBIQUITY_TEST_SLIDESHOW' in os.environ:
+            # Quick way to test slideshow without going through the whole
+            # install
+            self._update_breadcrumbs('__install')
+            self.start_slideshow()
+            self.run_main_loop()
+
         while(self.pagesindex < self.pageslen):
             if self.current_page is None:
                 break
@@ -514,9 +522,9 @@ class Wizard(BaseFrontend):
                     page.breadcrumb.setState(Breadcrumb.TODO)
 
         if active_page_name == '__install':
-            page.breadcrumb.setState(Breadcrumb.CURRENT)
+            self.breadcrumb_install.setState(Breadcrumb.CURRENT)
         else:
-            page.breadcrumb.setState(Breadcrumb.TODO)
+            self.breadcrumb_install.setState(Breadcrumb.TODO)
 
     def start_slideshow(self):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
@@ -537,27 +545,21 @@ class Wizard(BaseFrontend):
 
         slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
-        from PyQt4.QtWebKit import QWebView
-        from PyQt4.QtWebKit import QWebPage
-
         def openLink(qUrl):
             QtGui.QDesktopServices.openUrl(qUrl)
 
-        webView = QWebView()
+        self.ui.navigation.hide()
+        self.ui.pageMode.setCurrentWidget(self.ui.install_page)
+        webView = self.ui.webview
         webView.linkClicked.connect(openLink)
-        webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
-        webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
+        webView.page().setLinkDelegationPolicy(
+            QtWebKit.QWebPage.DelegateExternalLinks)
         webView.page().mainFrame().setScrollBarPolicy(
             QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
         webView.page().mainFrame().setScrollBarPolicy(
             QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
-        webView.setFixedSize(700, 420)
-        webView.load(QtCore.QUrl(slides))
 
-        self.ui.navigation.hide()
-        self.ui.pageMode.setCurrentIndex(1)
-        self.ui.pageMode.widget(1).layout().addWidget(webView)
-        webView.show()
+        webView.load(QtCore.QUrl(slides))
 
     def set_layout_direction(self, lang=None):
         if not lang:
