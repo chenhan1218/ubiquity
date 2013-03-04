@@ -518,11 +518,6 @@ EndSection
             os.seteuid(0)
             os.setegid(0)
 
-            subprocess.call(
-                ['kwriteconfig', '--file', 'kwinrc', '--group', 'Compositing',
-                                 '--key', 'Enabled', 'false'],
-                stdin=null, stdout=logfile, stderr=logfile,
-                preexec_fn=self.drop_privileges)
             wm = subprocess.Popen(
                 'kwin', stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges)

@@ -35,6 +35,10 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   * Fix crash in ubi-console-setup when quickly moving back and worth between
     pages. (LP: #944614)
 
+  [ Jonathan Riddell ]
+  * Add back compositing to kwin on live CD (in ubiquity-dm), whatever was wrong
+    in 2008 should be fixed now and its making us look ugly
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
 
 ubiquity (2.13.12) raring; urgency=low
