@@ -24,6 +24,8 @@
 from PyQt4 import QtGui
 from PyQt4.QtCore import Qt
 
+from ubiquity.frontend.kde_components import qssutils
+
 __all__ = ["Breadcrumb"]
 
 
@@ -49,11 +51,14 @@ class Breadcrumb(QtGui.QFrame):
         layout.addWidget(self._tickLabel)
         layout.addWidget(self._mainLabel)
 
+        self._state = None
         self.setState(Breadcrumb.TODO)
 
     def setState(self, state):
-        self._tickLabel.setText(_TICK_DICT[state])
-        self.setStyleSheet(_CSS_DICT[state])
+        if self._state == state:
+            return
+        self._state = state
+        self._updateFromState()
 
     def setText(self, text):
         self._mainLabel.setText(text)
@@ -61,28 +66,55 @@ class Breadcrumb(QtGui.QFrame):
     def text(self):
         return self._mainLabel.text()
 
+    def event(self, event):
+        if event.type() == QtCore.QEvent.LayoutDirectionChange:
+            self._updateFromState()
+        return super(Breadcrumb, self).event(event)
 
-_TICK_DICT = {
-    Breadcrumb.TODO: "•",
-    Breadcrumb.CURRENT: "‣",
-    Breadcrumb.DONE: "✓",
-}
+    def _updateFromState(self):
+        _initDicts()
+        if QtGui.QApplication.isLeftToRight():
+            tickDict = _TICK_DICT_LTR
+            qssDict = _QSS_DICT_LTR
+        else:
+            tickDict = _TICK_DICT_RTL
+            qssDict = _QSS_DICT_RTL
+        self._tickLabel.setText(tickDict[self._state])
+        self.setStyleSheet(qssDict[self._state])
 
 
-_CSS_DICT = {
-    Breadcrumb.TODO: "",
-    Breadcrumb.CURRENT: """
-    QFrame {
-        border-top-width: 10px;
-        border-bottom-width: 10px;
-        background-image: none;
-        border-image: url(/usr/share/ubiquity/qt/images/breadcrumb.png) 10px;
+_TICK_DICT_RTL = {}
+_TICK_DICT_LTR = {}
+_QSS_DICT_RTL = {}
+_QSS_DICT_LTR = {}
+
+
+def _initDicts():
+    # Postpone initialization until we need them: reading and processing text
+    # files at import time is rude.
+    global _TICK_DICT_LTR, _TICK_DICT_RTL, _QSS_DICT_RTL, _QSS_DICT_LTR
+    if _TICK_DICT_LTR:
+        return
+    _TICK_DICT_LTR = {
+        Breadcrumb.TODO: "•",
+        Breadcrumb.CURRENT: "▸",
+        Breadcrumb.DONE: "✓",
     }
-    .QLabel {
-        color: #333;
-        border-width: 0px;
-        border-image: none;
+
+    _TICK_DICT_RTL = {
+        Breadcrumb.TODO: "•",
+        Breadcrumb.CURRENT: "◂",
+        Breadcrumb.DONE: "✓",
     }
-    """,
-    Breadcrumb.DONE: "",
-}
+
+    _QSS_DICT_LTR = {
+        Breadcrumb.TODO: "",
+        Breadcrumb.CURRENT: qssutils.load("breadcrumb_current.qss", ltr=True),
+        Breadcrumb.DONE: "",
+    }
+
+    _QSS_DICT_RTL = {
+        Breadcrumb.TODO: "",
+        Breadcrumb.CURRENT: qssutils.load("breadcrumb_current.qss", ltr=False),
+        Breadcrumb.DONE: "",
+    }

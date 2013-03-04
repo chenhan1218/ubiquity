@@ -47,6 +47,7 @@ import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
 from ubiquity.frontend.kde_components import ProgressDialog
 from ubiquity.frontend.kde_components.Breadcrumb import Breadcrumb
+from ubiquity.frontend.kde_components import qssutils
 from ubiquity.plugin import Plugin
 import ubiquity.progressposition
 
@@ -135,15 +136,11 @@ class Controller(ubiquity.frontend.base.Controller):
     def get_string(self, name, lang=None, prefix=None):
         return self._wizard.get_string(name, lang, prefix)
 
-    def setNextButtonTextInstallNow(self, checked):
-        self._wizard.ui.next.setText(
-            self.get_string('install_button').replace('_', '&', 1))
-        self._wizard.ui.next.setIcon(self._wizard.applyIcon)
+    def setNextButtonTextInstallNow(self):
+        self._wizard.update_next_button(install=True)
 
-    def setNextButtonTextNext(self, checked):
-        self._wizard.ui.next.setText(
-            self.get_string('next').replace('_', '&', 1))
-        self._wizard.ui.next.setIcon(self._wizard.forwardIcon)
+    def setNextButtonTextNext(self):
+        self._wizard.update_next_button(install=False)
 
 
 class Wizard(BaseFrontend):
@@ -154,11 +151,9 @@ class Wizard(BaseFrontend):
         sys.excepthook = self.excepthook
 
         self.app = QtGui.QApplication([])
-        with open(os.path.join(UIDIR, "style.qss")) as style:
-            self.app.setStyleSheet(style.read())
+        self._apply_stylesheet()
 
-        self.app.setWindowIcon(QtGui.QIcon(
-            "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
+        self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity"))
         import dbus.mainloop.qt
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
@@ -263,8 +258,6 @@ class Wizard(BaseFrontend):
         # Array to keep callback functions needed by debconf file descriptors.
         self.debconf_callbacks = {}
 
-        self.ui.setWindowIcon(QtGui.QIcon(
-            "/usr/share/icons/hicolor/128x128/apps/ubiquity.png"))
         self.allow_go_backward(False)
 
         self.stop_debconf()
@@ -276,9 +269,7 @@ class Wizard(BaseFrontend):
             self.ui.setWindowTitle(self.get_string('oem_config_title'))
         elif self.oem_user_config:
             self.ui.setWindowTitle(self.get_string('oem_user_config_title'))
-            self.ui.setWindowIcon(QtGui.QIcon(
-                "/usr/share/icons/oxygen/128x128/categories/"
-                "preferences-system.png"))
+            self.ui.setWindowIcon(QtGui.QIcon.fromTheme("preferences-system"))
             flags = self.ui.windowFlags() ^ QtCore.Qt.WindowMinMaxButtonsHint
             if hasattr(QtCore.Qt, 'WindowCloseButtonHint'):
                 flags = flags ^ QtCore.Qt.WindowCloseButtonHint
@@ -288,21 +279,9 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.breadcrumb_install.hide()
 
-        self.forwardIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/128x128/actions/go-next.png")
-        self.ui.next.setIcon(self.forwardIcon)
-
-        #Used for the last step
-        self.applyIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/128x128/actions/dialog-ok-apply.png")
-
-        backIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/128x128/actions/go-previous.png")
-        self.ui.back.setIcon(backIcon)
-
-        quitIcon = QtGui.QIcon(
-            "/usr/share/icons/oxygen/48x48/actions/dialog-close.png")
-        self.ui.quit.setIcon(quitIcon)
+        self.update_back_button()
+        self.update_next_button(install=False)
+        self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
 
         self._show_progress_bar(False)
 
@@ -322,6 +301,11 @@ class Wizard(BaseFrontend):
         # "- 1" to insert before the bottom spacer
         layout.insertWidget(layout.count() - 1, widget)
         return widget
+
+    def _apply_stylesheet(self):
+        qss = qssutils.load("style.qss",
+                            ltr=QtGui.QApplication.isLeftToRight())
+        self.app.setStyleSheet(qss)
 
     def excepthook(self, exctype, excvalue, exctb):
         """Crash handler."""
@@ -578,14 +562,20 @@ class Wizard(BaseFrontend):
     def set_layout_direction(self, lang=None):
         if not lang:
             lang = self.locale
-        # TODO: At the moment we have to special-case languages. This will
-        # be easier to fix when we move to cdebconf and have the
-        # debconf/text-direction template easily available.
-        if lang.startswith('ar') or lang.startswith('he'):
+        if lang in ("ug",):
+            # Special case for languages for which Qt does not know the script
+            # direction
             direction = QtCore.Qt.RightToLeft
         else:
-            direction = QtCore.Qt.LeftToRight
+            locale = QtCore.QLocale(lang)
+            direction = locale.textDirection()
+
+        if direction == self.app.layoutDirection():
+            return
         self.app.setLayoutDirection(direction)
+        self._apply_stylesheet()
+        self.update_back_button()
+        self.update_next_button()
 
     def all_children(self, parentWidget=None):
         if parentWidget is None:
@@ -814,6 +804,31 @@ class Wizard(BaseFrontend):
         else:
             return 0
 
+    def update_back_button(self):
+        if QtGui.QApplication.isRightToLeft():
+            icon = "go-next"
+        else:
+            icon = "go-previous"
+        self.ui.back.setIcon(QtGui.QIcon.fromTheme(icon))
+
+    def update_next_button(self, install=None):
+        if install is None:
+            install = self.ui.next.icon().name() == "dialog-ok-apply"
+
+        if install:
+            text = self.get_string('install_button')
+            icon = "dialog-ok-apply"
+        else:
+            text = self.get_string('next')
+            if QtGui.QApplication.isRightToLeft():
+                icon = "go-previous"
+            else:
+                icon = "go-next"
+        text = text.replace('_', '&', 1)
+
+        self.ui.next.setIcon(QtGui.QIcon.fromTheme(icon))
+        self.ui.next.setText(text)
+
     def set_page(self, n):
         self.run_automation_error_cmd()
         self.ui.show()
@@ -840,14 +855,7 @@ class Wizard(BaseFrontend):
                 is_install = page.ui.get('plugin_is_install')
         self._update_breadcrumbs(n)
 
-        if is_install:
-            self.ui.next.setText(
-                self.get_string('install_button').replace('_', '&', 1))
-            self.ui.next.setIcon(self.applyIcon)
-        else:
-            self.ui.next.setText(self.get_string("next").replace('_', '&', 1))
-            self.ui.next.setIcon(self.forwardIcon)
-            self.translate_widget(self.ui.next)
+        self.update_next_button(install=is_install)
 
         if self.pagesindex == 0:
             self.allow_go_backward(False)

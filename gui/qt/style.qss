@@ -13,7 +13,7 @@ QMainWindow {
 #steps_filler_widget,
 QFrame[isBreadcrumb="true"],
 #sidebar_footer_frame {
-    background-image: url(/usr/share/ubiquity/qt/images/sidebar_shadow.png);
+    background-image: url(/usr/share/ubiquity/qt/images/sidebar_shadow$direction.png);
 }
 
 #sidebar_header_frame {
