@@ -21,6 +21,8 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
     The labels on the left now wrap to the next line if they are too long,
     ensuring they are never truncated.
   * KDE: Improve the layout of Prepare step
+  * KDE: fix integration of the webview responsible for showing the slideshow
+  * KDE: fix various issues with right-to-left languages
 
   [ Julien Lavergne ]
   * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
