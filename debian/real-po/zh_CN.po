@@ -690,14 +690,6 @@ msgstr "已装系统"
 
 #. Type: text
 #. Description
-#. A column heading in the partitioner. Indicates how much of the space on
-#. this partition is used by data.
-#: ../ubiquity.templates:99001
-msgid "System"
-msgstr "已装系统"
-
-#. Type: text
-#. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:100001
 msgid "free space"

@@ -710,13 +710,6 @@ msgstr "System"
 
 #. Type: text
 #. Description
-#. A column heading in the partitioner. 
-#: ../ubiquity.templates:99001
-msgid "System"
-msgstr "System"
-
-#. Type: text
-#. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:100001
 msgid "free space"
