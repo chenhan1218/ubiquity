@@ -1482,9 +1482,9 @@ class Wizard(BaseFrontend):
                 self.navigation_control.hide()
             else:
                 self.navigation_control.show()
-        for i in range(len(self.pages))[:current+1]:
+        for i in range(len(self.pages))[:current + 1]:
             self.dot_grid.get_child_at(i, 0).set_fraction(1)
-        for i in range(len(self.pages))[current+1:]:
+        for i in range(len(self.pages))[current + 1:]:
             self.dot_grid.get_child_at(i, 0).set_fraction(0)
 
         syslog.syslog('switched to page %s' % name)
