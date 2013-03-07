@@ -22,6 +22,7 @@
 # Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 from PyQt4 import QtGui
+from PyQt4 import QtCore
 from PyQt4.QtCore import Qt
 
 from ubiquity.frontend.kde_components import qssutils

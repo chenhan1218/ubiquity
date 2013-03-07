@@ -813,11 +813,11 @@ class Wizard(BaseFrontend):
             icon = "go-previous"
         self.ui.back.setIcon(QtGui.QIcon.fromTheme(icon))
 
-    def update_next_button(self, install=None):
-        if install is None:
-            install = self.ui.next.icon().name() == "dialog-ok-apply"
+    def update_next_button(self, install_now=None):
+        if install_now is None:
+            install_now = self.ui.next.icon().name() == "dialog-ok-apply"
 
-        if install:
+        if install_now:
             text = self.get_string('install_button')
             icon = "dialog-ok-apply"
         else:
