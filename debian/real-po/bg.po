@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-03-07 18:33+0000\n"
-"PO-Revision-Date: 2012-09-18 08:46+0000\n"
-"Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
+"PO-Revision-Date: 2013-02-27 01:07+0000\n"
+"Last-Translator: Atanas Kovachki <Unknown>\n"
 "Language-Team: American English <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
-"X-Generator: Launchpad (build 16420)\n"
+"X-Launchpad-Export-Date: 2013-03-07 18:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #. Type: text
 #. Description
@@ -127,6 +127,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
+"Това е инсталатор на предварителният вариант на ${RELEASE} live ${MEDIUM}. "
+"Окончателната вариант ще бъде пуснат заедно с финалната версия ${RELEASE} "
+"през месец април 2013."
 
 #. Type: text
 #. Description
@@ -446,7 +449,7 @@ msgstr "Файлове (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Къде искате да инсталирате Kubuntu?"
 
 #. Type: text
 #. Description
@@ -1907,7 +1910,7 @@ msgstr "Криптиране на новата инсталация на Ubuntu 
 #. Description
 #: ../ubiquity.templates:265001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Вие ще изберете ключът за защита при следващата стъпка."
 
 #. Type: text
 #. Description
@@ -1927,13 +1930,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Потвърдете ключа за защита:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:269001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Изберете ключ за защита:"
 
 #. Type: text
 #. Description
@@ -1947,7 +1950,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Файловете извън дяла на Ubuntu няма да бъдат шифровани."
 
 #. Type: text
 #. Description
@@ -2004,13 +2007,13 @@ msgstr "Физически томове:"
 #. Description
 #: ../ubiquity.templates:281001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Шифроване на този раздел (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282001
 msgid "MB"
-msgstr ""
+msgstr "МБ"
 
 #. Type: text
 #. Description
@@ -2019,6 +2022,8 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Управлението на логическите дискове (LVM) позволява на Убунту да "
+"интерпретира няколко физически диска, както едно и също устройство."
 
 #. Type: text
 #. Description

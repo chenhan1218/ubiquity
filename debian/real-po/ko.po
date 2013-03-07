@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-03-07 18:33+0000\n"
-"PO-Revision-Date: 2012-10-16 21:34+0000\n"
+"PO-Revision-Date: 2013-01-30 11:55+0000\n"
 "Last-Translator: Kim Boram <boramism@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
-"X-Generator: Launchpad (build 16420)\n"
+"X-Launchpad-Export-Date: 2013-03-07 18:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #. Type: text
 #. Description
@@ -125,6 +125,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
+"정식으로 배포하지 않은 ${RELEASE} 라이브 ${MEDIUM} 설치 관리자입니다. 아직 최"
+"종 배포 버전이 아니며  ${RELEASE}의 최종 배포 버전은 2014년 4월에 출시됩니다."
 
 #. Type: text
 #. Description

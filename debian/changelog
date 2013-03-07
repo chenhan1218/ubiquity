@@ -16,6 +16,7 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Decode the output of apt_pkg.size_to_str() if necessary when
     substituting it into Unicode strings (LP: #877756, #1132918).
+  * Update translations from Launchpad.
 
   [ Aurélien Gâteau ]
   * Turns the Ubiquity KDE window into a regular window and rework

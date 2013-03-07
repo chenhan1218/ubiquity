@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-03-07 18:33+0000\n"
-"PO-Revision-Date: 2013-01-03 18:28+0000\n"
-"Last-Translator: Basri <Unknown>\n"
+"PO-Revision-Date: 2013-02-07 03:33+0000\n"
+"Last-Translator: Yiğit Ateş <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-12 00:33+0000\n"
-"X-Generator: Launchpad (build 16420)\n"
+"X-Launchpad-Export-Date: 2013-03-07 18:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #. Type: text
 #. Description
@@ -52,6 +52,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Şu an, sistem üreticisi kipinde yükleme yapıyorsunuz. Lütfen, bu toplu "
+"sistem kümesi için benzersiz bir ad girin. Girdiğiniz ad, kurulan sistemde "
+"saklanacaktır ve hata raporlarında kullanılabilir."
 
 #. Type: text
 #. Description
@@ -81,14 +84,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:9001
 msgid "Try ${RELEASE}"
-msgstr "${RELEASE} Sürümünü Dene"
+msgstr "${RELEASE}'yu Dene"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Install ${RELEASE}"
-msgstr "${RELEASE} Kur"
+msgstr "${RELEASE}'yu Kur"
 
 #. Type: text
 #. Description
@@ -97,8 +100,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"<a href=\"release-notes\">Sürüm notlarını okumak </a> ya da  <a href=\"update"
-"\">yükleme arasını güncellemek</a> isteyebilirsiniz."
+"<a href=\"release-notes\">Sürüm notlarını okumak</a> ya da <a href=\"update"
+"\">bu kurulum aracını güncellemek</a> isteyebilirsiniz."
 
 #. Type: text
 #. Description
@@ -112,8 +115,7 @@ msgstr ""
 #: ../ubiquity.templates:13001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"<a href=\"update\">Yükleme aracını güncelleştirme</a> bağlantsını okumak "
-"isteyebilirsiniz."
+"<a href=\"update\">Bu yükleme aracını güncelleştirmek</a> isteyebilirsiniz."
 
 #. Type: text
 #. Description
@@ -138,14 +140,14 @@ msgid ""
 "this program."
 msgstr ""
 "Bu kurulum süreci, sabit diskinizin bölümlerini yeniden boyutlandırabilir "
-"veya silebilir. Bu programı çalıştırmadan önce<b>tüm değerli verilerinizi "
-"yedeklediğinize</b> emin olun."
+"veya silebilir. Bu programı çalıştırmadan önce <b>tüm değerli verilerinizi "
+"yedeklediğinizden</b> emin olun."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Warning"
-msgstr "Dikkat"
+msgstr "Uyarı"
 
 #. Type: text
 #. Description
@@ -193,7 +195,7 @@ msgstr "Lütfen aşağıdaki tuşlardan birine basın:"
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Is the following key present on your keyboard?"
-msgstr "Aşağıdaki tuş, klavyeniz üzerinde gösteriliyor mu?"
+msgstr "Aşağıdaki tuş, klavyeniz üzerinde bulunuyor mu?"
 
 #. Type: text
 #. Description
@@ -256,6 +258,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Bu bilgisayarı birden çok kişi kullanacaksa, kurulumdan sonra "
+"birden fazla hesap açabilirsiniz.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -282,6 +286,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;/small&gt;Aynı parolayı iki kez girin, böylece parolanız yazım "
+"hatalarına karşı kontrol edilebilecektir.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -305,7 +311,7 @@ msgstr "Parolanızı doğrulayın:"
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Your computer's name:"
-msgstr "Bilgisayar Adı"
+msgstr "Bilgisayarınızın adı:"
 
 #. Type: text
 #. Description
@@ -425,8 +431,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
-"Herhangi bir hesap içe aktarmak istemiyorsanız, bir seçim yapmadan sonraki "
-"sayfaya geçiniz."
+"Herhangi bir hesap içe aktarmak istemiyorsanız, bir seçim yapmadan bir "
+"sonraki sayfaya geçin."
 
 #. Type: text
 #. Description
@@ -531,7 +537,7 @@ msgstr "Nasıl ilerlemek istiyorsunuz?"
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Skip"
-msgstr "Geç"
+msgstr "Atla"
 
 #. Type: title
 #. Description
@@ -543,7 +549,7 @@ msgstr "Kurulum Tamamlandı"
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Continue Testing"
-msgstr "Denemeyi Sürdür"
+msgstr "Sınamayı Sürdür"
 
 #. Type: text
 #. Description
@@ -1149,8 +1155,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek, fakat ağ "
-"yapılandırmasının yerleşik sistemde yeniden kurulumu gerekecektir."
+"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek; fakat "
+"kurulu sistemde ağ yapılandırmasının yeniden kurulumu gerekecektir."
 
 #. Type: error
 #. Description
@@ -1587,9 +1593,9 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"${RELEASE} , Flash, MP3 ve diğer ortamları oynatmak için ve bazı grafikler "
-"ve wi-fi donanımlarla çalışmak için üçüncü parti yazılım kullanıyor. Bu "
-"yazılımların bazıları sahiplidir. Yazılım belgelendirmesinde dahil olan "
+"${RELEASE}, Flash, MP3 ve diğer ortamları oynatmak için, bazı grafikler ve "
+"kablosuz (wi-fi) donanımlarla çalışmak için üçüncü parti yazılım kullanıyor. "
+"Bu yazılımların bazıları sahiplidir. Yazılım belgelendirmesinde dahil olan "
 "lisans şartlarına tabidir."
 
 #. Type: text

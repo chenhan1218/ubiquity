@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-03-07 18:33+0000\n"
-"PO-Revision-Date: 2012-10-16 21:32+0000\n"
-"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
+"PO-Revision-Date: 2013-02-25 01:04+0000\n"
+"Last-Translator: Filippos Kolyvas <fkolyvas@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
-"X-Generator: Launchpad (build 16420)\n"
+"X-Launchpad-Export-Date: 2013-03-07 18:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #. Type: text
 #. Description
@@ -129,6 +129,9 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
+"Αυτή είναι μια πρώιμη έκδοση του εγκαταστάτη ${RELEASE} live ${MEDIUM}. Δεν "
+"είναι τελική έκδοση, αυτή θα έρθει με την τελική έκδοση του ${RELEASE} τον "
+"Απρίλιο του 2013."
 
 #. Type: text
 #. Description

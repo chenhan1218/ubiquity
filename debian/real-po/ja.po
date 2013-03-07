@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-03-07 18:33+0000\n"
-"PO-Revision-Date: 2012-10-16 21:34+0000\n"
-"Last-Translator: Shushi Kurose <md81bird@hitaki.net>\n"
+"PO-Revision-Date: 2013-01-23 17:31+0000\n"
+"Last-Translator: Akira Tanaka <Unknown>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-12 00:32+0000\n"
-"X-Generator: Launchpad (build 16420)\n"
+"X-Launchpad-Export-Date: 2013-03-07 18:08+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #. Type: text
 #. Description
@@ -129,6 +129,8 @@ msgid ""
 "a final release; that will come with the final release of ${RELEASE} in "
 "April 2013."
 msgstr ""
+"これは${RELEASE}のライブ${MEDIUM}インストーラーの先行リリース版です。最終版で"
+"はありません。${RELEASE}の最終版は、2013年4月にリリースする予定です。"
 
 #. Type: text
 #. Description
@@ -257,6 +259,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"<small>このコンピューターを複数人で使用する場合、インストール後に複数のアカウ"
+"ントを設定することができます。</small>"
 
 #. Type: text
 #. Description
@@ -283,6 +287,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"<small>タイプミスをチェックするため、同じパスワードを2回入力してください。</"
+"small>"
 
 #. Type: text
 #. Description
@@ -447,7 +453,7 @@ msgstr "ファイル (${SIZE})"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Kubuntuをどこにインストールしますか?"
 
 #. Type: text
 #. Description
