@@ -1,4 +1,4 @@
-ubiquity (2.13.13) UNRELEASED; urgency=low
+ubiquity (2.13.13) raring; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Bump Standards version and override some lintian tags (ubiquity is
@@ -44,7 +44,7 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   * Add back compositing to kwin on live CD (in ubiquity-dm), whatever was wrong
     in 2008 should be fixed now and its making us look ugly
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 16:42:19 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 07 Mar 2013 19:53:52 +0000
 
 ubiquity (2.13.12) raring; urgency=low
 
