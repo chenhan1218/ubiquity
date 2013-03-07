@@ -366,14 +366,13 @@ class CreateKeyringTestCase(BaseTestPageGtk):
     @patch('ubiquity.misc.drop_all_privileges', sentinel.drop_privs)
     @patch('subprocess.PIPE', sentinel.PIPE)
     @patch('subprocess.Popen')
-    @patch('os.environ.get')
-    def test_create_keyring_urlencoded(self, mock_os_env_get, mock_Popen):
-        mock_os_env_get.return_value = 'cmd'
+    def test_create_keyring_urlencoded(self, mock_Popen):
         fake_token_dict = {'A': 'b/f'}
         d_json = json.dumps(fake_token_dict)
         self.page._user_password = "test password"
         with patch.object(self.page,
-                          '_duplicate_token_data_for_v1') as mock_dup:
+                          '_duplicate_token_data_for_v1') as mock_dup, \
+                patch.dict('os.environ', {'U1_KEYRING_HELPER':'cmd'}):
             mock_dup.side_effect = lambda x: x
             self.page._create_keyring_and_store_u1_token(d_json)
             mock_dup.assert_called_once_with(fake_token_dict)

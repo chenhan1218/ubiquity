@@ -51,7 +51,9 @@ WEIGHT = 10
 (PAGE_REGISTER,
  PAGE_LOGIN,
  PAGE_SPINNER,
- ) = range(3)
+ PAGE_TC,
+ PAGE_ABOUT,
+ ) = range(5)
 
 
 class Page(plugin.Plugin):
@@ -121,6 +123,26 @@ class PageGtk(plugin.PluginUI):
         self.account_creation_successful = False
 
         self.hostname = ""
+
+        # TODO xnox 2012-03-07 add URL link handling hook like in slideshow
+        from gi.repository import WebKit
+        # We have no significant browsing interface, so there isn't much point
+        # in WebKit creating a memory-hungry cache.
+        WebKit.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
+        webview = WebKit.WebView()
+        # WebKit puts file URLs in their own domain by default.
+        # This means that anything which checks for the same origin,
+        # such as creating a XMLHttpRequest, will fail unless this
+        # is disabled.
+        # http://www.gitorious.org/webkit/webkit/commit/624b946
+        if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
+            s = webview.get_settings()
+            s.set_property('enable-caret-browsing', True)
+
+        self.webkit_tc_view.add(webview)
+        webview.open("http://jsfiddle.net/jgdx/TjFRU/show/")
+        webview.show()
+        webview.grab_focus()
 
         from gi.repository import Soup
         self.soup = Soup
@@ -363,6 +385,10 @@ class PageGtk(plugin.PluginUI):
             'error_login', lang)
         self._generic_error = self.controller.get_string(
             'generic_error', lang)
+
+    def set_page_title(self, title):
+        self.controller._wizard.page_title.set_markup(
+            '<span size="xx-large">%s</span>' % title)
 
     # signals
     def on_button_have_account_clicked(self, button):

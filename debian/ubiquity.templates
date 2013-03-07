@@ -151,7 +151,7 @@ _Description: Take Photo
 
 Template: ubiquity/text/ubuntuone_heading_label
 Type: text
-_Description: Setup Ubuntu ONE
+_Description: One account to log in to everything on Ubuntu
 
 Template: ubiquity/text/error_register
 Type: text
