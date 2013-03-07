@@ -10,6 +10,8 @@ ubiquity (2.13.13) UNRELEASED; urgency=low
   * Fix colour unit test, the green is no longer what it used to be...
   * Switch to "NotShowIn=KDE" for ubiquity-gtk desktop files, as most !kde
     desktop environments use gtk frontend.
+  * Show progress dots for plugin pages and show progress bar only during
+    slideshow.
 
   [ Colin Watson ]
   * Decode the output of apt_pkg.size_to_str() if necessary when

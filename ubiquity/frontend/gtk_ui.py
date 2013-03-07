@@ -326,8 +326,20 @@ class Wizard(BaseFrontend):
                     self.toplevels.add(widget)
         self.builder.connect_signals(self)
 
+        for mod in self.pages:
+            progress = Gtk.ProgressBar()
+            progress.set_size_request(10, 10)
+            progress.set_fraction(0)
+            self.dot_grid.add(progress)
+
         next_style = self.next.get_style_context()
         next_style.add_class('ubiquity-next')
+
+        self.progress_pages = {
+            'empty': 0,
+            'dot_grid': 1,
+            'progress_bar': 2,
+        }
 
         self.stop_debconf()
         self.translate_widgets(reget=True)
@@ -823,6 +835,9 @@ class Wizard(BaseFrontend):
         return True
 
     def start_slideshow(self):
+        self.progress_mode.set_current_page(
+            self.progress_pages['progress_bar'])
+
         if not self.slideshow:
             self.page_mode.hide()
             return
@@ -915,11 +930,18 @@ class Wizard(BaseFrontend):
             self.quit.hide()
             self.back.hide()
 
+        self.progress_section.show()
+
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             # Hide the notebook until the first page is ready.
             self.page_mode.hide()
-            self.progress_section.show()
+            self.progress_mode.set_current_page(
+                self.progress_pages['progress_bar'])
             self.live_installer.show()
+        else:
+            self.progress_mode.set_current_page(
+                self.progress_pages['dot_grid'])
+            self.progress_mode.show_all()
         self.allow_change_step(False)
 
         # The default instantiation of GtkComboBoxEntry creates a
@@ -1460,6 +1482,10 @@ class Wizard(BaseFrontend):
                 self.navigation_control.hide()
             else:
                 self.navigation_control.show()
+        for i in range(len(self.pages))[:current+1]:
+            self.dot_grid.get_child_at(i, 0).set_fraction(1)
+        for i in range(len(self.pages))[current+1:]:
+            self.dot_grid.get_child_at(i, 0).set_fraction(0)
 
         syslog.syslog('switched to page %s' % name)
 
@@ -1553,7 +1579,6 @@ class Wizard(BaseFrontend):
     def switch_to_install_interface(self):
         self.installing = True
         self.lockdown_environment()
-        self.progress_section.show()
 
     def find_next_step(self, finished_step):
         # TODO need to handle the case where debconffilters launched from
