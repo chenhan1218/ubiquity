@@ -1,4 +1,4 @@
-ubiquity (2.13.13.1) UNRELEASED; urgency=low
+ubiquity (2.13.13.1) raring; urgency=low
 
   * install, is already imported as a module, hence the update_next_button
     karg got changed to install_now, which broke the rest of calls to
@@ -7,7 +7,7 @@ ubiquity (2.13.13.1) UNRELEASED; urgency=low
     images. Kde frontend maintainers should be free to fix this otherwise,
     as long as it is pyflakes & pep8 clean.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 09 Mar 2013 20:02:15 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sun, 10 Mar 2013 02:13:53 +0000
 
 ubiquity (2.13.13) raring; urgency=low
 
