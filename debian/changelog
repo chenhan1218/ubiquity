@@ -1,3 +1,14 @@
+ubiquity (2.13.13.1) UNRELEASED; urgency=low
+
+  * install, is already imported as a module, hence the update_next_button
+    karg got changed to install_now, which broke the rest of calls to
+    update_next_button. Instead, simply use a positional arg for all the
+    remaining calls. (LP: #1153035) This should unbreak kubuntu
+    images. Kde frontend maintainers should be free to fix this otherwise,
+    as long as it is pyflakes & pep8 clean.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 09 Mar 2013 20:02:15 +0000
+
 ubiquity (2.13.13) raring; urgency=low
 
   [ Dmitrijs Ledkovs ]
