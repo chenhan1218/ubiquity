@@ -163,11 +163,15 @@ class NextButtonActionTestCase(BaseTestPageGtk):
     def _call_register(self, mock_token_name, create_success=True):
         mock_token_name.return_value = 'tokenname'
 
-        self.page.entry_email.set_text("foo@bar.com")
-        self.page.entry_new_password.set_text("pw")
-        self.page.entry_new_password2.set_text("pw")
-        self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)
-
+        self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)        
+        self.page.entry_email1.set_text("foo@bar.com")
+        self.page.u1_name.set_text("Joe Bloggs")
+        self.page.u1_password.set_text("pw12345678")
+        self.page.u1_verified_password.set_text("pw12345678")
+        self.page.u1_tc_check.set_active(True)
+        self.page.u1_tc_check.toggled()        
+        self.page.controller.allow_go_forward.assert_called_with(True)
+        
         def set_page_register_success(*args, **kwargs):
             self.page.account_creation_successful = create_success
 
@@ -181,12 +185,14 @@ class NextButtonActionTestCase(BaseTestPageGtk):
             self.page.plugin_on_next_clicked()
 
             # TODO displayname is temporarily just the email, pending UI
-            mr.assert_called_once_with("foo@bar.com", "pw", "foo@bar.com")
+            mr.assert_called_once_with("foo@bar.com", "pw12345678",
+                                       "Joe Bloggs")
 
             if create_success:
                 ml = mocks['login_to_sso']
-                ml.assert_called_once_with("foo@bar.com", "pw", 'tokenname',
-                                           ubi_ubuntuone.PAGE_REGISTER)
+                ml.assert_called_once_with(
+                    "foo@bar.com", "pw12345678", 'tokenname',
+                    ubi_ubuntuone.PAGE_REGISTER)
 
     def test_call_register_success(self, mock_gtk, mock_token_name):
         self._call_register(mock_token_name)
@@ -197,13 +203,15 @@ class NextButtonActionTestCase(BaseTestPageGtk):
     def test_call_login(self, mock_gtk, mock_token_name):
         mock_token_name.return_value = 'tokenname'
 
-        self.page.entry_existing_email.set_text("foo")
-        self.page.entry_existing_password.set_text("pass")
         self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_LOGIN)
-
+        self.page.entry_email.set_text("foo@bar.com")
+        self.page.u1_existing_account.set_active(True)
+        self.page.u1_password_existing.set_text("pass1234")
+        
         with patch.object(self.page, 'login_to_sso') as mock_login:
             self.page.plugin_on_next_clicked()
-            mock_login.assert_called_once_with("foo", "pass", 'tokenname',
+            mock_login.assert_called_once_with("foo@bar.com", "pass1234",
+                                               'tokenname',
                                                ubi_ubuntuone.PAGE_LOGIN)
 
 
