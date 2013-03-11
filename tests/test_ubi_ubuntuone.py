@@ -43,7 +43,7 @@ class TestPageGtk(BaseTestPageGtk):
         self.page.plugin_get_current_page()
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
-            ubi_ubuntuone.PAGE_REGISTER)
+            ubi_ubuntuone.PAGE_LOGIN)
 
     def test_switch_pages(self):
         self.page.plugin_get_current_page()
@@ -116,9 +116,10 @@ class NextButtonActionTestCase(BaseTestPageGtk):
         def set_page_register_success(*args, **kwargs):
             self.page.account_creation_successful = create_success
 
-        with patch.multiple(self.page,
-                            register_new_sso_account=DEFAULT,
-                            login_to_sso=DEFAULT) as mocks:
+        with patch.multiple(
+                self.page,
+                register_new_sso_account=DEFAULT,
+                login_to_sso=DEFAULT) as mocks:
             mr = mocks['register_new_sso_account']
             mr.side_effect = set_page_register_success
 
@@ -372,7 +373,7 @@ class CreateKeyringTestCase(BaseTestPageGtk):
         self.page._user_password = "test password"
         with patch.object(self.page,
                           '_duplicate_token_data_for_v1') as mock_dup, \
-                patch.dict('os.environ', {'U1_KEYRING_HELPER':'cmd'}):
+                patch.dict('os.environ', {'U1_KEYRING_HELPER': 'cmd'}):
             mock_dup.side_effect = lambda x: x
             self.page._create_keyring_and_store_u1_token(d_json)
             mock_dup.assert_called_once_with(fake_token_dict)

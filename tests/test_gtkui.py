@@ -131,6 +131,11 @@ class TestFrontend(unittest.TestCase):
                 'partition_lvm_status',
                 # These are "placeholders" for debconfs impromptu notices
                 'ubi_question_dialog', 'question_label',
+                # Calculated error string
+                'label_global_error',
+                # TODO FIXME
+                'u1_password_existing_error', 'u1_email_error_label',
+                'u1_email_error_label1',
             ]
             deb_host_arch = subprocess.Popen(
                 ['dpkg-architecture', '-qDEB_HOST_ARCH'],

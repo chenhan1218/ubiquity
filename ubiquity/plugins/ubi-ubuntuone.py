@@ -35,7 +35,7 @@ from ubiquity import plugin, misc
 PLUGIN_VERSION = "1.0"
 UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
 UBUNTU_ONE_URL = "https://one.ubuntu.com/"
-UBUNTU_TC_URL  = "http://jsfiddle.net/jgdx/TjFRU/show/"
+UBUNTU_TC_URL = "http://jsfiddle.net/jgdx/TjFRU/show/"
 
 TOKEN_SEPARATOR = ' @ '
 SEPARATOR_REPLACEMENT = ' AT '
@@ -116,11 +116,6 @@ class PageGtk(plugin.PluginUI):
         self.skip_step = False
         self.online = False
 
-        PATH = (os.environ.get('UBIQUITY_PATH', False) or
-                    '/usr/share/ubiquity')
-        self.controller._wizard.page_logo.set_from_file(
-            os.path.join(PATH, 'pixmaps', 'u1', 'ubuntu_one_logo.svg'))
-        
         self.label_global_error.set_text("")
         self._generic_error = "error"
 
@@ -146,12 +141,12 @@ class PageGtk(plugin.PluginUI):
             s.set_property('enable-caret-browsing', True)
         webview.connect('new-window-policy-decision-requested',
                         self.controller._wizard.on_slideshow_link_clicked)
-            
+
         self.webkit_tc_view.add(webview)
         webview.open(UBUNTU_TC_URL)
         webview.show()
         webview.grab_focus()
-
+        
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
@@ -280,12 +275,21 @@ class PageGtk(plugin.PluginUI):
         self.notebook_main.set_current_page(PAGE_SPINNER)
         self.spinner_connect.start()
 
-        if from_page == PAGE_REGISTER:
-
-            # First create new account before getting token:
+        if from_page == PAGE_LOGIN:
             email = self.entry_email.get_text()
-            password = self.entry_new_password.get_text()
-            displayname = email  # TODO get real displayname from UI
+            if self.u1_new_account.get_active():
+                self.entry_email1.set_text(email)
+                self.spinner_connect.stop()
+                self.notebook_main.set_current_page(PAGE_REGISTER)
+                return True
+            else:
+                password = self.u1_password_existing.get_text()
+        
+        elif from_page == PAGE_REGISTER:
+            # First create new account before getting token:
+            email = self.entry_email1.get_text()
+            password = self.u1_password.get_text()
+            displayname = self.u1_name.get_text()
 
             try:
                 self.register_new_sso_account(email, password, displayname)
@@ -299,10 +303,6 @@ class PageGtk(plugin.PluginUI):
             if not self.account_creation_successful:
                 syslog.syslog("Error registering SSO account, exiting.")
                 return True
-
-        elif from_page == PAGE_LOGIN:
-            email = self.entry_existing_email.get_text()
-            password = self.entry_existing_password.get_text()
 
         else:
             raise AssertionError("'Next' from invalid page: %r" % from_page)
@@ -376,15 +376,24 @@ class PageGtk(plugin.PluginUI):
         return res
 
     def plugin_translate(self, lang):
+        PATH = (os.environ.get('UBIQUITY_PATH', False) or
+                '/usr/share/ubiquity')
+        self.controller._wizard.page_logo.set_from_file(
+            os.path.join(PATH, 'pixmaps', 'u1', 'ubuntu_one_logo.svg'))
         pasw = self.controller.get_string('password_inactive_label', lang)
-        self.entry_new_password.set_placeholder_text(pasw)
-        self.entry_existing_password.set_placeholder_text(pasw)
-        pasw_again = self.controller.get_string(
-            'password_again_inactive_label', lang)
-        self.entry_new_password2.set_placeholder_text(pasw_again)
+        self.u1_password_existing.set_placeholder_text(pasw)
+        pasw_length = self.controller.get_string('password_new_inactive_label')
+        self.u1_password.set_placeholder_text(pasw_length)
+        pasw_retype = self.controller.get_string(
+            'password_new_again_inactive_label')
+        self.u1_verified_password.set_placeholder_text(pasw_retype)
         email_p = self.controller.get_string('email_inactive_label', lang)
         self.entry_email.set_placeholder_text(email_p)
-        self.entry_existing_email.set_placeholder_text(email_p)
+        self.entry_email1.set_placeholder_text(email_p)
+        name_p = self.controller.get_string('fullname_inactive_label', lang)
+        self.u1_name.set_placeholder_text(name_p)
+        self.u1_learn_more_label.connect(
+            'activate-link', self.on_u1_learn_more_activate)
         # error messages
         self._error_register = self.controller.get_string(
             'error_register', lang)
@@ -409,6 +418,10 @@ class PageGtk(plugin.PluginUI):
         self.skip_step = True
         self.controller.go_forward()
 
+    def on_u1_learn_more_activate(self, unused_widget, unused):
+        # open u1 learn_more
+        return True
+        
     def _verify_email_entry(self, email):
         """Return True if the email address looks valid"""
         return '@' in email
@@ -423,15 +436,15 @@ class PageGtk(plugin.PluginUI):
         """
         complete = False
         if self.notebook_main.get_current_page() == PAGE_REGISTER:
-            email = self.entry_email.get_text()
-            password = self.entry_new_password.get_text()
-            password2 = self.entry_new_password2.get_text()
+            email = self.entry_email1.get_text()
+            password = self.u1_password.get_text()
+            password2 = self.u1_verified_password.get_text()
             complete = (self._verify_email_entry(email) and
                         len(password) > 0 and
                         (password == password2))
         elif self.notebook_main.get_current_page() == PAGE_LOGIN:
-            email = self.entry_existing_email.get_text()
-            password = self.entry_existing_password.get_text()
+            email = self.entry_email.get_text()
+            password = self.u1_password_existing.get_text()
             complete = (self._verify_email_entry(email) and
                         self._verify_password_entry(password))
         self.controller.allow_go_forward(complete)

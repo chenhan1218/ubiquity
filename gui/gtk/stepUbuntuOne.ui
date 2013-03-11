@@ -710,7 +710,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                     <child>
-                      <object class="GtkLabel" id="label1">
+                      <object class="GtkLabel" id="u1_terms">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">I have read and accept the &lt;a href=""&gt;Ubuntu One terms of use&lt;/a&gt;</property>
