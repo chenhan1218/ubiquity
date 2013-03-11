@@ -149,6 +149,22 @@ Template: ubiquity/text/webcam_take_button
 Type: text
 _Description: Take Photo
 
+Template: ubiquity/text/ubuntuone_heading_label
+Type: text
+_Description: One account to log in to everything on Ubuntu
+
+Template: ubiquity/text/error_register
+Type: text
+_Description: Error registering account
+
+Template: ubiquity/text/error_login
+Type: text
+_Description: Error loging into the account
+
+Template: ubiquity/text/email_inactive_label
+Type: text
+_Description: Enter your E-Mail address
+
 Template: ubiquity/text/fullname_label
 Type: text
 _Description: Your name:
