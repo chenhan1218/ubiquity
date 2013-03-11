@@ -433,7 +433,7 @@ class PageGtk(plugin.PluginUI):
 
     def _verify_password_entry(self, password):
         """Return True if there is a valid password"""
-        return len(password) > 0
+        return len(password) > 7
 
     def info_loop(self, widget):
         """Run each time the user inputs something to make controlls
@@ -446,7 +446,7 @@ class PageGtk(plugin.PluginUI):
             password2 = self.u1_verified_password.get_text()
             complete = (
                 self._verify_email_entry(email) and
-                len(password) > 7 and
+                self._verify_password_entry(password) and
                 (password == password2) and
                 len(self.u1_name.get_text())> 0 and
                 self.u1_tc_check.get_active()

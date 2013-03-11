@@ -134,17 +134,26 @@ class RegisterTestCase(BaseTestPageGtk):
 
 class LoginTestCase(BaseTestPageGtk):
 
-    def test_login_allow_go_forward_not_yet(self):
-        self.page.entry_existing_email.set_text("foo")
-        self.page.entry_existing_password.set_text("pass")
+    def setUp(self):
+        super().setUp()
+        self.page.notebook_main.set_current_page(
+            ubi_ubuntuone.PAGE_LOGIN)
+        self.page.info_loop(None)
+    
+    def test_login_allow_go_forward_not_email(self):
+        self.page.entry_email.set_text("foo")
+        self.page.u1_password_existing.set_text("pass1234")
+        self.page.controller.allow_go_forward.assert_called_with(False)
+
+    def test_login_allow_go_foward_not_short(self):
+        self.page.entry_email.set_text("foo@bar.com")
+        self.page.u1_password_existing.set_text("pass")
         self.page.controller.allow_go_forward.assert_called_with(False)
 
     def test_login_allow_go_foward(self):
-        self.page.linkbutton_have_account.clicked()
-        self.page.entry_existing_email.set_text("foo@bar.com")
-        self.page.entry_existing_password.set_text("pass")
+        self.page.entry_email.set_text("foo@bar.com")
+        self.page.u1_password_existing.set_text("pass1234")
         self.page.controller.allow_go_forward.assert_called_with(True)
-
 
 @patch('syslog.syslog', new=print)
 @patch.object(ubi_ubuntuone, 'get_token_name')
