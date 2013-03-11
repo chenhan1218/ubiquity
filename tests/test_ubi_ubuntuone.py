@@ -113,12 +113,23 @@ class RegisterTestCase(BaseTestPageGtk):
         self.page.u1_password.set_text("pw")
         self.page.u1_verified_password.set_text("pw")
         self.page.controller.allow_go_forward.assert_called_with(False)
+
+    def test_allow_go_foward_not_tc(self):
+        self.page.entry_email1.set_text("foo@bar.com")
+        self.page.u1_name.set_text("Joe Bloggs")
+        self.page.u1_password.set_text("pw12345678")
+        self.page.u1_verified_password.set_text("pw12345678")
+        self.page.u1_tc_check.set_active(False)
+        self.page.u1_tc_check.toggled()
+        self.page.controller.allow_go_forward.assert_called_with(False)
         
     def test_allow_go_foward(self):
         self.page.entry_email1.set_text("foo@bar.com")
         self.page.u1_name.set_text("Joe Bloggs")
         self.page.u1_password.set_text("pw12345678")
-        self.page.u1_verified_password.set_text("pw12345678")        
+        self.page.u1_verified_password.set_text("pw12345678")
+        self.page.u1_tc_check.set_active(True)
+        self.page.u1_tc_check.toggled()        
         self.page.controller.allow_go_forward.assert_called_with(True)
 
 class LoginTestCase(BaseTestPageGtk):

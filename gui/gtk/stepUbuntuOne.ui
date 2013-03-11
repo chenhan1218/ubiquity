@@ -708,7 +708,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkCheckButton" id="checkbutton1">
+                  <object class="GtkCheckButton" id="u1_tc_check">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="receives_default">False</property>
