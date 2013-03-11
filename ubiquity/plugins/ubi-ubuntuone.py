@@ -35,6 +35,7 @@ from ubiquity import plugin, misc
 PLUGIN_VERSION = "1.0"
 UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
 UBUNTU_ONE_URL = "https://one.ubuntu.com/"
+UBUNTU_TC_URL  = "http://jsfiddle.net/jgdx/TjFRU/show/"
 
 TOKEN_SEPARATOR = ' @ '
 SEPARATOR_REPLACEMENT = ' AT '
@@ -48,8 +49,8 @@ NAME = 'ubuntuone'
 AFTER = 'usersetup'
 WEIGHT = 10
 
-(PAGE_REGISTER,
- PAGE_LOGIN,
+(PAGE_LOGIN,
+ PAGE_REGISTER,
  PAGE_SPINNER,
  PAGE_TC,
  PAGE_ABOUT,
@@ -115,6 +116,11 @@ class PageGtk(plugin.PluginUI):
         self.skip_step = False
         self.online = False
 
+        PATH = (os.environ.get('UBIQUITY_PATH', False) or
+                    '/usr/share/ubiquity')
+        self.controller._wizard.page_logo.set_from_file(
+            os.path.join(PATH, 'pixmaps', 'u1', 'ubuntu_one_logo.svg'))
+        
         self.label_global_error.set_text("")
         self._generic_error = "error"
 
@@ -138,9 +144,11 @@ class PageGtk(plugin.PluginUI):
         if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
             s = webview.get_settings()
             s.set_property('enable-caret-browsing', True)
-
+        webview.connect('new-window-policy-decision-requested',
+                        self.controller._wizard.on_slideshow_link_clicked)
+            
         self.webkit_tc_view.add(webview)
-        webview.open("http://jsfiddle.net/jgdx/TjFRU/show/")
+        webview.open(UBUNTU_TC_URL)
         webview.show()
         webview.grab_focus()
 
@@ -221,8 +229,7 @@ class PageGtk(plugin.PluginUI):
             except ValueError:
                 error_message = self._generic_error
 
-            self.label_global_error.set_markup("<b><big>%s</big></b>" %
-                                               error_message)
+            self.label_global_error.set_text(error_message)
 
         Gtk.main_quit()
 
@@ -257,7 +264,7 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_get_current_page(self):
         self.page.show_all()
-        self.notebook_main.set_current_page(PAGE_REGISTER)
+        self.notebook_main.set_current_page(PAGE_LOGIN)
         return self.page
 
     def plugin_on_back_clicked(self):
