@@ -139,13 +139,14 @@ class PageGtk(plugin.PluginUI):
         if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
             s = self.webview.get_settings()
             s.set_property('enable-caret-browsing', True)
-        self.webview.connect('new-window-policy-decision-requested',
-                        self.controller._wizard.on_slideshow_link_clicked)
+        self.webview.connect(
+            'new-window-policy-decision-requested',
+            self.controller._wizard.on_slideshow_link_clicked)
 
         self.webkit_tc_view.add(self.webview)
         self.webview.open(UBUNTU_TC_URL)
         self.webview.show()
-        
+
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
@@ -264,7 +265,7 @@ class PageGtk(plugin.PluginUI):
     def plugin_on_back_clicked(self):
         from_page = self.notebook_main.get_current_page()
         if from_page == PAGE_REGISTER:
-            email = self.entry_email1.get_text()            
+            email = self.entry_email1.get_text()
             self.entry_email.set_text(email)
             self.notebook_main.set_current_page(PAGE_LOGIN)
             return True
@@ -272,7 +273,7 @@ class PageGtk(plugin.PluginUI):
             self.notebook_main.set_current_page(PAGE_REGISTER)
             return True
         return False
-        
+
     def plugin_on_next_clicked(self):
         from gi.repository import Gtk
         if self.skip_step:
@@ -291,7 +292,7 @@ class PageGtk(plugin.PluginUI):
                 return True
             else:
                 password = self.u1_password_existing.get_text()
-        
+
         elif from_page == PAGE_REGISTER:
             # First create new account before getting token:
             email = self.entry_email1.get_text()
@@ -426,7 +427,7 @@ class PageGtk(plugin.PluginUI):
     def on_u1_terms_activate_link(self, unused_widget, unused):
         self.notebook_main.set_current_page(PAGE_TC)
         self.webview.grab_focus()
-    
+
     def _verify_email_entry(self, email):
         """Return True if the email address looks valid"""
         return '@' in email
@@ -448,7 +449,7 @@ class PageGtk(plugin.PluginUI):
                 self._verify_email_entry(email) and
                 self._verify_password_entry(password) and
                 (password == password2) and
-                len(self.u1_name.get_text())> 0 and
+                len(self.u1_name.get_text()) > 0 and
                 self.u1_tc_check.get_active()
             )
         elif self.notebook_main.get_current_page() == PAGE_LOGIN:

@@ -59,7 +59,7 @@ class TestPageGtk(BaseTestPageGtk):
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_TC)
-        self.page.plugin_on_back_clicked()        
+        self.page.plugin_on_back_clicked()
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_REGISTER)
@@ -86,7 +86,7 @@ class RegisterTestCase(BaseTestPageGtk):
         self.page.notebook_main.set_current_page(
             ubi_ubuntuone.PAGE_REGISTER)
         self.page.info_loop(None)
-        
+
     def test_allow_go_forward_not_without_any_password(self):
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
@@ -104,7 +104,7 @@ class RegisterTestCase(BaseTestPageGtk):
     def test_allow_go_foward_not_without_name(self):
         self.page.entry_email1.set_text("foo@bar.com")
         self.page.u1_password.set_text("pw12345678")
-        self.page.u1_verified_password.set_text("pw12345678")        
+        self.page.u1_verified_password.set_text("pw12345678")
         self.page.controller.allow_go_forward.assert_called_with(False)
 
     def test_allow_go_foward_not_too_short(self):
@@ -122,15 +122,16 @@ class RegisterTestCase(BaseTestPageGtk):
         self.page.u1_tc_check.set_active(False)
         self.page.u1_tc_check.toggled()
         self.page.controller.allow_go_forward.assert_called_with(False)
-        
+
     def test_allow_go_foward(self):
         self.page.entry_email1.set_text("foo@bar.com")
         self.page.u1_name.set_text("Joe Bloggs")
         self.page.u1_password.set_text("pw12345678")
         self.page.u1_verified_password.set_text("pw12345678")
         self.page.u1_tc_check.set_active(True)
-        self.page.u1_tc_check.toggled()        
+        self.page.u1_tc_check.toggled()
         self.page.controller.allow_go_forward.assert_called_with(True)
+
 
 class LoginTestCase(BaseTestPageGtk):
 
@@ -139,7 +140,7 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.notebook_main.set_current_page(
             ubi_ubuntuone.PAGE_LOGIN)
         self.page.info_loop(None)
-    
+
     def test_login_allow_go_forward_not_email(self):
         self.page.entry_email.set_text("foo")
         self.page.u1_password_existing.set_text("pass1234")
@@ -155,6 +156,7 @@ class LoginTestCase(BaseTestPageGtk):
         self.page.u1_password_existing.set_text("pass1234")
         self.page.controller.allow_go_forward.assert_called_with(True)
 
+
 @patch('syslog.syslog', new=print)
 @patch.object(ubi_ubuntuone, 'get_token_name')
 @patch('gi.repository.Gtk')
@@ -163,15 +165,15 @@ class NextButtonActionTestCase(BaseTestPageGtk):
     def _call_register(self, mock_token_name, create_success=True):
         mock_token_name.return_value = 'tokenname'
 
-        self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)        
+        self.page.notebook_main.set_current_page(ubi_ubuntuone.PAGE_REGISTER)
         self.page.entry_email1.set_text("foo@bar.com")
         self.page.u1_name.set_text("Joe Bloggs")
         self.page.u1_password.set_text("pw12345678")
         self.page.u1_verified_password.set_text("pw12345678")
         self.page.u1_tc_check.set_active(True)
-        self.page.u1_tc_check.toggled()        
+        self.page.u1_tc_check.toggled()
         self.page.controller.allow_go_forward.assert_called_with(True)
-        
+
         def set_page_register_success(*args, **kwargs):
             self.page.account_creation_successful = create_success
 
@@ -207,7 +209,7 @@ class NextButtonActionTestCase(BaseTestPageGtk):
         self.page.entry_email.set_text("foo@bar.com")
         self.page.u1_existing_account.set_active(True)
         self.page.u1_password_existing.set_text("pass1234")
-        
+
         with patch.object(self.page, 'login_to_sso') as mock_login:
             self.page.plugin_on_next_clicked()
             mock_login.assert_called_once_with("foo@bar.com", "pass1234",
