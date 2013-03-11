@@ -187,7 +187,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
-                               ubi_ubuntuone.PAGE_REGISTER)
+                               ubi_ubuntuone.PAGE_LOGIN)
         self.assertEqual(self.page.oauth_token_json,
                          expected_body)
 
@@ -196,7 +196,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self._call_handle_done(http.client.CREATED,
                                expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
-                               ubi_ubuntuone.PAGE_REGISTER)
+                               ubi_ubuntuone.PAGE_LOGIN)
         self.assertEqual(self.page.oauth_token_json,
                          expected_body)
 
@@ -204,7 +204,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         expected_body = "TESTBODY"
         self._call_handle_done(http.client.OK, expected_body,
                                ubi_ubuntuone.PING_CALLBACK_ACTION,
-                               ubi_ubuntuone.PAGE_REGISTER)
+                               ubi_ubuntuone.PAGE_LOGIN)
         self.assertTrue(self.page.ping_successful)
 
     def test_handle_done_ping_CREATED(self, mock_gtk):
@@ -212,7 +212,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         self._call_handle_done(http.client.CREATED,
                                expected_body,
                                ubi_ubuntuone.PING_CALLBACK_ACTION,
-                               ubi_ubuntuone.PAGE_REGISTER)
+                               ubi_ubuntuone.PAGE_LOGIN)
         self.assertTrue(self.page.ping_successful)
 
     def test_handle_done_error_token(self, mock_gtk):
@@ -220,7 +220,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         # GONE or anything other than OK/CREATED:
         self._call_handle_done(http.client.GONE, expected_body,
                                ubi_ubuntuone.TOKEN_CALLBACK_ACTION,
-                               ubi_ubuntuone.PAGE_REGISTER)
+                               ubi_ubuntuone.PAGE_LOGIN)
         self.assertEqual(self.page.oauth_token_json, None)
         self.assertEqual(self.page.label_global_error.get_text(),
                          "tstmsg")
@@ -233,7 +233,7 @@ class SSOAPITestCase(BaseTestPageGtk):
             # GONE or anything other than OK/CREATED:
             self._call_handle_done(http.client.GONE, expected_body,
                                    ubi_ubuntuone.PING_CALLBACK_ACTION,
-                                   ubi_ubuntuone.PAGE_REGISTER)
+                                   ubi_ubuntuone.PAGE_LOGIN)
             self.assertFalse(self.page.ping_successful)
             self.assertEqual(self.page.label_global_error.get_text(),
                              "err")
