@@ -130,22 +130,21 @@ class PageGtk(plugin.PluginUI):
         # We have no significant browsing interface, so there isn't much point
         # in WebKit creating a memory-hungry cache.
         WebKit.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
-        webview = WebKit.WebView()
+        self.webview = WebKit.WebView()
         # WebKit puts file URLs in their own domain by default.
         # This means that anything which checks for the same origin,
         # such as creating a XMLHttpRequest, will fail unless this
         # is disabled.
         # http://www.gitorious.org/webkit/webkit/commit/624b946
         if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
-            s = webview.get_settings()
+            s = self.webview.get_settings()
             s.set_property('enable-caret-browsing', True)
-        webview.connect('new-window-policy-decision-requested',
+        self.webview.connect('new-window-policy-decision-requested',
                         self.controller._wizard.on_slideshow_link_clicked)
 
-        self.webkit_tc_view.add(webview)
-        webview.open(UBUNTU_TC_URL)
-        webview.show()
-        webview.grab_focus()
+        self.webkit_tc_view.add(self.webview)
+        self.webview.open(UBUNTU_TC_URL)
+        self.webview.show()
         
         from gi.repository import Soup
         self.soup = Soup
@@ -263,9 +262,17 @@ class PageGtk(plugin.PluginUI):
         return self.page
 
     def plugin_on_back_clicked(self):
-        # stop whatever needs stopping
+        from_page = self.notebook_main.get_current_page()
+        if from_page == PAGE_REGISTER:
+            email = self.entry_email1.get_text()            
+            self.entry_email.set_text(email)
+            self.notebook_main.set_current_page(PAGE_LOGIN)
+            return True
+        elif from_page == PAGE_TC:
+            self.notebook_main.set_current_page(PAGE_REGISTER)
+            return True
         return False
-
+        
     def plugin_on_next_clicked(self):
         from gi.repository import Gtk
         if self.skip_step:
@@ -407,12 +414,6 @@ class PageGtk(plugin.PluginUI):
             '<span size="xx-large">%s</span>' % title)
 
     # signals
-    def on_button_have_account_clicked(self, button):
-        self.notebook_main.set_current_page(PAGE_LOGIN)
-
-    def on_button_need_account_clicked(self, button):
-        self.notebook_main.set_current_page(PAGE_REGISTER)
-
     def on_button_skip_account_clicked(self, button):
         self.oauth_token = None
         self.skip_step = True
@@ -421,7 +422,11 @@ class PageGtk(plugin.PluginUI):
     def on_u1_learn_more_activate(self, unused_widget, unused):
         # open u1 learn_more
         return True
-        
+
+    def on_u1_terms_activate_link(self, unused_widget, unused):
+        self.notebook_main.set_current_page(PAGE_TC)
+        self.webview.grab_focus()
+    
     def _verify_email_entry(self, email):
         """Return True if the email address looks valid"""
         return '@' in email

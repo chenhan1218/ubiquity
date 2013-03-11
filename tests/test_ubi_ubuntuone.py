@@ -47,14 +47,26 @@ class TestPageGtk(BaseTestPageGtk):
 
     def test_switch_pages(self):
         self.page.plugin_get_current_page()
-        self.page.linkbutton_have_account.clicked()
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_LOGIN)
-        self.page.linkbutton_need_account.clicked()
+        self.page.plugin_on_next_clicked()
         self.assertEqual(
             self.page.notebook_main.get_current_page(),
             ubi_ubuntuone.PAGE_REGISTER)
+        # How to "click" the tc label?
+        self.page.on_u1_terms_activate_link(None, None)
+        self.assertEqual(
+            self.page.notebook_main.get_current_page(),
+            ubi_ubuntuone.PAGE_TC)
+        self.page.plugin_on_back_clicked()        
+        self.assertEqual(
+            self.page.notebook_main.get_current_page(),
+            ubi_ubuntuone.PAGE_REGISTER)
+        self.page.plugin_on_back_clicked()
+        self.assertEqual(
+            self.page.notebook_main.get_current_page(),
+            ubi_ubuntuone.PAGE_LOGIN)
 
     def test_verify_email_entry(self):
         self.assertFalse(self.page._verify_email_entry("meep"))
