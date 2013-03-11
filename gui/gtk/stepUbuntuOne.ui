@@ -359,6 +359,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                         <property name="invisible_char_set">True</property>
                         <property name="placeholder_text">Password</property>
                         <property name="input_purpose">password</property>
+                        <signal name="changed" handler="info_loop" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -426,6 +427,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                         <property name="invisible_char_set">True</property>
                         <property name="placeholder_text">Ubuntu One email</property>
                         <property name="input_purpose">email</property>
+                        <signal name="changed" handler="info_loop" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -476,6 +478,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                     <property name="invisible_char">•</property>
                     <property name="width_chars">30</property>
                     <property name="placeholder_text">Your Name</property>
+                    <signal name="changed" handler="info_loop" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -502,6 +505,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                         <property name="width_chars">30</property>
                         <property name="placeholder_text">At least 8 characters password</property>
                         <property name="input_purpose">password</property>
+                        <signal name="changed" handler="info_loop" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -521,6 +525,7 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                         <property name="width_chars">30</property>
                         <property name="invisible_char_set">True</property>
                         <property name="placeholder_text">Retype password</property>
+                        <signal name="changed" handler="info_loop" swapped="no"/>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
@@ -709,12 +714,14 @@ If you don't have an account yet, don't worry we'll create one for you.&lt;/span
                     <property name="receives_default">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="info_loop" swapped="no"/>
                     <child>
                       <object class="GtkLabel" id="u1_terms">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">I have read and accept the &lt;a href=""&gt;Ubuntu One terms of use&lt;/a&gt;</property>
                         <property name="use_markup">True</property>
+                        <signal name="activate-link" handler="on_u1_terms_activate_link" swapped="no"/>
                       </object>
                     </child>
                   </object>

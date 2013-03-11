@@ -81,22 +81,45 @@ class TestPageGtk(BaseTestPageGtk):
 
 class RegisterTestCase(BaseTestPageGtk):
 
+    def setUp(self):
+        super().setUp()
+        self.page.notebook_main.set_current_page(
+            ubi_ubuntuone.PAGE_REGISTER)
+        self.page.info_loop(None)
+        
     def test_allow_go_forward_not_without_any_password(self):
-        self.page.entry_email.set_text("foo")
+        self.assertEqual(
+            self.page.notebook_main.get_current_page(),
+            ubi_ubuntuone.PAGE_REGISTER)
+        self.page.entry_email1.set_text("foo")
         self.page.controller.allow_go_forward.assert_called_with(False)
 
     def test_allow_go_foward_not_without_matching_password(self):
-        self.page.entry_email.set_text("foo@bar.com")
-        self.page.entry_new_password.set_text("pw")
-        self.page.entry_new_password2.set_text("pwd")
+        self.page.entry_email1.set_text("foo@bar.com")
+        self.page.u1_name.set_text("Joe Bloggs")
+        self.page.u1_password.set_text("pw12345678")
+        self.page.u1_verified_password.set_text("12345678pwd")
         self.page.controller.allow_go_forward.assert_called_with(False)
 
-    def test_allow_go_foward(self):
-        self.page.entry_email.set_text("foo@bar.com")
-        self.page.entry_new_password.set_text("pw")
-        self.page.entry_new_password2.set_text("pw")
-        self.page.controller.allow_go_forward.assert_called_with(True)
+    def test_allow_go_foward_not_without_name(self):
+        self.page.entry_email1.set_text("foo@bar.com")
+        self.page.u1_password.set_text("pw12345678")
+        self.page.u1_verified_password.set_text("pw12345678")        
+        self.page.controller.allow_go_forward.assert_called_with(False)
 
+    def test_allow_go_foward_not_too_short(self):
+        self.page.entry_email1.set_text("foo@bar.com")
+        self.page.u1_name.set_text("Joe Bloggs")
+        self.page.u1_password.set_text("pw")
+        self.page.u1_verified_password.set_text("pw")
+        self.page.controller.allow_go_forward.assert_called_with(False)
+        
+    def test_allow_go_foward(self):
+        self.page.entry_email1.set_text("foo@bar.com")
+        self.page.u1_name.set_text("Joe Bloggs")
+        self.page.u1_password.set_text("pw12345678")
+        self.page.u1_verified_password.set_text("pw12345678")        
+        self.page.controller.allow_go_forward.assert_called_with(True)
 
 class LoginTestCase(BaseTestPageGtk):
 
