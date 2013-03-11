@@ -76,7 +76,7 @@ class TestPageGtk(BaseTestPageGtk):
 
     def test_verify_password_entry(self):
         self.assertFalse(self.page._verify_password_entry(""))
-        self.assertTrue(self.page._verify_password_entry("xxx"))
+        self.assertTrue(self.page._verify_password_entry("xxxx1234"))
 
 
 class RegisterTestCase(BaseTestPageGtk):
