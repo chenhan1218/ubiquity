@@ -72,12 +72,6 @@ QFrame[isBreadcrumb="true"],
 }
 
 /*- Content ---------------------------------*/
-#widgetStack {
-    font-size: 10pt;
-    color: black;
-    margin: 1px;
-}
-
 #map_frame,
 #keyboard_frame
 {
