@@ -13,8 +13,7 @@ class StateBox(QWidget):
         self.image = QLabel(self)
 
         layout = QHBoxLayout(self)
-        layout.setContentsMargins(12, 0, 0, 0)
-        layout.setSpacing(0)
+        layout.setContentsMargins(0, 0, 0, 0)
         layout.addWidget(self.image)
         layout.addWidget(self.label)
         layout.addStretch()
