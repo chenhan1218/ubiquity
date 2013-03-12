@@ -4,6 +4,11 @@ ubiquity (2.13.14) raring; urgency=low
   * KDE: Insert spacer in sidebar to ensure it scales correctly even when
     no install steps are set (greeter mode) LP: #1153557
 
+  [ Aurélien Gâteau ]
+  * fixes the "next|install" button not changing its text back to
+    "next" when it has changed to "install" and users clicks on
+    "previous"
+
  -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 08 Mar 2013 13:34:14 +0100
 
 ubiquity (2.13.13.1) raring; urgency=low

@@ -137,10 +137,10 @@ class Controller(ubiquity.frontend.base.Controller):
         return self._wizard.get_string(name, lang, prefix)
 
     def setNextButtonTextInstallNow(self):
-        self._wizard.update_next_button(True)
+        self._wizard.update_next_button(install_now=True)
 
     def setNextButtonTextNext(self):
-        self._wizard.update_next_button(False)
+        self._wizard.update_next_button(install_now=False)
 
 
 class Wizard(BaseFrontend):
@@ -281,7 +281,7 @@ class Wizard(BaseFrontend):
 
         self.ui.pageMode.setCurrentWidget(self.ui.setup_page)
         self.update_back_button()
-        self.update_next_button(False)
+        self.update_next_button(install_now=False)
         self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
 
         self._show_progress_bar(False)
@@ -854,10 +854,11 @@ class Wizard(BaseFrontend):
                 index = self.stackLayout.indexOf(cur)
                 self.add_history(page, cur)
                 self.set_current_page(index)
-                is_install = page.ui.get('plugin_is_install')
+                is_install = hasattr(page.ui, 'plugin_is_install') \
+                    and page.ui.plugin_is_install
         self._update_breadcrumbs(n)
 
-        self.update_next_button(is_install)
+        self.update_next_button(install_now=is_install)
 
         if self.pagesindex == 0:
             self.allow_go_backward(False)
