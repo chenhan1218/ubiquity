@@ -72,22 +72,6 @@ QFrame[isBreadcrumb="true"],
 }
 
 /*- Content ---------------------------------*/
-#widgetStack QLabel, QRadioButton {
-	font-size: 10pt;
-	color: #4d4d4d;
-	margin: 1px;
-}
-
-#content_widget {
-}
-
-#widgetStack QWidget {
-    font-size: 10pt;
-}
-
-#content_frame QLabel {
-}
-
 #map_frame,
 #keyboard_frame
 {
