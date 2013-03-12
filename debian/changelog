@@ -11,7 +11,11 @@ ubiquity (2.13.14) raring; urgency=low
   * KDE: ensure all text is the same color and fixes spacing issues on the
     prepare step
 
- -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 08 Mar 2013 13:34:14 +0100
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: localechooser
+    2.49ubuntu2.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 12 Mar 2013 16:53:17 +0000
 
 ubiquity (2.13.13.1) raring; urgency=low
 
