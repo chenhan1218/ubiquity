@@ -854,7 +854,8 @@ class Wizard(BaseFrontend):
                 index = self.stackLayout.indexOf(cur)
                 self.add_history(page, cur)
                 self.set_current_page(index)
-                is_install = page.ui.get('plugin_is_install')
+                is_install = hasattr(page.ui, 'plugin_is_install') \
+                    and page.ui.plugin_is_install
         self._update_breadcrumbs(n)
 
         self.update_next_button(install_now=is_install)
