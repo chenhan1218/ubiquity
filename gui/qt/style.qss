@@ -72,20 +72,10 @@ QFrame[isBreadcrumb="true"],
 }
 
 /*- Content ---------------------------------*/
-#widgetStack QLabel, QRadioButton {
-	font-size: 10pt;
-	color: #4d4d4d;
-	margin: 1px;
-}
-
-#content_widget {
-}
-
-#widgetStack QWidget {
+#widgetStack {
     font-size: 10pt;
-}
-
-#content_frame QLabel {
+    color: black;
+    margin: 1px;
 }
 
 #map_frame,
