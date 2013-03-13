@@ -144,16 +144,27 @@ class LoginTestCase(BaseTestPageGtk):
     def test_login_allow_go_forward_not_email(self):
         self.page.entry_email.set_text("foo")
         self.page.u1_password_existing.set_text("pass1234")
+        self.page.u1_existing_account.set_active(True)
+        self.page.u1_existing_account.toggled()
         self.page.controller.allow_go_forward.assert_called_with(False)
+
+    def test_login_allow_go_forward_new(self):
+        self.page.u1_new_account.set_active(True)
+        self.page.u1_new_account.toggled()
+        self.page.controller.allow_go_forward.assert_called_with(True)
 
     def test_login_allow_go_foward_not_short(self):
         self.page.entry_email.set_text("foo@bar.com")
         self.page.u1_password_existing.set_text("pass")
+        self.page.u1_existing_account.set_active(True)
+        self.page.u1_existing_account.toggled()
         self.page.controller.allow_go_forward.assert_called_with(False)
 
     def test_login_allow_go_foward(self):
         self.page.entry_email.set_text("foo@bar.com")
         self.page.u1_password_existing.set_text("pass1234")
+        self.page.u1_existing_account.set_active(True)
+        self.page.u1_existing_account.toggled()
         self.page.controller.allow_go_forward.assert_called_with(True)
 
 

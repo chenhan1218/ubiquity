@@ -175,9 +175,11 @@ _Description: I have read and accept the <a href="">Ubuntu One terms of use</a>
 
 Template: ubiquity/text/u1_explain_email
 Type: text
-_Description:
- <span size="small">Enter the email address you use to log into your Ubuntu One account.
- If you don't have an account yet, don't worry we'll create one for you.</span>
+_Description: <span size="small">Enter the email address you use to log into your Ubuntu One account.</span>
+
+Template: ubiquity/text/u1_explain_email_2
+Type: text
+_Description: <span size="small">If you don't have an account yet, don't worry we'll create one for you.</span>
 
 Template: ubiquity/text/email_inactive_label
 Type: text
@@ -257,7 +259,7 @@ _Description: Please type your email:
 
 Template: ubiquity/text/u1_ask_name_pass
 Type: text
-_Description: Please tell us your anme and choose a password:
+_Description: Please tell us your name and choose a password:
 
 Template: ubiquity/text/u1_about_label
 Type: text

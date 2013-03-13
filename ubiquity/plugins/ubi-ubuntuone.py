@@ -46,8 +46,8 @@ U1_APP_NAME = "Ubuntu One"
  PING_CALLBACK_ACTION) = range(3)
 
 NAME = 'ubuntuone'
-AFTER = 'usersetup'
-WEIGHT = 10
+AFTER = 'prepare'
+WEIGHT = 13
 
 (PAGE_LOGIN,
  PAGE_REGISTER,
@@ -113,10 +113,13 @@ class PageGtk(plugin.PluginUI):
         self.page = builder.get_object('stepUbuntuOne')
         self.notebook_main.set_show_tabs(False)
         self.plugin_widgets = self.page
+        self.progressUbuntuOne.show_all()
+        self.progress_page = False
+        self.last_page = False
+
         self.skip_step = False
         self.online = False
 
-        self.label_global_error.set_text("")
         self._generic_error = "error"
 
         self.oauth_token_json = None
@@ -153,8 +156,8 @@ class PageGtk(plugin.PluginUI):
         if "DEBUG_SSO_API" in os.environ:
             self.session.add_feature(Soup.Logger.new(Soup.LoggerLogLevel.BODY,
                                                      -1))
+        self.on_notebook_main_switch_page(None, None)            
 
-        self.info_loop(None)
 
     def login_to_sso(self, email, password, token_name, from_page):
         """Queue POST message to /tokens to get oauth token.
@@ -225,6 +228,7 @@ class PageGtk(plugin.PluginUI):
                 error_message = self._generic_error
 
             self.label_global_error.set_text(error_message)
+            self.error_bar.set_message_type(Gtk.MessageType.WARNING)
 
         Gtk.main_quit()
 
@@ -259,7 +263,20 @@ class PageGtk(plugin.PluginUI):
 
     def plugin_get_current_page(self):
         self.page.show_all()
+        PATH = (os.environ.get('UBIQUITY_PATH', False) or
+                '/usr/share/ubiquity')
+        self.controller._wizard.page_logo.set_from_file(
+            os.path.join(PATH, 'pixmaps', 'u1', 'ubuntu_one_logo.svg'))
+        self.progressUbuntuOne.show_all()
+        self.note = self.controller._wizard.progress_mode
+        if not self.progress_page:
+            self.progress_page = self.note.append_page(
+                self.progressUbuntuOne, None)
+        self.note.set_current_page(self.progress_page)
+        self.u1_learn_more.connect(
+            'activate-link', self.on_u1_learn_more_activate)
         self.notebook_main.set_current_page(PAGE_LOGIN)
+        self.on_notebook_main_switch_page(None, None)
         return self.page
 
     def plugin_on_back_clicked(self):
@@ -268,16 +285,27 @@ class PageGtk(plugin.PluginUI):
             email = self.entry_email1.get_text()
             self.entry_email.set_text(email)
             self.notebook_main.set_current_page(PAGE_LOGIN)
-            return True
         elif from_page == PAGE_TC:
             self.notebook_main.set_current_page(PAGE_REGISTER)
+        elif from_page == PAGE_ABOUT:
+            self.notebook_main.set_current_page(self.last_page)
+
+        if from_page in (PAGE_REGISTER, PAGE_TC, PAGE_ABOUT):
+            self.on_notebook_main_switch_page(None, None)
             return True
+
+        self.note.set_current_page(0)
+        self.controller._wizard.page_logo.hide()
+
         return False
 
     def plugin_on_next_clicked(self):
-        from gi.repository import Gtk
         if self.skip_step:
+            self.note.set_current_page(0)
+            self.controller._wizard.page_logo.hide()
             return False
+
+        from gi.repository import Gtk
 
         from_page = self.notebook_main.get_current_page()
         self.notebook_main.set_current_page(PAGE_SPINNER)
@@ -289,6 +317,7 @@ class PageGtk(plugin.PluginUI):
                 self.entry_email1.set_text(email)
                 self.spinner_connect.stop()
                 self.notebook_main.set_current_page(PAGE_REGISTER)
+                self.on_notebook_main_switch_page(None, None)
                 return True
             else:
                 password = self.u1_password_existing.get_text()
@@ -304,12 +333,14 @@ class PageGtk(plugin.PluginUI):
             except Exception:
                 syslog.syslog("exception in register_new_sso_account: %r" %
                               traceback.format_exc())
+                self.on_notebook_main_switch_page(None, None)
                 return True
 
             Gtk.main()
 
             if not self.account_creation_successful:
                 syslog.syslog("Error registering SSO account, exiting.")
+                self.on_notebook_main_switch_page(None, None)
                 return True
 
         else:
@@ -323,12 +354,14 @@ class PageGtk(plugin.PluginUI):
         except Exception:
             syslog.syslog("exception in login_to_sso: %r" %
                           traceback.format_exc())
+            self.on_notebook_main_switch_page(None, None)
             return True
 
         Gtk.main()
 
         if self.oauth_token_json is None:
             syslog.syslog("Error getting oauth_token, not creating keyring")
+            self.on_notebook_main_switch_page(None, None)
             return True
 
         try:
@@ -343,14 +376,17 @@ class PageGtk(plugin.PluginUI):
 
         if not self.ping_successful:
             syslog.syslog("Error pinging U1 URL, not creating keyring")
+            self.on_notebook_main_switch_page(None, None)
             return True
 
         # all good, create a (encrypted) keyring and store the token for later
         rv = self._create_keyring_and_store_u1_token(self.oauth_token_json)
         if rv != 0:
             syslog.syslog("Error creating keyring, u1 token not saved.")
+            self.on_notebook_main_switch_page(None, None)
             return True
-
+        self.note.set_current_page(0)
+        self.controller._wizard.page_logo.hide()
         return False
 
     def _duplicate_token_data_for_v1(self, token_dict):
@@ -384,10 +420,6 @@ class PageGtk(plugin.PluginUI):
         return res
 
     def plugin_translate(self, lang):
-        PATH = (os.environ.get('UBIQUITY_PATH', False) or
-                '/usr/share/ubiquity')
-        self.controller._wizard.page_logo.set_from_file(
-            os.path.join(PATH, 'pixmaps', 'u1', 'ubuntu_one_logo.svg'))
         pasw = self.controller.get_string('password_inactive_label', lang)
         self.u1_password_existing.set_placeholder_text(pasw)
         pasw_length = self.controller.get_string('password_new_inactive_label')
@@ -400,8 +432,6 @@ class PageGtk(plugin.PluginUI):
         self.entry_email1.set_placeholder_text(email_p)
         name_p = self.controller.get_string('fullname_inactive_label', lang)
         self.u1_name.set_placeholder_text(name_p)
-        self.u1_learn_more_label.connect(
-            'activate-link', self.on_u1_learn_more_activate)
         # error messages
         self._error_register = self.controller.get_string(
             'error_register', lang)
@@ -421,12 +451,24 @@ class PageGtk(plugin.PluginUI):
         self.controller.go_forward()
 
     def on_u1_learn_more_activate(self, unused_widget, unused):
-        # open u1 learn_more
-        return True
+        self.last_page = self.notebook_main.get_current_page()
+        if self.last_page in (PAGE_ABOUT, PAGE_TC):
+            return
+        self.notebook_main.set_current_page(PAGE_ABOUT)
+        self.on_notebook_main_switch_page(None, None)
 
     def on_u1_terms_activate_link(self, unused_widget, unused):
         self.notebook_main.set_current_page(PAGE_TC)
+        self.on_notebook_main_switch_page(None, None)
         self.webview.grab_focus()
+
+    def on_notebook_main_switch_page(self, unused_widget, unused):
+        # Clear errors
+        from gi.repository import Gtk
+        self.label_global_error.set_text("")
+        self.error_bar.set_message_type(Gtk.MessageType.OTHER)
+        # Recalculate next button
+        self.info_loop(None)
 
     def _verify_email_entry(self, email):
         """Return True if the email address looks valid"""
@@ -441,7 +483,8 @@ class PageGtk(plugin.PluginUI):
            sensitive or insensitive
         """
         complete = False
-        if self.notebook_main.get_current_page() == PAGE_REGISTER:
+        current_page = self.notebook_main.get_current_page()
+        if current_page == PAGE_REGISTER:
             email = self.entry_email1.get_text()
             password = self.u1_password.get_text()
             password2 = self.u1_verified_password.get_text()
@@ -452,12 +495,17 @@ class PageGtk(plugin.PluginUI):
                 len(self.u1_name.get_text()) > 0 and
                 self.u1_tc_check.get_active()
             )
-        elif self.notebook_main.get_current_page() == PAGE_LOGIN:
+        elif current_page == PAGE_LOGIN:
             email = self.entry_email.get_text()
             password = self.u1_password_existing.get_text()
-            complete = (self._verify_email_entry(email) and
-                        self._verify_password_entry(password))
+            complete = (
+                self.u1_new_account.get_active() or
+                (self._verify_email_entry(email) and
+                 self._verify_password_entry(password)))
         self.controller.allow_go_forward(complete)
+        self.controller.allowed_go_backward = True
+        self.controller.allow_change_step(True)
+        self.controller.allow_go_backward(True)
 
 
 class Install(plugin.InstallPlugin):
