@@ -35,7 +35,7 @@ from ubiquity import plugin, misc
 PLUGIN_VERSION = "1.0"
 UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
 UBUNTU_ONE_URL = "https://one.ubuntu.com/"
-UBUNTU_TC_URL = "http://jsfiddle.net/jgdx/TjFRU/show/"
+UBUNTU_TC_URL = "https://one.ubuntu.com/terms/embedded/"
 
 TOKEN_SEPARATOR = ' @ '
 SEPARATOR_REPLACEMENT = ' AT '
