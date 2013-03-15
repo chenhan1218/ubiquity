@@ -491,6 +491,9 @@ def main(oem_config):
     parser.add_option('--no-webcam', dest='webcam',
                       default=True, action='store_false',
                       help='Disable the webcam page.')
+    parser.add_option('--sso', dest='u1_sso',
+                      action='store_true',
+                      help='Force enable the u1 SSO page.')
 
     (options, args) = parser.parse_args()
 
@@ -529,6 +532,11 @@ def main(oem_config):
 
     if not options.webcam:
         os.environ['UBIQUITY_NO_WEBCAM'] = '1'
+
+    if options.u1_sso or os.environ.get('UBIQUITY_SSO', False):
+        os.environ.pop('UBIQUITY_NO_SSO', True)
+    else:
+        os.environ['UBIQUITY_NO_SSO'] = '1'
 
     acquire_lock()
 

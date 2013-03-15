@@ -7,7 +7,6 @@ from gi.repository import (
     GdkPixbuf,
     Gtk,
     Pango,
-    UbiquityWebcam,
 )
 
 from ubiquity import misc
@@ -389,7 +388,11 @@ class FaceSelector(Gtk.Box):
         self.photo_label = Gtk.Label('Take a photo:')
         vb_left.pack_start(self.photo_label, False, False, 0)
         f = Gtk.Frame()
+
+        # import here because mvo is too lazy to build the tree
+        from gi.repository import UbiquityWebcam
         self.webcam = UbiquityWebcam.Webcam()
+
         self.webcam.connect('image-captured', self.image_captured)
         f.add(self.webcam)
         vb_left.pack_start(f, True, True, 0)
