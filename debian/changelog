@@ -1,3 +1,20 @@
+ubiquity (2.13.17) UNRELEASED; urgency=low
+
+  * Remove webcam step (LP: #1118589):
+    - User testing showed people are not expecting to be photographed and
+      raise privacy concerns as to where the picture will be uploaded to.
+    - Provides limited benefit, as avatar only ever shown on multi-login
+      systems in the switch user indicator / pkexec.
+    - Crashes the installer or doesn't work with certain webcams.
+    - Miss detects camera presence, when it's just a sensor.
+    - The recommendation is to move webcam test to checkbox / hw testing,
+      as video conferencing is very popular these days and should work
+      reliably out of the box.
+    - LP: #924419 , LP: #981644 , LP: #987392, LP: #1152254, LP: #843354,
+      LP: #1008204, LP: #1021449, LP: #1082458, LP: #1103780, LP: #1142751
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 15 Mar 2013 13:43:42 +0000
+
 ubiquity (2.13.16) raring; urgency=low
 
   * ubiquity-dm: Add UbuntuKylin background image.
