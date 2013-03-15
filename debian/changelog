@@ -3,6 +3,7 @@ ubiquity (2.13.16) UNRELEASED; urgency=low
   * ubiquity-dm: Add UbuntuKylin background image.
   * debian/tests/control: Depend only on the debs we generate, not on "@"
     which is expanded to the udebs as well.
+  * Automatic update of included source packages: console-setup 1.70ubuntu7.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 13 Mar 2013 13:42:23 +0000
 
