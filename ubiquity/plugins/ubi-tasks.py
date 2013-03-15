@@ -22,6 +22,7 @@ import debconf
 
 from ubiquity import plugin
 
+
 NAME = 'tasks'
 AFTER = 'network'
 WEIGHT = 12

@@ -1,5 +1,11 @@
 import cairo
-from gi.repository import Gtk, Gdk, GObject, Pango
+from gi.repository import (
+    GObject,
+    Gdk,
+    GdkPixbuf,
+    Gtk,
+    Pango,
+)
 
 from ubiquity import misc
 

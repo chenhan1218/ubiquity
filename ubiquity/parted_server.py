@@ -26,6 +26,7 @@ import fcntl
 import os
 import shutil
 
+
 devices = '/var/lib/partman/devices'
 infifo = '/var/lib/partman/infifo'
 outfifo = '/var/lib/partman/outfifo'

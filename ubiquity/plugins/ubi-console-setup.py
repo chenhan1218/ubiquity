@@ -23,10 +23,8 @@ from __future__ import print_function
 import os
 import re
 
-from ubiquity import plugin
-from ubiquity import keyboard_names
-from ubiquity import misc
-from ubiquity import osextras
+from ubiquity import keyboard_names, misc, osextras, plugin
+
 
 NAME = 'console_setup'
 AFTER = 'timezone'
@@ -67,6 +65,13 @@ class PageGtk(plugin.PluginUI):
         # properly name the debconf keys though (s/inactive_label//)
         test_label = self.controller.get_string('keyboard_test_label', lang)
         self.keyboard_test.set_placeholder_text(test_label)
+
+    def cancel_timeouts(self):
+        from gi.repository import GLib
+        if self.keyboard_layout_timeout_id:
+            GLib.source_remove(self.keyboard_layout_timeout_id)
+        if self.keyboard_variant_timeout_id:
+            GLib.source_remove(self.keyboard_variant_timeout_id)
 
     @plugin.only_this_page
     def calculate_result(self, w, keymap):
@@ -542,10 +547,20 @@ class Page(plugin.Plugin):
         self.succeeded = False
         self.exit_ui_loops()
 
+    def cancel_handler(self):
+        if hasattr(self.ui, "cancel_timeouts"):
+            self.ui.cancel_timeouts()
+
+        return plugin.Plugin.cancel_handler(self)
+
     def ok_handler(self):
         variant = self.ui.get_keyboard_variant()
         if variant is not None:
             self.preseed('keyboard-configuration/variant', variant)
+
+        if hasattr(self.ui, "cancel_timeouts"):
+            self.ui.cancel_timeouts()
+
         return plugin.Plugin.ok_handler(self)
 
     # TODO cjwatson 2006-09-07: This is duplication from

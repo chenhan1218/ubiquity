@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import sys
 import os
+import sys
 
 from PyQt4 import QtGui
 
 from ubiquity.frontend.kde_components.PartMan import PartMan
+
 
 if __name__ == "__main__":
 

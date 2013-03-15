@@ -1,9 +1,149 @@
-ubiquity (2.13.11) UNRELEASED; urgency=low
+ubiquity (2.13.16) raring; urgency=low
+
+  * ubiquity-dm: Add UbuntuKylin background image.
+  * debian/tests/control: Depend only on the debs we generate, not on "@"
+    which is expanded to the udebs as well.
+  * Automatic update of included source packages: console-setup 1.70ubuntu7.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 15 Mar 2013 10:51:22 +0000
+
+ubiquity (2.13.15) raring; urgency=low
+
+  * Re-upload due to broken hint on previous upload
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 13 Mar 2013 00:40:11 +0000
+
+ubiquity (2.13.14) raring; urgency=low
+
+  [ Harald Sitter ]
+  * KDE: Insert spacer in sidebar to ensure it scales correctly even when
+    no install steps are set (greeter mode) LP: #1153557
+
+  [ Aurélien Gâteau ]
+  * KDE: fixes the "next|install" button not changing its text back to
+    "next" when it has changed to "install" and users clicks on
+    "previous"
+  * KDE: ensure all text is the same color and fixes spacing issues on the
+    prepare step
+
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: localechooser
+    2.49ubuntu2.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 12 Mar 2013 16:53:17 +0000
+
+ubiquity (2.13.13.1) raring; urgency=low
+
+  * install, is already imported as a module, hence the update_next_button
+    karg got changed to install_now, which broke the rest of calls to
+    update_next_button. Instead, simply use a positional arg for all the
+    remaining calls. (LP: #1153035) This should unbreak kubuntu
+    images. Kde frontend maintainers should be free to fix this otherwise,
+    as long as it is pyflakes & pep8 clean.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sun, 10 Mar 2013 02:13:53 +0000
+
+ubiquity (2.13.13) raring; urgency=low
+
+  [ Dmitrijs Ledkovs ]
+  * Bump Standards version and override some lintian tags (ubiquity is
+    weird).
+  * Override expander style, which is hardcoded in light-themes to a
+    light color. (LP: #1100922)
+  * Consolidate CssProvider and add make minimal progress bar width 10px,
+    in preparation for dot-progress of all steps.
+  * Fix colour unit test, the green is no longer what it used to be...
+  * Switch to "NotShowIn=KDE" for ubiquity-gtk desktop files, as most !kde
+    desktop environments use gtk frontend.
+  * Show progress dots for plugin pages and show progress bar only during
+    slideshow.
+
+  [ Colin Watson ]
+  * Decode the output of apt_pkg.size_to_str() if necessary when
+    substituting it into Unicode strings (LP: #877756, #1132918).
+  * Update translations from Launchpad.
+
+  [ Aurélien Gâteau ]
+  * Turns the Ubiquity KDE window into a regular window and rework
+    the layout of widgets to provide more space to the main content.
+    The labels on the left now wrap to the next line if they are too long,
+    ensuring they are never truncated.
+  * KDE: Improve the layout of Prepare step
+  * KDE: fix integration of the webview responsible for showing the slideshow
+  * KDE: fix various issues with right-to-left languages
+
+  [ Julien Lavergne ]
+  * Use feh to draw the wallpaper on Lubuntu when using ubiquity-dm.
+
+  [ Ma Jun (Kylin Team) ]
+  * Fix referencing variable before assignment (LP: #945027)
+
+  [ Kobe Lee ]
+  * Show OS column in manual partitioning page. (LP: #1100694)
+
+  [ Stéphane Graber ]
+  * Fix crash in ubi-console-setup when quickly moving back and worth between
+    pages. (LP: #944614)
+
+  [ Jonathan Riddell ]
+  * Add back compositing to kwin on live CD (in ubiquity-dm), whatever was wrong
+    in 2008 should be fixed now and its making us look ugly
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 07 Mar 2013 19:53:52 +0000
+
+ubiquity (2.13.12) raring; urgency=low
+
+  [ Colin Watson ]
+  * While displaying question or error dialogs, only change the busy cursor
+    state rather than also allowing changing step (LP: #1095684).
+  * Use an action group when marking packages for install or delete in the
+    apt cache; this is much faster when many packages are involved, since it
+    avoids repeating autoremoval calculations over and over again.
+  * Sort and consolidate imports.
+  * Fix ordering of encryption password strength indications (LP: #1068391).
+  * At the end of the language install plugin, read all locale-related keys
+    from (/target)/etc/default/locale and set them in the installer's own
+    environment.
+  * If the combination of language and location does not identify a
+    supported combined locale, use a locale based on the language for
+    translation-like locale categories and pick one based on the location
+    for other locale categories (LP: #1094872).  There are still some
+    locations where we cannot pick a language element of a location-based
+    locale because this is unclear or contentious, and in those cases we
+    stick to the old behaviour of having the locale only reflect the
+    country.
+
+  [ Aurélien Gâteau ]
+  * KDE frontend: show name of installed OS as partition name if
+    available
+
+  [ Dmitrijs Ledkovs ]
+  * Make panel.c aware of screen & display changes, prevents visual
+    artefacts on nexus7 when screen is changing or external monitor is
+    plugged in and resolution is changes.
+  * Update disable/enable ctrl+alt+t terminal to use gsettings keys,
+    instead of gconf.
+  * Migrate remaining gconf settings to gsettings in ubiquity-dm.
+  * Make sure to correctly set picture-uri. (LP: #1128597)
+  * Refactor ubiquity-dm, now that there is less code.
+  * Remove gconftool.py.
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu6, hw-detect 1.92ubuntu1.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 21 Feb 2013 02:53:43 +0000
+
+ubiquity (2.13.11) raring; urgency=low
 
   * Remove remaining autofoo cruft from the source tree and ignore it. We
     are using dh-autoreconf.
+  * If available, Use gnome-settings-daemon to set the wallpaper, instead
+    of the wallpaper app. Supports changing background and screen size
+    changes (e.g. like on nexus7). For derivatives that do not ship g-s-d,
+    the wallpaper should be draw by their respective native means or the
+    wallpaper app should be fixed or something like xloadimage could be
+    used.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 07 Feb 2013 17:47:38 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sat, 16 Feb 2013 07:18:44 +0000
 
 ubiquity (2.13.10) raring; urgency=low
 

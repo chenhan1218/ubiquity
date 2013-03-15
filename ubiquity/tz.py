@@ -19,12 +19,12 @@
 
 from __future__ import print_function
 
-import os
 import datetime
+import hashlib
+import os
+import sys
 import time
 import xml.dom.minidom
-import hashlib
-import sys
 
 
 TZ_DATA_FILE = '/usr/share/zoneinfo/zone.tab'

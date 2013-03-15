@@ -33,15 +33,15 @@
 
 from __future__ import print_function
 
-import sys
-import os
-import subprocess
-import traceback
-import syslog
 import atexit
-import gettext
 import configparser
 from functools import reduce
+import gettext
+import os
+import subprocess
+import sys
+import syslog
+import traceback
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
@@ -54,12 +54,12 @@ if 'DISPLAY' in os.environ:
     from ubiquity import gtkwidgets
 
 from ubiquity import (
-    filteredcommand, gconftool, gsettings, i18n, validation, misc, osextras)
-from ubiquity.plugin import Plugin
+    filteredcommand, gsettings, i18n, validation, misc, osextras)
 from ubiquity.components import install, plugininstall, partman_commit
-import ubiquity.progressposition
 import ubiquity.frontend.base
 from ubiquity.frontend.base import BaseFrontend
+from ubiquity.plugin import Plugin
+import ubiquity.progressposition
 
 # We create class attributes dynamically from UI files, and it's far too
 # tedious to list them all.
@@ -208,7 +208,6 @@ class Wizard(BaseFrontend):
 
         # declare attributes
         self.all_widgets = set()
-        self.gconf_previous = {}
         self.gsettings_previous = {}
         self.thunar_previous = {}
         self.language_questions = ('live_installer', 'quit', 'back', 'next',
@@ -239,7 +238,7 @@ class Wizard(BaseFrontend):
 
         # To get a "busy mouse":
         self.watch = Gdk.Cursor.new(Gdk.CursorType.WATCH)
-        set_root_cursor(self.watch)
+        self.set_busy_cursor(True)
         atexit.register(set_root_cursor)
 
         self.laptop = misc.execute("laptop-detect")
@@ -255,13 +254,22 @@ class Wizard(BaseFrontend):
         # set custom language
         self.set_locales()
 
-        # Thin progress bar
+        # Get the default window background color for the the current
+        # theme and set it as the background for the inline toolbar
+        # Make a thin Progress bar
         provider = Gtk.CssProvider()
         provider.load_from_data(b'''\
+            .inline-toolbar.toolbar {
+                background: @theme_bg_color;
+                border-color: transparent;
+                border-width: 0px;
+                padding: 0px;
+            }
             GtkProgressBar {
-              -GtkProgressBar-min-horizontal-bar-height : 10
-            }''')
-
+              -GtkProgressBar-min-horizontal-bar-height : 10;
+              -GtkProgressBar-min-horizontal-bar-width : 10;
+            }
+            ''')
         Gtk.StyleContext.add_provider_for_screen(
             Gdk.Screen.get_default(),
             provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
@@ -318,21 +326,20 @@ class Wizard(BaseFrontend):
                     self.toplevels.add(widget)
         self.builder.connect_signals(self)
 
-        # Get the default window background color for the the current
-        # theme and set it as the background for the inline toolbar
-        window_style = self.live_installer.get_style_context()
-        bg = window_style.lookup_color('theme_bg_color')[1].to_string()
-        provider = Gtk.CssProvider()
-        provider.load_from_data(('''\
-            .inline-toolbar.toolbar {
-                background: %s;
-                border-color: transparent;
-                border-width: 0px;
-                padding: 0px;
-            }''' % bg).encode())
-        Gtk.StyleContext.add_provider_for_screen(
-            Gdk.Screen.get_default(),
-            provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
+        for mod in self.pages:
+            progress = Gtk.ProgressBar()
+            progress.set_size_request(10, 10)
+            progress.set_fraction(0)
+            self.dot_grid.add(progress)
+
+        next_style = self.next.get_style_context()
+        next_style.add_class('ubiquity-next')
+
+        self.progress_pages = {
+            'empty': 0,
+            'dot_grid': 1,
+            'progress_bar': 2,
+        }
 
         self.stop_debconf()
         self.translate_widgets(reget=True)
@@ -425,7 +432,7 @@ class Wizard(BaseFrontend):
         # Restore the default cursor if we were using a spinning cursor on the
         # root window.
         try:
-            set_root_cursor()
+            self.set_busy_cursor(False)
         except Exception:
             pass
 
@@ -512,18 +519,27 @@ class Wizard(BaseFrontend):
         return previous
 
     def disable_terminal(self):
-        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
-        self.gconf_previous[terminal_key] = gconftool.get(terminal_key)
-        gconftool.set(terminal_key, 'string', 'disabled')
+        gs_schema = 'org.gnome.settings-daemon.plugins.media-keys'
+        gs_key = 'terminal'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        if gs_previous in self.gsettings_previous:
+            return
+
+        gs_value = gsettings.get(gs_schema, gs_key)
+        self.gsettings_previous[gs_previous] = gs_value
+
+        if gs_value:
+            gsettings.set(gs_schema, gs_key, '')
+
         atexit.register(self.enable_terminal)
 
     def enable_terminal(self):
-        terminal_key = '/apps/metacity/global_keybindings/run_command_terminal'
-        if self.gconf_previous[terminal_key] == '':
-            gconftool.unset(terminal_key)
-        else:
-            gconftool.set(terminal_key, 'string',
-                          self.gconf_previous[terminal_key])
+        gs_schema = 'org.gnome.settings-daemon.plugins.media-keys'
+        gs_key = 'terminal'
+        gs_previous = '%s/%s' % (gs_schema, gs_key)
+        gs_value = self.gsettings_previous[gs_previous]
+
+        gsettings.set(gs_schema, gs_key, gs_value)
 
     def disable_screensaver(self):
         gs_schema = 'org.gnome.desktop.screensaver'
@@ -801,7 +817,7 @@ class Wizard(BaseFrontend):
                 with open('/var/run/reboot-required', "w"):
                     pass
             self.finished_dialog.set_keep_above(True)
-            set_root_cursor()
+            self.set_busy_cursor(False)
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()
@@ -819,6 +835,9 @@ class Wizard(BaseFrontend):
         return True
 
     def start_slideshow(self):
+        self.progress_mode.set_current_page(
+            self.progress_pages['progress_bar'])
+
         if not self.slideshow:
             self.page_mode.hide()
             return
@@ -871,7 +890,8 @@ class Wizard(BaseFrontend):
 
         self.live_installer.set_default_icon_from_file(
             os.path.join(PIXMAPS, 'ubiquity.png'))
-        for eventbox in ['title_eventbox', 'progress_eventbox']:
+        for eventbox in ['title_eventbox', 'progress_eventbox',
+                         'install_details_expander']:
             box = self.builder.get_object(eventbox)
             style = box.get_style_context()
             style.add_class('menubar')
@@ -910,11 +930,18 @@ class Wizard(BaseFrontend):
             self.quit.hide()
             self.back.hide()
 
+        self.progress_section.show()
+
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             # Hide the notebook until the first page is ready.
             self.page_mode.hide()
-            self.progress_section.show()
+            self.progress_mode.set_current_page(
+                self.progress_pages['progress_bar'])
             self.live_installer.show()
+        else:
+            self.progress_mode.set_current_page(
+                self.progress_pages['dot_grid'])
+            self.progress_mode.show_all()
         self.allow_change_step(False)
 
         # The default instantiation of GtkComboBoxEntry creates a
@@ -1127,14 +1154,19 @@ class Wizard(BaseFrontend):
         elif isinstance(widget, Gtk.MenuItem):
             widget.set_label(text)
 
-    def allow_change_step(self, allowed):
-        if allowed:
-            cursor = None
-        else:
+    def set_busy_cursor(self, busy):
+        if busy:
             cursor = self.watch
-        if self.live_installer.get_parent_window():
+        else:
+            cursor = None
+        if (hasattr(self, "live_installer") and
+                self.live_installer.get_parent_window()):
             self.live_installer.get_parent_window().set_cursor(cursor)
         set_root_cursor(cursor)
+        self.busy_cursor = busy
+
+    def allow_change_step(self, allowed):
+        self.set_busy_cursor(not allowed)
         self.back.set_sensitive(allowed and self.allowed_go_backward)
         self.next.set_sensitive(allowed and self.allowed_go_forward)
         self.allowed_change_step = allowed
@@ -1360,7 +1392,7 @@ class Wizard(BaseFrontend):
         """Quit installer cleanly."""
         # Let the user know we're shutting down.
         self.finished_dialog.get_window().set_cursor(self.watch)
-        set_root_cursor(self.watch)
+        self.set_busy_cursor(True)
         self.quit_button.set_sensitive(False)
         self.reboot_button.set_sensitive(False)
         self.refresh()
@@ -1450,6 +1482,10 @@ class Wizard(BaseFrontend):
                 self.navigation_control.hide()
             else:
                 self.navigation_control.show()
+        for i in range(len(self.pages))[:current + 1]:
+            self.dot_grid.get_child_at(i, 0).set_fraction(1)
+        for i in range(len(self.pages))[current + 1:]:
+            self.dot_grid.get_child_at(i, 0).set_fraction(0)
 
         syslog.syslog('switched to page %s' % name)
 
@@ -1543,7 +1579,6 @@ class Wizard(BaseFrontend):
     def switch_to_install_interface(self):
         self.installing = True
         self.lockdown_environment()
-        self.progress_section.show()
 
     def find_next_step(self, finished_step):
         # TODO need to handle the case where debconffilters launched from
@@ -1648,11 +1683,8 @@ class Wizard(BaseFrontend):
     def error_dialog(self, title, msg, fatal=True):
         # TODO: cancel button as well if capb backup
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         if not msg:
             msg = title
         dialog = Gtk.MessageDialog(
@@ -1660,7 +1692,7 @@ class Wizard(BaseFrontend):
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
         dialog.set_title(title)
         dialog.run()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         dialog.hide()
         if fatal:
             self.return_to_partitioning()
@@ -1699,11 +1731,8 @@ class Wizard(BaseFrontend):
 
     def question_dialog(self, title, msg, options, use_templates=True):
         self.run_automation_error_cmd()
-        # TODO cjwatson 2009-04-16: We need to call allow_change_step here
-        # to get a normal cursor, but that also enables the Back/Forward
-        # buttons. Cursor handling should be controllable independently.
-        saved_allowed_change_step = self.allowed_change_step
-        self.allow_change_step(True)
+        saved_busy_cursor = self.busy_cursor
+        self.set_busy_cursor(False)
         if not msg:
             msg = title
         buttons = []
@@ -1725,7 +1754,7 @@ class Wizard(BaseFrontend):
             self.ubi_question_dialog.add_button(text, response_id)
         self.ubi_question_dialog.show_all()
         response = self.ubi_question_dialog.run()
-        self.allow_change_step(saved_allowed_change_step)
+        self.set_busy_cursor(saved_busy_cursor)
         self.ubi_question_dialog.hide()
         if response < 0:
             # something other than a button press, probably destroyed

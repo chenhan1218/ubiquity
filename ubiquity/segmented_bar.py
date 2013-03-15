@@ -31,7 +31,7 @@
 import math
 
 import cairo
-from gi.repository import Gtk, GObject, PangoCairo, Gdk
+from gi.repository import GObject, Gdk, Gtk, PangoCairo
 
 from ubiquity.misc import find_in_os_prober, format_size
 

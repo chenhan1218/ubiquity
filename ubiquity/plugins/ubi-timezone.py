@@ -27,9 +27,7 @@ from urllib.parse import quote
 import debconf
 import icu
 
-from ubiquity import plugin
-from ubiquity import i18n
-from ubiquity import misc
+from ubiquity import i18n, misc, plugin
 import ubiquity.tz
 
 
