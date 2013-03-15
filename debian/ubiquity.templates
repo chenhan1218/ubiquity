@@ -221,6 +221,18 @@ Template: ubiquity/text/username_error_badchar
 Type: text
 _Description: May only contain lower-case letters, digits, hyphens, and underscores.
 
+Template: ubiquity/text/skip
+Type: text
+_Description: Skip
+
+Template: ubiquity/text/u1_login_skip
+Type: text
+_Description: Log in later
+
+Template: ubiquity/text/u1_register_skip
+Type: text
+_Description: Register later
+
 Template: ubiquity/text/password_label
 Type: text
 _Description: Choose a password:

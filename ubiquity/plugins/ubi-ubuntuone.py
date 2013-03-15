@@ -46,8 +46,8 @@ U1_APP_NAME = "Ubuntu One"
  PING_CALLBACK_ACTION) = range(3)
 
 NAME = 'ubuntuone'
-AFTER = 'prepare'
-WEIGHT = 13
+AFTER = 'usersetup'
+WEIGHT = 10
 
 (PAGE_LOGIN,
  PAGE_REGISTER,
@@ -156,8 +156,7 @@ class PageGtk(plugin.PluginUI):
         if "DEBUG_SSO_API" in os.environ:
             self.session.add_feature(Soup.Logger.new(Soup.LoggerLogLevel.BODY,
                                                      -1))
-        self.on_notebook_main_switch_page(None, None)            
-
+        self.on_notebook_main_switch_page(None, None)
 
     def login_to_sso(self, email, password, token_name, from_page):
         """Queue POST message to /tokens to get oauth token.
@@ -268,6 +267,7 @@ class PageGtk(plugin.PluginUI):
         self.controller._wizard.page_logo.set_from_file(
             os.path.join(PATH, 'pixmaps', 'u1', 'ubuntu_one_logo.svg'))
         self.progressUbuntuOne.show_all()
+        self.controller.toggle_skip_button('u1_login_skip')
         self.note = self.controller._wizard.progress_mode
         if not self.progress_page:
             self.progress_page = self.note.append_page(
@@ -277,24 +277,35 @@ class PageGtk(plugin.PluginUI):
             'activate-link', self.on_u1_learn_more_activate)
         self.notebook_main.set_current_page(PAGE_LOGIN)
         self.on_notebook_main_switch_page(None, None)
+        self.skip_step = False
         return self.page
+
+    def plugin_on_skip_clicked(self):
+        self.oauth_token = None
+        self.skip_step = True
+        self.controller.allow_go_forward(True)
+        self.controller.allow_change_step(True)
+        self.controller.go_forward()
 
     def plugin_on_back_clicked(self):
         from_page = self.notebook_main.get_current_page()
         if from_page == PAGE_REGISTER:
             email = self.entry_email1.get_text()
             self.entry_email.set_text(email)
+            self.controller.toggle_skip_button('u1_login_skip')
             self.notebook_main.set_current_page(PAGE_LOGIN)
         elif from_page == PAGE_TC:
+            self.controller.toggle_skip_button('u1_register_skip')
             self.notebook_main.set_current_page(PAGE_REGISTER)
         elif from_page == PAGE_ABOUT:
+            self.controller._wizard.skip.show()
             self.notebook_main.set_current_page(self.last_page)
 
         if from_page in (PAGE_REGISTER, PAGE_TC, PAGE_ABOUT):
             self.on_notebook_main_switch_page(None, None)
             return True
 
-        self.note.set_current_page(0)
+        self.note.set_current_page(1)
         self.controller._wizard.page_logo.hide()
 
         return False
@@ -316,6 +327,7 @@ class PageGtk(plugin.PluginUI):
             if self.u1_new_account.get_active():
                 self.entry_email1.set_text(email)
                 self.spinner_connect.stop()
+                self.controller.toggle_skip_button('u1_register_skip')
                 self.notebook_main.set_current_page(PAGE_REGISTER)
                 self.on_notebook_main_switch_page(None, None)
                 return True
@@ -445,20 +457,17 @@ class PageGtk(plugin.PluginUI):
             '<span size="xx-large">%s</span>' % title)
 
     # signals
-    def on_button_skip_account_clicked(self, button):
-        self.oauth_token = None
-        self.skip_step = True
-        self.controller.go_forward()
-
     def on_u1_learn_more_activate(self, unused_widget, unused):
         self.last_page = self.notebook_main.get_current_page()
         if self.last_page in (PAGE_ABOUT, PAGE_TC):
             return
+        self.controller._wizard.skip.hide()
         self.notebook_main.set_current_page(PAGE_ABOUT)
         self.on_notebook_main_switch_page(None, None)
 
     def on_u1_terms_activate_link(self, unused_widget, unused):
         self.notebook_main.set_current_page(PAGE_TC)
+        self.controller._wizard.skip.hide()
         self.on_notebook_main_switch_page(None, None)
         self.webview.grab_focus()
 
