@@ -12,6 +12,9 @@ ubiquity (2.13.17) UNRELEASED; urgency=low
       reliably out of the box.
     - LP: #924419 , LP: #981644 , LP: #987392, LP: #1152254, LP: #843354,
       LP: #1008204, LP: #1021449, LP: #1082458, LP: #1103780, LP: #1142751
+  * Do not count optional pages, when updating the progress dots. This
+    fixes "Porgress dots, well don't progress after partman step"
+    LP: #1152746
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 15 Mar 2013 13:43:42 +0000
 
