@@ -2,7 +2,6 @@ import cairo
 from gi.repository import (
     GObject,
     Gdk,
-    GdkPixbuf,
     Gtk,
     Pango,
 )

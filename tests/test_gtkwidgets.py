@@ -6,7 +6,7 @@ from test.support import run_unittest
 import unittest
 
 import dbus
-from gi.repository import GdkPixbuf, Gst, Gtk, TimezoneMap
+from gi.repository import Gtk, TimezoneMap
 import mock
 
 from ubiquity import gtkwidgets, nm, segmented_bar
