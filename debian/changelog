@@ -1,4 +1,4 @@
-ubiquity (2.13.17) UNRELEASED; urgency=low
+ubiquity (2.13.17) raring; urgency=low
 
   * Remove webcam step (LP: #1118589):
     - User testing showed people are not expecting to be photographed and
@@ -18,7 +18,7 @@ ubiquity (2.13.17) UNRELEASED; urgency=low
   * Do not mark explanatory text on "Installation Type" screen
     insensitive, as otherwise it's ineligible (LP: #1074386)
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 15 Mar 2013 13:43:42 +0000
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 19 Mar 2013 15:17:51 +0000
 
 ubiquity (2.13.16) raring; urgency=low
 
