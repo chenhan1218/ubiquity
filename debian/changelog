@@ -1,3 +1,10 @@
+ubiquity (2.13.18) UNRELEASED; urgency=low
+
+  [ Aurélien Gâteau ]
+  * KDE: create web view manually to ensure it starts slideshow
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 20 Mar 2013 17:12:57 +0000
+
 ubiquity (2.13.17) raring; urgency=low
 
   * Remove webcam step (LP: #1118589):

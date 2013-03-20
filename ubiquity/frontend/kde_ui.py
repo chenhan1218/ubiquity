@@ -39,7 +39,7 @@ import traceback
 # kde gui specifics
 import sip
 sip.setapi("QVariant", 1)
-from PyQt4 import QtCore, QtGui, QtWebKit, uic
+from PyQt4 import QtCore, QtGui, uic
 
 from ubiquity import filteredcommand, i18n, misc
 from ubiquity.components import partman_commit, install, plugininstall
@@ -545,21 +545,30 @@ class Wizard(BaseFrontend):
 
         slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
+        # HACK! For some reason, if the QWebView is created from the .ui file,
+        # the slideshow does not start (but it starts if one runs
+        # UBIQUITY_TEST_SLIDESHOW=1 ubiquity !). Creating it from the code
+        # works. I have no idea why.
+        from PyQt4.QtWebKit import QWebView
+        from PyQt4.QtWebKit import QWebPage
+
         def openLink(qUrl):
             QtGui.QDesktopServices.openUrl(qUrl)
 
-        self.ui.navigation.hide()
-        self.ui.pageMode.setCurrentWidget(self.ui.install_page)
-        webView = self.ui.webview
+        webView = QWebView()
+        webView.setMinimumSize(700, 420)
         webView.linkClicked.connect(openLink)
-        webView.page().setLinkDelegationPolicy(
-            QtWebKit.QWebPage.DelegateExternalLinks)
+        webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
         webView.page().mainFrame().setScrollBarPolicy(
             QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
         webView.page().mainFrame().setScrollBarPolicy(
             QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
-
         webView.load(QtCore.QUrl(slides))
+
+        self.ui.navigation.hide()
+        self.ui.install_page.layout().addWidget(webView)
+        self.ui.pageMode.setCurrentWidget(self.ui.install_page)
 
     def set_layout_direction(self, lang=None):
         if not lang:
