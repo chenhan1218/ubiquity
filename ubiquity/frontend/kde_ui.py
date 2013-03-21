@@ -283,6 +283,7 @@ class Wizard(BaseFrontend):
         self.update_back_button()
         self.update_next_button(install_now=False)
         self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
+        self.ui.progressCancel.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
 
         self._show_progress_bar(False)
 
@@ -385,6 +386,7 @@ class Wizard(BaseFrontend):
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
         self.ui.quit.clicked.connect(self.on_quit_clicked)
+        self.ui.progressCancel.clicked.connect(self.on_progress_cancel_button_clicked)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(
@@ -1170,8 +1172,8 @@ class Wizard(BaseFrontend):
             self.progressDialog.setCancellable(False)
             self.progress_cancelled = False
 
-    #def on_progress_cancel_button_clicked(self, button):
-    #    self.progress_cancelled = True
+    def on_progress_cancel_button_clicked(self, button):
+        self.progress_cancelled = True
 
     def debconffilter_done(self, dbfilter):
         # processing events here prevents GUI from hanging until mouse moves
