@@ -2,7 +2,10 @@ ubiquity (2.13.18) UNRELEASED; urgency=low
 
   [ Aurélien Gâteau ]
   * KDE: create web view manually to ensure it starts slideshow
+
+  [ Jonathan Riddell ]
   * 01oem-config-udeb install kubuntu slideshow for oem-config in Kubuntu
+  * Untick encrypt tickbox when selecting login automatically LP: #1131459
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 20 Mar 2013 17:12:57 +0000
 
