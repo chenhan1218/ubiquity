@@ -386,7 +386,8 @@ class Wizard(BaseFrontend):
         self.ui.next.clicked.connect(self.on_next_clicked)
         self.ui.back.clicked.connect(self.on_back_clicked)
         self.ui.quit.clicked.connect(self.on_quit_clicked)
-        self.ui.progressCancel.clicked.connect(self.on_progress_cancel_button_clicked)
+        self.ui.progressCancel.clicked.connect(
+            self.on_progress_cancel_button_clicked)
 
         if 'UBIQUITY_AUTOMATIC' in os.environ:
             self.debconf_progress_start(
