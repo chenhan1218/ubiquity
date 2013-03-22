@@ -481,8 +481,6 @@ class PageKde(PageBase):
                 self.page.try_ubuntu_button.hide()
                 self.page.try_install_text_label.hide()
                 self.page.install_ubuntu_button.hide()
-                self.page.image1.hide()
-                self.page.image2.hide()
 
             if self.only:
                 self.page.alpha_warning_label.hide()
