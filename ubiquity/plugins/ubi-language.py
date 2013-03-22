@@ -398,7 +398,9 @@ class PageKde(PageBase):
 
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QWidget, QPixmap
+            from PyQt4.QtCore import Qt
+            from PyQt4.QtGui import QWidget, QPixmap, QLabel, QVBoxLayout
+            from PyQt4.QtGui import QSizePolicy, QLayout
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(
@@ -407,19 +409,52 @@ class PageKde(PageBase):
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
 
+            def init_big_button(button, image_name):
+                """
+                Hackishly turns an empty button into a big button, with a large
+                padding.
+
+                I tried to set the padding throught style.qss, but it also
+                applies padding between the image and the text, which looks
+                ugly.  This hackish code creates two QLabel inside the button
+                and lay them out vertically. This makes it possible to define
+                proper padding with setContentsMargins().
+
+                It returns the text label so that its text can be updated when
+                language changes.
+                """
+                pix = QPixmap("/usr/share/ubiquity/qt/images/" + image_name)
+                img_label = QLabel()
+                img_label.setPixmap(pix)
+                img_label.setAlignment(Qt.AlignCenter)
+                img_label.setMinimumSize(pix.size())
+
+                text_label = QLabel()
+                text_label.setAlignment(Qt.AlignCenter)
+
+                layout = QVBoxLayout(button)
+                layout.addWidget(img_label)
+                layout.addWidget(text_label)
+                layout.setContentsMargins(24, 24, 24, 24)
+                layout.setSizeConstraint(QLayout.SetMinimumSize)
+
+                return text_label
+
             def inst(*args):
-                self.page.try_ubuntu.setEnabled(False)
+                self.page.try_ubuntu_button.setEnabled(False)
                 self.controller.go_forward()
-            self.page.install_ubuntu.clicked.connect(inst)
-            self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
-            picture1 = QPixmap(
-                "/usr/share/ubiquity/pixmaps/kubuntu-live-session.png")
-            self.page.image1.setPixmap(picture1)
-            self.page.image1.resize(picture1.size())
-            picture2 = QPixmap(
-                "/usr/share/ubiquity/pixmaps/kubuntu-install.png")
-            self.page.image2.setPixmap(picture2)
-            self.page.image2.resize(picture2.size())
+
+            self.page.install_ubuntu_button.clicked.connect(inst)
+            self.page.try_ubuntu_button.clicked.connect(
+                self.on_try_ubuntu_clicked)
+
+            self.try_ubuntu_label = init_big_button(
+                self.page.try_ubuntu_button, "try.png")
+            self.install_ubuntu_label = init_big_button(
+                self.page.install_ubuntu_button, "install.png")
+
+            self.try_ubuntu_label.setObjectName("try_ubuntu")
+            self.install_ubuntu_label.setObjectName("install_ubuntu")
 
             self.release_notes_url = ''
             self.update_installer = True
@@ -443,9 +478,9 @@ class PageKde(PageBase):
                 self.page.release_notes_label.hide()
 
             if not 'UBIQUITY_GREETER' in os.environ:
-                self.page.try_ubuntu.hide()
+                self.page.try_ubuntu_button.hide()
                 self.page.try_install_text_label.hide()
-                self.page.install_ubuntu.hide()
+                self.page.install_ubuntu_button.hide()
                 self.page.image1.hide()
                 self.page.image2.hide()
 
@@ -475,7 +510,7 @@ class PageKde(PageBase):
         # Spinning cursor.
         self.controller.allow_change_step(False)
         # Queue quit.
-        self.page.install_ubuntu.setEnabled(False)
+        self.page.install_ubuntu_button.setEnabled(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
 
@@ -526,8 +561,8 @@ class PageKde(PageBase):
             self.combobox.setCurrentIndex(index)
 
         if not self.only and 'UBIQUITY_GREETER' in os.environ:
-            self.page.try_ubuntu.setEnabled(True)
-            self.page.install_ubuntu.setEnabled(True)
+            self.page.try_ubuntu_button.setEnabled(True)
+            self.page.install_ubuntu_button.setEnabled(True)
 
     def get_language(self):
         lang = self.selected_language()
@@ -552,8 +587,8 @@ class PageKde(PageBase):
             install_medium = misc.get_install_medium()
             install_medium = i18n.get_string(install_medium, lang)
             for widget in (self.page.try_install_text_label,
-                           self.page.try_ubuntu,
-                           self.page.install_ubuntu,
+                           self.try_ubuntu_label,
+                           self.install_ubuntu_label,
                            self.page.alpha_warning_label):
                 text = widget.text()
                 text = text.replace('${RELEASE}', release.name)

@@ -72,6 +72,13 @@ QFrame[isBreadcrumb="true"],
 }
 
 /*- Content ---------------------------------*/
+#try_ubuntu,
+#install_ubuntu
+{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
 #map_frame,
 #keyboard_frame
 {
