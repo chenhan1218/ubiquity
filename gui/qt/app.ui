@@ -260,16 +260,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="progressCancel">
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset theme="dialog-close">
-               <normaloff/>
-              </iconset>
-             </property>
-            </widget>
+            <widget class="QToolButton" name="progressCancel"/>
            </item>
           </layout>
          </widget>
