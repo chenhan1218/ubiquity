@@ -9,7 +9,12 @@ ubiquity (2.13.18) UNRELEASED; urgency=low
   * 01oem-config-udeb install kubuntu slideshow for oem-config in Kubuntu
   * KDE: Untick encrypt tickbox when selecting login automatically LP: #1131459
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 20 Mar 2013 17:12:57 +0000
+  [ Dmitrijs Ledkovs ]
+  * Drop compiz from alternative supported window managers for
+    ubiquity-dm. This reverts to using metacity. It has proven to be
+    unreliable.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 22 Mar 2013 15:40:56 +0000
 
 ubiquity (2.13.17) raring; urgency=low
 
