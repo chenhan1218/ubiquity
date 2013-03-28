@@ -1,3 +1,10 @@
+ubiquity (2.13.19) UNRELEASED; urgency=low
+
+  * ubiquity.ubiquity.upstart: exit with 1 if fails for unknown reasons
+    (LP: #1151224)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 28 Mar 2013 23:24:22 +0000
+
 ubiquity (2.13.18) raring; urgency=low
 
   [ Aurélien Gâteau ]
