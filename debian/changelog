@@ -1,7 +1,12 @@
 ubiquity (2.13.19) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * ubiquity.ubiquity.upstart: exit with 1 if fails for unknown reasons
     (LP: #1151224)
+
+  [ Jason Gerard DeRose ]
+  * Add 'ubiquity-frontend-gtk' to the tuple of packages to remove in
+    bin/oem-config-remove-gtk (LP: #1161943).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 28 Mar 2013 23:24:22 +0000
 
