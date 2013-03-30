@@ -1,4 +1,4 @@
-ubiquity (2.13.19) UNRELEASED; urgency=low
+ubiquity (2.14.0) UNRELEASED; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * ubiquity.ubiquity.upstart: exit with 1 if fails for unknown reasons
