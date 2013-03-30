@@ -1,4 +1,4 @@
-ubiquity (2.14.0) UNRELEASED; urgency=low
+ubiquity (2.14.0) raring; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * ubiquity.ubiquity.upstart: exit with 1 if fails for unknown reasons
@@ -13,7 +13,7 @@ ubiquity (2.14.0) UNRELEASED; urgency=low
     3.0~rc.4ubuntu30, partman-base 163ubuntu2.
   * Update translations from Launchpad.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 28 Mar 2013 23:24:22 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 30 Mar 2013 13:54:57 +0000
 
 ubiquity (2.13.18) raring; urgency=low
 
