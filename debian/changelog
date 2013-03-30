@@ -1,11 +1,11 @@
-ubiquity (2.14.1) UNRELEASED; urgency=low
+ubiquity (2.14.1) raring; urgency=low
 
   * Pass --identifier-prefix=Ubiquity via
     UbiquityMockResolver_1_0_gir_SCANNERFLAGS rather than
     UbiquityMockResolver_1_0_gir_CFLAGS, fixing build failure with
     gobject-introspection >= 1.35.9.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 30 Mar 2013 16:52:34 +0000
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 30 Mar 2013 23:15:26 +0000
 
 ubiquity (2.14.0) raring; urgency=low
 
