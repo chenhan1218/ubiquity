@@ -1781,6 +1781,15 @@ class Page(plugin.Plugin):
             elif method == 'efi':
                 if os.path.exists('/var/lib/partman/efi'):
                     yield (method, method, self.method_description(method))
+            elif method == 'crypto':
+                # TODO xnox 2013-04-03 this is a crude way to catch
+                # nested crypto devices. Ideally we should transverse
+                # parent devices of the devpart and look for
+                # $device/crypt_realdev file (this is what partman
+                # does). But we don't cache crypt_realdev at the
+                # moment.
+                if not 'crypt' in devpart:
+                    yield (method, method, self.method_description(method))
             elif method == 'biosgrub':
                 # TODO cjwatson 2009-09-03: Quick kludge, since only GPT
                 # supports this method at the moment. Maybe it would be
