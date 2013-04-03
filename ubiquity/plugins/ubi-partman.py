@@ -599,6 +599,7 @@ class PageGtk(PageBase):
 
     def plugin_set_online_state(self, state):
         self.reuse_partition.set_sensitive(state)
+        self.reuse_partition_desc.set_sensitive(state)
 
     def set_autopartition_options(self, options, extra_options):
         # TODO Need to select a radio button when resize isn't around.
@@ -635,7 +636,7 @@ class PageGtk(PageBase):
                 opt_desc.show()
                 opt_widget.set_label(options[option].title)
                 opt_desc.set_markup(fmt % options[option].desc)
-                if not ticked:
+                if not ticked and opt_widget.get_sensitive():
                     opt_widget.set_active(True)
                     ticked = True
             else:

@@ -1,3 +1,12 @@
+ubiquity (2.14.1ubuntu1) UNRELEASED; urgency=low
+
+  * Do not select disabled partitioning options, even if they are at the
+    top of the list, e.g. when offline, upgrade option is disabled and at
+    the top of the list. (LP: #1152921) Make the upgrade option
+    description also insensitive when disabled, to match visual style.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 03 Apr 2013 10:42:55 +0100
+
 ubiquity (2.14.1) raring; urgency=low
 
   * Pass --identifier-prefix=Ubiquity via
