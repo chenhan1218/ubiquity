@@ -1,11 +1,17 @@
 ubiquity (2.14.2) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Do not select disabled partitioning options, even if they are at the
     top of the list, e.g. when offline, upgrade option is disabled and at
     the top of the list. (LP: #1152921) Make the upgrade option
     description also insensitive when disabled, to match visual style.
   * Do not allow encrypting, encrypted volumes, by filtering out crypto
     method from "use as" combo box. (LP: #1131761)
+
+  [ Colin Watson ]
+  * Don't strip qualifiers off the locale used for non-translation-like
+    categories when only a single UTF-8 locale matches the selected location
+    (LP: #1158750).
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 03 Apr 2013 10:42:55 +0100
 
