@@ -12,6 +12,8 @@ ubiquity (2.14.2) UNRELEASED; urgency=low
   * Don't strip qualifiers off the locale used for non-translation-like
     categories when only a single UTF-8 locale matches the selected location
     (LP: #1158750).
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu31.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 03 Apr 2013 10:42:55 +0100
 
