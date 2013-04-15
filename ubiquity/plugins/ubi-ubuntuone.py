@@ -89,7 +89,7 @@ class PageGtk(plugin.PluginUI):
         self.controller = controller
         # check if we are needed at all
         if ('UBIQUITY_AUTOMATIC' in os.environ or
-                'UBIQUITY_NO_SSO' in os.environ):
+                'UBIQUITY_SSO' not in os.environ):
             self.page = None
             return
         # check dependencies
