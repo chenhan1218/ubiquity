@@ -1,3 +1,9 @@
+ubiquity (2.14.3) UNRELEASED; urgency=low
+
+  * Update translations from Launchpad.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 15 Apr 2013 19:43:04 +0100
+
 ubiquity (2.14.2) raring; urgency=low
 
   [ Dmitrijs Ledkovs ]
