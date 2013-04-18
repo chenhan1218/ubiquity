@@ -3,6 +3,7 @@ ubiquity (2.14.5) UNRELEASED; urgency=low
   * Revert LC_TIME change from previous upload since at least
     language-selector also needs to be brought into sync, and it's too late
     for 13.04.
+  * Automatic update of included source packages: localechooser 2.49ubuntu4.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Apr 2013 17:34:16 +0100
 
