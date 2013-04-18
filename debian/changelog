@@ -7,6 +7,7 @@ ubiquity (2.14.4) UNRELEASED; urgency=low
     skip the timezone question (LP: #1097113).  This is intended to be part
     of a more general mechanism, but not a week before release.
   * Update translations from Launchpad.
+  * Automatic update of included source packages: localechooser 2.49ubuntu3.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Apr 2013 12:44:05 +0100
 
