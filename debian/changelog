@@ -1,3 +1,11 @@
+ubiquity (2.14.5) UNRELEASED; urgency=low
+
+  * Revert LC_TIME change from previous upload since at least
+    language-selector also needs to be brought into sync, and it's too late
+    for 13.04.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 18 Apr 2013 17:34:16 +0100
+
 ubiquity (2.14.4) raring; urgency=low
 
   * Set LC_TIME to reflect the language rather than the location, as the
