@@ -1,6 +1,7 @@
 ubiquity (2.14.6) UNRELEASED; urgency=low
 
-  * Automatic update of included source packages: partman-auto 105ubuntu3.
+  * Automatic update of included source packages: partman-auto 105ubuntu3
+    (LP: #1080701).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 23 Apr 2013 13:22:14 +0100
 
