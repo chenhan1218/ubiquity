@@ -288,15 +288,20 @@ class PartAuto(QtGui.QWidget):
             self.password.setEnabled(True)
             self.verified_password.setEnabled(True)
             self.badPassword.setEnabled(True)
+            self.verify_password()
         else:
             self.passwordIcon.setEnabled(False)
             self.password.setEnabled(False)
             self.verified_password.setEnabled(False)
             self.badPassword.setEnabled(False)
+            self.controller.allow_go_forward(True)
 
     #show warning if passwords do not match
     def verify_password(self):
-        if self.password.text() != self.verified_password.text():
+        if (not self.password.text() or
+                self.password.text() != self.verified_password.text()):
             self.badPassword.show()
+            self.controller.allow_go_forward(False)
         else:
             self.badPassword.hide()
+            self.controller.allow_go_forward(True)
