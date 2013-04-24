@@ -6,6 +6,8 @@ ubiquity (2.14.7) UNRELEASED; urgency=low
 
   * [Qt Frontend] Clear use as combo box, on each iteration to avoid
     duplicated entries. (LP: #1171989) Thanks merryidleness for the patch.
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu15, flash-kernel 3.0~rc.4ubuntu33.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 24 Apr 2013 11:40:29 +0100
 
