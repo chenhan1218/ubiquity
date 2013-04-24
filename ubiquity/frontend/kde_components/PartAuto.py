@@ -298,12 +298,15 @@ class PartAuto(QtGui.QWidget):
 
     #show warning if passwords do not match
     def verify_password(self):
-        if self.password.text() != self.verified_password.text():
-            self.badPassword.show()
-            self.controller.allow_go_forward(False)
-        else:
+        complete = False
+
+        if self.password.text() == self.verified_password.text():
             self.badPassword.hide()
-            self.controller.allow_go_forward(True)
+            complete = True
+        else:
+            self.badPassword.show()
 
         if not self.password.text():
-            self.controller.allow_go_forward(False)
+            complete = False
+
+        self.controller.allow_go_forward(complete)
