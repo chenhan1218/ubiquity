@@ -1,4 +1,4 @@
-ubiquity (2.14.7) UNRELEASED; urgency=low
+ubiquity (2.14.7) raring; urgency=low
 
   * [Qt Frontend] Do not allow to proceed from partitioning page when
     password is required, yet missing or does not match confirmation
