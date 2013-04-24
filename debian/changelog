@@ -1,3 +1,9 @@
+ubiquity (2.14.8) UNRELEASED; urgency=low
+
+  * Disable alpha warning.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 24 Apr 2013 18:20:28 +0100
+
 ubiquity (2.14.7) raring; urgency=low
 
   * [Qt Frontend] Do not allow to proceed from partitioning page when
