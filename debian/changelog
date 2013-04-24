@@ -4,6 +4,9 @@ ubiquity (2.14.7) UNRELEASED; urgency=low
     password is required, yet missing or does not match confirmation
     password. (LP: #1172059)
 
+  * [Qt Frontend] Clear use as combo box, on each iteration to avoid
+    duplicated entries. (LP: #1171989) Thanks merryidleness for the patch.
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 24 Apr 2013 11:40:29 +0100
 
 ubiquity (2.14.6) raring; urgency=low
