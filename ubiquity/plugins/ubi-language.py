@@ -61,9 +61,6 @@ class PageBase(plugin.PluginUI):
     def get_oem_id(self):
         return ''
 
-    def set_alpha_warning(self, show):
-        self.show_alpha_warning = show
-
 
 class PageGtk(PageBase):
     plugin_is_language = True
@@ -449,8 +446,6 @@ class PageKde(PageBase):
                 self.page.image1.hide()
                 self.page.image2.hide()
 
-            if self.only:
-                self.page.alpha_warning_label.hide()
             # We do not want to show the yet to be substituted strings
             # (${MEDIUM}, etc), so don't show the core of the page until
             # it's ready.
@@ -478,12 +473,6 @@ class PageKde(PageBase):
         self.page.install_ubuntu.setEnabled(False)
         self.controller._wizard.current_page = None
         self.controller.dbfilter.ok_handler()
-
-    def set_alpha_warning(self, show):
-        if not show and not self.only:
-            self.page.alpha_warning_label.hide()
-            if self.page.alpha_warning_label in self.widgetHidden:
-                self.widgetHidden.remove(self.page.alpha_warning_label)
 
     def on_release_notes_link(self, link):
         lang = self.selected_language()
@@ -553,8 +542,7 @@ class PageKde(PageBase):
             install_medium = i18n.get_string(install_medium, lang)
             for widget in (self.page.try_install_text_label,
                            self.page.try_ubuntu,
-                           self.page.install_ubuntu,
-                           self.page.alpha_warning_label):
+                           self.page.install_ubuntu):
                 text = widget.text()
                 text = text.replace('${RELEASE}', release.name)
                 text = text.replace('${MEDIUM}', install_medium)
@@ -659,9 +647,6 @@ class Page(plugin.Plugin):
                 self.ui.set_oem_id(self.db.get('oem-config/id'))
             except debconf.DebconfError:
                 pass
-
-        show = self.db.get('ubiquity/show_alpha_warning') == 'true'
-        self.ui.set_alpha_warning(show)
 
         localechooser_script = '/usr/lib/ubiquity/localechooser/localechooser'
         if ('UBIQUITY_FRONTEND' in os.environ and
