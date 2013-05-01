@@ -1,3 +1,12 @@
+ubiquity (2.15.1) UNRELEASED; urgency=low
+
+  * Remove consolekit integration, as consolekit is going away. This
+    potentially reopens http://pad.lv/631538 - enable to shutdown system
+    via indicator in ubiquity-dm session. But we can only test / re-fix
+    this once systemd aware indicator-session lands on the daily image.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 01 May 2013 10:24:58 -0700
+
 ubiquity (2.15.0) saucy; urgency=low
 
   * Remove support for the alpha warning.  This was much more useful some

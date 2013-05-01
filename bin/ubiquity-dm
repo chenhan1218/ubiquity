@@ -23,23 +23,6 @@ import ubiquity.frontend
 from ubiquity.misc import create_bool, utf8
 
 
-def ck_open_session(uid):
-    import dbus
-
-    bus = dbus.SystemBus()
-    manager_obj = bus.get_object(
-        'org.freedesktop.ConsoleKit', '/org/freedesktop/ConsoleKit/Manager')
-    manager = dbus.Interface(manager_obj, 'org.freedesktop.ConsoleKit.Manager')
-    params = dbus.Array([], signature="(sv)")
-    params.append(("unix-user", dbus.Int32(uid)))
-    params.append(("session-type", dbus.String("")))
-    params.append(("x11-display", dbus.String(os.environ['DISPLAY'])))
-    params.append(("x11-display-device", dbus.String('/dev/tty7')))
-    params.append(("is-local", dbus.Boolean(True)))
-    cookie = manager.OpenSessionWithParameters(params)
-    os.environ['XDG_SESSION_COOKIE'] = cookie
-
-
 def set_locale():
     db = DebconfCommunicator('ubiquity', cloexec=True)
     locale = ''
@@ -282,8 +265,6 @@ EndSection
         os.environ['GVFS_DISABLE_FUSE'] = '1'
         # Overlay scrollbars are now a gtk module
         os.environ['GTK_MODULES'] = 'overlay-scrollbar'
-
-        ck_open_session(self.uid)
 
         # run simple, custom scripts during install time
         if program_basename == 'ubiquity':
