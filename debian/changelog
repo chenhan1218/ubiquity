@@ -1,3 +1,11 @@
+ubiquity (2.15.3) UNRELEASED; urgency=low
+
+  * Increment reference count on address before returning it from
+    ubiquity_mock_resolver_lookup_by_name_finish, fixing a segfault in the
+    test suite.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 May 2013 22:19:16 +0100
+
 ubiquity (2.15.2) saucy; urgency=low
 
   * Replace recommendations of transitional uboot-mkimage and uboot-envtools
