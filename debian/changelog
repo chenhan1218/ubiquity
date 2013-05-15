@@ -1,11 +1,11 @@
-ubiquity (2.15.2) UNRELEASED; urgency=low
+ubiquity (2.15.2) saucy; urgency=low
 
   * Replace recommendations of transitional uboot-mkimage and uboot-envtools
     with u-boot-tools.
   * Automatic update of included source packages: apt-setup 1:0.79ubuntu1,
     partman-target 82ubuntu1, yaboot-installer 1.1.26ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 13 May 2013 18:22:54 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 15 May 2013 17:16:35 +0100
 
 ubiquity (2.15.1) saucy; urgency=low
 
