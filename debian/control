@@ -63,7 +63,7 @@ Description: KDE frontend for Ubiquity live installer
  live CD installer.
 
 Package: ubiquity-frontend-debconf
-Architecture: all
+Architecture: any
 Depends: ${misc:Depends}, ${python3:Depends}, ubiquity (= ${binary:Version}), debconf (>= 1.5.24ubuntu2) | cdebconf, bogl-bterm (>= 0.1.18-2ubuntu4), tasksel
 Provides: ubiquity-frontend-${mangled-version}
 Description: debconf frontend for the Ubiquity live installer
