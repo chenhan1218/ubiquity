@@ -1,11 +1,11 @@
-ubiquity (2.15.4) UNRELEASED; urgency=low
+ubiquity (2.15.4) saucy; urgency=low
 
   * Make ubiquity-frontend-debconf Architecture: any rather than all; the
     .bgf font format is architecture-dependent (LP: #1180880).
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu34.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 May 2013 14:27:24 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 17 May 2013 14:52:57 +0100
 
 ubiquity (2.15.3) saucy; urgency=low
 
