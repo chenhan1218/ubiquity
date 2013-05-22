@@ -3,6 +3,10 @@ ubiquity (2.15.5) UNRELEASED; urgency=low
   * ubiquity/install_misc.py: Make the fake initctl pass through "initctl
     version" calls, used by such things as invoke-rc.d to figure out whether
     it's running under Upstart (LP: #1182540).
+  * Automatic update of included source packages: apt-setup 1:0.80ubuntu1,
+    debian-installer-utils 1.97ubuntu1, partman-basicmethods 53,
+    partman-btrfs 11ubuntu1, partman-jfs 39, partman-newworld 29,
+    partman-reiserfs 54, partman-xfs 51, user-setup 1.48ubuntu1.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 May 2013 17:06:26 +0100
 
