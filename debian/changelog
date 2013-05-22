@@ -1,4 +1,4 @@
-ubiquity (2.15.5) UNRELEASED; urgency=low
+ubiquity (2.15.5) saucy; urgency=low
 
   * ubiquity/install_misc.py: Make the fake initctl pass through "initctl
     version" calls, used by such things as invoke-rc.d to figure out whether
@@ -8,7 +8,7 @@ ubiquity (2.15.5) UNRELEASED; urgency=low
     partman-btrfs 11ubuntu1, partman-jfs 39, partman-newworld 29,
     partman-reiserfs 54, partman-xfs 51, user-setup 1.48ubuntu1.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 May 2013 17:06:26 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 22 May 2013 17:27:22 +0100
 
 ubiquity (2.15.4) saucy; urgency=low
 
