@@ -1,3 +1,16 @@
+ubiquity (2.15.6) UNRELEASED; urgency=low
+
+  * Merge U1 plugin, without activating it by default at the moment. This
+    plugin offers ability to login or register for U1 account, view terms
+    & conditions and further information about U1.
+  * Stop calling GLib.threads_init, no longer needed with new PyGI.
+  * Add gir webkit, gir gnome-keyring, oauthlib to dependencies.
+  * Automatic update of included source packages: partman-auto-crypto
+    20ubuntu1, partman-auto-lvm 49ubuntu1, partman-basicfilesystems
+    78ubuntu1, partman-ext3 75ubuntu1.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 29 May 2013 09:18:26 +0100
+
 ubiquity (2.15.5) saucy; urgency=low
 
   * ubiquity/install_misc.py: Make the fake initctl pass through "initctl
