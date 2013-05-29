@@ -480,8 +480,6 @@ class PageGtk(plugin.PluginUI):
         self.webview.grab_focus()
 
     def on_notebook_main_switch_page(self, notebook, label, tab_number):
-        # Clear errors
-        from gi.repository import Gtk
         # Recalculate next button
         self.info_loop(None)
 
