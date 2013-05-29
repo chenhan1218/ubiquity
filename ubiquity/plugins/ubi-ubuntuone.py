@@ -122,6 +122,14 @@ class PageGtk(plugin.PluginUI):
 
         self._generic_error = "error"
 
+        # TODO 20130529 xnox: need to figure out a proper way for
+        # errors - that is when to display/hide them and on which
+        # pages and when to "reset"/clear them. Currently it will
+        # continue displaying the error for longer than probably is
+        # needed.
+        self.label_global_error.set_text("")
+        self.error_bar.set_message_type(Gtk.MessageType.OTHER)
+
         self.oauth_token_json = None
         self.ping_successful = False
         self.account_creation_successful = False
@@ -474,8 +482,6 @@ class PageGtk(plugin.PluginUI):
     def on_notebook_main_switch_page(self, notebook, label, tab_number):
         # Clear errors
         from gi.repository import Gtk
-        self.label_global_error.set_text("")
-        self.error_bar.set_message_type(Gtk.MessageType.OTHER)
         # Recalculate next button
         self.info_loop(None)
 
