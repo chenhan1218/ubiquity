@@ -156,7 +156,7 @@ class PageGtk(plugin.PluginUI):
         if "DEBUG_SSO_API" in os.environ:
             self.session.add_feature(Soup.Logger.new(Soup.LoggerLogLevel.BODY,
                                                      -1))
-        self.on_notebook_main_switch_page(None, None)
+        self.on_notebook_main_switch_page(None, None, None)
 
     def login_to_sso(self, email, password, token_name, from_page):
         """Queue POST message to /tokens to get oauth token.
@@ -276,7 +276,7 @@ class PageGtk(plugin.PluginUI):
         self.u1_learn_more.connect(
             'activate-link', self.on_u1_learn_more_activate)
         self.notebook_main.set_current_page(PAGE_LOGIN)
-        self.on_notebook_main_switch_page(None, None)
+        self.on_notebook_main_switch_page(None, None, None)
         self.skip_step = False
         return self.page
 
@@ -302,7 +302,7 @@ class PageGtk(plugin.PluginUI):
             self.notebook_main.set_current_page(self.last_page)
 
         if from_page in (PAGE_REGISTER, PAGE_TC, PAGE_ABOUT):
-            self.on_notebook_main_switch_page(None, None)
+            self.on_notebook_main_switch_page(None, None, None)
             return True
 
         self.note.set_current_page(1)
@@ -329,7 +329,7 @@ class PageGtk(plugin.PluginUI):
                 self.spinner_connect.stop()
                 self.controller.toggle_skip_button('u1_register_skip')
                 self.notebook_main.set_current_page(PAGE_REGISTER)
-                self.on_notebook_main_switch_page(None, None)
+                self.on_notebook_main_switch_page(None, None, None)
                 return True
             else:
                 password = self.u1_password_existing.get_text()
@@ -345,14 +345,14 @@ class PageGtk(plugin.PluginUI):
             except Exception:
                 syslog.syslog("exception in register_new_sso_account: %r" %
                               traceback.format_exc())
-                self.on_notebook_main_switch_page(None, None)
+                self.on_notebook_main_switch_page(None, None, None)
                 return True
 
             Gtk.main()
 
             if not self.account_creation_successful:
                 syslog.syslog("Error registering SSO account, exiting.")
-                self.on_notebook_main_switch_page(None, None)
+                self.on_notebook_main_switch_page(None, None, None)
                 return True
 
         else:
@@ -366,14 +366,14 @@ class PageGtk(plugin.PluginUI):
         except Exception:
             syslog.syslog("exception in login_to_sso: %r" %
                           traceback.format_exc())
-            self.on_notebook_main_switch_page(None, None)
+            self.on_notebook_main_switch_page(None, None, None)
             return True
 
         Gtk.main()
 
         if self.oauth_token_json is None:
             syslog.syslog("Error getting oauth_token, not creating keyring")
-            self.on_notebook_main_switch_page(None, None)
+            self.on_notebook_main_switch_page(None, None, None)
             return True
 
         try:
@@ -388,14 +388,14 @@ class PageGtk(plugin.PluginUI):
 
         if not self.ping_successful:
             syslog.syslog("Error pinging U1 URL, not creating keyring")
-            self.on_notebook_main_switch_page(None, None)
+            self.on_notebook_main_switch_page(None, None, None)
             return True
 
         # all good, create a (encrypted) keyring and store the token for later
         rv = self._create_keyring_and_store_u1_token(self.oauth_token_json)
         if rv != 0:
             syslog.syslog("Error creating keyring, u1 token not saved.")
-            self.on_notebook_main_switch_page(None, None)
+            self.on_notebook_main_switch_page(None, None, None)
             return True
         self.note.set_current_page(0)
         self.controller._wizard.page_logo.hide()
@@ -463,15 +463,15 @@ class PageGtk(plugin.PluginUI):
             return
         self.controller._wizard.skip.hide()
         self.notebook_main.set_current_page(PAGE_ABOUT)
-        self.on_notebook_main_switch_page(None, None)
+        self.on_notebook_main_switch_page(None, None, None)
 
     def on_u1_terms_activate_link(self, unused_widget, unused):
         self.notebook_main.set_current_page(PAGE_TC)
         self.controller._wizard.skip.hide()
-        self.on_notebook_main_switch_page(None, None)
+        self.on_notebook_main_switch_page(None, None, None)
         self.webview.grab_focus()
 
-    def on_notebook_main_switch_page(self, unused_widget, unused):
+    def on_notebook_main_switch_page(self, notebook, label, tab_number):
         # Clear errors
         from gi.repository import Gtk
         self.label_global_error.set_text("")
