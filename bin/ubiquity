@@ -534,7 +534,7 @@ def main(oem_config):
         os.environ['UBIQUITY_NO_WEBCAM'] = '1'
 
     if options.u1_sso:
-        os.environ['UBIQUITY_SSO'] = 1
+        os.environ['UBIQUITY_SSO'] = '1'
 
     acquire_lock()
 
