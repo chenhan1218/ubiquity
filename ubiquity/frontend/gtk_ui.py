@@ -155,6 +155,9 @@ class Controller(ubiquity.frontend.base.Controller):
     def toggle_next_button(self, label='gtk-go-forward'):
         self._wizard.toggle_next_button(label)
 
+    def toggle_skip_button(self, label='skip'):
+        self._wizard.toggle_skip_button(label)
+
     def switch_to_install_interface(self):
         self._wizard.switch_to_install_interface()
 
@@ -1242,6 +1245,10 @@ class Wizard(BaseFrontend):
             self.next.set_label(label)
             self.translate_widget(self.next)
 
+    def toggle_skip_button(self, label='skip'):
+        self.skip.set_label(self.get_string(label))
+        self.skip.show()
+
     def set_page(self, n):
         self.run_automation_error_cmd()
         # We only stop the backup process when we're on a page where questions
@@ -1276,6 +1283,8 @@ class Wizard(BaseFrontend):
                     cur = page.optional_widgets[0]
                 if cur:
                     self.set_page_title(page)
+                    self.skip.set_visible(
+                        hasattr(page.ui, 'plugin_on_skip_clicked'))
                     cur.show()
                     is_install = page.ui.get('plugin_is_install')
                     break
@@ -1423,6 +1432,11 @@ class Wizard(BaseFrontend):
 
     def on_live_installer_delete_event(self, widget, unused_event):
         return self.on_quit_clicked(widget)
+
+    def on_skip_clicked(self, unused_widget):
+        ui = self.pages[self.pagesindex].ui
+        if hasattr(ui, 'plugin_on_skip_clicked'):
+            ui.plugin_on_skip_clicked()
 
     def on_next_clicked(self, unused_widget):
         """Callback to control the installation process between steps."""
