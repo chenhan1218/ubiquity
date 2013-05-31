@@ -1,3 +1,5 @@
-#!/bin/sh -x
+#!/bin/sh
 . /var/log/installer/autopilot
-autopilot $@
+export DBUS_SESSION_BUS_ADDRESS
+export UBIQUITY_PID
+sudo -E autopilot $@
