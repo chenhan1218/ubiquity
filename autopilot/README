@@ -1,0 +1,7 @@
+* Prep:
+  apt-get install python-autopilot libautopilot-gtk
+
+* Execute ./run_ubiquity to start ubiquity in "autopilot" mode
+* Execute ./autopilot as if it's `autopilot`, e.g.:
+  ./autopilot list ubiquity
+  ./autopilot run ubiquity
