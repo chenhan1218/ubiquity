@@ -1,3 +1,9 @@
+ubiquity (2.15.7) UNRELEASED; urgency=low
+
+  * Shade U1 logos with #DED9CB to match color scheme.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 04 Jun 2013 12:37:06 +0100
+
 ubiquity (2.15.6) saucy; urgency=low
 
   * Merge U1 plugin, without activating it by default at the moment. This
