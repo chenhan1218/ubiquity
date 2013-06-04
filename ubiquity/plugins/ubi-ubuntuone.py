@@ -37,9 +37,6 @@ UBUNTU_SSO_URL = "https://login.ubuntu.com/api/v2/"
 UBUNTU_ONE_URL = "https://one.ubuntu.com/"
 UBUNTU_TC_URL = "https://one.ubuntu.com/terms/embedded/"
 
-UBUNTU_SSO_URL="https://login.staging.ubuntu.com/api/v2/"
-UBUNTU_ONE_URL="https://staging.one.ubuntu.com/"
-
 TOKEN_SEPARATOR = ' @ '
 SEPARATOR_REPLACEMENT = ' AT '
 U1_APP_NAME = "Ubuntu One"
