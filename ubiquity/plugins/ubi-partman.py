@@ -2734,7 +2734,7 @@ class Page(plugin.Plugin):
                     self.description(question),
                     self.extended_description(question),
                     ('ubiquity/text/go_back', 'ubiquity/text/continue'))
-                if response is None or response == 'ubiquity/text/continue':
+                if response == 'ubiquity/text/continue':
                     self.preseed(question, 'true', seen=False)
                 else:
                     self.preseed(question, 'false', seen=False)
@@ -2921,8 +2921,7 @@ class Page(plugin.Plugin):
                         self.description(question),
                         self.extended_description(question),
                         ('ubiquity/text/go_back', 'ubiquity/text/continue'))
-                    if (response is None or
-                            response == 'ubiquity/text/continue'):
+                    if response == 'ubiquity/text/continue':
                         self.preseed(question, 'true', seen=False)
                     else:
                         self.preseed(question, 'false', seen=False)
@@ -2939,7 +2938,7 @@ class Page(plugin.Plugin):
                     self.description(question),
                     self.extended_description(question),
                     ('ubiquity/text/go_back', 'ubiquity/text/continue'))
-                if response is None or response == 'ubiquity/text/continue':
+                if response == 'ubiquity/text/continue':
                     self.preseed(question, 'true', seen=False)
                 else:
                     self.preseed(question, 'false', seen=False)
@@ -3138,7 +3137,7 @@ class Page(plugin.Plugin):
             if question in ('partman-jfs/jfs_boot', 'partman-jfs/jfs_root',
                             'partman/unmount_active'):
                 answer_reversed = True
-            if response is None or response == yes:
+            if response == yes:
                 answer = answer_reversed
             else:
                 answer = not answer_reversed
