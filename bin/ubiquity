@@ -535,6 +535,10 @@ def main(oem_config):
 
     if options.u1_sso:
         os.environ['UBIQUITY_SSO'] = '1'
+        os.environ['UBUNTU_SSO_URL'] = \
+            'https://login.staging.ubuntu.com/api/v2/'
+        os.environ['UBUNTU_ONE_URL'] = 'https://staging.one.ubuntu.com/'
+        os.environ['DEBUG_SSO_API'] = '1'
 
     acquire_lock()
 

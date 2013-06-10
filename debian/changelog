@@ -1,7 +1,12 @@
 ubiquity (2.15.7) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Consistently consider closing a question dialog as a negative response,
     not a positive one (LP: #1177115).
+
+  [ Dmitrijs Ledkovs ]
+  * Use staging U1 APIs, as production is not enabled for unverified
+    accounts yet.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jun 2013 13:09:43 +0100
 
