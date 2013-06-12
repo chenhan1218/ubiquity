@@ -14,6 +14,10 @@ ubiquity (2.15.7) UNRELEASED; urgency=low
     all flavours.
   * Drop "--desktop %k" from desktop files, not needed with pkexec.
 
+  [ Jeremy Bicha ]
+  * Use spaces not hyphens in release name such as "Ubuntu GNOME" not
+    "Ubuntu-GNOME" 
+
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jun 2013 13:09:43 +0100
 
 ubiquity (2.15.6) saucy; urgency=low
