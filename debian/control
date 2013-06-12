@@ -11,7 +11,7 @@ Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk
 
 Package: ubiquity
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, debconf (>= 1.5.43), ubiquity-frontend-${mangled-version}, ubiquity-artwork-${mangled-version}, laptop-detect, lsb-release, ubiquity-casper, python3-apt (>= 0.7.100.3~), ${console-setup-depends}, iso-codes, passwd, adduser, os-prober, rdate, ntfs-3g (>= 1:2011.1.15AR.4+2011.4.12-1) [any-alpha any-amd64 any-i386] | ntfsprogs [any-alpha any-amd64 any-i386], ecryptfs-utils, cryptsetup, python3-pyicu (>= 1.0), reiserfsprogs, language-selector-common (>= 0.4.16), archdetect-deb, dpkg-repack, apt-clone, wget, grub-common [any-amd64 any-i386], dbus-x11, sbsigntool [amd64]
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, debconf (>= 1.5.43), ubiquity-frontend-${mangled-version}, ubiquity-artwork-${mangled-version}, laptop-detect, lsb-release, ubiquity-casper, python3-apt (>= 0.7.100.3~), ${console-setup-depends}, iso-codes, passwd, adduser, os-prober, rdate, ntfs-3g (>= 1:2011.1.15AR.4+2011.4.12-1) [any-alpha any-amd64 any-i386] | ntfsprogs [any-alpha any-amd64 any-i386], ecryptfs-utils, cryptsetup, policykit-1, python3-pyicu (>= 1.0), reiserfsprogs, language-selector-common (>= 0.4.16), archdetect-deb, dpkg-repack, apt-clone, wget, grub-common [any-amd64 any-i386], dbus-x11, sbsigntool [amd64]
 Recommends: grub-pc [any-amd64 any-i386] | grub [any-amd64 any-i386] | grub-efi [any-amd64 any-i386], flash-kernel [armel armhf], u-boot-tools [armel armhf], yaboot [powerpc], hfsutils [powerpc], dmraid, btrfs-tools, ubuntu-drivers-common, lvm2
 Conflicts: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot
 Replaces: ubuntu-express, espresso, espresso-utils, espresso-locale, espresso-keyboard-setup, espresso-kbd-chooser, espresso-timezone, user-setup (<< 0.05ubuntu6), partman, espresso-grub, espresso-yaboot, ubiquity-frontend-gtk (<< 2.3.8)
@@ -45,7 +45,7 @@ Description: Ubuntu artwork for Ubiquity live installer
 Package: ubiquity-frontend-gtk
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, ubiquity (= ${binary:Version}), python3-dbus, gir1.2-gtk-3.0, gir1.2-soup-2.4, gir1.2-vte-2.90, gir1.2-webkit-3.0, iso-codes, metacity | xfwm4 | matchbox-window-manager | lubuntu-default-settings | openbox, gksu, gir1.2-xkl-1.0, gir1.2-timezonemap-1.0, gir1.2-gnomekeyring-1.0, python3-gi, python3-cairo, python3-gi-cairo, gir1.2-appindicator3-0.1, python3-oauthlib, busybox-static | busybox
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}, ubiquity (= ${binary:Version}), python3-dbus, gir1.2-gtk-3.0, gir1.2-soup-2.4, gir1.2-vte-2.90, gir1.2-webkit-3.0, iso-codes, metacity | xfwm4 | matchbox-window-manager | lubuntu-default-settings | openbox, gir1.2-xkl-1.0, gir1.2-timezonemap-1.0, gir1.2-gnomekeyring-1.0, python3-gi, python3-cairo, python3-gi-cairo, gir1.2-appindicator3-0.1, python3-oauthlib, busybox-static | busybox
 Suggests: gnome-control-center | feh
 Conflicts: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.3)
 Replaces: ubuntu-express-frontend-gtk, espresso-frontend-gtk, ubiquity (<< 2.4.3)

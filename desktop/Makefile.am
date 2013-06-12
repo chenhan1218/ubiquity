@@ -8,6 +8,12 @@ desktop_in_files = \
 	ubiquity-gtkui.desktop.in \
 	ubiquity-kdeui.desktop.in
 
-EXTRA_DIST = $(desktop_in_files)
+@INTLTOOL_POLICY_RULE@
+
+polkit_policydir = $(datadir)/polkit-1/actions
+polkit_policy_in_files = com.ubuntu.ubiquity.policy.in
+polkit_policy_DATA = $(polkit_policy_in_files:.policy.in=.policy)
+
+EXTRA_DIST = $(desktop_in_files) $(polkit_policy_in_files)
 
 CLEANFILES = $(desktop_DATA)

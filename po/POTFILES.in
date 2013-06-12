@@ -3,3 +3,4 @@ desktop/ubiquity-gtkui.desktop.in
 desktop/ubiquity-kdeui.desktop.in
 desktop/oem-config-prepare-kde.desktop.in
 desktop/oem-config-prepare-gtk.desktop.in
+desktop/com.ubuntu.ubiquity.policy.in
