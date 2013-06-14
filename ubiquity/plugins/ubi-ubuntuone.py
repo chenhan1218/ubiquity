@@ -431,13 +431,11 @@ class PageGtk(plugin.PluginUI):
         cmd = os.environ.get("U1_KEYRING_HELPER",
                              "/usr/share/ubiquity/ubuntuone-keyring-helper")
         p = subprocess.Popen([cmd], stdin=subprocess.PIPE,
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                              preexec_fn=misc.drop_all_privileges)
-        p.stdin.write(self._user_password.encode("utf-8"))
-        p.stdin.write(b"\n")
-        p.stdin.write(urlencoded_token.encode("utf-8"))
-        p.stdin.write(b"\n")
-        res = p.wait()
-        return res
+        params = '%s\n%s\n' % (self._user_password, urlencoded_token)
+        p.communicate(input=params.encode('UTF-8'))
+        return p.returncode
 
     def plugin_translate(self, lang):
         pasw = self.controller.get_string('password_inactive_label', lang)

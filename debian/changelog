@@ -13,6 +13,8 @@ ubiquity (2.15.7) UNRELEASED; urgency=low
   * Drop all other privilege escalation methods, as pkexec is available on
     all flavours.
   * Drop "--desktop %k" from desktop files, not needed with pkexec.
+  * U1 plugin: do not use subprocess.Popen.wait(), as it may cause
+    block thus causing a deadlock.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Fri, 07 Jun 2013 13:09:43 +0100
 
