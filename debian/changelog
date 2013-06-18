@@ -16,6 +16,10 @@ ubiquity (2.15.7) UNRELEASED; urgency=low
   * U1 plugin: do not use subprocess.Popen.wait(), as it may cause
     block thus causing a deadlock.
   * Shade U1 logos with #DED9CB to match color scheme.
+  * Automatic update of included source packages: clock-setup
+    0.115ubuntu1, partconf 1.41, partman-auto 107ubuntu1, partman-base
+    166ubuntu1, partman-target 83ubuntu1, yaboot-installer
+    1.1.27ubuntu1.
 
   [ Jeremy Bicha ]
   * Use spaces not hyphens in release name such as "Ubuntu GNOME" not
