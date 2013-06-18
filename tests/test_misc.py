@@ -100,7 +100,7 @@ class MiscTests(unittest.TestCase):
         mock_open.return_value = magic
         magic.readline.return_value = _disk_info
         release = misc.get_release()
-        self.assertEqual(release.name, 'Ubuntu-Server')
+        self.assertEqual(release.name, 'Ubuntu Server')
         self.assertEqual(release.version, '10.04.1 LTS')
 
     @mock.patch('builtins.open')

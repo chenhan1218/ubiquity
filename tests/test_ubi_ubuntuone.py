@@ -454,16 +454,15 @@ class CreateKeyringTestCase(BaseTestPageGtk):
             self.page._create_keyring_and_store_u1_token(d_json)
             mock_dup.assert_called_once_with(fake_token_dict)
 
-        mock_Popen.assert_called_with(['cmd'], stdin=sentinel.PIPE,
-                                      preexec_fn=sentinel.drop_privs)
+        mock_Popen.assert_called_with(
+            ['cmd'],
+            stdin=sentinel.PIPE,
+            stderr=sentinel.PIPE,
+            stdout=sentinel.PIPE,
+            preexec_fn=sentinel.drop_privs)
         mock_stdin = mock_Popen.return_value
 
-        e = [call.stdin.write(b'test password'),
-             call.stdin.write(b'\n'),
-             call.stdin.write(b'A=b%2Ff'),
-             call.stdin.write(b'\n'),
-             call.wait()]
-
+        e = [call.communicate(input=b'test password\nA=b%2Ff\n')]
         mock_stdin.assert_has_calls(e)
 
 if __name__ == '__main__':
