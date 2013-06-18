@@ -476,6 +476,7 @@ def get_release():
                     line = line.split()
                     if line[2] == 'LTS':
                         line[1] += ' LTS'
+                    line[0] = line[0].replace('-', ' ')
                     get_release.release_info = ReleaseInfo(
                         name=line[0], version=line[1])
         except:
