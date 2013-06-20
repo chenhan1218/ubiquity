@@ -19,7 +19,7 @@ class WelcomeTests(AutopilotTestCase):
 
         Pr = namedtuple('Process', ['pid'])
         my_process = Pr(int(os.environ['UBIQUITY_PID']))
-        return get_autopilot_proxy_object_for_process(my_process)
+        return get_autopilot_proxy_object_for_process(my_process, None)
         
     def test_window_title(self):
         '''
