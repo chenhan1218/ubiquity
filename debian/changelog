@@ -3,6 +3,10 @@ ubiquity (2.15.8) UNRELEASED; urgency=low
   [ Colin Watson ]  
   * Fix "parition" typo in template names.
 
+  [ Dmitrijs Ledkovs ]
+  * Wrap ubiquity call in sh, due to broken desktop-file/pkexec
+    interaction on XFCE and LXDE (LP: #1193526)
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 25 Jun 2013 13:07:06 +0100
 
 ubiquity (2.15.7) saucy; urgency=low
