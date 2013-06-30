@@ -1,3 +1,9 @@
+ubiquity (2.15.9) UNRELEASED; urgency=low
+
+  * Changed Ubuntu Studio background in bin/ubiquity-dm
+
+ -- Kaj Ailomaa <zequence@mousike.me>  Sun, 30 Jun 2013 17:36:36 +0200
+
 ubiquity (2.15.8) saucy; urgency=low
 
   [ Colin Watson ]  
