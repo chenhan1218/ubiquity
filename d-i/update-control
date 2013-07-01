@@ -54,7 +54,7 @@ my @basebd = (
     'pep8',
     'pkg-config',
     'po-debconf (>= 1.0)',
-    'pyflakes',
+    'pyflakes (>= 0.7.2)',
     'python-gi-dev',
     'python-scour',
     'python3-all (>= 3.1)',

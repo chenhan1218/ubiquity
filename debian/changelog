@@ -1,3 +1,9 @@
+ubiquity (2.15.9) UNRELEASED; urgency=low
+
+  * Use pyflakes3 instead of pyflakes, for better python3 checks.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 01 Jul 2013 12:31:25 +0100
+
 ubiquity (2.15.8) saucy; urgency=low
 
   [ Colin Watson ]  
