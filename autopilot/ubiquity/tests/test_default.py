@@ -34,7 +34,7 @@ class DefaultInstallTests(AutopilotTestCase):
         '''
         #Ubuntu: Lets get the focus back to ubiquity window
         #Comment out this line if running test on xubuntu/lubuntu and make sure terminal
-        # id not on top of ubiquity when starting the test.
+        # is not on top of ubiquity when starting the test.
         #FIXME: Need setup and teardown to be implemented so we can lose this all together
         self.keyboard.press_and_release('Super+1')
         
@@ -144,10 +144,8 @@ class DefaultInstallTests(AutopilotTestCase):
 
     def ubiquity_install_type_page_test(self):
 
-        #Check next page value
         """
-
-
+            Check next page value
         """
         self.assertThat(self.headerLabel.label, Eventually(Contains('Installation type')))
         #get all page objects
@@ -328,13 +326,13 @@ class DefaultInstallTests(AutopilotTestCase):
         self.pointing_device.click()
 
         #Intentionally cause passwords to mis-match
-        self.keyboard.type('passwodr')
+        self.keyboard.type('password')
         
         self.pointing_device.move_to_object(self.backButton)
         self.pointing_device.move_to_object(self.confirmPasswordEntry)
         self.pointing_device.click()
 
-        self.keyboard.type('password')
+        self.keyboard.type('will_not_match')
         
         #check that passwords match, and if not redo them
         self.check_passwords_match()
@@ -353,7 +351,7 @@ class DefaultInstallTests(AutopilotTestCase):
                 self.assertThat(self.continue_button.sensitive, Equals(1))
                 break
 
-            #If passwords didn't match then retype them
+            #If passwords didn't match (which they didn't ;-) ) then retype them
             self.pointing_device.move_to_object(self.passwordEntry)
             self.pointing_device.click()
             self.keyboard.press_and_release('Ctrl+a')
@@ -424,7 +422,10 @@ class DefaultInstallTests(AutopilotTestCase):
         complete = 1.0
         
         while progress < complete:
-            #TODO: add some error handling
+
+            #Lets check there have been no install errors while in this loop
+            self.check_for_install_errors()
+            #keep updating fraction value
             progress = self.installProgress.fraction
             # Use for debugging. Shows current 'fraction' value
             print(progress)
@@ -434,7 +435,7 @@ class DefaultInstallTests(AutopilotTestCase):
         self.assertThat(self.completeDialog.title, Eventually(Contains('Installation Complete')))
         self.conTestingButton = self.completeDialog.select_single('GtkButton', name='quit_button')
         self.restartButton = self.completeDialog.select_single('GtkButton', name='reboot_button')
-        #self.assertThat(self.completeDialog.visible, Eventually(Equals(1)))
+        self.assertThat(self.completeDialog.visible, Eventually(Equals(1)))
         
     def wait_for_button_state_changed(self):
         '''
@@ -450,13 +451,28 @@ class DefaultInstallTests(AutopilotTestCase):
             #keep grabbing the button to refresh it's state
             self.continue_button = self.app.select_single('GtkButton', name='next')
             objProp = self.continue_button.sensitive
-            #use for debugging
-            #print('Button property value:')
-            #print(objProp)
+
+            #Check there are no errors while in this loop
+            self.check_for_install_errors()
         #lets check it is enabled before returning
         self.assertThat(self.continue_button.sensitive, Eventually(Equals(1)))
 
-        
+    def check_for_install_errors(self):
+        '''
+            This checks that no error/unwanted dialogs appear
+
+            simply asserting that their visible properties = 0
+
+            If they are not visible then there is no problems, UI wise that is! ;-)
+        '''
+        # For each dialog lets, select each dialog and finally check its not visible
+
+        crash_dialog = self.app.select_single('GtkDialog', name='crash_dialog')
+        self.assertThat(crash_dialog.visible, Equals(0))
+
+        warning_dialog = self.app.select_single('GtkDialog', name='warning_dialog')
+        self.assertThat(warning_dialog.visible, Equals(0))
+
     def run_default_install_test(self):
         #Page 1
         self.ubiquity_welcome_page_test()
