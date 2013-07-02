@@ -1,7 +1,34 @@
-* Prep:
-  apt-get install python-autopilot libautopilot-gtk
+This testcase works for Ubuntu, Xubuntu and Lubuntu.
 
+But until support for setup and tear down has been implemented
+the test needs modifying for Xubuntu and Lubuntu
+
+To make these edits go into test_default.py and in the test_default_install method change
+
+    self.keyboard.press_and_release('Super+1')
+
+    To
+
+    #self.keyboard.press_and_release('Super+1')
+
+For the test to run we need have these installed:
+  
+    sudo apt-get install python-autopilot libautopilot-gtk python-xlib
+
+python-xlib is needed for the x11 backend to work. universe repo needs activating in sources
+
+Once installed copy ubiquity & ubiquity-wrapper files to the right place
+
+  sudo cp ./ubuntu_autopilot_tests/ubiquity/bin/ubiquity-wrapper /usr/bin/ubiquity
+  sudo cp ./ubuntu_autopilot_tests/ubiquity/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
+
+In one terminal
 * Execute ./run_ubiquity to start ubiquity in "autopilot" mode
+
+Wait for ubiquity to start up then in another terminal window
 * Execute ./autopilot as if it's `autopilot`, e.g.:
   ./autopilot list ubiquity
   ./autopilot run ubiquity
+
+NOTE: If running on Xubuntu or Lubuntu make sure that your terminal windows are not covering
+the ubiquity continue button before you run ./autopilot run ubiquity.
