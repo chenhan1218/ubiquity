@@ -174,7 +174,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="try_ubuntu_button">
+      <widget class="QToolButton" name="try_ubuntu">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
          <horstretch>0</horstretch>
@@ -182,7 +182,10 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string/>
+        <string>Try ${RELEASE}</string>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
        </property>
       </widget>
      </item>
@@ -203,7 +206,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="install_ubuntu_button">
+      <widget class="QToolButton" name="install_ubuntu">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
          <horstretch>0</horstretch>
@@ -211,7 +214,10 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string/>
+        <string>Install ${RELEASE}</string>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextUnderIcon</enum>
        </property>
       </widget>
      </item>
