@@ -41,51 +41,51 @@ class DefaultInstallTests(AutopilotTestCase):
         main_window = self.app.select_single(
             'GtkWindow', name='live_installer')
         self.assertThat(main_window.title, Equals("Install"))
-        # This method runs the ubiquity_ methods to navigate testing through the install pages
+        # This method runs the ubiquity_ methods to navigate
+        # testing through the install pages
         self.run_default_install_test()
         
         #Then finally here check that the complete dialog appears
         
-        self.ubiquity_did_installation_complete()
+        self.ubiquity_did_install_complete()
     
     def ubiquity_welcome_page_test(self):
         '''
-            Tests that all needed objects on the Welcome page are accessible
-            
-            And can also be navigated to.
-            
+            Tests that all needed objects on the Welcome page are accessible    
+            And can also be navigated to.            
             Once confirmed continue with install accepting all defaults
-            
         '''
         self.get_welcome_page_objects()
         
-        #Can we navigate to the quit button? This fails the test if object has no position attribs
-        self.pointing_device.move_to_object(self.quitButton)
+        #Can we navigate to the quit button? This fails the test if object
+        # has no position attribs
+        self.pointing_device.move_to_object(self.quit_button)
         
         #Can we navigate to the continue button?
-        self.pointing_device.move_to_object(self.continue1_button)
+        self.pointing_device.move_to_object(self.continue_button)
         #Finally lets move on to the next page
         self.pointing_device.click()
         
     def get_welcome_page_objects(self):
         
         #Check the first page title = Welcome  
-        self.headerLabel = self.app.select_single('GtkLabel', name='page_title')
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Welcome')))
+        self.headerlabel = self.app.select_single('GtkLabel', name='page_title')
+        self.assertThat(self.headerlabel.label, Eventually(Contains('Welcome')))
         
         #Check that there is a 'Quit' GtkButton and the label is correct
-        self.quitButton = self.app.select_single('GtkButton', name='quit')
-        self.assertThat(self.quitButton.label, Equals('_Quit'))
+        self.quit_button = self.app.select_single('GtkButton', name='quit')
+        self.assertThat(self.quit_button.label, Equals('_Quit'))
         
         #Check that there is a continue button and has correct label
-        self.continue1_button = self.app.select_single('GtkLabel', label='Continue')
-        self.assertThat(self.continue1_button.label, Equals('Continue'))
+        self.continue_button = self.app.select_single('GtkLabel', label='Continue')
+        self.assertThat(self.continue_button.label, Equals('Continue'))
     
     def ubiquity_preparing_page_test(self):
         
         self.wait_for_button_state_changed()
         #Check the next page title
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Preparing to install')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Preparing to install')))
         #lets get all the page objects
         
         self.get_all_preparing_page_objects()
@@ -93,20 +93,21 @@ class DefaultInstallTests(AutopilotTestCase):
             Lets test we can go back to the welcome page and come back here
         '''
         #Click back
-        self.pointing_device.move_to_object(self.backButton)
+        self.pointing_device.move_to_object(self.back_button)
         self.pointing_device.click()
         
         self.wait_for_button_state_changed()
         #check we went back
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Welcome')))
+        self.assertThat(self.headerlabel.label, Eventually(Contains('Welcome')))
         #go back to the page we were on
         self.get_welcome_page_objects()
-        self.pointing_device.move_to_object(self.continue1_button)
+        self.pointing_device.move_to_object(self.continue_button)
         self.pointing_device.click()
         
         self.wait_for_button_state_changed()
         
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Preparing to install')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Preparing to install')))
         
         '''
             Lets navigate round all objects
@@ -114,10 +115,10 @@ class DefaultInstallTests(AutopilotTestCase):
         # first need to get all objects again
         self.get_all_preparing_page_objects()
         #navigate to each one
-        self.pointing_device.move_to_object(self.installUpdates)
-        self.pointing_device.move_to_object(self.thirdParty)
-        self.pointing_device.move_to_object(self.backButton)
-        self.pointing_device.move_to_object(self.quitButton)
+        self.pointing_device.move_to_object(self.install_updates)
+        self.pointing_device.move_to_object(self.third_party)
+        self.pointing_device.move_to_object(self.back_button)
+        self.pointing_device.move_to_object(self.quit_button)
         self.pointing_device.move_to_object(self.continue_button)
         
         #Lets move on to next page now
@@ -128,38 +129,45 @@ class DefaultInstallTests(AutopilotTestCase):
             Lets get and check all objects
         '''
         #Check that the Quit button is still there
-        self.quitButton = self.app.select_single('GtkButton', name='quit')
-        self.assertThat(self.quitButton.label, Equals('_Quit'))
+        self.quit_button = self.app.select_single('GtkButton', name='quit')
+        self.assertThat(self.quit_button.label, Equals('_Quit'))
         #Check that the Back button is now there
-        self.backButton = self.app.select_single('GtkButton', name='back')
-        self.assertThat(self.backButton.label, Equals('_Back'))
+        self.back_button = self.app.select_single('GtkButton', name='back')
+        self.assertThat(self.back_button.label, Equals('_Back'))
         #Check the continue button is still there
         self.continue_button = self.app.select_single('GtkButton', name='next')
         self.assertThat(self.continue_button.label, Equals('Continue'))
-        #also lets check both GtkCheckButtons are there for install updates & 3rd party software
-        self.installUpdates = self.app.select_single('GtkCheckButton', name='prepare_download_updates')
-        self.assertThat(self.installUpdates.label, Equals('Download updates while installing'))
-        self.thirdParty = self.app.select_single('GtkCheckButton', name='prepare_nonfree_software')
-        self.assertThat(self.thirdParty.label, Equals('Install this third-party software'))
+        #also lets check both GtkCheckButtons are there for install
+        # updates & 3rd party software
+        self.install_updates = self.app.select_single('GtkCheckButton',
+                                                      name='prepare_download_updates')
+        self.assertThat(self.install_updates.label,
+                        Equals('Download updates while installing'))
+        self.third_party = self.app.select_single('GtkCheckButton',
+                                                  name='prepare_nonfree_software')
+        self.assertThat(self.third_party.label,
+                        Equals('Install this third-party software'))
 
     def ubiquity_install_type_page_test(self):
 
         """
             Check next page value
         """
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Installation type')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Installation type')))
         #get all page objects
         self.get_all_installtype_page_objects()  
         '''
             Test we can go back to previous page and come back here
         '''
         #Go back
-        self.pointing_device.move_to_object(self.backButton)
+        self.pointing_device.move_to_object(self.back_button)
         self.pointing_device.click()
 
         self.wait_for_button_state_changed()
 
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Preparing to install')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Preparing to install')))
         
         #To Come back again we need to get the objects of the preparing page
         self.get_all_preparing_page_objects()
@@ -167,69 +175,84 @@ class DefaultInstallTests(AutopilotTestCase):
         self.pointing_device.click()
         
         #check we came back ok
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Installation type')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Installation type')))
         
         '''
             Lets check we can get and navigate to all the objects
             
-            If we wanted to change the install type we can just add required clicks here for
-            different installation types
+            If we wanted to change the install type we can just add
+            required clicks here for different installation types
         '''
         #Get all the page objects again
         self.get_all_installtype_page_objects()
         
-        self.pointing_device.move_to_object(self.eraseDisk)
-        self.pointing_device.move_to_object(self.lvmInstall)
-        self.pointing_device.move_to_object(self.somethingElseInstall)
-        self.pointing_device.move_to_object(self.encryptInstall)
-        self.pointing_device.move_to_object(self.backButton)
-        self.pointing_device.move_to_object(self.quitButton)
+        self.pointing_device.move_to_object(self.erase_disk)
+        self.pointing_device.move_to_object(self.lvm_install)
+        self.pointing_device.move_to_object(self.something_else_install)
+        self.pointing_device.move_to_object(self.encrypt_install)
+        self.pointing_device.move_to_object(self.back_button)
+        self.pointing_device.move_to_object(self.quit_button)
         self.pointing_device.move_to_object(self.continue_button)
         
         #If all is ok then lets move on to the next page
         self.pointing_device.click()
             
-        
-    def get_all_installtype_page_objects(self ):
+    def get_all_installtype_page_objects(self):
         '''
             get all the installation type page objects
         '''
-        self.eraseDisk = self.app.select_single('GtkRadioButton', name='use_device')
-        self.assertThat(self.eraseDisk.label, Contains('Erase disk and install'))
+        self.erase_disk = self.app.select_single('GtkRadioButton',
+                                                 name='use_device')
+        self.assertThat(self.erase_disk.label,
+                        Contains('Erase disk and install'))
         
-        self.encryptInstall = self.app.select_single('GtkCheckButton', name='use_crypto')
-        self.assertThat(self.encryptInstall.label, Equals('Encrypt the new Ubuntu installation for security'))
+        self.encrypt_install = self.app.select_single('GtkCheckButton',
+                                                      name='use_crypto')
+        self.assertThat(self.encrypt_install.label,
+                        Equals('Encrypt the new Ubuntu installation for security'))
         
-        self.lvmInstall = self.app.select_single('GtkCheckButton', name='use_lvm')
-        self.assertThat(self.lvmInstall.label, Equals('Use LVM with the new Ubuntu installation'))
+        self.lvm_install = self.app.select_single('GtkCheckButton',
+                                                  name='use_lvm')
+        self.assertThat(self.lvm_install.label,
+                        Equals('Use LVM with the new Ubuntu installation'))
         
-        self.somethingElseInstall = self.app.select_single('GtkRadioButton', name='custom_partitioning')
-        self.assertThat(self.somethingElseInstall.label, Equals('Something else'))
+        self.something_else_install = self.app.select_single('GtkRadioButton',
+                                                             name='custom_partitioning')
+        self.assertThat(self.something_else_install.label,
+                        Equals('Something else'))
         
         #Check that the Quit button is still there
-        self.quitButton = self.app.select_single('GtkButton', name='quit')
-        self.assertThat(self.quitButton.label, Equals('_Quit'))
+        self.quit_button = self.app.select_single('GtkButton',
+                                                  name='quit')
+        self.assertThat(self.quit_button.label,
+                        Equals('_Quit'))
         #Check that the Back button is now there
-        self.backButton = self.app.select_single('GtkButton', name='back')
-        self.assertThat(self.backButton.label, Equals('_Back'))
+        self.back_button = self.app.select_single('GtkButton',
+                                                  name='back')
+        self.assertThat(self.back_button.label,
+                        Equals('_Back'))
         #Check the continue button is still there
-        self.continue_button = self.app.select_single('GtkButton', name='next')
-        self.assertThat(self.continue_button.label, Equals('_Install Now'))
+        self.continue_button = self.app.select_single('GtkButton',
+                                                      name='next')
+        self.assertThat(self.continue_button.label,
+                        Equals('_Install Now'))
 
     def ubiquity_where_are_you_page_test(self):
         """
             From this point on the installation has started
 
-            If you need to re-run the test from here then the HDD partitions need to be wiped
+            If you need to re-run the test from here then the HDD partitions
+            need to be wiped
             and ./run_ubiquity run again
-
         """
         
         #check button activated
         self.wait_for_button_state_changed()
 
         #check we are on the correct page. 
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Where are you?')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Where are you?')))
         
         #Not much to test on this page lets move on
         
@@ -237,72 +260,75 @@ class DefaultInstallTests(AutopilotTestCase):
         
         self.pointing_device.click()
     
-    
     def ubiquity_keyboard_page_test(self):
         #Check we are on the right page
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Keyboard layout')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Keyboard layout')))
         
         #get all the page objects
         self.get_keyboard_page_objects()
-        
         '''
             Test we can go back
         '''
-        
-        self.pointing_device.move_to_object(self.backButton)
+        self.pointing_device.move_to_object(self.back_button)
         self.pointing_device.click()
         self.wait_for_button_state_changed()
         #check we went back ok
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Where are you?')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Where are you?')))
         
         #now lets go back
         
-        self.continue_button = self.app.select_single('GtkButton', name='next')
+        self.continue_button = self.app.select_single('GtkButton',
+                                                      name='next')
         self.pointing_device.move_to_object(self.continue_button)
         self.pointing_device.click()
         #wait for button to become active again
         self.wait_for_button_state_changed()
         #check we came back ok
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Keyboard layout')))
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Keyboard layout')))
         
         #We need to get the page objects again as the id's have changed
         self.get_keyboard_page_objects()
-        
         '''
             Test we can test keyboard
         '''
-                
-        self.pointing_device.move_to_object(self.keyboardEntry)
+        self.pointing_device.move_to_object(self.keyboard_entry)
         self.pointing_device.click()
         self.keyboard.type('This is testing that we can enter text in this GtkEntry')
         '''
             Test we can navigate round the objects
         '''
-        self.pointing_device.move_to_object(self.detectKbrdLayout)
-        self.pointing_device.move_to_object(self.keyboardEntry)
-        self.pointing_device.move_to_object(self.backButton)
+        self.pointing_device.move_to_object(self.keyboard_layout)
+        self.pointing_device.move_to_object(self.keyboard_entry)
+        self.pointing_device.move_to_object(self.back_button)
         self.pointing_device.move_to_object(self.continue_button)
         #Lets move on to next page
         self.pointing_device.click()
-        
-
         
     def get_keyboard_page_objects(self):
         '''
             Gets all the needed objects for the keyboard layout page
         '''
         # Keyboard test GtkEntry
-        self.keyboardEntry = self.app.select_single('GtkEntry', name='keyboard_test')
-        
+        self.keyboard_entry = self.app.select_single('GtkEntry',
+                                                     name='keyboard_test')
         # Detect Keyboard Layout button
-        self.detectKbrdLayout = self.app.select_single('GtkButton', name='deduce_layout')
-        self.assertThat(self.detectKbrdLayout.label, Equals('Detect Keyboard Layout'))
+        self.keyboard_layout = self.app.select_single('GtkButton',
+                                                      name='deduce_layout')
+        self.assertThat(self.keyboard_layout.label,
+                        Equals('Detect Keyboard Layout'))
         # Back Button
-        self.backButton = self.app.select_single('GtkButton', name='back')
-        self.assertThat(self.backButton.label, Equals('_Back'))
+        self.back_button = self.app.select_single('GtkButton',
+                                                  name='back')
+        self.assertThat(self.back_button.label,
+                        Equals('_Back'))
         # Continue Button
-        self.continue_button = self.app.select_single('GtkButton', name='next')
-        self.assertThat(self.continue_button.label, Contains('Continue'))
+        self.continue_button = self.app.select_single('GtkButton',
+                                                      name='next')
+        self.assertThat(self.continue_button.label,
+                        Contains('Continue'))
     
     def ubiquity_who_are_you_page_test(self):
         """
@@ -310,26 +336,23 @@ class DefaultInstallTests(AutopilotTestCase):
 
             'Who are you?' page
         """
-        
         #assert page title
-        self.assertThat(self.headerLabel.label, Eventually(Contains('Who are you')))
-        
+        self.assertThat(self.headerlabel.label,
+                        Eventually(Contains('Who are you')))
         self.get_who_are_you_page_objects()
-
         '''
             Test we can create a user
         '''
-        
         self.keyboard.type('autopilot rocks')
         # Lets lose these tabs
-        self.pointing_device.move_to_object(self.passwordEntry)
+        self.pointing_device.move_to_object(self.password_entry)
         self.pointing_device.click()
 
         #Intentionally cause passwords to mis-match
         self.keyboard.type('password')
         
-        self.pointing_device.move_to_object(self.backButton)
-        self.pointing_device.move_to_object(self.confirmPasswordEntry)
+        self.pointing_device.move_to_object(self.back_button)
+        self.pointing_device.move_to_object(self.conf_pwd_entry)
         self.pointing_device.click()
 
         self.keyboard.type('will_not_match')
@@ -344,73 +367,80 @@ class DefaultInstallTests(AutopilotTestCase):
 
         while True:
 
-            self.continue_button = self.app.select_single('GtkButton', name='next')
-            buttonSensitive = self.continue_button.sensitive
+            self.continue_button = self.app.select_single('GtkButton',
+                                                          name='next')
+            button_sensitive = self.continue_button.sensitive
 
-            if buttonSensitive == 1:
+            if button_sensitive == 1:
                 self.assertThat(self.continue_button.sensitive, Equals(1))
                 break
 
             #If passwords didn't match (which they didn't ;-) ) then retype them
-            self.pointing_device.move_to_object(self.passwordEntry)
+            self.pointing_device.move_to_object(self.password_entry)
             self.pointing_device.click()
             self.keyboard.press_and_release('Ctrl+a')
-            self.pointing_device.move_to_object(self.backButton)
-            self.pointing_device.move_to_object(self.passwordEntry)
+            self.pointing_device.move_to_object(self.back_button)
+            self.pointing_device.move_to_object(self.password_entry)
             self.keyboard.type('password')
 
-            self.pointing_device.move_to_object(self.backButton)
-            self.pointing_device.move_to_object(self.confirmPasswordEntry)
+            self.pointing_device.move_to_object(self.back_button)
+            self.pointing_device.move_to_object(self.conf_pwd_entry)
             self.pointing_device.click()
             self.keyboard.press_and_release('Ctrl+a')
-            self.pointing_device.move_to_object(self.backButton)
-            self.pointing_device.move_to_object(self.passwordEntry)
+            self.pointing_device.move_to_object(self.back_button)
+            self.pointing_device.move_to_object(self.password_entry)
             self.keyboard.type('password')
 
     def get_who_are_you_page_objects(self):
         '''
             Gets all the needed objects of the Who are you? page
         '''
-        #for some reason we can't select the password box with select_single directly we have to work our
-        #way down the tree to get to it
-        self.userGtkBox = self.app.select_single('GtkBox', name='stepUserInfo')
-        self.userGtkGrid = self.userGtkBox.select_single('GtkGrid', name='userinfo_table')
-        self.userHBox1 = self.userGtkGrid.select_single('GtkBox', name='hbox1')
-        self.passwordEntry = self.userHBox1.select_single('GtkEntry', name='password')
-        
-        self.userHBox2 = self.userGtkGrid.select_single('GtkBox', name='hbox2')
-        self.confirmPasswordEntry = self.userHBox2.select_single('GtkEntry', name='verified_password')
-        
-        self.backButton = self.app.select_single('GtkButton', name='back')
-        self.assertThat(self.backButton.label, Equals('_Back'))
+        #for some reason we can't select the password box with select_single directly we
+        # have to work our way down the tree to get to it
+        self.user_gtkbox = self.app.select_single('GtkBox',
+                                                  name='stepUserInfo')
+        self.user_gtkgrid = self.user_gtkbox.select_single('GtkGrid',
+                                                           name='userinfo_table')
+        self.user_hbox1 = self.user_gtkgrid.select_single('GtkBox',
+                                                          name='hbox1')
+        self.password_entry = self.user_hbox1.select_single('GtkEntry',
+                                                            name='password')
+        self.user_hbox2 = self.user_gtkgrid.select_single('GtkBox',
+                                                          name='hbox2')
+        self.conf_pwd_entry = self.user_hbox2.select_single('GtkEntry',
+                                                            name='verified_password')
+        self.back_button = self.app.select_single('GtkButton',
+                                                  name='back')
+        self.assertThat(self.back_button.label,
+                        Equals('_Back'))
 
-    def ubiquity_install_progress_bar_test(self):
+    def ubiquity_progress_bar_test(self):
         '''
             This method tracks the current progress of the install
-            
+        
             by using the fraction property of the progress bar
             
             to assertain the percentage complete.
                         
         '''
-        
         #We cant assert page title here as its an external html page
         #Maybe try assert WebKitWebView is visible
-        self.webkitWindow = self.app.select_single('GtkScrolledWindow', name='webkit_scrolled_window')
-        self.assertThat(self.webkitWindow.visible, Eventually(Equals(1)))
-        
+        self.webkitwindow = self.app.select_single('GtkScrolledWindow',
+                                                   name='webkit_scrolled_window')
+        self.assertThat(self.webkitwindow.visible,
+                        Eventually(Equals(1)))
         #Can we track the progress percentage?
-        
-        self.installProgress = self.app.select_single('GtkProgressBar', name='install_progress')
+        self.install_progress = self.app.select_single('GtkProgressBar',
+                                                       name='install_progress')
                 
         #Copying files progress bar
         self.track_install_progress_bar()
         
-        self.assertThat(self.installProgress.fraction, Eventually(Equals(0.0)))
+        self.assertThat(self.install_progress.fraction,
+                        Eventually(Equals(0.0)))
         #And now the install progress bar
         self.track_install_progress_bar()
          
-    
     def track_install_progress_bar(self):
         '''
             Gets the value of the fraction property of the progress bar
@@ -420,42 +450,49 @@ class DefaultInstallTests(AutopilotTestCase):
         '''
         progress = 0.0
         complete = 1.0
-        
         while progress < complete:
-
             #Lets check there have been no install errors while in this loop
             self.check_for_install_errors()
             #keep updating fraction value
-            progress = self.installProgress.fraction
+            progress = self.install_progress.fraction
             # Use for debugging. Shows current 'fraction' value
             print(progress)
 
-    def ubiquity_did_installation_complete(self):
-        self.completeDialog = self.app.select_single('GtkDialog', name='finished_dialog')
-        self.assertThat(self.completeDialog.title, Eventually(Contains('Installation Complete')))
-        self.conTestingButton = self.completeDialog.select_single('GtkButton', name='quit_button')
-        self.restartButton = self.completeDialog.select_single('GtkButton', name='reboot_button')
-        self.assertThat(self.completeDialog.visible, Eventually(Equals(1)))
+    def ubiquity_did_install_complete(self):
+        self.complete_dialog = self.app.select_single('GtkDialog',
+                                                      name='finished_dialog')
+        self.assertThat(self.complete_dialog.title,
+                        Eventually(Contains('Installation Complete')))
+        self.con_testing_button = self.complete_dialog.select_single('GtkButton',
+                                                                     name='quit_button')
+        self.restart_button = self.complete_dialog.select_single('GtkButton',
+                                                                 name='reboot_button')
+        self.assertThat(self.complete_dialog.visible,
+                        Eventually(Equals(1)))
         
     def wait_for_button_state_changed(self):
         '''
-            This waits on the continue button becoming active again, after it has been clicked
+            This waits on the continuebutton becoming active again
         '''
-        self.continue_button = self.app.select_single('GtkButton', name='next')
+        self.continue_button = self.app.select_single('GtkButton',
+                                                      name='next')
         #check button disabled
-        self.assertThat(self.continue_button.sensitive, Eventually(Equals(0)))
+        self.assertThat(self.continue_button.sensitive,
+                        Eventually(Equals(0)))
         
-        objProp = self.continue_button.sensitive
+        obj_prop = self.continue_button.sensitive
         #lets wait for button to enable again
-        while objProp != 1:
+        while obj_prop != 1:
             #keep grabbing the button to refresh it's state
-            self.continue_button = self.app.select_single('GtkButton', name='next')
-            objProp = self.continue_button.sensitive
+            self.continue_button = self.app.select_single('GtkButton',
+                                                          name='next')
+            obj_prop = self.continue_button.sensitive
 
             #Check there are no errors while in this loop
             self.check_for_install_errors()
         #lets check it is enabled before returning
-        self.assertThat(self.continue_button.sensitive, Eventually(Equals(1)))
+        self.assertThat(self.continue_button.sensitive,
+                        Eventually(Equals(1)))
 
     def check_for_install_errors(self):
         '''
@@ -467,13 +504,24 @@ class DefaultInstallTests(AutopilotTestCase):
         '''
         # For each dialog lets, select each dialog and finally check its not visible
 
-        crash_dialog = self.app.select_single('GtkDialog', name='crash_dialog')
-        self.assertThat(crash_dialog.visible, Equals(0))
+        crash_dialog = self.app.select_single('GtkDialog',
+                                              name='crash_dialog')
+        self.assertThat(crash_dialog.visible,
+                        Equals(0))
 
-        warning_dialog = self.app.select_single('GtkDialog', name='warning_dialog')
-        self.assertThat(warning_dialog.visible, Equals(0))
+        warning_dialog = self.app.select_single('GtkDialog',
+                                                name='warning_dialog')
+        self.assertThat(warning_dialog.visible,
+                        Equals(0))
 
     def run_default_install_test(self):
+        '''
+            this can be easily used when debugging. If the test exits on a
+            particular page, you can comment out the pages prior to the exit point
+            and reset current page to its default state, then run test again.
+            The test will start from the page it exited on. This can save alot of
+            hassle having to setup the whole test again, just to fix a small error.
+        '''
         #Page 1
         self.ubiquity_welcome_page_test()
         #Page 2
@@ -487,4 +535,4 @@ class DefaultInstallTests(AutopilotTestCase):
         #Page 6
         self.ubiquity_who_are_you_page_test()
         #page 7
-        self.ubiquity_install_progress_bar_test()
+        self.ubiquity_progress_bar_test()
