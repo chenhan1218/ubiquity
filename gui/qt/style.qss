@@ -4,7 +4,7 @@ QMainWindow {
     border-image: url(/usr/share/ubiquity/qt/images/sidebar.png) 0 repeat stretch;
 }
 
-#pageMode,
+#setup_page,
 #footer_frame {
     background-image: url(/usr/share/ubiquity/qt/images/main.png);
 }

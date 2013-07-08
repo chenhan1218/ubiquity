@@ -279,7 +279,6 @@ class Wizard(BaseFrontend):
             self.ui.install_process_label.hide()
             self.breadcrumb_install.hide()
 
-        self.ui.pageMode.setCurrentWidget(self.ui.setup_page)
         self.update_back_button()
         self.update_next_button(install_now=False)
         self.ui.quit.setIcon(QtGui.QIcon.fromTheme("dialog-close"))
@@ -535,7 +534,9 @@ class Wizard(BaseFrontend):
                                                                self.locale)
         slideshow_main = os.path.join(slideshow_dir, 'slides', 'index.html')
         if not os.path.exists(slideshow_main) or self.hide_slideshow:
-            self.ui.pageMode.hide()
+            placeHolder = QWidget()
+            self.stackLayout.addWidget(placeHolder)
+            self.stackLayout.setCurrentWidget(placeHolder)
             return
 
         parameters = []
