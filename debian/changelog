@@ -1,6 +1,14 @@
 ubiquity (2.15.9) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Use pyflakes3 instead of pyflakes, for better python3 checks.
+
+  [ Aurélien Gâteau ]
+  * Merge lp:~agateau/ubiquity/kde-rework-try-install-buttons
+   - Make the icon part of the buttons so that they are clickable as
+     well (I always click the icon and get frustrated it does not do
+     anything...)
+   - Use latest Oxygen icons
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 01 Jul 2013 12:31:25 +0100
 

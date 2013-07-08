@@ -395,7 +395,7 @@ class PageKde(PageBase):
 
         try:
             from PyQt4 import uic
-            from PyQt4.QtGui import QWidget, QPixmap
+            from PyQt4.QtGui import QWidget, QPixmap, QIcon
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             self.combobox.currentIndexChanged[str].connect(
@@ -404,19 +404,19 @@ class PageKde(PageBase):
                 self.page.oem_id_label.hide()
                 self.page.oem_id_entry.hide()
 
+            def init_big_button(button, image_name):
+                pix = QPixmap('/usr/share/ubiquity/qt/images/' + image_name)
+                icon = QIcon(pix)
+                button.setIcon(icon)
+                button.setIconSize(pix.size())
+
             def inst(*args):
                 self.page.try_ubuntu.setEnabled(False)
                 self.controller.go_forward()
             self.page.install_ubuntu.clicked.connect(inst)
             self.page.try_ubuntu.clicked.connect(self.on_try_ubuntu_clicked)
-            picture1 = QPixmap(
-                "/usr/share/ubiquity/pixmaps/kubuntu-live-session.png")
-            self.page.image1.setPixmap(picture1)
-            self.page.image1.resize(picture1.size())
-            picture2 = QPixmap(
-                "/usr/share/ubiquity/pixmaps/kubuntu-install.png")
-            self.page.image2.setPixmap(picture2)
-            self.page.image2.resize(picture2.size())
+            init_big_button(self.page.install_ubuntu, 'install.png')
+            init_big_button(self.page.try_ubuntu, 'try.png')
 
             self.release_notes_url = ''
             self.update_installer = True
@@ -443,8 +443,6 @@ class PageKde(PageBase):
                 self.page.try_ubuntu.hide()
                 self.page.try_install_text_label.hide()
                 self.page.install_ubuntu.hide()
-                self.page.image1.hide()
-                self.page.image2.hide()
 
             # We do not want to show the yet to be substituted strings
             # (${MEDIUM}, etc), so don't show the core of the page until
