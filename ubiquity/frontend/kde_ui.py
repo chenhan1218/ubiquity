@@ -170,7 +170,7 @@ class Wizard(BaseFrontend):
 
         self.ui.setWizard(self)
 
-        self.stackLayout = QtGui.QStackedLayout(self.ui.widgetStack)
+        self.stackLayout = QtGui.QStackedLayout(self.ui.content_widget)
 
         self.pages = []
         self.pagesindex = 0
