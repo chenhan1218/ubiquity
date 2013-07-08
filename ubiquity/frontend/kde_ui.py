@@ -570,8 +570,8 @@ class Wizard(BaseFrontend):
         webView.load(QtCore.QUrl(slides))
 
         self.ui.navigation.hide()
-        self.ui.install_page.layout().addWidget(webView)
-        self.ui.pageMode.setCurrentWidget(self.ui.install_page)
+        self.stackLayout.addWidget(webView)
+        self.stackLayout.setCurrentWidget(webView)
 
     def set_layout_direction(self, lang=None):
         if not lang:
