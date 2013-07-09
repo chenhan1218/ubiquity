@@ -1,4 +1,4 @@
-ubiquity (2.15.9) UNRELEASED; urgency=low
+ubiquity (2.15.9) saucy; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Use pyflakes3 instead of pyflakes, for better python3 checks.
@@ -14,7 +14,7 @@ ubiquity (2.15.9) UNRELEASED; urgency=low
   * Use ISO-639-2/{B,T} codes when looking up keyboard layout variants since
     these are what's referred to in xkb-data's xorg.xml file. 
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 01 Jul 2013 12:31:25 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Jul 2013 11:50:03 +0100
 
 ubiquity (2.15.8) saucy; urgency=low
 
