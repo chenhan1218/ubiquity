@@ -528,6 +528,32 @@ class Wizard(BaseFrontend):
         else:
             self.breadcrumb_install.setState(Breadcrumb.TODO)
 
+    def _create_webview(self):
+        # HACK! For some reason, if the QWebView is created from the .ui file,
+        # the slideshow does not start (but it starts if one runs
+        # UBIQUITY_TEST_SLIDESHOW=1 ubiquity !). Creating it from the code
+        # works. I have no idea why.
+        from PyQt4.QtWebKit import QWebView
+        from PyQt4.QtWebKit import QWebPage
+
+        webView = QWebView()
+        webView.setMinimumSize(700, 420)
+        webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+
+        # Make it transparent, see http://ariya.blogspot.com/2009/04/transparent-qwebview-and-qwebpage.html
+        palette = webView.palette()
+        palette.setBrush(QtGui.QPalette.Base, QtCore.Qt.transparent)
+        page = webView.page()
+        page.setPalette(palette)
+        webView.setAttribute(QtCore.Qt.WA_OpaquePaintEvent, False)
+
+        page.setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
+        page.mainFrame().setScrollBarPolicy(
+            QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
+        page.mainFrame().setScrollBarPolicy(
+            QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
+        return webView
+
     def start_slideshow(self):
         slideshow_dir = '/usr/share/ubiquity-slideshow'
         slideshow_locale = self.slideshow_get_available_locale(slideshow_dir,
@@ -549,25 +575,11 @@ class Wizard(BaseFrontend):
 
         slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
-        # HACK! For some reason, if the QWebView is created from the .ui file,
-        # the slideshow does not start (but it starts if one runs
-        # UBIQUITY_TEST_SLIDESHOW=1 ubiquity !). Creating it from the code
-        # works. I have no idea why.
-        from PyQt4.QtWebKit import QWebView
-        from PyQt4.QtWebKit import QWebPage
-
         def openLink(qUrl):
             QtGui.QDesktopServices.openUrl(qUrl)
 
-        webView = QWebView()
-        webView.setMinimumSize(700, 420)
+        webView = self._create_webview()
         webView.linkClicked.connect(openLink)
-        webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
-        webView.page().setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
-        webView.page().mainFrame().setScrollBarPolicy(
-            QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
-        webView.page().mainFrame().setScrollBarPolicy(
-            QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
         webView.load(QtCore.QUrl(slides))
 
         self.ui.navigation.hide()
