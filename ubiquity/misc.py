@@ -766,8 +766,8 @@ def set_indicator_keymaps(lang):
             "setxkbmap", "-layout", ",".join(kb_layouts),
             "-variant", ",".join(kb_variants))
 
-    iso_639_3 = ElementTree.parse('/usr/share/xml/iso-codes/iso_639.xml')
-    nodes = [element for element in iso_639_3.findall('iso_639_entry')
+    iso_639 = ElementTree.parse('/usr/share/xml/iso-codes/iso_639.xml')
+    nodes = [element for element in iso_639.findall('iso_639_entry')
              if element.get('iso_639_1_code') == lang]
     display = GdkX11.x11_get_default_xdisplay()
     engine = Xkl.Engine.get_instance(display)
