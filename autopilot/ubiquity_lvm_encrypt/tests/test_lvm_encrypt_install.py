@@ -7,35 +7,24 @@ from autopilot.matchers import Eventually
 from autopilot.input import Mouse, Pointer
 
 
-class DefaultInstallTests(AutopilotTestCase):
-
+class LvmEncryptInstallTests(AutopilotTestCase):
+    
     def setUp(self):
-        super(DefaultInstallTests, self).setUp()
+        super(LvmEncryptInstallTests, self).setUp()
         self.app = self.launch_application()
-        #properties = self.app.get_properties()
-        #print(properties)
+        
         self.pointing_device = Pointer(Mouse.create())
         
     def launch_application(self):
-        '''
-        Hmm... launch ubiquity
-
-
-        :returns: The application proxy object.
-        '''
-
+        
         Pr = namedtuple('Process', ['pid'])
         my_process = Pr(int(os.environ['UBIQUITY_PID']))
         return get_autopilot_proxy_object_for_process(my_process, None)
     
-    def test_default_install(self):
+    def test_lvm_encrypt_install(self):
         '''
-            Test install using all default values
+            Test install using LVM and encryption configuration
         '''
-        #Ubuntu: Lets get the focus back to ubiquity window
-        #Comment out this line if running test on xubuntu/lubuntu and make sure terminal
-        # is not on top of ubiquity when starting the test.
-        #FIXME: Need setup and teardown to be implemented so we can lose this all together
         self.keyboard.press_and_release('Super+1')
         
         main_window = self.app.select_single(
@@ -63,6 +52,8 @@ class DefaultInstallTests(AutopilotTestCase):
         self.ubiquity_preparing_page_test()
         ##Page 3
         self.ubiquity_install_type_page_test()
+        ##Page 3 extended
+        self.ubiquity_lvm_password_encryption_page()
         #Page 4
         self.ubiquity_where_are_you_page_test()
         #Page 5
@@ -187,11 +178,59 @@ class DefaultInstallTests(AutopilotTestCase):
         self.pointing_device.move_to_object(self.quit_button)
         self.pointing_device.move_to_object(self.continue_button)
         
+        self.pointing_device.move_to_object(self.encrypt_install)
+        self.pointing_device.click()
         #and now continue
         self.assertThat(self.continue_button.label, Equals('_Install Now'))
         self.pointing_device.move_to_object(self.continue_button)
         self.pointing_device.click()
+        
+    def ubiquity_lvm_password_encryption_page(self):
+        self.get_ubiquity_objects()
+        
+        self.assertThat(self.headerlabel.label, Eventually(Contains('Choose a')))
+        self.assertThat(self.password_grid.sensitive, Eventually(Equals(1)))
+        
+        self.pointing_device.move_to_object(self.encrypt_password)
+        self.pointing_device.click()
+        self.keyboard.type('EncryptedPassword')
+        
+        self.pointing_device.move_to_object(self.back_button)
+        self.pointing_device.move_to_object(self.verify_encrypt_password)
+        self.pointing_device.click()
+        
+        self.keyboard.type('EncryptedPassword')
+        
+        self.check_encrypted_passwords_match()
+        #and continue
+        self.pointing_device.move_to_object(self.continue_button)
+        self.pointing_device.click()
+        
+    def check_encrypted_passwords_match(self):
+        '''
+        If passwords do not match then keep re-typing them till they match
+        '''
+        while True:
 
+            self.continue_button = self.app.select_single('GtkButton',
+                                                          name='next')
+            button_sensitive = self.continue_button.sensitive
+
+            if button_sensitive == 1:
+                self.assertThat(self.continue_button.sensitive, Equals(1))
+                break
+            
+            self.pointing_device.move_to_object(self.encrypt_password)
+            self.pointing_device.click()
+            self.keyboard.press_and_release('Ctrl+a')
+            self.keyboard.type('EncryptedPassword')
+        
+            self.pointing_device.move_to_object(self.back_button)
+            self.pointing_device.move_to_object(self.verify_encrypt_password)
+            self.pointing_device.click()
+            self.keyboard.press_and_release('Ctrl+a')
+            self.keyboard.type('EncryptedPassword')
+            
     def ubiquity_where_are_you_page_test(self):
         """
             From this point on the installation has started
@@ -501,4 +540,13 @@ class DefaultInstallTests(AutopilotTestCase):
                                                           name='hbox2')
         self.conf_pwd_entry = self.user_hbox2.select_single('GtkEntry',
                                                             name='verified_password')
-        #--------------------------------------------------------------------------#        
+        #--------------------------------------------------------------------------#
+        
+        #--------------------------------------------------------------------------#
+        #              OBJECTS FROM LVM ENCRYPTION PASSWORD PAGE                       #
+        #                                                                          #
+        self.password_grid = self.app.select_single('GtkGrid', name='password_grid')
+        self.encrypt_password = self.password_grid.select_single('GtkEntry',
+                                                                 name='password')
+        self.verify_encrypt_password = self.password_grid.select_single('GtkEntry',
+                                                                        name='verified_password')

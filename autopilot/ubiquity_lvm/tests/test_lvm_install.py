@@ -7,35 +7,24 @@ from autopilot.matchers import Eventually
 from autopilot.input import Mouse, Pointer
 
 
-class DefaultInstallTests(AutopilotTestCase):
-
+class LvmInstallTests(AutopilotTestCase):
+    
     def setUp(self):
-        super(DefaultInstallTests, self).setUp()
+        super(LvmInstallTests, self).setUp()
         self.app = self.launch_application()
-        #properties = self.app.get_properties()
-        #print(properties)
+        
         self.pointing_device = Pointer(Mouse.create())
         
     def launch_application(self):
-        '''
-        Hmm... launch ubiquity
-
-
-        :returns: The application proxy object.
-        '''
-
+        
         Pr = namedtuple('Process', ['pid'])
         my_process = Pr(int(os.environ['UBIQUITY_PID']))
         return get_autopilot_proxy_object_for_process(my_process, None)
     
-    def test_default_install(self):
+    def test_lvm_install(self):
         '''
-            Test install using all default values
+            Test install using LVM configuration
         '''
-        #Ubuntu: Lets get the focus back to ubiquity window
-        #Comment out this line if running test on xubuntu/lubuntu and make sure terminal
-        # is not on top of ubiquity when starting the test.
-        #FIXME: Need setup and teardown to be implemented so we can lose this all together
         self.keyboard.press_and_release('Super+1')
         
         main_window = self.app.select_single(
@@ -187,6 +176,11 @@ class DefaultInstallTests(AutopilotTestCase):
         self.pointing_device.move_to_object(self.quit_button)
         self.pointing_device.move_to_object(self.continue_button)
         
+        #Lets select Encrypt option for install
+        #TODO: assert that LVM is also auto selected
+        
+        self.pointing_device.move_to_object(self.lvm_install)
+        self.pointing_device.click()
         #and now continue
         self.assertThat(self.continue_button.label, Equals('_Install Now'))
         self.pointing_device.move_to_object(self.continue_button)
