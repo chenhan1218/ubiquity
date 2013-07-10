@@ -32,13 +32,13 @@ class LvmInstallTests(AutopilotTestCase):
         self.assertThat(main_window.title, Equals("Install"))
         # This method runs the ubiquity_ methods to navigate
         # testing through the install pages
-        self.run_lvm_encrypt_install_test()
+        self.run_lvm_install_test()
         
         #Then finally here check that the complete dialog appears
         
         self.ubiquity_did_install_complete()
     
-    def run_lvm_encrypt_install_test(self):
+    def run_lvm_install_test(self):
         '''
             this can be easily used when debugging. If the test exits on a
             particular page, you can comment out the pages prior to the exit point
