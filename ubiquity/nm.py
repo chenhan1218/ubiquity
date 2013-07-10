@@ -84,7 +84,7 @@ class QueuedCaller(object):
 class NetworkManager:
     def __init__(self, model, queued_caller_class, state_changed=None):
         self.model = model
-        self.queued_caller = queued_caller_class(500, self.build_cache)
+        self.build_cache_caller = queued_caller_class(500, self.build_cache)
         self.start(state_changed)
         self.active_connection = None
         self.active_device_obj = None
