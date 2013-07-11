@@ -67,9 +67,6 @@ __pychecker__ = 'no-classattr'
 # Define global path
 PATH = os.environ.get('UBIQUITY_PATH', False) or '/usr/share/ubiquity'
 
-# Define global pixmaps location
-PIXMAPS = os.environ.get('PIXMAPS', False) or '/usr/share/pixmaps'
-
 # Define ui path
 UIDIR = os.environ.get('UBIQUITY_GLADE', False) or os.path.join(PATH, 'gtk')
 os.environ['UBIQUITY_GLADE'] = UIDIR
@@ -890,8 +887,7 @@ class Wizard(BaseFrontend):
     def customize_installer(self):
         """Initial UI setup."""
 
-        self.live_installer.set_default_icon_from_file(
-            os.path.join(PIXMAPS, 'ubiquity.png'))
+        self.live_installer.set_icon_name('ubiquity')
         for eventbox in ['title_eventbox', 'progress_eventbox',
                          'install_details_expander']:
             box = self.builder.get_object(eventbox)
