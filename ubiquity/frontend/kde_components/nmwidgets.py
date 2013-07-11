@@ -5,6 +5,10 @@ from PyQt4 import QtGui
 
 from ubiquity.nm import QueuedCaller, NetworkStore, NetworkManager
 
+
+ICON_SIZE = 22
+
+
 class QtQueuedCaller(QueuedCaller):
     def __init__(self, *args):
         QueuedCaller.__init__(self, *args)
@@ -17,15 +21,56 @@ class QtQueuedCaller(QueuedCaller):
         self.timer.start()
 
 
+# Our wireless icons are unreadable over a white background, so...
+# let's generate them.
+def draw_level_pix(wanted_level):
+    pix = QtGui.QPixmap(ICON_SIZE, ICON_SIZE)
+    pix.fill(QtCore.Qt.transparent)
+    painter = QtGui.QPainter(pix)
+    color = QtGui.QApplication.palette().color(QtGui.QPalette.Text)
+    painter.translate(0, -2)
+    painter.setPen(QtGui.QPen(color, 2))
+    painter.setRenderHint(QtGui.QPainter.Antialiasing)
+
+    right = pix.width()
+    bottom = pix.height()
+    middle = bottom / 2 + 1
+
+    center = QtCore.QPointF(right / 2., bottom - 1)
+    for level in range(4):
+        radius = 1 + level * 4
+        if level <= wanted_level - 1:
+            painter.setOpacity(0.8)
+        else:
+            painter.setOpacity(0.3)
+        painter.drawEllipse(center, radius, radius)
+
+    painter.setCompositionMode(QtGui.QPainter.CompositionMode_Clear)
+    painter.setBrush(QtCore.Qt.black)
+    painter.drawPolygon(QtGui.QPolygon(
+        [center.x(), bottom,  0, middle,  0, bottom]))
+    painter.drawPolygon(QtGui.QPolygon(
+        [center.x(), bottom,  right, middle,  right, bottom]))
+    painter.translate(0, 2)
+    painter.drawRect(0, pix.height() - 2 , pix.width(), 2)
+    painter.end()
+    return pix
+
+
 class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
     SecurityRole = QtCore.Qt.UserRole + 1
     StrengthRole = QtCore.Qt.UserRole + 2
+
+    def __init__(self, parent=None):
+        QtGui.QStandardItemModel.__init__(self, parent)
+        self._init_icons()
 
     def get_device_ids(self):
         return [self.item(x).id for x in range(self.rowCount())]
 
     def add_device(self, devid, vendor, model):
         item = QtGui.QStandardItem("%s %s" % (vendor, model))
+        item.setIcon(QtGui.QIcon.fromTheme("network-wireless"))
         # devid is a dbus.ObjectPath, so we can't store it as a QVariant using
         # setData().
         # That's why we keep it as item attribute.
@@ -45,6 +90,7 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
         item.id = ssid
         item.setData(security, self.SecurityRole)
         item.setData(strength, self.StrengthRole)
+        self._update_item_icon(item)
         dev_item.appendRow(item)
 
     def has_ap(self, devid, ssid):
@@ -54,6 +100,7 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
         item = self._item_for_ap(devid, ssid)
         assert item
         item.setData(self.StrengthRole, strength)
+        self._update_item_icon(item)
 
     def remove_aps_not_in(self, devid, ssids):
         dev_item = self._item_for_device(devid)
@@ -89,6 +136,39 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
                 return item
         return None
 
+    def _update_item_icon(self, item):
+        security = item.data(QtNetworkStore.SecurityRole).toBool()
+        strength, ok = item.data(QtNetworkStore.StrengthRole).toInt()
+        if strength < 30:
+            icon = 0
+        elif strength < 50:
+            icon = 1
+        elif strength < 70:
+            icon = 2
+        elif strength < 90:
+            icon = 3
+        else:
+            icon = 4
+        if security:
+            icon += 5
+        item.setIcon(self._icons[icon])
+
+    def _init_icons(self):
+        pixes = []
+        for level in range(5):
+            pixes.append(draw_level_pix(level))
+
+        secure_icon = QtGui.QIcon.fromTheme("emblem-locked")
+        secure_pix = secure_icon.pixmap(ICON_SIZE / 2, ICON_SIZE / 2)
+        for level in range(5):
+            pix2 = QtGui.QPixmap(pixes[level])
+            painter = QtGui.QPainter(pix2)
+            painter.drawPixmap(ICON_SIZE - secure_pix.width(), ICON_SIZE - secure_pix.height(), secure_pix)
+            painter.end()
+            pixes.append(pix2)
+
+        self._icons = [QtGui.QIcon(x) for x in pixes]
+
 
 class NetworkManagerTreeView(QtGui.QTreeView):
     def __init__(self, password_entry=None, state_changed=None):
@@ -101,14 +181,13 @@ class NetworkManagerTreeView(QtGui.QTreeView):
         self.wifi_model = NetworkManager(model, QtQueuedCaller, state_changed)
         self.setModel(model)
         self.setHeaderHidden(True)
+        self.setIconSize(QtCore.QSize(ICON_SIZE, ICON_SIZE))
 
     def rowsInserted(self, parent, start, end):
         QtGui.QTreeView.rowsInserted(self, parent, start, end)
-        if parent:
+        if not parent.isValid():
             return
-        for row in range(start, end + 1):
-            index = self.model().index(row, 0)
-            self.setExpanded(index, True)
+        self.setExpanded(parent, True)
 
     def showEvent(self, event):
         QtGui.QTreeView.showEvent(self, event)
@@ -371,6 +450,7 @@ if __name__ == '__main__':
     import sys
     from PyQt4.QtGui import QApplication
     app = QApplication(sys.argv)
+    QtGui.QIcon.setThemeName("oxygen")
     nm = NetworkManagerWidget()
     nm.show()
     app.exec_()
