@@ -100,6 +100,21 @@ class NetworkManagerTreeView(QtGui.QTreeView):
 #        model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         self.wifi_model = NetworkManager(model, QtQueuedCaller, state_changed)
         self.setModel(model)
+        self.setHeaderHidden(True)
+
+    def rowsInserted(self, parent, start, end):
+        QtGui.QTreeView.rowsInserted(self, parent, start, end)
+        if parent:
+            return
+        for row in range(start, end + 1):
+            index = self.model().index(row, 0)
+            self.setExpanded(index, True)
+
+    def showEvent(self, event):
+        QtGui.QTreeView.showEvent(self, event)
+        for row in range(self.model().rowCount()):
+            index = self.model().index(row, 0)
+            self.setExpanded(index, True)
 #
 #        ssid_column = Gtk.TreeViewColumn('')
 #        cell_pixbuf = Gtk.CellRendererPixbuf()
