@@ -81,6 +81,32 @@ class QueuedCaller(object):
         raise NotImplementedError
 
 
+class NetworkStore(object):
+    def get_device_ids(self):
+        raise NotImplementedError
+
+    def add_device(self, devid, vendor, model):
+        raise NotImplementedError
+
+    def has_device(self, devid):
+        raise NotImplementedError
+
+    def remove_devices_not_in(self, devids):
+        raise NotImplementedError
+
+    def add_ap(self, devid, ssid, security, strength):
+        raise NotImplementedError
+
+    def has_ap(self, devid, ssid):
+        raise NotImplementedError
+
+    def set_ap_strength(self, devid, ssid, strength):
+        raise NotImplementedError
+
+    def remove_aps_not_in(self, devid, ssids):
+        raise NotImplementedError
+
+
 class NetworkManager:
     def __init__(self, model, queued_caller_class, state_changed=None):
         self.model = model
@@ -176,25 +202,6 @@ class NetworkManager:
                     if e.get_dbus_name() != NM_ERROR_NOSECRETS:
                         raise
 
-    def ssid_in_model(self, iterator, ssid, security):
-        i = self.model.iter_children(iterator)
-        while i:
-            row = self.model[i]
-            if row[0] == ssid and row[1] == security:
-                return i
-            i = self.model.iter_next(i)
-        return None
-
-    def prune(self, iterator, ssids):
-        to_remove = []
-        while iterator:
-            ssid = self.model[iterator][0]
-            if ssid not in ssids:
-                to_remove.append(iterator)
-            iterator = self.model.iter_next(iterator)
-        for iterator in to_remove:
-            self.model.remove(iterator)
-
     def queue_build_cache(self, *args):
         self.build_cache_caller.start()
 
@@ -204,15 +211,10 @@ class NetworkManager:
             ssid = get_prop(ap_obj, NM_AP, 'Ssid')
             if ssid:
                 ssid = decode_ssid(ssid)
-                security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
-                            get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
                 strength = int(props['Strength'])
-                iterator = self.model.get_iter_first()
-                while iterator:
-                    i = self.ssid_in_model(iterator, ssid, security)
-                    if i:
-                        self.model.set_value(i, 2, strength)
-                    iterator = self.model.iter_next(iterator)
+                for devid in self.model.get_device_ids():
+                    if self.model.has_ap(devid, ssid):
+                        self.model.set_ap_strength(devid, ssid, strength)
 
     def build_cache(self):
         devices = self.manager.GetDevices()
@@ -221,21 +223,13 @@ class NetworkManager:
             device_type_prop = get_prop(device_obj, NM_DEVICE, 'DeviceType')
             if device_type_prop != DEVICE_TYPE_WIFI:
                 continue
-            iterator = None
-            i = self.model.get_iter_first()
-            while i:
-                if self.model[i][0] == device_path:
-                    iterator = i
-                    break
-                i = self.model.iter_next(i)
-            if not iterator:
+            if not self.model.has_device(device_path):
                 udi = get_prop(device_obj, NM_DEVICE, 'Udi')
                 if udi:
                     vendor, model = get_vendor_and_model(udi)
                 else:
                     vendor, model = ('', '')
-                iterator = self.model.append(
-                    None, [device_path, vendor, model])
+                self.model.add_device(device_path, vendor, model)
             ap_list = device_obj.GetAccessPoints(dbus_interface=NM_DEVICE_WIFI)
             ssids = []
             for ap_path in ap_list:
@@ -246,14 +240,11 @@ class NetworkManager:
                     strength = int(get_prop(ap_obj, NM_AP, 'Strength') or 0)
                     security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
                                 get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
-                    i = self.ssid_in_model(iterator, ssid, security)
-                    if not i:
-                        self.model.append(iterator, [ssid, security, strength])
+                    if self.model.has_ap(device_path, ssid):
+                        self.model.set_ap_strength(device_path, ssid, strength)
                     else:
-                        self.model.set_value(i, 2, strength)
+                        self.model.add_ap(device_path, ssid, security, strength)
                     ssids.append(ssid)
-            i = self.model.iter_children(iterator)
-            self.prune(i, ssids)
-        i = self.model.get_iter_first()
-        self.prune(i, devices)
+            self.model.remove_aps_not_in(device_path, ssids)
+        self.model.remove_devices_not_in(devices)
         return False

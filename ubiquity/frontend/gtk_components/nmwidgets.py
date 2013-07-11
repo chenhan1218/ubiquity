@@ -2,7 +2,7 @@ import string
 
 from gi.repository import Gtk, GObject, GLib
 
-from ubiquity.nm import QueuedCaller, NetworkManager
+from ubiquity.nm import QueuedCaller, NetworkStore, NetworkManager
 
 
 class GLibQueuedCaller(QueuedCaller):
@@ -16,6 +16,76 @@ class GLibQueuedCaller(QueuedCaller):
         self.timeout_id = GLib.timeout_add(self.timeout, self.callback)
 
 
+class GtkNetworkStore(NetworkStore, Gtk.TreeStore):
+    def __init__(self):
+        NetworkStore.__init__(self)
+        Gtk.TreeStore.__init__(self, str, object, object)
+
+    def get_device_ids(self):
+        it = self.get_iter_first()
+        lst = []
+        while it:
+            lst.append(self[it][0])
+            it = self.iter_next(it)
+        return lst
+
+    def add_device(self, devid, vendor, model):
+        self.append(None, [devid, vendor, model])
+
+    def has_device(self, devid):
+        return self._it_for_device(devid) is not None
+
+    def remove_devices_not_in(self, devids):
+        self._remove_rows_not_in(None, devids)
+
+    def add_ap(self, devid, ssid, security, strength):
+        dev_it = self._it_for_device(devid)
+        assert dev_it
+        self.append(dev_it, [ssid, security, strength])
+
+    def has_ap(self, devid, ssid):
+        return self._it_for_ap(devid, ssid) is not None
+
+    def set_ap_strength(self, devid, ssid, strength):
+        it = self._it_for_ap(devid, ssid)
+        assert it
+        self[it][2] = strength
+
+    def remove_aps_not_in(self, devid, ssids):
+        dev_it = self._it_for_device(devid)
+        if not dev_it:
+            return
+        self._remove_rows_not_in(dev_it, ssids)
+
+    def _remove_rows_not_in(self, parent_it, ids):
+        it = self.iter_children(parent_it)
+        while it:
+            if self[it][0] in ids:
+                it = self.iter_next(it)
+            else:
+                if not self.remove(it):
+                    return
+
+    def _it_for_device(self, devid):
+        it = self.get_iter_first()
+        while it:
+            if self[it][0] == devid:
+                return it
+            it = self.iter_next(it)
+        return None
+
+    def _it_for_ap(self, devid, ssid):
+        dev_it = self._it_for_device(devid)
+        if not dev_it:
+            return None
+        it = self.iter_children(dev_it)
+        while it:
+            if self[it][0] == ssid:
+                return it
+            it = self.iter_next(it)
+        return None
+
+
 class NetworkManagerTreeView(Gtk.TreeView):
     __gtype_name__ = 'NetworkManagerTreeView'
 
@@ -23,7 +93,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
         Gtk.TreeView.__init__(self)
         self.password_entry = password_entry
         self.configure_icons()
-        model = Gtk.TreeStore(str, object, object)
+        model = GtkNetworkStore()
         model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         # TODO eventually this will subclass GenericTreeModel.
         self.wifi_model = NetworkManager(model, GLibQueuedCaller, state_changed)
