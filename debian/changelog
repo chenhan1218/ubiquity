@@ -3,6 +3,15 @@ ubiquity (2.15.10) UNRELEASED; urgency=low
   [ Kaj Ailomaa ]
   * Change Ubuntu Studio background in ubiquity-dm.
 
+  [ Jeremy Bicha ]
+  * Don't tell automake to install everything to ubiquity-frontend-gtk and
+    try to clean up after
+  * Reorganize app icon handling
+    - Fixes missing app icon in GNOME Shell (LP: #1164573)
+    - Use improved icon from Humanity as fallback icon
+  * Update *.install files for above changes
+  * Fix minor lintian warning by not installing empty /usr/share/applications/
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 09 Jul 2013 15:42:34 +0100
 
 ubiquity (2.15.9) saucy; urgency=low

@@ -64,7 +64,8 @@ AC_SUBST([pixmapsdir])
 
 AC_CONFIG_FILES([
 	Makefile
-	desktop/Makefile
+	data/Makefile
+	data/icons/Makefile
 	pixmaps/Makefile
 	po/Makefile.in
 	])

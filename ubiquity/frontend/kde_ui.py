@@ -153,7 +153,7 @@ class Wizard(BaseFrontend):
         self.app = QtGui.QApplication([])
         self._apply_stylesheet()
 
-        self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity"))
+        self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity-kde"))
         import dbus.mainloop.qt
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
