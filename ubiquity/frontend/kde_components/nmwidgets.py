@@ -3,9 +3,7 @@ import string
 from PyQt4 import QtCore
 from PyQt4 import QtGui
 
-from ubiquity.nm import QueuedCaller, NetworkManager
-
-from TreeModelAdapter import TreeModelAdapter
+from ubiquity.nm import QueuedCaller, NetworkStore, NetworkManager
 
 class QtQueuedCaller(QueuedCaller):
     def __init__(self, *args):
@@ -19,16 +17,88 @@ class QtQueuedCaller(QueuedCaller):
         self.timer.start()
 
 
+class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
+    SecurityRole = QtCore.Qt.UserRole + 1
+    StrengthRole = QtCore.Qt.UserRole + 2
+
+    def get_device_ids(self):
+        return [self.item(x).id for x in range(self.rowCount())]
+
+    def add_device(self, devid, vendor, model):
+        item = QtGui.QStandardItem("%s %s" % (vendor, model))
+        # devid is a dbus.ObjectPath, so we can't store it as a QVariant using
+        # setData().
+        # That's why we keep it as item attribute.
+        item.id = devid
+        self.appendRow(item)
+
+    def has_device(self, devid):
+        return self._item_for_device(devid) is not None
+
+    def remove_devices_not_in(self, devids):
+        self._remove_rows_not_in(None, devids)
+
+    def add_ap(self, devid, ssid, security, strength):
+        dev_item = self._item_for_device(devid)
+        assert dev_item
+        item = QtGui.QStandardItem(str(ssid))
+        item.id = ssid
+        item.setData(security, self.SecurityRole)
+        item.setData(strength, self.StrengthRole)
+        dev_item.appendRow(item)
+
+    def has_ap(self, devid, ssid):
+        return self._item_for_ap(devid, ssid) is not None
+
+    def set_ap_strength(self, devid, ssid, strength):
+        item = self._item_for_ap(devid, ssid)
+        assert item
+        item.setData(self.StrengthRole, strength)
+
+    def remove_aps_not_in(self, devid, ssids):
+        dev_item = self._item_for_device(devid)
+        if not dev_item:
+            return
+        self._remove_rows_not_in(dev_item, ssids)
+
+    def _remove_rows_not_in(self, parent_item, ids):
+        row = 0
+        if parent_item is None:
+            parent_item = self.invisibleRootItem()
+
+        while row < parent_item.rowCount():
+            if parent_item.child(row).id in ids:
+                row += 1
+            else:
+                parent_item.removeRow(row)
+
+    def _item_for_device(self, devid):
+        for row in range(self.rowCount()):
+            item = self.item(row)
+            if item.id == devid:
+                return item
+        return None
+
+    def _item_for_ap(self, devid, ssid):
+        dev_item = self._item_for_device(devid)
+        if not dev_item:
+            return None
+        for row in range(dev_item.rowCount()):
+            item = dev_item.child(row)
+            if item.id == ssid:
+                return item
+        return None
+
+
 class NetworkManagerTreeView(QtGui.QTreeView):
     def __init__(self, password_entry=None, state_changed=None):
         QtGui.QTreeView.__init__(self)
         self.password_entry = password_entry
         self.configure_icons()
-        model = QtGui.QStandardItemModel(self)
-        adapter = TreeModelAdapter(model)
+        model = QtNetworkStore(self)
 
 #        model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
-        self.wifi_model = NetworkManager(adapter, QtQueuedCaller, state_changed)
+        self.wifi_model = NetworkManager(model, QtQueuedCaller, state_changed)
         self.setModel(model)
 #
 #        ssid_column = Gtk.TreeViewColumn('')
