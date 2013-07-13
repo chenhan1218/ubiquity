@@ -12,6 +12,9 @@ ubiquity (2.15.10) UNRELEASED; urgency=low
   * Update *.install files for above changes
   * Fix minor lintian warning by not installing empty /usr/share/applications/
 
+  [ Aurélien Gâteau ]
+  * KDE: Set icon theme to Oxygen, shows icons on standalone Ubiquity
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 09 Jul 2013 15:42:34 +0100
 
 ubiquity (2.15.9) saucy; urgency=low
