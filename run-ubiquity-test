@@ -1,4 +1,4 @@
-#!/bin/sh -u
+#!/bin/bash -u
 
 #
 # Run ubiquity autopilot tests in KVM
@@ -25,9 +25,13 @@
 # along with this software.  If not, see <http://www.gnu.org/licenses/>.
 #
 RC=0
+BINDIR=$(dirname $(readlink -f $0))
+
 DISKSIZE=5G
 RAMSIZE=1024
 VCPU=2
+REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
+OVERRIDEDIR=""
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU -monitor stdio"
 
@@ -60,6 +64,7 @@ Options:
     -h, --help      This help
     -d, --debug     Enable debug mode
     -S, --disksize  Set disk size (default: $DISKSIZE)
+    -o, --override  Directory to copy into the target filesystem
 
 EOF
     RC=1 && exit
@@ -72,11 +77,16 @@ check_prerequisites() {
     #
     # Check and set the requirements to run this test. If any of the
     # requirement is missing the programs exit with error
+    #
+    # Args:
+    #   $@: List of required packages
+    #
+    # Returns
+    #   Exit program is a requirement is not met
     echo "I: Checking system requirements"
-    for cmd in bsdtar bzr; do
-        cmdpath=$(which $cmd 2>/dev/null||true)
-        if [ -z "$cmdpath" ]; then
-            echo "E: $cmd is required and not installed on this system. Exiting!"
+    for pkg in $@; do
+        if ! dpkg-query -W -f'${Status}' $pkg|grep -q "install ok installed" 2>/dev/null; then
+            echo "E: $pkg is required and not installed on this system. Exiting!"
             RC=1
             exit
         fi
@@ -151,18 +161,35 @@ prepare_initrd() {
     # Prepares the initrd and loads a payload that'll botstrap the test
     #
     # Args:
-    #   $1: Path to initrd
-    #   $2: Path to test directory that contains the override of the target
+    #   $1: working directory
+    #   $2: Path to initrd
+    #   $3: Path to test directory that contains the override of the target
     #       file system
     # Returns:
     #   Nothing
-    initrd=$1
-    usercustomdir=$2
+    workdir=$1/initrd
+    initrd=$2
+    usercustomdir=$3
+    customdir=${BINDIR}/custom-installation
 
     echo "I: Preparing initrd"
-    echo "I: Unpackaging"
-    echo "I: Copying overrides"
-    echo "I: Repackagind initrd"
+    if [ ! -f "$initrd" ]; then
+        echo "E: file '$(basename $initrd)' not found. Aborting!"
+        RC=1
+        exit 
+    fi
+    mkdir -p $workdir
+
+    (
+        cd $workdir
+        xzcat $initrd|cpio --quiet -ivd 2>/dev/null
+        echo "I: Copying overrides"
+        cp -af $customdir $workdir/
+        [ -d "$usercustomdir" ] && cp -af "$usercustomdir" $workdir/
+        echo "I: Repackagind initrd"
+        [ -f "$initrd" ] && rm -f $initrd
+        find .|cpio --quiet -o -H newc|xz -9fc --format=lzma - > $initrd
+    )
 }
 
 boot_image() {
@@ -196,8 +223,8 @@ collect_artifacts() {
     echo "I: Collecting test artifacts"
 }
 
-SHORTOPTS="hd"
-LONGOPTS="help,debug"
+SHORTOPTS="hdo:S:"
+LONGOPTS="help,debug,override:,disksize:"
 
 TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
 eval set -- "$TEMP"
@@ -211,6 +238,9 @@ while true ; do
         -d|--debug)
             set -x
             shift;;
+        -o|--override)
+            OVERRIDEDIR=$2
+            shift 2;;
         -S|--disksize)
             DISKSIZE=$2
             shift 2;;
@@ -244,8 +274,8 @@ DISKIMG=$WORKDIR/disk.img
 INITRD=$WORKDIR/casper/initrd
 KERNEL=$WORKDIR/casper/vmlinuz.efi
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
-check_prerequisites
+check_prerequisites $REQUIREDPKGS
 extract_kernel $ISO $WORKDIR
 create_disk_image $WORKDIR/disk.img $DISKSIZE
-prepare_initrd
-boot_image $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
+prepare_initrd $WORKDIR ${INITRD}.lz "$OVERRIDEDIR"
+#boot_image $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
