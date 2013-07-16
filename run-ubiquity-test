@@ -1,0 +1,251 @@
+#!/bin/sh -u
+
+#
+# Run ubiquity autopilot tests in KVM
+#
+# This script prepares a test environment to run ubiquity autopilot test, run
+# the tests and collect test artifacts
+#
+
+# Copyright (C) 2013, Canonical Ltd (http://www.canonical.com/)
+#
+# Author: Jean-Baptiste Lallement <jean-baptiste.lallement@canonical.com>
+#
+# This software is free software: you can redistribute it 
+# and/or modify it under the terms of the GNU General Public License 
+# as published by the Free Software Foundation, either version 3 of 
+# the License, or (at your option) any later version.
+# 
+# This software is distributed in the hope that it will 
+# be useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this software.  If not, see <http://www.gnu.org/licenses/>.
+#
+RC=0
+DISKSIZE=5G
+RAMSIZE=1024
+VCPU=2
+
+QEMUOPTS="-m $RAMSIZE -smp $VCPU -monitor stdio"
+
+on_exit() {
+    # Exit Handler
+    #
+    # Exit program with status in $RC
+    [ -n "$ENDAT" ] && exit $RC
+    ENDAT=$(date)
+    find $WORKDIR|sort 
+    [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
+    hrule
+    echo -n "\nRun ended on $ENDAT"
+    hrule
+    exit $RC
+}
+
+trap on_exit EXIT INT QUIT ABRT PIPE TERM
+WORKDIR=$(mktemp -d /tmp/$(basename $0).XXXXXX)
+
+usage() {
+    # Display script usage
+    cat<<EOF
+Usage: $(basename $0) [OPTIONS...] <iso file>
+    Prepares a system from an ISO and run autopilot tests for ubiquity
+
+Arguments:
+    <iso file>      Path to a valid Ubuntu Desktop ISO 
+Options:
+    -h, --help      This help
+    -d, --debug     Enable debug mode
+    -S, --disksize  Set disk size (default: $DISKSIZE)
+
+EOF
+    RC=1 && exit
+}
+
+hrule() { seq -s_ 78|tr -d [[:digit:]]; echo; }
+
+check_prerequisites() {
+    # Check and set requirements to run this test
+    #
+    # Check and set the requirements to run this test. If any of the
+    # requirement is missing the programs exit with error
+    echo "I: Checking system requirements"
+    for cmd in bsdtar bzr; do
+        cmdpath=$(which $cmd 2>/dev/null||true)
+        if [ -z "$cmdpath" ]; then
+            echo "E: $cmd is required and not installed on this system. Exiting!"
+            RC=1
+            exit
+        fi
+    done
+
+    QEMUCMD=$(which qemu-system-x86_64||true) 
+    if [ -z "$QEMUCMD" ]; then
+        echo "E: qemu is required and not installed on this system (run sudo apt-get install qemu). Exiting!"
+        RC=1
+        exit
+    fi
+    QEMUCMD="$(which eatmydata 2>/dev/null||true) $QEMUCMD"
+    QEMUOPTS="$QEMUOPTS -enable-kvm"
+
+}
+
+extract_kernel() {
+    # Extract kernel and initrd 
+    #
+    # Extract kernel and initrd from an ISO image
+    #
+    # Args:
+    #   $1: Path to a valid ISO
+    #   $2: Destination directory
+    src=$1
+    dst=$2
+    echo "I: Extracting kernel and initrd from iso"
+
+    if [ ! -f "$src" ]; then
+        echo "E: The file '$src' does not exists. Exiting!"
+        RC=2
+        exit
+    fi
+
+    if [ ! -d "$dst" ]; then
+        echo "E: The directory '$dst' does not exists or is not a directory. Exiting!"
+        RC=2
+        exit
+    fi
+
+    files="casper/initrd.lz casper/vmlinuz.efi"
+    echo "I: extracting files from $src: $files"
+    bsdtar xf $src -C $dst $files
+    ret=$?
+    if [ $ret -gt 0 ]; then
+        echo "E: bsdtar failed. Aborting!"
+        RC=$ret
+        exit
+    fi
+}
+
+create_disk_image() {
+    # Create a disk image 
+    #
+    # Args:
+    #   $1: Path of the disk image to create
+    #   $2: Size of the disk
+    diskpath=$1
+    disksize=$2
+    echo "I: Creating disk image"
+    qemu-img create -f qcow2 $diskpath $disksize
+    ret=$?
+    if [ $ret -gt 0 ]; then
+        echo "E: qemu-img create failed. Aborting!"
+        RC=$ret
+        exit
+    fi
+}
+prepare_initrd() {
+    # Put test payload into initrd
+    #
+    # Prepares the initrd and loads a payload that'll botstrap the test
+    #
+    # Args:
+    #   $1: Path to initrd
+    #   $2: Path to test directory that contains the override of the target
+    #       file system
+    # Returns:
+    #   Nothing
+    initrd=$1
+    usercustomdir=$2
+
+    echo "I: Preparing initrd"
+    echo "I: Unpackaging"
+    echo "I: Copying overrides"
+    echo "I: Repackagind initrd"
+}
+
+boot_image() {
+    # Boot an image with a iso, a kernel, an initrd and a kernel cmdline
+    #
+    # Args:
+    #   $1: Path to ISO file
+    #   $2: Path to disk image
+    #   $3: Path to initrd file
+    #   $4: Path to kernel file
+    #   $5: Kernel command line
+    isofile=$1
+    diskimg=$2
+    initrd=$3
+    kernel=$4
+    cmdline="$5"
+
+    for f in $1 $2 $3 $4; do
+        if [ ! -f "$f" ]; then
+            echo "E: Required file not found. Aborting!"
+            RC=1
+            exit
+        fi
+    done
+    echo "I: Booting image"
+
+    $QEMUCMD $QEMUOPTS -hda $diskimg -cdrom $isofile -boot d -initrd $initrd \
+        -kernel $kernel -append "$cmdline"
+}
+collect_artifacts() {
+    echo "I: Collecting test artifacts"
+}
+
+SHORTOPTS="hd"
+LONGOPTS="help,debug"
+
+TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
+eval set -- "$TEMP"
+
+exec 2>&1
+
+while true ; do
+    case "$1" in
+        -h|--help)
+            usage;;
+        -d|--debug)
+            set -x
+            shift;;
+        -S|--disksize)
+            DISKSIZE=$2
+            shift 2;;
+        --)
+            shift;
+            break;;
+        *)
+            usage;;
+    esac
+done
+
+[ $# -ne 1 ] && usage
+ISO="$1"
+STARTAT=$(date)
+ENDAT=""
+hrule
+cat<<EOF
+
+          _   _ _     _             _ _           _____         _   
+         | | | | |__ (_) __ _ _   _(_) |_ _   _  |_   _|__  ___| |_ 
+         | | | | '_ \\| |/ _\` | | | | | __| | | |   | |/ _ \\/ __| __|
+         | |_| | |_) | | (_| | |_| | | |_| |_| |   | |  __/\\__ \\ |_ 
+          \\___/|_.__/|_|\\__, |\\__,_|_|\\__|\\__, |   |_|\\___||___/\\__|
+                           |_|            |___/                     
+EOF
+hrule
+echo -n "\nStarting run at $STARTAT"
+hrule
+
+DISKIMG=$WORKDIR/disk.img
+INITRD=$WORKDIR/casper/initrd
+KERNEL=$WORKDIR/casper/vmlinuz.efi
+KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
+check_prerequisites
+extract_kernel $ISO $WORKDIR
+create_disk_image $WORKDIR/disk.img $DISKSIZE
+prepare_initrd
+boot_image $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
