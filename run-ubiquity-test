@@ -42,9 +42,10 @@ on_exit() {
     [ -n "$ENDAT" ] && exit $RC
     ENDAT=$(date)
     find $WORKDIR|sort 
+    echo "I: Cleaning working directory"
     [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
     hrule
-    echo -n "\nRun ended on $ENDAT"
+    echo -en "\nRun ended on $ENDAT"
     hrule
     exit $RC
 }
@@ -267,15 +268,16 @@ cat<<EOF
                            |_|            |___/                     
 EOF
 hrule
-echo -n "\nStarting run at $STARTAT"
+echo -en "\nStarting run at $STARTAT"
 hrule
 
 DISKIMG=$WORKDIR/disk.img
 INITRD=$WORKDIR/casper/initrd
 KERNEL=$WORKDIR/casper/vmlinuz.efi
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
+KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us"
 check_prerequisites $REQUIREDPKGS
 extract_kernel $ISO $WORKDIR
 create_disk_image $WORKDIR/disk.img $DISKSIZE
 prepare_initrd $WORKDIR ${INITRD}.lz "$OVERRIDEDIR"
-#boot_image $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
+boot_image $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
