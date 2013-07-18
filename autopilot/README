@@ -40,7 +40,7 @@ Wait for ubiquity to start up then in another terminal window
 	./autopilot run ubiquity_lvm_encrypt
 
 * for 'something else' install run
-	./autopilot run ubiquity_something_else
+	./autopilot run ubiquity_custom
 
 NOTE: If running on Xubuntu or Lubuntu make sure that your terminal windows are not covering
 the ubiquity continue button before you run ./autopilot run ubiquity.
