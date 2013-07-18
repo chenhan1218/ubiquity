@@ -1,4 +1,4 @@
-#!/bin/bash -ux
+#!/bin/bash -u
 
 #
 # Run ubiquity autopilot tests in KVM
@@ -224,7 +224,7 @@ boot_image() {
     done
     echo "I: Booting image"
 
-    $QEMUCMD $QEMUOPTS -hda $diskimg -cdrom $isofile -boot d \
+    $QEMUCMD $QEMUOPTS -drive file=$diskimg,if=virtio -cdrom $isofile -boot d \
         -initrd $initrd -kernel $kernel -append "$cmdline" \
         -serial file:$workdir/ubiquity.ttyS0 \
         -serial file:$workdir/ubiquity.ttyS1 \
@@ -330,4 +330,4 @@ cp $WORKDIR/ubiquity.ttyS0 $WORKDIR/logs/syslog
 cp $WORKDIR/ubiquity.ttyS1 $WORKDIR/logs/all_logs
 (cd $WORKDIR/logs; awk -f $BINDIR/splitlogs.awk $WORKDIR/logs/all_logs)
 
-collect_artifacts $WORKDIR/syslog $WORKDIR/alllogs $WORKDIR/logs/
+collect_artifacts $WORKDIR/logs/

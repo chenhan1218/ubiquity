@@ -32,7 +32,7 @@ SPOOLDIR=$TESTBASE/spool
 AP_OPTS="-v -f xml"
 RMD_OPTS="-r -rd $AP_ARTIFACTS"
 # TESTING ONLY -- Recording is disabled
-AP_OPTS="-v -f xml"
+AP_OPTS="-f xml"
 OTTO_SUMMARY=/var/local/otto/summary.log
 TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
@@ -148,7 +148,7 @@ run_tests() {
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        ./autopilot run -v $testname
+        ./autopilot run $AP_OPTS $testname
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $OTTO_SUMMARY
