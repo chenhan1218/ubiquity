@@ -18,7 +18,12 @@ ubiquity (2.15.10) UNRELEASED; urgency=low
   [ Dan Chapman ]
   * Add initial autopilot support! UI testing, brave new world!
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 18 Jul 2013 15:25:34 +0100
+  [ Stéphane Graber ]
+  * Install the shim and signed grub and kernels by default on all UEFI
+    machines instead of relying on the SecureBoot nvram variable.
+    (LP: #1184297)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 18 Jul 2013 14:23:06 -0400
 
 ubiquity (2.15.9) saucy; urgency=low
 
