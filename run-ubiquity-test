@@ -32,6 +32,7 @@ RAMSIZE=1576
 VCPU=2
 REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
+WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -daemonize
@@ -229,6 +230,13 @@ boot_image() {
 
 collect_artifacts() {
     echo "I: Collecting test artifacts"
+    [ $# -eq 0 ] && return
+    [ -z "$WORKSPACE" ] && return
+
+    resultdir=$WORKSPACE/results/
+    mkdir -p $resultdir
+
+    rsync -avH $@ $resultdir
 }
 
 tail_logs() {
@@ -312,3 +320,8 @@ while sleep 5; do
         break
     fi
 done
+
+mv $WORKDIR/ubiquity.ttyS0 $WORKDIR/syslog
+mv $WORKDIR/ubiquity.ttyS1 $WORKDIR/logs
+
+collect_artifacts $WORKDIR/syslog $WORKDIR/logs
