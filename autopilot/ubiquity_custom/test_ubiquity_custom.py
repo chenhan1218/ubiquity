@@ -5,7 +5,6 @@ from autopilot.introspection import get_autopilot_proxy_object_for_process
 from testtools.matchers import Equals, Contains
 from autopilot.matchers import Eventually
 from autopilot.input import Mouse, Pointer
-from time import sleep
 
 class CustomInstallTests(AutopilotTestCase):
 
