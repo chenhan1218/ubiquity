@@ -1,4 +1,4 @@
-ubiquity (2.15.10) UNRELEASED; urgency=low
+ubiquity (2.15.10) saucy; urgency=low
 
   [ Kaj Ailomaa ]
   * Change Ubuntu Studio background in ubiquity-dm.
@@ -28,7 +28,7 @@ ubiquity (2.15.10) UNRELEASED; urgency=low
   * Fix mix tabs/spaces in test_ubiquity_custom.py.
   * Fix autopkgtests not passing pyflakes.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 18 Jul 2013 17:33:42 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 18 Jul 2013 18:10:17 -0400
 
 ubiquity (2.15.9) saucy; urgency=low
 
