@@ -68,6 +68,7 @@ setup_tests() {
     [ -e "$flag" ] && return 0
 
     xterm &
+    tail_logs /home/ubuntu/.cache/upstart/gnome-session.log
     # Disable notifications and screensaver
     if which gsettings >/dev/null 2>&1; then 
         echo "I: Disabling crash notifications"
@@ -102,6 +103,19 @@ shutdown_host() {
         echo "I: Shutdown disabled, host will keep running"
     fi
 }
+
+tail_logs() {
+    # Tail log files in -F mode in background
+    #   
+    # $@ List of log files
+    for log in $@; do
+        if [ -f "$log" ]; then
+            sudo sh -c "/bin/busybox tail -n0 -f $log | mawk -Winteractive -v logfile=\"$log\" '{print logfile\":\",\$0}' > /dev/ttyS1" &
+        fi
+    done
+    }
+
+
 run_tests() {
     # Runs all the tests in spooldir
     #
@@ -122,16 +136,19 @@ run_tests() {
 
     exec >>$AP_LOGFILE
     exec 2>&1
+    touch $AP_LOGFILE
+    tail_logs $AP_LOGFILE
 
     echo "I: Launching Ubiquity"
     cd $TSEXPORT/autopilot
     ./run_ubiquity &
     sleep 30
+    tail_logs /var/log/installer/debug
     for testname in ubiquity; do
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        ./autopilot run $testname
+        ./autopilot run -v $testname
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $OTTO_SUMMARY

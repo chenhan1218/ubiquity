@@ -33,7 +33,9 @@ VCPU=2
 REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
 
-QEMUOPTS="-m $RAMSIZE -smp $VCPU -monitor stdio -serial file:/tmp/ubiquity.log"
+QEMUOPTS="-m $RAMSIZE -smp $VCPU \
+    -daemonize
+    "
 
 on_exit() {
     # Exit Handler
@@ -41,7 +43,6 @@ on_exit() {
     # Exit program with status in $RC
     [ -n "$ENDAT" ] && exit $RC
     ENDAT=$(date)
-    find $WORKDIR|sort 
     echo "I: Cleaning working directory"
     [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
     hrule
@@ -187,7 +188,7 @@ prepare_initrd() {
         echo "I: Copying overrides"
         cp -af $customdir $workdir/
         [ -d "$usercustomdir" ] && cp -af "$usercustomdir" $workdir/
-        echo "I: Repackagind initrd"
+        echo "I: Repacking initrd"
         [ -f "$initrd" ] && rm -f $initrd
         find .|cpio --quiet -o -H newc|xz -9fc --format=lzma - > $initrd
     )
@@ -197,18 +198,20 @@ boot_image() {
     # Boot an image with a iso, a kernel, an initrd and a kernel cmdline
     #
     # Args:
+    #   $1: Working directory
     #   $1: Path to ISO file
     #   $2: Path to disk image
     #   $3: Path to initrd file
     #   $4: Path to kernel file
     #   $5: Kernel command line
-    isofile=$1
-    diskimg=$2
-    initrd=$3
-    kernel=$4
-    cmdline="$5"
+    workdir=$1
+    isofile=$2
+    diskimg=$3
+    initrd=$4
+    kernel=$5
+    cmdline="$6"
 
-    for f in $1 $2 $3 $4; do
+    for f in $2 $3 $4 $5; do
         if [ ! -f "$f" ]; then
             echo "E: Required file not found. Aborting!"
             RC=1
@@ -217,11 +220,25 @@ boot_image() {
     done
     echo "I: Booting image"
 
-    $QEMUCMD $QEMUOPTS -hda $diskimg -cdrom $isofile -boot d -initrd $initrd \
-        -kernel $kernel -append "$cmdline"
+    $QEMUCMD $QEMUOPTS -hda $diskimg -cdrom $isofile -boot d \
+        -initrd $initrd -kernel $kernel -append "$cmdline" \
+        -serial file:$workdir/ubiquity.ttyS0 \
+        -serial file:$workdir/ubiquity.ttyS1 \
+        -pidfile $workdir/qemu.pid
 }
+
 collect_artifacts() {
     echo "I: Collecting test artifacts"
+}
+
+tail_logs() {
+    # Tail log files in -F mode in background
+    #   
+    # $@ List of log files
+    for log in $@; do
+        #tail -n0 -F --pid=$$ $log | mawk -Winteractive -v logfile="$log" '{print logfile":",$0}' &
+        tail -n0 -F --pid=$$ $log &
+    done
 }
 
 SHORTOPTS="hdo:S:"
@@ -268,7 +285,7 @@ cat<<EOF
                            |_|            |___/                     
 EOF
 hrule
-echo -en "\nStarting run at $STARTAT"
+echo -en "\nStarting run on $STARTAT"
 hrule
 
 DISKIMG=$WORKDIR/disk.img
@@ -280,4 +297,18 @@ check_prerequisites $REQUIREDPKGS
 extract_kernel $ISO $WORKDIR
 create_disk_image $WORKDIR/disk.img $DISKSIZE
 prepare_initrd $WORKDIR ${INITRD}.lz "$OVERRIDEDIR"
-boot_image $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
+boot_image $WORKDIR $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
+
+tail_logs $WORKDIR/ubiquity.ttyS0 $WORKDIR/ubiquity.ttyS1 
+
+PIDFILE=$WORKDIR/qemu.pid
+while sleep 5; do
+    if [ ! -f "$PIDFILE" ]; then
+        echo "I: PID file not found: $PIDFILE"
+        break
+    fi
+    if ! kill -0 $(cat $WORKDIR/qemu.pid); then
+        echo "I: Qemu process terminated."
+        break
+    fi
+done
