@@ -1,4 +1,4 @@
-#!/bin/bash -u
+#!/bin/bash -ux
 
 #
 # Run ubiquity autopilot tests in KVM
@@ -35,6 +35,9 @@ OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
+    -localtime -no-reboot \
+    -net nic,model=virtio -net user -redir tcp:43210::22 \
+    -vnc localhost:76 \
     -daemonize
     "
 
@@ -315,13 +318,16 @@ while sleep 5; do
         echo "I: PID file not found: $PIDFILE"
         break
     fi
-    if ! kill -0 $(cat $WORKDIR/qemu.pid); then
+    if ! kill -0 $(cat $WORKDIR/qemu.pid) 2>/dev/null; then
         echo "I: Qemu process terminated."
         break
     fi
 done
 
-mv $WORKDIR/ubiquity.ttyS0 $WORKDIR/syslog
-mv $WORKDIR/ubiquity.ttyS1 $WORKDIR/logs
+# Split the main log file by individual logs
+mkdir -p $WORKDIR/logs
+cp $WORKDIR/ubiquity.ttyS0 $WORKDIR/logs/syslog
+cp $WORKDIR/ubiquity.ttyS1 $WORKDIR/logs/all_logs
+(cd $WORKDIR/logs; awk -f $BINDIR/splitlogs.awk $WORKDIR/logs/all_logs)
 
-collect_artifacts $WORKDIR/syslog $WORKDIR/logs
+collect_artifacts $WORKDIR/syslog $WORKDIR/alllogs $WORKDIR/logs/
