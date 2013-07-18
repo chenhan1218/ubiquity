@@ -21,8 +21,6 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-# Required to display stdout in ~/.xsession-error
-
 TESTBASE=/var/local/autopilot/
 AP_ARTIFACTS=$TESTBASE/videos/
 AP_RESULTS=$TESTBASE/junit/
@@ -36,9 +34,10 @@ AP_OPTS="-f xml"
 OTTO_SUMMARY=/var/local/otto/summary.log
 TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
+ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart"
 SHUTDOWN=1
 
-PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib"
+PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib recordmydesktop"
 
 # Define general configuration files 
 [ -f $TESTBASE/config ] && . $TESTBASE/config
@@ -68,7 +67,9 @@ setup_tests() {
     [ -e "$flag" ] && return 0
 
     xterm &
-    tail_logs /home/ubuntu/.cache/upstart/gnome-session.log
+    sudo stty -F /dev/ttyS0 raw speed 115200
+    sudo stty -F /dev/ttyS1 raw speed 115200
+    tail_logs /home/ubuntu/.cache/upstart/gnome-session.log /var/log/syslog
     # Disable notifications and screensaver
     if which gsettings >/dev/null 2>&1; then 
         echo "I: Disabling crash notifications"
@@ -85,6 +86,7 @@ setup_tests() {
     sudo apt-get update
     sudo apt-get install -yq $PACKAGES
 
+    echo "I: Branch $TSBRANCH"
     bzr export $TSEXPORT $TSBRANCH
     # See README in ubiquity ap branch for details
     sudo cp $TSEXPORT/bin/ubiquity-wrapper /usr/bin/ubiquity
@@ -96,6 +98,7 @@ setup_tests() {
 
 shutdown_host() {
     # Shutdown host
+    sleep 10
     if [ $SHUTDOWN -eq 1 ]; then
         echo "I: Shutting down test environment"
         sudo shutdown -h now
@@ -110,7 +113,7 @@ tail_logs() {
     # $@ List of log files
     for log in $@; do
         if [ -f "$log" ]; then
-            sudo sh -c "/bin/busybox tail -n0 -f $log | mawk -Winteractive -v logfile=\"$log\" '{print logfile\":\",\$0}' > /dev/ttyS1" &
+            sudo sh -c "/bin/busybox tail -n0 -f $log | mawk -Winteractive -v logfile=\"$log\" '{print logfile\":\",\$0}' > /dev/ttyS0" &
         fi
     done
     }
@@ -148,7 +151,7 @@ run_tests() {
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        ./autopilot run $AP_OPTS $testname
+        ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $OTTO_SUMMARY
@@ -157,8 +160,6 @@ run_tests() {
         fi
         set -e
     done
-
-    shutdown_host
 }
 
 reset_test() {
@@ -207,3 +208,7 @@ fi
 
 setup_tests
 run_tests $SPOOLDIR
+echo "I: Archiving artifacts"
+tar czf /tmp/artifacts.tgz $ARTIFACTS
+sudo sh -c "cat /tmp/artifacts.tgz>/dev/ttyS1"
+shutdown_host

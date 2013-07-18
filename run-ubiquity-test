@@ -41,12 +41,18 @@ QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -daemonize
     "
 
+    #-vnc localhost:76 \
+
 on_exit() {
     # Exit Handler
     #
     # Exit program with status in $RC
     [ -n "$ENDAT" ] && exit $RC
     ENDAT=$(date)
+    if ! kill -0 $(cat $WORKDIR/qemu.pid) 2>/dev/null; then
+        echo "I: Terminating qemu"
+        kill -9 $(cat $WORKDIR/qemu.pid)
+    fi
     echo "I: Cleaning working directory"
     [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
     hrule
@@ -57,6 +63,7 @@ on_exit() {
 
 trap on_exit EXIT INT QUIT ABRT PIPE TERM
 WORKDIR=$(mktemp -d /tmp/$(basename $0).XXXXXX)
+DISKDIR=$WORKDIR
 
 usage() {
     # Display script usage
@@ -175,12 +182,13 @@ prepare_initrd() {
     #   Nothing
     workdir=$1/initrd
     initrd=$2
+    initrdlz=${initrd}.lz
     usercustomdir=$3
     customdir=${BINDIR}/custom-installation
 
     echo "I: Preparing initrd"
-    if [ ! -f "$initrd" ]; then
-        echo "E: file '$(basename $initrd)' not found. Aborting!"
+    if [ ! -f "$initrdlz" ]; then
+        echo "E: file '$(basename $initrdlz)' not found. Aborting!"
         RC=1
         exit 
     fi
@@ -188,14 +196,15 @@ prepare_initrd() {
 
     (
         cd $workdir
-        xzcat $initrd|cpio --quiet -ivd 2>/dev/null
+        xzcat $initrdlz|cpio --quiet -ivd 2>/dev/null
         echo "I: Copying overrides"
         cp -af $customdir $workdir/
         [ -d "$usercustomdir" ] && cp -af "$usercustomdir" $workdir/
         echo "I: Repacking initrd"
         [ -f "$initrd" ] && rm -f $initrd
-        find .|cpio --quiet -o -H newc|xz -9fc --format=lzma - > $initrd
+        find .|cpio --quiet -o -H newc > $initrd
     )
+    #find .|cpio --quiet -o -H newc|xz -9fc --format=lzma - > $initrd
 }
 
 boot_image() {
@@ -252,8 +261,8 @@ tail_logs() {
     done
 }
 
-SHORTOPTS="hdo:S:"
-LONGOPTS="help,debug,override:,disksize:"
+SHORTOPTS="hdo:S:s"
+LONGOPTS="help,debug,override:,disksize:,shm"
 
 TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
 eval set -- "$TEMP"
@@ -273,6 +282,9 @@ while true ; do
         -S|--disksize)
             DISKSIZE=$2
             shift 2;;
+        -s|--shm)
+            DISKDIR=/dev/shm
+            shift;;
         --)
             shift;
             break;;
@@ -306,11 +318,11 @@ KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical loc
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us noprompt console=ttyS0,115200"
 check_prerequisites $REQUIREDPKGS
 extract_kernel $ISO $WORKDIR
-create_disk_image $WORKDIR/disk.img $DISKSIZE
-prepare_initrd $WORKDIR ${INITRD}.lz "$OVERRIDEDIR"
-boot_image $WORKDIR $ISO $WORKDIR/disk.img ${INITRD}.lz $KERNEL "$KERNELOPTS"
+create_disk_image $DISKIMG $DISKSIZE
+prepare_initrd $WORKDIR ${INITRD} "$OVERRIDEDIR"
+boot_image $WORKDIR $ISO $DISKIMG ${INITRD} $KERNEL "$KERNELOPTS"
 
-tail_logs $WORKDIR/ubiquity.ttyS0 $WORKDIR/ubiquity.ttyS1 
+tail_logs $WORKDIR/ubiquity.ttyS0 
 
 PIDFILE=$WORKDIR/qemu.pid
 while sleep 5; do
@@ -326,8 +338,8 @@ done
 
 # Split the main log file by individual logs
 mkdir -p $WORKDIR/logs
-cp $WORKDIR/ubiquity.ttyS0 $WORKDIR/logs/syslog
-cp $WORKDIR/ubiquity.ttyS1 $WORKDIR/logs/all_logs
-(cd $WORKDIR/logs; awk -f $BINDIR/splitlogs.awk $WORKDIR/logs/all_logs)
+cp $WORKDIR/ubiquity.ttyS0 $WORKDIR/logs/console
+cp $WORKDIR/ubiquity.ttyS1 $WORKDIR/logs/artifacts.tgz
+#(cd $WORKDIR/logs; awk -f $BINDIR/splitlogs.awk $WORKDIR/logs/all_logs)
 
 collect_artifacts $WORKDIR/logs/
