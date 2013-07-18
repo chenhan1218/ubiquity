@@ -15,7 +15,10 @@ ubiquity (2.15.10) UNRELEASED; urgency=low
   [ Aurélien Gâteau ]
   * KDE: Set icon theme to Oxygen, shows icons on standalone Ubiquity
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 09 Jul 2013 15:42:34 +0100
+  [ Dan Chapman ]
+  * Add initial autopilot support! UI testing, brave new world!
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 18 Jul 2013 15:25:34 +0100
 
 ubiquity (2.15.9) saucy; urgency=low
 
