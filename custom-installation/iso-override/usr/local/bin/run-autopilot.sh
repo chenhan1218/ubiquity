@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/sh -eux
 
 #
 # This script runs autopilot
@@ -34,11 +34,11 @@ RMD_OPTS="-r -rd $AP_ARTIFACTS"
 # TESTING ONLY -- Recording is disabled
 AP_OPTS="-v -f xml"
 OTTO_SUMMARY=/var/local/otto/summary.log
-TSBRANCH=lp:~dpniel/ubiquity/autopilot/autopilot
-TSEXPORT=$HOME/autopilot
+TSBRANCH=lp:~dpniel/ubiquity/autopilot
+TSEXPORT=$HOME/ubiquity-autopilot
 SHUTDOWN=1
 
-PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib recordmydesktop"
+PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib"
 
 # Define general configuration files 
 [ -f $TESTBASE/config ] && . $TESTBASE/config
@@ -67,6 +67,7 @@ setup_tests() {
 
     [ -e "$flag" ] && return 0
 
+    xterm &
     # Disable notifications and screensaver
     if which gsettings >/dev/null 2>&1; then 
         echo "I: Disabling crash notifications"
@@ -80,12 +81,14 @@ setup_tests() {
     sudo chown -R $USER:$USER $TESTBASE $SPOOLDIR $AP_ARTIFACTS $AP_RESULTS $(dirname $OTTO_SUMMARY)
 
     echo "I: Installating additional packages"
+    sudo apt-get update
     sudo apt-get install -yq $PACKAGES
 
-    bzr export $TSEXPORT $TEBRANCH
+    bzr export $TSEXPORT $TSBRANCH
     # See README in ubiquity ap branch for details
-    sudo cp ubiquity/bin/ubiquity-wrapper /usr/bin/ubiquity
-    sudo cp ubiquity/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
+    sudo cp $TSEXPORT/bin/ubiquity-wrapper /usr/bin/ubiquity
+    sudo cp $TSEXPORT/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
+    sudo chmod +x /usr/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
 
     touch $flag
 }
@@ -120,13 +123,15 @@ run_tests() {
     exec >>$AP_LOGFILE
     exec 2>&1
 
-    $TSEXPORT/run_ubiquity
+    echo "I: Launching Ubiquity"
+    cd $TSEXPORT/autopilot
+    ./run_ubiquity &
     sleep 30
     for testname in ubiquity; do
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        $TSEXPORT/autopilot run $testname
+        ./autopilot run $testname
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $OTTO_SUMMARY

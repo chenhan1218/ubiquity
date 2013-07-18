@@ -27,13 +27,13 @@
 RC=0
 BINDIR=$(dirname $(readlink -f $0))
 
-DISKSIZE=5G
-RAMSIZE=1024
+DISKSIZE=10G
+RAMSIZE=1576
 VCPU=2
 REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
 
-QEMUOPTS="-m $RAMSIZE -smp $VCPU -monitor stdio"
+QEMUOPTS="-m $RAMSIZE -smp $VCPU -monitor stdio -serial file:/tmp/ubiquity.log"
 
 on_exit() {
     # Exit Handler
@@ -275,7 +275,7 @@ DISKIMG=$WORKDIR/disk.img
 INITRD=$WORKDIR/casper/initrd
 KERNEL=$WORKDIR/casper/vmlinuz.efi
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
-KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us"
+KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us noprompt console=ttyS0,115200"
 check_prerequisites $REQUIREDPKGS
 extract_kernel $ISO $WORKDIR
 create_disk_image $WORKDIR/disk.img $DISKSIZE
