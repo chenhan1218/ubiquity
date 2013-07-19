@@ -49,9 +49,11 @@ on_exit() {
     # Exit program with status in $RC
     [ -n "$ENDAT" ] && exit $RC
     ENDAT=$(date)
-    if ! kill -0 $(cat $WORKDIR/qemu.pid) 2>/dev/null; then
-        echo "I: Terminating qemu"
-        kill -9 $(cat $WORKDIR/qemu.pid)
+    if [ -f "$(cat $WORKDIR/qemu.pid)" ]; then
+        if ! kill -0 $(cat $WORKDIR/qemu.pid) 2>/dev/null; then
+            echo "I: Terminating qemu"
+            kill -9 $(cat $WORKDIR/qemu.pid)
+        fi
     fi
     echo "I: Cleaning working directory"
     [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
