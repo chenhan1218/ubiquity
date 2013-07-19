@@ -1,5 +1,5 @@
 apt-setup 1:0.80ubuntu1
-base-installer 1.122ubuntu15
+base-installer 1.122ubuntu16
 bterm-unifont 1.3
 choose-mirror 2.45ubuntu1
 clock-setup 0.115ubuntu1
@@ -24,7 +24,7 @@ partman-efi 25ubuntu4
 partman-ext3 75ubuntu1
 partman-jfs 40
 partman-lvm 82ubuntu1
-partman-newworld 29
+partman-newworld 30
 partman-partitioning 89ubuntu2
 partman-reiserfs 55
 partman-target 83ubuntu1
