@@ -34,6 +34,8 @@ REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 TESTNAME="${TESTNAME:-ubiquity}"
+TIMOUT=3600
+DELAY=5
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
@@ -344,13 +346,18 @@ boot_image $WORKDIR $ISO $DISKIMG ${INITRD} $KERNEL "$KERNELOPTS"
 tail_logs $WORKDIR/ubiquity.ttyS0 
 
 PIDFILE=$WORKDIR/qemu.pid
-while sleep 5; do
+while sleep $DELAY; do
     if [ ! -f "$PIDFILE" ]; then
         echo "I: PID file not found: $PIDFILE"
         break
     fi
     if ! kill -0 $(cat $WORKDIR/qemu.pid) 2>/dev/null; then
         echo "I: Qemu process terminated."
+        break
+    fi
+    TIMEOUT=$((TIMEOUT - DELAY))
+    if [ $TIMEOUT -le 0 ]; then
+        "E: Test Timed out!"
         break
     fi
 done
