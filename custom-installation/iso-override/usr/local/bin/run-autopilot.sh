@@ -28,13 +28,13 @@ AP_TESTSUITES=$TESTBASE/testsuites
 AP_LOGFILE=$TESTBASE/autopilot.log
 SPOOLDIR=$TESTBASE/spool
 AP_OPTS="-v -f xml"
-RMD_OPTS="-r -rd $AP_ARTIFACTS"
+RMD_OPTS="-r -rd $AP_ARTIFACTS --record-options=--fps=6,--no-wm-check"
 # TESTING ONLY -- Recording is disabled
 AP_OPTS="-f xml"
 OTTO_SUMMARY=/var/local/otto/summary.log
 TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
-ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart"
+ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart /var/crash"
 SHUTDOWN=1
 
 PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
@@ -203,6 +203,11 @@ while true ; do
     esac
 done
 
+setup_tests
+if [ -f "/usr/lib/libeatmydata/libeatmydata.so" ]; then
+    echo "I: Enabling eatmydata"
+    export LD_PRELOAD="${LD_PRELOAD:+$LD_PRELOAD:}/usr/lib/libeatmydata/libeatmydata.so"
+fi
 # Specific option for recordmydesktop for unity tests
 # It is suspected to caused memory fragmentation and make the test crash
 if [ -e "$AP_TESTSUITES" ]; then
@@ -215,13 +220,8 @@ if which recordmydesktop >/dev/null 2>&1; then
     AP_OPTS="$AP_OPTS $RMD_OPTS"
 fi
 
-setup_tests
-if [ -f "/usr/lib/libeatmydata/libeatmydata.so" ]; then
-    echo "I: Enabling eatmydata"
-    export LD_PRELOAD="${LD_PRELOAD:+$LD_PRELOAD:}/usr/lib/libeatmydata/libeatmydata.so"
-fi
 run_tests $SPOOLDIR
 echo "I: Archiving artifacts"
-tar czf /tmp/artifacts.tgz $ARTIFACTS
+sudo tar czf /tmp/artifacts.tgz $ARTIFACTS
 sudo sh -c "cat /tmp/artifacts.tgz>/dev/ttyS1"
 shutdown_host

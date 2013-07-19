@@ -28,7 +28,7 @@ RC=0
 BINDIR=$(dirname $(readlink -f $0))
 
 DISKSIZE=10G
-RAMSIZE=1576
+RAMSIZE=2048
 VCPU=2
 REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
