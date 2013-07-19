@@ -1,9 +1,9 @@
-ubiquity (2.15.11) UNRELEASED; urgency=low
+ubiquity (2.15.11) saucy; urgency=low
 
   * Automatic update of included source packages: base-installer
     1.122ubuntu16, partman-newworld 30. (LP: #1184297)
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 19 Jul 2013 12:55:29 -0400
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 19 Jul 2013 13:00:57 -0400
 
 ubiquity (2.15.10) saucy; urgency=low
 
