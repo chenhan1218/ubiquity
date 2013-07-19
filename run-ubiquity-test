@@ -249,6 +249,8 @@ collect_artifacts() {
     mkdir -p $resultdir
 
     rsync -avH $@ $resultdir
+
+    [ -f "$resultdir/artifacts.tgz" ] && tar xzf $resultdir/artifacts.tgz -C $resultdir/
 }
 
 tail_logs() {
