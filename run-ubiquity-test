@@ -261,9 +261,11 @@ collect_artifacts() {
     rsync -avH $@ $resultdir
 
     if [ -f "$resultdir/artifacts.tgz" ]; then
-        tar -m xzf $resultdir/artifacts.tgz -C $resultdir/
+        echo "I: Extracting artifacts to result directory"
+        tar xzf $resultdir/artifacts.tgz -C $resultdir/
         rm -f "$resultdir/artifacts.tgz"
     fi
+    find $resultsdir | xargs touch
 }
 
 tail_logs() {
