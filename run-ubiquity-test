@@ -34,7 +34,7 @@ REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 TESTNAME="${TESTNAME:-ubiquity}"
-TIMOUT=3600
+TIMEOUT=3600
 DELAY=5
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
