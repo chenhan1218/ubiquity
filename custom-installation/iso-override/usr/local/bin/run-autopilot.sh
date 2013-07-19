@@ -32,7 +32,7 @@ RMD_OPTS="-r -rd $AP_ARTIFACTS --record-options=--fps=6,--no-wm-check"
 # TESTING ONLY -- Recording is disabled
 AP_OPTS="-f xml"
 OTTO_SUMMARY=/var/local/otto/summary.log
-TSBRANCH=lp:~dpniel/ubiquity/autopilot
+TSBRANCH=lp:ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
 ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart /var/crash"
 SHUTDOWN=1
