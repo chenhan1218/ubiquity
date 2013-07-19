@@ -37,11 +37,12 @@ TESTNAME="${TESTNAME:-ubiquity}"
 TIMEOUT=3600
 DELAY=5
 SSHPORT=$(shuf -i 2000-65000 -n 1 -z)
+VNCPORT=$(shuf -i 1-255 -n 1 -z)
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
     -net nic,model=virtio -net user -redir tcp:$SSHPORT::22 \
-    -vnc localhost:76 \
+    -vnc localhost:$VNCPORT \
     -daemonize
     "
 
