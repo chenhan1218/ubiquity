@@ -161,7 +161,7 @@ run_tests() {
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        timeout -s 9 -k ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
+        timeout -s 9 -k 30 $TIMEOUT ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $OTTO_SUMMARY
