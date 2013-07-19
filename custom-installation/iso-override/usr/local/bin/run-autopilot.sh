@@ -39,6 +39,8 @@ SHUTDOWN=1
 
 PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib recordmydesktop"
 
+export DEBIAN_FRONTEND=noninteractive
+
 # Define general configuration files 
 [ -f $TESTBASE/config ] && . $TESTBASE/config
 
