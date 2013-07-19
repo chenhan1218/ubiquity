@@ -37,6 +37,7 @@ TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
 ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart /var/crash"
 SHUTDOWN=1
+TIMEOUT=1200  # 20min timeout
 
 PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
     recordmydesktop eatmydata"
@@ -160,7 +161,7 @@ run_tests() {
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
+        timeout -s 9 -k ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $OTTO_SUMMARY
