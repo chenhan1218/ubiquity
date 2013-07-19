@@ -40,7 +40,7 @@ SHUTDOWN=1
 TIMEOUT=1200  # 20min timeout
 
 PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
-    recordmydesktop eatmydata"
+    recordmydesktop"
 
 export DEBIAN_FRONTEND=noninteractive
 
