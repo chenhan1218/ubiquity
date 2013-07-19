@@ -37,7 +37,8 @@ TSEXPORT=$HOME/ubiquity-autopilot
 ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart"
 SHUTDOWN=1
 
-PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib recordmydesktop"
+PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
+    recordmydesktop eatmydata"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -209,6 +210,10 @@ if which recordmydesktop >/dev/null 2>&1; then
 fi
 
 setup_tests
+if [ -f "/usr/lib/libeatmydata/libeatmydata.so" ]; then
+    echo "I: Enabling eatmydata"
+    export LD_PRELOAD="${LD_PRELOAD:+$LD_PRELOAD:}/usr/lib/libeatmydata/libeatmydata.so"
+fi
 run_tests $SPOOLDIR
 echo "I: Archiving artifacts"
 tar czf /tmp/artifacts.tgz $ARTIFACTS
