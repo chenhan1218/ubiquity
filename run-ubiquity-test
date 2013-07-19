@@ -261,7 +261,7 @@ collect_artifacts() {
     rsync -avH $@ $resultdir
 
     if [ -f "$resultdir/artifacts.tgz" ]; then
-        tar xzf $resultdir/artifacts.tgz -C $resultdir/
+        tar -m xzf $resultdir/artifacts.tgz -C $resultdir/
         rm -f "$resultdir/artifacts.tgz"
     fi
 }
