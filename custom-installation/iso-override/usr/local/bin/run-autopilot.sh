@@ -96,6 +96,10 @@ setup_tests() {
     sudo cp $TSEXPORT/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
     sudo chmod +x /usr/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
 
+    if [ -e "$AP_TESTSUITES" ]; then
+        (cd $SPOOLDIR; touch $(cat $AP_TESTSUITES))
+    fi
+
     touch $flag
 }
 
@@ -150,7 +154,8 @@ run_tests() {
     ./run_ubiquity &
     sleep 30
     tail_logs /var/log/installer/debug
-    for testname in ubiquity; do
+    for testfile in $(ls -d $spooldir/* 2>/dev/null); do
+        testname=$(basename $testfile)
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
@@ -162,6 +167,7 @@ run_tests() {
             echo "${testname}: DONE" >> $OTTO_SUMMARY
         fi
         set -e
+        sudo rm -f $testfile
     done
 }
 

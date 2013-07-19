@@ -33,6 +33,7 @@ VCPU=2
 REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
 OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
+TESTNAME="${TESTNAME:-ubiquity}"
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
@@ -81,6 +82,7 @@ Options:
     -o, --override  Directory to copy into the target filesystem
     -S, --disksize  Set disk size (default: $DISKSIZE)
     -s, --shm       Write disk image into /dev/shm
+    -t, --test      Name of the test to run (default: $TESTNAME)
 
 EOF
     RC=1 && exit
@@ -203,6 +205,9 @@ prepare_initrd() {
         echo "I: Copying overrides"
         cp -af $customdir $workdir/
         [ -d "$usercustomdir" ] && cp -af "$usercustomdir" $workdir/
+        mkdir -p $workdir/custom-installation/iso-override/var/local/autopilot
+        echo "$TESTNAME" > $workdir/custom-installation/iso-override/var/local/autopilot/testsuites
+
         echo "I: Repacking initrd"
         [ -f "$initrd" ] && rm -f $initrd
         find .|cpio --quiet -o -H newc > $initrd
@@ -266,8 +271,8 @@ tail_logs() {
     done
 }
 
-SHORTOPTS="hdo:S:s"
-LONGOPTS="help,debug,override:,disksize:,shm"
+SHORTOPTS="hdo:S:st:"
+LONGOPTS="help,debug,override:,disksize:,shm,test:"
 
 TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
 eval set -- "$TEMP"
@@ -290,6 +295,9 @@ while true ; do
         -s|--shm)
             DISKDIR=/dev/shm
             shift;;
+        -t|--test)
+            TESTNAME=$2
+            shift 2;;
         --)
             shift;
             break;;
