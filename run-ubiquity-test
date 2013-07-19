@@ -54,7 +54,9 @@ on_exit() {
         kill -9 $(cat $WORKDIR/qemu.pid) 2>/dev/null
     fi
     echo "I: Cleaning working directory"
+    [ -f "$DISKIMG" ] && rm -f "$DISKIMG"
     [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
+
     hrule
     echo -en "\nRun ended on $ENDAT"
     hrule
@@ -76,8 +78,9 @@ Arguments:
 Options:
     -h, --help      This help
     -d, --debug     Enable debug mode
-    -S, --disksize  Set disk size (default: $DISKSIZE)
     -o, --override  Directory to copy into the target filesystem
+    -S, --disksize  Set disk size (default: $DISKSIZE)
+    -s, --shm       Write disk image into /dev/shm
 
 EOF
     RC=1 && exit
@@ -313,7 +316,7 @@ hrule
 echo -en "\nStarting run on $STARTAT"
 hrule
 
-DISKIMG=$WORKDIR/disk.img
+DISKIMG=$DISKDIR/disk.img
 INITRD=$WORKDIR/casper/initrd
 KERNEL=$WORKDIR/casper/vmlinuz.efi
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
