@@ -145,7 +145,7 @@ extract_kernel() {
         exit
     fi
 
-    files="casper/initrd.lz casper/vmlinuz.efi"
+    files="casper/initrd.lz casper/$(basename $KERNEL)"
     echo "I: extracting files from $src: $files"
     bsdtar xf $src -C $dst $files
     ret=$?
@@ -329,7 +329,10 @@ hrule
 
 DISKIMG=$DISKDIR/disk.img
 INITRD=$WORKDIR/casper/initrd
-KERNEL=$WORKDIR/casper/vmlinuz.efi
+KERNEL=$WORKDIR/casper/vmlinuz
+if echo $ISO|grep amd64 2>/dev/null; then
+    KERNEL=${KERNEL}.efi
+fi
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us noprompt console=ttyS0,115200"
 check_prerequisites $REQUIREDPKGS
