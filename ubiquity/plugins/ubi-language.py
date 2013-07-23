@@ -398,6 +398,9 @@ class PageKde(PageBase):
             from PyQt4.QtGui import QWidget, QPixmap, QIcon
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
+            # Tell layout that all items are of uniform sizes
+            # Fixes LP:1187762
+            self.combobox.view().setUniformItemSizes(True)
             self.combobox.currentIndexChanged[str].connect(
                 self.on_language_selection_changed)
             if not self.controller.oem_config:
@@ -502,8 +505,7 @@ class PageKde(PageBase):
     def set_language_choices(self, choices, choice_map):
         PageBase.set_language_choices(self, choices, choice_map)
         self.combobox.clear()
-        for choice in choices:
-            self.combobox.addItem(str(choice))
+        self.combobox.addItems(choices)
 
     def set_language(self, language):
         index = self.combobox.findText(str(language))

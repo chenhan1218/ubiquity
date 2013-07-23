@@ -1,3 +1,11 @@
+ubiquity (2.15.12) UNRELEASED; urgency=low
+
+  [ Rohan Garg ]
+  * [qt] Fix language drop down list closes on first click (LP:
+    #1187762)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 23 Jul 2013 14:26:04 +0100
+
 ubiquity (2.15.11) saucy; urgency=low
 
   * Automatic update of included source packages: base-installer
