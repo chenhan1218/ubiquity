@@ -176,7 +176,6 @@ class NetworkManagerTreeView(QtGui.QTreeView):
         self.password_entry = password_entry
         model = QtNetworkStore(self)
 
-#        model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         self.wifi_model = NetworkManager(model, QtQueuedCaller, state_changed)
         self.setModel(model)
         self.setHeaderHidden(True)
@@ -193,59 +192,6 @@ class NetworkManagerTreeView(QtGui.QTreeView):
         for row in range(self.model().rowCount()):
             index = self.model().index(row, 0)
             self.setExpanded(index, True)
-#
-#        ssid_column = Gtk.TreeViewColumn('')
-#        cell_pixbuf = Gtk.CellRendererPixbuf()
-#        cell_text = Gtk.CellRendererText()
-#        ssid_column.pack_start(cell_pixbuf, False)
-#        ssid_column.pack_start(cell_text, True)
-#        ssid_column.set_cell_data_func(cell_text, self.data_func)
-#        ssid_column.set_cell_data_func(cell_pixbuf, self.pixbuf_func)
-#        self.connect('row-activated', self.row_activated)
-#
-#        self.append_column(ssid_column)
-#        self.set_headers_visible(False)
-#        self.setup_row_expansion_handling(model)
-#
-#    def setup_row_expansion_handling(self, model):
-#        """
-#        If the user collapses a row, save that state. If all the APs go away
-#        and then return, such as when the user toggles the wifi kill switch,
-#        the UI should keep the row collapsed if it already was, or expand it.
-#        """
-#        self.expand_all()
-#        self.rows_changed_id = None
-#
-#        def queue_rows_changed(*args):
-#            if self.rows_changed_id:
-#                GLib.source_remove(self.rows_changed_id)
-#            self.rows_changed_id = GLib.idle_add(self.rows_changed)
-#
-#        model.connect('row-inserted', queue_rows_changed)
-#        model.connect('row-deleted', queue_rows_changed)
-#
-#        self.user_collapsed = {}
-#
-#        def collapsed(self, iterator, path, collapse):
-#            udi = model[iterator][0]
-#            self.user_collapsed[udi] = collapse
-#
-#        self.connect('row-collapsed', collapsed, True)
-#        self.connect('row-expanded', collapsed, False)
-#
-#    def rows_changed(self, *args):
-#        model = self.get_model()
-#        i = model.get_iter_first()
-#        while i:
-#            udi = model[i][0]
-#            try:
-#                if not self.user_collapsed[udi]:
-#                    path = model.get_path(i)
-#                    self.expand_row(path, False)
-#            except KeyError:
-#                path = model.get_path(i)
-#                self.expand_row(path, False)
-#            i = model.iter_next(i)
 #
 #    def get_state(self):
 #        return self.wifi_model.get_state()
