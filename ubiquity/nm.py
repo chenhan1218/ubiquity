@@ -86,8 +86,8 @@ class QueuedCaller(object):
 
 class NetworkStore(object):
     """
-    Abstract class which stores the tree of network devices and their associated
-    access-points.
+    Abstract class which stores the tree of network devices and their
+    associated access-points.
     """
     def get_device_ids(self):
         raise NotImplementedError
