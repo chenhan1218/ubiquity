@@ -58,8 +58,9 @@ def draw_level_pix(wanted_level):
 
 
 class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
-    SecurityRole = QtCore.Qt.UserRole + 1
+    IsSecureRole = QtCore.Qt.UserRole + 1
     StrengthRole = QtCore.Qt.UserRole + 2
+    SsidRole = QtCore.Qt.UserRole + 3
 
     def __init__(self, parent=None):
         QtGui.QStandardItemModel.__init__(self, parent)
@@ -71,6 +72,7 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
     def add_device(self, devid, vendor, model):
         item = QtGui.QStandardItem("%s %s" % (vendor, model))
         item.setIcon(QtGui.QIcon.fromTheme("network-wireless"))
+        item.setSelectable(False)
         # devid is a dbus.ObjectPath, so we can't store it as a QVariant using
         # setData().
         # That's why we keep it as item attribute.
@@ -83,13 +85,14 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
     def remove_devices_not_in(self, devids):
         self._remove_rows_not_in(None, devids)
 
-    def add_ap(self, devid, ssid, security, strength):
+    def add_ap(self, devid, ssid, secure, strength):
         dev_item = self._item_for_device(devid)
         assert dev_item
         item = QtGui.QStandardItem(str(ssid))
         item.id = ssid
-        item.setData(security, self.SecurityRole)
+        item.setData(secure, self.IsSecureRole)
         item.setData(strength, self.StrengthRole)
+        item.setData(ssid, self.SsidRole)
         self._update_item_icon(item)
         dev_item.appendRow(item)
 
@@ -137,7 +140,7 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
         return None
 
     def _update_item_icon(self, item):
-        security = item.data(QtNetworkStore.SecurityRole).toBool()
+        secure = item.data(QtNetworkStore.IsSecureRole).toBool()
         strength, ok = item.data(QtNetworkStore.StrengthRole).toInt()
         if strength < 30:
             icon = 0
@@ -149,7 +152,7 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
             icon = 3
         else:
             icon = 4
-        if security:
+        if secure:
             icon += 5
         item.setIcon(self._icons[icon])
 
@@ -192,6 +195,12 @@ class NetworkManagerTreeView(QtGui.QTreeView):
         for row in range(self.model().rowCount()):
             index = self.model().index(row, 0)
             self.setExpanded(index, True)
+
+    def is_row_an_ap(self):
+        index = self.currentIndex()
+        if not index.isValid():
+            return False
+        return index.parent().isValid()
 #
 #    def get_state(self):
 #        return self.wifi_model.get_state()
@@ -205,13 +214,13 @@ class NetworkManagerTreeView(QtGui.QTreeView):
 #            passphrase = self.password_entry.get_text()
 #        self.connect_to_selection(passphrase)
 #
-#    def get_passphrase(self, ssid):
-#        try:
-#            cached = self.wifi_model.passphrases_cache[ssid]
-#        except KeyError:
-#            return ''
-#        return cached
-#
+    def get_passphrase(self, ssid):
+        try:
+            cached = self.wifi_model.passphrases_cache[ssid]
+        except KeyError:
+            return ''
+        return cached
+
 #    def is_row_an_ap(self):
 #        model, iterator = self.get_selection().get_selected()
 #        if iterator is None:
@@ -258,7 +267,7 @@ class NetworkManagerWidget(QtGui.QWidget):
 
         self.view = NetworkManagerTreeView(self.password_entry,
                                            self.state_changed)
-        #self.view.selectionModel().currentChanged.connect(self.changed)
+        self.view.selectionModel().currentChanged.connect(self._on_current_changed)
 
         layout = QtGui.QVBoxLayout(self)
         layout.addWidget(self.view)
@@ -317,7 +326,23 @@ class NetworkManagerWidget(QtGui.QWidget):
         #self.emit('pw_validated', self.password_is_valid())
         pass
 
-    def changed(self, selection):
+    def _on_current_changed(self, current):
+        if not self.is_row_an_ap():
+            self._set_secure_widgets_enabled(False)
+            return
+        secure = current.data(QtNetworkStore.IsSecureRole).toBool()
+        self._set_secure_widgets_enabled(secure)
+        if secure:
+            ssid = current.data(QtNetworkStore.SsidRole).toString()
+            ssid = unicode(ssid)
+            passphrase = self.view.get_passphrase(ssid)
+            self.password_entry.setText(passphrase)
+
+    def _set_secure_widgets_enabled(self, enabled):
+        for widget in self.password_label, self.password_entry, self.display_password:
+            widget.setEnabled(enabled)
+        if not enabled:
+            self.password_entry.setText('')
         """
         iterator = selection.get_selected()[1]
         if not iterator:
@@ -336,7 +361,6 @@ class NetworkManagerWidget(QtGui.QWidget):
             self.emit('pw_validated', True)
         self.emit('selection_changed')
         """
-        pass
 
 
 if __name__ == '__main__':
