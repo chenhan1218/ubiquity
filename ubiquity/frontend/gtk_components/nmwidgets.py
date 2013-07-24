@@ -1,5 +1,8 @@
 import string
 
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default=True)
+
 from gi.repository import Gtk, GObject, GLib
 
 from ubiquity.nm import QueuedCaller, NetworkStore, NetworkManager
