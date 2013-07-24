@@ -96,7 +96,9 @@ class NetworkManagerTreeView(Gtk.TreeView):
         model = GtkNetworkStore()
         model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
         # TODO eventually this will subclass GenericTreeModel.
-        self.wifi_model = NetworkManager(model, GLibQueuedCaller, state_changed)
+        self.wifi_model = NetworkManager(model,
+                                         GLibQueuedCaller,
+                                         state_changed)
         self.set_model(model)
 
         ssid_column = Gtk.TreeViewColumn('')

@@ -71,7 +71,10 @@ def wireless_hardware_present():
 
 class QueuedCaller(object):
     """
-    Abstract helper class to provided queued calls.
+    Abstract class providing queued calls.
+
+    When 'start()' is called, implementation must ensure 'callback' is called
+    after 'timeout' milliseconds.
     """
     def __init__(self, timeout, callback):
         self.timeout = timeout
@@ -82,6 +85,10 @@ class QueuedCaller(object):
 
 
 class NetworkStore(object):
+    """
+    Abstract class which stores the tree of network devices and their
+    associated access-points.
+    """
     def get_device_ids(self):
         raise NotImplementedError
 

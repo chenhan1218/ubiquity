@@ -36,9 +36,9 @@ class PageGtk(plugin.PluginUI):
         from gi.repository import Gtk
 
         from ubiquity import misc
-        # NOTE: Import 'nmwidgets' even though it's not used in this function as
-        # importing it as the side effect of registering NetworkManagerWidget
-        # which we DO use in the Wireless step UI.
+        # NOTE: Import 'nmwidgets' even though it's not used in this function
+        # as importing it as the side effect of registering
+        # NetworkManagerWidget which we DO use in the Wireless step UI.
         from ubiquity.frontend.gtk_components import nmwidgets
 
         if self.is_automatic:
