@@ -38,10 +38,10 @@ class GtkNetworkStore(NetworkStore, Gtk.TreeStore):
     def remove_devices_not_in(self, devids):
         self._remove_rows_not_in(None, devids)
 
-    def add_ap(self, devid, ssid, security, strength):
+    def add_ap(self, devid, ssid, secure, strength):
         dev_it = self._it_for_device(devid)
         assert dev_it
-        self.append(dev_it, [ssid, security, strength])
+        self.append(dev_it, [ssid, secure, strength])
 
     def has_ap(self, devid, ssid):
         return self._it_for_ap(devid, ssid) is not None

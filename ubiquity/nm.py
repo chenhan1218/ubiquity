@@ -94,7 +94,7 @@ class NetworkStore(object):
     def remove_devices_not_in(self, devids):
         raise NotImplementedError
 
-    def add_ap(self, devid, ssid, security, strength):
+    def add_ap(self, devid, ssid, secure, strength):
         raise NotImplementedError
 
     def has_ap(self, devid, ssid):
@@ -238,12 +238,12 @@ class NetworkManager:
                 if ssid:
                     ssid = decode_ssid(ssid)
                     strength = int(get_prop(ap_obj, NM_AP, 'Strength') or 0)
-                    security = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
-                                get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
+                    secure = (get_prop(ap_obj, NM_AP, 'WpaFlags') != 0 or
+                              get_prop(ap_obj, NM_AP, 'RsnFlags') != 0)
                     if self.model.has_ap(device_path, ssid):
                         self.model.set_ap_strength(device_path, ssid, strength)
                     else:
-                        self.model.add_ap(device_path, ssid, security, strength)
+                        self.model.add_ap(device_path, ssid, secure, strength)
                     ssids.append(ssid)
             self.model.remove_aps_not_in(device_path, ssids)
         self.model.remove_devices_not_in(devices)
