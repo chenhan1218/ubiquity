@@ -174,7 +174,6 @@ class NetworkManagerTreeView(QtGui.QTreeView):
     def __init__(self, password_entry=None, state_changed=None):
         QtGui.QTreeView.__init__(self)
         self.password_entry = password_entry
-        self.configure_icons()
         model = QtNetworkStore(self)
 
 #        model.set_sort_column_id(0, Gtk.SortType.ASCENDING)
@@ -259,58 +258,6 @@ class NetworkManagerTreeView(QtGui.QTreeView):
 #        if self.password_entry:
 #            passphrase = self.password_entry.get_text()
 #        self.connect_to_selection(passphrase)
-#
-    def configure_icons(self):
-        pass
-#        it = Gtk.IconTheme()
-#        default = Gtk.IconTheme.get_default()
-#        default = default.load_icon(Gtk.STOCK_MISSING_IMAGE, 22, 0)
-#        it.set_custom_theme('ubuntu-mono-light')
-#        self.icons = []
-#        for n in ['nm-signal-00',
-#                  'nm-signal-25',
-#                  'nm-signal-50',
-#                  'nm-signal-75',
-#                  'nm-signal-100',
-#                  'nm-signal-00-secure',
-#                  'nm-signal-25-secure',
-#                  'nm-signal-50-secure',
-#                  'nm-signal-75-secure',
-#                  'nm-signal-100-secure']:
-#            ico = it.lookup_icon(n, 22, 0)
-#            if ico:
-#                ico = ico.load_icon()
-#            else:
-#                ico = default
-#            self.icons.append(ico)
-#
-#    def pixbuf_func(self, column, cell, model, iterator, data):
-#        if not model.iter_parent(iterator):
-#            cell.set_property('pixbuf', None)
-#            return
-#        strength = model[iterator][2]
-#        if strength < 30:
-#            icon = 0
-#        elif strength < 50:
-#            icon = 1
-#        elif strength < 70:
-#            icon = 2
-#        elif strength < 90:
-#            icon = 3
-#        else:
-#            icon = 4
-#        if model[iterator][1]:
-#            icon += 5
-#        cell.set_property('pixbuf', self.icons[icon])
-#
-#    def data_func(self, column, cell, model, iterator, data):
-#        ssid = model[iterator][0]
-#
-#        if not model.iter_parent(iterator):
-#            txt = '%s %s' % (model[iterator][1], model[iterator][2])
-#            cell.set_property('text', txt)
-#        else:
-#            cell.set_property('text', ssid)
 #
 #    def get_passphrase(self, ssid):
 #        try:
