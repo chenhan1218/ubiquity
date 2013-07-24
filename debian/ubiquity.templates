@@ -1042,6 +1042,10 @@ Template: ubiquity/text/breadcrumb_language
 Type: text
 _Description: Language
 
+Template: ubiquity/text/breadcrumb_wireless
+Type: text
+_Description: Wireless
+
 Template: ubiquity/text/breadcrumb_prepare
 Type: text
 _Description: Prepare

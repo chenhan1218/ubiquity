@@ -18,6 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import os
+import syslog
 
 from ubiquity import plugin
 
@@ -28,10 +29,28 @@ AFTER = ['prepare', 'language']
 WEIGHT = 12
 
 
-class PageGtk(plugin.PluginUI):
+class WirelessPageBase(plugin.PluginUI):
+    def __init__(self):
+        plugin.PluginUI.__init__(self)
+        self.skip = False
+
+    def plugin_set_online_state(self, online):
+        self.skip = online
+
+    def plugin_skip_page(self):
+        from ubiquity import nm
+
+        if nm.wireless_hardware_present():
+            return self.skip
+        else:
+            return True
+
+
+class PageGtk(WirelessPageBase):
     plugin_title = 'ubiquity/text/wireless_heading_label'
 
     def __init__(self, controller, *args, **kwargs):
+        WirelessPageBase.__init__(self)
         import dbus
         from gi.repository import Gtk
 
@@ -122,17 +141,6 @@ class PageGtk(plugin.PluginUI):
             self.next_normal = True
             self.controller.allow_go_forward(True)
 
-    def plugin_set_online_state(self, online):
-        self.skip = online
-
-    def plugin_skip_page(self):
-        from ubiquity import nm
-
-        if not nm.wireless_hardware_present():
-            return True
-        else:
-            return self.skip
-
     def plugin_on_back_clicked(self):
         frontend = self.controller._wizard
         if frontend.back.get_label() == self.stop_text:
@@ -186,3 +194,34 @@ class PageGtk(plugin.PluginUI):
 
     def pw_validated(self, unused, validated):
         self.controller.allow_go_forward(validated)
+
+
+class PageKde(WirelessPageBase):
+    plugin_breadcrumb = 'ubiquity/text/breadcrumb_wireless'
+
+    def __init__(self, controller, *args, **kwargs):
+        WirelessPageBase.__init__(self)
+        import dbus
+        from ubiquity import misc
+
+        if self.is_automatic:
+            self.page = None
+            return
+        # Check whether we can talk to NM at all (e.g. debugging ubiquity
+        # over ssh with X forwarding).
+        try:
+            misc.has_connection()
+        except dbus.DBusException:
+            self.page = None
+            return
+        self.controller = controller
+        self._setup_page()
+        self.plugin_widgets = self.page
+
+    def _setup_page(self):
+        from PyQt4 import QtGui
+        from ubiquity.frontend.kde_components import nmwidgets
+        self.page = nmwidgets.NetworkManagerWidget()
+
+    def plugin_translate(self, lang):
+        pass
