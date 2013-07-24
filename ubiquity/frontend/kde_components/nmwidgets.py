@@ -1,5 +1,11 @@
 import string
 
+if __name__ == "__main__":
+    # This is done by kde_ui.py. We need to do the same for our test main(),
+    # but it must be done *before* importing any PyQt4 module
+    import sip
+    sip.setapi('QVariant', 1)
+
 from PyQt4 import QtCore
 from PyQt4 import QtGui
 
@@ -334,7 +340,6 @@ class NetworkManagerWidget(QtGui.QWidget):
         self._set_secure_widgets_enabled(secure)
         if secure:
             ssid = current.data(QtNetworkStore.SsidRole).toString()
-            ssid = unicode(ssid)
             passphrase = self.view.get_passphrase(ssid)
             self.password_entry.setText(passphrase)
 
@@ -363,11 +368,19 @@ class NetworkManagerWidget(QtGui.QWidget):
         """
 
 
-if __name__ == '__main__':
+def main():
     import sys
     from PyQt4.QtGui import QApplication
+
+    from dbus.mainloop.glib import DBusGMainLoop
+    DBusGMainLoop(set_as_default=True)
+
     app = QApplication(sys.argv)
     QtGui.QIcon.setThemeName("oxygen")
     nm = NetworkManagerWidget()
     nm.show()
     app.exec_()
+
+
+if __name__ == '__main__':
+    main()
