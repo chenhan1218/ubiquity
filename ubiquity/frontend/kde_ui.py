@@ -417,18 +417,22 @@ class Wizard(BaseFrontend):
 
             self.backup = False
             page = self.pages[self.pagesindex]
+            skip = False
+            if hasattr(page.ui, 'plugin_skip_page'):
+                if page.ui.plugin_skip_page():
+                    skip = True
             automatic = False
             if hasattr(page.ui, 'is_automatic'):
                 automatic = page.ui.is_automatic
 
-            if not page.filter_class:
+            if not skip and not page.filter_class:
                 # This page is just a UI page
                 self.dbfilter = None
                 self.dbfilter_status = None
                 if self.set_page(page.module.NAME):
                     self.allow_change_step(True)
                     self.app.exec_()
-            else:
+            elif not skip:
                 old_dbfilter = self.dbfilter
                 if issubclass(page.filter_class, Plugin):
                     ui = page.ui
