@@ -35,10 +35,11 @@ class PageGtk(plugin.PluginUI):
         import dbus
         from gi.repository import Gtk
 
-        # NOTE: Import 'nm' even though it's not used in this function as
+        from ubiquity import misc
+        # NOTE: Import 'nmwidgets' even though it's not used in this function as
         # importing it as the side effect of registering NetworkManagerWidget
         # which we DO use in the Wireless step UI.
-        from ubiquity import misc, nm
+        from ubiquity.frontend.gtk_components import nmwidgets
 
         if self.is_automatic:
             self.page = None
