@@ -1,8 +1,11 @@
 ubiquity (2.15.12) UNRELEASED; urgency=low
 
   [ Rohan Garg ]
-  * [qt] Fix language drop down list closes on first click (LP:
+  * [KDE] Fix language drop down list closes on first click (LP:
     #1187762)
+
+  [ Aurélien Gâteau ]
+  * [KDE] Fix max width to 1000px on content and refactor widget stack to simplify
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 23 Jul 2013 14:26:04 +0100
 
