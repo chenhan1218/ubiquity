@@ -38,6 +38,10 @@ class WirelessPageBase(plugin.PluginUI):
         self.skip = online
 
     def plugin_skip_page(self):
+        # Set from the command line with --wireless
+        if 'UBIQUITY_WIRELESS' in os.environ:
+            return False
+
         from ubiquity import nm
 
         if nm.wireless_hardware_present():
