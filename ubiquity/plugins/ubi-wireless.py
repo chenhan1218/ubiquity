@@ -225,7 +225,15 @@ class PageKde(WirelessPageBase):
     def _setup_page(self):
         from PyQt4 import QtGui
         from ubiquity.frontend.kde_components import nmwidgets
-        self.page = nmwidgets.NetworkManagerWidget()
+        self.nmwidget = nmwidgets.NetworkManagerWidget()
+        # Set the widget as the whole page until we have a proper .ui file
+        self.page = self.nmwidget
+
+        self.nmwidget.state_changed.connect(self._on_state_changed)
 
     def plugin_translate(self, lang):
         pass
+
+    def _on_state_changed(self, state):
+        from ubiquity import nm
+        self.controller.allow_go_forward(state == nm.NM_STATE_CONNECTED_GLOBAL)
