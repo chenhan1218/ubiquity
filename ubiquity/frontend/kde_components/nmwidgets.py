@@ -319,6 +319,7 @@ class NetworkManagerWidget(QtGui.QWidget):
         self.view.selectionModel().currentChanged.connect(self._on_current_changed)
 
         layout = QtGui.QVBoxLayout(self)
+        layout.setMargin(0)
         layout.addWidget(self.view)
         layout.addWidget(self.progress_indicator)
         layout.addLayout(hlayout)
