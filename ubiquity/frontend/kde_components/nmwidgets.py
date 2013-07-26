@@ -291,21 +291,29 @@ class NetworkManagerWidget(QtGui.QWidget):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
+        self.tr_dict = {
+            'wireless_password_label': 'Password:',
+            'wireless_display_password': 'Display Password',
+            'connect': 'Connect',
+            'connecting_label': 'Connecting...',
+            'connection_failed_label': 'Connection failed.',
+            'connected_label': 'Connected.',
+        }
 
         self.password_entry = QtGui.QLineEdit()
         self.password_entry.textChanged.connect(self._update_ui)
 
-        self.password_label = QtGui.QLabel('&Password:')
+        self.password_label = QtGui.QLabel()
         self.password_label.setBuddy(self.password_entry)
 
-        self.display_password = QtGui.QCheckBox('Display password')
+        self.display_password = QtGui.QCheckBox()
         self.display_password.toggled.connect(self._update_password_entry)
 
-        self.connect_button = QtGui.QPushButton('Connect')
+        self.connect_button = QtGui.QPushButton()
         self.connect_button.clicked.connect(self._connect_to_ap)
         self.password_entry.returnPressed.connect(self.connect_button.animateClick)
 
-        self.progress_indicator = QtGui.QLabel('Connecting...')
+        self.progress_indicator = QtGui.QLabel()
         self.progress_indicator.setEnabled(False)
         self.progress_indicator.hide()
 
@@ -337,10 +345,17 @@ class NetworkManagerWidget(QtGui.QWidget):
     def get_state(self):
         return self.nm_state
 
+    def get_translation_keys(self):
+        return self.tr_dict.keys()
+
     def translate(self, dct):
-        self.password_label.setText(dct['wireless_password_label'])
-        self.display_password.setText(dct['wireless_display_password'])
-        self.connect_button.setText(dct['connect'])
+        self.tr_dict.update(dct)
+        self.password_label.setText(
+            self.tr_dict['wireless_password_label'])
+        self.display_password.setText(
+            self.tr_dict['wireless_display_password'])
+        self.connect_button.setText(
+            self.tr_dict['connect'])
 
     def _on_state_changed(self, state):
         old_state = self.nm_state
@@ -348,18 +363,21 @@ class NetworkManagerWidget(QtGui.QWidget):
 
         try:
             if state == nm.NM_STATE_CONNECTING:
-                self.progress_indicator.setText('Connecting...')
+                self.progress_indicator.setText(
+                    self.tr_dict['connecting_label'])
                 self.progress_indicator.show()
                 return
 
             if state == nm.NM_STATE_DISCONNECTED \
                 and old_state == nm.NM_STATE_CONNECTING:
-                self.progress_indicator.setText('Connection failed.')
+                self.progress_indicator.setText(
+                    self.tr_dict['connection_failed_label'])
                 self.progress_indicator.show()
                 return
 
             if state == nm.NM_STATE_CONNECTED_GLOBAL:
-                self.progress_indicator.setText('Connected.')
+                self.progress_indicator.setText(
+                    self.tr_dict['connected_label'])
                 self.progress_indicator.show()
                 return
 
@@ -415,6 +433,7 @@ def main():
     app = QApplication(sys.argv)
     QtGui.QIcon.setThemeName("oxygen")
     nm = NetworkManagerWidget()
+    nm.translate({})
     nm.state_changed.connect(on_state_changed)
     nm.show()
     app.exec_()

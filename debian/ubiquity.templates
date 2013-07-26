@@ -14,6 +14,14 @@ Template: ubiquity/text/connecting_label
 Type: text
 _Description: Connecting...
 
+Template: ubiquity/text/connection_failed_label
+Type: text
+_Description: Connection failed.
+
+Template: ubiquity/text/connected_label
+Type: text
+_Description: Connected.
+
 Template: ubiquity/text/restart_to_continue
 Type: text
 _Description: Restart to Continue

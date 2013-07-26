@@ -236,11 +236,11 @@ class PageKde(WirelessPageBase):
         self.page.use_wireless.toggled.connect(self._update_ui)
 
     def plugin_translate(self, lang):
-        tr = dict()
-        for text in 'wireless_password_label', 'wireless_display_password', 'connect':
-            tr[text] = self.controller.get_string('ubiquity/text/' + text)
+        dct = dict()
+        for text in self.nmwidget.get_translation_keys():
+            dct[text] = self.controller.get_string('ubiquity/text/' + text)
 
-        self.nmwidget.translate(tr)
+        self.nmwidget.translate(dct)
 
     def _update_ui(self):
         from ubiquity import nm
