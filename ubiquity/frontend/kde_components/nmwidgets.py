@@ -337,9 +337,10 @@ class NetworkManagerWidget(QtGui.QWidget):
     def get_state(self):
         return self.nm_state
 
-    def translate(self, password_label_text, display_password_text):
-        self.password_label.setText(password_label_text)
-        self.display_password.setText(display_password_text)
+    def translate(self, dct):
+        self.password_label.setText(dct['wireless_password_label'])
+        self.display_password.setText(dct['wireless_display_password'])
+        self.connect_button.setText(dct['connect'])
 
     def _on_state_changed(self, state):
         old_state = self.nm_state

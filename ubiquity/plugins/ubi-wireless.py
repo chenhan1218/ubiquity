@@ -233,14 +233,18 @@ class PageKde(WirelessPageBase):
         layout.setMargin(0)
         layout.addWidget(self.nmwidget)
 
-        self.page.wireless_radiobutton.toggled.connect(self._update_ui)
+        self.page.use_wireless.toggled.connect(self._update_ui)
 
     def plugin_translate(self, lang):
-        pass
+        tr = dict()
+        for text in 'wireless_password_label', 'wireless_display_password', 'connect':
+            tr[text] = self.controller.get_string('ubiquity/text/' + text)
+
+        self.nmwidget.translate(tr)
 
     def _update_ui(self):
         from ubiquity import nm
-        if self.page.wireless_radiobutton.isChecked():
+        if self.page.use_wireless.isChecked():
             forward = self.nmwidget.get_state() == nm.NM_STATE_CONNECTED_GLOBAL
         else:
             forward = True

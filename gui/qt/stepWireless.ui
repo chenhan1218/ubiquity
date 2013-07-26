@@ -29,7 +29,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="wireless_description_label">
+    <widget class="QLabel" name="wireless_section_label">
      <property name="text">
       <string>Connecting this computer to a wi-fi network allows you to install third-party software, download updates, automatically detect your timezone, and install full support for your language.</string>
      </property>
@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QRadioButton" name="no_wireless_radiobutton">
+    <widget class="QRadioButton" name="no_wireless">
      <property name="text">
       <string>I do not want to connect to a wi-fi network right now</string>
      </property>
@@ -49,7 +49,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QRadioButton" name="wireless_radiobutton">
+    <widget class="QRadioButton" name="use_wireless">
      <property name="text">
       <string>Connect to this network:</string>
      </property>
@@ -93,7 +93,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>wireless_radiobutton</sender>
+   <sender>use_wireless</sender>
    <signal>toggled(bool)</signal>
    <receiver>nmwidget_container</receiver>
    <slot>setEnabled(bool)</slot>
