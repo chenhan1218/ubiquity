@@ -226,16 +226,22 @@ class PageKde(WirelessPageBase):
         from PyQt4 import uic, QtGui
         from ubiquity.frontend.kde_components import nmwidgets
         self.nmwidget = nmwidgets.NetworkManagerWidget()
-        self.nmwidget.state_changed.connect(self._on_state_changed)
+        self.nmwidget.state_changed.connect(self._update_ui)
 
         self.page = uic.loadUi('/usr/share/ubiquity/qt/stepWireless.ui')
         layout = QtGui.QHBoxLayout(self.page.nmwidget_container)
         layout.setMargin(0)
         layout.addWidget(self.nmwidget)
 
+        self.page.wireless_radiobutton.toggled.connect(self._update_ui)
+
     def plugin_translate(self, lang):
         pass
 
-    def _on_state_changed(self, state):
+    def _update_ui(self):
         from ubiquity import nm
-        self.controller.allow_go_forward(state == nm.NM_STATE_CONNECTED_GLOBAL)
+        if self.page.wireless_radiobutton.isChecked():
+            forward = self.nmwidget.get_state() == nm.NM_STATE_CONNECTED_GLOBAL
+        else:
+            forward = True
+        self.controller.allow_go_forward(forward)

@@ -333,6 +333,9 @@ class NetworkManagerWidget(QtGui.QWidget):
         else:
             self.password_entry.setEchoMode(QtGui.QLineEdit.Password)
 
+    def get_state(self):
+        return self.nm_state
+
     def translate(self, password_label_text, display_password_text):
         self.password_label.setText(password_label_text)
         self.display_password.setText(display_password_text)
