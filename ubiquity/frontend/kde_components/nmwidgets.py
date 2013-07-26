@@ -291,8 +291,9 @@ class ProgressIndicator(QtGui.QWidget):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
 
+        self.iconLabel = QtGui.QLabel()
+
         self.label = QtGui.QLabel()
-        self.label.setEnabled(False)
 
         self.spinner = Spinner()
 
@@ -300,10 +301,20 @@ class ProgressIndicator(QtGui.QWidget):
         layout.setMargin(0)
         layout.addStretch()
         layout.addWidget(self.spinner)
+        layout.addWidget(self.iconLabel)
         layout.addWidget(self.label)
         layout.addStretch()
 
         self.setSpinnerVisible(False)
+
+    def setIcon(self, icon):
+        if icon:
+            pix = icon.pixmap(ICON_SIZE)
+            self.iconLabel.setPixmap(pix)
+            self.iconLabel.show()
+        else:
+            self.iconLabel.hide()
+
 
     def setText(self, text):
         self.label.setText(text)
@@ -392,6 +403,7 @@ class NetworkManagerWidget(QtGui.QWidget):
                 self.progress_indicator.setText(
                     self.tr_dict['connecting_label'])
                 self.progress_indicator.show()
+                self.progress_indicator.setIcon(None)
                 self.progress_indicator.setSpinnerVisible(True)
                 return
 
@@ -400,6 +412,8 @@ class NetworkManagerWidget(QtGui.QWidget):
                 self.progress_indicator.setText(
                     self.tr_dict['connection_failed_label'])
                 self.progress_indicator.show()
+                self.progress_indicator.setIcon(
+                    QtGui.QIcon.fromTheme('dialog-error'))
                 self.progress_indicator.setSpinnerVisible(False)
                 return
 
@@ -407,6 +421,8 @@ class NetworkManagerWidget(QtGui.QWidget):
                 self.progress_indicator.setText(
                     self.tr_dict['connected_label'])
                 self.progress_indicator.show()
+                self.progress_indicator.setIcon(
+                    QtGui.QIcon.fromTheme('dialog-ok-apply'))
                 self.progress_indicator.setSpinnerVisible(False)
                 return
 
