@@ -223,13 +223,15 @@ class PageKde(WirelessPageBase):
         self.plugin_widgets = self.page
 
     def _setup_page(self):
-        from PyQt4 import QtGui
+        from PyQt4 import uic, QtGui
         from ubiquity.frontend.kde_components import nmwidgets
         self.nmwidget = nmwidgets.NetworkManagerWidget()
-        # Set the widget as the whole page until we have a proper .ui file
-        self.page = self.nmwidget
-
         self.nmwidget.state_changed.connect(self._on_state_changed)
+
+        self.page = uic.loadUi('/usr/share/ubiquity/qt/stepWireless.ui')
+        layout = QtGui.QHBoxLayout(self.page.nmwidget_container)
+        layout.setMargin(0)
+        layout.addWidget(self.nmwidget)
 
     def plugin_translate(self, lang):
         pass
