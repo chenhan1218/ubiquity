@@ -36,6 +36,7 @@ from PyQt4 import QtGui
 from ubiquity import nm
 from ubiquity.nm import QueuedCaller, NetworkStore, NetworkManager
 
+from Spinner import Spinner
 
 ICON_SIZE = 22
 
@@ -289,16 +290,27 @@ class NetworkManagerTreeView(QtGui.QTreeView):
 class ProgressIndicator(QtGui.QWidget):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
+
         self.label = QtGui.QLabel()
+        self.label.setEnabled(False)
+
+        self.spinner = Spinner()
 
         layout = QtGui.QHBoxLayout(self)
         layout.setMargin(0)
+        layout.addStretch()
+        layout.addWidget(self.spinner)
         layout.addWidget(self.label)
+        layout.addStretch()
 
-        self.setEnabled(False)
+        self.setSpinnerVisible(False)
 
     def setText(self, text):
         self.label.setText(text)
+
+    def setSpinnerVisible(self, visible):
+        self.spinner.setVisible(visible)
+        self.spinner.setRunning(visible)
 
 
 class NetworkManagerWidget(QtGui.QWidget):
@@ -380,6 +392,7 @@ class NetworkManagerWidget(QtGui.QWidget):
                 self.progress_indicator.setText(
                     self.tr_dict['connecting_label'])
                 self.progress_indicator.show()
+                self.progress_indicator.setSpinnerVisible(True)
                 return
 
             if state == nm.NM_STATE_DISCONNECTED \
@@ -387,12 +400,14 @@ class NetworkManagerWidget(QtGui.QWidget):
                 self.progress_indicator.setText(
                     self.tr_dict['connection_failed_label'])
                 self.progress_indicator.show()
+                self.progress_indicator.setSpinnerVisible(False)
                 return
 
             if state == nm.NM_STATE_CONNECTED_GLOBAL:
                 self.progress_indicator.setText(
                     self.tr_dict['connected_label'])
                 self.progress_indicator.show()
+                self.progress_indicator.setSpinnerVisible(False)
                 return
 
             syslog.syslog('NetworkManagerWidget._on_state_changed:'
