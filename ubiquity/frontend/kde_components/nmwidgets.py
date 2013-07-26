@@ -286,6 +286,21 @@ class NetworkManagerTreeView(QtGui.QTreeView):
         return self.wifi_model.get_state()
 
 
+class ProgressIndicator(QtGui.QWidget):
+    def __init__(self, parent=None):
+        QtGui.QWidget.__init__(self, parent)
+        self.label = QtGui.QLabel()
+
+        layout = QtGui.QHBoxLayout(self)
+        layout.setMargin(0)
+        layout.addWidget(self.label)
+
+        self.setEnabled(False)
+
+    def setText(self, text):
+        self.label.setText(text)
+
+
 class NetworkManagerWidget(QtGui.QWidget):
     state_changed = QtCore.pyqtSignal(int)
 
@@ -313,8 +328,7 @@ class NetworkManagerWidget(QtGui.QWidget):
         self.connect_button.clicked.connect(self._connect_to_ap)
         self.password_entry.returnPressed.connect(self.connect_button.animateClick)
 
-        self.progress_indicator = QtGui.QLabel()
-        self.progress_indicator.setEnabled(False)
+        self.progress_indicator = ProgressIndicator()
         self.progress_indicator.hide()
 
         hlayout = QtGui.QHBoxLayout()
