@@ -98,7 +98,7 @@ def draw_level_pix(wanted_level):
     painter.drawPolygon(QtGui.QPolygon(
         [center.x(), bottom,  right, middle,  right, bottom]))
     painter.translate(0, 2)
-    painter.drawRect(0, pix.height() - 2 , pix.width(), 2)
+    painter.drawRect(0, pix.height() - 2, pix.width(), 2)
     painter.end()
     return pix
 
@@ -212,7 +212,9 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
         for level in range(5):
             pix2 = QtGui.QPixmap(pixes[level])
             painter = QtGui.QPainter(pix2)
-            painter.drawPixmap(ICON_SIZE - secure_pix.width(), ICON_SIZE - secure_pix.height(), secure_pix)
+            painter.drawPixmap(ICON_SIZE - secure_pix.width(),
+                               ICON_SIZE - secure_pix.height(),
+                               secure_pix)
             painter.end()
             pixes.append(pix2)
 
@@ -315,7 +317,6 @@ class ProgressIndicator(QtGui.QWidget):
         else:
             self.iconLabel.hide()
 
-
     def setText(self, text):
         self.label.setText(text)
 
@@ -349,7 +350,8 @@ class NetworkManagerWidget(QtGui.QWidget):
 
         self.connect_button = QtGui.QPushButton()
         self.connect_button.clicked.connect(self._connect_to_ap)
-        self.password_entry.returnPressed.connect(self.connect_button.animateClick)
+        self.password_entry.returnPressed.connect(
+            self.connect_button.animateClick)
 
         self.progress_indicator = ProgressIndicator()
         self.progress_indicator.hide()
@@ -361,7 +363,8 @@ class NetworkManagerWidget(QtGui.QWidget):
         hlayout.addWidget(self.connect_button)
 
         self.view = NetworkManagerTreeView(self._on_state_changed)
-        self.view.selectionModel().currentChanged.connect(self._on_current_changed)
+        self.view.selectionModel().currentChanged.connect(
+            self._on_current_changed)
 
         layout = QtGui.QVBoxLayout(self)
         layout.setMargin(0)
@@ -408,7 +411,7 @@ class NetworkManagerWidget(QtGui.QWidget):
                 return
 
             if state == nm.NM_STATE_DISCONNECTED \
-                and old_state == nm.NM_STATE_CONNECTING:
+                    and old_state == nm.NM_STATE_CONNECTING:
                 self.progress_indicator.setText(
                     self.tr_dict['connection_failed_label'])
                 self.progress_indicator.show()
@@ -427,8 +430,8 @@ class NetworkManagerWidget(QtGui.QWidget):
                 return
 
             syslog.syslog('NetworkManagerWidget._on_state_changed:'
-                ' unhandled combination of nm states'
-                ' old_state={} state={}'.format(old_state, state))
+                          ' unhandled combination of nm states'
+                          ' old_state={} state={}'.format(old_state, state))
         finally:
             self.state_changed.emit(state)
 
@@ -459,7 +462,9 @@ class NetworkManagerWidget(QtGui.QWidget):
             self.connect_button.setEnabled(True)
 
     def _set_secure_widgets_enabled(self, enabled):
-        for widget in self.password_label, self.password_entry, self.display_password:
+        for widget in (self.password_label,
+                       self.password_entry,
+                       self.display_password):
             widget.setEnabled(enabled)
         if not enabled:
             self.password_entry.setText('')

@@ -23,6 +23,7 @@
 
 from PyQt4 import QtCore, QtGui
 
+
 class Spinner(QtGui.QLabel):
     """
     Home-made spinner widget, because we can't use kdelibs classes
