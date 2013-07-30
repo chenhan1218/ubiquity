@@ -65,8 +65,9 @@ UIDIR = os.path.join(PATH, 'qt')
 class UbiquityUI(QtGui.QMainWindow):
     def __init__(self, parent=None):
         QtGui.QMainWindow.__init__(self, parent)
-        #app.ui MainWindow now hardcoded to 1000px wide for main content
-        #this will look bad on high res displays and should be defined by dpi not pixels
+        #app.ui MainWindow now hardcoded to 1000px wide for main
+        #content this will look bad on high res displays and should be
+        #defined by dpi not pixels
         uic.loadUi(os.path.join(UIDIR, "app.ui"), self)
 
         # QProcessManager sets a SIGCHLD handler without SA_RESTART; this
@@ -546,7 +547,9 @@ class Wizard(BaseFrontend):
         webView.setMinimumSize(700, 420)
         webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
 
-        # Make it transparent, see http://ariya.blogspot.com/2009/04/transparent-qwebview-and-qwebpage.html
+# Make it transparent, see
+# http://ariya.blogspot.com/2009/04/transparent-qwebview-and-qwebpage.html
+
         palette = webView.palette()
         palette.setBrush(QtGui.QPalette.Base, QtCore.Qt.transparent)
         page = webView.page()
@@ -566,7 +569,7 @@ class Wizard(BaseFrontend):
                                                                self.locale)
         slideshow_main = os.path.join(slideshow_dir, 'slides', 'index.html')
         if not os.path.exists(slideshow_main) or self.hide_slideshow:
-            placeHolder = QWidget()
+            placeHolder = QtGui.QWidget()
             self.stackLayout.addWidget(placeHolder)
             self.stackLayout.setCurrentWidget(placeHolder)
             return
