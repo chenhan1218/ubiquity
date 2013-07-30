@@ -488,6 +488,10 @@ def main(oem_config):
                       action='store_true',
                       help='Name widgets in ATK by their GtkBuilder names, '
                            'to support LDTP testing.')
+    parser.add_option('--autopilot', dest='autopilot',
+                      action='store_true',
+                      help='Export variables needed for autopilot to drive '
+                           'ubiquity UI.')
     parser.add_option('--no-webcam', dest='webcam',
                       default=True, action='store_false',
                       help='Disable the webcam page.')
@@ -563,6 +567,13 @@ def main(oem_config):
         syslog.syslog("Ubiquity %s" % VERSION)
     with open('/var/log/installer/version', 'w') as version_file:
         print('ubiquity %s' % VERSION, file=version_file)
+
+    if options.autopilot:
+        os.environ['UBIQUITY_AUTOPILOT'] = '1'
+        with open('/var/log/installer/autopilot', 'w') as autopilot_file:
+            print('DBUS_SESSION_BUS_ADDRESS=%s' %
+                  os.environ['DBUS_SESSION_BUS_ADDRESS'], file=autopilot_file)
+            print('UBIQUITY_PID=%i' % os.getpid(), file=autopilot_file)
 
     if 'UBIQUITY_DEBUG' in os.environ:
         if 'UBIQUITY_DEBUG_CORE' not in os.environ:

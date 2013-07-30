@@ -1,8 +1,77 @@
-ubiquity (2.15.9) UNRELEASED; urgency=low
+ubiquity (2.15.12) saucy; urgency=low
 
+  [ Rohan Garg ]
+  * [KDE] Fix language drop down list closes on first click (LP:
+    #1187762)
+
+  [ Aurélien Gâteau ]
+  * [KDE] Fix max width to 1000px on content and refactor widget stack to simplify
+
+  [ Lars Uebernickel ]
+  * Port ubiquity panel to new indicators (LP: #1204290)
+
+  [ Dmitrijs Ledkovs ]
+  * Automatic update of included source packages: debian-installer-utils
+    1.98ubuntu1, partman-base 167ubuntu1.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 30 Jul 2013 12:00:21 +0100
+
+ubiquity (2.15.11) saucy; urgency=low
+
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu16, partman-newworld 30. (LP: #1184297)
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Fri, 19 Jul 2013 13:00:57 -0400
+
+ubiquity (2.15.10) saucy; urgency=low
+
+  [ Kaj Ailomaa ]
+  * Change Ubuntu Studio background in ubiquity-dm.
+
+  [ Jeremy Bicha ]
+  * Don't tell automake to install everything to ubiquity-frontend-gtk and
+    try to clean up after
+  * Reorganize app icon handling
+    - Fixes missing app icon in GNOME Shell (LP: #1164573)
+    - Use improved icon from Humanity as fallback icon
+  * Update *.install files for above changes
+  * Fix minor lintian warning by not installing empty /usr/share/applications/
+
+  [ Aurélien Gâteau ]
+  * KDE: Set icon theme to Oxygen, shows icons on standalone Ubiquity
+
+  [ Dan Chapman ]
+  * Add initial autopilot support! UI testing, brave new world!
+
+  [ Stéphane Graber ]
+  * Install the shim and signed grub and kernels by default on all UEFI
+    machines instead of relying on the SecureBoot nvram variable.
+    (LP: #1184297)
+  * Automatic update of included source packages: bterm-unifont 1.3,
+    grub-installer 1.78ubuntu8, partconf 1.42, partman-basicmethods 54,
+    partman-jfs 40, partman-reiserfs 55, partman-xfs 52.
+  * Fix mix tabs/spaces in test_ubiquity_custom.py.
+  * Fix autopkgtests not passing pyflakes.
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 18 Jul 2013 18:10:17 -0400
+
+ubiquity (2.15.9) saucy; urgency=low
+
+  [ Dmitrijs Ledkovs ]
   * Use pyflakes3 instead of pyflakes, for better python3 checks.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 01 Jul 2013 12:31:25 +0100
+  [ Aurélien Gâteau ]
+  * Merge lp:~agateau/ubiquity/kde-rework-try-install-buttons
+   - Make the icon part of the buttons so that they are clickable as
+     well (I always click the icon and get frustrated it does not do
+     anything...)
+   - Use latest Oxygen icons
+
+  [ Iain Lane ]
+  * Use ISO-639-2/{B,T} codes when looking up keyboard layout variants since
+    these are what's referred to in xkb-data's xorg.xml file. 
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Jul 2013 11:50:03 +0100
 
 ubiquity (2.15.8) saucy; urgency=low
 

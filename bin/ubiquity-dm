@@ -305,7 +305,7 @@ EndSection
             background_image = None
             for background in (
                     '/usr/share/backgrounds/edubuntu_default.png',
-                    '/usr/share/xfce4/backdrops/macinnis_wallpaper.png',
+                    '/usr/share/xfce4/backdrops/ubuntustudio-rock.png',
                     '/usr/share/xfce4/backdrops/xubuntu-precise-right.png',
                     '/usr/share/lubuntu/wallpapers/'
                     'lubuntu-default-wallpaper.png',

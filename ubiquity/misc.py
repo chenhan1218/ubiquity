@@ -766,17 +766,17 @@ def set_indicator_keymaps(lang):
             "setxkbmap", "-layout", ",".join(kb_layouts),
             "-variant", ",".join(kb_variants))
 
-    iso_639_3 = ElementTree.parse('/usr/share/xml/iso-codes/iso_639_3.xml')
-    nodes = [element for element in iso_639_3.findall('iso_639_3_entry')
-             if element.get('part1_code') == lang]
+    iso_639 = ElementTree.parse('/usr/share/xml/iso-codes/iso_639.xml')
+    nodes = [element for element in iso_639.findall('iso_639_entry')
+             if element.get('iso_639_1_code') == lang]
     display = GdkX11.x11_get_default_xdisplay()
     engine = Xkl.Engine.get_instance(display)
     if nodes:
         configreg = Xkl.ConfigRegistry.get_instance(engine)
         configreg.load(False)
 
-        # Apparently part2_code doesn't always work (fails with French)
-        for prop in ('part2_code', 'id', 'part1_code'):
+        # Apparently iso_639_2B_code doesn't always work (fails with French)
+        for prop in ('iso_639_2B_code', 'iso_639_2T_code', 'iso_639_1_code'):
             code = nodes[0].get(prop)
             if code is not None:
                 configreg.foreach_language_variant(code, process_variant, None)
