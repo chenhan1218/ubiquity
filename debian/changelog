@@ -7,6 +7,9 @@ ubiquity (2.15.12) UNRELEASED; urgency=low
   [ Aurélien Gâteau ]
   * [KDE] Fix max width to 1000px on content and refactor widget stack to simplify
 
+  [ Lars Uebernickel ]
+  * Port ubiquity panel to new indicators (LP: #1204290)
+
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 23 Jul 2013 14:26:04 +0100
 
 ubiquity (2.15.11) saucy; urgency=low
