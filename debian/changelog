@@ -1,4 +1,4 @@
-ubiquity (2.15.12) UNRELEASED; urgency=low
+ubiquity (2.15.12) saucy; urgency=low
 
   [ Rohan Garg ]
   * [KDE] Fix language drop down list closes on first click (LP:
@@ -14,7 +14,7 @@ ubiquity (2.15.12) UNRELEASED; urgency=low
   * Automatic update of included source packages: debian-installer-utils
     1.98ubuntu1, partman-base 167ubuntu1.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 23 Jul 2013 14:26:04 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 30 Jul 2013 12:00:21 +0100
 
 ubiquity (2.15.11) saucy; urgency=low
 
