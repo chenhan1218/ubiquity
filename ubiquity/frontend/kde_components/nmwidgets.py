@@ -35,8 +35,7 @@ from PyQt4 import QtGui
 
 from ubiquity import nm
 from ubiquity.nm import QueuedCaller, NetworkStore, NetworkManager
-
-from Spinner import Spinner
+from ubiquity.frontend.kde_components.Spinner import Spinner
 
 ICON_SIZE = 22
 
