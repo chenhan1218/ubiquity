@@ -1,3 +1,12 @@
+ubiquity (2.15.13) UNRELEASED; urgency=low
+
+  [ Aurélien Gâteau ]
+  * [KDE] Add network manager wifi setup page
+  * Refactor network manager code to create a separte GTK class and
+    base class for both frontends to use
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Jul 2013 13:55:44 +0100
+
 ubiquity (2.15.12) saucy; urgency=low
 
   [ Rohan Garg ]

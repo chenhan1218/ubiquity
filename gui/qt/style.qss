@@ -59,6 +59,7 @@ QFrame[isBreadcrumb="true"],
 /*- Headings --------------------------------*/
 #welcome_heading_label,
 #prepare_heading_label,
+#wireless_heading_label,
 #timezone_heading_label,
 #keyboard_heading_label,
 #part_auto_heading_label,
