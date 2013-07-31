@@ -10,6 +10,7 @@ from gi.repository import Gtk, TimezoneMap
 import mock
 
 from ubiquity import gtkwidgets, nm, segmented_bar
+from ubiquity.frontend.gtk_components import nmwidgets
 
 
 class MockController(object):
@@ -105,8 +106,8 @@ class NetworkManagerTests(unittest.TestCase):
         patcher = mock.patch('ubiquity.nm.NetworkManager.start')
         patcher.start()
         self.addCleanup(patcher.stop)
-        self.model = Gtk.TreeStore(str, object, object)
-        self.manager = nm.NetworkManager(self.model)
+        self.model = nmwidgets.GtkNetworkStore()
+        self.manager = nm.NetworkManager(self.model, nmwidgets.GLibQueuedCaller)
 
     @mock.patch('subprocess.Popen')
     def test_get_vendor_and_model_null(self, mock_subprocess):
@@ -173,7 +174,7 @@ class NetworkManagerTests(unittest.TestCase):
     def test_pixbuf_func(self):
         iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
         mock_cell = mock.Mock()
-        tv = nm.NetworkManagerTreeView()
+        tv = nmwidgets.NetworkManagerTreeView()
         tv.pixbuf_func(None, mock_cell, self.model, iterator, None)
         mock_cell.set_property.assert_called_with('pixbuf', None)
         # 0% strength, protected network
@@ -193,7 +194,7 @@ class NetworkManagerTests(unittest.TestCase):
     def test_data_func(self):
         iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
         mock_cell = mock.Mock()
-        tv = nm.NetworkManagerTreeView()
+        tv = nmwidgets.NetworkManagerTreeView()
         tv.data_func(None, mock_cell, self.model, iterator, None)
         mock_cell.set_property.assert_called_with('text', 'Intel Wireless')
         i = self.model.append(iterator, ['Orange', True, 0])
