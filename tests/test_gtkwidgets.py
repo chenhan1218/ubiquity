@@ -140,14 +140,6 @@ class NetworkManagerTests(unittest.TestCase):
                 dbus.Byte(97), dbus.Byte(117)]
         self.assertEqual(nm.decode_ssid(ssid), 'R\ufffdseau')
 
-    def test_ssid_in_model(self):
-        iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
-        for ssid in ('Orange', 'Apple', 'Grape'):
-            self.model.append(iterator, [ssid, True, 0])
-        self.assertIsNotNone(
-            self.manager.ssid_in_model(iterator, 'Apple', True))
-        self.assertIsNone(self.manager.ssid_in_model(iterator, 'Grape', False))
-
     def test_prune(self):
         iterator = self.model.append(None, ['/foo', 'Intel', 'Wireless'])
         fruits = ['Orange', 'Apple', 'Grape']
