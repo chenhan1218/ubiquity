@@ -5,6 +5,10 @@ ubiquity (2.15.13) UNRELEASED; urgency=low
   * Refactor network manager code to create a separte GTK class and
     base class for both frontends to use
 
+  [ Dmitrijs Ledkovs ]
+  * Properly drop privileges with pkexec by deriving UID/GID/username from
+    PKEXEC_UID.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Jul 2013 13:55:44 +0100
 
 ubiquity (2.15.12) saucy; urgency=low

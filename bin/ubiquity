@@ -23,6 +23,7 @@ import importlib
 import locale
 import optparse
 import os
+import pwd
 import shutil
 import subprocess
 import sys
@@ -550,6 +551,12 @@ def main(oem_config):
 
     if options.wireless:
         os.environ['UBIQUITY_WIRELESS'] = '1'
+
+    uid = os.getenv('PKEXEC_UID', False)
+    if uid:
+        # pkexec doesn't set username, but it's used in a few places.
+        # fake it from PKEXEC =)
+        os.environ['SUDO_USER'] = pwd.getpwuid(int(uid)).pw_name
 
     acquire_lock()
 

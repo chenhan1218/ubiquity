@@ -50,11 +50,12 @@ def set_groups_for_uid(uid):
 def drop_all_privileges():
     # gconf needs both the UID and effective UID set.
     global _dropped_privileges
-    uid = os.environ.get('SUDO_UID')
-    gid = os.environ.get('SUDO_GID')
+    uid = os.environ.get('PKEXEC_UID')
+    gid = None
     if uid is not None:
         uid = int(uid)
         set_groups_for_uid(uid)
+        gid = pwd.getpwuid(uid).pw_gid
     if gid is not None:
         gid = int(gid)
         os.setregid(gid, gid)
@@ -70,11 +71,12 @@ def drop_privileges():
     global _dropped_privileges
     assert _dropped_privileges is not None
     if _dropped_privileges == 0:
-        uid = os.environ.get('SUDO_UID')
-        gid = os.environ.get('SUDO_GID')
+        uid = os.environ.get('PKEXEC_UID')
+        gid = None
         if uid is not None:
             uid = int(uid)
             set_groups_for_uid(uid)
+            gid = pwd.getpwuid(uid).pw_gid
         if gid is not None:
             gid = int(gid)
             os.setegid(gid)
@@ -98,11 +100,12 @@ def drop_privileges_save():
     # At the moment, we only know how to handle this when effective
     # privileges were already dropped.
     assert _dropped_privileges is not None and _dropped_privileges > 0
-    uid = os.environ.get('SUDO_UID')
-    gid = os.environ.get('SUDO_GID')
+    uid = os.environ.get('PKEXEC_UID')
+    gid = None
     if uid is not None:
         uid = int(uid)
         set_groups_for_uid(uid)
+        gid = pwd.getpwuid(uid).pw_gid
     if gid is not None:
         gid = int(gid)
         os.setresgid(gid, gid, 0)
