@@ -1,4 +1,4 @@
-data/ubiquity-gtkui.desktop usr/share/applications
+data/ubiquity.desktop usr/share/applications
 gui/gtk usr/share/ubiquity
 ubiquity/frontend/gtk* usr/lib/ubiquity/ubiquity/frontend
 

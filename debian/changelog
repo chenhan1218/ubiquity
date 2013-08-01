@@ -9,6 +9,9 @@ ubiquity (2.15.13) UNRELEASED; urgency=low
   * Properly drop privileges with pkexec by deriving UID/GID/username from
     PKEXEC_UID.
 
+  [ Jeremy Bicha ]
+  * Rename ubiquity-gtkui.desktop to ubiquity.desktop (LP: #1203223, #1203224)
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Jul 2013 13:55:44 +0100
 
 ubiquity (2.15.12) saucy; urgency=low
