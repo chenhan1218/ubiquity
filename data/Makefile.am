@@ -7,7 +7,7 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 desktop_in_files = \
 	oem-config-prepare-gtk.desktop.in \
 	oem-config-prepare-kde.desktop.in \
-	ubiquity-gtkui.desktop.in \
+	ubiquity.desktop.in \
 	ubiquity-kdeui.desktop.in
 
 @INTLTOOL_POLICY_RULE@
