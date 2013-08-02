@@ -1,4 +1,4 @@
-ubiquity (2.15.13) UNRELEASED; urgency=low
+ubiquity (2.15.13) saucy; urgency=low
 
   [ Aurélien Gâteau ]
   * [KDE] Add network manager wifi setup page
@@ -12,7 +12,7 @@ ubiquity (2.15.13) UNRELEASED; urgency=low
   [ Jeremy Bicha ]
   * Rename ubiquity-gtkui.desktop to ubiquity.desktop (LP: #1203223, #1203224)
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Jul 2013 13:55:44 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 01 Aug 2013 21:10:09 +0100
 
 ubiquity (2.15.12) saucy; urgency=low
 
