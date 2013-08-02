@@ -11,6 +11,7 @@ ubiquity (2.15.13) UNRELEASED; urgency=low
 
   [ Jeremy Bicha ]
   * Rename ubiquity-gtkui.desktop to ubiquity.desktop (LP: #1203223, #1203224)
+  * Add 'ubiquity' keyword to .desktop
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 31 Jul 2013 13:55:44 +0100
 
