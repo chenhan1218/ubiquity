@@ -1,7 +1,6 @@
 import os
-from collections import namedtuple
 from autopilot.testcase import AutopilotTestCase
-from autopilot.introspection import get_autopilot_proxy_object_for_process
+from autopilot.introspection import get_proxy_object_for_existing_process
 from testtools.matchers import Equals, Contains
 from autopilot.matchers import Eventually
 from autopilot.input import Mouse, Pointer
@@ -23,10 +22,10 @@ class DefaultInstallTests(AutopilotTestCase):
 
         :returns: The application proxy object.
         '''
-
-        Pr = namedtuple('Process', ['pid'])
-        my_process = Pr(int(os.environ['UBIQUITY_PID']))
-        return get_autopilot_proxy_object_for_process(my_process, None)
+        my_process = int(os.environ['UBIQUITY_PID'])
+        my_dbus = str(os.environ['DBUS_SESSION_BUS_ADDRESS'])
+        return get_proxy_object_for_existing_process(
+            pid=my_process, dbus_bus=my_dbus)
     
     def test_default_install(self):
         '''
