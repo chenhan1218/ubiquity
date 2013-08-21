@@ -470,7 +470,6 @@ if __name__ == '__main__':
     """
     UBIQUITY_GLADE=./gui/gtk \
     UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
-    UBIQUITY_SSO=1 \
     PYTHONPATH=. python3 tests/test_ubi_ubuntuone.py
     """
     #from test.support import run_unittest

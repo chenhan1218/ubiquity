@@ -2,6 +2,8 @@ ubiquity (2.15.14) UNRELEASED; urgency=low
 
   * Port autopilot tests to updated API for retrieving application proxy
     over custom dbus address.
+  * Enable Ubuntu One plugin by default, against production server.
+  * Drop obsolete --no-webcam option, webcam step dropped some time ago.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 08 Aug 2013 10:36:55 +0100
 
