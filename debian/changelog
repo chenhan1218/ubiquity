@@ -1,4 +1,4 @@
-ubiquity (2.15.14) UNRELEASED; urgency=low
+ubiquity (2.15.14) saucy; urgency=low
 
   * Port autopilot tests to updated API for retrieving application proxy
     over custom dbus address.
@@ -9,7 +9,7 @@ ubiquity (2.15.14) UNRELEASED; urgency=low
     partman-crypto 60ubuntu1, partman-ext3 77ubuntu1, partman-lvm 86,
     preseed 1.60ubuntu1.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 08 Aug 2013 10:36:55 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 21 Aug 2013 18:54:49 +0100
 
 ubiquity (2.15.13) saucy; urgency=low
 
