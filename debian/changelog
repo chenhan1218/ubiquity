@@ -4,6 +4,10 @@ ubiquity (2.15.14) UNRELEASED; urgency=low
     over custom dbus address.
   * Enable Ubuntu One plugin by default, against production server.
   * Drop obsolete --no-webcam option, webcam step dropped some time ago.
+  * Automatic update of included source packages: clock-setup
+    0.116ubuntu1, partman-auto-lvm 50ubuntu1, partman-btrfs 12ubuntu1,
+    partman-crypto 60ubuntu1, partman-ext3 77ubuntu1, partman-lvm 86,
+    preseed 1.60ubuntu1.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 08 Aug 2013 10:36:55 +0100
 
