@@ -1,3 +1,9 @@
+ubiquity (2.15.15) UNRELEASED; urgency=low
+
+  * Add Ubuntu GNOME background to ubiquity-dm (LP: #1204312)
+
+ -- Tim Lunn <tim@feathertop.org>  Tue, 27 Aug 2013 10:24:37 +1000
+
 ubiquity (2.15.14) saucy; urgency=low
 
   * Port autopilot tests to updated API for retrieving application proxy
