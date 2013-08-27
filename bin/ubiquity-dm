@@ -258,6 +258,7 @@ EndSection
 
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir
+        os.environ['XDG_SESSION_ID'] = 'c1'
         # Give ubiquity a UID and GID that it can drop privileges to.
         os.environ['PKEXEC_UID'] = str(self.uid)
         os.environ['GVFS_DISABLE_FUSE'] = '1'
@@ -386,7 +387,9 @@ EndSection
                             preexec_fn=self.drop_privileges))
                         os.environ['GTK_MODULES'] += os.pathsep + 'gail'
 
-            if osextras.find_on_path('metacity'):
+            if osextras.find_on_path('gnome-shell'):
+                wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
+            elif osextras.find_on_path('metacity'):
                 wm_cmd = ['metacity', '--sm-disable']
             elif osextras.find_on_path('xfwm4'):
                 wm_cmd = ['xfwm4', '--compositor=off']
@@ -427,13 +430,15 @@ EndSection
 
             if (os.path.exists('/usr/lib/ubiquity/panel') and
                     "xfwm4" not in wm_cmd):
-                if "openbox-lubuntu" not in wm_cmd and "openbox" not in wm_cmd:
+                if ("openbox-lubuntu" not in wm_cmd and
+                        "openbox" not in wm_cmd and
+                        "gnome-shell" not in wm_cmd):
                     extras.append(subprocess.Popen(
                         ['/usr/lib/ubiquity/panel'],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
 
-            if osextras.find_on_path('nm-applet'):
+            if osextras.find_on_path('nm-applet') and "gnome-shell" not in wm_cmd:
                 extras.append(subprocess.Popen(
                     ['nm-applet'],
                     stdin=null, stdout=logfile, stderr=logfile,

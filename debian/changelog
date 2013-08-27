@@ -1,6 +1,8 @@
 ubiquity (2.15.15) UNRELEASED; urgency=low
 
   * Add Ubuntu GNOME background to ubiquity-dm (LP: #1204312)
+  * Use gnome-shell as wm in ubiquity-dm on Ubuntu GNOME (LP: #1214732)
+  * export XDG_SESSION_ID to provide access to hijacked logind session
 
  -- Tim Lunn <tim@feathertop.org>  Tue, 27 Aug 2013 10:24:37 +1000
 
