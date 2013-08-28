@@ -551,6 +551,12 @@ class Install(plugin.InstallPlugin):
         uid = self._get_target_uid(target, target_user)
         keyring_file = self._get_casper_user_keyring_file_path()
         if os.path.exists(keyring_file) and uid:
+            encryptpath = os.path.join(target, 'home', target_user, '.ectryptfs')
+            try:
+                os.stat(encryptpath)
+            except OSError:
+                syslog.syslog("encrypted home directory not supported, skip copy")
+                return
             targetpath = os.path.join(
                 target, 'home', target_user, '.local', 'share', 'keyrings',
                 'login.keyring')

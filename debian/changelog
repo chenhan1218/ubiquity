@@ -9,6 +9,8 @@ ubiquity (2.15.15) UNRELEASED; urgency=low
   * Add gnome-shell as alternative window manager dependency on the
     ubiquity binary package.
   * Enable U1 page, if U1 is part of the image.
+  * Do not try to install U1 keyring into encrypted home directories, not
+    supported at the moment. (LP: #1217143)
 
  -- Tim Lunn <tim@feathertop.org>  Tue, 27 Aug 2013 10:24:37 +1000
 
