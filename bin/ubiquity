@@ -536,7 +536,7 @@ def main(oem_config):
     if options.ldtp:
         os.environ['UBIQUITY_LDTP'] = '1'
 
-    if not options.u1_sso:
+    if not options.u1_sso or not osextras.find_on_path('u1sdtool'):
         os.environ['UBIQUITY_NO_SSO'] = '1'
 
     if options.wireless:

@@ -8,6 +8,7 @@ ubiquity (2.15.15) UNRELEASED; urgency=low
   [ Dmitrijs Ledkovs ]
   * Add gnome-shell as alternative window manager dependency on the
     ubiquity binary package.
+  * Enable U1 page, if U1 is part of the image.
 
  -- Tim Lunn <tim@feathertop.org>  Tue, 27 Aug 2013 10:24:37 +1000
 
