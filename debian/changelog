@@ -1,3 +1,9 @@
+ubiquity (2.15.17) UNRELEASED; urgency=low
+
+  * Disable Ubuntu One plugin for Ubuntu GNOME too (LP: #1218175)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 02 Sep 2013 13:50:25 -0400
+
 ubiquity (2.15.16) saucy; urgency=low
 
   * Disable ubuntu one plugin on Edubuntu flavour.
