@@ -1,3 +1,9 @@
+ubiquity (2.15.16) UNRELEASED; urgency=low
+
+  * Disable ubuntu one plugin on Edubuntu flavour.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 02 Sep 2013 13:28:52 +0100
+
 ubiquity (2.15.15) saucy; urgency=low
 
   [ Tim Lunn ]
