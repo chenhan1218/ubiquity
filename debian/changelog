@@ -1,4 +1,4 @@
-ubiquity (2.15.17ubuntu2) UNRELEASED; urgency=low
+ubiquity (2.15.17) UNRELEASED; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Split ubuntuone page into a separate package and seed/unseed it as
