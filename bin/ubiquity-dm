@@ -360,8 +360,9 @@ EndSection
                     gsettings_keys.append(
                         ('org.gnome.settings-daemon.plugins.background',
                          'active', 'false'))
-                    gsettings_keys.remove(('org.gnome.desktop.wm.preferences',
-                                           'num-workspaces', '1'))
+                    gsettings_keys.remove(
+                        ('org.gnome.desktop.wm.preferences', 'num-workspaces',
+                         '1'))
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
