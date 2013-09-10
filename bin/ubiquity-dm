@@ -357,7 +357,11 @@ EndSection
                 ]
 
                 if osextras.find_on_path('gnome-shell'):
-                    gsettings_keys.append(('org.gnome.settings-daemon.plugins.background', 'active', 'false'))
+                    gsettings_keys.append(
+                        ('org.gnome.settings-daemon.plugins.background',
+                         'active', 'false'))
+                    gsettings_keys.remove(('org.gnome.desktop.wm.preferences',
+                                           'num-workspaces', '1'))
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(

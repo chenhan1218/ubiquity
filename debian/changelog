@@ -1,4 +1,4 @@
-ubiquity (2.15.17ubuntu1) UNRELEASED; urgency=low
+ubiquity (2.15.17ubuntu2) UNRELEASED; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Split ubuntuone page into a separate package and seed/unseed it as
@@ -8,8 +8,9 @@ ubiquity (2.15.17ubuntu1) UNRELEASED; urgency=low
   * Update default Ubuntu GNOME Background 
   * disable g-s-d background plugin for Ubuntu GNOME
   * set gsettings keys before launch g-s-d, helps with clunky transitions
+  * Don't set num-workspaces as this carries through the live session
 
- -- Tim Lunn <tim@feathertop.org>  Wed, 11 Sep 2013 09:08:49 +1000
+ -- Tim Lunn <tim@feathertop.org>  Wed, 11 Sep 2013 09:34:43 +1000
 
 ubiquity (2.15.16) saucy; urgency=low
 
