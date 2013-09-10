@@ -4,7 +4,10 @@ ubiquity (2.15.17) UNRELEASED; urgency=low
   * Split ubuntuone page into a separate package and seed/unseed it as
     appropriate. (LP: #1218175)
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 03 Sep 2013 19:29:14 +0100
+  [ Tim Lunn ]
+  * Update default Ubuntu GNOME Background 
+
+ -- Tim Lunn <tim@feathertop.org>  Wed, 11 Sep 2013 07:51:39 +1000
 
 ubiquity (2.15.16) saucy; urgency=low
 
