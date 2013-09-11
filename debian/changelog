@@ -3,6 +3,10 @@ ubiquity (2.15.17) UNRELEASED; urgency=low
   [ Dmitrijs Ledkovs ]
   * Split ubuntuone page into a separate package and seed/unseed it as
     appropriate. (LP: #1218175)
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu17, clock-setup 0.117ubuntu1, flash-kernel
+    3.0~rc.4ubuntu39, partconf 1.43, partman-jfs 41, partman-lvm 87,
+    partman-newworld 31, partman-xfs 53.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 03 Sep 2013 19:29:14 +0100
 
