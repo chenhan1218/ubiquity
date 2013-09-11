@@ -1,4 +1,4 @@
-ubiquity (2.15.17) UNRELEASED; urgency=low
+ubiquity (2.15.17) saucy; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Split ubuntuone page into a separate package and seed/unseed it as
@@ -17,7 +17,8 @@ ubiquity (2.15.17) UNRELEASED; urgency=low
   * set gsettings keys before launch g-s-d, helps with clunky transitions
   * Don't set num-workspaces as this carries through the live session
   
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 03 Sep 2013 19:29:14 +0100
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 11 Sep 2013 10:18:46 +0100
 
 ubiquity (2.15.16) saucy; urgency=low
 
