@@ -310,7 +310,7 @@ EndSection
                     'lubuntu-default-wallpaper.png',
                     '/usr/share/backgrounds/ubuntukylin-default-settings.jpg',
                     '/usr/share/backgrounds/warty-final-ubuntu.png',
-                    '/usr/share/themes/Adwaita/backgrounds/adwaita-timed.xml'):
+                    '/usr/share/backgrounds/gnome/FootFall.png'):
                 exists = os.access(background, os.R_OK)
                 if exists:
                     background_image = background
@@ -356,6 +356,20 @@ EndSection
                      '1'),
                 ]
 
+                if osextras.find_on_path('gnome-shell'):
+                    gsettings_keys.append(
+                        ('org.gnome.settings-daemon.plugins.background',
+                         'active', 'false'))
+                    gsettings_keys.remove(
+                        ('org.gnome.desktop.wm.preferences', 'num-workspaces',
+                         '1'))
+
+                for gs_schema, gs_key, gs_value in gsettings_keys:
+                    subprocess.call(
+                        ['gsettings', 'set', gs_schema, gs_key, gs_value],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges)
+
                 gsd = '/usr/lib/gnome-settings-daemon/gnome-settings-daemon'
                 if osextras.find_on_path(gsd):
                     extras.append(subprocess.Popen(
@@ -365,12 +379,6 @@ EndSection
                 elif background_image and osextras.find_on_path('feh'):
                     subprocess.call(
                         ['feh', '--bg-fill', background_image],
-                        stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges)
-
-                for gs_schema, gs_key, gs_value in gsettings_keys:
-                    subprocess.call(
-                        ['gsettings', 'set', gs_schema, gs_key, gs_value],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
 

@@ -11,6 +11,12 @@ ubiquity (2.15.17) UNRELEASED; urgency=low
   [ Jeremy Bicha ]
   * Add 'ubiquity' keyword to .desktop
 
+  [ Tim Lunn ]
+  * Update default Ubuntu GNOME Background 
+  * disable g-s-d background plugin for Ubuntu GNOME
+  * set gsettings keys before launch g-s-d, helps with clunky transitions
+  * Don't set num-workspaces as this carries through the live session
+  
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 03 Sep 2013 19:29:14 +0100
 
 ubiquity (2.15.16) saucy; urgency=low
