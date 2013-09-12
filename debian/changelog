@@ -1,3 +1,9 @@
+ubiquity (2.15.18) UNRELEASED; urgency=low
+
+  * debian/tests/control: Add ubiquity-plugin-ubuntuone to Depends.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 12 Sep 2013 01:11:49 +0100
+
 ubiquity (2.15.17) saucy; urgency=low
 
   [ Dmitrijs Ledkovs ]
