@@ -47,6 +47,8 @@ d-i/manifest.old
 d-i/source
 d-i/templates
 d-i/udeb-control
+data/Makefile
+data/Makefile.in
 desktop/Makefile
 desktop/*.desktop
 po/.intltool-merge-cache
