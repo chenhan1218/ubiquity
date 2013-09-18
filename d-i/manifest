@@ -26,7 +26,6 @@ partman-jfs 41
 partman-lvm 87
 partman-newworld 31
 partman-partitioning 89ubuntu2
-partman-reiserfs 55
 partman-target 83ubuntu1
 partman-uboot 5
 partman-xfs 53

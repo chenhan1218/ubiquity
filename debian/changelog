@@ -1,3 +1,9 @@
+ubiquity (2.15.19) UNRELEASED; urgency=low
+
+  * Remove ReiserFS support, following Debian's removal of partman-reiserfs.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Sep 2013 10:14:28 +0100
+
 ubiquity (2.15.18) saucy; urgency=low
 
   * debian/tests/control: Add ubiquity-plugin-ubuntuone to Depends.

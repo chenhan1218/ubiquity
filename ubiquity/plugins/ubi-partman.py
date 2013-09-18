@@ -1135,7 +1135,7 @@ class PageGtk(PageBase):
         # point makes no sense. TODO cjwatson 2007-01-31: Unfortunately we
         # have to hardcode the list of known filesystems here.
         known_filesystems = ('ext4', 'ext3', 'ext2', 'filesystem',
-                             'btrfs', 'reiserfs', 'jfs', 'xfs',
+                             'btrfs', 'jfs', 'xfs',
                              'fat16', 'fat32', 'ntfs', 'uboot')
         show = bool(iterator and model[iterator][0] in known_filesystems)
         self.partition_mount_combo.set_visible(show)
