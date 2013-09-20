@@ -1,6 +1,10 @@
 ubiquity (2.15.19) UNRELEASED; urgency=low
 
+  [ Colin Watson ]
   * Remove ReiserFS support, following Debian's removal of partman-reiserfs.
+
+  [ Stéphane Graber ]
+  * Change default wallpaper for Xubuntu. (LP: #1228098)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 18 Sep 2013 10:14:28 +0100
 
