@@ -1,4 +1,4 @@
-ubiquity (2.15.20) UNRELEASED; urgency=low
+ubiquity (2.15.20) saucy; urgency=low
 
   [ Colin Watson ]
   * (Build-)depend on python3-icu rather than transitional python3-pyicu.
@@ -19,7 +19,7 @@ ubiquity (2.15.20) UNRELEASED; urgency=low
   [ Lars Uebernickel ]
   * Force ubiquity/panel to 28 pixels height. (LP: #1207890)
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 24 Sep 2013 10:57:15 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 25 Sep 2013 13:36:05 +0100
 
 ubiquity (2.15.19) saucy; urgency=low
 
