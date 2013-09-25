@@ -320,6 +320,7 @@ main(int argc, char* argv[]) {
 	ido_init ();
 	screen = gdk_screen_get_default();
 	win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_default_size (GTK_WINDOW (win), -1, 28);
 	g_signal_connect(win, "realize", G_CALLBACK(on_realize), NULL);
 	g_signal_connect(screen, "monitors-changed", G_CALLBACK(on_screen_change), win);
 	g_signal_connect(screen, "size-changed", G_CALLBACK(on_screen_change), win);
