@@ -6,6 +6,14 @@ ubiquity (2.15.20) UNRELEASED; urgency=low
   [ Howard Chan ]
   * Fix the new Ubuntu Studio wallpaper backdrop for ubiquity. (LP: #1229651)
 
+  [ Dmitrijs Ledkovs ]
+  * Add dependencies on python3-pam.
+  * Establish a PAM session with logind "greeter" mode in ubiquity-dm,
+    resolving the following bugs:
+    - WiFi page not working (LP: #1178638) (LP: #1220193)
+    - Sound system / a11y not available (LP: #1229416)
+    - and maybe others.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 24 Sep 2013 10:57:15 +0100
 
 ubiquity (2.15.19) saucy; urgency=low
