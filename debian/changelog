@@ -13,6 +13,8 @@ ubiquity (2.15.20) UNRELEASED; urgency=low
     - WiFi page not working (LP: #1178638) (LP: #1220193)
     - Sound system / a11y not available (LP: #1229416)
     - and maybe others.
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu41.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 24 Sep 2013 10:57:15 +0100
 
