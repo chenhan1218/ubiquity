@@ -3,6 +3,7 @@
 from __future__ import print_function
 
 import errno
+import getpass
 import grp
 import imp
 import os
@@ -13,6 +14,7 @@ import sys
 import time
 
 import debconf
+import PAM
 
 sys.path.insert(0, '/usr/lib/ubiquity')
 
@@ -21,6 +23,23 @@ from ubiquity.casper import get_casper
 from ubiquity.debconfcommunicator import DebconfCommunicator
 import ubiquity.frontend
 from ubiquity.misc import create_bool, utf8
+
+
+def _pam_conv(auth, query_list, userData):
+    resp = []
+    for query, type in query_list:
+        if type == PAM.PAM_PROMPT_ECHO_ON:
+            val = input(query)
+            resp.append((val, 0))
+        elif type == PAM.PAM_PROMPT_ECHO_OFF:
+            val = getpass.getpass(query)
+            resp.append((val, 0))
+        elif type in (PAM.PAM_PROMPT_ERROR_MSG, PAM.PAM_PROMPT_TEXT_INFO):
+            print(query)
+            resp.append(('', 0))
+        else:
+            return None
+    return resp
 
 
 def set_locale():
@@ -69,6 +88,7 @@ class MissingProgramError(EnvironmentError):
 
 class DM:
     def __init__(self, vt, display, default_username):
+        self.auth = PAM.pam()
         self.vt = vt
         self.display = display
         self.server_started = False
@@ -150,6 +170,28 @@ class DM:
                     subprocess.call(
                         hook, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
+
+    def pam_open_session(self):
+            self.auth.start('su')
+            self.auth.set_item(PAM.PAM_USER, self.username)
+            self.auth.set_item(PAM.PAM_CONV, _pam_conv)
+            self.auth.putenv('XDG_SESSION_CLASS=greeter')
+            self.auth.putenv('XDG_SEAT=seat0')
+            # at the time pam_open_session is called self.vt is the
+            # correct vt: either the one originally passed as cmd line
+            # arg or as determined by active_vt()
+            #
+            # self.vt is of the form str("vt10")
+            self.auth.putenv('XDG_VTNR=%s' % self.vt[2:])
+            self.auth.authenticate()
+            self.auth.open_session()
+            os.environ.update(
+                [i.split('=', 1) for i in self.auth.getenvlist()])
+
+    def pam_close_session(self):
+        if self.auth:
+            self.auth.close_session()
+            self.auth = None
 
     def run(self, *program):
         # Extract the program basename to see if we are in oem-config or
@@ -258,12 +300,13 @@ EndSection
 
         os.environ['DISPLAY'] = self.display
         os.environ['HOME'] = self.homedir
-        os.environ['XDG_SESSION_ID'] = 'c1'
         # Give ubiquity a UID and GID that it can drop privileges to.
         os.environ['PKEXEC_UID'] = str(self.uid)
         os.environ['GVFS_DISABLE_FUSE'] = '1'
         # Overlay scrollbars are now a gtk module
         os.environ['GTK_MODULES'] = 'overlay-scrollbar'
+
+        self.pam_open_session()
 
         # run simple, custom scripts during install time
         if program_basename == 'ubiquity':
@@ -634,4 +677,5 @@ except XStartupError:
 ret = dm.run(*sys.argv[4:])
 if ret == 0:
     set_locale()
+dm.pam_close_session()
 sys.exit(ret)
