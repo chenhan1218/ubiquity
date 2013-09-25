@@ -27,8 +27,7 @@ from ubiquity.misc import create_bool, utf8
 
 def _pam_conv(auth, query_list, userData):
     resp = []
-    for i in range(len(query_list)):
-        query, type = query_list[i]
+    for query, type in query_list:
         if type == PAM.PAM_PROMPT_ECHO_ON:
             val = input(query)
             resp.append((val, 0))
@@ -178,7 +177,12 @@ class DM:
             self.auth.set_item(PAM.PAM_CONV, _pam_conv)
             self.auth.putenv('XDG_SESSION_CLASS=greeter')
             self.auth.putenv('XDG_SEAT=seat0')
-            self.auth.putenv('XDG_VTNR=7')
+            # at the time pam_open_session is called self.vt is the
+            # correct vt: either the one originally passed as cmd line
+            # arg or as determined by active_vt()
+            #
+            # self.vt is of the form str("vt10")
+            self.auth.putenv('XDG_VTNR=%s' % self.vt[2:])
             self.auth.authenticate()
             self.auth.open_session()
             os.environ.update(
