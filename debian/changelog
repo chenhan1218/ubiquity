@@ -1,3 +1,10 @@
+ubiquity (2.15.21) UNRELEASED; urgency=low
+
+  [ Aurélien Gâteau ]
+  * KDE: Hardcode the KDE platform plugin to get Oxygen palette
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 27 Sep 2013 14:11:02 +0100
+
 ubiquity (2.15.20) saucy; urgency=low
 
   [ Colin Watson ]
