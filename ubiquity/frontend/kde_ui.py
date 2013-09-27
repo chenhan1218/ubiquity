@@ -153,6 +153,11 @@ class Wizard(BaseFrontend):
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
 
+        # Hardcode the KDE platform plugin to get Oxygen palette. Without this,
+        # Ubiquity uses the default Windows-95-like palette when running as a
+        # DM.
+        os.environ["QT_PLATFORM_PLUGIN"] = "kde"
+
         self.app = QtGui.QApplication([])
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
         # DM. This causes some icons to be missing. Hardcode the theme name to
