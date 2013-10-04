@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-04-30 09:17-0700\n"
-"PO-Revision-Date: 2012-09-26 12:07+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"PO-Revision-Date: 2013-09-11 15:11+0000\n"
+"Last-Translator: Sigurpáll Sigurðsson <Icekhaos@hotmail.com>\n"
 "Language-Team: Icelandic <debian-user-icelandic@lists.debian.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
@@ -42,7 +42,7 @@ msgstr "Uppsetning"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Setja upp (OEM-hamur, fyrir framleiðendur eingöngu)"
+msgstr "Setja upp (OEM, aðeins fyrir framleiðendur)"
 
 #. Type: text
 #. Description
@@ -66,7 +66,7 @@ msgid ""
 "from this ${MEDIUM}."
 msgstr ""
 "Þú getur prófað ${RELEASE} án nokkurra breytinga á þinni tölvu, beint af "
-"þessum $(MEDIUM)."
+"þessum ${MEDIUM}."
 
 #. Type: text
 #. Description
@@ -226,6 +226,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Ef fleyri en einn notar þessa tölvu getur þú bætt við notendum "
+"eftir uppsetninguna.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -252,6 +254,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Skrifaðu inn sama lykilorðið tvisvar, svo við getum athugað um "
+"stafsettningarvillur.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -413,7 +417,7 @@ msgstr "Skrár (${SIZE})"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Hvar viltu setja Kubuntu upp?"
 
 #. Type: text
 #. Description
@@ -433,13 +437,13 @@ msgstr "Setja _upp núna"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Quit the installation?"
-msgstr "Hætta við uppsetningu?"
+msgstr "Hætta uppsetningu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Do you really want to quit the installation now?"
-msgstr "Viltu virkilega hætta við uppsetninguna núna?"
+msgstr "Ertu viss um að þú viljir hætta uppsetningu?"
 
 #. Type: text
 #. Description
@@ -476,7 +480,7 @@ msgstr "Halda áfram án ræsistjóra."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Þú munt þurfa að setja upp ræsistjórfa handvikt til þess að ræsa $(RELEASE)."
+"Þú munt þurfa að setja upp ræsistjórfa handvikt til þess að ræsa ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -555,35 +559,35 @@ msgstr ""
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Mikil Blæbrigðamunur"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Skjá Lesari"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_Flýtilykar lyklaborðs"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Skjá lyklaborð"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "New Partition Table..."
-msgstr "Ný deildartafla..."
+msgstr "Ný disksneiðartafla..."
 
 #. Type: text
 #. Description
@@ -648,7 +652,7 @@ msgstr "Tengipunktur"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:94001
 msgid "Format?"
-msgstr "Viltu forsníða?"
+msgstr "Forsníða?"
 
 #. Type: text
 #. Description
@@ -670,7 +674,7 @@ msgstr "Notað"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:97001
 msgid "System"
-msgstr ""
+msgstr "Kerfið"
 
 #. Type: text
 #. Description
@@ -726,13 +730,13 @@ msgstr "Röklegur"
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Edit partition"
-msgstr "Breyta sneiðingu"
+msgstr "Breyta disksneið"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
 msgid "Edit a partition"
-msgstr "Breyta sneið"
+msgstr "Breyta disksneið"
 
 #. Type: text
 #. Description
@@ -791,14 +795,14 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Uppsetningu er lokið. Nú þarf að endurræsa tölvuna og þá getur þú notað nýja "
-"stýrikerfið þitt."
+"Uppsetningu er lokið. Þú þarf að endurræsa tölvuna til þess að nota nýju "
+"uppsetninguna."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Verifying the installation configuration..."
-msgstr "Athuga með stillingar uppsetningarinnar..."
+msgstr "Staðfesti stillingar uppsetningarinnar..."
 
 #. Type: title
 #. Description
@@ -810,7 +814,7 @@ msgstr "Set upp kerfi"
 #. Description
 #: ../ubiquity.templates:118001
 msgid "Finding the distribution to copy..."
-msgstr "Leita að dreifingunni sem á að afrita..."
+msgstr "Leita að dreifingu til afritunar..."
 
 #. Type: text
 #. Description
@@ -851,7 +855,7 @@ msgstr "Uppsetning mistókst"
 #: ../ubiquity.templates:122001 ../ubiquity.templates:123001
 #: ../ubiquity.templates:124001 ../ubiquity.templates:125001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr "Villa kom upp í uppsetningu við það að afrita skrár á harða diskinn:"
+msgstr "Uppsetningaforritið rakst á villu við afritun gagna á diskinn:"
 
 #. Type: error
 #. Description
@@ -861,8 +865,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Þetta er vegna þess að það er ekki nægt pláss á diskinum til að að setja upp "
-"deild. Keyrðu uppsetninguna aftur og veldu stærri deild til að setja upp á."
+"Þetta er vegna ónægs diskapláss fyrir uppsetninguna til að ljúka á "
+"tilgrenindri disksneið. Vinsamlegast keyrðu uppsetningaforritið aftur og "
+"veldu stærri disksneið til að setja upp á."
 
 #. Type: error
 #. Description
@@ -872,10 +877,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Þetta er oft vegna gallaðs geisla- eða mynddisks eða drifs. Það að þrífa "
-"geisla- eða mynddiskinn, brenna geisla- eða mynddiskinn við minni hraða til "
-"að forðast villur, eða að þrífa linsuna í diskadrifinu (oft er hægt er að "
-"kaupa vörur til að þrífa linsuna í raftækjaverslun) gæti hjálpað."
+"Þetta er oft vegna röskunar CD/DVD-geisladisks eða drifs. Það gæti hjálpað "
+"að hreinsa geisladiskinn, endurskrifa hann á minni hraða, eða að hreinsa "
+"drifslinsuna (hreinsunarsett eru oft fáanleg í raftækjaverslun)."
 
 #. Type: error
 #. Description
@@ -885,9 +889,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Þetta er oft vegna gallaðs harða disks. Það að gá hvort harði diskurinn sé "
-"gamall, hvort þurfti að skipta um hann eða hvort það þurfti að færa diskinn "
-"á einhvern kaldari stað gæti hjálpað."
+"Þetta er oft vegna röskunar disks. Það gæti hjálpað að athuga hvort "
+"diskurinn sé gamall og þörf er á skiptingu, eða að færa tölvuna í kaldara "
+"umhverfi."
 
 #. Type: error
 #. Description
@@ -905,20 +909,17 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Þetta er oft vegna gallaðs geisla- eða mynddisks, drifs eða harða disks. Það "
-"að þrífa geisla- eða mynddiskinn, brenna geisla- eða mynddiskinn við minni "
-"hraða til að forðast villur, eða að þrífa linsuna í diskadrifinu (oft er "
-"hægt er að kaupa vörur til að þrífa linsuna í raftækjaverslun) gæti hjálpað. "
-"Einnig gæti hjálpað að gá hvort harði diskurinn sé gamall, hvort þurfti að "
-"skipta um hann eða hvort færa þurfi diskinn á kaldari stað."
+"Þetta er oft vegna röskunar á CD/DVD-geisladisks eða harðdisks. Það gæti "
+"hjálpað að hreinsa geisladiskinn, endurskrifa hann á minni hraða, hreinsa "
+"drifslensuna (hreinsunarsett eru oft fáanleg í raftækjaverslun), athuga "
+"hvort harðdiskurinn sé gamal og þörf er á skiptingu, eða að færa tölvuna í "
+"kaldara umhverfi."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:126001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
-"Eftirfarandi skrá passaði ekki við upprunalega afritið á geisla- eða "
-"mynddiskinum:"
+msgstr "Eftirfarandi skrá passar ekki við grunnafrit þess á CD/DVD-disknum:"
 
 #. Type: text
 #. Description
@@ -1002,31 +1003,31 @@ msgstr "Endurheimti áður uppsetta pakka..."
 #. Description
 #: ../ubiquity.templates:140001
 msgid "Installing additional packages..."
-msgstr "Set upp viðbótarpakka..."
+msgstr "Set upp aukapakka..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Checking for packages to install..."
-msgstr "Athuga pakka fyrir uppsetningu..."
+msgstr "Athugar eftir pökkum til uppsetningar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Removing extra packages..."
-msgstr "Fjarlægi viðbótarpakka..."
+msgstr "Fjarlægi aukapakka..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Checking for packages to remove..."
-msgstr "Leita að pökkum sem á að fjarlægja..."
+msgstr "Athuga eftir pökkum til að fjarlægja..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Downloading packages (${TIME} remaining)..."
-msgstr "Sæki pakka ($(TIME) eftir)..."
+msgstr "Sæki pakka (${TIME} eftir)..."
 
 #. Type: text
 #. Description
@@ -1038,19 +1039,19 @@ msgstr "Sæki pakkalista..."
 #. Description
 #: ../ubiquity.templates:146001
 msgid "Downloading package lists (${TIME} remaining)..."
-msgstr "Sæki pakkalista ($(TIME) eftir)..."
+msgstr "Sæki pakkalista (${TIME} eftir)..."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:148001
 msgid "Error installing ${PACKAGE}"
-msgstr "Villa kom upp við uppsetningu á ${PACKAGE}"
+msgstr "Villa við uppsetningu ${PACKAGE}"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error removing ${PACKAGE}"
-msgstr "Villa kom upp við að fjarlægja ${PACKAGE}"
+msgstr "Villa við að fjarlægja ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1119,8 +1120,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"Villa kom upp við afritun á netstillingum. Uppsetningin mun halda áfram, en "
-"setja verður aftur upp allar stillingar á neti á nýja kerfinu."
+"Villa kom upp við afritun netstillinga. Uppsetningin mun halda áfram, en "
+"netstillingarnar verður að setja upp aftur á uppsetta kerfinu."
 
 #. Type: error
 #. Description
@@ -1136,6 +1137,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"Villa kom upp við afritun bluetooth-stillinga. Uppsetningin mun halda áfram, "
+"en bluetooth-stillingar verður að setja upp aftur á uppsetta kerfinu."
 
 #. Type: error
 #. Description
@@ -1177,7 +1180,7 @@ msgstr "Hleð niður tungumálapökkum (${TIME} eftir)..."
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Failed to unmount partitions"
-msgstr "Ekki tókst að aftengjast ákveðnum hlutum disksins"
+msgstr "Gat ekki aftengt disksneiðar"
 
 #. Type: boolean
 #. Description
@@ -1206,7 +1209,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Do you want to return to the partitioner?"
-msgstr "Viltu fara aftur yfir í sneiðastjórann?"
+msgstr "Viltu fara aftur yfir í disksneiðastjórann?"
 
 #. Type: boolean
 #. Description
@@ -1225,14 +1228,14 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
-"Ef þú ferð ekki aftur í sneiðarstjórann og stækkar stærð þessara sneiða þá "
-"gæti uppsettningarferlið farið úrskeiðis."
+"Ef þú ferð ekki aftur í disksneiðastjórann og stækkar stærð þessara "
+"disksneiða þá gæti uppsetningarferlið farið úrskeiðis."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:177001
 msgid "System Configuration"
-msgstr "Stillingar kerfis"
+msgstr "Kerfisstillingar"
 
 #. Type: text
 #. Description
@@ -1342,22 +1345,21 @@ msgstr "Villa við uppfærslu á uppsetningaforriti"
 #. Description
 #: ../ubiquity.templates:196001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
-"Uppsetningarforritið rakst á villu þegar það reyndi að uppfæra sjálft sig:"
+msgstr "Uppsetningarforritið rakst á villu þegar það reyndi að uppfæra sig:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:197001
 msgid "USB disk"
-msgstr "USB diskur"
+msgstr "USB drifi"
 
 #. Type: text
 #. Description
 #. Translated acronym for Compact Disc.
 #: ../ubiquity.templates:198001
 msgid "CD"
-msgstr "CD geisladiskur"
+msgstr "Geisladisk"
 
 #. Type: text
 #. Description
@@ -1458,7 +1460,7 @@ msgstr "Tengjast þessu neti"
 #. Description
 #: ../ubiquity.templates:214001
 msgid "Select drive:"
-msgstr "Veldu disk:"
+msgstr "Veldu drif:"
 
 #. Type: text
 #. Description
@@ -1480,8 +1482,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
-"partitioning tool</a> for more control</small>"
+"<small>%d smærri disksneiðar eru faldar, notaðu <a href=\"\">Ítarleg "
+"disksneiðingar tól</a> fyrir frekari stillingar</small>"
 
 #. Type: text
 #. Description
@@ -1490,6 +1492,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 minni disksneið er falin, notaðu <a href=\"\">Ítarleg "
+"disksneiðingar tól</a> fyrir frekari stillingar</small>"
 
 #. Type: text
 #. Description
@@ -1554,6 +1558,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} notar forrit frá þriðja aðila til að spila Flash, MP3 og annað "
+"margmiðlunarefni, og til að virka með sumum skjá og wi-fi vélbúnaði. Sumt af "
+"þessum hugbúnaði er rétthafabundinn. Hugbúnaðurinn er bundinn ákvæðum í "
+"leyfis-samningum sem filgja með skjölun þeirra."
 
 #. Type: text
 #. Description
@@ -1562,6 +1570,8 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"Fluendo MP3 viðbótin inniheldur MPEG Layer-3 hljóð afkóðunar tækni með leyfi "
+"frá Fraunhofer IIS og Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1697,7 +1707,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:247001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr "Eyða ${CURDISTRO} og enduruppsetja"
+msgstr "Eyða ${CURDISTRO} og setja upp aftur"
 
 #. Type: text
 #. Description
@@ -1707,7 +1717,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Warning:</span> Þetta mun eyða öllum "
+"<span foreground=\"darkred\">Viðvörun:</span> Þetta mun eyða öllum "
 "${CURDISTRO} forritum, skjölum, myndum, tónlist og öllum öðrum skrám."
 
 #. Type: text
@@ -1757,7 +1767,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Aðvörun:</span> Þetta mun eyða öllum skrám á "
+"<span foreground=\"darkred\">Viðvörun:</span> Þetta mun eyða öllum skrám á "
 "disknum."
 
 #. Type: text
@@ -1776,7 +1786,7 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Warning:</span> Þetta mun eyða öllum forritum, "
+"<span foreground=\"darkred\">Viðvörun:</span> Þetta mun eyða öllum forritum, "
 "skjölum, myndum, tónlist og öllum öðrum skrám í bæði ${OS} og ${CURDISTRO}."
 
 #. Type: text
@@ -1784,7 +1794,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:252001
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Enduruppsetja ${CURDISTRO}"
+msgstr "Setja ${CURDISTRO} upp aftur"
 
 #. Type: text
 #. Description
@@ -1794,7 +1804,7 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Warning:</span> Þetta mun eyða öllum forritum, "
+"<span foreground=\"darkred\">Viðvörun:</span> Þetta mun eyða öllum forritum, "
 "skjölum, myndum, tónlist og öllum öðrum skrám í öllum stýrikerfum."
 
 #. Type: text
@@ -1820,7 +1830,7 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
-"Þessi tölva er þegar með ${OS} og ${OS2} kerfum. Hvað myndirðu vilja gera?"
+"Þessi tölva er nú þegar með ${OS} og ${OS2} uppsettum. Hvað viltu gera?"
 
 #. Type: text
 #. Description
@@ -1856,19 +1866,19 @@ msgstr "Eftir:"
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Dulkóða nýju Ubuntu uppsetninguna til að auka öryggi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Þú munt velja öryggis lykil í næsta skrefi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Nota LVM með nýju Ubuntu uppsetningunni"
 
 #. Type: text
 #. Description
@@ -1877,18 +1887,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Þetta mun setja upp Rökræna Flæmi Stýringu. Það geriri þér kleift að taka "
+"skyndiyndir og auðveldar að breyta stærð á disksneiðum."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Staðfesta öryggis lykil:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Veldu öryggis lykil:"
 
 #. Type: text
 #. Description
@@ -1897,12 +1909,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Disk dulkóðun verndar skrárnar þínar ef þú tapar tölvunni. Það krefst þess "
+"að þú skráir inn öryggis lykil í hvert skypti sem tölvan kveikir á sér."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Allar skrár utan Ubuntu verða ekki dulkóðaðar"
 
 #. Type: text
 #. Description
@@ -1912,30 +1926,33 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Viðvörun:</span> Ef þú glatar öryggis lyklinum, "
+"þá eru öll gögn glötuð. Ef þú þarft þess, skrifaðu niður lykilinn og haltu "
+"honum öruggum annarstaðar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270001
 msgid "For more security:"
-msgstr ""
+msgstr "Fyrir meira öryggi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Skrifa yfir tómt diskpláss"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Uppsetningin gæti tekið mikið lengri tíma."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:273001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
@@ -1947,19 +1964,19 @@ msgstr "Sýndardiskar (volume groups):"
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Dulkóðunarstillingar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Veraldleg flæmi:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Dulkóða þessa disksneið (LUKS)"
 
 #. Type: text
 #. Description
@@ -1974,18 +1991,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Röklegur Flæmi Stjóri (LVM) gerir Ubuntu kleift að stjórna mörgum "
+"veraldlegum flæmum sem einu flæmi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:281001
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Röklegur Flæmi Stjóri (LVM)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Dulkóðunarstillingar..."
 
 #. Type: title
 #. Description
@@ -2050,15 +2069,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
-
-#~ msgid ""
-#~ "The installation process may resize or erase partitions on your hard "
-#~ "disk. Be sure to <b>take a full backup of any valuable data</b> before "
-#~ "running this program."
-#~ msgstr ""
-#~ "Uppsetningaferillinn gæti breytt stærð eða eytt disksneiðum á disk þínum. "
-#~ "Vertu viss um að <b>gera heilt afrit af öllum verðmætum gögnum</b> áður "
-#~ "en þetta forrit er keyrt."
-
-#~ msgid "Warning"
-#~ msgstr "Aðvörun"

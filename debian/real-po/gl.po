@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-04-30 09:17-0700\n"
-"PO-Revision-Date: 2013-03-13 21:04+0000\n"
+"PO-Revision-Date: 2013-07-09 15:33+0000\n"
 "Last-Translator: Xosé <Unknown>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:24+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
@@ -193,7 +193,7 @@ msgstr "Ou escolla unha imaxe existente:"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Take Photo"
-msgstr "Capturar foto"
+msgstr "Tomar foto"
 
 #. Type: text
 #. Description
@@ -226,8 +226,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
-"&lt;small&gt;Se este computador o usará máis dunha persoa, pode "
-"configurarlle múltiplas contas despois da instalación.&lt;/small&gt;"
+"&lt;small&gt;Se este computador vai ser usado por máis dunha persoa, pode "
+"configurar múltiples contas despois da instalación.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -239,7 +239,7 @@ msgstr "Ten que comezar cunha minúscula."
 #. Description
 #: ../ubiquity.templates:33001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr "Só pode contar minúsculas, díxitos, guións e guións baixos."
+msgstr "Só pode conter minúsculas, díxitos, guións e guións baixos."
 
 #. Type: text
 #. Description
@@ -255,7 +255,7 @@ msgid ""
 "typing errors.&lt;/small&gt;"
 msgstr ""
 "&lt;small&gt;Escriba o mesmo contrasinal dúas veces, de modo que poida "
-"comprobar que non contén erros de tecleado.&lt;/small&gt;"
+"comprobar que non contén erros de teclado.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -285,13 +285,13 @@ msgstr "O nome deste equipo:"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "The name it uses when it talks to other computers."
-msgstr "O nome que usa cando interactúa con outros equipos."
+msgstr "O nome que usará cando interactúe con outros equipos."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Must be between 1 and 63 characters long."
-msgstr "Ten que ter entre 1 e 63 caracteres."
+msgstr "Ten que ter entre 1 e 63 carácteres."
 
 #. Type: text
 #. Description
@@ -359,13 +359,13 @@ msgstr "Contrasinal forte"
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Log in automatically"
-msgstr "Iniciar a sesión automaticamente"
+msgstr "Iniciar sesión automaticamente"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Require my password to log in"
-msgstr "Requirir o meu contrasinal para iniciar a sesión"
+msgstr "Requirir o meu contrasinal para iniciar sesión"
 
 #. Type: text
 #. Description
@@ -380,8 +380,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
-"Esta imaxe asociarase co seu nome de usuario e mostrarase ao seu carón a "
-"veces."
+"Esta imaxe asociarase co seu nome de usuario e ás veces mostrarase ao seu "
+"carón."
 
 #. Type: text
 #. Description
@@ -440,7 +440,7 @@ msgstr "_Instalar agora"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Quit the installation?"
-msgstr "Saír da instalación?"
+msgstr "Quere saír da instalación?"
 
 #. Type: text
 #. Description
@@ -452,7 +452,7 @@ msgstr "Está seguro de que quere saír da instalación?"
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Bootloader install failed"
-msgstr "Produciuse un fallo ao instalar do xestor de arranque"
+msgstr "Produciuse un fallo ao instalar o xestor de arranque"
 
 #. Type: text
 #. Description
@@ -461,8 +461,8 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Sentímolo, produciuse un erro e non foi posíbel instalar o xestor de "
-"arrinque no lugar indicado."
+"Sentímolo, produciuse un fallo e non foi posíbel instalar o xestor de "
+"arranque no lugar indicado."
 
 #. Type: text
 #. Description
@@ -484,7 +484,7 @@ msgstr "Continuar sen o xestor de arrinque."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Necesitará instalar manualmente un xestor de arrinque para iniciar "
+"Necesitará instalar manualmente un xestor de arranque para iniciar "
 "${RELEASE}."
 
 #. Type: text
@@ -747,7 +747,7 @@ msgstr "Editar unha partición"
 #. Description
 #: ../ubiquity.templates:108001
 msgid "Boot loader"
-msgstr "Cargador de arrinque"
+msgstr "Cargador de arranque"
 
 #. Type: text
 #. Description
@@ -767,7 +767,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001
 msgid "Go Back"
-msgstr "Recuar"
+msgstr "Volver atrás"
 
 #. Type: text
 #. Description
@@ -873,8 +873,8 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Isto débese a que non hai espazo abondo na partición seleccionada para que "
-"se complete a instalación. Inicie o instalador outra vez e seleccione unha "
-"partición maior na que realizar a instalación."
+"se complete a instalación. Inicia o instalador outra vez e selecciona unha "
+"partición maior para realizar a instalación."
 
 #. Type: error
 #. Description
@@ -897,9 +897,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Isto adoita deberse a un disco duro defectuoso. Podería axudar comprobar se "
-"o disco duro xa vai vello e precisa ser substituído ou trasladar o sistema a "
-"un ambiente mellor."
+"Isto adoita deberse a un disco ríxido defectuoso. Podería axudar comprobar "
+"se o disco ríxido xa está vello e precisa ser substituído, ou trasladar o "
+"sistema a un ambiente máis temperado."
 
 #. Type: error
 #. Description
@@ -920,8 +920,8 @@ msgstr ""
 "Isto adoita deberse a un lector de CD/DVD, un CD/DVD ou un disco ríxido "
 "defectuosos. Podería axudar limpar o CD/DVD, gravalo a unha velocidade "
 "menor, limpar a lente da unidade lectora (as tendas de electrónica ofrecen "
-"normalmente equipos de limpeza), comprobar se o disco duro xa vai vello e "
-"precisa ser substituído ou trasladar o sistema a un ambiente mellor."
+"normalmente equipos de limpeza), comprobar se o disco ríxido xa vai vello e "
+"precisa ser substituído ou trasladar o sistema a un ambiente temperado."
 
 #. Type: select
 #. Description
@@ -1017,19 +1017,19 @@ msgstr "Instalando paquetes adicionais..."
 #. Description
 #: ../ubiquity.templates:141001
 msgid "Checking for packages to install..."
-msgstr "Comprobando os paquetes que instalar..."
+msgstr "Comprobando os paquetes a instalar..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Removing extra packages..."
-msgstr "Desinstalando os paquetes adicionais..."
+msgstr "Retirando os paquetes extra..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:143001
 msgid "Checking for packages to remove..."
-msgstr "Comprobando os paquetes que eliminar..."
+msgstr "Comprobando os paquetes que retirar..."
 
 #. Type: text
 #. Description
@@ -1059,7 +1059,7 @@ msgstr "Produciuse un erro ao instalar ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error removing ${PACKAGE}"
-msgstr "Produciuse un erro ao eliminar ${PACKAGE}"
+msgstr "Produciuse un erro ao retirar ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1079,7 +1079,7 @@ msgstr "Produciuse un erro ao instalar os paquetes:"
 #. Description
 #: ../ubiquity.templates:150001 ../ubiquity.templates:151001
 msgid "The following packages are in a broken state:"
-msgstr "Os seguintes paquetes están danados:"
+msgstr "Os seguintes paquetes están rotos:"
 
 #. Type: error
 #. Description
@@ -1107,13 +1107,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:151001
 msgid "Error while removing packages"
-msgstr "Produciuse un erro ao eliminar os paquetes"
+msgstr "Produciuse un erro ao retirar os paquetes"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:151001
 msgid "An error occurred while removing packages:"
-msgstr "Produciuse un erro ao eliminar paquetes:"
+msgstr "Produciuse un erro ao retirar os paquetes:"
 
 #. Type: error
 #. Description
@@ -1201,8 +1201,8 @@ msgid ""
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
 "O instalador precisa facer cambios na táboa de particións pero isto non é "
-"posíbel porque as particións nos seguintes puntos de montaxe non se puideron "
-"desmontar:"
+"posíbel porque non se puideron desmontar as particións nos seguintes puntos "
+"de montaxe:"
 
 #. Type: boolean
 #. Description
@@ -1285,7 +1285,7 @@ msgstr "Preparar"
 #. Description
 #: ../ubiquity.templates:183001
 msgid "Timezone"
-msgstr "Zona horaria"
+msgstr "Fuso horario"
 
 #. Type: text
 #. Description
@@ -1303,7 +1303,7 @@ msgstr "Configuración dos discos"
 #. Description
 #: ../ubiquity.templates:186001
 msgid "User Info"
-msgstr "Información sobre o usuario"
+msgstr "Información do usuario"
 
 #. Type: text
 #. Description
@@ -1460,7 +1460,7 @@ msgstr "Mostrar o contrasinal"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "Non desexo conectarme a una rede wifi neste momento"
+msgstr "Non desexo conectarme a una rede sen fíos neste momento"
 
 #. Type: text
 #. Description
@@ -1545,7 +1545,7 @@ msgstr "Para ter os mellores resultados, asegúrese de que este equipo:"
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:224001
 msgid "has at least ${SIZE} available drive space"
-msgstr "ten cando menos ${SIZE} de espazo en disco dispoñíbel"
+msgstr "ten cando menos ${SIZE} de espazo dispoñíbel no disco"
 
 #. Type: text
 #. Description
@@ -1600,7 +1600,7 @@ msgstr "Descargar as actualizacións mentres se realiza a instalación"
 #. Description
 #: ../ubiquity.templates:234001
 msgid "Layout:"
-msgstr "Distribución"
+msgstr "Disposición:"
 
 #. Type: text
 #. Description
@@ -1612,7 +1612,7 @@ msgstr "Variante:"
 #. Description
 #: ../ubiquity.templates:236001
 msgid "Below is an image of your current layout:"
-msgstr "A continuación móstrase unha imaxe da distribución:"
+msgstr "A continuación móstrase unha imaxe da disposición:"
 
 #. Type: text
 #. Description
@@ -1711,7 +1711,7 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"Pode crear ou redimensionar particións, ou escoller múltiplas particións "
+"Pode crear ou redimensionar particións, ou escoller múltiples particións "
 "para ${DISTRO}."
 
 #. Type: text
@@ -1864,7 +1864,7 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
-"Este equipo non ten instalados actualmente ningún sistema operativo. Que "
+"Este equipo non ten instalado actualmente ningún sistema operativo. Que "
 "quere facer?"
 
 #. Type: text
@@ -1895,7 +1895,7 @@ msgstr "Deberá elixir unha clave de seguranza no seguinte paso."
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Usar LVM coa nova instalación de Ubuntu"
+msgstr "Usar XVL coa nova instalación de Ubuntu"
 
 #. Type: text
 #. Description
@@ -1943,7 +1943,7 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
-"<span foreground=\"darkred\">Aviso:</span > Seperde esta clave de seguranza "
+"<span foreground=\"darkred\">Aviso:</span > Se perde esta clave de seguranza "
 "perderá todos os datos. Se é necesario, escriba a clave e gárdea nun lugar "
 "seguro noutro sitio."
 
@@ -2008,7 +2008,7 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
-"A xestión de volumes lóxica (LVM) permítelle a Ubuntu tratar múltiples "
+"A xestión de volumes lóxica (XVL) permítelle a Ubuntu tratar múltiples "
 "volumes físicos como un único volume."
 
 #. Type: text
@@ -2065,7 +2065,7 @@ msgid ""
 msgstr ""
 "Cando inicie o seu novo sistema poderá entrar como usuario «oem» co "
 "contrasinal que escolleu anteriormente; este usuario ten privilexios "
-"administrativos con «sudo». Nese momento poderá realizar calquer outra "
+"administrativos con «sudo». Nese momento poderá realizar calquera outra "
 "modificación no sistema."
 
 #. Type: text
@@ -2086,24 +2086,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2013."
-#~ msgstr ""
-#~ "Isto é unha pre-release do ${RELEASE} live ${MEDIUM} instalador. Non é "
-#~ "unha release final; iso chegará coa release final de ${RELEASE} en abril "
-#~ "de 2013."
-
-#~ msgid ""
-#~ "The installation process may resize or erase partitions on your hard "
-#~ "disk. Be sure to <b>take a full backup of any valuable data</b> before "
-#~ "running this program."
-#~ msgstr ""
-#~ "O proceso de instalación pode borrar ou cambiar o tamaño das particións "
-#~ "do seu disco ríxido. Asegúrese de <b>facer una copia de respaldo completa "
-#~ "de todos os seus datos valiosos</b> antes de executar este programa."
-
-#~ msgid "Warning"
-#~ msgstr "Aviso"

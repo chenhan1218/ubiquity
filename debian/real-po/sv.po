@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
@@ -226,6 +226,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Om fler än en person kommer använda den här datorn kan du "
+"ställa in flera konton efter installationen.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -253,6 +255,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;Skriv in samma lösenord två gånger, så att det kan kontrolleras "
+"för skrivfel.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -417,7 +421,7 @@ msgstr "Filer (${SIZE})"
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "Var vill du installera Kubuntu?"
 
 #. Type: text
 #. Description
@@ -549,34 +553,40 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"Vi beklagar; installationsprogrammet kraschade. Efter att du stängt detta "
+"fönster låter vi dig skicka en felrapport med det integrerade "
+"felrapporteringsverktyget. Detta kommer att samla in information om ditt "
+"system och installationsprocessen. Detaljerna kommer att skickas till får "
+"felspårare och en utvecklare kommer att ta itu med problemet så snart som "
+"möjligt."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:81001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_Hög kontrast"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:82001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_Skärmläsare"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:83001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "Tangentbordsmodifierare"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:84001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_Skärmtangentbord"
 
 #. Type: text
 #. Description
@@ -670,7 +680,7 @@ msgstr "Använt"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:97001
 msgid "System"
-msgstr ""
+msgstr "System"
 
 #. Type: text
 #. Description
@@ -696,19 +706,19 @@ msgstr "Skapa partition"
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Size:"
-msgstr ""
+msgstr "Storlek:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "Början på detta utrymme."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:103001
 msgid "End of this space"
-msgstr ""
+msgstr "Slutet av detta utrymme"
 
 #. Type: text
 #. Description
@@ -1565,6 +1575,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} använder tredjepartsmjukvara för att spela upp Flash, MP3, och "
+"annan media, och för att fungera med viss grafikhårdvara och trådlös "
+"hårdvara. En del av denna mjukvara är sluten. Mjukvaran lyder under "
+"licensvillkor som inkluderas i dess dokumentation."
 
 #. Type: text
 #. Description
@@ -1872,19 +1886,19 @@ msgstr "Efter:"
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "Kryptera den nya Ubuntu-installationen för ökad trygghet"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:262001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "Du väljer säkerhetsnyckel i nästa steg."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "Använd LVM med den nya Ubuntu-installationen"
 
 #. Type: text
 #. Description
@@ -1893,18 +1907,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"Det här kommer ställa in logisk volymhantering (LVM). Det möjliggör "
+"ögonblicksbilder och enklare storleksändringar av partitioner."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:265001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "Bekräfta säkerhetsnyckeln:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:266001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "Välj en säkerhetsnyckel:"
 
 #. Type: text
 #. Description
@@ -1913,12 +1929,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"Diskkryptering skyddar dina filer om du skulle bli av med din dator. Den "
+"kräver att du skriver in en säkerhetsnyckel varje gång datorn startar."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "Filer utanför Ubuntu kommer inte krypteras."
 
 #. Type: text
 #. Description
@@ -1928,60 +1946,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">Varning:</span> Om du glömmer bort "
+"säkerhetsnyckeln kommer all data gå förlorad. Om det behövs, skriv ner din "
+"nyckeln och förvara den på en säker plats."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:270001
 msgid "For more security:"
-msgstr ""
+msgstr "För ökad säkerhet:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:271001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "Skriv över tomt diskutrymme"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:272001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "Installationen kan ta mycket längre tid."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:273001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:274001
 msgid "Volume groups:"
-msgstr ""
+msgstr "Volymgrupper:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:275001
 msgid "Encryption Options"
-msgstr ""
+msgstr "Krypteringsalternativ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:276001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "Fysiska volymer:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "Kryptera partitionen (LUKS)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:279001
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #. Type: text
 #. Description
@@ -1990,18 +2011,20 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"Logisk volymhantering (LVM) låter Ubuntu behandla flera fysiska volymer som "
+"en enda volym."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:281001
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Logisk volymhantering"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282001
 msgid "Encryption options..."
-msgstr ""
+msgstr "Krypteringsalternativ..."
 
 #. Type: title
 #. Description
@@ -2066,15 +2089,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Tar bort paket"
-
-#~ msgid ""
-#~ "The installation process may resize or erase partitions on your hard "
-#~ "disk. Be sure to <b>take a full backup of any valuable data</b> before "
-#~ "running this program."
-#~ msgstr ""
-#~ "Installationsprocessen kan förstora eller radera partitioner på din "
-#~ "hårddisk. Försäkra dig om att <b>ta en fullständig säkerhetskopia av allt "
-#~ "värdefullt data</b> innan du kör detta program."
-
-#~ msgid "Warning"
-#~ msgstr "Varning"

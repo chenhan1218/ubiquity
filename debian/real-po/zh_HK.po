@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-04-30 09:17-0700\n"
-"PO-Revision-Date: 2013-03-08 07:04+0000\n"
+"PO-Revision-Date: 2013-09-21 00:53+0000\n"
 "Last-Translator: Roy Chan <roy.chan@linux.org.hk>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
@@ -53,8 +53,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"您正以系統製造廠商模式安裝。請為這批系統輸入一個特定名稱。此名稱將會儲存在安"
-"裝完成的系統上，並可用來協助錯誤回報。"
+"您正以系統製造廠商模式安裝。請為這批系統輸入獨一無二的名稱。此名稱將會儲存在"
+"安裝完成的系統，並可用來協助回報錯誤。"
 
 #. Type: text
 #. Description
@@ -429,13 +429,13 @@ msgstr "立刻安裝(_I)"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Quit the installation?"
-msgstr "離開安裝程式？"
+msgstr "結束安裝程式？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Do you really want to quit the installation now?"
-msgstr "你真的想現在退出安裝嗎？"
+msgstr "真的想現在結束安裝嗎？"
 
 #. Type: text
 #. Description
@@ -810,7 +810,7 @@ msgstr "複製檔案中..."
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Almost finished copying files..."
-msgstr "即將結束複製檔案..."
+msgstr "快將完成複製檔案..."
 
 #. Type: error
 #. Description
@@ -916,7 +916,7 @@ msgstr "正在設定目的系統..."
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Configuring system locales..."
-msgstr "正在設定系統語系..."
+msgstr "正在設定系統地域..."
 
 #. Type: text
 #. Description
@@ -1387,8 +1387,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"將這台電腦連接至 Wi-fi 網絡可讓您安裝第三方軟件、下載更新、自動偵測您的時區、"
-"並安裝您語言的完整支援。"
+"將這台電腦連接至 Wi-Fi 網絡可讓您安裝第三方軟件、下載更新、自動偵測您的時區、"
+"並安裝閣下語言的完整支援。"
 
 #. Type: text
 #. Description
@@ -1406,7 +1406,7 @@ msgstr "顯示密碼"
 #. Description
 #: ../ubiquity.templates:209001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "我現在還不想連上 wi-fi 無線網路"
+msgstr "現在不想連上 Wi-Fi 無線網絡"
 
 #. Type: text
 #. Description
@@ -1512,7 +1512,7 @@ msgid ""
 "documentation."
 msgstr ""
 "${RELEASE} 使用第三方軟件來播放 Flash、MP3 與其他媒體，此外還能讓一些顯示卡"
-"與 wi-fi 無線硬件能正常運作。這些軟件之中有些是專有授權。該軟件以其文件自身內"
+"與 Wi-Fi 無線硬件能正常運作。這些軟件之中有些是專有授權。該軟件以其文件自身內"
 "含的授權條款另行授權。"
 
 #. Type: text
@@ -1563,8 +1563,8 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"請選擇您的位置，如此一來系統可以使用適合您的國家的顯示方式、從離您較近的網站"
-"取得更新，還有將時鐘設定為正確的當地時刻。"
+"請選擇你的地點，如此一來系統可以使用適合你國家或地區的顯示方式、從離你較近的"
+"網站取得更新，還有將時鐘設定為正確的當地時刻。"
 
 #. Type: text
 #. Description
@@ -2007,14 +2007,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "移除套件中"
-
-#~ msgid ""
-#~ "The installation process may resize or erase partitions on your hard "
-#~ "disk. Be sure to <b>take a full backup of any valuable data</b> before "
-#~ "running this program."
-#~ msgstr ""
-#~ "這個安裝程序可能會重新調整您硬碟上的分割區大小，或是消除分割區。請確定在執"
-#~ "行本程式之前，<b>已經對任何重要資料製作完整備份</b>。"
-
-#~ msgid "Warning"
-#~ msgstr "警告"

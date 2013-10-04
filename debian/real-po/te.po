@@ -17,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:24+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
@@ -2020,14 +2020,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ప్యాకేజీలు తొలగించబడుతున్నాయి"
-
-#~ msgid ""
-#~ "The installation process may resize or erase partitions on your hard "
-#~ "disk. Be sure to <b>take a full backup of any valuable data</b> before "
-#~ "running this program."
-#~ msgstr ""
-#~ "స్థాపన ప్రక్రియ మీ హార్డ్‍డిస్కు పై పార్టిషన్‌లను పునఃపరిమాణించడం లేదా చెరిపివేయడం చేస్తుంది. ఈ ప్రోగ్రాంను "
-#~ "నడిపేముందు ఖచ్ఛితంగా <b>ముఖ్యమైన డేటాను పూర్తిగా బ్యాక్అప్ తీసుకోండి</b>."
-
-#~ msgid "Warning"
-#~ msgstr "హెచ్చరిక"

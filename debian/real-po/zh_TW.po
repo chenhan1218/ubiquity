@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-04-30 09:17-0700\n"
-"PO-Revision-Date: 2013-03-22 13:52+0000\n"
+"PO-Revision-Date: 2013-09-21 00:51+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
@@ -53,8 +53,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"您正以系統製造廠商模式安裝。請為這批系統輸入一個特定名稱。此名稱將會儲存在安"
-"裝完成的系統上，並可用來協助錯誤回報。"
+"正以系統製造廠商模式安裝。請為這批系統輸入一個獨一無二的特定名稱。此名稱將會"
+"儲存在安裝完成的系統，並可用來協助回報錯誤。"
 
 #. Type: text
 #. Description
@@ -382,7 +382,7 @@ msgstr "這張圖片將和您的使用者名稱產生關聯，並會顯示在一
 msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
-msgstr "選擇您想要匯入的帳號。這些帳號的文件和設定在安裝完成後便可以使用。"
+msgstr "選擇想要匯入的帳號。這些帳號的文件和設定在完成安裝後便可以使用。"
 
 #. Type: text
 #. Description
@@ -429,13 +429,13 @@ msgstr "立刻安裝(_I)"
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Quit the installation?"
-msgstr "要退出安裝嗎？"
+msgstr "要結束安裝嗎？"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "Do you really want to quit the installation now?"
-msgstr "確定要現在退出安裝？"
+msgstr "確定要現在結束安裝？"
 
 #. Type: text
 #. Description
@@ -499,7 +499,7 @@ msgstr "略過"
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Installation Complete"
-msgstr "安裝完成"
+msgstr "完成安裝"
 
 #. Type: text
 #. Description
@@ -740,8 +740,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"安裝程序完成。您現在可以繼續試用 ${RELEASE}，但任何您所做出的變更或所儲存的文"
-"件在重新啟動電腦後都會消失。"
+"完成安裝程序。現在可以繼續試用 ${RELEASE}，但任何您所做出的變更或所儲存的文件"
+"在重新啟動電腦後都會消失。"
 
 #. Type: text
 #. Description
@@ -780,7 +780,7 @@ msgstr "停止"
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr "安裝完成。您要重新啟動電腦才能使用新安裝的系統。"
+msgstr "完成安裝。要重新啟動電腦才能使用新安裝的系統。"
 
 #. Type: text
 #. Description
@@ -810,7 +810,7 @@ msgstr "正在複製檔案..."
 #. Description
 #: ../ubiquity.templates:121001
 msgid "Almost finished copying files..."
-msgstr "即將結束複製檔案..."
+msgstr "即將完成複製檔案..."
 
 #. Type: error
 #. Description
@@ -916,7 +916,7 @@ msgstr "正在設定目的系統..."
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Configuring system locales..."
-msgstr "正在設定系統語系..."
+msgstr "正在設定系統地域..."
 
 #. Type: text
 #. Description
@@ -1389,7 +1389,7 @@ msgid ""
 "install full support for your language."
 msgstr ""
 "將本電腦連上 Wi-Fi 無線網路可讓您安裝第三方軟體、下載更新、自動偵測時區、並安"
-"裝您語言的完整支援。"
+"裝閣下語言的完整支援。"
 
 #. Type: text
 #. Description
@@ -1513,7 +1513,7 @@ msgid ""
 "documentation."
 msgstr ""
 "${RELEASE} 使用第三方軟體來播放 Flash、MP3 與其他媒體，此外還能讓一些顯示卡"
-"與 wi-fi 無線硬體能正常運作。這些軟體之中有些是專有授權。該軟體以其文件自身內"
+"與 Wi-Fi 無線硬體能正常運作。這些軟體之中有些是專有授權。該軟體以其文件自身內"
 "含的授權條款另行授權。"
 
 #. Type: text
@@ -2008,22 +2008,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "正在移除套件"
-
-#~ msgid ""
-#~ "This is a pre-release of the ${RELEASE} live ${MEDIUM} installer. It is "
-#~ "not a final release; that will come with the final release of ${RELEASE} "
-#~ "in April 2013."
-#~ msgstr ""
-#~ "這是 ${RELEASE} live ${MEDIUM} 安裝程式的預覽版本。這不是最終的版本；最終"
-#~ "版本的 ${RELEASE} 預計會在2013年4月發行。"
-
-#~ msgid ""
-#~ "The installation process may resize or erase partitions on your hard "
-#~ "disk. Be sure to <b>take a full backup of any valuable data</b> before "
-#~ "running this program."
-#~ msgstr ""
-#~ "這個安裝程序可能會重新調整您硬碟上的分割區大小，或是消除分割區。請確定在執"
-#~ "行本程式之前，<b>已經對任何重要資料製作完整備份</b>。"
-
-#~ msgid "Warning"
-#~ msgstr "警告"

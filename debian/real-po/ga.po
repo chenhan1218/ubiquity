@@ -14,20 +14,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-18 13:28+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-04 13:24+0000\n"
+"X-Generator: Launchpad (build 16791)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr ""
+msgstr "Ag ceangal..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "Athosaigh chun dul ar aghaidh"
 
 #. Type: text
 #. Description
@@ -42,7 +42,7 @@ msgstr "Suiteáil"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr ""
+msgstr "Suiteáil (mód OEM, ach amháin do dhéantóirí)"
 
 #. Type: text
 #. Description
@@ -52,6 +52,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"Tá tú ag suiteáil i mhódh déantóra córais. Iontráil ainm uathúil don bhaisc "
+"córas seo más é do thoil é. Sábháilfear an ainm seo ar an gcóras atá "
+"suiteáilte agus bhainfí úsáid as chun cabhrú le tuarascálacha fabhtanna."
 
 #. Type: text
 #. Description
@@ -62,6 +65,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"Tá tú in ann triail a bhaint as ${RELEASE} díreach ón ${MEDIUM} seo, gan aon "
+"athrú á dhéanamh don ríomhaire."
 
 #. Type: text
 #. Description
@@ -71,20 +76,23 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"Nó, dá mbeadh tú réidh, tá tú in ann ${RELEASE} a shuiteáil le taobh (nó san "
+"ionad) an chóras oibriúcháin reatha atá agat. Ní chóir leis ró mhéad am a "
+"ghlacadh."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:9001
 msgid "Try ${RELEASE}"
-msgstr ""
+msgstr "Bain triail as ${RELEASE}"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:10001
 msgid "Install ${RELEASE}"
-msgstr ""
+msgstr "Suiteáil ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -93,30 +101,36 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"B'fhéidir gur mhaith leat na  <a href=\"release-notes\">nótaí eisithe</a> a "
+"léamh nó <a href=\"update\"> an suiteáilteor seo a nuashonraigh."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:12001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
+"B'fhéidir gur mhaith leat na <a href=\"release-notes\">nótaí eisithe a "
+"léamh</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:13001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
+"B'fhéidir gur mhaith leat <a href=\"update\">an suiteáilteor seo a "
+"nuashonraigh</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "Where are you?"
-msgstr ""
+msgstr "Cá bhfuil tú?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "Keyboard layout"
-msgstr ""
+msgstr "Leagan amach méarchláir"
 
 #. Type: text
 #. Description
