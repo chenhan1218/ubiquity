@@ -12,6 +12,7 @@ ubiquity (2.15.21) UNRELEASED; urgency=low
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu42, partman-auto 107ubuntu3, partman-basicfilesystems
     84ubuntu1, partman-btrfs 14ubuntu1, partman-ext3 79ubuntu1.
+  * Automatic update of included source packages: hw-detect 1.95ubuntu1.
 
   [ Colin Watson ]
   * Update translations from Launchpad.
