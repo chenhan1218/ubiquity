@@ -274,6 +274,9 @@ class PageGtk(plugin.PluginUI):
     def plugin_set_online_state(self, state):
         self.online = state
 
+    def plugin_skip_page(self):
+        return not self.online
+        
     def plugin_get_current_page(self):
         self.page.show_all()
         PATH = (os.environ.get('UBIQUITY_PATH', False) or
