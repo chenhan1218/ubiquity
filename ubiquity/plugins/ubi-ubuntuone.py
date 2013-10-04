@@ -87,6 +87,11 @@ class PageGtk(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         from gi.repository import Gtk
         self.controller = controller
+
+        # keep ubuntuone for oem client config
+        if self.controller.oem_config:
+            misc.execute_root('apt-install', 'ubiquity-plugin-ubuntuone')
+
         # check if we are needed at all
         if ('UBIQUITY_AUTOMATIC' in os.environ or
                 'UBIQUITY_NO_SSO' in os.environ or
