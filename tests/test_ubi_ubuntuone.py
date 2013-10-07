@@ -29,6 +29,7 @@ class BaseTestPageGtk(unittest.TestCase):
 
     def setUp(self):
         mock_controller = Mock()
+        mock_controller.oem_config = False
         self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=Mock())
         self.page.db = Mock(name='db')
 

@@ -7,6 +7,7 @@ ubiquity (2.15.21) UNRELEASED; urgency=low
   * Allow "skip" navigation control to take focus, and thus be part of the
     tab switch chain. (LP: #1231175)
   * Disable Ubuntu One plugin at OEM config setup stage (LP: #1233879)
+  * Declare oem_config as False in the mock controller for the Ubuntu One plugin tests.
   * Keep Ubuntu One page for OEM client setup stage (LP: #1233879)
   * Skip Ubuntu One page when offline (LP: #1220804)
   * Automatic update of included source packages: flash-kernel
