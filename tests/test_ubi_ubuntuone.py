@@ -406,12 +406,10 @@ class SSOAPITestCase(BaseTestPageGtk):
             mock_json_loads.assert_called_once_with(sentinel.token)
 
             sigtype = oauthlib.oauth1.SIGNATURE_TYPE_AUTH_HEADER
-            ct_headers = {'Content-Type': 'application/x-www-form-urlencoded'}
             expected = [call('ck', 'cs', 'tk', 'ts',
                              signature_method=oauthlib.oauth1.SIGNATURE_HMAC,
                              signature_type=sigtype),
-                        call().sign('url?C=D', 'GET', {},
-                                    headers=ct_headers)]
+                        call().sign('url?C=D', 'GET')]
             self.assertEqual(Client.mock_calls, expected)
 
             expected = [call.Message.new("GET", signed_url),
