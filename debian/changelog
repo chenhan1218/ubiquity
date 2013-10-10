@@ -1,10 +1,10 @@
-ubiquity (2.15.22) UNRELEASED; urgency=low
+ubiquity (2.15.22) saucy; urgency=low
 
   * In U1 plugin fix ping_u1_url to not include body in a GET
     request. (LP: #1229684)
   * Update test-suite with the new expected call.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 10 Oct 2013 10:12:47 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 10 Oct 2013 10:48:39 +0100
 
 ubiquity (2.15.21) saucy; urgency=low
 
