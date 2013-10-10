@@ -259,9 +259,7 @@ class PageGtk(plugin.PluginUI):
         url, params = get_ping_info()
         url = url.format(email=email)
         url += "?" + urlencode(params)
-        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-        signed_url, signed_headers, _ = oauth_client.sign(url, "GET", {},
-                                                          headers=headers)
+        signed_url, signed_headers, _ = oauth_client.sign(url, "GET")
         message = self.soup.Message.new("GET", signed_url)
 
         for k, v in signed_headers.items():
