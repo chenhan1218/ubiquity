@@ -1,4 +1,4 @@
-ubiquity (2.15.23) UNRELEASED; urgency=low
+ubiquity (2.15.23) saucy; urgency=low
 
   * Attempt to remove oem user again in the oem-config/post-start, after
     oem-config-first-boot setup has been completed. (LP: #1231166)
@@ -14,7 +14,7 @@ ubiquity (2.15.23) UNRELEASED; urgency=low
   * Run debconf-updatepo to actually update templates.pot and make all the
     U1 page strings translatable. (LP: #1235192)
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 11 Oct 2013 10:12:57 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 11 Oct 2013 15:37:31 +0100
 
 ubiquity (2.15.22) saucy; urgency=low
 
