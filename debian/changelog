@@ -11,6 +11,8 @@ ubiquity (2.15.23) UNRELEASED; urgency=low
     connectivity" page and show the login later button. Thus avoiding
     hanging when installing fully offline, and explaining why U1 login was
     not available. (LP: #1237694)
+  * Run debconf-updatepo to actually update templates.pot and make all the
+    U1 page strings translatable. (LP: #1235192)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 11 Oct 2013 10:12:57 +0100
 
