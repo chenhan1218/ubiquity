@@ -142,28 +142,6 @@ class PageGtk(plugin.PluginUI):
 
         self.hostname = ""
 
-        # TODO xnox 2012-03-07 add URL link handling hook like in slideshow
-        from gi.repository import WebKit
-        # We have no significant browsing interface, so there isn't much point
-        # in WebKit creating a memory-hungry cache.
-        WebKit.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
-        self.webview = WebKit.WebView()
-        # WebKit puts file URLs in their own domain by default.
-        # This means that anything which checks for the same origin,
-        # such as creating a XMLHttpRequest, will fail unless this
-        # is disabled.
-        # http://www.gitorious.org/webkit/webkit/commit/624b946
-        if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
-            s = self.webview.get_settings()
-            s.set_property('enable-caret-browsing', True)
-        self.webview.connect(
-            'new-window-policy-decision-requested',
-            self.controller._wizard.on_slideshow_link_clicked)
-
-        self.webkit_tc_view.add(self.webview)
-        self.webview.open(UBUNTU_TC_URL)
-        self.webview.show()
-
         from gi.repository import Soup
         self.soup = Soup
         self.session = Soup.SessionAsync()
@@ -482,6 +460,27 @@ class PageGtk(plugin.PluginUI):
         self.notebook_main.set_current_page(PAGE_TC)
         self.controller._wizard.skip.hide()
         self.on_notebook_main_switch_page(None, None, None)
+        # TODO xnox 2012-03-07 add URL link handling hook like in slideshow
+        from gi.repository import WebKit
+        # We have no significant browsing interface, so there isn't much point
+        # in WebKit creating a memory-hungry cache.
+        WebKit.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
+        self.webview = WebKit.WebView()
+        # WebKit puts file URLs in their own domain by default.
+        # This means that anything which checks for the same origin,
+        # such as creating a XMLHttpRequest, will fail unless this
+        # is disabled.
+        # http://www.gitorious.org/webkit/webkit/commit/624b946
+        if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
+            s = self.webview.get_settings()
+            s.set_property('enable-caret-browsing', True)
+        self.webview.connect(
+            'new-window-policy-decision-requested',
+            self.controller._wizard.on_slideshow_link_clicked)
+
+        self.webkit_tc_view.add(self.webview)
+        self.webview.open(UBUNTU_TC_URL)
+        self.webview.show()
         self.webview.grab_focus()
 
     def on_notebook_main_switch_page(self, notebook, label, tab_number):

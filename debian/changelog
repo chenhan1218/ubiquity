@@ -2,6 +2,11 @@ ubiquity (2.15.23) UNRELEASED; urgency=low
 
   * Attempt to remove oem user again in the oem-config/post-start, after
     oem-config-first-boot setup has been completed. (LP: #1231166)
+  * Load U1 Terms & Conditions page lazily when asked, instead of at U1
+    plugin import time. Thus the page will only be loaded once there is a
+    working internet connection and the user is signing up for U1. This
+    also resolves ubiquity failing to load when booting direct live user
+    session. (LP: #1226912)
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 11 Oct 2013 10:12:57 +0100
 
