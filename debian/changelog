@@ -1,3 +1,10 @@
+ubiquity (2.15.23) UNRELEASED; urgency=low
+
+  * Attempt to remove oem user again in the oem-config/post-start, after
+    oem-config-first-boot setup has been completed. (LP: #1231166)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 11 Oct 2013 10:12:57 +0100
+
 ubiquity (2.15.22) saucy; urgency=low
 
   * In U1 plugin fix ping_u1_url to not include body in a GET

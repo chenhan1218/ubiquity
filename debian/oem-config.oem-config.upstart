@@ -59,3 +59,11 @@ script
 
     exec oem-config-firstboot $debug $automatic
 end script
+
+post-start script
+# Remove the temporary OEM configuration user, again, if possible.
+# If and when oem-config-wrapper fails http://pad.lv/1231166
+if getent passwd oem >/dev/null; then
+	userdel --force --remove oem || true
+fi
+end script
