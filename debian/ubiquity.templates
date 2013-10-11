@@ -265,6 +265,10 @@ _Description:
  .
  If you have an existing Ubuntu single sign on account, that is now called your Ubuntu One account.
 
+Template: ubiquity/text/u1_no_internet
+Type: text
+_Description: There is no internet connection. To be able to create an account or to log in to Ubuntu One, you need to be connected to the internet.
+
 Template: ubiquity/text/u1_new_account
 Type: text
 _Description: I am a new Ubuntu One user.

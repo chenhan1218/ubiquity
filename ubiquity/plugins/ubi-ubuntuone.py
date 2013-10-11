@@ -54,7 +54,8 @@ WEIGHT = 10
  PAGE_SPINNER,
  PAGE_TC,
  PAGE_ABOUT,
- ) = range(5)
+ PAGE_OFFLINE,
+ ) = range(6)
 
 
 class Page(plugin.Plugin):
@@ -250,9 +251,6 @@ class PageGtk(plugin.PluginUI):
     def plugin_set_online_state(self, state):
         self.online = state
 
-    def plugin_skip_page(self):
-        return not self.online
-
     def plugin_get_current_page(self):
         self.page.show_all()
         PATH = (os.environ.get('UBIQUITY_PATH', False) or
@@ -268,7 +266,10 @@ class PageGtk(plugin.PluginUI):
         self.note.set_current_page(self.progress_page)
         self.u1_learn_more.connect(
             'activate-link', self.on_u1_learn_more_activate)
-        self.notebook_main.set_current_page(PAGE_LOGIN)
+        if self.online:
+            self.notebook_main.set_current_page(PAGE_LOGIN)
+        else:
+            self.notebook_main.set_current_page(PAGE_OFFLINE)
         self.on_notebook_main_switch_page(None, None, None)
         self.skip_step = False
         return self.page

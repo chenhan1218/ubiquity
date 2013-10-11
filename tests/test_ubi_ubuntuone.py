@@ -32,6 +32,7 @@ class BaseTestPageGtk(unittest.TestCase):
         mock_controller.oem_config = False
         self.page = ubi_ubuntuone.PageGtk(mock_controller, ui=Mock())
         self.page.db = Mock(name='db')
+        self.page.plugin_set_online_state(True)
 
 
 class TestPageGtk(BaseTestPageGtk):
