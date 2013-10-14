@@ -74,7 +74,7 @@ for try in $(seq 1 $TRY); do
 		# and desired.
 		RET="$(echo GET oem-config/remove | debconf-communicate)"
 		if [ "${RET#* }" = true ] && getent passwd oem >/dev/null; then
-			killall -u oem || true
+			pkill -u oem || true
 			userdel --force --remove oem || true
 			ps -axf
 		fi
@@ -128,7 +128,7 @@ EOF
 	RET="$(echo GET oem-config/remove | debconf-communicate)"
 	if [ "${RET#* }" = true ]; then
 		if getent passwd oem >/dev/null; then
-			killall -u oem || true
+			pkill -u oem || true
 			userdel --force --remove oem || true
 		fi
 		apt-get -y purge ubiquity >>/var/log/oem-config.log 2>&1
