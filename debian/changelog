@@ -1,4 +1,4 @@
-ubiquity (2.15.24) UNRELEASED; urgency=low
+ubiquity (2.15.24) saucy; urgency=low
 
   [ Colin Watson ]
   * Move oem user removal from upstart & wrapper into
@@ -9,7 +9,7 @@ ubiquity (2.15.24) UNRELEASED; urgency=low
   * Kill any remaining oem user process before removing oem user (session
     dbus leaves zombies). (LP: #1231166)
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 14 Oct 2013 10:42:15 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 14 Oct 2013 18:19:27 +0100
 
 ubiquity (2.15.23) saucy; urgency=low
 
