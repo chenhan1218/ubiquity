@@ -1,3 +1,16 @@
+ubiquity (2.15.24) UNRELEASED; urgency=low
+
+  [ Colin Watson ]
+  * Move oem user removal from upstart & wrapper into
+    oem-config-firstboot, after ubiquity-dm finished executing. (LP:
+    #1231166) (LP: #1239471)
+
+  [ Dmitrijs Ledkovs ]
+  * Kill any remaining oem user process before removing oem user (session
+    dbus leaves zombies). (LP: #1231166)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 14 Oct 2013 10:42:15 +0100
+
 ubiquity (2.15.23) saucy; urgency=low
 
   * Attempt to remove oem user again in the oem-config/post-start, after
