@@ -76,7 +76,6 @@ for try in $(seq 1 $TRY); do
 		if [ "${RET#* }" = true ] && getent passwd oem >/dev/null; then
 			pkill -u oem || true
 			userdel --force --remove oem || true
-			ps -axf
 		fi
 		exit 0
 	elif [ "$CODE" -eq 10 ]; then
