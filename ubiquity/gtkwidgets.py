@@ -128,10 +128,14 @@ class ResizeWidget(Gtk.HPaned):
         # for the linear gradient?
         self.existing_part = existing_part or PartitionBox()
         eb = Gtk.EventBox()
+        style = eb.get_style_context()
+        style.add_class('fancy')
         eb.add(self.existing_part)
         self.pack1(eb, resize=False, shrink=False)
         self.new_part = new_part or PartitionBox()
         eb = Gtk.EventBox()
+        style = eb.get_style_context()
+        style.add_class('fancy')
         eb.add(self.new_part)
         self.pack2(eb, resize=False, shrink=False)
         self.show_all()
@@ -201,7 +205,7 @@ class DiskBox(Gtk.Box):
 GObject.type_register(DiskBox)
 
 
-class PartitionBox(StylizedFrame):
+class PartitionBox(Gtk.Alignment):
     __gtype_name__ = 'PartitionBox'
     __gproperties__ = {
         'title': (
@@ -243,7 +247,7 @@ class PartitionBox(StylizedFrame):
         # 4 px between the title and the extra heading
         # 5 px between the extra heading and the size
         # 12 px below the bottom-most element
-        StylizedFrame.__init__(self)
+        Gtk.Alignment.__init__(self)
         vbox = Gtk.Box()
         vbox.set_orientation(Gtk.Orientation.VERTICAL)
         self.logo = Gtk.Image.new_from_icon_name(icon_name,
@@ -283,33 +287,6 @@ class PartitionBox(StylizedFrame):
     def set_size(self, size):
         size = misc.format_size(size)
         self.size.set_markup('<span size="x-large">%s</span>' % size)
-
-    def render_dots(self):
-        # FIXME: Dots are rendered over the frame.
-        s = cairo.ImageSurface(cairo.FORMAT_ARGB32, 2, 2)
-        cr = cairo.Context(s)
-        cr.set_source_rgb(*gtk_to_cairo_color('#b6b0a9'))
-        cr.rectangle(1, 1, 1, 1)
-        cr.fill()
-        pattern = cairo.SurfacePattern(s)
-        return pattern
-
-    def paint_background(self, c):
-        StylizedFrame.paint_background(self, c)
-        a = self.get_allocation()
-        pattern = self.render_dots()
-        pattern.set_extend(cairo.EXTEND_REPEAT)
-        c.set_source(pattern)
-        c.fill_preserve()
-
-        g = cairo.RadialGradient(a.width / 2, a.height / 2, 0, a.width / 2,
-                                 a.height / 2,
-                                 a.width > a.height and a.width or a.height)
-        g.add_color_stop_rgba(0.00, 1, 1, 1, 1.00)
-        g.add_color_stop_rgba(0.25, 1, 1, 1, 0.75)
-        g.add_color_stop_rgba(0.40, 1, 1, 1, 0.00)
-        c.set_source(g)
-        c.fill_preserve()
 
 GObject.type_register(PartitionBox)
 

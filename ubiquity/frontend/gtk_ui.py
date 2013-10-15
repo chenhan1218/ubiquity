@@ -268,6 +268,11 @@ class Wizard(BaseFrontend):
               -GtkProgressBar-min-horizontal-bar-height : 10;
               -GtkProgressBar-min-horizontal-bar-width : 10;
             }
+            GtkEventBox.fancy {
+                background-color: alpha (@selected_bg_color, 0.5);
+                border-width: 1px;
+                border-radius: 10px;
+            }
             ''')
         Gtk.StyleContext.add_provider_for_screen(
             Gdk.Screen.get_default(),

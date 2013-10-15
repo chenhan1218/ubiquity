@@ -1,3 +1,10 @@
+ubiquity (2.15.25) UNRELEASED; urgency=low
+
+  * Remove all cairo styling from partition boxes in automatic
+    partitioning, instead use gtk3/css styling. (LP: #947107)
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Tue, 15 Oct 2013 00:29:41 +0100
+
 ubiquity (2.15.24) saucy; urgency=low
 
   [ Colin Watson ]
