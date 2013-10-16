@@ -125,7 +125,9 @@ class ResizeWidget(Gtk.HPaned):
 
         # Use test window to figure out highlight color
         test_window = Gtk.Window()
-        style = test_window.get_style_context()
+        test_label = Gtk.Label()
+        test_window.add(test_label)
+        style = test_label.get_style_context()
         self.highlight_color = style.get_background_color(
             Gtk.StateFlags.SELECTED)
         self.highlight_color.alpha = 0.5
