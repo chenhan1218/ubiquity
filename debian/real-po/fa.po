@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:24+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -211,18 +211,14 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "خطا در بازگرداندن برنامه‌های نصب شده"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "خطا در رونوشت پیکربندی بلوتوث"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -285,10 +281,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "گذرواژه‌ی ضعیف"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -377,10 +371,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "عکس بگیرید"
+msgstr ""
 
 #. Type: text
 #. Description

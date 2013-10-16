@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-03-08 12:03+0000\n"
-"Last-Translator: Filippos Kolyvas <Unknown>\n"
+"PO-Revision-Date: 2013-10-12 22:26+0000\n"
+"Last-Translator: Simos Xenitellis <Unknown>\n"
 "Language-Team: <en@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -26,18 +26,14 @@ msgstr "Γίνεται σύνδεση…"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "Η εγκατάσταση απέτυχε"
+msgstr "Η σύνδεση απέτυχε."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "Σύνδεση"
+msgstr "Έγινε σύνδεση."
 
 #. Type: text
 #. Description
@@ -217,43 +213,38 @@ msgstr "Λήψη φωτογραφίας"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Ένας λογαριασμός για να συνδεθείτε στα πάντα στο Ubuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "Σφάλμα κατά την επαναφορά εγκατεστημένων πακέτων"
+msgstr "Σφάλμα εγγραφής λογαριασμού"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "Σφάλμα κατά την αντιγραφή των ρυθμίσεων Bluetooth"
+msgstr "Σφάλμα σύνδεσης στο λογαριασμό"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "Κάτι άλλο"
+msgstr "Κάτι πήγε στραβά"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Μάθετε περισσότερα</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Έχω διαβάσει και αποδέχομαι τους <a href=\"\">όρους χρήσης του Ubuntu One</a>"
 
 #. Type: text
 #. Description
@@ -262,6 +253,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Εισάγεται τη διεύθυνση email που χρησιμοποιείτε για να "
+"συνδεθείτε στο λογαριασμό σας στο Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -270,12 +263,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\"Αν δεν έχετε ήδη ένα λογαριασμό, μην ανησυχείτε θα "
+"δημιουργήσουμε έναν για εσάς.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One email"
 
 #. Type: text
 #. Description
@@ -293,15 +288,13 @@ msgstr "Το όνομά σας"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης τουλάχιστον 8 χαρακτήρων"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "Αδύναμο συνθηματικό"
+msgstr "Πληκτρολογήστε ξανά τον κωδικό πρόσβασης"
 
 #. Type: text
 #. Description
@@ -352,13 +345,13 @@ msgstr "Παράκαμψη"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Σύνδεση αργότερα"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Εγγραφή αργότερα"
 
 #. Type: text
 #. Description
@@ -392,39 +385,37 @@ msgstr "Επιβεβαίωση συνθηματικού"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Εφαρμογές"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "Λήψη φωτογραφίας"
+msgstr "Φωτογραφίες"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Μουσική"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Σύννεφο"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Παρακαλώ πληκτρολογείστε το email σας:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Παρακαλώ πείτε μας το όνομά σας και επιλέξτε έναν κωδικό πρόσβασης:"
 
 #. Type: text
 #. Description
@@ -433,6 +424,9 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Το Ubuntu One είναι ένα απλός λογαριασμός που τον χρησιμοποιείτε για να "
+"συνδεθείτε σε όλες τις υπηρεσίες και τις σελίδες που σχετίζονται με το "
+"Ubuntu."
 
 #. Type: text
 #. Description
@@ -442,6 +436,10 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Εγκαταστήστε νέα προγράμματα από το Κέντρο λογισμικού, αποθηκεύστε αρχεία "
+"στο προσωπικό σας σύννεφο, αγοράστε τραγούδια από το Κατάστημα μουσικής, "
+"διαχειριστείτε τις αγορές και τις συνδρομές σας - επιλέγετε εσείς ποιες "
+"υπηρεσίες χρειάζεστε."
 
 #. Type: text
 #. Description
@@ -450,6 +448,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Αν έχετε ήδη λογαριασμό Ubuntu για σύνδεση σε όλες τις υπηρεσίες, τώρα αυτός "
+"ονομάζεται λογαριασμός Ubuntu One."
 
 #. Type: text
 #. Description
@@ -458,18 +458,21 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Δεν υπάρχει σύνδεση στο διαδίκτυο. Για να είστε σε θέση να δημιουργήσετε "
+"έναν κωδικό ή να συνδεθείτε στο Ubuntu One, χρειάζεται να συνδεθείτε στο "
+"διαδίκτυο."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Είμαι ένας νέος χρήστης του  Ubuntu One."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Είμαι ήδη χρήστης του Ubuntu One και ο κωδικός πρόσβασής μου είναι:"
 
 #. Type: text
 #. Description

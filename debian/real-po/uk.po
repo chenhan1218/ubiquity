@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-04-12 18:38+0000\n"
-"Last-Translator: Pasha Sydoryshyn <Unknown>\n"
+"PO-Revision-Date: 2013-10-12 05:30+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -27,18 +27,14 @@ msgstr "З’єднання…"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "Встановлення не вдалося"
+msgstr "Не вдалося встановити з'єднання."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "З'єднатися"
+msgstr "З’єднано."
 
 #. Type: text
 #. Description
@@ -216,43 +212,39 @@ msgstr "Сфотографувати"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Один обліковий запис для входу на всі служби Ubuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "Помилка під час відновлення встановлених програм"
+msgstr "Помилка під час спроби зареєструвати обліковий запис"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "Помилка копіювання налаштувань Bluetooth"
+msgstr "Помилка під час спроби увійти до облікового запису"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "Щось інше"
+msgstr "Виникли якісь проблеми"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Дізнатися більше</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Мною прочитано <a href=\"\">Умови надання послуг Ubuntu One</a>. Я "
+"погоджуюся з ними."
 
 #. Type: text
 #. Description
@@ -261,6 +253,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Вкажіть адресу електронної пошти, яку ви використовуєте "
+"для входу до облікового запису Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -269,12 +263,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Якщо у вас ще немає облікового запису, не хвилюйтеся, "
+"ми створимо такий запис для вас.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ел. пошта Ubuntu One"
 
 #. Type: text
 #. Description
@@ -292,15 +288,13 @@ msgstr "Ваше ім’я"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Пароль (принаймні 8 символів)"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "Слабкий пароль"
+msgstr "Повторіть пароль"
 
 #. Type: text
 #. Description
@@ -348,13 +342,13 @@ msgstr "Пропустити"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Увійти пізніше"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Зареєструватися пізніше"
 
 #. Type: text
 #. Description
@@ -388,39 +382,37 @@ msgstr "Підтвердіть пароль"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Програми"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "Сфотографувати"
+msgstr "Фото"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Хмара"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Вкажіть адресу вашої електронної пошти:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Вкажіть ваше ім’я і виберіть пароль:"
 
 #. Type: text
 #. Description
@@ -429,6 +421,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One — система єдиного облікового запису, за допомогою якого ви "
+"зможете користуватися усіма службами та сайтами, пов’язаними з Ubuntu."
 
 #. Type: text
 #. Description
@@ -438,6 +432,10 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Отримуйте нові програми для Центру програм, зберігайте файли у вашій "
+"особистій скриньці обчислювальної «хмари», купуйте композиції у Музичній "
+"крамниці, керуйте вашими сплатами та передплатами. Якими службами ви хочете "
+"скористатися? Вирішувати саме вам."
 
 #. Type: text
 #. Description
@@ -446,6 +444,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Якщо у вас вже був обліковий запис системи єдиного входу Ubuntu, цей запис "
+"просто було перейменовано на обліковий запис Ubuntu One."
 
 #. Type: text
 #. Description
@@ -454,18 +454,21 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Не встановлено з’єднання з інтернетом. Для створення облікового запису та "
+"для того, щоб увійти до системи Ubuntu One, вам доведеться з’єднати ваш "
+"комп’ютер з інтернетом."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "У вас ще немає облікового запису Ubuntu One."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "У вас вже є обліковий запис Ubuntu One і ваш пароль:"
 
 #. Type: text
 #. Description

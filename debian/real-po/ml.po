@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2011-08-19 08:59+0000\n"
-"Last-Translator: Anish A <aneesh.nl@gmail.com>\n"
+"PO-Revision-Date: 2013-10-11 20:23+0000\n"
+"Last-Translator: Abhijith. R <abhijith.foss@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
 "discuss@googlegroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -40,7 +40,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Restart to Continue"
-msgstr ""
+msgstr "തുടരാന്‍ റീസ്റ്റാര്‍ട്ട്‌ ചെയ്യുക"
 
 #. Type: text
 #. Description
@@ -533,13 +533,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Log in automatically"
-msgstr ""
+msgstr "തന്നത്താനെ പ്രവേശിക്കുക"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "ലോഗ് ഇന്‍ ചെയ്യാന്‍ എന്റെ അടയാള വാക്യം ആവശ്യപ്പെടുക"
 
 #. Type: text
 #. Description
@@ -1718,7 +1718,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:266001
 msgid "Region:"
-msgstr ""
+msgstr "സ്ഥലം"
 
 #. Type: text
 #. Description

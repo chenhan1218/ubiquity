@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -26,18 +26,14 @@ msgstr "Pripája sa..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "Inštalácia zlyhala"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "Pripojiť"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -218,26 +214,20 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "Chyba pri obnovovaní nainštalovaných aplikácií"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "Chyba pri kopírovaní konfigurácie Bluetooth"
+msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "Niečo iné"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -294,10 +284,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "Heslo je slabé"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -390,10 +378,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "Odfotiť"
+msgstr ""
 
 #. Type: text
 #. Description

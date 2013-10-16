@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-09-21 00:51+0000\n"
-"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
+"PO-Revision-Date: 2013-10-12 04:45+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -27,18 +27,14 @@ msgstr "正在連接..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "安裝程序失敗"
+msgstr "連線失敗。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "連接"
+msgstr "已連線。"
 
 #. Type: text
 #. Description
@@ -212,43 +208,37 @@ msgstr "拍攝相片"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "一個帳號就能登入所有的 Ubuntu 服務"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "還原已安裝應用程式時發生錯誤"
+msgstr "註冊帳號時發生錯誤"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "複製藍牙設定時發生錯誤"
+msgstr "登入帳號時發生錯誤"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "其他"
+msgstr "有事件出錯"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">深入了解</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "我已完整閱讀，並且接受 <a href=\"\">Ubuntu One 使用條款</a>"
 
 #. Type: text
 #. Description
@@ -257,6 +247,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">請輸入您想要用來登入 Ubuntu One 帳號的電子郵件位址。</"
+"span>"
 
 #. Type: text
 #. Description
@@ -264,13 +256,13 @@ msgstr ""
 msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
-msgstr ""
+msgstr "<span size=\"small\">若您尚未有帳號，別擔心，我們會幫助您建立。</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One 電子郵件"
 
 #. Type: text
 #. Description
@@ -288,15 +280,13 @@ msgstr "您的名稱"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "密碼至少需要 8 個字元長"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "密碼強度不足"
+msgstr "再輸入密碼一次"
 
 #. Type: text
 #. Description
@@ -344,13 +334,13 @@ msgstr "略過"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "稍後登入"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "稍後註冊"
 
 #. Type: text
 #. Description
@@ -384,39 +374,37 @@ msgstr "確認密碼"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "程式"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "拍攝相片"
+msgstr "相片"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "音樂"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "雲端"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "請輸入您的電子郵件："
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "請告訴我們您想使用的名稱與密碼："
 
 #. Type: text
 #. Description
@@ -424,7 +412,7 @@ msgstr ""
 msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
-msgstr ""
+msgstr "Ubuntu One 是您用來登入所有與 Ubuntu 相關服務與網站的單一帳號。"
 
 #. Type: text
 #. Description
@@ -434,6 +422,8 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"從軟體中心獲取新程式、在您的個人雲上儲存檔案、到音樂商店中購買樂曲、管理您的"
+"付款與訂購等 - 您可自行決定需要使用什麼服務。"
 
 #. Type: text
 #. Description
@@ -442,6 +432,7 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"若您已有 Ubuntu 單一登入帳號，而這種帳號我們現在改稱它為 Ubuntu One 帳號。"
 
 #. Type: text
 #. Description
@@ -450,18 +441,19 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"沒有網際網路連線。若要建立登入 Ubuntu One 的帳號，您需要先連接到網際網路。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "我是新的 Ubuntu One 使用者。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "我已是 Ubuntu One 使用者，而我的密碼是："
 
 #. Type: text
 #. Description

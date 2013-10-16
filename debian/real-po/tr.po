@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-05-25 21:40+0000\n"
-"Last-Translator: Volkan Gezer <Unknown>\n"
+"PO-Revision-Date: 2013-10-14 22:47+0000\n"
+"Last-Translator: Yiğit Ateş <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:24+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -26,18 +26,14 @@ msgstr "Bağlanıyor..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "Kurulum başarısız oldu"
+msgstr "Bağlantı başarısız."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "Bağlan"
+msgstr "Bağlanıldı."
 
 #. Type: text
 #. Description
@@ -107,7 +103,7 @@ msgstr "${RELEASE}'yu Dene"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "${RELEASE}'yu Kur"
+msgstr "${RELEASE} Sürümünü Kur"
 
 #. Type: text
 #. Description
@@ -131,7 +127,8 @@ msgstr ""
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"<a href=\"update\">Bu yükleme aracını güncelleştirmek</a> isteyebilirsiniz."
+"<a href=\"update\">Mevcut kurulum aracını güncelleştirmek</a> "
+"isteyebilirsiniz."
 
 #. Type: text
 #. Description
@@ -215,43 +212,38 @@ msgstr "Resim Çek"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Tek bir hesap ile Ubuntudaki herşeye erişin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "Yüklenen uygulamalar geri getirilirken bir hata oluştu"
+msgstr "Hesap kaydı yapılırken hata oluştu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "Bluetooth yapılandırması kopyalama hatası"
+msgstr "Giriş yaparken hata oluştu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "Başka bir şey"
+msgstr "Bir şeyler yanlış gitti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Daha fazla bilgi</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"<a href=\"\">Ubuntu One kullanım sözleşmesini</a> okudum ve kabul ediyorum."
 
 #. Type: text
 #. Description
@@ -260,6 +252,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Ubuntu One hesabınıza erişmek için kullandığınız eposta "
+"adresinizi girin.</span>"
 
 #. Type: text
 #. Description
@@ -268,12 +262,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Eğer henüz bir hesabınız yoksa endişelenmeyin, sizin "
+"için bir tane oluşturalım.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One eposta"
 
 #. Type: text
 #. Description
@@ -291,15 +287,13 @@ msgstr "Adınız"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Parolanız en az 8 karakter içermeli"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "Zayıf parola"
+msgstr "Parolanızı tekrar yazın"
 
 #. Type: text
 #. Description
@@ -347,13 +341,13 @@ msgstr "Atla"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Daha sonra giriş yap"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Daha sonra kaydol"
 
 #. Type: text
 #. Description
@@ -387,39 +381,37 @@ msgstr "Parolayı doğrulayın"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Uygulamalar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "Resim Çek"
+msgstr "Fotoğraflar"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Müzik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Bulut"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Lütfen e-posta adresinizi giriniz:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Lütfen adınızı giriniz ve bir parola seçiniz:"
 
 #. Type: text
 #. Description
@@ -428,6 +420,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One , Ubuntu ile ilgili bütün servis ve sitelere giriş yapmak için "
+"tekil hesaptır."
 
 #. Type: text
 #. Description
@@ -437,6 +431,10 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Yazılım Merkezinden yeni uygulamalar alabilir, dosyalarınızı Bulut sisteme "
+"yükleyebilir, Müzik Dükkanından parçalar satın alabilir, ödemelerinizi ve "
+"aboneliklerinizi düzenleyebilirsiniz. - hangi servisleri kullanacağınıza siz "
+"karar verirsiniz."
 
 #. Type: text
 #. Description
@@ -445,6 +443,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Eğer Ubuntu Tekil Giriş hesabınız varsa artık bu servis Ubuntu One hesabı "
+"isminde adlandırılmaktadır."
 
 #. Type: text
 #. Description
@@ -453,18 +453,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"İnternet bağlantısı mevcut değil. Ubuntu One hesabı oluşturmak veya sisteme "
+"giriş için geçerli bir internet bağlantısına ihtiyacınız var."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Yeni bir Ubuntu One kullanıcısıyım."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Daha önce Ubuntu One kullandım ve parolam:"
 
 #. Type: text
 #. Description
@@ -944,9 +946,9 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Kurulum bitti. ${RELEASE}'yu denemeye devam edebilirsiniz; ancak "
-"bilgisayarınızı yeniden başlatana kadar, yaptığınız değişiklikler ve "
-"kaydettiğiniz belgeler saklanmayacak."
+"Kurulum tamamlandı. ${RELEASE} sürümünü kurulum medyası üzerinden kullanmaya "
+"devam edebilirsiniz; fakat sisteminizi yeniden başlatana kadar yapacağınız "
+"değişiklikler geçici olacaktır ve saklanmayacaktır."
 
 #. Type: text
 #. Description
@@ -1314,8 +1316,8 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek; fakat "
-"kurulu sistemde ağ yapılandırmasının yeniden kurulumu gerekecektir."
+"Ağ ayarları kopyalanırken bir hata oluştu. Kurulum devam edecek, fakat ağ "
+"yapılandırmasının yerleşik sistemde yeniden kurulumu gerekecektir."
 
 #. Type: error
 #. Description
@@ -1383,9 +1385,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Kurulum programının, değişiklikleri bölümleme tablosuna işlemesi gerekiyor; "
-"ancak şu bağlama noktalarındaki bölümler dosya sisteminden ayırılamadığı "
-"için değişiklikler bölümleme tablosuna işlenemiyor:"
+"Kurulum programının, değişiklikleri bölümleme tablosuna işlemesi gerekiyor "
+"ancak bunu yapamıyor; çünkü şu bağlama noktalarındaki bölümler dosya "
+"sisteminden ayırılamıyor:"
 
 #. Type: boolean
 #. Description
@@ -1506,7 +1508,7 @@ msgstr "kurulum süreci"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Checking for installer updates"
-msgstr "Yükleyici için güncelleştirmeler denetleniyor"
+msgstr "Yükleyici için güncellemeler denetleniyor"
 
 #. Type: text
 #. Description
@@ -1518,7 +1520,7 @@ msgstr "Paket bilgisi okunuyor"
 #. Description
 #: ../ubiquity.templates:219001
 msgid "Updating package information"
-msgstr "Paket bilgisi güncelleştiriliyor"
+msgstr "Paket bilgisi güncelleniyor"
 
 #. Type: text
 #. Description
@@ -1536,19 +1538,19 @@ msgstr "Dosya ${DİZİN} ${TOPLAM}'ın"
 #. Description
 #: ../ubiquity.templates:222001
 msgid "Installing update"
-msgstr "Güncelleştirme kuruluyor"
+msgstr "Güncelleme kuruluyor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Error updating installer"
-msgstr "Yükleyici güncelleştirme hatası"
+msgstr "Yükleyici güncelleme hatası"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr "Yükleyici kendini güncelleştirirken bir hatayla karşılaştı:"
+msgstr "Yükleyici kendini güncellerken bir hatayla karşılaştı:"
 
 #. Type: text
 #. Description
@@ -1615,7 +1617,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001
 msgid "Preparing to install ${RELEASE}"
-msgstr "${RELEASE} kurulumu için hazırlanılıyor"
+msgstr "${RELEASE} sürümü kurulumu için hazırlanılıyor"
 
 #. Type: text
 #. Description
@@ -1779,7 +1781,7 @@ msgstr "Bu üçüncü parti yazılımı kur"
 #. Description
 #: ../ubiquity.templates:257001
 msgid "Download updates while installing"
-msgstr "Güncelleştirmeleri kurulum sırasında indir"
+msgstr "Güncellemeleri kurulum sırasında indir"
 
 #. Type: text
 #. Description
@@ -1808,7 +1810,7 @@ msgid ""
 "the clock to the correct local time."
 msgstr ""
 "Sistemin ülkeniz için doğru ayarları kullanması, size yakın sitelerden "
-"güncelleştirmeleri alması ve saati doğru yerel saate göre ayarlaması için "
+"güncellemeleri alması ve saati doğru yerel saate göre ayarlaması için "
 "bulunduğunuz bölgeyi seçin."
 
 #. Type: text

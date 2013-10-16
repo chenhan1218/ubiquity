@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-04-17 21:35+0000\n"
-"Last-Translator: Pjotr12345 <Unknown>\n"
+"PO-Revision-Date: 2013-10-12 15:17+0000\n"
+"Last-Translator: Balaam's Miracle <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:24+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -26,18 +26,14 @@ msgstr "Verbinden..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "Installatie is mislukt"
+msgstr "Verbinding is mislukt."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "Verbind"
+msgstr "Verbonden."
 
 #. Type: text
 #. Description
@@ -214,43 +210,39 @@ msgstr "Maak foto"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Eén account om u overal op Ubuntu aan te melden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "Fout bij herstellen van geïnstalleerde toepassingen"
+msgstr "Fout bij registratie van account"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "Fout bij het kopiëren van de bluetooth-instellingen"
+msgstr "Fout bij aanmelden van account"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "Iets anders"
+msgstr "Er is iets fout gegaan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Meer informatie</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Ik heb de <a href=\"\">Ubuntu One gebruiksvoorwaarden</a> gelezen en "
+"geaccepteerd."
 
 #. Type: text
 #. Description
@@ -259,6 +251,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Voer het e-mailadres in dat u gebruikt om u bij uw "
+"Ubuntu One account aan te melden.</span>"
 
 #. Type: text
 #. Description
@@ -267,12 +261,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Maakt u zich geen zorgen als u nog geen account heeft. "
+"Wij maken er een voor u aan.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One e-mailadres"
 
 #. Type: text
 #. Description
@@ -290,15 +286,13 @@ msgstr "Uw naam"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Wachtwoord van ten minste 8 tekens"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "Zwak wachtwoord"
+msgstr "Herhaal het wachtwoord"
 
 #. Type: text
 #. Description
@@ -348,13 +342,13 @@ msgstr "Overslaan"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Later aanmelden"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Later registreren"
 
 #. Type: text
 #. Description
@@ -388,39 +382,37 @@ msgstr "Wachtwoord bevestigen"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "Maak foto"
+msgstr "Foto's"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Muziek"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Cloud"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Voer uw e-mailades in:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Vertel ons uw naam en kies een wachtwoord:"
 
 #. Type: text
 #. Description
@@ -429,6 +421,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One is het enige account dat u nodig heeft om u bij alle Ubuntu-"
+"gerelateerde diensten aan te melden."
 
 #. Type: text
 #. Description
@@ -438,6 +432,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Nieuwe toepassingen installeren vanuit het Softwarecentrum, bestanden "
+"opslaan in uw persoonlijke cloud, muzieknummers kopen in de muziekwinkel, uw "
+"betalingen en abonnementen beheren - u bepaalt welke diensten u nodig heeft."
 
 #. Type: text
 #. Description
@@ -446,6 +443,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Als u een bestaand Ubuntu single sign on account heeft, dit heet nu uw "
+"Ubuntu One account."
 
 #. Type: text
 #. Description
@@ -454,18 +453,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Er is geen internetverbinding. Om een Ubuntu One account aan te maken of om "
+"u daar aan te melden, heeft u een internetverbinding nodig."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Ik ben een nieuwe Ubuntu One gebruiker."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Ik ben een bestaande Ubuntu One gebruiker en mijn wachtwoord is:"
 
 #. Type: text
 #. Description

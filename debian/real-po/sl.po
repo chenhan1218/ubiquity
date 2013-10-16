@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-07-30 14:21+0000\n"
-"Last-Translator: Andrej Znidarsic <andrej.znidarsic@gmail.com>\n"
+"PO-Revision-Date: 2013-10-14 10:44+0000\n"
+"Last-Translator: Damir Jerovšek <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-04 13:25+0000\n"
-"X-Generator: Launchpad (build 16791)\n"
+"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #. Type: text
 #. Description
@@ -27,18 +27,14 @@ msgstr "Povezovanje ..."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
-#, fuzzy
-#| msgid "Installation failed"
 msgid "Connection failed."
-msgstr "Namestitev je spodletela"
+msgstr "Povezava ni uspela."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
-#, fuzzy
-#| msgid "Connect"
 msgid "Connected."
-msgstr "Poveži se"
+msgstr "Povezani."
 
 #. Type: text
 #. Description
@@ -215,43 +211,37 @@ msgstr "Zajemi fotografijo"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "En račun za prijavo povsod v Ubuntuju"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
-#, fuzzy
-#| msgid "Error restoring installed applications"
 msgid "Error registering account"
-msgstr "Napaka med obnavljanjem nameščenih programov"
+msgstr "Napaka pri vpisovanju računa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
-#, fuzzy
-#| msgid "Error copying bluetooth configuration"
 msgid "Error loging into the account"
-msgstr "Napaka med kopiranjem nastavitev bluetooth"
+msgstr "Napaka pri prijavi v račun"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
-#, fuzzy
-#| msgid "Something else"
 msgid "Something went wrong"
-msgstr "Nekaj drugega"
+msgstr "Nekaj je šlo narobe"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Več o tem</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "Prebral/-a sem in sprejemam <a href=\"\">pogoje uporabe Ubuntu One</a>"
 
 #. Type: text
 #. Description
@@ -260,6 +250,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Vnesite e-poštni naslov, ki ga uporabljate za prijavo v "
+"račun Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -268,12 +260,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Če še nimate računa, brez skrbi, ustvarili ga bomo za "
+"vas.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "E-pošta Ubuntu One"
 
 #. Type: text
 #. Description
@@ -291,15 +285,13 @@ msgstr "Vaše ime"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Geslo z najmanj osmimi znaki"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
-#, fuzzy
-#| msgid "Weak password"
 msgid "Retype password"
-msgstr "Šibko geslo"
+msgstr "Ponovno vnesite geslo"
 
 #. Type: text
 #. Description
@@ -347,13 +339,13 @@ msgstr "Preskoči"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Prijavite se kasneje"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Vpišite se kasneje"
 
 #. Type: text
 #. Description
@@ -387,39 +379,37 @@ msgstr "Potrdite geslo"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Programi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
-#, fuzzy
-#| msgid "Take Photo"
 msgid "Photos"
-msgstr "Zajemi fotografijo"
+msgstr "Fotografije"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Glasba"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Oblak"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Vnesite svojo e-pošto:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Vnesite svoje ime in izberite geslo:"
 
 #. Type: text
 #. Description
@@ -428,6 +418,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One je en račun, ki ga uporabljate za prijavo v vse storitve ter vsa "
+"spletišča povezana z Ubuntujem."
 
 #. Type: text
 #. Description
@@ -437,6 +429,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Prejmite nove programe iz Programskega središča, hranite datoteke v svojem "
+"osebnem oblaku, kupujte skladbe iz glasbene trgovine, upravljajte s svojimi "
+"plačili ter naročninami - vi se odločite, katere storitve potrebujete."
 
 #. Type: text
 #. Description
@@ -445,6 +440,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Če imate obstoječi račun Ubuntu z enkratnim vpisom, se ta sedaj imenuje "
+"račun Ubuntu One."
 
 #. Type: text
 #. Description
@@ -453,18 +450,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Ni povezave z internetom. Za ustvarjanje računa ali za prijavo v Ubuntu One "
+"potrebujete povezavo z internetom."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Sem nov uporabnik Ubuntu One."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Že imam račun Ubuntu One in moje geslo je:"
 
 #. Type: text
 #. Description
@@ -2073,7 +2072,7 @@ msgstr "Šifriraj novo namestitev Ubuntuja zaradi varnostnih razlogov."
 #. Description
 #: ../ubiquity.templates:289001
 msgid "You will choose a security key in the next step."
-msgstr "V naslednjem koraku boste izbrali varnostni kjuč."
+msgstr "V naslednjem koraku boste izbrali varnostni ključ."
 
 #. Type: text
 #. Description
@@ -2128,8 +2127,8 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
-"<span foreground=\"darkred\">Warning:</span> Če varnostni ključ izgubite, "
-"bodo vsi podatki izgubljeni.  Če je potrebno, si varnostni kjuč zapišite in "
+"<span foreground=\"darkred\">Opozorilo:</span> Če varnostni ključ izgubite, "
+"bodo vsi podatki izgubljeni.  Če je potrebno, si varnostni ključ zapišite in "
 "ga shranite na varnem mestu."
 
 #. Type: text

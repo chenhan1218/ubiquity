@@ -1,7 +1,11 @@
 ubiquity (2.15.26) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Adding custom classes to EventBox, somehow kills the install now
     button event. Instead use simple bg styling.
+
+  [ Colin Watson ]
+  * Update translations from Launchpad.
 
  -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 16 Oct 2013 17:40:30 +0100
 
