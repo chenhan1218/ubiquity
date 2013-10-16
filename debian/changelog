@@ -1,4 +1,4 @@
-ubiquity (2.15.26) UNRELEASED; urgency=low
+ubiquity (2.15.26) saucy; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Adding custom classes to EventBox somehow kills the install now
@@ -7,7 +7,7 @@ ubiquity (2.15.26) UNRELEASED; urgency=low
   [ Colin Watson ]
   * Update translations from Launchpad.
 
- -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 16 Oct 2013 17:40:30 +0100
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 16 Oct 2013 18:30:55 +0100
 
 ubiquity (2.15.25) saucy; urgency=low
 
