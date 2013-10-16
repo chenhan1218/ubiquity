@@ -1,3 +1,10 @@
+ubiquity (2.15.26) UNRELEASED; urgency=low
+
+  * Adding custom classes to EventBox, somehow kills the install now
+    button event. Instead use simple bg styling.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 16 Oct 2013 17:40:30 +0100
+
 ubiquity (2.15.25) saucy; urgency=low
 
   * Remove all cairo styling from partition boxes in automatic

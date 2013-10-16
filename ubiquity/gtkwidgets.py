@@ -123,20 +123,24 @@ class ResizeWidget(Gtk.HPaned):
         # The max size (b) that the existing partition can be resized to.
         self.max_size = max_size
 
+        test_window = Gtk.Window()
+        style = test_window.get_style_context()
+        self.highlight_color = style.get_background_color(Gtk.StateFlags.SELECTED)
+        self.highlight_color.alpha = 0.5
+        
         # FIXME: Why do we still need these event boxes to get proper bounds
         # for the linear gradient?
         self.existing_part = existing_part or PartitionBox()
         eb = Gtk.EventBox()
-        style = eb.get_style_context()
-        style.add_class('fancy')
+        eb.modify_bg(Gtk.StateFlags.NORMAL, self.highlight_color.to_color())
         eb.add(self.existing_part)
         self.pack1(eb, resize=False, shrink=False)
         self.new_part = new_part or PartitionBox()
         eb = Gtk.EventBox()
-        style = eb.get_style_context()
-        style.add_class('fancy')
+        eb.modify_bg(Gtk.StateFlags.NORMAL, self.highlight_color.to_color())        
         eb.add(self.new_part)
         self.pack2(eb, resize=False, shrink=False)
+
         self.show_all()
         # FIXME hideous, but do_realize fails inexplicably.
         self.connect('realize', self.realize)
