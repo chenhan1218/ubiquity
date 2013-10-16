@@ -1,4 +1,3 @@
-import cairo
 from gi.repository import (
     GObject,
     Gdk,
