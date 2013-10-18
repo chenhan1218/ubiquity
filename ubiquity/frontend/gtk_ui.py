@@ -49,7 +49,7 @@ DBusGMainLoop(set_as_default=True)
 
 #in query mode we won't be in X, but import needs to pass
 if 'DISPLAY' in os.environ:
-    from gi.repository import Gtk, Gdk, GObject, GLib
+    from gi.repository import Gtk, Gdk, GObject, GLib, Atk
     from ubiquity import gtkwidgets
 
 from ubiquity import (
@@ -330,6 +330,7 @@ class Wizard(BaseFrontend):
 
         for mod in self.pages:
             progress = Gtk.ProgressBar()
+            progress.get_accessible().set_role(Atk.Role.INVALID)
             progress.set_size_request(10, 10)
             progress.set_fraction(0)
             self.dot_grid.add(progress)

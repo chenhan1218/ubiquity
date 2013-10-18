@@ -8,6 +8,7 @@ ubiquity (2.15.27) UNRELEASED; urgency=low
   * Don't read proc_cmdline twice (LP: #1213748)
   * Set wallpaper for 'feh' only, for others just assume gsettings schemes
     are correct.
+  * Silence progress dots with invalid a11y (LP: #1154345)
 
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Fri, 18 Oct 2013 22:33:24 +0100
 
