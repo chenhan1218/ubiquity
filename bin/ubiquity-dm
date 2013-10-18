@@ -339,10 +339,14 @@ EndSection
                 stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges))
 
+        # Accessibility infrastructure
+        proc_cmdline = []
+        with open('/proc/cmdline', 'r') as fp:
+            proc_cmdline = fp.readline().split()
+
         if self.frontend == 'gtk_ui':
             # Set a desktop wallpaper.
-            with open('/proc/cmdline', 'r') as fp:
-                visual_a11y = 'access=v' in fp.readline()
+            visual_a11y = 'access=v' in proc_cmdline
 
             background_image = None
             for background in (
@@ -425,11 +429,6 @@ EndSection
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
 
-            # Accessibility infrastructure
-            proc_cmdline = []
-            with open('/proc/cmdline', 'r') as fp:
-                proc_cmdline = fp.readline().split()
-                
             if (accessibility or 'maybe-ubiquity' in proc_cmdline or
                     'only-ubiquity' in proc_cmdline or
                     program_basename == 'oem-config-wrapper'):
@@ -516,46 +515,44 @@ EndSection
 
             # Accessibility tools
             if accessibility:
-                with open('/proc/cmdline', 'r') as fp:
-                    if 'access=m2' in fp.readline():
-                        if osextras.find_on_path('onboard'):
-                            extras.append(subprocess.Popen(
-                                ['onboard'],
-                                stdin=null, stdout=logfile, stderr=logfile,
-                                preexec_fn=self.drop_privileges))
-                    else:
-                        if osextras.find_on_path('orca'):
-                            time.sleep(15)
-                            extras.append(subprocess.Popen(
-                                ['orca'],
-                                stdin=null, stdout=logfile, stderr=logfile,
-                                preexec_fn=self.drop_privileges))
+                # FIXME: launch onboard, when touch screen detected
+                if 'access=m2' in proc_cmdline:
+                    if osextras.find_on_path('onboard'):
+                        extras.append(subprocess.Popen(
+                            ['onboard'],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges))
+                else:
+                    if osextras.find_on_path('orca'):
+                        time.sleep(15)
+                        extras.append(subprocess.Popen(
+                            ['orca'],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges))
         elif self.frontend == 'kde_ui':
             # Don't show the background image in v1 accessibility profile.
             os.setegid(self.gid)
             os.seteuid(self.uid)
             path = '/usr/share/wallpapers/kde-default.png'
-            with open('/proc/cmdline', 'r') as fp:
-                if (os.access(path, os.R_OK) and
-                        not 'access=v1' in fp.readline()):
-                    # Draw a background image for the install progress window.
-                    from PyQt4.QtCore import Qt
-                    from PyQt4 import QtGui
-                    a = QtGui.QApplication(sys.argv)
-                    root_win = a.desktop()
-                    wallpaper = QtGui.QPixmap(path)
-                    wallpaper = wallpaper.scaled(
-                        root_win.width(), root_win.height(),
-                        Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
-                    palette = QtGui.QPalette()
-                    palette.setBrush(root_win.backgroundRole(),
-                                     QtGui.QBrush(wallpaper))
-                    root_win.setPalette(palette)
-                    root_win.setCursor(Qt.ArrowCursor)
-                    a.processEvents()
-                    # Force garbage collection so we don't end up with stray X
-                    # resources when we kill the X server (LP: #556555).
-                    del a
+            if (os.access(path, os.R_OK) and not 'access=v1' in proc_cmdline):
+                # Draw a background image for the install progress window.
+                from PyQt4.QtCore import Qt
+                from PyQt4 import QtGui
+                a = QtGui.QApplication(sys.argv)
+                root_win = a.desktop()
+                wallpaper = QtGui.QPixmap(path)
+                wallpaper = wallpaper.scaled(
+                    root_win.width(), root_win.height(),
+                    Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
+                palette = QtGui.QPalette()
+                palette.setBrush(root_win.backgroundRole(),
+                                 QtGui.QBrush(wallpaper))
+                root_win.setPalette(palette)
+                root_win.setCursor(Qt.ArrowCursor)
+                a.processEvents()
+                # Force garbage collection so we don't end up with stray X
+                # resources when we kill the X server (LP: #556555).
+                del a
             os.seteuid(0)
             os.setegid(0)
 
