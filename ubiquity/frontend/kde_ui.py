@@ -426,7 +426,6 @@ class Wizard(BaseFrontend):
             if self.current_page is None:
                 break
 
-            self.backup = False
             page = self.pages[self.pagesindex]
             skip = False
             if hasattr(page.ui, 'plugin_skip_page'):
@@ -876,6 +875,10 @@ class Wizard(BaseFrontend):
 
     def set_page(self, n):
         self.run_automation_error_cmd()
+        # We only stop the backup process when we're on a page where questions
+        # need to be asked, otherwise you wont be able to back up past
+        # pages that do not stop on questions or are preseeded away.
+        self.backup = False
         self.ui.show()
 
         #set all the steps active
