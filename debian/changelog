@@ -3,6 +3,9 @@ ubiquity (2.15.27) UNRELEASED; urgency=low
   [ Aurélien Gâteau ]
   * Fix going back through skipped steps in kde_ui frontend.
 
+  [ Dmitrijs Ledkovs ]
+  * Switch "wireless" and "prepare" steps around (LP: #955232)
+
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Fri, 18 Oct 2013 22:33:24 +0100
 
 ubiquity (2.15.26) saucy; urgency=low
