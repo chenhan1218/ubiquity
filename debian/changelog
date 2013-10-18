@@ -6,6 +6,8 @@ ubiquity (2.15.27) UNRELEASED; urgency=low
   [ Dmitrijs Ledkovs ]
   * Switch "wireless" and "prepare" steps around (LP: #955232)
   * Don't read proc_cmdline twice (LP: #1213748)
+  * Set wallpaper for 'feh' only, for others just assume gsettings schemes
+    are correct.
 
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Fri, 18 Oct 2013 22:33:24 +0100
 

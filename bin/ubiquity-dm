@@ -350,30 +350,14 @@ EndSection
 
             background_image = None
             for background in (
-                    '/usr/share/backgrounds/edubuntu_default.png',
                     '/usr/share/xfce4/backdrops/ubuntustudio-1310.png',
                     '/usr/share/xfce4/backdrops/xubuntu-wallpaper.png',
                     '/usr/share/lubuntu/wallpapers/'
-                    'lubuntu-default-wallpaper.png',
-                    '/usr/share/backgrounds/ubuntukylin-default-settings.jpg',
-                    '/usr/share/backgrounds/warty-final-ubuntu.png',
-                    '/usr/share/backgrounds/gnome/FootFall.png'):
+                    'lubuntu-default-wallpaper.png'):
                 exists = os.access(background, os.R_OK)
                 if exists:
                     background_image = background
                     break
-
-            # Setting a wallpaper image, or solid color.
-            if visual_a11y or background_image is None:
-                picture_option = 'none'
-                background_image = False
-            else:
-                picture_option = 'zoom'
-
-            if background_image:
-                background_url = 'file://' + background_image
-            else:
-                background_url = "''"
 
             accessibility = False
             if gsettings._gsettings_exists():
@@ -395,13 +379,17 @@ EndSection
                      'false'),
                     ('org.gnome.metacity', 'compositing-manager',
                      'true'),
-                    ('org.gnome.desktop.background', 'picture-options',
-                     picture_option),
-                    ('org.gnome.desktop.background', 'picture-uri',
-                     background_url),
                     ('org.gnome.desktop.wm.preferences', 'num-workspaces',
                      '1'),
                 ]
+                # Setting a wallpaper image, or solid color.
+                if visual_a11y:
+                    gsettings_keys.append(
+                        ('org.gnome.desktop.background', 'picture-options',
+                            'none'))
+                    gsettings_keys.append(
+                        ('org.gnome.desktop.background', 'picture-uri',
+                            "''"))
 
                 if osextras.find_on_path('gnome-shell'):
                     gsettings_keys.append(
@@ -610,6 +598,14 @@ EndSection
                     # going on, it's best to drop them into a desktop and let
                     # them figure it out.
                     reboot = False
+
+        # Revert gnome-settings to default, for dropping to desktop
+        if gsettings._gsettings_exists():
+            for gs_schema, gs_key, gs_value in gsettings_keys:
+                subprocess.call(
+                    ['gsettings', 'reset', gs_schema, gs_key],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges)
 
         def kill_if_exists(pid, signum):
             try:
