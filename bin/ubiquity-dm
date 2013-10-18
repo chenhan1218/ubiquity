@@ -426,17 +426,20 @@ EndSection
                         preexec_fn=self.drop_privileges)
 
             # Accessibility infrastructure
+            proc_cmdline = []
             with open('/proc/cmdline', 'r') as fp:
-                if (accessibility or 'maybe-ubiquity' in fp.readline() or
-                        'only-ubiquity' in fp.readline() or
-                        program_basename == 'oem-config-wrapper'):
-                    launcher = '/usr/lib/at-spi2-core/at-spi-bus-launcher'
-                    if os.path.exists(launcher):
-                        extras.append(subprocess.Popen(
-                            [launcher, '--launch-immediately'],
-                            stdin=null, stdout=logfile, stderr=logfile,
-                            preexec_fn=self.drop_privileges))
-                        os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                proc_cmdline = fp.readline().split()
+                
+            if (accessibility or 'maybe-ubiquity' in proc_cmdline or
+                    'only-ubiquity' in proc_cmdline or
+                    program_basename == 'oem-config-wrapper'):
+                launcher = '/usr/lib/at-spi2-core/at-spi-bus-launcher'
+                if os.path.exists(launcher):
+                    extras.append(subprocess.Popen(
+                        [launcher, '--launch-immediately'],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
+                    os.environ['GTK_MODULES'] += os.pathsep + 'gail'
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
