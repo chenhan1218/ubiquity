@@ -4,43 +4,23 @@ Depends:
 
     sudo apt-get install python-autopilot libautopilot-gtk python-xlib
 
-python-xlib is needed for the x11 backend to work. universe repo needs activating in sources
+To run the tests
 
-But until support for setup and tear down has been implemented
-the test needs modifying for Xubuntu and Lubuntu
+Terminal 1 :
 
-To make these edits go into test_default.py and in the test_default_install method change
+cd ubiquity/autopilot
+./run_ubiquity
 
-    self.keyboard.press_and_release('Super+1')
+Terminal 2:
 
-    To
+cd ubiquity/autopilot
 
-    #self.keyboard.press_and_release('Super+1')
+Then choose one of below
 
-Once installed copy ubiquity & ubiquity-wrapper files to the right place
+./autopilot run ubiquity_autopilot_tests.tests.test_default
 
-  sudo cp ubiquity/bin/ubiquity-wrapper /usr/bin/ubiquity
-  sudo cp ubiquity/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
+./autopilot run ubiquity_autopilot_tests.tests.test_lvm
 
-In one terminal
-* Execute ./run_ubiquity to start ubiquity in "autopilot" mode
+./autopilot run ubiquity_autopilot_tests.tests.test_lvm_encrypt
 
-Wait for ubiquity to start up then in another terminal window
-* Use ./autopilot as if it's `autopilot`, e.g.:
-  ./autopilot list ubiquity
-  ./autopilot run ubiquity
-
-* for default install run
- 	./autopilot run ubiquity
-
-* for lvm install without encryption run
-	./autopilot run ubiquity_lvm
-
-* for lvm install with encryption run
-	./autopilot run ubiquity_lvm_encrypt
-
-* for 'something else' install run
-	./autopilot run ubiquity_custom
-
-NOTE: If running on Xubuntu or Lubuntu make sure that your terminal windows are not covering
-the ubiquity continue button before you run ./autopilot run ubiquity.
+./autopilot run ubiquity_autopilot_tests.tests.test_custom_install
