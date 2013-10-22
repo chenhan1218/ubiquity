@@ -402,10 +402,10 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         while progress < complete:
             #keep updating fraction value
             progress = self.install_progress.fraction
-            if progress < 0.9:
-                time.sleep(1)
+            #if progress < 0.8:
+            #    time.sleep(1)
 
-            logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
+            #logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
             # Use for debugging. Shows current 'fraction' value
             #print(progress)
 
