@@ -90,6 +90,11 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
                                    timeout=120))
 
     def go_to_progress_page(self, ):
+        """ This simply clicks next and goes to the progress page
+
+        NOTE: THis shouldn't be used for any other page switches as it does no checks.
+        
+        """
         nxt_button = self.main_window.select_single('GtkButton', name='next')
         nxt_button.click()
 
@@ -210,7 +215,7 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
         self.assertThat(skp_button.visible, Equals(skip_button))
 
     def _update_current_step(self, name):
-
+        logger.debug("Updating current step to %s" % name)
         self.step_before = self.current_step
         self.current_step = name
 
@@ -222,14 +227,21 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single('GtkLabel',
                                                             BuilderName='page_title')
-        expectThat(self.previous_page_title).not_equals(self.current_page_title)
-        expectThat(self.previous_page_title).not_equals(current_page_title.label)
+        message = "Expected {0} page title '{1}' to not equal the previous {2} page title '{3}'but it does".format(
+            self.current_step, self.current_page_title, self.step_before, self.previous_page_title
+        )
+        expectThat(self.previous_page_title).not_equals(self.current_page_title, msg=message)
+        # THis second one catches the known bug for the stepPartAvanced page title switching back to the prev page title
+        message_two = "Expected {0} page title '{1}' to not equal the previous {2} page title '{3}'but it does".format(
+            self.current_step, current_page_title, self.step_before, self.previous_page_title
+        )
+        expectThat(self.previous_page_title).not_equals(current_page_title.label, msg=message_two)
         expectThat(current_page_title.visible).equals(True)
 
     def check_for_non_fatal_errors(self, ):
         """ Checks for any non fatal failures during the install
 
-            THis should be the very last function call in the test,
+            This should be the very last function call in the test,
             the install should have successfully completed. Which we can then check for non
             critical problems
         """

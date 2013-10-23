@@ -274,7 +274,7 @@ class GtkComboBox(AutopilotGtkEmulatorBase):
 
         e.g. ::
 
-            >>> combobox = self.main_window.select_single('GtkComboBox)
+            >>> combobox = self.main_window.select_single('GtkComboBox')
             >>> combobox.select_item('ListItem')
 
         If for some reason this doesn't work then use the :func:`click()`
