@@ -310,6 +310,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
 
         logger.debug("Selecting stepLocation page object")
         location_page = self.select_single('GtkBox', BuilderName='stepLocation')
+        location_page.check_location_page()
         location = ['London', 'Paris', 'Madrid', 'Algiers']
         location_page.select_location(random.choice(location))
 

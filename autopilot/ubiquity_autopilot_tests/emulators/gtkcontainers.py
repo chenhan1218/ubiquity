@@ -161,6 +161,14 @@ class GtkBox(GtkContainers):
         logger.debug("Returning selected language: %s" % l_unicode)
         return lang_item
 
+    def check_location_page(self):
+        if self.name == 'stepLocation':
+            location_map = self.select_single('CcTimezoneMap')
+            expectThat(location_map.visible).equals(True, msg="Expected location map to be visible but it wasn't")
+            location_entry = self.select_single(BuilderName='timezone_city_entry')
+            expectThat(location_entry.visible).equals(True, msg="Expected location entry to be visible but it wasn't")
+        else:
+            raise ValueError("Function can only be called from a stepLocation page object")
     def select_location(self, location):
         """ Selects a location on the timezone map """
         if self.name == 'stepLocation':
@@ -401,6 +409,8 @@ class GtkAlignment(GtkContainers):
                 "Function can only be called from the stepKeyboardConf page object")
 
     def check_crypto_page(self, ):
+        """ Checks all items on the stepPartCrypto page
+        """
         if self.name == 'stepPartCrypto':
             items = ['verified_crypto_label', 'crypto_label', 'crypto_description',
                      'crypto_warning', 'crypto_extra_label', 'crypto_extra_time',
@@ -450,7 +460,11 @@ class GtkAlignment(GtkContainers):
         if self.name == 'stepPartAdvanced':
             treeview = self.select_single('GtkTreeView')
             expectThat(treeview.visible).equals(True)
-            # TODO: Rest of page objects
+            obj_list = ['partition_button_new', 'partition_button_delete', 'partition_button_edit',
+                        'partition_button_edit', 'partition_button_new_label']
+            for name in obj_list:
+                obj = self.select_single(BuilderName=name)
+                expectThat(obj.visible).equals(True, msg="{0} object was not visible".format(obj.name))
         else:
             raise ValueError(
                 "Check_custom_page() can only be called from stepPartAdvanced page object"
