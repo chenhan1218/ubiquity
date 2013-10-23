@@ -5,8 +5,9 @@
 # Author: Daniel Chapman daniel@chapman-mail.com
 #
 # Inspired and re-worked version of RudyLattae's 'Compare' module
-# Implementing using rich comparison matchers
 # URL: https://github.com/rudylattae/compare
+#
+# Implementing using rich comparison matchers
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -29,7 +30,7 @@ non_fatal_errors = []
 
 
 class expectThat(object):
-    """ expectThat is tool for asserting non-fatal errors
+    """ expectThat is a tool for asserting non-fatal errors
     
     It should only be used as to assert non-fatal errors. Errors which it
     doesn't make sense to halt the test if it fails. At the end of the test you need to

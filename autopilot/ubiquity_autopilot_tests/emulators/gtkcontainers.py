@@ -182,7 +182,6 @@ class GtkBox(GtkContainers):
             y = pos[1]
             x = x - 25  # px
             self.pointing_device.move(x, y)
-            #TODO: Ensure we don't end up outside the maps globalRect
             while True:
                 entry = self.select_single('GtkEntry')
                 if entry.text != location:
@@ -212,7 +211,7 @@ class GtkBox(GtkContainers):
             self._enter_username(name)
             self._enter_password(password)
         else:
-            raise
+            raise ValueError ("Function can only be called froma stepUserInfo page object")
 
     def _check_user_info_page(self, ):
         """ Checks all the objects on the user info page """
@@ -270,32 +269,38 @@ class GtkBox(GtkContainers):
                                          msg="Expected {0} image to have a 'gtk-yes' stock image and not {1}".format(
                                              img.name, img.stock))
 
-    def _enter_password(self, pwd, mismatch=False):
-        """ enters the password
+    def _enter_password(self, password):
+        if self.name == 'stepUserInfo':
 
-        :param pwd: password for user account
-        :param mismatch: if true will cause the passwords to not match and then
-                         will re-enter password to correct.
-        """
-        logger.debug("_enter_password({0}, mismatch={1})".format(pwd, mismatch))
-        password_entry = self.select_single('GtkEntry', name='password')
-        with self.kbd.focused_type(password_entry) as kb:
-            kb.press_and_release('Ctrl+a')
-            kb.press_and_release('Delete')
-            kb.type(pwd)
-            message = "GtkBox._enter_password(): expected {0} entry value '{1}' to be the same length as {2}".format(
-                password_entry.name, password_entry.text, pwd
+            while True:
+                self._enter_pass_phrase(password)
+                match = self._check_phrase_match()
+
+                if match:
+                    break
+        else:
+            raise ValueError(
+                "enter_crypto_phrase() can only be called from stepPartCrypto page object"
             )
-            expectThat(len(password_entry.text)).equals(len(pwd), msg=message)
-        verified_password_entry = self.select_single('GtkEntry', name='verified_password')
-        if mismatch:
-            pass  # TODO
-        with self.kbd.focused_type(verified_password_entry) as kb:
-            kb.press_and_release('Ctrl+a')
-            kb.press_and_release('Delete')
-            kb.type(pwd)
-            expectThat(len(verified_password_entry.text)).equals(len(password_entry.text))
-            assert verified_password_entry.text == password_entry.text, "Passwords didnt match"
+
+    def _enter_pass_phrase(self, phrase):
+
+        pwd_entries = ['password', 'verified_password']
+        for i in pwd_entries:
+            entry = self.select_single(BuilderName=i)
+            with self.kbd.focused_type(entry) as kb:
+                kb.press_and_release('Ctrl+a')
+                kb.press_and_release('Delete')
+                expectThat(entry.text).equals(u'', msg='{0} entry text was not cleared properly'.format(entry.name))
+                kb.type(phrase)
+
+    def _check_phrase_match(self, ):
+        pwd1 = self.select_single(BuilderName='password').text
+        pwd2 = self.select_single(BuilderName='verified_password').text
+        if pwd1 == pwd2:
+            return True
+        else:
+            return False
 
 
 class GtkScrolledWindow(GtkContainers):

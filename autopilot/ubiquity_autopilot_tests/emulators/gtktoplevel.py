@@ -292,7 +292,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
     def _check_partition_created(self, mountPoint):
         """ Checks that the partition was created properly """
         time.sleep(10)
-        # TODO: fixme!!
+        # TODO: This needs fixing
         #root = self.get_root_instance()
         #item = root.select_single('GtkTextCellAccessible',
         #                          accessible_name=mountPoint)
@@ -403,25 +403,27 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         while progress < complete:
             #keep updating fraction value
             progress = self.install_progress.fraction
-            #if progress < 0.8:
-            #    time.sleep(1)
+            # lets sleep for a second on each loop until we get near the end of the progress bar
+            if progress < 0.7:
+                time.sleep(1)
 
-            #logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
-            # Use for debugging. Shows current 'fraction' value
-            #print(progress)
-
+            logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
             #check for install errors while waiting
-            #FIXME:
-            #crash_dialog = self.get_dialog('GtkDialog', BuilderName='crash_dialog')
-            #
-            #if crash_dialog.visibe:
-            #    assert not crash_dialog.visible
-            #    progress = 1.0
+            try:
+                crash_dialog = self.get_dialog('GtkDialog', BuilderName='crash_dialog')
+                logger.debug("Checking crash dialog hasn't appeared....")
+                if crash_dialog.visibe:
+                    logger.error("Crash Dialog appeared")
+                    assert not crash_dialog.visible, "Crash Dialog appeared! Something went wrong!!!"
+                    progress = 1.0
+            except Exception:
+                pass
             # Lets try and grab the grub failed message box on the fly
             try:
+                logger.debug("Checking failed grub install dialog hasn't appeared.......")
                 grub_dialog = self.get_dialog('GtkMessageDialog')
-
                 if grub_dialog.visible:
+                    logger.error("The Grub installation failed dialog appeared :-(")
                     assert grub_dialog.visible != 1, "The Grub installation failed"
                     progress = 1.0
             except Exception:
