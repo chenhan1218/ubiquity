@@ -10,6 +10,12 @@ ubiquity (2.17.0) UNRELEASED; urgency=low
     are correct.
   * Silence progress dots with invalid a11y (LP: #1154345)
 
+  [ Colin Watson ]
+  * Automatic update of included source packages: choose-mirror 2.50ubuntu1,
+    debian-installer-utils 1.100ubuntu1, netcfg 1.111ubuntu1,
+    partman-auto-lvm 51ubuntu1, partman-crypto 63ubuntu1, preseed
+    1.62ubuntu1.
+
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Fri, 18 Oct 2013 22:33:24 +0100
 
 ubiquity (2.15.26) saucy; urgency=low
