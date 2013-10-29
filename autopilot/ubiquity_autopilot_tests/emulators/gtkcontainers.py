@@ -113,9 +113,9 @@ class GtkBox(GtkContainers):
                 if item.selected:
                     logger.debug("Install language successfully selected! :-)")
                     return
-                raise EmulatorException("Could not select Item")
+                raise ValueError("Could not select Item")
             raise
-        raise EmulatorException("Function can only be used from a stepLanguage \
+        raise ValueError("Function can only be used from a stepLanguage \
                                 page object. Use .select_single('GtkBox, name='stepLanguage')")
 
     def _get_install_language(self, ):

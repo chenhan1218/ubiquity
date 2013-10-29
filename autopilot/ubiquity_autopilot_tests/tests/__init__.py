@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os
 import logging
+import subprocess
 import time
 from testtools.matchers import Equals, NotEquals
 from autopilot.matchers import Eventually
@@ -234,7 +235,7 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
         expectThat(self.previous_page_title).not_equals(self.current_page_title, msg=message)
         # THis second one catches the known bug for the stepPartAvanced page title switching back to the prev page title
         message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" % \
-                      (self.current_step, current_page_title, self.step_before, self.previous_page_title)
+                      (self.current_step, current_page_title.label, self.step_before, self.previous_page_title)
         expectThat(self.previous_page_title).not_equals(current_page_title.label, msg=message_two)
         expectThat(current_page_title.visible).equals(True)
 
@@ -261,3 +262,11 @@ Fail: The Installation Succeeded, but with Non-Fatal Errors.
                 self.addDetail('NON_FATAL_ERROR %s:' % str(i), text_content(out))
                 i += 1
             raise
+
+    @property
+    def get_distribution(self, ):
+        """Returns the name of the running distribution."""
+        proc = subprocess.Popen(
+            ['lsb_release', '-is'], stdout=subprocess.PIPE,
+            universal_newlines=True)
+        return proc.communicate()[0].strip()
