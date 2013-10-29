@@ -227,14 +227,13 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single('GtkLabel',
                                                             BuilderName='page_title')
-        message = "Expected {0} page title '{1}' to not equal the previous {2} page title '{3}'but it does".format(
-            self.current_step, self.current_page_title, self.step_before, self.previous_page_title
-        )
+        message = "Expected %s page title '%s' to not equal the previous %s page title '%s'but it does" \
+                  % self.current_step, self.current_page_title, self.step_before, self.previous_page_title
+
         expectThat(self.previous_page_title).not_equals(self.current_page_title, msg=message)
         # THis second one catches the known bug for the stepPartAvanced page title switching back to the prev page title
-        message_two = "Expected {0} page title '{1}' to not equal the previous {2} page title '{3}'but it does".format(
-            self.current_step, current_page_title, self.step_before, self.previous_page_title
-        )
+        message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" \
+                      % self.current_step, current_page_title, self.step_before, self.previous_page_title
         expectThat(self.previous_page_title).not_equals(current_page_title.label, msg=message_two)
         expectThat(current_page_title.visible).equals(True)
 
