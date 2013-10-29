@@ -176,11 +176,12 @@ class GtkBox(GtkContainers):
 
             location_map = self.select_single('CcTimezoneMap')
             self.pointing_device.move_to_object(location_map)
+            x1, y1, x2, y2 = location_map.globalRect
             #hmmmm this is tricky! and really hacky
             pos = self.pointing_device.position()
             x = pos[0]
             y = pos[1]
-            x = x - 25  # px
+            x -= 25# px
             self.pointing_device.move(x, y)
             while True:
                 entry = self.select_single('GtkEntry')
@@ -188,9 +189,13 @@ class GtkBox(GtkContainers):
                     pos = self.pointing_device.position()
                     x = pos[0]
                     y = pos[1]
-                    y = y - 10  # px
+                    y -= 10# px
                     self.pointing_device.move(x, y)
                     self.pointing_device.click()
+                    if y < y1:
+                        logger.warning("We missed the location on the map and ended up outside the globalRect. \
+                        Now using the default selected location instead")
+                        break
                 else:
                     expectThat(entry.text).equals(location)
                     logger.debug("Location; '{0}' selected".format(location))
