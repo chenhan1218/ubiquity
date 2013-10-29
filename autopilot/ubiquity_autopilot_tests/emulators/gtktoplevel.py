@@ -171,11 +171,6 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         self._check_preparing_statebox('prepare_power_source',
                                        visible=powerSource)
 
-    def get_flavor(self, ):
-        page_title = self.select_single('GtkLabel', name='page_title')
-
-        return page_title.label
-
     def run_installation_type_page_tests(self, _default=False, _lvm=False,
                                          _lvmEncrypt=False, _custom=False):
         """ Runs the tests for the installation type page

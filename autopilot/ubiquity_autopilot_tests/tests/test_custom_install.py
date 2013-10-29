@@ -31,8 +31,6 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         self.main_window.run_welcome_page_tests(lang='English')
         self.go_to_next_page()
         self.preparing_page_tests()
-        # lets get the flavor from the page_title
-        flavor = self.main_window.get_flavor()
         self.go_to_next_page()
         sleep(10)
         self.installation_type_page_tests(custom=True)
@@ -44,10 +42,8 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         self.keyboard_layout_page_tests()
         self.go_to_next_page()
         self.user_info_page_tests('Autopilot', 'password')
-
-        #flavor = platform.dist()
-        #flavor_name = flavor[0]
-        if 'Ubuntu' in flavor:
+        flavor = self.get_distribution()
+        if flavor == 'Ubuntu':
             self.go_to_next_page()
             self.main_window.run_ubuntu_one_page_tests()
         else:

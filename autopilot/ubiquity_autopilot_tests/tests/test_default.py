@@ -14,11 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
-from testtools.matchers import Equals, NotEquals
+from testtools.matchers import Equals
 from autopilot.matchers import Eventually
 from ubiquity_autopilot_tests.emulators import gtktoplevel
 import time
-import platform
 
 
 class DefaultInstallTestCase(UbiquityAutopilotTestCase):
@@ -46,7 +45,7 @@ class DefaultInstallTestCase(UbiquityAutopilotTestCase):
             self.main_window.run_ubuntu_one_page_tests()
         else:
             self.go_to_progress_page()
-        
+
         self.main_window.run_install_progress_page_tests()
         self.assertThat(lambda: self.app.select_single('GtkDialog', name='finished_dialog').visible,
                         Eventually(Equals(True)))
@@ -58,4 +57,3 @@ class DefaultInstallTestCase(UbiquityAutopilotTestCase):
         #time.sleep(5)
         #
         #self.keyboard.press_and_release('Enter')
-        

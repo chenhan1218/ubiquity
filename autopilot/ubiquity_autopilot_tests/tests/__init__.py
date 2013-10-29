@@ -27,11 +27,11 @@ from ubiquity_autopilot_tests.tools.compare import expectThat, non_fatal_errors
 from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from autopilot.input import Mouse, Keyboard, Pointer
 from testtools.content import text_content
+
 logger = logging.getLogger(__name__)
 
 
 class UbiquityAutopilotTestCase(AutopilotTestCase):
-
     def setUp(self):
         super(UbiquityAutopilotTestCase, self).setUp()
         self.app = self.launch_application()
