@@ -263,10 +263,10 @@ Fail: The Installation Succeeded, but with Non-Fatal Errors.
                 i += 1
             raise
 
-    @property
     def get_distribution(self, ):
         """Returns the name of the running distribution."""
         proc = subprocess.Popen(
             ['lsb_release', '-is'], stdout=subprocess.PIPE,
             universal_newlines=True)
-        return proc.communicate()[0].strip()
+        distro = proc.communicate()[0].strip()
+        return str(distro)
