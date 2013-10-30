@@ -169,6 +169,7 @@ class GtkBox(GtkContainers):
             expectThat(location_entry.visible).equals(True, msg="Expected location entry to be visible but it wasn't")
         else:
             raise ValueError("Function can only be called from a stepLocation page object")
+
     def select_location(self, location):
         """ Selects a location on the timezone map """
         if self.name == 'stepLocation':

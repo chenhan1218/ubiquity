@@ -286,8 +286,19 @@ class GtkWindow(AutopilotGtkEmulatorBase):
 
     def _check_partition_created(self, mountPoint):
         """ Checks that the partition was created properly """
-        time.sleep(10)
+        time.sleep(5)
         # TODO: This needs fixing
+        tree_view = self.custom_page.select_single('GtkTreeView')
+        items = tree_view.get_all_items()
+        print 'partition_tree_items'
+        print '--------------------------------------------------------------'
+        for item in items:
+            if item.accessible_name == u'':
+                print 'empty item ------------'
+            else:
+                print item.accessible_name + '\n'
+        print '-----------------------------------------------------------------'
+
         #root = self.get_root_instance()
         #item = root.select_single('GtkTextCellAccessible',
         #                          accessible_name=mountPoint)
