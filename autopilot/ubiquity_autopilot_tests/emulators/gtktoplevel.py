@@ -296,7 +296,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
             if item.accessible_name == u'':
                 print 'empty item ------------'
             else:
-                print item.accessible_name + '\n'
+                print item.accessible_name
         print '-----------------------------------------------------------------'
 
         #root = self.get_root_instance()
