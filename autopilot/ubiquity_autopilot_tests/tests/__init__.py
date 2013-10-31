@@ -26,8 +26,7 @@ from autopilot.testcase import AutopilotTestCase
 from autopilot.introspection import get_proxy_object_for_existing_process
 from autopilot.input import Mouse, Keyboard, Pointer
 
-from ubiquity_autopilot_tests import NonFatalErrors
-from ubiquity_autopilot_tests.matchers import Expect
+from ubiquity_autopilot_tests.matchers import Expect, NonFatalErrors
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.emulators import gtktoplevel
 from ubiquity_autopilot_tests.tools.compare import expectThat
@@ -36,6 +35,7 @@ from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 non_fatal_errors = []
 
 logger = logging.getLogger(__name__)
+
 
 
 class UbiquityAutopilotTestCase(AutopilotTestCase):

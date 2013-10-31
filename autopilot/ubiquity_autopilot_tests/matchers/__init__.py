@@ -5,7 +5,6 @@ __all__ = [
 ]
 from testtools.matchers import Matcher, Equals, Mismatch
 from ubiquity_autopilot_tests.tests import non_fatal_errors
-from ubiquity_autopilot_tests import NonFatalErrors
 import traceback
 
 
@@ -43,3 +42,7 @@ class LessThanOrEqual(Matcher):
 
 class GreaterThanOrEqual(Matcher):
     pass
+
+class NonFatalErrors(AssertionError):
+    """Exception class for raising non fatal errors
+    """

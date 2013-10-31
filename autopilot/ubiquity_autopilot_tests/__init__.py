@@ -15,6 +15,3 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-class NonFatalErrors(AssertionError):
-    """Exception class for raising non fatal errors
-    """
