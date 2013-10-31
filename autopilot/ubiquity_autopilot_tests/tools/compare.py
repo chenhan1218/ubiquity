@@ -24,6 +24,8 @@ import logging
 import sys
 import traceback
 
+non_fatal_errors = []
+
 logger = logging.getLogger(__name__)
 
 

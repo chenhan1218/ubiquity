@@ -29,10 +29,11 @@ from autopilot.input import Mouse, Keyboard, Pointer
 from ubiquity_autopilot_tests.matchers import Expect, NonFatalErrors
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.emulators import gtktoplevel
+from ubiquity_autopilot_tests.tools import compare
 from ubiquity_autopilot_tests.tools.compare import expectThat
 from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 
-non_fatal_errors = []
+
 
 logger = logging.getLogger(__name__)
 
@@ -248,8 +249,7 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
         expectThat(current_page_title.visible).equals(True)
 
     def assertNonFatalErrors(self, ):
-        global non_fatal_errors
-        error_list = non_fatal_errors
+        error_list = compare.non_fatal_errors
         if len(error_list) > 0:
             num = 1
             for error in error_list:

@@ -5,6 +5,7 @@ __all__ = [
 ]
 from testtools.matchers import Matcher, Equals, Mismatch
 import traceback
+from ubiquity_autopilot_tests.tools import compare
 
 
 class Expect(Matcher):
@@ -26,9 +27,8 @@ class Expect(Matcher):
                 fail_msg = mismatch.describe()
                 raise NonFatalErrors("{0!r:s} {1!r:s}".format(fail_msg, self.message))
         except NonFatalErrors:
-            global non_fatal_errors
             stck = traceback.format_exc(limit=5)
-            non_fatal_errors.append(stck)
+            compare.non_fatal_errors.append(stck)
 
             pass
         return None

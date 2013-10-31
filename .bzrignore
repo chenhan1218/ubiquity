@@ -108,3 +108,4 @@ src/panel/Makefile.in
 src/wallpaper/Makefile.in
 src/webcam/Makefile.in
 desktop/com.ubuntu.ubiquity.policy
+.idea
