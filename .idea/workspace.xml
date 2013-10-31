@@ -26,7 +26,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/autopilot/ubiquity_autopilot_tests/tests/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="24" selection-start="11233" selection-end="11233" vertical-scroll-proportion="0.80263156" vertical-offset="3940" max-vertical-offset="5022">
+            <state line="246" column="24" selection-start="11233" selection-end="11233" vertical-scroll-proportion="1.9288538" vertical-offset="3940" max-vertical-offset="5022">
               <folding>
                 <element signature="e#670#679#0" expanded="true" />
               </folding>
@@ -474,15 +474,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="0" width="1303" height="769" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3123077" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28153846" sideWeight="0.4996016" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.54615384" sideWeight="0.4996016" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24621513" sideWeight="0.67145133" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16972111" sideWeight="0.7184615" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22948207" sideWeight="0.7184615" order="1" side_tool="true" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16972111" sideWeight="0.45384616" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22948207" sideWeight="0.45384616" order="1" side_tool="true" content_ui="combo" />
       <window_info id="Jenkins" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988048" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -602,7 +602,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/autopilot/ubiquity_autopilot_tests/tests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="24" selection-start="11233" selection-end="11233" vertical-scroll-proportion="0.80263156" vertical-offset="3940" max-vertical-offset="5022">
+        <state line="246" column="24" selection-start="11233" selection-end="11233" vertical-scroll-proportion="1.9288538" vertical-offset="3940" max-vertical-offset="5022">
           <folding>
             <element signature="e#670#679#0" expanded="true" />
           </folding>
