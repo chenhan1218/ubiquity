@@ -23,10 +23,9 @@
 import logging
 import sys
 import traceback
+from ubiquity_autopilot_tests.tests import non_fatal_errors
 
 logger = logging.getLogger(__name__)
-
-non_fatal_errors = []
 
 
 class expectThat(object):
@@ -130,6 +129,20 @@ class expectThat(object):
             message = '{0} does not contain {1}.'.format(repr(self.value), repr(compareValue))
         try:
             assert compareValue in self.value, message
+        except AssertionError, e:
+            logger.error("NON_FATAL_ERROR: %s" % message, exc_info=True)
+            global non_fatal_errors
+            non_fatal_errors.append(e)
+
+    def almost_equals(self, compareValue, msg=None):
+        if msg:
+            message = msg
+        else:
+            message = 'Expected {0} to almost equal {1}, but it doesnt'.format(repr(self.value),
+                                                                               repr(compareValue))
+        try:
+            result = self._approx_equal(self.value, compareValue)
+            assert result, message
         except AssertionError, e:
             logger.error("NON_FATAL_ERROR: %s" % message, exc_info=True)
             global non_fatal_errors

@@ -17,16 +17,23 @@ import os
 import logging
 import subprocess
 import time
+
 from testtools.matchers import Equals, NotEquals
+from testtools.content import text_content
+
 from autopilot.matchers import Eventually
 from autopilot.testcase import AutopilotTestCase
 from autopilot.introspection import get_proxy_object_for_existing_process
+from autopilot.input import Mouse, Keyboard, Pointer
+
+from ubiquity_autopilot_tests import NonFatalErrors
+from ubiquity_autopilot_tests.matchers import Expect
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.emulators import gtktoplevel
-from ubiquity_autopilot_tests.tools.compare import expectThat, non_fatal_errors
+from ubiquity_autopilot_tests.tools.compare import expectThat
 from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
-from autopilot.input import Mouse, Keyboard, Pointer
-from testtools.content import text_content
+
+non_fatal_errors = []
 
 logger = logging.getLogger(__name__)
 
@@ -236,32 +243,26 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
         # THis second one catches the known bug for the stepPartAvanced page title switching back to the prev page title
         message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" % \
                       (self.current_step, current_page_title.label, self.step_before, self.previous_page_title)
-        expectThat(self.previous_page_title).not_equals(current_page_title.label, msg=message_two)
+        self.assertThat(self.previous_page_title,
+                        Expect(NotEquals(current_page_title.label), msg=message_two))
         expectThat(current_page_title.visible).equals(True)
 
-    def check_for_non_fatal_errors(self, ):
-        """ Checks for any non fatal failures during the install
-
-            This should be the very last function call in the test,
-            the install should have successfully completed. Which we can then check for non
-            critical problems
-        """
+    def assertNonFatalErrors(self, ):
         global non_fatal_errors
-        try:
-            self.assertThat(len(non_fatal_errors), Equals(0),
-                            "There were {0} Non-Fatal Errors".format(len(non_fatal_errors)))
-        except AssertionError:
-            logger.debug("There were {0} Non-Fatal Errors".format(len(non_fatal_errors)))
-            i = 1
-            for elem in non_fatal_errors:
-                out = """
-                ============================================================\n
-Fail: The Installation Succeeded, but with Non-Fatal Errors.
-------------------------------------------------------------
-%s""" % elem
-                self.addDetail('NON_FATAL_ERROR %s:' % str(i), text_content(out))
-                i += 1
-            raise
+        error_list = non_fatal_errors
+        if len(error_list) > 0:
+            num = 1
+            for error in error_list:
+                output = """
+=======================================================================
+The Installation Succeeded, but with Non-Fatal Errors.
+_______________________________________________________________________
+%s
+_______________________________________________________________________
+""" % error
+                self.addDetail("Non-Fatal error {0}: ".format(num), text_content(output))
+            raise NonFatalErrors("The test completed, but with {0} non fatal errors".format(len(error_list)))
+        return
 
     def get_distribution(self, ):
         """Returns the name of the running distribution."""

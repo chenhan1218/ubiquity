@@ -50,7 +50,8 @@ class DefaultInstallTestCase(UbiquityAutopilotTestCase):
         self.assertThat(lambda: self.app.select_single('GtkDialog', name='finished_dialog').visible,
                         Eventually(Equals(True)))
         #if we got this far the install is now fully complete. Lets check for non-fatal errors
-        self.check_for_non_fatal_errors()
+
+        self.assertNonFatalErrors()
         #XXX: Uncomment if you want to restart after install complete
         ##we need to sleep here to wait for dialog to fully load. It appears in dbus
         ## before its actually visible. As the test has already passed this doesn't affect outcome
