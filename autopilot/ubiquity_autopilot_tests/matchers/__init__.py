@@ -4,7 +4,6 @@ __all__ = [
 
 ]
 from testtools.matchers import Matcher, Equals, Mismatch
-from ubiquity_autopilot_tests.tests import non_fatal_errors
 import traceback
 
 
