@@ -261,6 +261,7 @@ _______________________________________________________________________
 _______________________________________________________________________
 """ % error
                 self.addDetail("Non-Fatal error {0}: ".format(num), text_content(output))
+                num += 1
             raise NonFatalErrors("The test completed, but with {0} non fatal errors".format(len(error_list)))
         return
 
