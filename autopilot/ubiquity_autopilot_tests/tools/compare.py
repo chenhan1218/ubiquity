@@ -23,7 +23,6 @@
 import logging
 import sys
 import traceback
-from ubiquity_autopilot_tests.tests import non_fatal_errors
 
 logger = logging.getLogger(__name__)
 
