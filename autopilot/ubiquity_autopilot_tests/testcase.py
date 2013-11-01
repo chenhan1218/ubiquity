@@ -10,7 +10,7 @@ from testtools.matchers import (
     )
 from testtools.content import text_content
 import traceback
-from tools import compare
+from ubiquity_autopilot_tests.tools import compare
 
 
 class UbiquityTestCase(AutopilotTestCase):

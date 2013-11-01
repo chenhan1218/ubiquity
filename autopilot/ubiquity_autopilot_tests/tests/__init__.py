@@ -25,12 +25,12 @@ from autopilot.matchers import Eventually
 from autopilot.introspection import get_proxy_object_for_existing_process
 from autopilot.input import Mouse, Keyboard, Pointer
 
-from emulators import AutopilotGtkEmulatorBase
-from emulators import gtktoplevel
-from tools import compare
-from tools.compare import expectThat
-from emulators.gtktoplevel import GtkWindow
-from testcase import UbiquityTestCase
+from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
+from ubiquity_autopilot_tests.emulators import gtktoplevel
+from ubiquity_autopilot_tests.tools import compare
+from ubiquity_autopilot_tests.tools.compare import expectThat
+from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
+from ubiquity_autopilot_tests.testcase import UbiquityTestCase
 
 logger = logging.getLogger(__name__)
 
