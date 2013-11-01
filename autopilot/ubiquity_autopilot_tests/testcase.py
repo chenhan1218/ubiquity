@@ -8,9 +8,11 @@ from testtools.matchers import (
     Is,
     IsInstance
     )
+import unittest
 from testtools.content import text_content
 import traceback
 from ubiquity_autopilot_tests.tools import compare
+from ubiquity_autopilot_tests.tools._exc import NonFatalErrors
 
 
 class UbiquityTestCase(AutopilotTestCase):
@@ -25,6 +27,8 @@ class UbiquityTestCase(AutopilotTestCase):
             for error in emulator_errors:
                 self.non_fatal_errors.append(error)
         self.assertNonFatalErrors()
+        super(UbiquityTestCase, self).tearDown()
+        unittest.TestCase.tearDown(self)
 
     def assertNonFatalErrors(self, ):
         error_list = self.non_fatal_errors
@@ -40,7 +44,7 @@ _______________________________________________________________________
 """ % error
                 self.addDetail("Non-Fatal error {0}: ".format(num), text_content(output))
                 num += 1
-            raise MismatchError("The test completed, but with {0} non fatal errors".format(len(error_list)))
+            raise NonFatalErrors("The test completed, but with {0} non fatal errors".format(len(error_list)))
         return
 
     def expectEqual(self, expected, observed, message=''):
