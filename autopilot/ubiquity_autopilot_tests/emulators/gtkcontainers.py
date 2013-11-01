@@ -79,7 +79,7 @@ class GtkBox(GtkContainers):
             if language_item is None:
                 raise ValueError("Language could not be selected")
             return language_item
-        raise ValueError("Function can only be used from a stepLanguage \
+        raise RuntimeError("Function can only be used from a stepLanguage \
                             page object. Use .select_single('GtkBox, name='stepLanguage')")
 
     def select_language(self, item):
@@ -161,6 +161,15 @@ class GtkBox(GtkContainers):
         logger.debug("Returning selected language: %s" % l_unicode)
         return lang_item
 
+    def check_location_page(self):
+        if self.name == 'stepLocation':
+            location_map = self.select_single('CcTimezoneMap')
+            expectThat(location_map.visible).equals(True, msg="Expected location map to be visible but it wasn't")
+            location_entry = self.select_single(BuilderName='timezone_city_entry')
+            expectThat(location_entry.visible).equals(True, msg="Expected location entry to be visible but it wasn't")
+        else:
+            raise ValueError("Function can only be called from a stepLocation page object")
+
     def select_location(self, location):
         """ Selects a location on the timezone map """
         if self.name == 'stepLocation':
@@ -169,11 +178,11 @@ class GtkBox(GtkContainers):
             location_map = self.select_single('CcTimezoneMap')
             self.pointing_device.move_to_object(location_map)
             x1, y1, x2, y2 = location_map.globalRect
-            #hmmmm this is really hacky
+            #hmmmm this is tricky! and really hacky
             pos = self.pointing_device.position()
             x = pos[0]
             y = pos[1]
-            x -= 25  # px
+            x -= 25# px
             self.pointing_device.move(x, y)
             while True:
                 entry = self.select_single('GtkEntry')
@@ -181,15 +190,15 @@ class GtkBox(GtkContainers):
                     pos = self.pointing_device.position()
                     x = pos[0]
                     y = pos[1]
-                    y -= 10  # px
+                    y -= 10# px
                     self.pointing_device.move(x, y)
                     self.pointing_device.click()
                     if y < y1:
                         logger.warning("We missed the location on the map and ended up outside the globalRect. \
-                        Now using the current selected location instead")
+                        Now using the default selected location instead")
                         break
                 else:
-                    assert entry.text == location
+                    expectThat(entry.text).equals(location)
                     logger.debug("Location; '{0}' selected".format(location))
                     break
         else:
@@ -204,10 +213,21 @@ class GtkBox(GtkContainers):
         """
         logger.debug("create_user({0}, {1})".format(name, password))
         if self.name == 'stepUserInfo':
+            self._check_user_info_page()
             self._enter_username(name)
             self._enter_password(password)
         else:
-            raise ValueError("Function can only be called from a stepUserInfo page object")
+            raise ValueError ("Function can only be called froma stepUserInfo page object")
+
+    def _check_user_info_page(self, ):
+        """ Checks all the objects on the user info page """
+        objects = ['hostname_label', 'username_label', 'password_label',
+                   'verified_password_label', 'hostname_extra_label'
+                   ]
+        logger.debug("checking user info page objects ......")
+        for i in objects:
+            obj = self.select_single('GtkLabel', name=i)
+            obj.check()
 
     def _enter_username(self, name):
         """ Enters the username
@@ -399,6 +419,21 @@ class GtkAlignment(GtkContainers):
             raise ValueError(
                 "Function can only be called from the stepKeyboardConf page object")
 
+    def check_crypto_page(self, ):
+        """ Checks all items on the stepPartCrypto page
+        """
+        if self.name == 'stepPartCrypto':
+            items = ['verified_crypto_label', 'crypto_label', 'crypto_description',
+                     'crypto_warning', 'crypto_extra_label', 'crypto_extra_time',
+                     'crypto_description_2', 'crypto_overwrite_space']
+            for i in items:
+                item = self.select_single(BuilderName=i)
+                item.check()
+        else:
+            raise ValueError(
+                "Check_crypto_page() can only be called from stepPartCrypto page object"
+            )
+
     def enter_crypto_phrase(self, cryptoPhrase):
         if self.name == 'stepPartCrypto':
 
@@ -421,6 +456,7 @@ class GtkAlignment(GtkContainers):
             with self.kbd.focused_type(entry) as kb:
                 kb.press_and_release('Ctrl+a')
                 kb.press_and_release('Delete')
+                expectThat(entry.text).equals(u'', msg='{0} entry text was not cleared properly'.format(entry.name))
                 kb.type(phrase)
 
     def _check_crypto_phrase_match(self, ):
@@ -431,6 +467,20 @@ class GtkAlignment(GtkContainers):
         else:
             return False
 
+    def check_custom_page(self, ):
+        if self.name == 'stepPartAdvanced':
+            treeview = self.select_single('GtkTreeView')
+            expectThat(treeview.visible).equals(True)
+            obj_list = ['partition_button_new', 'partition_button_delete', 'partition_button_edit',
+                        'partition_button_edit', 'partition_button_new_label']
+            for name in obj_list:
+                obj = self.select_single(BuilderName=name)
+                expectThat(obj.visible).equals(True, msg="{0} object was not visible".format(obj.name))
+        else:
+            raise ValueError(
+                "Check_custom_page() can only be called from stepPartAdvanced page object"
+            )
+
     def create_new_partition_table(self, ):
         if self.name == 'stepPartAdvanced':
             new_partition_button = self.select_single(BuilderName='partition_button_new_label')
@@ -439,16 +489,7 @@ class GtkAlignment(GtkContainers):
             self.kbd.press_and_release('Right')
             self.kbd.press_and_release('Enter')
             time.sleep(5)
-        raise ValueError(
-            "add_new_partition can only be called form a 'stepPartAdvanced' page object")
-
-    def add_new_partition(self, ):
-        """ adds a new partition """
-        logger.debug("_add_new_partition()")
-        tree_view = self.select_single('GtkTreeView')
-        item = tree_view.select_item(u'  free space')
-        item.click()
-        assert item.selected, "Partition_Dialog: Free Space tree item not selected"
-        add_button = self.select_single('GtkToolButton', BuilderName='partition_button_new')
-        self.pointing_device.click_object(add_button)
-        logger.debug('_add_new_partition complete')
+        else:
+            raise ValueError(
+                "create_new_partition_table() can only be called from stepPartAdvanced page object"
+            )

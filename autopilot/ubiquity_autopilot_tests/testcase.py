@@ -13,9 +13,6 @@ from testtools.content import text_content
 import traceback
 from ubiquity_autopilot_tests.tools import compare
 from ubiquity_autopilot_tests.tools._exc import NonFatalErrors
-import logging
-
-logger = logging.getLogger(__name__)
 
 
 class UbiquityTestCase(AutopilotTestCase):
@@ -34,11 +31,8 @@ class UbiquityTestCase(AutopilotTestCase):
         unittest.TestCase.tearDown(self)
 
     def assertNonFatalErrors(self, ):
-        logger.debug("Checking there were no non-fatal errors........... ")
         error_list = self.non_fatal_errors
         if len(error_list) > 0:
-            logger.error("There were %r non fatal errors, collecting info and failing the test"
-                         % str(len(self.non_fatal_errors)))
             num = 1
             for error in error_list:
                 output = """
@@ -64,6 +58,7 @@ _______________________________________________________________________
         try:
             self._expectThat(observed, matcher, message)
         except MismatchError:
+
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
 
