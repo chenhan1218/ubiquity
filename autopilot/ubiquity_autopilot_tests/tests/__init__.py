@@ -565,12 +565,14 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             item.check()
 
     def _check_custom_page(self, ):
-        treeview = self.main_window.select_single('GtkTreeView')
+        custom_page = self.main_window.select_single('GtkAlignment',
+                                                     BuilderName='stepPartAdvanced')
+        treeview = custom_page.select_single('GtkTreeView')
         self.expectThat(treeview.visible, Equals(True))
         obj_list = ['partition_button_new', 'partition_button_delete', 'partition_button_edit',
                     'partition_button_edit', 'partition_button_new_label']
         for name in obj_list:
-            obj = self.select_single(BuilderName=name)
+            obj = custom_page.select_single(BuilderName=name)
             self.expectThat(obj.visible, Equals(True), "{0} object was not visible".format(obj.name))
 
     def _check_location_page(self):
