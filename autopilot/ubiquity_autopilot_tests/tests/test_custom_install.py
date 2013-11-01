@@ -29,7 +29,7 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         #first check we have an emulator instance
         self.assertIsInstance(self.main_window, gtktoplevel.GtkWindow)
         self.assertThat(self.main_window.visible, Eventually(Equals(True)))
-        self.main_window.run_welcome_page_tests(lang='English')
+        self.welcome_page_tests(lang='English')
         self.go_to_next_page()
         self.preparing_page_tests()
         self.go_to_next_page()
@@ -46,11 +46,11 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         flavor = self.get_distribution()
         if flavor == 'Ubuntu':
             self.go_to_next_page()
-            self.main_window.run_ubuntu_one_page_tests()
+            self.ubuntu_one_page_tests()
         else:
             self.go_to_progress_page()
 
-        self.main_window.run_install_progress_page_tests()
+        self.progress_page_tests()
         self.assertThat(lambda: self.app.select_single('GtkDialog', name='finished_dialog').visible,
                         Eventually(Equals(True)))
 

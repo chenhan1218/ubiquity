@@ -450,8 +450,7 @@ class GtkAlignment(GtkContainers):
             item = tree_view.select_item(u'  free space')
             item.click()
             assert item.selected, "Partition_Dialog: Free Space tree item not selected"
-            add_button = self.select_single('GtkToolButton',
-                                                        BuilderName='partition_button_new')
+            add_button = self.select_single('GtkToolButton', BuilderName='partition_button_new')
             self.pointing_device.click_object(add_button)
             logger.debug('_add_new_partition complete')
         raise ValueError(
