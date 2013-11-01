@@ -29,7 +29,7 @@ parser.add_option('--installed', dest='installed',
                   help='Test installed package')
 parser.add_option('--no-xvfb', dest='xvfb',
                   default=True, action='store_false',
-                  help="Don't run tests under Xvfb")
+                  help="Don't run unittests under Xvfb")
 parser.add_option('--xvfb-log', dest='xvfb_log', metavar='FILE',
                   help='Write Xvfb log output to FILE')
 parser.add_option('--no-build', dest='build',
@@ -85,7 +85,7 @@ if options.installed:
 
     os.environ['UBIQUITY_TEST_INSTALLED'] = '1'
 
-    os.environ['DEBCONF_SYSTEMRC'] = 'tests/debconf.conf-installed'
+    os.environ['DEBCONF_SYSTEMRC'] = 'unittests/debconf.conf-installed'
 else:
     sys.path.insert(0, '.')
 
@@ -99,10 +99,10 @@ else:
     os.environ['UBIQUITY_GLADE'] = 'gui/gtk'
 
     if options.build:
-        # Build dependencies for the tests.
-        subprocess.check_call(['tests/build'])
+        # Build dependencies for the unittests.
+        subprocess.check_call(['unittests/build'])
 
-    os.environ['DEBCONF_SYSTEMRC'] = 'tests/debconf.conf'
+    os.environ['DEBCONF_SYSTEMRC'] = 'unittests/debconf.conf'
 
 # Parts borrowed from jockey.
 
@@ -117,19 +117,19 @@ if args:
 else:
     test_filter = ''
 
-tests = [t[:-3] for t in os.listdir('tests')
+tests = [t[:-3] for t in os.listdir('unittests')
          if (t.startswith('test_') and t.endswith('.py') and
              re.search(test_filter, t))]
 tests.sort()
 suite = unittest.TestLoader().loadTestsFromNames(tests)
 res = unittest.TextTestRunner(verbosity=2).run(suite)
 if options.coverage:
-    if os.path.exists('tests/coverage'):
-        shutil.rmtree('tests/coverage')
+    if os.path.exists('unittests/coverage'):
+        shutil.rmtree('unittests/coverage')
     cov.stop()
     include = chain(find_files('ubiquity', '*.py'),
                     find_files('scripts', '*.py'))
-    cov.html_report(include=include, directory='tests/coverage')
+    cov.html_report(include=include, directory='unittests/coverage')
 
 if res.errors or res.failures:
     sys.exit(1)

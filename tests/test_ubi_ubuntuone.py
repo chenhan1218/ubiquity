@@ -313,7 +313,7 @@ class SSOAPITestCase(BaseTestPageGtk):
         expected_dict = {'email': email,
                          'password': password,
                          'token_name': token_name}
-        # NOTE: in order to avoid failing tests when dict key ordering
+        # NOTE: in order to avoid failing unittests when dict key ordering
         # changes, we pass the actual dict by mocking json.dumps. This
         # way we can compare the dicts instead of their
         # serializations.
@@ -466,11 +466,11 @@ class CreateKeyringTestCase(BaseTestPageGtk):
         mock_stdin.assert_has_calls(e)
 
 if __name__ == '__main__':
-    # run tests in a sourcetree with:
+    # run unittests in a sourcetree with:
     """
     UBIQUITY_GLADE=./gui/gtk \
     UBIQUITY_PLUGIN_PATH=./ubiquity/plugins/ \
-    PYTHONPATH=. python3 tests/test_ubi_ubuntuone.py
+    PYTHONPATH=. python3 unittests/test_ubi_ubuntuone.py
     """
     #from test.support import run_unittest
     # run_unittest()

@@ -6,7 +6,7 @@ from test.support import run_unittest
 import unittest
 
 import debconf
-# These tests require Mock 0.7.0
+# These unittests require Mock 0.7.0
 import mock
 
 from ubiquity import misc, plugin_manager
@@ -21,7 +21,7 @@ def question_has_variables(question, lookup_variables):
     if 'UBIQUITY_TEST_INSTALLED' in os.environ:
         templates_dat = '/var/cache/debconf/templates.dat'
     else:
-        templates_dat = 'tests/templates.dat'
+        templates_dat = 'unittests/templates.dat'
     # Templates files are (at least in theory) mixed-encoding, so we must
     # treat them as binary data and decode only marked elements.  In this
     # function, we only care about question and variable names, which should
@@ -68,12 +68,12 @@ def question_has_variables(question, lookup_variables):
                 ', '.join(only_in_template))))
 
 
-# These tests skip when their dependencies are not met and tests/run takes
+# These unittests skip when their dependencies are not met and unittests/run takes
 # arguments to generate said dependencies, so neither need to know about the
 # inner workings of each other.
 
 @unittest.skipUnless('UBIQUITY_TEST_INSTALLED' in os.environ or
-                     os.path.exists('tests/partman-tree'),
+                     os.path.exists('unittests/partman-tree'),
                      'Need /lib/partman.')
 class PartmanPageDirectoryTests(unittest.TestCase):
     def setUp(self):
@@ -90,7 +90,7 @@ class PartmanPageDirectoryTests(unittest.TestCase):
         self.page.description_cache = {}
 
     def mock_partman_tree(self):
-        prefix = 'tests/partman-tree'
+        prefix = 'unittests/partman-tree'
 
         def side_effect_factory(real_method):
             def side_effect(path, *args, **kw):
@@ -121,7 +121,7 @@ class PartmanPageDirectoryTests(unittest.TestCase):
     #                                self.page.method_description(method))
 
 
-# A couple of mock helpers for some of the tests below.
+# A couple of mock helpers for some of the unittests below.
 def _fake_grub_options(*paths):
     # The interface expects a sequence-of-sequences, although the method
     # only cares about sub-sequences of length 1, where the path is
@@ -179,7 +179,7 @@ class TestPage(TestPageBase):
             self.assertCountEqual(mountpoints, default_mountpoints)
 
     def test_method_description(self):
-        # FIXME: move this into the Directory tests, following use_as()
+        # FIXME: move this into the Directory unittests, following use_as()
         pairs = [('swap', 'partman/method_long/swap'),
                  ('biosgrub', 'partman/method_long/biosgrub')]
         try:
@@ -209,7 +209,7 @@ class TestPage(TestPageBase):
 
 
 @unittest.skipUnless(os.environ['DEB_HOST_ARCH'] in ('amd64', 'i386'),
-                     'GRUB-related tests are only relevant on x86')
+                     'GRUB-related unittests are only relevant on x86')
 class TestPageGrub(TestPageBase):
     def test_maybe_update_dont_install(self):
         self.page.install_bootloader = False
@@ -749,7 +749,7 @@ class TestPageGtk(unittest.TestCase):
                     ('Virtio Block Device (108 GB)',
                      'Virtio Block Device (801 GB)')))
     @unittest.skipUnless(os.environ['DEB_HOST_ARCH'] in ('amd64', 'i386'),
-                         'GRUB-related tests are only relevant on x86')
+                         'GRUB-related unittests are only relevant on x86')
     def test_boot_loader_installation_combobox(self):
         self.gtk.set_grub_options('/dev/vda', {
             '/dev/vda': True,

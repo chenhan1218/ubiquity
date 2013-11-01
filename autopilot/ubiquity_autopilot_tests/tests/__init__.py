@@ -22,24 +22,20 @@ from testtools.matchers import Equals, NotEquals
 from testtools.content import text_content
 
 from autopilot.matchers import Eventually
-from autopilot.testcase import AutopilotTestCase
 from autopilot.introspection import get_proxy_object_for_existing_process
 from autopilot.input import Mouse, Keyboard, Pointer
 
-from ubiquity_autopilot_tests.matchers import Expect, NonFatalErrors
-from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
-from ubiquity_autopilot_tests.emulators import gtktoplevel
-from ubiquity_autopilot_tests.tools import compare
-from ubiquity_autopilot_tests.tools.compare import expectThat
-from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
-
-
+from emulators import AutopilotGtkEmulatorBase
+from emulators import gtktoplevel
+from tools import compare
+from tools.compare import expectThat
+from emulators.gtktoplevel import GtkWindow
+from testcase import UbiquityTestCase
 
 logger = logging.getLogger(__name__)
 
 
-
-class UbiquityAutopilotTestCase(AutopilotTestCase):
+class UbiquityAutopilotTestCase(UbiquityTestCase):
     def setUp(self):
         super(UbiquityAutopilotTestCase, self).setUp()
         self.app = self.launch_application()
@@ -244,8 +240,8 @@ class UbiquityAutopilotTestCase(AutopilotTestCase):
         # THis second one catches the known bug for the stepPartAvanced page title switching back to the prev page title
         message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" % \
                       (self.current_step, current_page_title.label, self.step_before, self.previous_page_title)
-        self.assertThat(self.previous_page_title,
-                        Expect(NotEquals(current_page_title.label), msg=message_two))
+        self.expectThat(self.previous_page_title,
+                        NotEquals(current_page_title.label), msg=message_two)
         expectThat(current_page_title.visible).equals(True)
 
     def assertNonFatalErrors(self, ):

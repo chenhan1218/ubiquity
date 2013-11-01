@@ -7,7 +7,7 @@ import pwd
 from test.support import EnvironmentVarGuard, run_unittest
 import unittest
 
-# These tests require Mock 0.7.0
+# These unittests require Mock 0.7.0
 import mock
 
 from ubiquity import misc
@@ -227,7 +227,7 @@ class MiscTests(unittest.TestCase):
 #        patcher.start()
 #        # Probably best to patch at the dialog level rather than each method
 #        # call.
-#        # Maybe implement this once we have tests for PartedServer itself,
+#        # Maybe implement this once we have unittests for PartedServer itself,
 #        # with mocks we can reuse.
 #        self.addCleanup(patcher.stop)
 #
@@ -297,7 +297,7 @@ class GrubDefaultTests(unittest.TestCase):
     """Support for testing ubiquity.misc.grub_default.
 
     This class mocks several methods to make it possible to test
-    ubiquity.misc.grub_default.  Individual tests should set self.devices to
+    ubiquity.misc.grub_default.  Individual unittests should set self.devices to
     a list of elements as follows:
 
         [grub_dev, os_dev, by_id_dev]

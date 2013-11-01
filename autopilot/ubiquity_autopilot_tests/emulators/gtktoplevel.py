@@ -87,11 +87,11 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         return dialog
 
     def run_welcome_page_tests(self, lang=None):
-        """ Runs the tests for the Welcome Page
+        """ Runs the unittests for the Welcome Page
         :param lang: The treeview label value (e.g 'English') of the required language.
                      If None will pick a random language from the tree.
                      ..NOTE: You should only specify a language if the test relies
-                           upon a specific language. It is better to write the tests
+                           upon a specific language. It is better to write the unittests
                            to work for any language.
         """
         #first check pageTitle visible and correct if label given
@@ -117,7 +117,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
     def run_preparing_page_tests(self, updates=False, thirdParty=False,
                                  networkConnection=True, sufficientSpace=True,
                                  powerSource=False):
-        """ Runs the tests for the 'Preparing to install' page
+        """ Runs the unittests for the 'Preparing to install' page
 
         :param updates: Boolean, if True selects install updates during install
 
@@ -173,7 +173,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
 
     def run_installation_type_page_tests(self, _default=False, _lvm=False,
                                          _lvmEncrypt=False, _custom=False):
-        """ Runs the tests for the installation type page
+        """ Runs the unittests for the installation type page
 
         :param _default: Boolean if True will use the default selected option for the
                         installation
@@ -217,7 +217,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
             install_type_page.custom_install()
 
     def run_step_part_crypto_page_tests(self, cryptoPhrase):
-        """ Runs the tests for the LVM encryption password page
+        """ Runs the unittests for the LVM encryption password page
 
         :param cryptoPhrase: *String*, password to be used for the encryption
 
@@ -230,7 +230,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         crypto_page.enter_crypto_phrase(cryptoPhrase)
 
     def run_custom_partition_page_tests(self, partition_config=None):
-        """ Runs the tests for the custom partition page
+        """ Runs the unittests for the custom partition page
 
         The custom partition configurations are in partconfig.py. This function
         selects a random Config for each test run from partconfig.py.
@@ -321,7 +321,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         location_page.select_location(random.choice(location))
 
     def run_keyboard_layout_page_tests(self, ):
-        """ Runs the tests for the keyboard layout page """
+        """ Runs the unittests for the keyboard layout page """
         logger.debug("run_keyboard_layout_page_tests()")
 
         logger.debug("Selecting the stepKeyboardCOnf page object")
@@ -335,7 +335,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
 
     def run_user_info_page_tests(self, user_name, password,
                                  encrypt=False, auto_login=False):
-        """ Runs tests for the User Info Page
+        """ Runs unittests for the User Info Page
 
         :param user_name:*String*, name of user
 
@@ -364,7 +364,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
             user_info_page.set_auto_login()
 
     def run_ubuntu_one_page_tests(self, ):
-        """ Runs the tests for the U1 sign in"""
+        """ Runs the unittests for the U1 sign in"""
         logger.debug("run_ubuntu_one_page_tests()")
         skip_button = self.select_single('GtkButton', name='skip')
         skip_button.click()
