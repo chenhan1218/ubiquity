@@ -236,30 +236,13 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         the previous %s page title '%s' but it does" % \
                   (self.current_step, self.current_page_title, self.step_before, self.previous_page_title)
 
-        expectThat(self.previous_page_title).not_equals(self.current_page_title, msg=message)
-        # THis second one catches the known bug for the stepPartAvanced page title switching back to the prev page title
+        expectThat(self.previous_page_title).not_equals(self.current_page_title, message)
+        # THis second one catches the known bug for the stepPartAdvanced page title switching back to the prev page title
         message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" % \
                       (self.current_step, current_page_title.label, self.step_before, self.previous_page_title)
         self.expectThat(self.previous_page_title,
-                        NotEquals(current_page_title.label), msg=message_two)
-        expectThat(current_page_title.visible).equals(True)
-
-    def assertNonFatalErrors(self, ):
-        error_list = compare.non_fatal_errors
-        if len(error_list) > 0:
-            num = 1
-            for error in error_list:
-                output = """
-=======================================================================
-The Installation Succeeded, but with Non-Fatal Errors.
-_______________________________________________________________________
-%s
-_______________________________________________________________________
-""" % error
-                self.addDetail("Non-Fatal error {0}: ".format(num), text_content(output))
-                num += 1
-            raise NonFatalErrors("The test completed, but with {0} non fatal errors".format(len(error_list)))
-        return
+                        NotEquals(current_page_title.label), message=message_two)
+        self.expectThat(current_page_title.visible, Equals(True))
 
     def get_distribution(self, ):
         """Returns the name of the running distribution."""
