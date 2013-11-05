@@ -48,6 +48,9 @@ QEMUOPTS="-m $RAMSIZE -smp $VCPU \
 
     #-vnc localhost:76 \
 
+STARTAT=$(date)
+ENDAT=""
+
 on_exit() {
     # Exit Handler
     #
@@ -63,7 +66,7 @@ on_exit() {
     [ -d "$WORKDIR" ] && rm -Rf "$WORKDIR"
 
     hrule
-    echo -en "\nRun ended on $ENDAT"
+    echo -en "Run ended on $ENDAT\n"
     hrule
     exit $RC
 }
@@ -71,6 +74,7 @@ on_exit() {
 trap on_exit EXIT INT QUIT ABRT PIPE TERM
 WORKDIR=$(mktemp -d /tmp/$(basename $0).XXXXXX)
 DISKDIR=$WORKDIR
+DISKIMG=""
 
 usage() {
     # Display script usage
@@ -317,8 +321,6 @@ done
 
 [ $# -ne 1 ] && usage
 ISO="$1"
-STARTAT=$(date)
-ENDAT=""
 hrule
 cat<<EOF
 
