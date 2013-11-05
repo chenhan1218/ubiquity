@@ -30,7 +30,7 @@ BINDIR=$(dirname $(readlink -f $0))
 DISKSIZE=12G
 RAMSIZE=2048
 VCPU=2
-REQUIREDPKGS="bsdtar qemu bzr xz-utils cpio"
+REQUIREDPKGS="bsdtar qemu-system-x86 bzr xz-utils cpio"
 OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 TESTNAME="${TESTNAME:-ubiquity}"
@@ -57,7 +57,7 @@ on_exit() {
     # Exit program with status in $RC
     [ -n "$ENDAT" ] && exit $RC
     ENDAT=$(date)
-    if [ -f "$(cat $WORKDIR/qemu.pid)" ]; then
+    if [ -f "$WORKDIR/qemu.pid" ]; then
         echo "I: Terminating qemu"
         kill -9 $(cat $WORKDIR/qemu.pid) 2>/dev/null
     fi
