@@ -93,10 +93,6 @@ setup_tests() {
 
     echo "I: Branch $TSBRANCH"
     bzr export $TSEXPORT $TSBRANCH
-    # See README in ubiquity ap branch for details
-    sudo cp $TSEXPORT/bin/ubiquity-wrapper /usr/bin/ubiquity
-    sudo cp $TSEXPORT/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
-    sudo chmod +x /usr/bin/ubiquity /usr/lib/ubiquity/bin/ubiquity
 
     if [ -e "$AP_TESTSUITES" ]; then
         (cd $SPOOLDIR; touch $(cat $AP_TESTSUITES))

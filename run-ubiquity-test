@@ -271,7 +271,7 @@ collect_artifacts() {
         tar xzf $resultdir/artifacts.tgz -C $resultdir/
         rm -f "$resultdir/artifacts.tgz"
     fi
-    find $resultsdir | xargs touch
+    find $resultdir | xargs touch
 }
 
 tail_logs() {
