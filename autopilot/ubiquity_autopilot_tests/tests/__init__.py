@@ -214,8 +214,22 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_page_titles()
         self._check_navigation_buttons()
 
-    def installation_type_page_tests(self, default=False, lvm=False,
-                                     lvmEncrypt=False, custom=False):
+    def installation_type_page_tests(self, default=False, lvm=False, lvmEncrypt=False, custom=False):
+        """ Runs the tests for the installation type page
+
+        :param default: Boolean if True will use the default selected option for the
+                        installation
+
+        :param lvm: Boolean if True will use the LVM option for the
+                    installation
+
+        :param lvmEncrypt: Boolean if True will use the LVM with encryption option for the
+                           installation
+
+        :param custom: Boolean if True will use the 'Something else' option for the
+                       installation
+
+        """
         self._update_current_step('stepPartAsk')
         self._check_navigation_buttons()
         self._update_page_titles()

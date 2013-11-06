@@ -89,21 +89,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
 
     def run_installation_type_page_tests(self, _default=False, _lvm=False,
                                          _lvmEncrypt=False, _custom=False):
-        """ Runs the unittests for the installation type page
 
-        :param _default: Boolean if True will use the default selected option for the
-                        installation
-
-        :param _lvm: Boolean if True will use the LVM option for the
-                    installation
-
-        :param _lvmEncrypt: Boolean if True will use the LVM with encryption option for the
-                           installation
-
-        :param _custom: Boolean if True will use the 'Something else' option for the
-                       installation
-
-        """
         logger.debug(
             "run_installation_type_page_tests({0}, {1}, {2}, {3})".format(_default,
                                                                           _lvm,
