@@ -281,52 +281,12 @@ class GtkBox(GtkContainers):
             return False
 
 
-class GtkScrolledWindow(GtkContainers):
-    """ Emulator class for a GtkScrolledWindow instance """
-    def __init__(self, *args):
-        super(GtkScrolledWindow, self).__init__(*args)
-
-
 class GtkAlignment(GtkContainers):
     """ Emulator class for a GtkAlignment instance """
     def __init__(self, *args):
         super(GtkAlignment, self).__init__(*args)
         self.pointing_device = Pointer(Mouse.create())
         self.kbd = Keyboard.create()
-
-    def default_install(self, ):
-        """ Tests page objects and uses the default selected option """
-
-
-        self._options_tests(visible_options, hidden_options)
-
-    def lvm_install(self, ):
-
-
-        self._options_tests(visible_options, hidden_options)
-        lvm_chk_button = self.select_single('GtkCheckButton', name='use_lvm')
-        lvm_chk_button.click()
-
-    def lvm_encrypt_install(self, ):
-
-
-        self._options_tests(visible_options, hidden_options)
-        lvm_crypto_chk_button = self.select_single('GtkCheckButton', name='use_crypto')
-        lvm_crypto_chk_button.click()
-        lvm_chk_button = self.select_single('GtkCheckButton', name='use_lvm')
-        expectThat(lvm_chk_button.active).equals(True,
-                                                 msg="Expected the {0} checkbutton to be visible but it wasn't".format(
-                                                     lvm_chk_button.name
-                                                 ))
-
-    def custom_install(self, ):
-
-
-        self._options_tests(visible_options, hidden_options)
-        ctm_chk_button = self.select_single(BuilderName='custom_partitioning')
-        self.pointing_device.click_object(ctm_chk_button)
-
-
 
     def check_layouts(self, ):
         if self.name == 'stepKeyboardConf':

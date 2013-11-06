@@ -29,7 +29,7 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         #first check we have an emulator instance
         self.assertIsInstance(self.main_window, gtktoplevel.GtkWindow)
         self.assertThat(self.main_window.visible, Eventually(Equals(True)))
-        self.main_window.run_welcome_page_tests(lang='English')
+        self.welcome_page_tests(lang='English')
         self.go_to_next_page()
         self.preparing_page_tests()
         self.go_to_next_page()
