@@ -34,28 +34,6 @@ class GtkContainers(AutopilotGtkEmulatorBase):
         self.pointing_device = Pointer(Mouse.create())
 
 
-class StateBox(AutopilotGtkEmulatorBase):
-    """ Emulator class for a statebox instance """
-
-    def __init__(self, *args):
-        super(StateBox, self).__init__(*args)
-        self.pointing_device = Pointer(Mouse.create())
-
-    def check(self, visible=True, imagestock='gtk-yes'):
-        """ Checks the visibility, image and label of the statebox"""
-        logger.debug('check({0}, {1})'.format(visible, imagestock))
-        logger.debug("Running checks.......")
-        if visible:
-            expectThat(self.visible).equals(
-                visible, msg="StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(self.name))
-            label = self.select_single('GtkLabel')
-            label.check(visible)
-            image = self.select_single('GtkImage')
-            image.check(visible, imagestock)
-        else:
-            assert not visible
-
-
 class GtkBox(GtkContainers):
     """ Emulator class for a GtkBox instance """
     def __init__(self, *args):
@@ -127,12 +105,6 @@ class GtkBox(GtkContainers):
         treeview = self.select_single('GtkTreeView')
         #lets get all items
         treeview_items = treeview.get_all_items()
-        #first lets check all the items are valid unicode
-        logger.debug("Checking all tree items are valid unicode")
-        for item in treeview_items:
-            logger.debug("Check tree item with name '%s' is unicode" % item.accessible_name)
-            expectThat(item.accessible_name).is_unicode(
-                msg="GtkBox._get_install_language(): Expected '{0}' tree item to be unicode but it isn't")
 
         #get a language which the first two chars can be ascii decoded
         test_language = self._get_decode_ascii_item(treeview_items)
@@ -324,37 +296,19 @@ class GtkAlignment(GtkContainers):
 
     def default_install(self, ):
         """ Tests page objects and uses the default selected option """
-        visible_options = ['use_device', 'use_device_desc',
-                           'use_crypto', 'use_crypto_desc', 'use_lvm', 'use_lvm_desc',
-                           'custom_partitioning', 'custom_partitioning_desc']
 
-        hidden_options = ['reuse_partition', 'reuse_partition_desc',
-                          'resize_use_free', 'resize_use_free_desc',
-                          'replace_partition', 'replace_partition_desc']
 
         self._options_tests(visible_options, hidden_options)
 
     def lvm_install(self, ):
-        visible_options = ['use_device', 'use_device_desc',
-                           'use_crypto', 'use_crypto_desc', 'use_lvm', 'use_lvm_desc',
-                           'custom_partitioning', 'custom_partitioning_desc']
 
-        hidden_options = ['reuse_partition', 'reuse_partition_desc',
-                          'resize_use_free', 'resize_use_free_desc',
-                          'replace_partition', 'replace_partition_desc']
 
         self._options_tests(visible_options, hidden_options)
         lvm_chk_button = self.select_single('GtkCheckButton', name='use_lvm')
         lvm_chk_button.click()
 
     def lvm_encrypt_install(self, ):
-        visible_options = ['use_device', 'use_device_desc',
-                           'use_crypto', 'use_crypto_desc', 'use_lvm', 'use_lvm_desc',
-                           'custom_partitioning', 'custom_partitioning_desc']
 
-        hidden_options = ['reuse_partition', 'reuse_partition_desc',
-                          'resize_use_free', 'resize_use_free_desc',
-                          'replace_partition', 'replace_partition_desc']
 
         self._options_tests(visible_options, hidden_options)
         lvm_crypto_chk_button = self.select_single('GtkCheckButton', name='use_crypto')
@@ -366,35 +320,13 @@ class GtkAlignment(GtkContainers):
                                                  ))
 
     def custom_install(self, ):
-        visible_options = ['use_device', 'use_device_desc',
-                           'use_crypto', 'use_crypto_desc', 'use_lvm', 'use_lvm_desc',
-                           'custom_partitioning', 'custom_partitioning_desc']
 
-        hidden_options = ['reuse_partition', 'reuse_partition_desc',
-                          'resize_use_free', 'resize_use_free_desc',
-                          'replace_partition', 'replace_partition_desc']
 
         self._options_tests(visible_options, hidden_options)
         ctm_chk_button = self.select_single(BuilderName='custom_partitioning')
         self.pointing_device.click_object(ctm_chk_button)
 
-    def _options_tests(self, visible=[], hidden=[]):
 
-        if self.name == 'stepPartAsk':
-            for option in visible:
-                logger.info("selecting Visible object'{0}'".format(option))
-                opt = self.select_single(BuilderName=option)
-                opt.check()
-
-            for option in hidden:
-                logger.info("Selecting hidden object '{0}'".format(option))
-
-                opt = self.select_single(BuilderName=option)
-                opt.check(visible=False)
-        # we would normally now select an item but we are sticking with the default for now
-        else:
-            raise ValueError(
-                "Function can only be called from the stepPartAsk page object")
 
     def check_layouts(self, ):
         if self.name == 'stepKeyboardConf':

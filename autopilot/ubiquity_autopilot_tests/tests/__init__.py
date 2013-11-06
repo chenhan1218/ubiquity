@@ -36,6 +36,7 @@ logger = logging.getLogger(__name__)
 
 
 class UbiquityAutopilotTestCase(UbiquityTestCase):
+
     def setUp(self):
         super(UbiquityAutopilotTestCase, self).setUp()
         self.app = self.launch_application()
@@ -104,9 +105,46 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         nxt_button.click()
 
     def welcome_page_tests(self, lang=None):
+        """ Runs the tests for the Welcome Page
+        :param lang: The treeview label value (e.g 'English') of the required language.
+                     If None will pick a random language from the tree.
+                     ..NOTE: You should only specify a language if the test relies
+                           upon a specific language. It is better to write the tests
+                           to work for any language.
+        """
         self._update_current_step('stepLanguage')
         self._check_navigation_buttons()
-        self.main_window.run_welcome_page_tests(lang)
+        #first check pageTitle visible and correct if label given
+        logger.debug("run_welcome_page_tests()")
+        #selecting an install language
+        logger.debug("Selecting stepLanguage page object")
+        welcome_page = self.main_window.select_single('GtkBox', name='stepLanguage')
+        treeview = welcome_page.select_single('GtkTreeView')
+        #lets get all items
+        treeview_items = treeview.get_all_items()
+        #first lets check all the items are non-empty unicode strings
+        logger.debug("Checking all tree items are valid unicode")
+        for item in treeview_items:
+            logger.debug("Check tree item with name '%s' is unicode" % item.accessible_name)
+            self.expectIsInstance(item.accessible_name, unicode)
+            self.expectThat(item.accessible_name, NotEquals(u''))
+
+        if lang:
+            item = treeview.select_item(lang)
+            language = item
+        else:
+            language = welcome_page.get_random_language()
+
+        welcome_page.select_language(language)
+        self.assertThat(language.selected, Equals(True))
+        ##Test release notes label is visible
+        logger.debug("Checking the release_notes_label")
+        release_notes_label = welcome_page.select_single('GtkLabel',
+                                                         BuilderName='release_notes_label')
+        self.expectThat(release_notes_label.visible, Equals(True))
+        self.expectThat(release_notes_label.label, NotEquals(u''))
+        self.expectIsInstance(release_notes_label.label, unicode)
+        self.pointing_device.move_to_object(release_notes_label)
         self._update_page_titles()
         self._check_page_titles()
         self._check_navigation_buttons()
@@ -114,13 +152,65 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def preparing_page_tests(self, updates=False, thirdParty=False,
                              networkConnection=True, sufficientSpace=True,
                              powerSource=False):
+        """ Runs the tests for the 'Preparing to install' page
+
+        :param updates: Boolean, if True selects install updates during install
+
+        :param thirdParty: Boolean, if True selects install third-party software
+
+        :param networkConnection: Boolean if True checks the network state box is
+                                  visible and objects are correct, If false will
+                                  still check the objects are correct but the
+                                  state box is not visible
+
+        :param sufficientSpace: Boolean if True checks the network state box is
+                                  visible and objects are correct, If false will
+                                  still check the objects are correct but the
+                                  state box is not visible
+
+        :param powerSource: Boolean if True checks the network state box is
+                                  visible and objects are correct, If false will
+                                  still check the objects are correct but the
+                                  state box is not visible
+        """
         self._update_current_step('stepPrepare')
         self._check_navigation_buttons()
         self._update_page_titles()
-        self.main_window.run_preparing_page_tests(updates, thirdParty,
-                                                  networkConnection,
-                                                  sufficientSpace,
-                                                  powerSource)
+
+        logger.debug("run_preparing_page_tests()")
+        logger.debug("selecting stepPrepare page")
+        preparing_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPrepare')
+
+        objList = ['prepare_best_results', 'prepare_foss_disclaimer',
+                   'prepare_download_updates', 'prepare_nonfree_software']
+        for obj in objList:
+            logging.debug("Running checks on {0} object".format(obj))
+            obj = preparing_page.select_single(BuilderName=obj)
+            self.expectThat(obj.visible, Equals(True))
+            self.expectThat(obj.label, NotEquals(u''))
+            self.expectIsInstance(obj.label, unicode)
+
+        if updates:
+            logger.debug("Selecting install updates")
+            update_checkbutton = preparing_page.select_single('GtkCheckButton',
+                                                              BuilderName='prepare_download_updates')
+            self.pointing_device.click_object(update_checkbutton)
+
+        if thirdParty:
+            logger.debug("Selecting install thirdparty software")
+            thrdprty_checkbutton = preparing_page.select_single('GtkCheckButton',
+                                                                BuilderName='prepare_nonfree_software')
+            self.pointing_device.click_object(thrdprty_checkbutton)
+
+        self._check_preparing_statebox('prepare_network_connection',
+                                       visible=networkConnection)
+        #and sufficient space
+        self._check_preparing_statebox('prepare_sufficient_space',
+                                       visible=sufficientSpace)
+        # and power source
+        self._check_preparing_statebox('prepare_power_source',
+                                       visible=powerSource)
+
         self._check_page_titles()
         self._check_navigation_buttons()
 
@@ -129,10 +219,25 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._update_current_step('stepPartAsk')
         self._check_navigation_buttons()
         self._update_page_titles()
-        self.main_window.run_installation_type_page_tests(_default=default,
-                                                          _lvm=lvm,
-                                                          _lvmEncrypt=lvmEncrypt,
-                                                          _custom=custom)
+        from ubiquity_autopilot_tests import configs
+        option_name = None
+        if default:
+            config = configs.default_install
+        if lvm:
+            config = configs.lvm_install
+            option_name = 'use_lvm'
+        if lvmEncrypt:
+            config = configs.encrypt_lvm_install
+            option_name = 'use_crypto'
+        if custom:
+            config = configs.custom_install
+            option_name = 'custom_partitioning'
+        self._options_tests(config.visible_options, config.hidden_options)
+        install_type_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAsk')
+        if option_name:
+            obj = install_type_page.select_single(BuilderName=option_name)
+            self.pointing_device.click_object(obj)
+
         self._check_page_titles()
         self._check_navigation_buttons()
 
@@ -243,6 +348,51 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.expectThat(self.previous_page_title,
                         NotEquals(current_page_title.label), message=message_two)
         self.expectThat(current_page_title.visible, Equals(True))
+
+    def _check_preparing_statebox(self, stateboxName, visible=True, imagestock='gtk-yes'):
+        """ Checks the preparing page statebox's """
+        logger.debug("Running checks on {0} StateBox".format(stateboxName))
+        preparing_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPrepare')
+        state_box = preparing_page.select_single('StateBox', BuilderName=stateboxName)
+        state_box.check(visible, imagestock)
+        logger.debug('check({0}, {1})'.format(visible, imagestock))
+        logger.debug("Running checks.......")
+        if visible:
+            self.expectThat(state_box.visible, Equals(visible),
+                            "StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(self.name))
+            label = state_box.select_single('GtkLabel')
+            self.expectThat(label.label, NotEquals(u''))
+            self.expectThat(label.visible, Equals(visible))
+            self.expectIsInstance(label.label, unicode)
+            image = state_box.select_single('GtkImage')
+            self.expectThat(image.stock, Equals(imagestock))
+            self.expectThat(image.visible, Equals(visible))
+
+        else:
+            self.expectThat(state_box.visible, Equals(False))
+
+    def _options_tests(self, visible=[], hidden=[]):
+
+        install_type_page = self.select_single('GtkAlignment',
+                                               BuilderName='stepPartAsk')
+
+        for option in visible:
+            logger.info("selecting Visible object'{0}'".format(option))
+            opt = install_type_page.select_single(BuilderName=option)
+            self.expectThat(opt.visible, Equals(True))
+            self.expectThat(opt.label, NotEquals(u''))
+            self.expectIsInstance(opt.label, unicode)
+
+        for option in hidden:
+            logger.info("Selecting hidden object '{0}'".format(option))
+
+            opt = install_type_page.select_single(BuilderName=option)
+            self.expectThat(opt.visible, Equals(False))
+            self.expectThat(opt.label, NotEquals(u''))
+            self.expectIsInstance(opt.label, unicode)
+
+    def _select_install_type(self, install_type):
+        pass
 
     def get_distribution(self, ):
         """Returns the name of the running distribution."""

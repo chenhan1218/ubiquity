@@ -86,90 +86,6 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         logger.debug('Returning {0} object'.format(dialogType))
         return dialog
 
-    def run_welcome_page_tests(self, lang=None):
-        """ Runs the unittests for the Welcome Page
-        :param lang: The treeview label value (e.g 'English') of the required language.
-                     If None will pick a random language from the tree.
-                     ..NOTE: You should only specify a language if the test relies
-                           upon a specific language. It is better to write the unittests
-                           to work for any language.
-        """
-        #first check pageTitle visible and correct if label given
-        logger.debug("run_welcome_page_tests()")
-        #selecting an install language
-        logger.debug("Selecting stepLanguage page object")
-        welcome_page = self.select_single('GtkBox',
-                                          name='stepLanguage')
-        if lang:
-            treeview = welcome_page.select_single('GtkTreeView')
-            item = treeview.select_item(lang)
-            language = item
-        else:
-            language = welcome_page.get_random_language()
-        welcome_page.select_language(language)
-        ##Test release notes label is visible
-        logger.debug("Checking the release_notes_label")
-        release_notes_label = welcome_page.select_single('GtkLabel',
-                                                         BuilderName='release_notes_label')
-        release_notes_label.check()
-        self.pointing_device.move_to_object(release_notes_label)
-
-    def run_preparing_page_tests(self, updates=False, thirdParty=False,
-                                 networkConnection=True, sufficientSpace=True,
-                                 powerSource=False):
-        """ Runs the unittests for the 'Preparing to install' page
-
-        :param updates: Boolean, if True selects install updates during install
-
-        :param thirdParty: Boolean, if True selects install third-party software
-
-        :param networkConnection: Boolean if True checks the network state box is
-                                  visible and objects are correct, If false will
-                                  still check the objects are correct but the
-                                  state box is not visible
-
-        :param sufficientSpace: Boolean if True checks the network state box is
-                                  visible and objects are correct, If false will
-                                  still check the objects are correct but the
-                                  state box is not visible
-
-        :param powerSource: Boolean if True checks the network state box is
-                                  visible and objects are correct, If false will
-                                  still check the objects are correct but the
-                                  state box is not visible
-        """
-        logger.debug("run_preparing_page_tests()")
-        logger.debug("selecting stepPrepare page")
-        preparing_page = self.select_single('GtkAlignment',
-                                            BuilderName='stepPrepare')
-        objList = ['prepare_best_results', 'prepare_foss_disclaimer',
-                   'prepare_download_updates', 'prepare_nonfree_software']
-        for obj in objList:
-            logging.debug("Running checks on {0} object".format(obj))
-            obj = preparing_page.select_single(BuilderName=obj)
-            obj.check()
-
-        #check network connection statebox
-        if updates:
-            logger.debug("Selecting install updates")
-            update_checkbutton = preparing_page.select_single('GtkCheckButton',
-                                                              BuilderName='prepare_download_updates')
-            update_checkbutton.click()
-
-        if thirdParty:
-            logger.debug("Selecting install thirdparty software")
-            thrdprty_checkbutton = preparing_page.select_single('GtkCheckButton',
-                                                                BuilderName='prepare_nonfree_software')
-            thrdprty_checkbutton.click()
-
-        self._check_preparing_statebox('prepare_network_connection',
-                                       visible=networkConnection)
-        #and sufficient space
-        self._check_preparing_statebox('prepare_sufficient_space',
-                                       visible=sufficientSpace)
-        # and power source
-        self._check_preparing_statebox('prepare_power_source',
-                                       visible=powerSource)
 
     def run_installation_type_page_tests(self, _default=False, _lvm=False,
                                          _lvmEncrypt=False, _custom=False):
@@ -434,16 +350,6 @@ class GtkWindow(AutopilotGtkEmulatorBase):
                     progress = 1.0
             except Exception:
                 pass
-
-    def _check_preparing_statebox(self, stateboxName, visible=True,
-                                  imagestock='gtk-yes'):
-        """ Checks the preparing page statebox's """
-        logger.debug("Running checks on {0} StateBox".format(stateboxName))
-        preparing_page = self.select_single('GtkAlignment',
-                                            BuilderName='stepPrepare')
-        state_box = preparing_page.select_single('StateBox',
-                                                 BuilderName=stateboxName)
-        state_box.check(visible, imagestock)
 
 
 class GtkDialog(GtkWindow):
