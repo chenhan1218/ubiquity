@@ -219,18 +219,22 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._update_current_step('stepPartAsk')
         self._check_navigation_buttons()
         self._update_page_titles()
-        from ubiquity_autopilot_tests import configs
+
         option_name = None
         if default:
-            config = configs.default_install
+            from ubiquity_autopilot_tests.configs import default_install
+            config = default_install
         if lvm:
-            config = configs.lvm_install
+            from ubiquity_autopilot_tests.configs import lvm_install
+            config = lvm_install
             option_name = 'use_lvm'
         if lvmEncrypt:
-            config = configs.encrypt_lvm_install
+            from ubiquity_autopilot_tests.configs import encrypt_lvm_install
+            config = encrypt_lvm_install
             option_name = 'use_crypto'
         if custom:
-            config = configs.custom_install
+            from ubiquity_autopilot_tests.configs import custom_install
+            config = custom_install
             option_name = 'custom_partitioning'
         self._options_tests(config.visible_options, config.hidden_options)
         install_type_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAsk')
