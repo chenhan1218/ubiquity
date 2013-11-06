@@ -354,7 +354,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Running checks on {0} StateBox".format(stateboxName))
         preparing_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPrepare')
         state_box = preparing_page.select_single('StateBox', BuilderName=stateboxName)
-        state_box.check(visible, imagestock)
         logger.debug('check({0}, {1})'.format(visible, imagestock))
         logger.debug("Running checks.......")
         if visible:
