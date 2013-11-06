@@ -376,8 +376,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def _options_tests(self, visible=[], hidden=[]):
 
-        install_type_page = self.select_single('GtkAlignment',
-                                               BuilderName='stepPartAsk')
+        install_type_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAsk')
 
         for option in visible:
             logger.info("selecting Visible object'{0}'".format(option))
