@@ -358,7 +358,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Running checks.......")
         if visible:
             self.expectThat(state_box.visible, Equals(visible),
-                            "StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(self.name))
+                            "StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(state_box.name))
             label = state_box.select_single('GtkLabel')
             self.expectThat(label.label, NotEquals(u''))
             self.expectThat(label.visible, Equals(visible))
