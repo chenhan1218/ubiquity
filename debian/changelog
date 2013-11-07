@@ -1,6 +1,11 @@
 ubiquity (2.17.1) UNRELEASED; urgency=low
 
+  [ Dmitrijs Ledkovs ]
   * Drop ntfsprogs alternative depends.
+
+  [ Brian Murray ]
+  * Use the apt cache with with so that we close the cache when we are done
+    with it (LP: #1051935)
 
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Wed, 06 Nov 2013 00:52:56 +0000
 
