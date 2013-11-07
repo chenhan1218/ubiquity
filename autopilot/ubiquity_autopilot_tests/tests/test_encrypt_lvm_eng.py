@@ -21,7 +21,7 @@ import time
 #import platform
 
 
-class LVMEncryptInstallTestCase(UbiquityAutopilotTestCase):
+class EnglishLVMEncryptInstallTestCase(UbiquityAutopilotTestCase):
     """ LVMEncrypt install testcase installs *buntu flavor with LVM-encrypt partition setup """
 
     def test_lvm_encrypt_install(self, ):

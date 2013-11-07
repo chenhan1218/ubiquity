@@ -20,7 +20,7 @@ from ubiquity_autopilot_tests.emulators import gtktoplevel
 import time
 
 
-class DefaultInstallTestCase(UbiquityAutopilotTestCase):
+class EnglishDefaultInstallTestCase(UbiquityAutopilotTestCase):
     """ A default install testcase just generally clicks through the installer
         using all the default values """
 

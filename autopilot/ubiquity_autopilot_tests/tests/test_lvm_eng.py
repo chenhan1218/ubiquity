@@ -21,7 +21,7 @@ import time
 import platform
 
 
-class LVMInstallTestCase(UbiquityAutopilotTestCase):
+class EnglishLVMInstallTestCase(UbiquityAutopilotTestCase):
     """ LVM install testcase installs *buntu flavor with LVM partition setup """
 
     def test_lvm_install(self, ):
