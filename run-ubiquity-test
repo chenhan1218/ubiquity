@@ -38,11 +38,11 @@ TIMEOUT=3600
 DELAY=5
 SSHPORT=$(shuf -i 2000-65000 -n 1 -z)
 VNCPORT=$(shuf -i 1-2000 -n 1 -z)
+VNCOPTS="-vnc localhost:$VNCPORT"
 
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
     -net nic,model=virtio -net user -redir tcp:$SSHPORT::22 \
-    -vnc localhost:$VNCPORT \
     -daemonize
     "
 
@@ -90,6 +90,7 @@ Options:
     -o, --override  Directory to copy into the target filesystem
     -S, --disksize  Set disk size (default: $DISKSIZE)
     -s, --shm       Write disk image into /dev/shm
+        --sdl       Uses SDL instead of VNC by default
     -t, --test      Name of the test to run (default: $TESTNAME)
 
 EOF
@@ -125,7 +126,7 @@ check_prerequisites() {
         exit
     fi
     QEMUCMD="$(which eatmydata 2>/dev/null||true) $QEMUCMD"
-    QEMUOPTS="$QEMUOPTS -enable-kvm"
+    QEMUOPTS="$QEMUOPTS -enable-kvm $VNCOPTS"
 
 }
 
@@ -285,7 +286,7 @@ tail_logs() {
 }
 
 SHORTOPTS="hdo:S:st:"
-LONGOPTS="help,debug,override:,disksize:,shm,test:"
+LONGOPTS="help,debug,override:,disksize:,sdl,shm,test:"
 
 TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
 eval set -- "$TEMP"
@@ -307,6 +308,9 @@ while true ; do
             shift 2;;
         -s|--shm)
             DISKDIR=/dev/shm
+            shift;;
+        --sdl)
+            VNCOPTS=""
             shift;;
         -t|--test)
             TESTNAME=$2
@@ -332,7 +336,7 @@ cat<<EOF
                            |_|            |___/                     
 EOF
 hrule
-echo -en "\nStarting run on $STARTAT"
+echo -en "Starting run on $STARTAT\n"
 hrule
 
 DISKIMG=$DISKDIR/disk.img

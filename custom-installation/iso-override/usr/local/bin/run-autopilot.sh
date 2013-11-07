@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/sh
 
 #
 # This script runs autopilot
@@ -7,9 +7,9 @@
 # Copyright © 2013 Canonical Ltd.
 # Author: Jean-baptiste Lallement <jean-baptiste.lallement@canonical.com>
 #
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2, as
-# published by the Free Software Foundation.
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2, as published by the
+# Free Software Foundation.
 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -20,6 +20,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
+set -eu
 
 TESTBASE=/var/local/autopilot/
 AP_ARTIFACTS=$TESTBASE/videos/
@@ -35,9 +36,27 @@ OTTO_SUMMARY=/var/local/otto/summary.log
 TSBRANCH=lp:ubiquity/autopilot
 TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
+SESSION_LOG=""
 ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /var/crash"
 SHUTDOWN=1
 TIMEOUT=1200  # 20min timeout
+
+# Specific configurations for various DE
+case $SESSION in
+    ubuntu)    # Covers Ubuntu and Edubuntu
+        SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
+        ;;
+    xubuntu)
+        SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
+        ;;
+    Lubuntu)
+        SESSION_LOG=$HOME/.cache/lxsession/Lubuntu/run.log
+        ARTIFACTS="$ARTIFACTS $HOME/.cache/lxsession"
+        ;;
+    gnome)     # ubuntu-gnome
+        SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
+esac
+
 
 PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
     recordmydesktop"
@@ -76,7 +95,7 @@ setup_tests() {
     sudo stty -F /dev/ttyS1 raw speed 115200
     
     # FIXME: Doesn't work on every DE
-    tail_logs $HOME/.cache/upstart/gnome-session.log /var/log/syslog
+    tail_logs $SESSION_LOG /var/log/syslog
     # Disable notifications and screensaver
     if which gsettings >/dev/null 2>&1; then 
         echo "I: Disabling crash notifications"
