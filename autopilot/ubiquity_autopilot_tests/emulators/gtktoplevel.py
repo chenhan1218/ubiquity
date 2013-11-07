@@ -139,6 +139,7 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         add_button = self.custom_page.select_single('GtkToolButton',
                                                     BuilderName='partition_button_new')
         self.pointing_device.click_object(add_button)
+        time.sleep(2)
         logger.debug('_add_new_partition complete')
 
     def _check_partition_created(self, mountPoint):
