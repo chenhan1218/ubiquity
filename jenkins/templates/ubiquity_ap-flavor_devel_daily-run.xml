@@ -34,7 +34,7 @@
       <configs>
         <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
           <configs class="java.util.Collections$EmptyList"/>
-          <projects>{% for testcase in testcases %}ubiquity_ap-{{ flavor }}_devel_daily-{{ testcase }} {% endfor %}</projects>
+          <projects>{% for testcase in testcases %}ubiquity_ap-{{ flavor }}_devel_daily-{{ testcase }},{% endfor %}</projects>
           <condition>ALWAYS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
           <block>
