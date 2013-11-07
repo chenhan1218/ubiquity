@@ -17,10 +17,10 @@ cd ubiquity/autopilot
 
 Then choose one of below
 
-./autopilot run ubiquity_autopilot_tests.tests.test_default
-
-./autopilot run ubiquity_autopilot_tests.tests.test_lvm
-
-./autopilot run ubiquity_autopilot_tests.tests.test_lvm_encrypt
-
-./autopilot run ubiquity_autopilot_tests.tests.test_custom_install
+./autopilot run ubiquity_autopilot_tests.tests.test_english_default
+                                              .test_nonenglish_default
+                                              .test_english_lvm
+                                              .test_nonenglish_lvm
+                                              .test_english_encrypt_lvm
+                                              .test_nonenglish_encrypt_lvm
+                                              .test_custom_install
