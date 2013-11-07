@@ -42,7 +42,7 @@
       <command>#!/bin/bash -u
 rm -Rf $WORKSPACE/*
 RELEASE=$(distro-info -d||distro-info -s)
-VARIANT=desktop
+VARIANT={{ variant }}
 FLAVOR={{ flavor }}
 
 export PATH=$HOME/bin:$PATH

@@ -50,7 +50,8 @@
 [ -n &quot;$WORKSPACE&quot; ] &amp;&amp; rm -Rf $WORKSPACE/*
 
 RELEASE=$(distro-info -d||distro-info -s)
-ISO=$JENKINS_HOME/iso/{{ flavor }}/${RELEASE}-desktop-${ARCH}.iso
+VARIANT={{ variant }}
+ISO=$JENKINS_HOME/iso/{{ flavor }}/${RELEASE}-${VARIANT}-${ARCH}.iso
 TESTNAME={{ testcase }}
 
 if [ ! -f &quot;$ISO&quot; ]; then
