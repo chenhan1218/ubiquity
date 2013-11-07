@@ -35,7 +35,7 @@ OTTO_SUMMARY=/var/local/otto/summary.log
 TSBRANCH=lp:ubiquity/autopilot
 TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
-ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog /home/ubuntu/.cache/upstart /var/crash"
+ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /var/crash"
 SHUTDOWN=1
 TIMEOUT=1200  # 20min timeout
 
@@ -74,7 +74,9 @@ setup_tests() {
     xterm &
     sudo stty -F /dev/ttyS0 raw speed 115200
     sudo stty -F /dev/ttyS1 raw speed 115200
-    tail_logs /home/ubuntu/.cache/upstart/gnome-session.log /var/log/syslog
+    
+    # FIXME: Doesn't work on every DE
+    tail_logs $HOME/.cache/upstart/gnome-session.log /var/log/syslog
     # Disable notifications and screensaver
     if which gsettings >/dev/null 2>&1; then 
         echo "I: Disabling crash notifications"
