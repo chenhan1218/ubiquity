@@ -431,8 +431,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def get_distribution(self, ):
         """Returns the name of the running distribution."""
+        logger.debug("Detecting flavor")
         with open('/cdrom/.disk/info') as f:
             for line in f:
                 distro = line[:max(line.find(' '), 0) or None]
                 if distro:
-                    return distro
+                    logger.debug("{0} flavor detected".format(distro))
+                    return str(distro)
+                raise SystemError("Could not get distro name")
