@@ -338,7 +338,7 @@ hrule
 DISKIMG=$DISKDIR/disk.img
 INITRD=$WORKDIR/casper/initrd
 KERNEL=$WORKDIR/casper/vmlinuz
-if echo $ISO|grep amd64 2>/dev/null; then
+if bsdtar tf $ISO casper/vmlinuz.efi >/dev/null 2>&1; then
     KERNEL=${KERNEL}.efi
 fi
 KERNELOPTS="boot=casper DEBCONF_DEBUG=developer -- debconf/priority=critical locale=en_US console-setup/ask_detect=false console-setup/layoutcode=us automatic-ubiquity"
