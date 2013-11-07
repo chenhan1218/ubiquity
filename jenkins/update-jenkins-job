@@ -207,7 +207,6 @@ def main():
 
     try:
         jparams = load_job_parameters(args.parameters)
-        pprint(jparams)
     except IOError as exc:
         logging.error("{}. Exiting!".format(exc))
         sys.exit(1)
@@ -295,7 +294,12 @@ def setup_job(jkh, jjenv, name, template, params, update=False, output=None, dry
          Parameters: %s
     '''), name, template, pformat(params))
 
-    tmpl = jjenv.get_template(template)
+    try:
+        tmpl = jjenv.get_template(template)
+    except jinja2.exceptions.TemplateNotFound:
+        logging.error("Template '%s' not found. Aborting!", template)
+        sys.exit(2)
+
     jkcfg = tmpl.render(params)
     jkcfg = jkcfg.replace(' \n', '')
     jkcfg = jkcfg.replace('>\n\n', '>\n')

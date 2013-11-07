@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <matrix-project>
   <actions/>
-  <description></description>
+  <description>Run Ubiquity test `{{ testcase }}' against daily development image of {{ flavor|capitalize() }}&lt;br/&gt;&#xd;
+  - Owner: Ubuntu QA Team - Ubuntu Community Team&lt;br/&gt;&#xd;
+  - Contacts: balloons or jibel on #ubuntu-quality on freenode &lt;br/&gt;&#xd;</description>
   <logRotator>
     <daysToKeep>-1</daysToKeep>
     <numToKeep>20</numToKeep>
@@ -48,8 +50,8 @@
 [ -n &quot;$WORKSPACE&quot; ] &amp;&amp; rm -Rf $WORKSPACE/*
 
 RELEASE=$(distro-info -d||distro-info -s)
-ISO=$JENKINS_HOME/iso/ubuntu/${RELEASE}-desktop-${ARCH}.iso
-TESTNAME=test_default
+ISO=$JENKINS_HOME/iso/{{ flavor }}/${RELEASE}-desktop-${ARCH}.iso
+TESTNAME={{ testcase }}
 
 if [ ! -f &quot;$ISO&quot; ]; then
     echo &quot;E: File $ISO does not exist. Aborting!&quot;
