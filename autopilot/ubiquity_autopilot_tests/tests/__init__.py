@@ -431,8 +431,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def get_distribution(self, ):
         """Returns the name of the running distribution."""
-        proc = subprocess.Popen(
-            ['lsb_release', '-is'], stdout=subprocess.PIPE,
-            universal_newlines=True)
-        distro = proc.communicate()[0].strip()
-        return str(distro)
+        with open('/cdrom/.disk/info') as f:
+            for line in f:
+                distro = line[:max(line.find(' '), 0) or None]
+                if distro:
+                    return distro

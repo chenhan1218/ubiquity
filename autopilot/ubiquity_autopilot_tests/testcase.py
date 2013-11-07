@@ -37,14 +37,14 @@ class UbiquityTestCase(AutopilotTestCase):
             for error in error_list:
                 output = """
 =======================================================================
-The Installation Succeeded, but with Non-Fatal Errors.
+Non-Fatal Errors found during install......
 _______________________________________________________________________
 %s
 _______________________________________________________________________
 """ % error
                 self.addDetail("Non-Fatal error {0}: ".format(num), text_content(output))
                 num += 1
-            raise NonFatalErrors("The test completed, but with {0} non fatal errors".format(len(error_list)))
+            raise NonFatalErrors("{0} non fatal errors found during install".format(len(error_list)))
         return
 
     def expectEqual(self, expected, observed, message=''):
