@@ -260,10 +260,29 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons()
 
     def lvm_crypto_page_tests(self, crypto_password):
+        """ Runs the tests for the LVM encryption password page
+
+        :param crypto_password: *String*, password to be used for the encryption
+
+        """
         self._update_current_step('stepPartCrypto')
         self._check_navigation_buttons()
         self._update_page_titles()
-        self.main_window.run_step_part_crypto_page_tests(crypto_password)
+
+        logger.debug("run_step_part_crypto_page_tests({0})".format(crypto_password))
+        logger.debug('Selecting stepPartCrypto page object')
+        crypto_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartCrypto')
+
+        items = ['verified_crypto_label', 'crypto_label', 'crypto_description',
+                 'crypto_warning', 'crypto_extra_label', 'crypto_extra_time',
+                 'crypto_description_2', 'crypto_overwrite_space']
+        for i in items:
+            item = crypto_page.select_single(BuilderName=i)
+            self.expectThat(item.visible, Equals(True))
+            self.expectThat(item.label, NotEquals(u''))
+            self.expectIsInstance(item.label, unicode)
+
+        crypto_page.enter_crypto_phrase(crypto_password)
         self._check_page_titles()
         self._check_navigation_buttons()
 

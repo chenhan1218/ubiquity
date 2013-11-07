@@ -86,51 +86,6 @@ class GtkWindow(AutopilotGtkEmulatorBase):
         logger.debug('Returning {0} object'.format(dialogType))
         return dialog
 
-
-    def run_installation_type_page_tests(self, _default=False, _lvm=False,
-                                         _lvmEncrypt=False, _custom=False):
-
-        logger.debug(
-            "run_installation_type_page_tests({0}, {1}, {2}, {3})".format(_default,
-                                                                          _lvm,
-                                                                          _lvmEncrypt,
-                                                                          _custom))
-        logger.debug("Selecting stepPartAsk page.....")
-        install_type_page = self.select_single('GtkAlignment',
-                                               BuilderName='stepPartAsk')
-        #check heading is visible
-        heading = install_type_page.select_single('GtkLabel', BuilderName='part_ask_heading')
-        heading.check()
-
-        if _default:
-            logger.debug("Default installation selected")
-            install_type_page.default_install()
-
-        if _lvm:
-            logger.debug("LVM installation selected")
-            install_type_page.lvm_install()
-
-        if _lvmEncrypt:
-            logger.debug("LVM with Encrypted installation selected")
-            install_type_page.lvm_encrypt_install()
-
-        if _custom:
-            logger.debug("Custom installation selected")
-            install_type_page.custom_install()
-
-    def run_step_part_crypto_page_tests(self, cryptoPhrase):
-        """ Runs the unittests for the LVM encryption password page
-
-        :param cryptoPhrase: *String*, password to be used for the encryption
-
-        """
-        logger.debug("run_step_part_crypto_page_tests({0})".format(cryptoPhrase))
-        logger.debug('Selecting stepPartCrypto page object')
-        crypto_page = self.select_single('GtkAlignment', BuilderName='stepPartCrypto')
-
-        crypto_page.check_crypto_page()
-        crypto_page.enter_crypto_phrase(cryptoPhrase)
-
     def run_custom_partition_page_tests(self, partition_config=None):
         """ Runs the unittests for the custom partition page
 

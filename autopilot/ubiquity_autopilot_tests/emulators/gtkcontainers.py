@@ -311,26 +311,11 @@ class GtkAlignment(GtkContainers):
             raise ValueError(
                 "Function can only be called from the stepKeyboardConf page object")
 
-    def check_crypto_page(self, ):
-        """ Checks all items on the stepPartCrypto page
-        """
-        if self.name == 'stepPartCrypto':
-            items = ['verified_crypto_label', 'crypto_label', 'crypto_description',
-                     'crypto_warning', 'crypto_extra_label', 'crypto_extra_time',
-                     'crypto_description_2', 'crypto_overwrite_space']
-            for i in items:
-                item = self.select_single(BuilderName=i)
-                item.check()
-        else:
-            raise ValueError(
-                "Check_crypto_page() can only be called from stepPartCrypto page object"
-            )
-
-    def enter_crypto_phrase(self, cryptoPhrase):
+    def enter_crypto_phrase(self, crypto_phrase):
         if self.name == 'stepPartCrypto':
 
             while True:
-                self._enter_pass_phrase(cryptoPhrase)
+                self._enter_pass_phrase(crypto_phrase)
                 match = self._check_crypto_phrase_match()
 
                 if match:
