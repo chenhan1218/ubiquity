@@ -400,7 +400,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                 self.expectThat(item.accessible_name, NotEquals(u''))
 
         #now lets test typing with the keyboard layout
-        entry = self.select_single('GtkEntry')
+        entry = keyboard_page.select_single('GtkEntry')
         with self.keyboard.focused_type(entry) as kb:
             kb.type(u'Testing keyboard layout')
             message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
