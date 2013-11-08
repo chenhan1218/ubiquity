@@ -128,6 +128,7 @@ setup_tests() {
 
     echo "I: Installating additional packages"
     sudo apt-get update
+    rc=0
     sudo apt-get install -yq $PACKAGES || rc=$?
     if [ $rc -gt 0 ]; then
         echo "E: Required packages failed to install. Aborting!"
