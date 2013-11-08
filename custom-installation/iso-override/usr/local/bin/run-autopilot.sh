@@ -57,7 +57,6 @@ case $SESSION in
         SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
 esac
 
-
 PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
     recordmydesktop"
 
@@ -66,7 +65,21 @@ export DEBIAN_FRONTEND=noninteractive
 # Define general configuration files 
 [ -f $TESTBASE/config ] && . $TESTBASE/config
 
+on_exit() {
+    # Exit handler
+    echo "I: Archiving artifacts"
+    sudo tar czf /tmp/artifacts.tgz $ARTIFACTS
+
+    # Find a better way. ttys are a bit limited and sometimes output is
+    # truncated or messages are skipped by the kernel if it goes too fast.
+    sudo stty -F /dev/ttyS1 raw speed 115200
+    sudo sh -c "cat /tmp/artifacts.tgz>/dev/ttyS1"
+    shutdown_host
+}
+trap on_exit EXIT INT QUIT ABRT PIPE TERM
+
 usage() {
+    # Display usage and exit
     cat<<EOF
 Usage: $(basename $0) [OPTIONS...]
 Run autopilot tests in $SPOOLDIR
@@ -90,9 +103,8 @@ setup_tests() {
 
     [ -e "$flag" ] && return 0
 
-    xterm &
+    xterm &  # Easier to debug from a live session, and rarely broken
     sudo stty -F /dev/ttyS0 raw speed 115200
-    sudo stty -F /dev/ttyS1 raw speed 115200
     
     tail_logs $SESSION_LOG /var/log/syslog
     # Disable notifications and screensaver
@@ -112,7 +124,7 @@ setup_tests() {
     sudo apt-get install -yq $PACKAGES || rc=$?
     if [ $rc -gt 0 ]; then
         echo "E: Required packages failed to install. Aborting!"
-        shutdown_host
+        exit 1
     fi
 
     echo "I: Branch $TSBRANCH"
@@ -243,7 +255,4 @@ if which recordmydesktop >/dev/null 2>&1; then
 fi
 
 run_tests $SPOOLDIR
-echo "I: Archiving artifacts"
-sudo tar czf /tmp/artifacts.tgz $ARTIFACTS
-sudo sh -c "cat /tmp/artifacts.tgz>/dev/ttyS1"
-shutdown_host
+exit 0
