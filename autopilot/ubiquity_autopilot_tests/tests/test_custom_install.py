@@ -46,7 +46,7 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         flavor = self.get_distribution()
         if flavor == 'Ubuntu':
             self.go_to_next_page()
-            self.main_window.run_ubuntu_one_page_tests()
+            self.ubuntu_one_page_tests()
         else:
             self.go_to_progress_page()
 
