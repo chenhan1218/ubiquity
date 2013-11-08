@@ -133,15 +133,6 @@ class GtkBox(GtkContainers):
         logger.debug("Returning selected language: %s" % l_unicode)
         return lang_item
 
-    def check_location_page(self):
-        if self.name == 'stepLocation':
-            location_map = self.select_single('CcTimezoneMap')
-            expectThat(location_map.visible).equals(True, msg="Expected location map to be visible but it wasn't")
-            location_entry = self.select_single(BuilderName='timezone_city_entry')
-            expectThat(location_entry.visible).equals(True, msg="Expected location entry to be visible but it wasn't")
-        else:
-            raise ValueError("Function can only be called from a stepLocation page object")
-
     def select_location(self, location):
         """ Selects a location on the timezone map """
         if self.name == 'stepLocation':
@@ -185,21 +176,10 @@ class GtkBox(GtkContainers):
         """
         logger.debug("create_user({0}, {1})".format(name, password))
         if self.name == 'stepUserInfo':
-            self._check_user_info_page()
             self._enter_username(name)
             self._enter_password(password)
         else:
             raise ValueError ("Function can only be called froma stepUserInfo page object")
-
-    def _check_user_info_page(self, ):
-        """ Checks all the objects on the user info page """
-        objects = ['hostname_label', 'username_label', 'password_label',
-                   'verified_password_label', 'hostname_extra_label'
-                   ]
-        logger.debug("checking user info page objects ......")
-        for i in objects:
-            obj = self.select_single('GtkLabel', name=i)
-            obj.check()
 
     def _enter_username(self, name):
         """ Enters the username
@@ -212,13 +192,7 @@ class GtkBox(GtkContainers):
             kb.press_and_release('Ctrl+a')
             kb.press_and_release('Delete')
             kb.type(name)
-            expectThat(len(entry.text)).equals(
-                len(name),
-                msg="GtkBox._enter_username(): {0} != {1}, Expected {2} to be the same length as {3}".format(
-                    str(len(entry.text)),
-                    str(len(name)),
-                    entry.text,
-                    name))
+
         #lets get the fullname from the entry
         # as we don't know the kb layout till runtime
         fullname = entry.text
@@ -288,29 +262,6 @@ class GtkAlignment(GtkContainers):
         self.pointing_device = Pointer(Mouse.create())
         self.kbd = Keyboard.create()
 
-    def check_layouts(self, ):
-        if self.name == 'stepKeyboardConf':
-            treeviews = self.select_many('GtkTreeView')
-            for treeview in treeviews:
-                items = treeview.get_all_items()
-                for item in items:
-                    expectThat(item.accessible_name).is_unicode()
-                    expectThat(item.accessible_name).not_equals(u'')
-
-    def test_layout(self, ):
-        if self.name == 'stepKeyboardConf':
-            entry = self.select_single('GtkEntry')
-            with self.kbd.focused_type(entry) as kb:
-                kb.type(u'Testing keyboard layout')
-                message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
-                    len(entry.text), len(u'Testing keyboard layout')
-                )
-                expectThat(len(entry.text)).equals(len(u'Testing keyboard layout'), msg=message)
-                expectThat(entry.text).is_unicode()
-        else:
-            raise ValueError(
-                "Function can only be called from the stepKeyboardConf page object")
-
     def enter_crypto_phrase(self, crypto_phrase):
         if self.name == 'stepPartCrypto':
 
@@ -343,20 +294,6 @@ class GtkAlignment(GtkContainers):
             return True
         else:
             return False
-
-    def check_custom_page(self, ):
-        if self.name == 'stepPartAdvanced':
-            treeview = self.select_single('GtkTreeView')
-            expectThat(treeview.visible).equals(True)
-            obj_list = ['partition_button_new', 'partition_button_delete', 'partition_button_edit',
-                        'partition_button_edit', 'partition_button_new_label']
-            for name in obj_list:
-                obj = self.select_single(BuilderName=name)
-                expectThat(obj.visible).equals(True, msg="{0} object was not visible".format(obj.name))
-        else:
-            raise ValueError(
-                "Check_custom_page() can only be called from stepPartAdvanced page object"
-            )
 
     def create_new_partition_table(self, ):
         if self.name == 'stepPartAdvanced':

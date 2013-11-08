@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import os
 import logging
+import random
 import subprocess
 import time
 
@@ -23,20 +24,31 @@ from testtools.content import text_content
 
 from autopilot.matchers import Eventually
 from autopilot.introspection import get_proxy_object_for_existing_process
-from autopilot.input import Mouse, Keyboard, Pointer
-
+from autopilot.input import (
+    Mouse,
+    Keyboard,
+    Pointer
+)
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.emulators import gtktoplevel
 from ubiquity_autopilot_tests.tools import compare
 from ubiquity_autopilot_tests.tools.compare import expectThat
 from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
+from ubiquity_autopilot_tests.configs.partconfig import (
+    Config1,
+    Config2,
+    Config3,
+    Config4,
+    Config5,
+    Config6
+)
 
+custom_configs = [Config1, Config2, Config3, Config4, Config5, Config6]
 logger = logging.getLogger(__name__)
 
 
 class UbiquityAutopilotTestCase(UbiquityTestCase):
-
     def setUp(self):
         super(UbiquityAutopilotTestCase, self).setUp()
         self.app = self.launch_application()
@@ -237,17 +249,21 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         option_name = None
         if default:
             from ubiquity_autopilot_tests.configs import default_install
+
             config = default_install
         if lvm:
             from ubiquity_autopilot_tests.configs import lvm_install
+
             config = lvm_install
             option_name = 'use_lvm'
         if lvmEncrypt:
             from ubiquity_autopilot_tests.configs import encrypt_lvm_install
+
             config = encrypt_lvm_install
             option_name = 'use_crypto'
         if custom:
             from ubiquity_autopilot_tests.configs import custom_install
+
             config = custom_install
             option_name = 'custom_partitioning'
         self._options_tests(config.visible_options, config.hidden_options)
@@ -287,19 +303,79 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons()
 
     def custom_partition_page_tests(self, part_config=None):
+        """ Runs the tests for the custom partition page
+
+        The custom partition configurations are in partconfig.py. This function
+        selects a random Config for each test run from partconfig.py.
+
+        When adding a new config, import it and add it to the custom_configs list
+
+        :param part_config:
+        """
         self._update_current_step('stepPartAdvanced')
         self._check_navigation_buttons()
         self._update_page_titles()
-        self.main_window.run_custom_partition_page_tests(part_config)
+        logger.debug("run_custom_partition_page_tests()")
+        logger.debug("Selecting the stepPartAdvanced page object")
+        custom_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAdvanced')
+        treeview = custom_page.select_single('GtkTreeView')
+        self.expectThat(treeview.visible, Equals(True))
+        obj_list = ['partition_button_new', 'partition_button_delete', 'partition_button_edit',
+                    'partition_button_edit', 'partition_button_new_label']
+        for name in obj_list:
+            obj = custom_page.select_single(BuilderName=name)
+            self.expectThat(obj.visible, Equals(True),
+                            "{0} object was not visible".format(obj.name))
+        logger.debug("Sleeping while we wait for all UI elements to fully load")
+        time.sleep(5)  # need to give time for all UI elements to load
+        custom_page.create_new_partition_table()
+        #lets create the partitions from here
+        if part_config:
+            logger.debug("Setting the given partition config")
+            config = part_config
+        else:
+            logger.debug("Selecting a random partition config")
+            config = random.choice(custom_configs)
+        for elem in config:
+            self._add_new_partition()
+
+            partition_dialog = self.main_window.get_dialog('GtkDialog', BuilderName='partition_dialog')
+            self.assertThat(partition_dialog.visible, Eventually(Equals(True)))
+            partition_dialog.set_partition_size(elem['PartitionSize'])
+            partition_dialog.set_partition_location(elem['Position'])
+            partition_dialog.set_partition_type(elem['PartitionType'])
+            partition_dialog.set_file_system_type(elem['FileSystemType'])
+            partition_dialog.set_mount_point(elem['MountPoint'])
+            ok_button = partition_dialog.select_single('GtkButton',
+                                                       BuilderName='partition_dialog_okbutton')
+            self.pointing_device.click_object(ok_button)
+            self.assertThat(partition_dialog.visible, Eventually(Equals(False)))
+            self._check_partition_created(elem['MountPoint'])
         self._check_page_titles()
         self._check_navigation_buttons()
 
     def location_page_tests(self, ):
+        """ Runs the test for the Location page
+
+        Due to not being able to introspect the timezone map we only have a
+        choice of 4 locations which get selected at random.
+
+        """
+        logger.debug('run_location_page_tests()')
         self._update_current_step('stepLocation')
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
         self._update_page_titles()
-        self.main_window.run_location_page_tests()
+
+        logger.debug("Selecting stepLocation page object")
+        location_page = self.main_window.select_single('GtkBox', BuilderName='stepLocation')
+        location_map = location_page.select_single('CcTimezoneMap')
+        self.assertThat(location_map.visible, Equals(True), "Expected location map to be visible but it wasn't")
+        location_entry = location_page.select_single(BuilderName='timezone_city_entry')
+        self.assertThat(location_entry.visible, Equals(True), "Expected location entry to be visible but it wasn't")
+
+        location = ['London', 'Paris', 'Madrid', 'Algiers']
+        location_page.select_location(random.choice(location))
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
@@ -309,19 +385,71 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
         self._update_page_titles()
-        self.main_window.run_keyboard_layout_page_tests()
+        logger.debug("run_keyboard_layout_page_tests()")
+
+        logger.debug("Selecting the stepKeyboardCOnf page object")
+        keyboard_page = self.main_window.select_single('GtkAlignment', BuilderName='stepKeyboardConf')
+        treeviews = keyboard_page.select_many('GtkTreeView')
+        #lets check all the keyboard tree items for the selected language
+        # TODO: we should probably test at some point try changing the keyboard
+        #       layout to a different language/locale/layout and see if ubiquity breaks
+        for treeview in treeviews:
+            items = treeview.get_all_items()
+            for item in items:
+                self.expectIsInstance(item.accessible_name, unicode)
+                self.expectThat(item.accessible_name, NotEquals(u''))
+
+        #now lets test typing with the keyboard layout
+        entry = self.select_single('GtkEntry')
+        with self.keyboard.focused_type(entry) as kb:
+            kb.type(u'Testing keyboard layout')
+            message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
+                len(entry.text), len(u'Testing keyboard layout')
+            )
+            self.expectThat(len(entry.text), Equals(len(u'Testing keyboard layout'), message))
+            self.expectIsInstance(entry.text, unicode)
+        #TODO: Test detecting keyboard layout
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
     def user_info_page_tests(self, username, pwd,
                              encrypted=False, autologin=False):
+        """ Runs tests for the User Info Page
+
+        :param username:*String*, name of user
+
+        :param pwd: *String*, password for user
+
+        :param encrypted: *Bool* if true encypts the home directory
+
+        :param autologin: *Bool* if true sets the user account to login
+                           automagically
+
+        """
         self._update_current_step('stepUserInfo')
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
         self._update_page_titles()
-        self.main_window.run_user_info_page_tests(username, pwd,
-                                                  encrypted, autologin)
+        logger.debug("Selecting stepUserInfo page")
+        user_info_page = self.main_window.select_single('GtkBox', BuilderName='stepUserInfo')
+
+        objects = ['hostname_label', 'username_label', 'password_label',
+                   'verified_password_label', 'hostname_extra_label'
+                   ]
+        logger.debug("checking user info page objects ......")
+        for i in objects:
+            obj = user_info_page.select_single('GtkLabel', name=i)
+            self.expectThat(obj.label, NotEquals(u''))
+            self.expectIsInstance(obj.label, unicode)
+            self.expectThat(obj.visible, Equals(True))
+        user_info_page.create_user(username, pwd)
+        #TODO: get these working
+        if encrypted:
+            user_info_page.encrypt_home_dir()
+        if autologin:
+            user_info_page.set_auto_login()
+
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
@@ -330,11 +458,52 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         #self._update_current_step('stepUserInfo')
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=True)
-        self._update_page_titles()
-        self.main_window.run_ubuntu_one_page_tests()
+        logger.debug("run_ubuntu_one_page_tests()")
+        skip_button = self.main_window.select_single('GtkButton', name='skip')
+        self.pointing_device.click_object(skip_button)
+        #TODO: add checks to the U1 page
 
     def progress_page_tests(self, ):
+        #TODO: move here from emulator and use process manager to check window stack doesn't change
+        # during the progress stage and if a dialog becomes top of stack we get
+        # window title to work outwhich one. Currently polling on dbus is really horrible
+        # for the logs so need to find a cleaner way.
         pass
+
+    def _add_new_partition(self, ):
+        """ adds a new partition """
+        logger.debug("_add_new_partition()")
+        custom_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAdvanced')
+        tree_view = custom_page.select_single('GtkTreeView')
+        item = tree_view.select_item(u'  free space')
+        self.pointing_device.click_object(item)
+        self.assertThat(item.selected, Equals(True), "Partition_Dialog: Free Space tree item not selected")
+        add_button = custom_page.select_single('GtkToolButton', BuilderName='partition_button_new')
+        self.pointing_device.click_object(add_button)
+        time.sleep(2)
+        logger.debug('_add_new_partition complete')
+
+    def _check_partition_created(self, mountPoint):
+        """ Checks that the partition was created properly """
+        time.sleep(5)
+        # TODO: This needs fixing
+        custom_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAdvanced')
+        tree_view = custom_page.select_single('GtkTreeView')
+        items = tree_view.get_all_items()
+        print 'partition_tree_items'
+        print '--------------------------------------------------------------'
+        for item in items:
+            if item.accessible_name == u'':
+                print 'empty item ------------'
+            else:
+                print item.accessible_name
+        print '-----------------------------------------------------------------'
+
+        #root = self.get_root_instance()
+        #item = root.select_single('GtkTextCellAccessible',
+        #                          accessible_name=mountPoint)
+        #item.visible.wait_for(True)
+        #assert item is not None
 
     def _check_navigation_buttons(self, continue_button=True, back_button=True,
                                   quit_button=True, skip_button=False):
@@ -374,11 +543,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single('GtkLabel',
                                                             BuilderName='page_title')
-        message = "Expected %s page title '%s' to not equal \
+        message_one = "Expected %s page title '%s' to not equal \
         the previous %s page title '%s' but it does" % \
-                  (self.current_step, self.current_page_title, self.step_before, self.previous_page_title)
+                      (self.current_step, self.current_page_title, self.step_before, self.previous_page_title)
 
-        expectThat(self.previous_page_title).not_equals(self.current_page_title, message)
+        self.expectThat(self.previous_page_title, NotEquals(self.current_page_title), message_one)
         # THis second one catches the known bug for the stepPartAdvanced page title switching back to the prev page title
         message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" % \
                       (self.current_step, current_page_title.label, self.step_before, self.previous_page_title)
@@ -395,7 +564,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Running checks.......")
         if visible:
             self.expectThat(state_box.visible, Equals(visible),
-                            "StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(state_box.name))
+                            "StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(
+                                state_box.name))
             label = state_box.select_single('GtkLabel')
             self.expectThat(label.label, NotEquals(u''))
             self.expectThat(label.visible, Equals(visible))

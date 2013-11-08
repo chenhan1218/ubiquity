@@ -144,7 +144,6 @@ class GtkRadioButton(AutopilotGtkEmulatorBase):
                                         msg="Expected {0} label to be visible, but its wasn't".format(self.name))
 
 
-
 class GtkImage(AutopilotGtkEmulatorBase):
     """ Emulator class for a GtkImage instance """
     def __init__(self, *args):
