@@ -94,7 +94,6 @@ setup_tests() {
     sudo stty -F /dev/ttyS0 raw speed 115200
     sudo stty -F /dev/ttyS1 raw speed 115200
     
-    # FIXME: Doesn't work on every DE
     tail_logs $SESSION_LOG /var/log/syslog
     # Disable notifications and screensaver
     if which gsettings >/dev/null 2>&1; then 
@@ -110,7 +109,11 @@ setup_tests() {
 
     echo "I: Installating additional packages"
     sudo apt-get update
-    sudo apt-get install -yq $PACKAGES
+    sudo apt-get install -yq $PACKAGES || rc=$?
+    if [ $rc -gt 0 ]; then
+        echo "E: Required packages failed to install. Aborting!"
+        shutdown_host
+    fi
 
     echo "I: Branch $TSBRANCH"
     bzr export $TSEXPORT $TSBRANCH
