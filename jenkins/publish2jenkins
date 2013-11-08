@@ -38,7 +38,9 @@ trap on_exit EXIT INT QUIT ABRT PIPE TERM
 TMP_CFG="$(mktemp /tmp/$(basename $0).XXXXXX)"
 
 for cfg in $CONFIG_DIR/*cfg; do
-    flavor=$(basename $cfg .cfg)
+    flavor=$(grep ^flavor $cfg |awk '{print $2}')
+    variant=$(grep ^variant $cfg |awk '{print $2}')
+
     echo "I: Updating flavor '$flavor'"
     # Download jobs
     $UPDATE_CMD $UPDATE_OPTS -J $SERVER \
@@ -59,10 +61,15 @@ for cfg in $CONFIG_DIR/*cfg; do
     fi
 
     for testcase in $testcases; do
+        cat>$TMP_CFG<<EOF
+flavor: $flavor
+variant: $(grep ^variant $cfg |cut -d: -f2)
+testcase: $testcase
+EOF
         echo "I: Updating testcase '$testcase'"
         $UPDATE_CMD $UPDATE_OPTS -J $SERVER \
             -t $TEMPLATE_DIR/ubiquity_ap-flavor_devel_daily-test.xml \
-            ubiquity_ap-${flavor}_devel_daily-${testcase} $cfg
+            ubiquity_ap-${flavor}_devel_daily-${testcase} $TMP_CFG
     done
 done
     echo "I: Update successful"
