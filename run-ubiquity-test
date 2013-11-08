@@ -273,6 +273,7 @@ collect_artifacts() {
         rm -f "$resultdir/artifacts.tgz"
     fi
     find $resultdir | xargs touch
+    echo "I: Artifacts stored in $resultdir"
 }
 
 tail_logs() {

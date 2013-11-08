@@ -68,12 +68,19 @@ export DEBIAN_FRONTEND=noninteractive
 on_exit() {
     # Exit handler
     echo "I: Archiving artifacts"
-    sudo tar czf /tmp/artifacts.tgz $ARTIFACTS
+    archive=/tmp/artifacts
+    for artifact in $ARTIFACTS; do
+        [ -e "$artifact" ] && sudo tar rf ${archive}.tar $artifact || true
+    done
 
     # Find a better way. ttys are a bit limited and sometimes output is
     # truncated or messages are skipped by the kernel if it goes too fast.
-    sudo stty -F /dev/ttyS1 raw speed 115200
-    sudo sh -c "cat /tmp/artifacts.tgz>/dev/ttyS1"
+    if [ -f ${archive}.tar ]; then
+        sudo stty -F /dev/ttyS1 raw speed 115200
+        gzip -9 -c ${archive}.tar > ${archive}.tgz
+        sudo sh -c "cat ${archive}.tgz>/dev/ttyS1"
+    fi
+
     shutdown_host
 }
 trap on_exit EXIT INT QUIT ABRT PIPE TERM
