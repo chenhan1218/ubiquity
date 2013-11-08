@@ -406,7 +406,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
                 len(entry.text), len(u'Testing keyboard layout')
             )
-            self.expectThat(len(entry.text), Equals(len(u'Testing keyboard layout'), message))
+            self.expectThat(len(entry.text), Equals(len(u'Testing keyboard layout')))
             self.expectIsInstance(entry.text, unicode)
         #TODO: Test detecting keyboard layout
         self._check_page_titles()
