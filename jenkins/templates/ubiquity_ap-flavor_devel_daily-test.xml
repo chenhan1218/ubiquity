@@ -65,6 +65,10 @@ $JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</com
     </hudson.tasks.Shell>
   </builders>
   <publishers>
+    <hudson.tasks.Fingerprinter>
+      <targets>results/var/local/autopilot/junit/*.xml</targets>
+      <recordBuildArtifacts>true</recordBuildArtifacts>
+    </hudson.tasks.Fingerprinter>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>results/**</artifacts>
       <latestOnly>false</latestOnly>
