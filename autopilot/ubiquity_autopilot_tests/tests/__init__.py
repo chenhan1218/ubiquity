@@ -138,8 +138,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Checking all tree items are valid unicode")
         for item in treeview_items:
             logger.debug("Check tree item with name '%s' is unicode" % item.accessible_name)
-            self.expectIsInstance(item.accessible_name, unicode)
-            self.expectThat(item.accessible_name, NotEquals(u''))
+            self.expectIsInstance(item.accessible_name, unicode,
+                                  "[Page:'stepLanguage'] Expected '%s' tree view item to be unicode but it wasn't"
+                                  % item.accessible_name)
+            self.expectThat(item.accessible_name, NotEquals(u''),
+                            "[Page:'stepLanguage'] Tree item found that doesn't contain any text")
 
         if lang:
             item = treeview.select_item(lang)
@@ -153,9 +156,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Checking the release_notes_label")
         release_notes_label = welcome_page.select_single('GtkLabel',
                                                          BuilderName='release_notes_label')
-        self.expectThat(release_notes_label.visible, Equals(True))
-        self.expectThat(release_notes_label.label, NotEquals(u''))
-        self.expectIsInstance(release_notes_label.label, unicode)
+        self.expectThat(release_notes_label.visible, Equals(True),
+                        "[Page:'{0}'] Release notes label was not visible".format(self.current_step))
+        self.expectThat(release_notes_label.label, NotEquals(u''),
+                        "[Page:'{0}'] Release notes label did not contain any text".format(self.current_step))
+        self.expectIsInstance(release_notes_label.label, unicode,
+                              "[Page:'{0}'] Expected release notes label to be unicode but it wasn't")
         self.pointing_device.move_to_object(release_notes_label)
         self._update_page_titles()
         self._check_page_titles()
@@ -198,9 +204,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         for obj in objList:
             logging.debug("Running checks on {0} object".format(obj))
             obj = preparing_page.select_single(BuilderName=obj)
-            self.expectThat(obj.visible, Equals(True))
-            self.expectThat(obj.label, NotEquals(u''))
-            self.expectIsInstance(obj.label, unicode)
+            self.expectThat(obj.visible, Equals(True),
+                            "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
+                                self.current_step, obj.name
+                            ))
+            self.expectThat(obj.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                                self.current_step, obj.name
+                            ))
+            self.expectIsInstance(obj.label, unicode,
+                                  "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, obj.name
+                                  ))
 
         if updates:
             logger.debug("Selecting install updates")
@@ -294,9 +309,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                  'crypto_description_2', 'crypto_overwrite_space']
         for i in items:
             item = crypto_page.select_single(BuilderName=i)
-            self.expectThat(item.visible, Equals(True))
-            self.expectThat(item.label, NotEquals(u''))
-            self.expectIsInstance(item.label, unicode)
+            self.expectThat(item.visible, Equals(True),
+                            "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
+                                self.current_step, item.name
+                            ))
+            self.expectThat(item.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                                self.current_step, item.name
+                            ))
+            self.expectIsInstance(item.label, unicode,
+                                  "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, item.name
+                                  ))
 
         crypto_page.enter_crypto_phrase(crypto_password)
         self._check_page_titles()
@@ -319,13 +343,14 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Selecting the stepPartAdvanced page object")
         custom_page = self.main_window.select_single('GtkAlignment', BuilderName='stepPartAdvanced')
         treeview = custom_page.select_single('GtkTreeView')
-        self.expectThat(treeview.visible, Equals(True))
+        self.expectThat(treeview.visible, Equals(True),
+                        "[Page:'{0}'] Partition tree view was not visible")
         obj_list = ['partition_button_new', 'partition_button_delete', 'partition_button_edit',
                     'partition_button_edit', 'partition_button_new_label']
         for name in obj_list:
             obj = custom_page.select_single(BuilderName=name)
             self.expectThat(obj.visible, Equals(True),
-                            "{0} object was not visible".format(obj.name))
+                            "[Page:'{0}'] {1} object was not visible".format(self.current_step, obj.name))
         logger.debug("Sleeping while we wait for all UI elements to fully load")
         time.sleep(5)  # need to give time for all UI elements to load
         custom_page.create_new_partition_table()
@@ -340,7 +365,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             self._add_new_partition()
 
             partition_dialog = self.main_window.get_dialog('GtkDialog', BuilderName='partition_dialog')
-            self.assertThat(partition_dialog.visible, Eventually(Equals(True)))
+            self.assertThat(partition_dialog.visible, Eventually(Equals(True)),
+                            "Partition dialog not visible")
             partition_dialog.set_partition_size(elem['PartitionSize'])
             partition_dialog.set_partition_location(elem['Position'])
             partition_dialog.set_partition_type(elem['PartitionType'])
@@ -349,7 +375,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             ok_button = partition_dialog.select_single('GtkButton',
                                                        BuilderName='partition_dialog_okbutton')
             self.pointing_device.click_object(ok_button)
-            self.assertThat(partition_dialog.visible, Eventually(Equals(False)))
+            self.assertThat(partition_dialog.visible, Eventually(Equals(False)),
+                            "Partition dialog did not close")
             self._check_partition_created(elem['MountPoint'])
         self._check_page_titles()
         self._check_navigation_buttons()
@@ -370,9 +397,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Selecting stepLocation page object")
         location_page = self.main_window.select_single('GtkBox', BuilderName='stepLocation')
         location_map = location_page.select_single('CcTimezoneMap')
-        self.assertThat(location_map.visible, Equals(True), "Expected location map to be visible but it wasn't")
+        self.assertThat(location_map.visible, Equals(True),
+                        "Expected location map to be visible but it wasn't")
         location_entry = location_page.select_single(BuilderName='timezone_city_entry')
-        self.assertThat(location_entry.visible, Equals(True), "Expected location entry to be visible but it wasn't")
+        self.assertThat(location_entry.visible, Equals(True),
+                        "Expected location entry to be visible but it wasn't")
 
         location = ['London', 'Paris', 'Madrid', 'Algiers']
         location_page.select_location(random.choice(location))
@@ -396,8 +425,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         for treeview in treeviews:
             items = treeview.get_all_items()
             for item in items:
-                self.expectIsInstance(item.accessible_name, unicode)
-                self.expectThat(item.accessible_name, NotEquals(u''))
+                self.expectIsInstance(item.accessible_name, unicode,
+                                      "[Page:'{0}'] Expected {1} item to be unicode but it wasn't".format(
+                                          self.current_step, item.accessible_name
+                                      ))
+                self.expectThat(item.accessible_name, NotEquals(u''),
+                                "[Page:'{0}'] Tree view item found which didn't contain text, but it should!!")
 
         #now lets test typing with the keyboard layout
         entry = keyboard_page.select_single('GtkEntry')
@@ -406,8 +439,16 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
                 len(entry.text), len(u'Testing keyboard layout')
             )
-            self.expectThat(len(entry.text), Equals(len(u'Testing keyboard layout')))
-            self.expectIsInstance(entry.text, unicode)
+            #TODO: only test the entry value if we are using english install
+            #self.expectThat(len(entry.text), Equals(len(u'Testing keyboard layout')))
+            self.expectThat(entry.text, NotEquals(u''),
+                            "[Page:'{0}'] Expected Entry to contain text after typing but it didn't".format(
+                                self.current_step
+                            ))
+            self.expectIsInstance(entry.text, unicode,
+                                  "[Page:'{0}'] Expected Entry text to be unicode but it wasnt".format(
+                                      self.current_step
+                                  ))
         #TODO: Test detecting keyboard layout
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
@@ -440,9 +481,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("checking user info page objects ......")
         for i in objects:
             obj = user_info_page.select_single('GtkLabel', name=i)
-            self.expectThat(obj.label, NotEquals(u''))
-            self.expectIsInstance(obj.label, unicode)
-            self.expectThat(obj.visible, Equals(True))
+            self.expectThat(obj.visible, Equals(True),
+                            "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
+                                self.current_step, obj.name
+                            ))
+            self.expectThat(obj.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                                self.current_step, obj.name
+                            ))
+            self.expectIsInstance(obj.label, unicode,
+                                  "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, obj.name
+                                  ))
         user_info_page.create_user(username, pwd)
         #TODO: get these working
         if encrypted:
@@ -466,8 +516,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def progress_page_tests(self, ):
         #TODO: move here from emulator and use process manager to check window stack doesn't change
         # during the progress stage and if a dialog becomes top of stack we get
-        # window title to work outwhich one. Currently polling on dbus is really horrible
-        # for the logs so need to find a cleaner way.
+        # window title to work outwhich one. Currently polling on dbus for two specific dialogs is really horrible
+        # for the logs and test design so need to find a cleaner way.
         pass
 
     def _add_new_partition(self, ):
@@ -477,7 +527,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         tree_view = custom_page.select_single('GtkTreeView')
         item = tree_view.select_item(u'  free space')
         self.pointing_device.click_object(item)
-        self.assertThat(item.selected, Equals(True), "Partition_Dialog: Free Space tree item not selected")
+        self.assertThat(item.selected, Equals(True),
+                        "[Page:'{0}'] Free Space tree item not selected".format(
+                            self.current_step
+                        ))
         add_button = custom_page.select_single('GtkToolButton', BuilderName='partition_button_new')
         self.pointing_device.click_object(add_button)
         time.sleep(2)
@@ -547,13 +600,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         the previous %s page title '%s' but it does" % \
                       (self.current_step, self.current_page_title, self.step_before, self.previous_page_title)
 
-        self.expectThat(self.previous_page_title, NotEquals(self.current_page_title), message_one)
+        self.expectThat(self.previous_page_title, NotEquals(self.current_page_title), message=message_one)
         # THis second one catches the known bug for the stepPartAdvanced page title switching back to the prev page title
         message_two = "Expected %s page title '%s' to not equal the previous %s page title '%s' but it does" % \
                       (self.current_step, current_page_title.label, self.step_before, self.previous_page_title)
-        self.expectThat(self.previous_page_title,
-                        NotEquals(current_page_title.label), message=message_two)
-        self.expectThat(current_page_title.visible, Equals(True))
+        #This only runs if the current page title changes from its initial value when page loaded
+        if current_page_title.label != self.current_page_title:
+            self.expectThat(self.previous_page_title,
+                            NotEquals(current_page_title.label), message=message_two)
+            self.expectThat(current_page_title.visible, Equals(True),
+                            "[Page:'{0}'] Expect page title to be visible but it wasn't".format(
+                                self.current_step
+                            ))
 
     def _check_preparing_statebox(self, stateboxName, visible=True, imagestock='gtk-yes'):
         """ Checks the preparing page statebox's """
@@ -567,15 +625,27 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "StateBox.check(): Expected {0} statebox to be visible but it wasn't".format(
                                 state_box.name))
             label = state_box.select_single('GtkLabel')
-            self.expectThat(label.label, NotEquals(u''))
-            self.expectThat(label.visible, Equals(visible))
-            self.expectIsInstance(label.label, unicode)
+            self.expectThat(label.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} Statebox's label to contain text but it didn't".format(
+                                self.current_step, stateboxName
+                            ))
+            self.expectThat(label.visible, Equals(visible),
+                            "[Page:'{0}'] Expected {1} Statebox label's visible property to be {2} ".format(
+                                self.current_step, stateboxName, str(visible)
+                            ))
+            self.expectIsInstance(label.label, unicode,
+                                  "[Page:'{0}'] Expected {1} Statebox's label to be unicode but it wasn't".format(
+                                  self.current_step, stateboxName
+                                  ))
             image = state_box.select_single('GtkImage')
             self.expectThat(image.stock, Equals(imagestock))
             self.expectThat(image.visible, Equals(visible))
 
         else:
-            self.expectThat(state_box.visible, Equals(False))
+            self.expectThat(state_box.visible, Equals(False),
+                            "[Page:'{0}'] Expected {1} statebox to not be visible but it was".format(
+                                self.current_step, stateboxName
+                            ))
 
     def _options_tests(self, visible=[], hidden=[]):
 
@@ -584,17 +654,35 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         for option in visible:
             logger.info("selecting Visible object'{0}'".format(option))
             opt = install_type_page.select_single(BuilderName=option)
-            self.expectThat(opt.visible, Equals(True))
-            self.expectThat(opt.label, NotEquals(u''))
-            self.expectIsInstance(opt.label, unicode)
+            self.expectThat(opt.visible, Equals(True),
+                            "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
+                                self.current_step, opt.name
+                            ))
+            self.expectThat(opt.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                                self.current_step, opt.name
+                            ))
+            self.expectIsInstance(opt.label, unicode,
+                                  "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, opt.name
+                                  ))
 
         for option in hidden:
             logger.info("Selecting hidden object '{0}'".format(option))
 
             opt = install_type_page.select_single(BuilderName=option)
-            self.expectThat(opt.visible, Equals(False))
-            self.expectThat(opt.label, NotEquals(u''))
-            self.expectIsInstance(opt.label, unicode)
+            self.expectThat(opt.visible, Equals(False),
+                            "[Page:'{0}'] Expected {1} object to be not visible but it was".format(
+                                self.current_step, opt.name
+                            ))
+            self.expectThat(opt.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                                self.current_step, opt.name
+                            ))
+            self.expectIsInstance(opt.label, unicode,
+                                  "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, opt.name
+                                  ))
 
     def _select_install_type(self, install_type):
         pass
