@@ -13,6 +13,9 @@ from testtools.content import text_content
 import traceback
 from ubiquity_autopilot_tests.tools import compare
 from ubiquity_autopilot_tests.tools._exc import NonFatalErrors
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class UbiquityTestCase(AutopilotTestCase):
@@ -31,6 +34,7 @@ class UbiquityTestCase(AutopilotTestCase):
         unittest.TestCase.tearDown(self)
 
     def assertNonFatalErrors(self, ):
+        logger.debug('Checking for non fatal errors')
         error_list = self.non_fatal_errors
         if len(error_list) > 0:
             num = 1
@@ -58,7 +62,7 @@ _______________________________________________________________________
         try:
             self._expectThat(observed, matcher, message)
         except MismatchError:
-
+            logger.error("Expected %r to equal %r but it didn't" % expected, observed, exc_info=True)
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
 
@@ -83,6 +87,7 @@ _______________________________________________________________________
         try:
             self._expectThat(obj, matcher, msg)
         except MismatchError:
+            logger.error("Expected %r to be instance of %r but it wasn't" % obj, klass, exc_info=True)
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
 
@@ -90,6 +95,7 @@ _______________________________________________________________________
         try:
             self._expectThat(matchee, matcher, message, verbose)
         except MismatchError:
+            logger.error("MisMatch found", exc_info=True)
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
 
