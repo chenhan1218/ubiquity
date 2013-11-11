@@ -426,7 +426,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             items = treeview.get_all_items()
             for item in items:
                 self.expectIsInstance(item.accessible_name, unicode,
-                                      "[Page:'{0}'] Expected {1} item to be unicode but it wasn't".format(
+                                      "[Page:'%r'] Expected %r item to be unicode but it wasn't" % (
                                           self.current_step, item.accessible_name
                                       ))
                 self.expectThat(item.accessible_name, NotEquals(u''),
