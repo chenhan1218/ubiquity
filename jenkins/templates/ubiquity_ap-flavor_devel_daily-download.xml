@@ -44,10 +44,11 @@ rm -Rf $WORKSPACE/*
 RELEASE=$(distro-info -d||distro-info -s)
 VARIANT={{ variant }}
 FLAVOR={{ flavor }}
+BUILD=$(basename {{ cdimageurl }})
 
 export PATH=$HOME/bin:$PATH
 cd /var/lib/jenkins/isos/
-download-latest-test-iso.py -r $RELEASE -v $VARIANT -f $FLAVOR
+download-latest-test-iso.py -r $RELEASE -v $VARIANT -f $FLAVOR -b $BUILD
 </command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder>
