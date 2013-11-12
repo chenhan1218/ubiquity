@@ -1,6 +1,7 @@
 ubiquity (2.17.1) UNRELEASED; urgency=low
 
   * Drop ntfsprogs alternative depends.
+  * Merge packaging change to add debian-menu entry.
 
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Wed, 06 Nov 2013 00:52:56 +0000
 
