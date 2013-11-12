@@ -25,14 +25,15 @@ set -eu
 TESTBASE=/var/local/autopilot/
 AP_ARTIFACTS=$TESTBASE/videos/
 AP_RESULTS=$TESTBASE/junit/
+AP_LOGS=$TESTBASE/logs/
 AP_TESTSUITES=$TESTBASE/testsuites
-AP_LOGFILE=$TESTBASE/autopilot.log
+AP_LOGFILE=$AP_LOGS/autopilot.log
+AP_SUMMARY=$AP_LOGS/summary.log
 SPOOLDIR=$TESTBASE/spool
 AP_OPTS="-v -f xml"
 RMD_OPTS="-r -rd $AP_ARTIFACTS --record-options=--fps=6,--no-wm-check"
 # TESTING ONLY -- Recording is disabled
 AP_OPTS="-f xml"
-OTTO_SUMMARY=/var/local/otto/summary.log
 TSBRANCH=lp:ubiquity/autopilot
 TSBRANCH=lp:~dpniel/ubiquity/autopilot
 TSEXPORT=$HOME/ubiquity-autopilot
@@ -123,8 +124,8 @@ setup_tests() {
     fi
 
     # Loads the list of test and queue them in test spool
-    sudo mkdir -p $SPOOLDIR $AP_ARTIFACTS $AP_RESULTS $(dirname $OTTO_SUMMARY)
-    sudo chown -R $USER:$USER $TESTBASE $SPOOLDIR $AP_ARTIFACTS $AP_RESULTS $(dirname $OTTO_SUMMARY)
+    sudo mkdir -p $SPOOLDIR $AP_ARTIFACTS $AP_RESULTS $AP_LOGS
+    sudo chown -R $USER:$USER $TESTBASE $SPOOLDIR $AP_ARTIFACTS $AP_RESULTS $AP_LOGS
 
     echo "I: Installating additional packages"
     sudo apt-get update
@@ -180,11 +181,11 @@ run_tests() {
 
     if ! which autopilot >/dev/null 2>&1; then
         echo "E: autopilot is required to run autopilot tests"
-        echo "autopilot_installed (see autopilot.log for details): ERROR" >> $OTTO_SUMMARY
+        echo "autopilot_installed (see autopilot.log for details): ERROR" >> $AP_SUMMARY
         shutdown_host
         exit 1
     fi
-    echo "autopilot_installed: PASS" >> $OTTO_SUMMARY
+    echo "autopilot_installed: PASS" >> $AP_SUMMARY
 
     exec >>$AP_LOGFILE
     exec 2>&1
@@ -204,9 +205,9 @@ run_tests() {
         timeout -s 9 -k 30 $TIMEOUT ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
-            echo "${testname}: FAIL" >> $OTTO_SUMMARY
+            echo "${testname}: FAIL" >> $AP_SUMMARY
         else
-            echo "${testname}: DONE" >> $OTTO_SUMMARY
+            echo "${testname}: DONE" >> $AP_SUMMARY
         fi
         set -e
         sudo rm -f $testfile
@@ -215,7 +216,7 @@ run_tests() {
 
 reset_test() {
     # Reset the tests for a new run
-    rm -f $HOME/.ap_setup_done $OTTO_SUMMARY $AP_LOGFILE $SPOOLDIR/* $AP_ARTIFACTS/* $AP_RESULTS/*
+    rm -f $HOME/.ap_setup_done $AP_SUMMARY $AP_LOGFILE $SPOOLDIR/* $AP_ARTIFACTS/* $AP_RESULTS/*
 }
 SHORTOPTS="hdNRS"
 LONGOPTS="help,debug,new,norecord,noshutdown"
