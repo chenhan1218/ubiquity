@@ -57,7 +57,7 @@ case $SESSION in
         SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
 esac
 
-PACKAGES="bzr ssh python-autopilot libautopilot-gtk python-xlib \
+PACKAGES="bzr ssh python3-autopilot libautopilot-gtk python3-xlib \
     recordmydesktop"
 
 export DEBIAN_FRONTEND=noninteractive
@@ -178,7 +178,7 @@ run_tests() {
         exit 1
     fi
 
-    if ! which autopilot >/dev/null 2>&1; then
+    if ! which autopilot-py3 >/dev/null 2>&1; then
         echo "E: autopilot is required to run autopilot tests"
         echo "autopilot_installed (see autopilot.log for details): ERROR" >> $AP_SUMMARY
         shutdown_host
