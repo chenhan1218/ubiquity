@@ -19,11 +19,9 @@ from __future__ import print_function
 import os
 import logging
 import random
-import subprocess
 import time
 
 from testtools.matchers import Equals, NotEquals
-from testtools.content import text_content
 
 from autopilot.matchers import Eventually
 from autopilot.introspection import get_proxy_object_for_existing_process
@@ -33,10 +31,6 @@ from autopilot.input import (
     Pointer
 )
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
-from ubiquity_autopilot_tests.emulators import gtktoplevel
-from ubiquity_autopilot_tests.tools import compare
-from ubiquity_autopilot_tests.tools.compare import expectThat
-from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
 from ubiquity_autopilot_tests.configs.partconfig import (
     Config1,
@@ -141,7 +135,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Checking all tree items are valid unicode")
         for item in treeview_items:
             logger.debug("Check tree item with name '%s' is unicode" % item.accessible_name)
-            self.expectIsInstance(item.accessible_name, unicode,
+            self.expectIsInstance(item.accessible_name, str,
                                   "[Page:'stepLanguage'] Expected '%s' tree view item to be unicode but it wasn't"
                                   % item.accessible_name)
             self.expectThat(item.accessible_name, NotEquals(u''),
@@ -163,7 +157,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                         "[Page:'{0}'] Release notes label was not visible".format(self.current_step))
         self.expectThat(release_notes_label.label, NotEquals(u''),
                         "[Page:'{0}'] Release notes label did not contain any text".format(self.current_step))
-        self.expectIsInstance(release_notes_label.label, unicode,
+        self.expectIsInstance(release_notes_label.label, str,
                               "[Page:'{0}'] Expected release notes label to be unicode but it wasn't")
         self.pointing_device.move_to_object(release_notes_label)
         self._update_page_titles()
@@ -215,7 +209,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
                                 self.current_step, obj.name
                             ))
-            self.expectIsInstance(obj.label, unicode,
+            self.expectIsInstance(obj.label, str,
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, obj.name
                                   ))
@@ -320,7 +314,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
                                 self.current_step, item.name
                             ))
-            self.expectIsInstance(item.label, unicode,
+            self.expectIsInstance(item.label, str,
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, item.name
                                   ))
@@ -428,7 +422,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         for treeview in treeviews:
             items = treeview.get_all_items()
             for item in items:
-                self.expectIsInstance(item.accessible_name, unicode,
+                self.expectIsInstance(item.accessible_name, str,
                                       "[Page:'%r'] Expected %r item to be unicode but it wasn't" % (
                                           self.current_step, item.accessible_name
                                       ))
@@ -439,16 +433,16 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         entry = keyboard_page.select_single('GtkEntry')
         with self.keyboard.focused_type(entry) as kb:
             kb.type(u'Testing keyboard layout')
-            message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
-                len(entry.text), len(u'Testing keyboard layout')
-            )
             #TODO: only test the entry value if we are using english install
+            #message = "Expected {0} (the length of the keyboard entry text) to be {1}".format(
+            #    len(entry.text), len(u'Testing keyboard layout')
+            #)
             #self.expectThat(len(entry.text), Equals(len(u'Testing keyboard layout')))
             self.expectThat(entry.text, NotEquals(u''),
                             "[Page:'{0}'] Expected Entry to contain text after typing but it didn't".format(
                                 self.current_step
                             ))
-            self.expectIsInstance(entry.text, unicode,
+            self.expectIsInstance(entry.text, str,
                                   "[Page:'{0}'] Expected Entry text to be unicode but it wasnt".format(
                                       self.current_step
                                   ))
@@ -492,7 +486,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
                                 self.current_step, obj.name
                             ))
-            self.expectIsInstance(obj.label, unicode,
+            self.expectIsInstance(obj.label, str,
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, obj.name
                                   ))
@@ -636,7 +630,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} Statebox label's visible property to be {2} ".format(
                                 self.current_step, stateboxName, str(visible)
                             ))
-            self.expectIsInstance(label.label, unicode,
+            self.expectIsInstance(label.label, str,
                                   "[Page:'{0}'] Expected {1} Statebox's label to be unicode but it wasn't".format(
                                   self.current_step, stateboxName
                                   ))
@@ -665,7 +659,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
                                 self.current_step, opt.name
                             ))
-            self.expectIsInstance(opt.label, unicode,
+            self.expectIsInstance(opt.label, str,
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, opt.name
                                   ))
@@ -682,7 +676,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
                                 self.current_step, opt.name
                             ))
-            self.expectIsInstance(opt.label, unicode,
+            self.expectIsInstance(opt.label, str,
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, opt.name
                                   ))

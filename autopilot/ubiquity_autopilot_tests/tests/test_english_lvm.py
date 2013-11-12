@@ -14,11 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
-from testtools.matchers import Equals, NotEquals
+from testtools.matchers import Equals
 from autopilot.matchers import Eventually
 from ubiquity_autopilot_tests.emulators import gtktoplevel
-import time
-import platform
 
 
 class EnglishLVMInstallTestCase(UbiquityAutopilotTestCase):

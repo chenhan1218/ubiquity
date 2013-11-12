@@ -21,7 +21,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 import logging
-import sys
 import traceback
 
 non_fatal_errors = []
@@ -117,7 +116,7 @@ class expectThat(object):
             message = "Expected to be instance of type 'unicode' but is an instance of type '{0}'".format(
                 self.value.__class__.__name__)
         try:
-            assert isinstance(self.value, unicode), message
+            assert isinstance(self.value, str), message
         except AssertionError as e:
             logger.error("NON_FATAL_ERROR: %s" % message, exc_info=True)
             global non_fatal_errors

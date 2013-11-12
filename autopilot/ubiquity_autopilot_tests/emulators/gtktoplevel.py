@@ -17,11 +17,9 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 from autopilot.input import Pointer, Mouse, Keyboard
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase, EmulatorException
-from ubiquity_autopilot_tests.emulators import gtkcontrols, gtkaccessible, gtkcontainers
 from ubiquity_autopilot_tests.tools.compare import expectThat
 from ubiquity_autopilot_tests.emulators.partconfig import Config1, Config2, Config3
 from ubiquity_autopilot_tests.emulators.partconfig import Config4, Config5, Config6
-import random
 import time
 import logging
 logger = logging.getLogger(__name__)

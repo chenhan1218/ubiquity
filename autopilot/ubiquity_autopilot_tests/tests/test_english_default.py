@@ -17,7 +17,6 @@ from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
 from testtools.matchers import Equals
 from autopilot.matchers import Eventually
 from ubiquity_autopilot_tests.emulators import gtktoplevel
-import time
 
 
 class EnglishDefaultInstallTestCase(UbiquityAutopilotTestCase):
