@@ -1,5 +1,8 @@
-ubiquity (2.17.1ubuntu2) UNRELEASED; urgency=low
+ubiquity (2.17.1) UNRELEASED; urgency=low
 
+  # NB! Autopilot to be ported to python3 & warnings cleaned up
+  # do not release yet
+  
   [ Dmitrijs Ledkovs ]
   * Drop ntfsprogs alternative depends.
   * Merge packaging change to add debian-menu entry.
