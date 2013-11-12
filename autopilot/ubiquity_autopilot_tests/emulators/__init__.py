@@ -17,12 +17,9 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 from autopilot.introspection.dbus import CustomEmulatorBase
 
+
 class EmulatorException(Exception):
     """ Exception raised when there is an error with the emulator """
-
-
-class EmulatorTypoException(Exception):
-    """ Exception raised when a typo has been made when entering text """
 
 
 class AutopilotGtkEmulatorBase(CustomEmulatorBase):

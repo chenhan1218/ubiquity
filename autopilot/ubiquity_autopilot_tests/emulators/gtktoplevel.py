@@ -20,11 +20,7 @@ from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase, Emulato
 from ubiquity_autopilot_tests.tools.compare import expectThat
 from ubiquity_autopilot_tests.emulators.partconfig import Config1, Config2, Config3
 from ubiquity_autopilot_tests.emulators.partconfig import Config4, Config5, Config6
-from ubiquity_autopilot_tests.emulators import (
-    gtkaccessible,
-    gtkcontainers,
-    gtkcontrols
-)
+from ubiquity_autopilot_tests.emulators import gtkcontrols, gtkaccessible, gtkcontainers
 import time
 import logging
 logger = logging.getLogger(__name__)

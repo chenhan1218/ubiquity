@@ -17,11 +17,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 from autopilot.input import Pointer, Mouse
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
-from ubiquity_autopilot_tests.emulators import (
-    gtktoplevel,
-    gtkcontainers,
-    gtkcontrols
-)
+
 import logging
 logger = logging.getLogger(__name__)
 

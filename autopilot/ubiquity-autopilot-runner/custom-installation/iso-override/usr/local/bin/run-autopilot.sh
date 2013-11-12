@@ -34,7 +34,7 @@ AP_OPTS="-v -f xml"
 RMD_OPTS="-r -rd $AP_ARTIFACTS --record-options=--fps=6,--no-wm-check"
 # TESTING ONLY -- Recording is disabled
 AP_OPTS="-f xml"
-TSBRANCH=lp:ubiquity
+TSBRANCH=lp:~dpniel/ubiquity/autopilot_fix_imports
 TSEXPORT=$HOME/ubiquity-autopilot
 SESSION_LOG=""
 ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /var/crash"
