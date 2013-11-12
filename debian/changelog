@@ -7,6 +7,7 @@ ubiquity (2.17.1) UNRELEASED; urgency=low
   * Drop ntfsprogs alternative depends.
   * Merge packaging change to add debian-menu entry.
   * Tidy up autopilot tests warnings.
+  * Move autopilot tests to lp:ubiquity
 
   [ Brian Murray ]
   * Use the apt cache with with so that we close the cache when we are
