@@ -20,7 +20,11 @@ import time
 from autopilot.input import Pointer, Mouse, Keyboard
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.tools.compare import expectThat
-
+from ubiquity_autopilot_tests.emulators import (
+    gtkaccessible,
+    gtktoplevel,
+    gtkcontrols
+)
 import logging
 logger = logging.getLogger(__name__)
 
@@ -90,7 +94,7 @@ class GtkBox(GtkContainers):
                     logger.debug("Install language successfully selected! :-)")
                     return
                 raise ValueError("Could not select Item")
-            raise
+            raise ValueError("Top item  not selected")
         raise ValueError("Function can only be used from a stepLanguage \
                                 page object. Use .select_single('GtkBox, name='stepLanguage')")
 

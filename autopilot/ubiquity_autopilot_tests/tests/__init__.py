@@ -30,6 +30,8 @@ from autopilot.input import (
     Keyboard,
     Pointer
 )
+from ubiquity_autopilot_tests.emulators import gtktoplevel
+from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
 from ubiquity_autopilot_tests.configs.partconfig import (

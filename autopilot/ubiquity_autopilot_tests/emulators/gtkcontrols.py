@@ -18,6 +18,11 @@
 from autopilot.input import Pointer, Mouse, Keyboard
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.tools.compare import expectThat
+from ubiquity_autopilot_tests.emulators import (
+    gtkaccessible,
+    gtkcontainers,
+    gtktoplevel
+)
 import logging
 logger = logging.getLogger(__name__)
 
