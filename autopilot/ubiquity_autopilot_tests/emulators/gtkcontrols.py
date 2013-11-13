@@ -18,6 +18,7 @@
 from autopilot.input import Pointer, Mouse, Keyboard
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.tools.compare import expectThat
+from ubiquity_autopilot_tests.emulators import gtkaccessible
 import logging
 logger = logging.getLogger(__name__)
 
@@ -179,8 +180,8 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         e.g. If you want to click say an item displaying 'Home' in a treeview
         then it would be::
 
-            >>> treeitem = treeview.select_item('Home')
-            >>> treeitem.click()
+            treeitem = treeview.select_item('Home')
+            treeitem.click()
 
         If for some reason this doesn't work then use the :func:`click()`
         function to get the treeviews focus
@@ -272,8 +273,8 @@ class GtkComboBox(AutopilotGtkEmulatorBase):
 
         e.g. ::
 
-            >>> combobox = self.main_window.select_single('GtkComboBox')
-            >>> combobox.select_item('ListItem')
+             combobox = self.main_window.select_single('GtkComboBox')
+             combobox.select_item('ListItem')
 
         If for some reason this doesn't work then use the :func:`click()`
         function to get the combobox focus
