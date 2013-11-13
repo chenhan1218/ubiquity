@@ -1,4 +1,4 @@
-#!/bin/bash -u
+#!/bin/bash
 
 #
 # Run ubiquity autopilot tests in KVM
@@ -24,6 +24,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this software.  If not, see <http://www.gnu.org/licenses/>.
 #
+set -u
+
 RC=0
 BINDIR=$(dirname $(readlink -f $0))
 
@@ -35,7 +37,7 @@ OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 TESTNAME="${TESTNAME:-ubiquity_autopilot_tests.tests.test_english_default}"
 TESTCONFIG=""
-TIMEOUT=3600
+TIMEOUT=${TIMEOUT:-3600}
 DELAY=5
 SSHPORT=$(shuf -i 2000-65000 -n 1 -z)
 VNCPORT=$(shuf -i 1-2000 -n 1 -z)
