@@ -33,7 +33,8 @@ VCPU=2
 REQUIREDPKGS="bsdtar qemu-system-x86 bzr xz-utils cpio"
 OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
-TESTNAME="${TESTNAME:-ubiquity}"
+TESTNAME="${TESTNAME:-ubiquity_autopilot_tests.tests.test_english_default}"
+TESTCONFIG=""
 TIMEOUT=3600
 DELAY=5
 SSHPORT=$(shuf -i 2000-65000 -n 1 -z)
@@ -45,8 +46,6 @@ QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -net nic,model=virtio -net user -redir tcp:$SSHPORT::22 \
     -daemonize
     "
-
-    #-vnc localhost:76 \
 
 STARTAT=$(date)
 ENDAT=""
@@ -87,11 +86,16 @@ Arguments:
 Options:
     -h, --help      This help
     -d, --debug     Enable debug mode
-    -o, --override  Directory to copy into the target filesystem
-    -S, --disksize  Set disk size (default: $DISKSIZE)
+    -o, --override PATH
+                    Directory to copy into the target filesystem
+    -S, --disksize DISKSIZE
+                    Set disk size (default: $DISKSIZE)
     -s, --shm       Write disk image into /dev/shm
         --sdl       Uses SDL instead of VNC by default
-    -t, --test      Name of the test to run (default: $TESTNAME)
+    -t, --test TESTNAME
+                    Name of the test to run (default: $TESTNAME)
+    -T, --testconfig FILE
+                    Load test configuration from FILE
 
 EOF
     RC=1 && exit
@@ -216,12 +220,12 @@ prepare_initrd() {
         [ -d "$usercustomdir" ] && cp -af "$usercustomdir" $workdir/
         mkdir -p $workdir/custom-installation/iso-override/var/local/autopilot
         echo "$TESTNAME" > $workdir/custom-installation/iso-override/var/local/autopilot/testsuites
+        [ -f "$TESTCONFIG" ] && cp $TESTCONFIG $workdir/custom-installation/iso-override/var/local/autopilot/config
 
         echo "I: Repacking initrd"
         [ -f "$initrd" ] && rm -f $initrd
         find .|cpio --quiet -o -H newc > $initrd
     )
-    #find .|cpio --quiet -o -H newc|xz -9fc --format=lzma - > $initrd
 }
 
 boot_image() {
@@ -286,8 +290,8 @@ tail_logs() {
     done
 }
 
-SHORTOPTS="hdo:S:st:"
-LONGOPTS="help,debug,override:,disksize:,sdl,shm,test:"
+SHORTOPTS="hdo:S:st:T:"
+LONGOPTS="help,debug,override:,disksize:,sdl,shm,test:,testconfig:"
 
 TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
 eval set -- "$TEMP"
@@ -315,6 +319,13 @@ while true ; do
             shift;;
         -t|--test)
             TESTNAME=$2
+            shift 2;;
+        -T|--testconfig)
+            TESTCONFIG=$(readlink -f $2)
+            if [ ! -f "$TESTCONFIG" ]; then
+                echo "E: Configuration file not found :'$TESTCONFIG'. Aborting!"
+                exit 1
+            fi
             shift 2;;
         --)
             shift;
