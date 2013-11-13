@@ -22,6 +22,18 @@
 #
 set -eu
 
+# The following variables can be overridden with a configuration file
+TSBRANCH=lp:ubiquity
+EXTRAPACKAGES=""
+ARTIFACTS=""
+AP_OPTS=""
+SHUTDOWN=1
+TIMEOUT=1200  # 20min timeout
+
+# Custom configuration
+# Do not use the variable TESTBASE because we don't want it to be overridden
+[ -f /var/local/autopilot/config ] && . /var/local/autopilot/config
+
 TESTBASE=/var/local/autopilot/
 AP_ARTIFACTS=$TESTBASE/videos/
 AP_RESULTS=$TESTBASE/junit/
@@ -29,17 +41,13 @@ AP_LOGS=$TESTBASE/logs/
 AP_TESTSUITES=$TESTBASE/testsuites
 AP_LOGFILE=$AP_LOGS/autopilot.log
 AP_SUMMARY=$AP_LOGS/summary.log
-SPOOLDIR=$TESTBASE/spool
-AP_OPTS="-v -f xml"
 RMD_OPTS="-r -rd $AP_ARTIFACTS --record-options=--fps=6,--no-wm-check"
-# TESTING ONLY -- Recording is disabled
-AP_OPTS="-f xml"
-TSBRANCH=lp:ubiquity
+SPOOLDIR=$TESTBASE/spool
 TSEXPORT=$HOME/ubiquity-autopilot
 SESSION_LOG=""
-ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /var/crash"
-SHUTDOWN=1
-TIMEOUT=1200  # 20min timeout
+# Append mandatory artifacts
+ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /var/crash $ARTIFACTS"
+
 
 # Specific configurations for various DE
 case $SESSION in
@@ -61,9 +69,6 @@ PACKAGES="bzr ssh python3-autopilot libautopilot-gtk python3-xlib \
     recordmydesktop"
 
 export DEBIAN_FRONTEND=noninteractive
-
-# Define general configuration files 
-[ -f $TESTBASE/config ] && . $TESTBASE/config
 
 on_exit() {
     # Exit handler
@@ -129,7 +134,7 @@ setup_tests() {
     echo "I: Installating additional packages"
     sudo apt-get update
     rc=0
-    sudo apt-get install -yq $PACKAGES || rc=$?
+    sudo apt-get install -yq $PACKAGES $EXTRAPACKAGES|| rc=$?
     if [ $rc -gt 0 ]; then
         echo "E: Required packages failed to install. Aborting!"
         exit 1
@@ -201,7 +206,7 @@ run_tests() {
         # We don't want to fail if AP fail but we want the return code
         set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        timeout -s 9 -k 30 $TIMEOUT ./autopilot run $testname $AP_OPTS -o $AP_RESULTS/${testname}.xml
+        timeout -s 9 -k 30 $TIMEOUT ./autopilot run $testname $AP_OPTS -f xml -o $AP_RESULTS/${testname}.xml
         AP_RC=$?
         if [ $AP_RC -gt 0 ]; then
             echo "${testname}: FAIL" >> $AP_SUMMARY
