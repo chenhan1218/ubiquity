@@ -121,7 +121,7 @@ class GtkBox(GtkContainers):
             logger.debug("Attempting to decode %s" % l_unicode)
             lan = l_unicode[0:2]
             try:
-                l_ascii = lan.decode('ascii')
+                l_ascii = lan.encode('ascii')
             except UnicodeEncodeError:
                 logger.debug("%s could not be decoded" % l_unicode)
                 pass
