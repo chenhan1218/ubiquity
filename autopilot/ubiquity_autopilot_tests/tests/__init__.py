@@ -162,7 +162,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.expectIsInstance(release_notes_label.label, str,
                               "[Page:'{0}'] Expected release notes label to be unicode but it wasn't")
         self.pointing_device.move_to_object(release_notes_label)
-        self.write_to_file(release_notes_label.name, release_notes_label.label)
         self._update_page_titles()
         self._check_page_titles()
         self._check_navigation_buttons()
@@ -216,7 +215,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, obj.name
                                   ))
-            self.write_to_file(obj.name, obj.label)
 
         if updates:
             logger.debug("Selecting install updates")
@@ -322,7 +320,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, item.name
                                   ))
-            self.write_to_file(item.name, item.label)
+
         crypto_page.enter_crypto_phrase(crypto_password)
         self._check_page_titles()
         self._check_navigation_buttons()
@@ -425,7 +423,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         #       layout to a different language/locale/layout and see if ubiquity breaks
         for treeview in treeviews:
             items = treeview.get_all_items()
-            i = 1
             for item in items:
                 self.expectIsInstance(item.accessible_name, str,
                                       "[Page:'%r'] Expected %r item to be unicode but it wasn't" % (
@@ -433,8 +430,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                       ))
                 self.expectThat(item.accessible_name, NotEquals(u''),
                                 "[Page:'{0}'] Tree view item found which didn't contain text, but it should!!")
-                self.write_to_file('Treeview {0}'.format(i), item.accessible_name)
-            i += 1
+
         #now lets test typing with the keyboard layout
         entry = keyboard_page.select_single('GtkEntry')
         with self.keyboard.focused_type(entry) as kb:
@@ -496,7 +492,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, obj.name
                                   ))
-            self.write_to_file(obj.name, obj.label)
         user_info_page.create_user(username, pwd)
         #TODO: get these working
         if encrypted:
@@ -596,7 +591,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.previous_page_title = self.current_page_title
         self.current_page_title = self.main_window.select_single('GtkLabel',
                                                                  BuilderName='page_title').label
-        self.write_to_file('page_title', self.current_page_title)
 
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single('GtkLabel',
@@ -634,7 +628,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} Statebox's label to contain text but it didn't".format(
                                 self.current_step, stateboxName
                             ))
-            self.write_to_file(stateboxName, label.label)
             self.expectThat(label.visible, Equals(visible),
                             "[Page:'{0}'] Expected {1} Statebox label's visible property to be {2} ".format(
                                 self.current_step, stateboxName, str(visible)
@@ -672,7 +665,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, opt.name
                                   ))
-            self.write_to_file(opt.name, opt.label)
+
         for option in hidden:
             logger.info("Selecting hidden object '{0}'".format(option))
 
@@ -703,8 +696,3 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                     logger.debug("{0} flavor detected".format(distro))
                     return str(distro)
                 raise SystemError("Could not get distro name")
-
-    def write_to_file(self, object_name, object_value):
-        out_file = open("/tmp/english_text_values.txt", "a")
-        out_file.write(str(self.current_step) + ': ' + str(object_name) + '= ' + str(object_value) + '\n')
-        out_file.close()
