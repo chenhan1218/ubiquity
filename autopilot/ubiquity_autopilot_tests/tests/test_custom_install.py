@@ -17,6 +17,7 @@ from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
 from testtools.matchers import Equals
 from autopilot.matchers import Eventually
 from ubiquity_autopilot_tests.emulators import gtktoplevel
+from ubiquity_autopilot_tests.configs.partconfig import edubuntuConfig
 
 from time import sleep
 
@@ -41,7 +42,11 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         sleep(10)
         self.installation_type_page_tests(custom=True)
         self.go_to_next_page()
-        self.custom_partition_page_tests()
+        if flavor == 'Edubuntu':
+            #if edubuntu use the edubuntu config
+            self.custom_partition_page_tests(edubuntuConfig)
+        else:
+            self.custom_partition_page_tests()
         self.go_to_next_page(wait=True)
         self.location_page_tests()
         self.go_to_next_page()

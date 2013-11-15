@@ -24,12 +24,18 @@ class EnglishLVMInstallTestCase(UbiquityAutopilotTestCase):
 
     def test_lvm_install(self, ):
         #first check we have an emulator instance
+        flavor = self.get_distribution()
         self.assertIsInstance(self.main_window, gtktoplevel.GtkWindow)
         self.assertThat(self.main_window.visible, Eventually(Equals(True)))
         self.welcome_page_tests(lang='English')
         self.go_to_next_page()
         self.preparing_page_tests(updates=True)
         self.go_to_next_page()
+        if flavor == 'Edubuntu':
+            self.edubuntu_addon_window_tests()
+            self.go_to_next_page()
+            self.edubuntu_packages_window_tests()
+            self.go_to_next_page()
         self.installation_type_page_tests(lvm=True)
         self.go_to_next_page(wait=True)
         self.location_page_tests()
@@ -37,7 +43,7 @@ class EnglishLVMInstallTestCase(UbiquityAutopilotTestCase):
         self.keyboard_layout_page_tests()
         self.go_to_next_page()
         self.user_info_page_tests('Autopilot', 'password')
-        flavor = self.get_distribution()
+
         if flavor == 'Ubuntu':
             self.go_to_next_page()
             self.ubuntu_one_page_tests()

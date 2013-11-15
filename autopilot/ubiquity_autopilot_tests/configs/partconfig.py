@@ -250,3 +250,34 @@ Config6 = [
         'Position': 'Beginning'
     }
 ]
+
+"""edubuntuConfig
+    / = Ext4 - Has to be larger than 5.8GB
+
+    /home = Ext4 - Take up all remaining space
+
+    Swap = 1024MB
+"""
+edubuntuConfig = [
+    {
+        'PartitionSize': 1024,
+        'MountPoint': None,
+        'FileSystemType': 'Swap',
+        'PartitionType': 'Primary',
+        'Position': 'End'
+    },
+    {
+        'PartitionSize': 7000,
+        'MountPoint': '/',
+        'FileSystemType': 'Ext4',
+        'PartitionType': 'Logical',
+        'Position': 'Beginning'
+    },
+    {
+        'PartitionSize': None,
+        'MountPoint': '/home',
+        'FileSystemType': 'Ext4',
+        'PartitionType': 'Primary',
+        'Position': 'Beginning'
+    }
+]
