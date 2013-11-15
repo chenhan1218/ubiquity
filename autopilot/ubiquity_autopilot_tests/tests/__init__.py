@@ -259,20 +259,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def edubuntu_addon_window_tests(self, ):
         """
-        GtkVBox = edubuntu-addon_window
-
-            GtkCheckButton = fallback_install - get eng
-            GtkLabel = description - get eng
-            GtkImage = fallback_image
-            GtkLabel = fallback_title - get eng
-            GtkLabel = fallback_decription - get eng
-
-            GtkImage = ltsp_image
-            GtkCheckButton = ltsp_install - get eng
-            GtkLabel = ltsp_title - get eng
-            GtkLabel = ltsp_decription - get eng
-            GtkLabel = ltsp_interface_label - get eng
-            GtkComboBox = ltsp_interface
+        Run Page tests for edubuntu addon page
         """
         self._update_current_step('edubuntu-addon_window')
         self._check_navigation_buttons()
@@ -306,6 +293,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons()
 
     def edubuntu_packages_window_tests(self, ):
+        """
+        Run Page tests for edubuntu packages page
+        """
         self._update_current_step('edubuntu-packages_window')
         self._check_navigation_buttons()
         self._update_page_titles()
