@@ -257,6 +257,83 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
         self._check_navigation_buttons()
 
+    def edubuntu_addon_window_tests(self, ):
+        """
+        GtkVBox = edubuntu-addon_window
+
+            GtkCheckButton = fallback_install - get eng
+            GtkLabel = description - get eng
+            GtkImage = fallback_image
+            GtkLabel = fallback_title - get eng
+            GtkLabel = fallback_decription - get eng
+
+            GtkImage = ltsp_image
+            GtkCheckButton = ltsp_install - get eng
+            GtkLabel = ltsp_title - get eng
+            GtkLabel = ltsp_decription - get eng
+            GtkLabel = ltsp_interface_label - get eng
+            GtkComboBox = ltsp_interface
+        """
+        self._update_current_step('edubuntu-addon_window')
+        self._check_navigation_buttons()
+        self._update_page_titles()
+        add_on_page = self.main_window.select_single('GtkVBox', BuilderName='edubuntu-addon_window')
+        page_objects = ['fallback_install', 'description', 'fallback_title', 'fallback_description',
+                        'ltsp_install', 'ltsp_title', 'ltsp_description', 'ltsp_interface_label']
+
+        for i in page_objects:
+            obj = add_on_page.select_single(BuilderName=i)
+            self.expectThat(obj.visible, Equals(True),
+                            "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
+                                self.current_step, obj.name
+                            ))
+            self.expectThat(obj.label, NotEquals(u''),
+                            "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                                self.current_step, obj.name
+                            ))
+            self.expectIsInstance(obj.label, str,
+                                  "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, obj.name
+                                  ))
+            #if self.english_install:
+            #    #if english install check english values
+            #    self.eng_config = eng_label_values.stepPrepare
+            #    self.expectThat(obj.label, Equals(self.eng_config[i]))
+            #TODO: provide option to select different desktop
+        self._check_page_titles()
+        #if self.english_install:
+        #    self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+        self._check_navigation_buttons()
+
+    def edubuntu_packages_window_tests(self, ):
+        self._update_current_step('edubuntu-packages_window')
+        self._check_navigation_buttons()
+        self._update_page_titles()
+        packages_page = self.main_window.select_single('GtkVBox', BuilderName='edubuntu-packages_window')
+        description = packages_page.select_single('GtkLabel', BuilderName='description')
+        self.expectThat(description.visible, Equals(True),
+                        "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
+                            self.current_step, description.name
+                        ))
+        self.expectThat(description.label, NotEquals(u''),
+                        "[Page:'{0}'] Expected {1} objects label value to contain text but it didn't".format(
+                            self.current_step, description.name
+                        ))
+        self.expectIsInstance(description.label, str,
+                              "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
+                                  self.current_step, description.name
+                              ))
+        #if self.english_install:
+            #    #if english install check english values
+            #    self.eng_config = eng_label_values.stepPrepare
+            #    self.expectThat(obj.label, Equals(self.eng_config[i]))
+            #TODO: provide option to select different packages from tree view
+
+        self._check_page_titles()
+        #if self.english_install:
+        #    self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+        self._check_navigation_buttons()
+
     def installation_type_page_tests(self, default=False, lvm=False, lvmEncrypt=False, custom=False):
         """ Runs the tests for the installation type page
 

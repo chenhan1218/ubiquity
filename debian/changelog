@@ -15,6 +15,7 @@ ubiquity (2.17.1) UNRELEASED; urgency=low
   
   [ Dan Chapman ]
   * Autopilot tests update.
+  * Tests for Edubuntu's extra install pages
   
   [ Jean-Baptiste Lallement ]
   * Join auto-pilot runner.
