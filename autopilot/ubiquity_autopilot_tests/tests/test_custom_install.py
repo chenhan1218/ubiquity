@@ -17,6 +17,7 @@ from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
 from testtools.matchers import Equals
 from autopilot.matchers import Eventually
 from ubiquity_autopilot_tests.emulators import gtktoplevel
+from ubiquity_autopilot_tests.configs.partconfig import edubuntuConfig
 
 from time import sleep
 
@@ -26,23 +27,33 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
 
     def test_custom_install(self, ):
         #first check we have an emulator instance
+        flavor = self.get_distribution()
         self.assertIsInstance(self.main_window, gtktoplevel.GtkWindow)
         self.assertThat(self.main_window.visible, Eventually(Equals(True)))
         self.welcome_page_tests(lang='English')
         self.go_to_next_page()
         self.preparing_page_tests()
         self.go_to_next_page()
+        if flavor == 'Edubuntu':
+            self.edubuntu_addon_window_tests()
+            self.go_to_next_page()
+            self.edubuntu_packages_window_tests()
+            self.go_to_next_page()
         sleep(10)
         self.installation_type_page_tests(custom=True)
         self.go_to_next_page()
-        self.custom_partition_page_tests()
+        if flavor == 'Edubuntu':
+            #if edubuntu use the edubuntu config
+            self.custom_partition_page_tests(edubuntuConfig)
+        else:
+            self.custom_partition_page_tests()
         self.go_to_next_page(wait=True)
         self.location_page_tests()
         self.go_to_next_page()
         self.keyboard_layout_page_tests()
         self.go_to_next_page()
         self.user_info_page_tests('Autopilot', 'password')
-        flavor = self.get_distribution()
+
         if flavor == 'Ubuntu':
             self.go_to_next_page()
             self.ubuntu_one_page_tests()
