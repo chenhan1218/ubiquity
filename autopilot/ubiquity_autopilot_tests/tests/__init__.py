@@ -34,6 +34,7 @@ from ubiquity_autopilot_tests.emulators import gtktoplevel
 from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
+from ubiquity_autopilot_tests.configs import eng_label_values
 from ubiquity_autopilot_tests.configs.partconfig import (
     Config1,
     Config2,
@@ -58,6 +59,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.previous_page_title = ''
         self.current_step = ''
         self.step_before = ''
+        self.english_install = False
+        self.eng_config = {}
 
     def launch_application(self):
         '''
@@ -148,8 +151,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             language = item
         else:
             language = welcome_page.get_random_language()
-
+        if language == 'English':
+            self.english_install = True
         welcome_page.select_language(language)
+
         self.assertThat(language.selected, Equals(True))
         ##Test release notes label is visible
         logger.debug("Checking the release_notes_label")
@@ -163,6 +168,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                               "[Page:'{0}'] Expected release notes label to be unicode but it wasn't")
         self.pointing_device.move_to_object(release_notes_label)
         self._update_page_titles()
+        if self.english_install:
+            #if english install check english values
+            self.eng_config = eng_label_values.stepLanguage
+            self.expectThat(release_notes_label.label, Equals(self.eng_config['release_notes_label']))
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
         self._check_page_titles()
         self._check_navigation_buttons()
 
@@ -200,9 +210,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         objList = ['prepare_best_results', 'prepare_foss_disclaimer',
                    'prepare_download_updates', 'prepare_nonfree_software']
-        for obj in objList:
-            logging.debug("Running checks on {0} object".format(obj))
-            obj = preparing_page.select_single(BuilderName=obj)
+        for i in objList:
+            logging.debug("Running checks on {0} object".format(i))
+            obj = preparing_page.select_single(BuilderName=i)
             self.expectThat(obj.visible, Equals(True),
                             "[Page:'{0}'] Expected {1} object to be visible but it wasn't".format(
                                 self.current_step, obj.name
@@ -215,6 +225,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, obj.name
                                   ))
+            if self.english_install:
+                #if english install check english values
+                self.eng_config = eng_label_values.stepPrepare
+                self.expectThat(obj.label, Equals(self.eng_config[i]))
+
 
         if updates:
             logger.debug("Selecting install updates")
@@ -238,6 +253,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                        visible=powerSource)
 
         self._check_page_titles()
+        if self.english_install:
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
         self._check_navigation_buttons()
 
     def installation_type_page_tests(self, default=False, lvm=False, lvmEncrypt=False, custom=False):
@@ -287,6 +304,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             self.pointing_device.click_object(obj)
 
         self._check_page_titles()
+        if self.english_install:
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+
         self._check_navigation_buttons()
 
     def lvm_crypto_page_tests(self, crypto_password):
@@ -320,9 +340,16 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, item.name
                                   ))
+            if self.english_install:
+                #if english install check english values
+                self.eng_config = eng_label_values.stepPartCrypto
+                self.expectThat(item.label, Equals(self.eng_config[i]))
 
         crypto_page.enter_crypto_phrase(crypto_password)
         self._check_page_titles()
+        if self.english_install:
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+
         self._check_navigation_buttons()
 
     def custom_partition_page_tests(self, part_config=None):
@@ -405,6 +432,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         location = ['London', 'Paris', 'Madrid', 'Algiers']
         location_page.select_location(random.choice(location))
         self._check_page_titles()
+        if self.english_install:
+            self.eng_config = eng_label_values.stepLocation
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
@@ -450,6 +481,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   ))
         #TODO: Test detecting keyboard layout
         self._check_page_titles()
+        if self.english_install:
+            self.eng_config = eng_label_values.stepKeyboardConf
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
@@ -492,6 +527,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, obj.name
                                   ))
+            if self.english_install:
+                #if english install check english values
+                self.eng_config = eng_label_values.stepUserInfo
+                self.expectThat(obj.label, Equals(self.eng_config[i]))
+
         user_info_page.create_user(username, pwd)
         #TODO: get these working
         if encrypted:
@@ -500,6 +540,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             user_info_page.set_auto_login()
 
         self._check_page_titles()
+        if self.english_install:
+            self.expectThat(self.current_page_title, Equals(self.eng_config['page_title']))
+
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
@@ -665,6 +708,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   "[Page:'{0}'] Expected {1} objects label value to be unicode but it wasn't".format(
                                   self.current_step, opt.name
                                   ))
+            if self.english_install:
+                #if english install check english values
+                self.eng_config = eng_label_values.stepPartAsk
+                self.expectThat(opt.label, Equals(self.eng_config[option]))
+
 
         for option in hidden:
             logger.info("Selecting hidden object '{0}'".format(option))
