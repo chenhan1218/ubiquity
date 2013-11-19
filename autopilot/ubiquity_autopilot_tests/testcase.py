@@ -62,9 +62,11 @@ _______________________________________________________________________
 %s
 _______________________________________________________________________
 """ % error
-                self.addDetail("Non-Fatal error {0}: ".format(num), text_content(output))
+                self.addDetail("Non-Fatal error {0}: ".format(num),
+                               text_content(output))
                 num += 1
-            raise NonFatalErrors("{0} non fatal errors found during install".format(len(error_list)))
+            raise NonFatalErrors("{0} non fatal errors found during install"
+                                 .format(len(error_list)))
         return
 
     def expectEqual(self, expected, observed, message=''):
@@ -78,7 +80,8 @@ _______________________________________________________________________
         try:
             self._expectThat(observed, matcher, message)
         except MismatchError:
-            logger.error("Expected %r to equal %r but it didn't" % expected, observed, exc_info=True)
+            logger.error("Expected %r to equal %r but it didn't" %
+                         expected, observed, exc_info=True)
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
 
@@ -103,7 +106,8 @@ _______________________________________________________________________
         try:
             self._expectThat(obj, matcher, msg)
         except MismatchError:
-            logger.error("Expected %r to be instance of %r but it wasn't" % obj, klass, exc_info=True)
+            logger.error("Expected %r to be instance of %r but it wasn't" %
+                         obj, klass, exc_info=True)
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
 

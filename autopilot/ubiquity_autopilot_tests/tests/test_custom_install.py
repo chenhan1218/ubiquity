@@ -13,6 +13,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
 from testtools.matchers import Equals
 from autopilot.matchers import Eventually
@@ -23,7 +24,9 @@ from time import sleep
 
 
 class CustomInstallTestCase(UbiquityAutopilotTestCase):
-    """ Custom install testcase installs *buntu flavor with custom partition setup """
+    """
+    Custom install testcase installs *buntu flavor with custom partition setup
+    """
 
     def test_custom_install(self, ):
         #first check we have an emulator instance
@@ -61,11 +64,14 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
             self.go_to_progress_page()
 
         self.main_window.run_install_progress_page_tests()
-        self.assertThat(lambda: self.app.select_single('GtkDialog', name='finished_dialog').visible,
-                        Eventually(Equals(True)))
+        self.assertThat(lambda: self.app.select_single(
+            'GtkDialog',
+            name='finished_dialog').visible,
+            Eventually(Equals(True)))
         #XXX: Uncomment if you want to restart after install complete
-        ##we need to sleep here to wait for dialog to fully load. It appears in dbus
-        ## before its actually visible. As the test has already passed this doesn't affect outcome
+        ## we need to sleep here to wait for dialog to fully load. It appears
+        ## in dbus before its actually visible. As the test has already passed
+        ## this doesn't affect outcome
         #time.sleep(5)
         #
         #self.keyboard.press_and_release('Enter')
