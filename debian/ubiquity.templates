@@ -1492,7 +1492,7 @@ _Description:
 Template: ubiquity/text/use_crypto
 Type: text
 _Description:
- Encrypt the new Ubuntu installation for security
+ Encrypt the new ${RELEASE} installation for security
 
 Template: ubiquity/text/use_crypto_desc
 Type: text
@@ -1502,7 +1502,7 @@ _Description:
 Template: ubiquity/text/use_lvm
 Type: text
 _Description:
- Use LVM with the new Ubuntu installation
+ Use LVM with the new ${RELEASE} installation
 
 Template: ubiquity/text/use_lvm_desc
 Type: text
