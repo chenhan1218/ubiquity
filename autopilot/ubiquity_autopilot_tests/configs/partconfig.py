@@ -11,8 +11,9 @@ Our options are:
         'PartitionSize': int,  # an int value of size in MB If set to None,
                                  we use up all remaining space
 
+        # These are the current available mount points
         'MountPoint': /, /boot, /home,
-                      /tmp, /usr, /var,       # These are the current available mount points
+                      /tmp, /usr, /var,
                       /srv, /opt, /usr/local
 
         'FileSystemType': 'Ext2','Ext3', 'Ext4', 'ReiserFs',

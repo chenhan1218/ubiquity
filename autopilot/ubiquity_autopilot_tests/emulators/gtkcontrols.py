@@ -44,9 +44,10 @@ class GtkButton(AutopilotGtkEmulatorBase):
     def click(self,):
         """ Clicks a GtkButton widget
 
-        On some occasions you may need to wait for a button to become sensitive.
-        So when calling this function if the sensitive property is 0 it will wait for 10 seconds
-        for button to become sensitive before clicking
+        On some occasions you may need to wait for a button to become
+        sensitive.
+        So when calling this function if the sensitive property is 0 it will
+        wait for 10 seconds for button to become sensitive before clicking
         """
         #sometimes we may need to wait for the button to become clickable
         # so lets wait for it if we do
@@ -69,9 +70,15 @@ class GtkLabel(AutopilotGtkEmulatorBase):
 
     def check(self, visible=True):
         expectThat(self.label).is_unicode()
-        expectThat(self.label).not_equals(u'', msg="Expected {0} label to contain text, but its empty".format(self.name))
-        expectThat(self.visible).equals(visible,
-                                        msg="Expected {0} label to be visible, but its wasn't".format(self.name))
+        expectThat(self.label).not_equals(
+            u'',
+            msg="Expected {0} label to contain text, but its empty"
+                .format(self.name))
+        expectThat(self.visible).equals(
+            visible,
+            msg="Expected {0} label to be visible, but its wasn't"
+                .format(self.name))
+
 
 class GtkToggleButton(AutopilotGtkEmulatorBase):
     """ Emulator for a GtkToggleButton instance """
@@ -81,9 +88,14 @@ class GtkToggleButton(AutopilotGtkEmulatorBase):
 
     def check(self, visible=True):
         expectThat(self.label).is_unicode()
-        expectThat(self.label).not_equals(u'', msg="Expected {0} label to contain text, but its empty".format(self.name))
-        expectThat(self.visible).equals(visible,
-                                        msg="Expected {0} label to be visible, but its wasn't".format(self.name))
+        expectThat(self.label).not_equals(
+            u'',
+            msg="Expected {0} label to contain text, but its empty"
+                .format(self.name))
+        expectThat(self.visible).equals(
+            visible,
+            msg="Expected {0} label to be visible, but its wasn't"
+                .format(self.name))
 
     def click(self, ):
         """ Clicks a GtkToggleButton,
@@ -96,9 +108,9 @@ class GtkToggleButton(AutopilotGtkEmulatorBase):
         new_val = 0
         if self.active == 0:
             new_val = 1
-        logger.debug('Objects current state is "{0}", \
-                    the state after clicking should be "{1}"'.format(
-            self.active, new_val))
+        logger.debug('Objects current state is "{0}", '
+                     'the state after clicking should be "{1}"'
+                     .format(self.active, new_val))
         #now click it
         self.pointing_device.click_object(self)
         #now wait for state to change
@@ -134,14 +146,19 @@ class GtkRadioButton(AutopilotGtkEmulatorBase):
         #now wait for state to change
         self.active.wait_for(1)
         logger.debug(
-            'Object clicked and and selected. Active state changed successfully')
+            'Object clicked and and selected. Active state changed '
+            'successfully')
 
     def check(self, visible=True):
         expectThat(self.label).is_unicode()
-        expectThat(self.label).not_equals(u'',
-                                          msg="Expected {0} label to contain text, but its empty".format(self.name))
-        expectThat(self.visible).equals(visible,
-                                        msg="Expected {0} label to be visible, but its wasn't".format(self.name))
+        expectThat(self.label).not_equals(
+            u'',
+            msg="Expected {0} label to contain text, but its empty"
+                .format(self.name))
+        expectThat(self.visible).equals(
+            visible,
+            msg="Expected {0} label to be visible, but its wasn't"
+                .format(self.name))
 
 
 class GtkImage(AutopilotGtkEmulatorBase):
@@ -151,13 +168,15 @@ class GtkImage(AutopilotGtkEmulatorBase):
 
     def check(self, visible=True, imageStock='gtk-yes'):
         if visible:
-            expectThat(self.visible).equals(visible,
-                                            msg="Expected {0} label to be visible, but its wasn't".format(self.name))
+            expectThat(self.visible).equals(
+                visible,
+                msg="Expected {0} label to be visible, but its wasn't"
+                    .format(self.name))
 
-            expectThat(self.stock).equals(imageStock,
-                                          msg="Expected {0} image to have stock image {1} but instead it is {2}".format(
-                                              self.name, imageStock, self.stock
-                                          ))
+            expectThat(self.stock).equals(
+                imageStock,
+                msg="Expected {0} image to have stock image {1} but instead "
+                    "it is {2}".format(self.name, imageStock, self.stock))
 
 
 class GtkTreeView(AutopilotGtkEmulatorBase):
@@ -189,16 +208,18 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         """
         logger.debug('Selecting "{0}" item'.format(labelText))
         try:
-            #lets try and get the corresponding GailTreeView
-            # so we can assure we are selecting the item from the correct treeview
+            # lets try and get the corresponding GailTreeView so we can assure
+            # we are selecting the item from the correct treeview
             treeview = self._get_gail_treeview()
             treeview_item = treeview.select_item(str(labelText))
         except ValueError:
-            #lets catch the exception and have one last go at selecting the item from a root instance
+            # lets catch the exception and have one last go at selecting the
+            # item from a root instance
             # This may return more than one though.
-            logger.warning('Could not get corresponding GtkTreeViewAccessibleObject \
-                           with globalRect {0}. Trying to select GtkTreeView item \
-                           from root object instead'.format(self.globalRect))
+            logger.warning('Could not get corresponding '
+                           'GtkTreeViewAccessibleObject with globalRect {0}. '
+                           'Trying to select GtkTreeView item  from root '
+                           'object instead'.format(self.globalRect))
             root = self.get_root_instance()
             if root is None:
                 raise ValueError("Emulator could not get a root instance")
@@ -221,7 +242,8 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         treeview = self._get_gail_treeview()
         treeview_item = treeview.select_item_by_index(index)
         if treeview_item is None:
-            raise ValueError("Could not select item with index '{0}'".format(index))
+            raise ValueError("Could not select item with index '{0}'"
+                             .format(index))
         return treeview_item
 
     def get_all_items(self, startWith=None):
@@ -233,13 +255,16 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         return items
 
     def _get_gail_treeview(self, ):
-        """ Gets the GtkTreeViews corresponding GtkTreeViewAccessible object """
+        """
+        Gets the GtkTreeViews corresponding GtkTreeViewAccessible object
+        """
         logger.debug('Getting corresponding GtkTreeViewAccessible object')
         # lets get a root instance
         root = self.get_root_instance()
         assert root is not None
-        # As the treeview item is in the GAILWindow tree and not our current tree
-        # We want to select the treeviewaccessible with the same globalRect as us
+        # As the treeview item is in the GAILWindow tree and not our current
+        # tree We want to select the treeviewaccessible with the same
+        # globalRect as us
         logger.debug('Selecting GtkTreeViewAccessible with same globalRect')
         treeviews = root.select_many('GtkTreeViewAccessible',
                                      globalRect=self.globalRect)
@@ -247,7 +272,8 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         # same globalRect so lets pick out the one thats visible
         for treeview in treeviews:
             if treeview.visible:
-                logger.debug('GtkTreeViewAccessible object found, returning object.')
+                logger.debug('GtkTreeViewAccessible object found, '
+                             'returning object.')
                 return treeview
         raise ValueError(
             "No treeview visible with globalRect {0}".format(self.globalRect)
@@ -317,7 +343,8 @@ class GtkComboBox(AutopilotGtkEmulatorBase):
         self.kbd.press_and_release('Home')
         self.kbd.press_and_release('Enter')
 
-        index = next((index for index, value in enumerate(items) if fsFormat == value.accessible_name), None)
+        index = next((index for index, value in enumerate(items)
+                      if fsFormat == value.accessible_name), None)
 
         i = 0
         while True:
@@ -348,7 +375,8 @@ class GtkComboBox(AutopilotGtkEmulatorBase):
 class GtkComboBoxText(GtkComboBox):
     """ Emulator class for a GtkComboBoxText instance
 
-    .. note:: see :func:`GtkComboBox`. `GtkComboBoxText` inherits from `GtkComboBox`
+    .. note:: see :func:`GtkComboBox`. `GtkComboBoxText` inherits from
+        `GtkComboBox`
 
     """
     def __init__(self, *args):
@@ -367,7 +395,10 @@ class GtkSpinButton(AutopilotGtkEmulatorBase):
     def enter_value(self, value):
         self._select_entry()
         self.kbd.type(value)
-        expectThat(self.text).equals(value, msg="Expected spinbutton value '{0}' to equal {1}".format(self.text, value))
+        expectThat(self.text).equals(
+            value,
+            msg="Expected spinbutton value '{0}' to equal {1}"
+                .format(self.text, value))
 
     def _select_entry(self, ):
         self.pointing_device.move_to_object(self)

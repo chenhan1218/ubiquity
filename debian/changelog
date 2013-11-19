@@ -19,6 +19,8 @@ ubiquity (2.17.1) UNRELEASED; urgency=low
   
   [ Jean-Baptiste Lallement ]
   * Join auto-pilot runner.
+  * fix tests to be pep8 compliant
+  * add directory autopilot/ to tests/run-pep8
 
  -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Tue, 12 Nov 2013 11:07:41 +0000
 

@@ -55,7 +55,8 @@ class GtkTreeViewAccessible(AutopilotGtkEmulatorBase):
         logger.debug('Selecting {0} item'.format(label))
         item = self._get_item(label)
         if item is None:
-            raise ValueError("Could not select item with label {0}".format(label))
+            raise ValueError("Could not select item with label {0}"
+                             .format(label))
         logger.debug('{0} item found, returning item'.format(label))
         return item
 
@@ -93,7 +94,8 @@ class GtkTreeViewAccessible(AutopilotGtkEmulatorBase):
 
     def _get_item(self, label):
         """ Gets an item in a GtkTreeView """
-        return self.select_single('GtkTextCellAccessible', accessible_name=label)
+        return self.select_single('GtkTextCellAccessible',
+                                  accessible_name=label)
 
 
 class GtkNoteBookAccessible(AutopilotGtkEmulatorBase):

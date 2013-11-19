@@ -7,4 +7,3 @@ visible_options = ['use_device', 'use_device_desc',
 hidden_options = ['reuse_partition', 'reuse_partition_desc',
                   'resize_use_free', 'resize_use_free_desc',
                   'replace_partition', 'replace_partition_desc']
-

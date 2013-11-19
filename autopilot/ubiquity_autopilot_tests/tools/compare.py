@@ -29,25 +29,25 @@ logger = logging.getLogger(__name__)
 
 
 class expectThat(object):
-    """ expectThat is a tool for asserting non-fatal errors
-    
+    """
+    expectThat is a tool for asserting non-fatal errors
+
     It should only be used as to assert non-fatal errors. Errors which it
-    doesn't make sense to halt the test if it fails. At the end of the test you need to
-    use the global non_fatal_errors list and test it is empty
-        
+    doesn't make sense to halt the test if it fails. At the end of the test you
+    need to use the global non_fatal_errors list and test it is empty
+
         i.e self.assertThat(len(non_fatal_errors), Equals(0))
-    
+
     If there are errors then in your test pass each error to self.addDetail()
     and finally re-raise the exception so we get a failed test.
-    
-    This will result in the formatted exceptions stored in the non_fatal_errors list
-    being printed to the test result
-    
+
+    This will result in the formatted exceptions stored in the non_fatal_errors
+    list being printed to the test result
+
     """
 
     def __init__(self, value):
         self.value = value
-
 
     def __getattr__(self, name):
         return getattr(super(expectThat, self), name)
@@ -58,8 +58,8 @@ class expectThat(object):
     #now som rich comparisons
     #all we really need is just ==, != and is_unicode and a contains
     def __eq__(self, compareValue, msg=None):
-        message = "Expected {0} but instead we got {1}".format(repr(compareValue),
-                                                               repr(self.value))
+        message = "Expected {0} but instead we got {1}".format(
+            repr(compareValue), repr(self.value))
         try:
             assert self.value == compareValue, message
         except AssertionError:
@@ -84,8 +84,8 @@ class expectThat(object):
         if msg:
             message = msg
         else:
-            message = "Expected {0} to equal {1} but it doesn't!!".format(repr(compareValue),
-                                                               repr(self.value))
+            message = "Expected {0} to equal {1} but it doesn't!!".format(
+                repr(compareValue), repr(self.value))
         try:
             assert self.value == compareValue, message
         except AssertionError:
@@ -93,7 +93,7 @@ class expectThat(object):
             global non_fatal_errors
             e = traceback.format_exc(limit=5)
             non_fatal_errors.append(e)
-        
+
     def not_equals(self, compareValue, msg=None):
         if msg:
             message = msg
@@ -110,11 +110,11 @@ class expectThat(object):
             non_fatal_errors.append(e)
 
     def is_unicode(self, msg=None):
-        if msg:    
+        if msg:
             message = msg
         else:
-            message = "Expected to be instance of type 'unicode' but is an instance of type '{0}'".format(
-                self.value.__class__.__name__)
+            message = "Expected to be instance of type 'unicode' but is an "\
+                "instance of type '{0}'".format(self.value.__class__.__name__)
         try:
             assert isinstance(self.value, str), message
         except AssertionError as e:
@@ -126,7 +126,8 @@ class expectThat(object):
         if msg:
             message = msg
         else:
-            message = '{0} does not contain {1}.'.format(repr(self.value), repr(compareValue))
+            message = '{0} does not contain {1}.'.format(
+                repr(self.value), repr(compareValue))
         try:
             assert compareValue in self.value, message
         except AssertionError as e:
@@ -138,8 +139,8 @@ class expectThat(object):
         if msg:
             message = msg
         else:
-            message = 'Expected {0} to almost equal {1}, but it doesnt'.format(repr(self.value),
-                                                                               repr(compareValue))
+            message = 'Expected {0} to almost equal {1}, but it '\
+                'doesnt'.format(repr(self.value), repr(compareValue))
         try:
             result = self._approx_equal(self.value, compareValue)
             assert result, message
