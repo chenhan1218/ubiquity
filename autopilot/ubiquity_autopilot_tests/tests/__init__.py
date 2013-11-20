@@ -540,13 +540,14 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                         "Expected location entry to be visible but it wasn't")
 
         location = ['London', 'Paris', 'Madrid', 'Algiers']
-        location_page.select_location(random.choice(location))
-        self._check_page_titles()
         if self.english_install:
+            location_page.select_location('London')
             self.eng_config = eng_label_values.stepLocation
             self.expectThat(self.current_page_title,
                             Equals(self.eng_config['page_title']))
-
+        else:
+            location_page.select_location(random.choice(location))
+        self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
