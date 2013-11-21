@@ -15,6 +15,10 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
+import unittest
+import traceback
+import logging
+
 from autopilot.testcase import AutopilotTestCase
 from testtools.testcase import MismatchError
 from testtools.matchers import (
@@ -24,12 +28,11 @@ from testtools.matchers import (
     Is,
     IsInstance
     )
-import unittest
 from testtools.content import text_content
-import traceback
+
 from ubiquity_autopilot_tests.tools import compare
-from ubiquity_autopilot_tests.tools._exc import NonFatalErrors
-import logging
+from ubiquity_autopilot_tests.exception import NonFatalErrors
+
 
 logger = logging.getLogger(__name__)
 
