@@ -718,10 +718,17 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         for item in items:
             if item.accessible_name == u'':
                 print('empty item ------------')
+                self.write_partitions("--- Empty item ---")
             else:
+                self.write_partitions(item.accessible_name)
                 print(item.accessible_name)
         print('-' * 78)
 
+    def write_partitions(self, tree_item):
+        out_file = open('/tmp/partitions.txt', "a")
+
+        out_file.write(tree_item + "\n")
+        out_file.close()
         #root = self.get_root_instance()
         #item = root.select_single('GtkTextCellAccessible',
         #                          accessible_name=mountPoint)
