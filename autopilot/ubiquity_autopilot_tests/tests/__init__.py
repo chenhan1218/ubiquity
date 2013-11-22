@@ -718,35 +718,38 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         fsFormat = config['FileSystemType']
         mount_point = config['MountPoint']
         size_obj = config['PartitionSize']
-        # find the index of the file system type item
-        index = next((index for index, value in enumerate(items)
-                      if fsFormat.lower() == value.accessible_name), None)
-        if index:
-            logger.debug("Found index for {0} tree item".format(fsFormat))
-            # lets get the the item by its index and the following 2 items
-            # which should be the mount point and size
+        if mount_point:
+            index = next((index for index, value in enumerate(items)
+                          if mount_point == value.accessible_name), None)
+            self.assertIsNotNone(index)
+            fs_item = tree_view.select_item_by_index(index - 1)
+            mount_item = tree_view.select_item_by_index(index)
+            size_item = tree_view.select_item_by_index(index + 1)
+        else:
+            index = next((index for index, value in enumerate(items)
+                          if fsFormat.lower() == value.accessible_name), None)
+            self.assertIsNotNone(index)
             fs_item = tree_view.select_item_by_index(index)
             mount_item = tree_view.select_item_by_index(index + 1)
             size_item = tree_view.select_item_by_index(index + 2)
-            self.expectThat(fsFormat.lower(), Equals(fs_item.accessible_name))
-            self.expectThat(fs_item.visible, Equals(True))
 
-            if mount_point:
-                self.assertThat(mount_point,
-                                Equals(mount_item.accessible_name))
-                self.expectThat(mount_item.visible, Equals(True))
+        logger.debug("Found index for {0} tree item".format(fsFormat))
 
-            if size_obj:
-                self.expectThat(
-                    size_obj, Equals(
-                        int(size_item.accessible_name.strip(' MB'))))
-                self.expectThat(size_item.visible, Equals(True))
+        self.expectThat(fsFormat.lower(), Equals(fs_item.accessible_name))
+        self.expectThat(fs_item.visible, Equals(True))
+
+        if mount_point:
+            self.assertThat(mount_point,
+                            Equals(mount_item.accessible_name))
+            self.expectThat(mount_item.visible, Equals(True))
+
+        if size_obj:
+            self.expectThat(
+                size_obj, Equals(
+                    int(size_item.accessible_name.strip(' MB'))))
+            self.expectThat(size_item.visible, Equals(True))
             logger.debug("Partition created OK.....")
-            return
-        raise ValueError(
-            "Could not find {0} FS format in partition treeview".format(
-                fsFormat)
-        )
+
 
     def _check_navigation_buttons(self, continue_button=True, back_button=True,
                                   quit_button=True, skip_button=False):
