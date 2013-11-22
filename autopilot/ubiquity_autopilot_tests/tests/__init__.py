@@ -511,7 +511,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             self.assertThat(partition_dialog.visible,
                             Eventually(Equals(False)),
                             "Partition dialog did not close")
-            self._check_partition_created(elem['MountPoint'])
+            self._check_partition_created(elem)
         self._check_page_titles()
         self._check_navigation_buttons()
 
@@ -704,36 +704,49 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         time.sleep(2)
         logger.debug('_add_new_partition complete')
 
-    def _check_partition_created(self, mountPoint):
-        """ Checks that the partition was created properly """
-        time.sleep(5)
+    def _check_partition_created(self, config):
+        """ Checks that the partition was created properly
+        """
+        time.sleep(7)
         # TODO: This needs fixing
+        logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
         items = tree_view.get_all_items()
-        print('partition_tree_items')
-        print('-' * 78)
-        for item in items:
-            if item.accessible_name == u'':
-                print('empty item ------------')
-                self.write_partitions("--- Empty item ---")
-            else:
-                self.write_partitions(item.accessible_name)
-                print(item.accessible_name)
-        print('-' * 78)
+        fsFormat = config['FileSystemType']
+        mount_point = config['MountPoint']
+        size_obj = config['PartitionSize']
+        # find the index of the file system type item
+        index = next((index for index, value in enumerate(items)
+                      if fsFormat.lower() == value.accessible_name), None)
+        if index:
+            logger.debug("Found index for {0} tree item".format(fsFormat))
+            # lets get the the item by its index and the following 2 items
+            # which should be the mount point and size
+            fs_item = tree_view.select_item_by_index(index)
+            mount_item = tree_view.select_item_by_index(index + 1)
+            size_item = tree_view.select_item_by_index(index + 2)
+            self.expectThat(fsFormat.lower(), Equals(fs_item.accessible_name))
+            self.expectThat(fs_item.visible, Equals(True))
 
-    def write_partitions(self, tree_item):
-        out_file = open('/tmp/partitions.txt', "a")
+            if mount_point:
+                self.assertThat(mount_point,
+                                Equals(mount_item.accessible_name))
+                self.expectThat(mount_item.visible, Equals(True))
 
-        out_file.write(tree_item + "\n")
-        out_file.close()
-        #root = self.get_root_instance()
-        #item = root.select_single('GtkTextCellAccessible',
-        #                          accessible_name=mountPoint)
-        #item.visible.wait_for(True)
-        #assert item is not None
+            if size_obj:
+                self.expectThat(
+                    size_obj, Equals(
+                        int(size_item.accessible_name.strip(' MB'))))
+                self.expectThat(size_item.visible, Equals(True))
+            logger.debug("Partition created OK.....")
+            return
+        raise ValueError(
+            "Could not find {0} FS format in partition treeview".format(
+                fsFormat)
+        )
 
     def _check_navigation_buttons(self, continue_button=True, back_button=True,
                                   quit_button=True, skip_button=False):

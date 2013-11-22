@@ -121,7 +121,7 @@ Config3 = [
 
     /tmp = 200MB Ext4
 
-    /home = Ext4 take up available sapce
+    /home = Ext4 take up available space
 
     /opt = 500MB Ext3
 
