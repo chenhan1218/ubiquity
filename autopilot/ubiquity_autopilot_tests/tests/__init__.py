@@ -707,8 +707,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def _check_partition_created(self, config):
         """ Checks that the partition was created properly
         """
+        #before checking lets just wait a little while to ensure everything
+        # has finished loading, this doesn't affect outcome
         time.sleep(7)
-        # TODO: This needs fixing
         logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
             'GtkAlignment',
@@ -721,35 +722,50 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         if mount_point:
             index = next((index for index, value in enumerate(items)
                           if mount_point == value.accessible_name), None)
-            self.assertIsNotNone(index)
+            self.assertIsNotNone(index,
+                                 "Could not get index for {0} tree item"
+                                 .format(mount_point))
+            logger.debug("Found index for {0} tree item".format(mount_point))
             fs_item = tree_view.select_item_by_index(index - 1)
             mount_item = tree_view.select_item_by_index(index)
             size_item = tree_view.select_item_by_index(index + 1)
         else:
             index = next((index for index, value in enumerate(items)
                           if fsFormat.lower() == value.accessible_name), None)
-            self.assertIsNotNone(index)
+            self.assertIsNotNone(index,
+                                 "Could not get index for {0} FS tree item"
+                                 .format(fsFormat))
+            logger.debug("Found index for {0} tree item".format(fsFormat))
             fs_item = tree_view.select_item_by_index(index)
             mount_item = tree_view.select_item_by_index(index + 1)
             size_item = tree_view.select_item_by_index(index + 2)
 
-        logger.debug("Found index for {0} tree item".format(fsFormat))
-
         self.expectThat(fsFormat.lower(), Equals(fs_item.accessible_name))
-        self.expectThat(fs_item.visible, Equals(True))
+        self.expectThat(fs_item.visible, Equals(True),
+                        "[Page: '{0}'] Expected {0} to be visible but "
+                        "it wasn't".format(fs_item.accessible_name))
 
         if mount_point:
+            # Fail the test if we don't have correct mount point
             self.assertThat(mount_point,
                             Equals(mount_item.accessible_name))
-            self.expectThat(mount_item.visible, Equals(True))
+            self.expectThat(mount_item.visible, Equals(True),
+                            "[Page: '{0}'] Expected {0} to be visible but "
+                            "it wasn't".format(mount_item.accessible_name))
 
         if size_obj:
             self.expectThat(
                 size_obj, Equals(
-                    int(size_item.accessible_name.strip(' MB'))))
-            self.expectThat(size_item.visible, Equals(True))
-            logger.debug("Partition created OK.....")
-
+                    int(size_item.accessible_name.strip(' MB'))),
+                "[Page:'{0}'] Expected partition size to be "
+                "{1}MB but instead it's {2}.".format(
+                    self.current_step,
+                    str(size_obj),
+                    size_item.accessible_name))
+            self.expectThat(size_item.visible, Equals(True),
+                            "[Page: '{0}'] Expected {0} to be visible but "
+                            " it wasn't".format(size_item.accessible_name))
+            logger.debug("Partition created")
 
     def _check_navigation_buttons(self, continue_button=True, back_button=True,
                                   quit_button=True, skip_button=False):
