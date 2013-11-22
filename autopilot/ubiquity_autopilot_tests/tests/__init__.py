@@ -723,7 +723,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             index = next((index for index, value in enumerate(items)
                           if mount_point == value.accessible_name), None)
             self.assertIsNotNone(index,
-                                 "Could not get index for {0} tree item"
+                                 "Could not get index for '{0}' tree item"
                                  .format(mount_point))
             logger.debug("Found index for {0} tree item".format(mount_point))
             fs_item = tree_view.select_item_by_index(index - 1)

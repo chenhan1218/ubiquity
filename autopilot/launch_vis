@@ -1,9 +1,0 @@
-#!/bin/sh
-. /var/log/installer/autopilot
-export DBUS_SESSION_BUS_ADDRESS
-export UBIQUITY_PID
-
-# Disable X access control to let root access :0
-xhost +
-# This just launches autopilot vis as 'autopilot-py3 vis' doesn't work
-sudo -E autopilot vis
