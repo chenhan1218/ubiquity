@@ -511,7 +511,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             self.assertThat(partition_dialog.visible,
                             Eventually(Equals(False)),
                             "Partition dialog did not close")
-            self._check_partition_created(elem['MountPoint'])
+            self._check_partition_created(elem)
         self._check_page_titles()
         self._check_navigation_buttons()
 
@@ -704,29 +704,68 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         time.sleep(2)
         logger.debug('_add_new_partition complete')
 
-    def _check_partition_created(self, mountPoint):
-        """ Checks that the partition was created properly """
-        time.sleep(5)
-        # TODO: This needs fixing
+    def _check_partition_created(self, config):
+        """ Checks that the partition was created properly
+        """
+        #before checking lets just wait a little while to ensure everything
+        # has finished loading, this doesn't affect outcome
+        time.sleep(7)
+        logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
         items = tree_view.get_all_items()
-        print('partition_tree_items')
-        print('-' * 78)
-        for item in items:
-            if item.accessible_name == u'':
-                print('empty item ------------')
-            else:
-                print(item.accessible_name)
-        print('-' * 78)
+        fsFormat = config['FileSystemType']
+        mount_point = config['MountPoint']
+        size_obj = config['PartitionSize']
+        if mount_point:
+            index = next((index for index, value in enumerate(items)
+                          if mount_point == value.accessible_name), None)
+            self.assertIsNotNone(index,
+                                 "Could not get index for '{0}' tree item"
+                                 .format(mount_point))
+            logger.debug("Found index for {0} tree item".format(mount_point))
+            fs_item = tree_view.select_item_by_index(index - 1)
+            mount_item = tree_view.select_item_by_index(index)
+            size_item = tree_view.select_item_by_index(index + 1)
+        else:
+            index = next((index for index, value in enumerate(items)
+                          if fsFormat.lower() == value.accessible_name), None)
+            self.assertIsNotNone(index,
+                                 "Could not get index for {0} FS tree item"
+                                 .format(fsFormat))
+            logger.debug("Found index for {0} tree item".format(fsFormat))
+            fs_item = tree_view.select_item_by_index(index)
+            mount_item = tree_view.select_item_by_index(index + 1)
+            size_item = tree_view.select_item_by_index(index + 2)
 
-        #root = self.get_root_instance()
-        #item = root.select_single('GtkTextCellAccessible',
-        #                          accessible_name=mountPoint)
-        #item.visible.wait_for(True)
-        #assert item is not None
+        self.expectThat(fsFormat.lower(), Equals(fs_item.accessible_name))
+        self.expectThat(fs_item.visible, Equals(True),
+                        "[Page: '{0}'] Expected {0} to be visible but "
+                        "it wasn't".format(fs_item.accessible_name))
+
+        if mount_point:
+            # Fail the test if we don't have correct mount point
+            self.assertThat(mount_point,
+                            Equals(mount_item.accessible_name))
+            self.expectThat(mount_item.visible, Equals(True),
+                            "[Page: '{0}'] Expected {0} to be visible but "
+                            "it wasn't".format(mount_item.accessible_name))
+
+        if size_obj:
+            self.expectThat(
+                size_obj, Equals(
+                    int(size_item.accessible_name.strip(' MB'))),
+                "[Page:'{0}'] Expected partition size to be "
+                "{1}MB but instead it's {2}.".format(
+                    self.current_step,
+                    str(size_obj),
+                    size_item.accessible_name))
+            self.expectThat(size_item.visible, Equals(True),
+                            "[Page: '{0}'] Expected {0} to be visible but "
+                            " it wasn't".format(size_item.accessible_name))
+            logger.debug("Partition created")
 
     def _check_navigation_buttons(self, continue_button=True, back_button=True,
                                   quit_button=True, skip_button=False):
