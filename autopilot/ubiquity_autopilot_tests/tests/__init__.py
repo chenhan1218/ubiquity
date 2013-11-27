@@ -65,6 +65,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         english_label_conf.generate_config()
         self.english_config = configparser.ConfigParser()
         self.english_config.read('/tmp/english_config.ini')
+        #delete config at end of test
+        self.addCleanup(os.remove, '/tmp/english_config.ini')
 
     def launch_application(self):
         '''
@@ -337,6 +339,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
             config = custom_install
             option_name = 'custom_partitioning'
+
         self.check_visible_object_with_label(config.visible_options)
         self.check_hidden_object_with_label(config.hidden_options)
         install_type_page = self.main_window.select_single(
@@ -618,10 +621,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         page = self.main_window.select_single(BuilderName=self.current_step)
         #select object
         page_object = page.select_single(BuilderName=obj_name)
+        if obj_visible:
+            visible_message = "[Page:'{0}'] Expected {1} object to be " \
+                              "visible but it wasn't".format(
+                              self.current_step, page_object.name
+                              )
+        else:
+            visible_message = "[Page:'{0}'] Expected {1} object to not be " \
+                              "visible but it was!".format(
+                              self.current_step, page_object.name
+                              )
         self.expectThat(page_object.visible, Equals(obj_visible),
-                        "[Page:'{0}'] Expected {1} object to be visible "
-                        "but it wasn't"
-                        .format(self.current_step, page_object.name))
+                        visible_message)
         self.expectThat(page_object.label, NotEquals(u''),
                         "[Page:'{0}'] Expected {1} objects label value to "
                         "contain text but it didn't"
