@@ -22,6 +22,14 @@
 #
 set -eu
 
+# Lock management to prevent this script of running twice
+LOCKFILE=/tmp/$(basename $0).lock
+if [ -e ${LOCKFILE} ] && kill -0 $(cat ${LOCKFILE}); then
+    echo "W: $(basename $0) already running. Exiting!"
+    exit
+fi
+echo $$>${LOCKFILE}
+
 # The following variables can be overridden with a configuration file
 TSBRANCH=lp:ubiquity
 EXTRAPACKAGES=""
@@ -86,6 +94,7 @@ on_exit() {
         sudo sh -c "cat ${archive}.tgz>/dev/ttyS1"
     fi
 
+    rm -f ${LOCKFILE}
     shutdown_host
 }
 trap on_exit EXIT INT QUIT ABRT PIPE TERM
@@ -106,6 +115,31 @@ Options:
                   Do not shutdown the system after the tests
 
 EOF
+    exit 1
+}
+
+# retry command a certain number of time
+# $1 is the number of retry
+# $2 is the delay in second between retries
+# the command is then passed
+retry_cmd() {
+    # Tries to execute $@ $loop times with a delay of $delay between retries
+    # before aborting
+    loop=$1
+    loopcnt=$1  # Just used to print the status on failure
+    delay=$2
+    shift
+    shift
+    while [ $loop -gt 0 ]; do
+        rc=0
+        $@ || rc=$?
+        [ $rc -eq 0 ] && return
+        loop=$((loop - 1))
+        sleep $delay
+    done
+
+    echo "E: Command failed after $loopcnt tries: $@"
+    echo "E: Aborting!"
     exit 1
 }
 
@@ -132,13 +166,8 @@ setup_tests() {
     sudo chown -R $USER:$USER $TESTBASE $SPOOLDIR $AP_ARTIFACTS $AP_RESULTS $AP_LOGS
 
     echo "I: Installating additional packages"
-    sudo apt-get update
-    rc=0
-    sudo apt-get install -yq $PACKAGES $EXTRAPACKAGES|| rc=$?
-    if [ $rc -gt 0 ]; then
-        echo "E: Required packages failed to install. Aborting!"
-        exit 1
-    fi
+    retry_cmd 3 30 sudo apt-get update
+    retry_cmd 3 30 sudo apt-get install -yq $PACKAGES $EXTRAPACKAGES
 
     echo "I: Branch $TSBRANCH"
     bzr export $TSEXPORT $TSBRANCH
