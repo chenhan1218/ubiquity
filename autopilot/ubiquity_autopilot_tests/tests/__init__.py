@@ -623,14 +623,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         page_object = page.select_single(BuilderName=obj_name)
         if obj_visible:
             visible_message = "[Page:'{0}'] Expected {1} object to be " \
-                              "visible but it wasn't".format(
-                              self.current_step, page_object.name
-                              )
+                              "visible but it wasn't".format(self.current_step,
+                                                             page_object.name)
         else:
             visible_message = "[Page:'{0}'] Expected {1} object to not be " \
-                              "visible but it was!".format(
-                              self.current_step, page_object.name
-                              )
+                              "visible but it was!".format(self.current_step,
+                                                           page_object.name)
         self.expectThat(page_object.visible, Equals(obj_visible),
                         visible_message)
         self.expectThat(page_object.label, NotEquals(u''),
@@ -806,7 +804,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expect page title to be visible but "
                             "it wasn't".format(self.current_step))
 
-
     def _check_preparing_statebox(self, stateboxName, visible=True,
                                   imagestock='gtk-yes'):
         """ Checks the preparing page statebox's """
@@ -845,7 +842,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} statebox to not be "
                             "visible but it was"
                             .format(self.current_step, stateboxName))
-
 
     def _select_install_type(self, install_type):
         pass
