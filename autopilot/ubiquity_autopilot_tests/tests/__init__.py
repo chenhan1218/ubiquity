@@ -591,8 +591,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("run_install_progress_page_tests()")
         #We cant assert page title here as its an external html page
         #Maybe try assert WebKitWebView is visible
-        webkitwindow = self.select_single('GtkScrolledWindow',
-                                          name='webkit_scrolled_window')
+        webkitwindow = self.main_window.select_single(
+            'GtkScrolledWindow', name='webkit_scrolled_window'
+        )
         self.expectThat(webkitwindow.visible, Equals(True))
 
         progress_bar = self.main_window.select_single(
