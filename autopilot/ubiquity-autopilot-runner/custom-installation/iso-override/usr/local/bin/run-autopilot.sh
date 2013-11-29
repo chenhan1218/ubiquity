@@ -149,7 +149,7 @@ setup_tests() {
 
     [ -e "$flag" ] && return 0
 
-    xterm &  # Easier to debug from a live session, and rarely broken
+    #xterm &  # Easier to debug from a live session, and rarely broken
     sudo stty -F /dev/ttyS0 raw speed 115200
     
     tail_logs $SESSION_LOG /var/log/syslog
