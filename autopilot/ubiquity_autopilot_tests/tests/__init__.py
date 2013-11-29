@@ -579,6 +579,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         # to set ubiquity to use a staging server for testing.
         skip_button = self.main_window.select_single('GtkButton', name='skip')
         self.pointing_device.click_object(skip_button)
+        #lets just sleep a little to wait for progress page as we
+        # can't wait on the page_title
+        time.sleep(5)
 
     def progress_page_tests(self, ):
         ''' Runs the test for the installation progress page
