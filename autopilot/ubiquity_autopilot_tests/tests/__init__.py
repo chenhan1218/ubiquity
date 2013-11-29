@@ -561,24 +561,22 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                        quit_button=False, skip_button=False)
 
     def ubuntu_one_page_tests(self, ):
-        #self._update_current_step('stepUserInfo')
+        self._update_current_step('stepUbuntuOne')
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=True)
         logger.debug("run_ubuntu_one_page_tests()")
-        uOnePage = self.main_window.select_single(BuilderName='stepUbuntuOne')
-        notebook = uOnePage.select_single(BuilderName='notebook_main')
-        grid1 = notebook.select_single('GtkGrid', name='grid1')
-        grid1.print_tree('/tmp/u1grid1.txt')
-        grid2 = notebook.select_single('GtkGrid', name='grid2')
-        grid2.print_tree('/tmp/u1grid2.txt')
-        grid5 = notebook.select_single('GtkGrid', name='grid5')
-        grid5.print_tree('/tmp/u1grid5.txt')
-        grid7 = notebook.select_single('GtkGrid', name='grid7')
-        grid7.print_tree('/tmp/u1grid7.txt')
-
+        #uOnePage = self.main_window.select_single(BuilderName='stepUbuntuOne')
+        page_objects = ['u1_about_label', 'cloud_label', 'music_label',
+                        'photos_label', 'apps_label', 'u1_existing_account',
+                        'u1_new_account', 'u1_explain_email_2',
+                        'u1_explain_email', 'u1_terms', 'u1_tc_check',
+                        'password_mismatch', 'u1_ask_name_pass',
+                        'u1_ask_email', 'u1_no_internet']
+        self.check_visible_object_with_label(page_objects)
+        # XXX: we currently can't test signing in as it is yet to possible
+        # to set ubiquity to use a staging server for testing.
         skip_button = self.main_window.select_single('GtkButton', name='skip')
         self.pointing_device.click_object(skip_button)
-        #TODO: add checks to the U1 page
 
     def progress_page_tests(self, ):
         # TODO: move here from emulator and use process manager to check window
