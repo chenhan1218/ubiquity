@@ -504,12 +504,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         entry = keyboard_page.select_single('GtkEntry')
         with self.keyboard.focused_type(entry) as kb:
             kb.type(u'Testing keyboard layout')
-            # TODO: only test the entry value if we are using english install
-            #message = "Expected {0} (the length of the keyboard entry text) "
-            #     " to be {1}"
-            #     .format(len(entry.text), len(u'Testing keyboard layout'))
-            #self.expectThat(len(entry.text), Equals(
-            #   len(u'Testing keyboard layout')))
+            # only test the entry value if we are using english install
+            if self.english_install:
+                self.expectThat(entry.text, Equals(u'Testing keyboard layout'))
             self.expectThat(entry.text, NotEquals(u''),
                             "[Page:'{0}'] Expected Entry to contain text "
                             "after typing but it didn't"
@@ -568,6 +565,17 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=True)
         logger.debug("run_ubuntu_one_page_tests()")
+        uOnePage = self.main_window.select_single(BuilderName='stepUbuntuOne')
+        notebook = uOnePage.select_single(BuilderName='notebook_main')
+        grid1 = notebook.select_single('GtkGrid', name='grid1')
+        grid1.print_tree('/tmp/u1grid1.txt')
+        grid2 = notebook.select_single('GtkGrid', name='grid2')
+        grid2.print_tree('/tmp/u1grid2.txt')
+        grid5 = notebook.select_single('GtkGrid', name='grid5')
+        grid5.print_tree('/tmp/u1grid5.txt')
+        grid7 = notebook.select_single('GtkGrid', name='grid7')
+        grid7.print_tree('/tmp/u1grid7.txt')
+
         skip_button = self.main_window.select_single('GtkButton', name='skip')
         self.pointing_device.click_object(skip_button)
         #TODO: add checks to the U1 page
