@@ -98,6 +98,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         """
         logger.debug('go_to_next_page(wait={0})'.format(wait))
+        # check no error dialogs before moving on
+        self._check_no_visible_dialogs()
         nxt_button = self.main_window.select_single('GtkButton', name='next')
         nxt_button.click()
 
@@ -569,7 +571,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         page_objects = ['u1_about_label', 'cloud_label', 'music_label',
                         'photos_label', 'apps_label', 'u1_existing_account',
                         'u1_new_account', 'u1_explain_email_2',
-                        'u1_explain_email', 'u1_terms', 'u1_tc_check',
+                        'u1_explain_email', 'u1_terms',
                         'password_mismatch', 'u1_ask_name_pass',
                         'u1_ask_email', 'u1_no_internet']
         self.check_visible_object_with_label(page_objects)
@@ -579,12 +581,30 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.pointing_device.click_object(skip_button)
 
     def progress_page_tests(self, ):
-        # TODO: move here from emulator and use process manager to check window
-        # stack doesn't change during the progress stage and if a dialog
-        # becomes top of stack we get window title to work outwhich one.
-        # Currently polling on dbus for two specific dialogs is really horrible
-        # for the logs and test design so need to find a cleaner way.
-        pass
+        ''' Runs the test for the installation progress page
+
+            This method tracks the current progress of the install
+            by using the fraction property of the progress bar
+            to assertain the percentage complete.
+
+        '''
+        logger.debug("run_install_progress_page_tests()")
+        #We cant assert page title here as its an external html page
+        #Maybe try assert WebKitWebView is visible
+        webkitwindow = self.select_single('GtkScrolledWindow',
+                                          name='webkit_scrolled_window')
+        self.expectThat(webkitwindow.visible, Equals(True))
+
+        progress_bar = self.main_window.select_single(
+            'GtkProgressBar', name='install_progress')
+
+        #Copying files progress bar
+        self._track_install_progress_bar()
+
+        self.assertThat(progress_bar.fraction, Eventually(
+            Equals(0.0), timeout=120))
+        #And now the install progress bar
+        self._track_install_progress_bar()
 
     def check_visible_object_with_label(self, visible_obj):
         """Check an visible objects label and visible properties,
@@ -655,6 +675,60 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                 #if english install check english values
                 self.expectThat(page_object.label, Equals(
                     self.english_config[self.current_step][obj_name]))
+
+    def _track_install_progress(self, ):
+        '''Gets the value of the fraction property of the progress bar
+
+            so we can see when the progress bar is complete
+
+        '''
+        logger.debug("_track_install_progress_bar()")
+        progress_bar = self.main_window.select_single(
+            'GtkProgressBar', name='install_progress'
+        )
+        progress = 0.0
+        complete = 1.0
+        logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
+        while progress < complete:
+            #keep updating fraction value
+            progress = progress_bar.fraction
+            # lets sleep for longer at early stages then
+            # reduce nearer to complete
+            if progress < 0.5:
+                time.sleep(5)
+            elif progress < 0.7:
+                time.sleep(3)
+            elif progress < 0.8:
+                time.sleep(1)
+            else:
+                pass
+
+            logger.debug('Percentage complete "{0:.0f}%"'
+                         .format(progress * 100))
+            #check for install errors while waiting
+            self._check_no_visible_dialogs()
+            try:
+                grub_dialog = self.main_window.get_dialog('GtkMessageDialog')
+                if grub_dialog.visible:
+                    logger.error("The Grub installation failed dialog "
+                                 "appeared :-(")
+                    self.assertThat(grub_dialog.visible, Equals(True),
+                                    "The Grub installation failed")
+                    progress = 1.0
+            except Exception:
+                pass
+
+    def _check_no_visible_dialogs(self):
+        dialogs = ['warning_dialog', 'crash_dialog',
+                   'bootloader_fail_dialog', 'ubi_question_dialog']
+        # check each dialog is not visible
+        for dialog in dialogs:
+            logger.debug("Checking {0} dialog hasn't "
+                         "appeared.......".format(dialog))
+            dlg = self.main_window.get_dialog(
+                'GtkDialog', BuilderName=dialog
+            )
+            self.assertThat(dlg.visible, Equals(False))
 
     def _add_new_partition(self, ):
         """ adds a new partition """
