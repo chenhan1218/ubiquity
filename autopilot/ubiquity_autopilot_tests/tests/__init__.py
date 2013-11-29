@@ -600,12 +600,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             'GtkProgressBar', name='install_progress')
 
         #Copying files progress bar
-        self._track_install_progress_bar()
+        self._track_install_progress()
 
         self.assertThat(progress_bar.fraction, Eventually(
             Equals(0.0), timeout=120))
         #And now the install progress bar
-        self._track_install_progress_bar()
+        self._track_install_progress()
 
     def check_visible_object_with_label(self, visible_obj):
         """Check an visible objects label and visible properties,
