@@ -35,7 +35,7 @@ class DefaultInstallTestCase(UbiquityAutopilotTestCase):
         self.preparing_page_tests()
         self.go_to_next_page()
         if flavor == 'Edubuntu':
-            self.edubuntu_addon_window_tests()
+            self.edubuntu_addon_window_tests(ltsp=True)
             self.go_to_next_page()
             self.edubuntu_packages_window_tests()
             self.go_to_next_page()
