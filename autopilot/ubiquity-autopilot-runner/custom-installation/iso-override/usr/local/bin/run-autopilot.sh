@@ -50,6 +50,7 @@ AP_LOGS=$TESTBASE/logs/
 AP_TESTSUITES=$TESTBASE/testsuites
 AP_LOGFILE=$AP_LOGS/autopilot.log
 AP_SUMMARY=$AP_LOGS/summary.log
+AP_INFO=$AP_LOGS/build_info.txt
 RMD_OPTS="-r -rd $AP_ARTIFACTS --record-options=--fps=6,--no-wm-check"
 SPOOLDIR=$TESTBASE/spool
 TSEXPORT=$HOME/ubiquity-autopilot
@@ -180,6 +181,15 @@ setup_tests() {
         (cd $SPOOLDIR; touch $(cat $AP_TESTSUITES))
     fi
 
+    cat>$AP_INFO<<EOF
+Image Id:      $(cat /cdrom/.disk/info)
+Ubiquity:      $(dpkg-query -f '${Version}' -W ubiquity)
+Test branch:   ${TSBRANCH}
+Test revno:    $(bzr revno $TSBRANCH)
+EOF
+    echo "== Test Info =="
+    cat $AP_INFO
+    echo "==============="
     touch $flag
 }
 
