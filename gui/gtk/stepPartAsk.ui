@@ -205,7 +205,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="use_crypto">
-                    <property name="label" translatable="yes">Encrypt the new ${RELEASE} installation for security</property>
+                    <property name="label" translatable="yes">Encrypt the new Ubuntu installation for security</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
@@ -241,7 +241,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="use_lvm">
-                    <property name="label" translatable="yes">Use LVM with the new ${RELEASE} installation</property>
+                    <property name="label" translatable="yes">Use LVM with the new Ubuntu installation</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
