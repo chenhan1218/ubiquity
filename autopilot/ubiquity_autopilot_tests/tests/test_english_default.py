@@ -35,7 +35,7 @@ class EnglishDefaultInstallTestCase(UbiquityAutopilotTestCase):
         self.preparing_page_tests()
         self.go_to_next_page()
         if flavor == 'Edubuntu':
-            self.edubuntu_addon_window_tests()
+            self.edubuntu_addon_window_tests(gnome=True)
             self.go_to_next_page()
             self.edubuntu_packages_window_tests()
             self.go_to_next_page()
@@ -53,7 +53,7 @@ class EnglishDefaultInstallTestCase(UbiquityAutopilotTestCase):
         else:
             self.go_to_progress_page()
 
-        self.main_window.run_install_progress_page_tests()
+        self.progress_page_tests()
         self.assertThat(lambda: self.app.select_single(
             'GtkDialog',
             name='finished_dialog').visible,

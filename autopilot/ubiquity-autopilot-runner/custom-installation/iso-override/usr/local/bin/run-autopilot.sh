@@ -151,10 +151,12 @@ setup_tests() {
 
     [ -e "$flag" ] && return 0
 
+
     if [ $DEBUG -ne 0 ]; then
         # Put here everything you want to run in debug mode
         xterm &  # Easier to debug from a live session, and rarely broken
     fi
+
     sudo stty -F /dev/ttyS0 raw speed 115200
     
     tail_logs $SESSION_LOG /var/log/syslog

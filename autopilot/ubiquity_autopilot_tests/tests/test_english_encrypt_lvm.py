@@ -54,7 +54,7 @@ class EnglishLVMEncryptInstallTestCase(UbiquityAutopilotTestCase):
         else:
             self.go_to_progress_page()
 
-        self.main_window.run_install_progress_page_tests()
+        self.progress_page_tests()
         self.assertThat(lambda: self.app.select_single(
             'GtkDialog',
             name='finished_dialog').visible,

@@ -25,7 +25,6 @@ from ubiquity_autopilot_tests.emulators.partconfig\
     import Config4, Config5, Config6
 from ubiquity_autopilot_tests.emulators\
     import gtkcontrols, gtkaccessible, gtkcontainers
-import time
 import logging
 logger = logging.getLogger(__name__)
 
@@ -95,79 +94,6 @@ class GtkWindow(AutopilotGtkEmulatorBase):
                 .format(dialogType))
         logger.debug('Returning {0} object'.format(dialogType))
         return dialog
-
-    def run_install_progress_page_tests(self, ):
-        ''' Runs the test for the installation progress page
-
-            This method tracks the current progress of the install
-            by using the fraction property of the progress bar
-            to assertain the percentage complete.
-
-        '''
-        logger.debug("run_install_progress_page_tests()")
-        #We cant assert page title here as its an external html page
-        #Maybe try assert WebKitWebView is visible
-        webkitwindow = self.select_single('GtkScrolledWindow',
-                                          name='webkit_scrolled_window')
-        expectThat(webkitwindow.visible).equals(
-            True, msg="Expected the slideshow to be visible, but it wasn't")
-
-        #Can we track the progress percentage?
-        self.install_progress = self.select_single('GtkProgressBar',
-                                                   name='install_progress')
-
-    #Copying files progress bar
-        self._track_install_progress_bar()
-
-        self.install_progress.fraction.wait_for(0.0, timeout=120)
-        #And now the install progress bar
-        self._track_install_progress_bar()
-
-    def _track_install_progress_bar(self):
-        '''Gets the value of the fraction property of the progress bar
-
-            so we can see when the progress bar is complete
-
-        '''
-        logger.debug("_track_install_progress_bar()")
-        progress = 0.0
-        complete = 1.0
-        logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
-        while progress < complete:
-            #keep updating fraction value
-            progress = self.install_progress.fraction
-            # lets sleep for a second on each loop until we get near the end of
-            # the progress bar
-            if progress < 0.7:
-                time.sleep(1)
-
-            logger.debug('Percentage complete "{0:.0f}%"'
-                         .format(progress * 100))
-            #check for install errors while waiting
-            try:
-                crash_dialog = self.get_dialog('GtkDialog',
-                                               BuilderName='crash_dialog')
-                logger.debug("Checking crash dialog hasn't appeared....")
-                if crash_dialog.visibe:
-                    logger.error("Crash Dialog appeared")
-                    assert not crash_dialog.visible,\
-                        "Crash Dialog appeared! Something went wrong!!!"
-                    progress = 1.0
-            except Exception:
-                pass
-            # Lets try and grab the grub failed message box on the fly
-            try:
-                logger.debug("Checking failed grub install dialog hasn't "
-                             "appeared.......")
-                grub_dialog = self.get_dialog('GtkMessageDialog')
-                if grub_dialog.visible:
-                    logger.error("The Grub installation failed dialog "
-                                 "appeared :-(")
-                    assert grub_dialog.visible != 1,\
-                        "The Grub installation failed"
-                    progress = 1.0
-            except Exception:
-                pass
 
 
 class GtkDialog(GtkWindow):

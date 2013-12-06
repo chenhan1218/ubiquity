@@ -20,6 +20,7 @@ import os
 import logging
 import random
 import time
+import configparser
 
 from testtools.matchers import Equals, NotEquals
 
@@ -34,7 +35,7 @@ from ubiquity_autopilot_tests.emulators import gtktoplevel
 from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
-from ubiquity_autopilot_tests.configs import eng_label_values
+from ubiquity_autopilot_tests.configs import english_label_conf
 from ubiquity_autopilot_tests.configs.partconfig import (
     Config1,
     Config2,
@@ -49,6 +50,7 @@ logger = logging.getLogger(__name__)
 
 
 class UbiquityAutopilotTestCase(UbiquityTestCase):
+
     def setUp(self):
         super(UbiquityAutopilotTestCase, self).setUp()
         self.app = self.launch_application()
@@ -60,7 +62,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.current_step = ''
         self.step_before = ''
         self.english_install = False
-        self.eng_config = {}
+        english_label_conf.generate_config()
+        self.english_config = configparser.ConfigParser()
+        self.english_config.read('/tmp/english_config.ini')
+        #delete config at end of test
+        self.addCleanup(os.remove, '/tmp/english_config.ini')
 
     def launch_application(self):
         '''
@@ -92,6 +98,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         """
         logger.debug('go_to_next_page(wait={0})'.format(wait))
+        # check no error dialogs before moving on
+        self._check_no_visible_dialogs()
         nxt_button = self.main_window.select_single('GtkButton', name='next')
         nxt_button.click()
 
@@ -134,6 +142,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                          the tests to work for any language.
 
         """
+
         self._update_current_step('stepLanguage')
         self._check_navigation_buttons()
         #first check pageTitle visible and correct if label given
@@ -159,37 +168,24 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "doesn't contain any text")
 
         if lang:
+            if lang == 'English':
+                self.english_install = True
             item = treeview.select_item(lang)
             language = item
         else:
             language = welcome_page.get_random_language()
-        if language == 'English':
-            self.english_install = True
+            if language == 'English':
+                self.english_install = True
         welcome_page.select_language(language)
 
         self.assertThat(language.selected, Equals(True))
         ##Test release notes label is visible
         logger.debug("Checking the release_notes_label")
+        self.check_visible_object_with_label('release_notes_label')
         release_notes_label = welcome_page.select_single(
-            'GtkLabel', BuilderName='release_notes_label')
-        self.expectThat(release_notes_label.visible, Equals(True),
-                        "[Page:'{0}'] Release notes label was not visible"
-                        .format(self.current_step))
-        self.expectThat(release_notes_label.label, NotEquals(u''),
-                        "[Page:'{0}'] Release notes label did not contain "
-                        "any text".format(self.current_step))
-        self.expectIsInstance(release_notes_label.label, str,
-                              "[Page:'{0}'] Expected release notes label to "
-                              "be unicode but it wasn't")
+            BuilderName='release_notes_label')
         self.pointing_device.move_to_object(release_notes_label)
         self._update_page_titles()
-        if self.english_install:
-            #if english install check english values
-            self.eng_config = eng_label_values.stepLanguage
-            self.expectThat(release_notes_label.label,
-                            Equals(self.eng_config['release_notes_label']))
-            self.expectThat(self.current_page_title,
-                            Equals(self.eng_config['page_title']))
         self._check_page_titles()
         self._check_navigation_buttons()
 
@@ -230,25 +226,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         objList = ['prepare_best_results', 'prepare_foss_disclaimer',
                    'prepare_download_updates', 'prepare_nonfree_software']
-        for i in objList:
-            logging.debug("Running checks on {0} object".format(i))
-            obj = preparing_page.select_single(BuilderName=i)
-            self.expectThat(obj.visible, Equals(True),
-                            "[Page:'{0}'] Expected {1} object to be "
-                            "visible but it wasn't"
-                            .format(self.current_step, obj.name))
-            self.expectThat(obj.label, NotEquals(u''),
-                            "[Page:'{0}'] Expected {1} objects label value "
-                            "to contain text but it didn't"
-                            .format(self.current_step, obj.name))
-            self.expectIsInstance(obj.label, str,
-                                  "[Page:'{0}'] Expected {1} objects label "
-                                  "value to be unicode but it wasn't"
-                                  .format(self.current_step, obj.name))
-            if self.english_install:
-                #if english install check english values
-                self.eng_config = eng_label_values.stepPrepare
-                self.expectThat(obj.label, Equals(self.eng_config[i]))
+        self.check_visible_object_with_label(objList)
 
         if updates:
             logger.debug("Selecting install updates")
@@ -272,12 +250,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                        visible=powerSource)
 
         self._check_page_titles()
-        if self.english_install:
-            self.expectThat(self.current_page_title,
-                            Equals(self.eng_config['page_title']))
         self._check_navigation_buttons()
 
-    def edubuntu_addon_window_tests(self, ):
+    def edubuntu_addon_window_tests(self, unity=False,
+                                    gnome=False, ltsp=False):
         """
         Run Page tests for edubuntu addon page
         """
@@ -289,30 +265,27 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         page_objects = ['fallback_install', 'description', 'fallback_title',
                         'fallback_description', 'ltsp_install', 'ltsp_title',
                         'ltsp_description', 'ltsp_interface_label']
+        self.check_visible_object_with_label(page_objects)
 
-        for i in page_objects:
-            obj = add_on_page.select_single(BuilderName=i)
-            self.expectThat(obj.visible, Equals(True),
-                            "[Page:'{0}'] Expected {1} object to be visible "
-                            "but it wasn't"
-                            .format(self.current_step, obj.name))
-            self.expectThat(obj.label, NotEquals(u''),
-                            "[Page:'{0}'] Expected {1} objects label value "
-                            "to contain text but it didn't"
-                            .format(self.current_step, obj.name))
-            self.expectIsInstance(obj.label, str,
-                                  "[Page:'{0}'] Expected {1} objects label "
-                                  "value to be unicode but it wasn't"
-                                  .format(self.current_step, obj.name))
-            #if self.english_install:
-            #    #if english install check english values
-            #    self.eng_config = eng_label_values.stepPrepare
-            #    self.expectThat(obj.label, Equals(self.eng_config[i]))
-            #TODO: provide option to select different desktop
+        env = None
+        if unity:
+            logger.debug('Using default Unity env...')
+            pass
+        elif gnome:
+            logger.debug("Using gnome fallback env")
+            env = 'fallback_install'
+        elif ltsp:
+            logger.debug('Using LTSP env')
+            env = 'ltsp_install'
+        else:
+            items = [None, 'fallback_install', 'ltsp_install']
+            env = random.choice(items)
+
+        if env:
+            choice = add_on_page.select_single(BuilderName=env)
+            self.pointing_device.click_object(choice)
+
         self._check_page_titles()
-        #if self.english_install:
-        #    self.expectThat(self.current_page_title,
-        #                    Equals(self.eng_config['page_title']))
         self._check_navigation_buttons()
 
     def edubuntu_packages_window_tests(self, ):
@@ -322,32 +295,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._update_current_step('edubuntu-packages_window')
         self._check_navigation_buttons()
         self._update_page_titles()
-        packages_page = self.main_window.select_single(
-            'GtkVBox', BuilderName='edubuntu-packages_window')
-        description = packages_page.select_single(
-            'GtkLabel', BuilderName='description')
-        self.expectThat(description.visible, Equals(True),
-                        "[Page:'{0}'] Expected {1} object to be visible but "
-                        "it wasn't"
-                        .format(self.current_step, description.name))
-        self.expectThat(description.label, NotEquals(u''),
-                        "[Page:'{0}'] Expected {1} objects label value to "
-                        "contain text but it didn't"
-                        .format(self.current_step, description.name))
-        self.expectIsInstance(description.label, str,
-                              "[Page:'{0}'] Expected {1} objects label "
-                              "value to be unicode but it wasn't"
-                              .format(self.current_step, description.name))
-        #if self.english_install:
-            #    #if english install check english values
-            #    self.eng_config = eng_label_values.stepPrepare
-            #    self.expectThat(obj.label, Equals(self.eng_config[i]))
-            #TODO: provide option to select different packages from tree view
-
+        self.check_visible_object_with_label('description')
         self._check_page_titles()
-        #if self.english_install:
-        #    self.expectThat(self.current_page_title,
-        #                    Equals(self.eng_config['page_title']))
         self._check_navigation_buttons()
 
     def installation_type_page_tests(self, default=False, lvm=False,
@@ -392,7 +341,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
             config = custom_install
             option_name = 'custom_partitioning'
-        self._options_tests(config.visible_options, config.hidden_options)
+
+        self.check_visible_object_with_label(config.visible_options)
+        self.check_hidden_object_with_label(config.hidden_options)
         install_type_page = self.main_window.select_single(
             'GtkAlignment', BuilderName='stepPartAsk')
         if option_name:
@@ -400,10 +351,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             self.pointing_device.click_object(obj)
 
         self._check_page_titles()
-        if self.english_install:
-            self.expectThat(self.current_page_title,
-                            Equals(self.eng_config['page_title']))
-
         self._check_navigation_buttons()
 
     def lvm_crypto_page_tests(self, crypto_password):
@@ -426,31 +373,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         items = ['verified_crypto_label', 'crypto_label', 'crypto_description',
                  'crypto_warning', 'crypto_extra_label', 'crypto_extra_time',
                  'crypto_description_2', 'crypto_overwrite_space']
-        for i in items:
-            item = crypto_page.select_single(BuilderName=i)
-            self.expectThat(item.visible, Equals(True),
-                            "[Page:'{0}'] Expected {1} object to be visible "
-                            "but it wasn't"
-                            .format(self.current_step, item.name))
-            self.expectThat(item.label, NotEquals(u''),
-                            "[Page:'{0}'] Expected {1} objects label value "
-                            "to contain text but it didn't"
-                            .format(self.current_step, item.name))
-            self.expectIsInstance(item.label, str,
-                                  "[Page:'{0}'] Expected {1} objects label "
-                                  "value to be unicode but it wasn't"
-                                  .format(self.current_step, item.name))
-            if self.english_install:
-                #if english install check english values
-                self.eng_config = eng_label_values.stepPartCrypto
-                self.expectThat(item.label, Equals(self.eng_config[i]))
+        self.check_visible_object_with_label(items)
 
         crypto_page.enter_crypto_phrase(crypto_password)
         self._check_page_titles()
-        if self.english_install:
-            self.expectThat(self.current_page_title,
-                            Equals(self.eng_config['page_title']))
-
         self._check_navigation_buttons()
 
     def custom_partition_page_tests(self, part_config=None):
@@ -542,9 +468,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         location = ['London', 'Paris', 'Madrid', 'Algiers']
         if self.english_install:
             location_page.select_location('London')
-            self.eng_config = eng_label_values.stepLocation
-            self.expectThat(self.current_page_title,
-                            Equals(self.eng_config['page_title']))
         else:
             location_page.select_location(random.choice(location))
         self._check_page_titles()
@@ -583,12 +506,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         entry = keyboard_page.select_single('GtkEntry')
         with self.keyboard.focused_type(entry) as kb:
             kb.type(u'Testing keyboard layout')
-            # TODO: only test the entry value if we are using english install
-            #message = "Expected {0} (the length of the keyboard entry text) "
-            #     " to be {1}"
-            #     .format(len(entry.text), len(u'Testing keyboard layout'))
-            #self.expectThat(len(entry.text), Equals(
-            #   len(u'Testing keyboard layout')))
+            # only test the entry value if we are using english install
+            if self.english_install:
+                self.expectThat(entry.text, Equals(u'Testing keyboard layout'))
             self.expectThat(entry.text, NotEquals(u''),
                             "[Page:'{0}'] Expected Entry to contain text "
                             "after typing but it didn't"
@@ -599,11 +519,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                   .format(self.current_step))
         # TODO: Test detecting keyboard layout
         self._check_page_titles()
-        if self.english_install:
-            self.eng_config = eng_label_values.stepKeyboardConf
-            self.expectThat(self.current_page_title, Equals(
-                self.eng_config['page_title']))
-
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
@@ -634,24 +549,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                    'verified_password_label', 'hostname_extra_label'
                    ]
         logger.debug("checking user info page objects ......")
-        for i in objects:
-            obj = user_info_page.select_single('GtkLabel', name=i)
-            self.expectThat(obj.visible, Equals(True),
-                            "[Page:'{0}'] Expected {1} object to be visible "
-                            "but it wasn't"
-                            .format(self.current_step, obj.name))
-            self.expectThat(obj.label, NotEquals(u''),
-                            "[Page:'{0}'] Expected {1} objects label value to "
-                            "contain text but it didn't"
-                            .format(self.current_step, obj.name))
-            self.expectIsInstance(obj.label, str,
-                                  "[Page:'{0}'] Expected {1} objects label "
-                                  "value to be unicode but it wasn't"
-                                  .format(self.current_step, obj.name))
-            if self.english_install:
-                #if english install check english values
-                self.eng_config = eng_label_values.stepUserInfo
-                self.expectThat(obj.label, Equals(self.eng_config[i]))
+        self.check_visible_object_with_label(objects)
 
         user_info_page.create_user(username, pwd)
         #TODO: get these working
@@ -661,29 +559,180 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             user_info_page.set_auto_login()
 
         self._check_page_titles()
-        if self.english_install:
-            self.expectThat(self.current_page_title,
-                            Equals(self.eng_config['page_title']))
-
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=False)
 
     def ubuntu_one_page_tests(self, ):
-        #self._update_current_step('stepUserInfo')
+        self._update_current_step('stepUbuntuOne')
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=True)
         logger.debug("run_ubuntu_one_page_tests()")
+        #uOnePage = self.main_window.select_single(BuilderName='stepUbuntuOne')
+        page_objects = ['u1_about_label', 'cloud_label', 'music_label',
+                        'photos_label', 'apps_label', 'u1_existing_account',
+                        'u1_new_account', 'u1_explain_email_2',
+                        'u1_explain_email', 'u1_terms',
+                        'password_mismatch', 'u1_ask_name_pass',
+                        'u1_ask_email', 'u1_no_internet']
+        self.check_visible_object_with_label(page_objects)
+        # XXX: we currently can't test signing in as it is yet to possible
+        # to set ubiquity to use a staging server for testing.
         skip_button = self.main_window.select_single('GtkButton', name='skip')
         self.pointing_device.click_object(skip_button)
-        #TODO: add checks to the U1 page
+        #lets just sleep a little to wait for progress page as we
+        # can't wait on the page_title
+        time.sleep(5)
 
     def progress_page_tests(self, ):
-        # TODO: move here from emulator and use process manager to check window
-        # stack doesn't change during the progress stage and if a dialog
-        # becomes top of stack we get window title to work outwhich one.
-        # Currently polling on dbus for two specific dialogs is really horrible
-        # for the logs and test design so need to find a cleaner way.
-        pass
+        ''' Runs the test for the installation progress page
+
+            This method tracks the current progress of the install
+            by using the fraction property of the progress bar
+            to assertain the percentage complete.
+
+        '''
+        logger.debug("run_install_progress_page_tests()")
+        #We cant assert page title here as its an external html page
+        #Maybe try assert WebKitWebView is visible
+        webkitwindow = self.main_window.select_single(
+            'GtkScrolledWindow', name='webkit_scrolled_window'
+        )
+        self.expectThat(webkitwindow.visible, Equals(True))
+
+        progress_bar = self.main_window.select_single(
+            'GtkProgressBar', name='install_progress')
+
+        #Copying files progress bar
+        self._track_install_progress()
+
+        self.assertThat(progress_bar.fraction, Eventually(
+            Equals(0.0), timeout=120))
+        #And now the install progress bar
+        self._track_install_progress()
+
+    def check_visible_object_with_label(self, visible_obj):
+        """Check an visible objects label and visible properties,
+
+        :param visible_obj: Accepts either a objects name property or
+                            a list of names
+        ..note:: If english installation this function will also test the
+                 english label value which is retrieved from the
+                 generated english_config.ini file
+        """
+        if isinstance(visible_obj, list):
+            for item in visible_obj:
+                self._check_object(item)
+            return
+        if isinstance(visible_obj, str):
+            self._check_object(visible_obj)
+            return
+        raise ValueError(
+            "Object name must either be a string or list of strings")
+
+    def check_hidden_object_with_label(self, hidden_obj):
+        """Check an hidden objects label and visible properties,
+
+        :param hidden_obj: Accepts either a objects name property or
+                            a list of names
+        """
+        if isinstance(hidden_obj, list):
+            for item in hidden_obj:
+                self._check_object(item, False)
+            return
+        if isinstance(hidden_obj, str):
+            self._check_object(hidden_obj, False)
+            return
+        raise ValueError(
+            "Object name must either be a string or list of strings")
+
+    def _check_object(self, obj_name, obj_visible=True):
+        logger.debug("Checking {0} object.......".format(obj_name))
+        #select current page object
+        page = self.main_window.select_single(BuilderName=self.current_step)
+        #select object
+        page_object = page.select_single(BuilderName=obj_name)
+        if obj_visible:
+            visible_message = "[Page:'{0}'] Expected {1} object to be " \
+                              "visible but it wasn't".format(self.current_step,
+                                                             page_object.name)
+        else:
+            visible_message = "[Page:'{0}'] Expected {1} object to not be " \
+                              "visible but it was!".format(self.current_step,
+                                                           page_object.name)
+        self.expectThat(page_object.visible, Equals(obj_visible),
+                        visible_message)
+        self.expectThat(page_object.label, NotEquals(u''),
+                        "[Page:'{0}'] Expected {1} objects label value to "
+                        "contain text but it didn't"
+                        .format(self.current_step, page_object.name))
+        self.expectIsInstance(page_object.label, str,
+                              "[Page:'{0}'] Expected {1} objects label "
+                              "value to be unicode but it wasn't"
+                              .format(self.current_step, page_object.name))
+        #we only want to test visible english values, hidden ones don't matter
+        if (self.current_step in self.english_config) and obj_visible:
+            if self.english_install and (
+                    obj_name in self.english_config[self.current_step]):
+                logger.debug(
+                    "Checking {0} object's english label value....".format(
+                        obj_name))
+                #if english install check english values
+                self.expectThat(page_object.label, Equals(
+                    self.english_config[self.current_step][obj_name]))
+
+    def _track_install_progress(self, ):
+        '''Gets the value of the fraction property of the progress bar
+
+            so we can see when the progress bar is complete
+
+        '''
+        logger.debug("_track_install_progress_bar()")
+        progress_bar = self.main_window.select_single(
+            'GtkProgressBar', name='install_progress'
+        )
+        progress = 0.0
+        complete = 1.0
+        logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
+        while progress < complete:
+            #keep updating fraction value
+            progress = progress_bar.fraction
+            # lets sleep for longer at early stages then
+            # reduce nearer to complete
+            if progress < 0.5:
+                time.sleep(5)
+            elif progress < 0.7:
+                time.sleep(3)
+            elif progress < 0.8:
+                time.sleep(1)
+            else:
+                pass
+
+            logger.debug('Percentage complete "{0:.0f}%"'
+                         .format(progress * 100))
+            #check for install errors while waiting
+            self._check_no_visible_dialogs()
+            try:
+                grub_dialog = self.main_window.get_dialog('GtkMessageDialog')
+                if grub_dialog.visible:
+                    logger.error("The Grub installation failed dialog "
+                                 "appeared :-(")
+                    self.assertThat(grub_dialog.visible, Equals(True),
+                                    "The Grub installation failed")
+                    progress = 1.0
+            except Exception:
+                pass
+
+    def _check_no_visible_dialogs(self):
+        dialogs = ['warning_dialog', 'crash_dialog',
+                   'bootloader_fail_dialog', 'ubi_question_dialog']
+        # check each dialog is not visible
+        for dialog in dialogs:
+            logger.debug("Checking {0} dialog hasn't "
+                         "appeared.......".format(dialog))
+            dlg = self.main_window.get_dialog(
+                'GtkDialog', BuilderName=dialog
+            )
+            self.assertThat(dlg.visible, Equals(False))
 
     def _add_new_partition(self, ):
         """ adds a new partition """
@@ -807,6 +856,14 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         current_page_title = self.main_window.select_single(
             'GtkLabel',
             BuilderName='page_title')
+        if self.current_step in self.english_config:
+            if self.english_install and (
+                    'page_title' in self.english_config[self.current_step]):
+                #if english install check english values
+                self.expectThat(current_page_title.label, Equals(
+                    self.english_config[self.current_step]['page_title']))
+        #also lets check it changed from the previous page
+
         message_one = "Expected %s page title '%s' to not equal the "\
             "previous %s page title '%s' but it does" % (
                 self.current_step, self.current_page_title,
@@ -869,49 +926,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} statebox to not be "
                             "visible but it was"
                             .format(self.current_step, stateboxName))
-
-    def _options_tests(self, visible=[], hidden=[]):
-
-        install_type_page = self.main_window.select_single(
-            'GtkAlignment',
-            BuilderName='stepPartAsk')
-
-        for option in visible:
-            logger.info("selecting Visible object'{0}'".format(option))
-            opt = install_type_page.select_single(BuilderName=option)
-            self.expectThat(opt.visible, Equals(True),
-                            "[Page:'{0}'] Expected {1} object to be visible "
-                            "but it wasn't"
-                            .format(self.current_step, opt.name))
-            self.expectThat(opt.label, NotEquals(u''),
-                            "[Page:'{0}'] Expected {1} objects label value to "
-                            "contain text but it didn't"
-                            .format(self.current_step, opt.name))
-            self.expectIsInstance(opt.label, str,
-                                  "[Page:'{0}'] Expected {1} objects label "
-                                  "value to be unicode but it wasn't"
-                                  .format(self.current_step, opt.name))
-            if self.english_install:
-                #if english install check english values
-                self.eng_config = eng_label_values.stepPartAsk
-                self.expectThat(opt.label, Equals(self.eng_config[option]))
-
-        for option in hidden:
-            logger.info("Selecting hidden object '{0}'".format(option))
-
-            opt = install_type_page.select_single(BuilderName=option)
-            self.expectThat(opt.visible, Equals(False),
-                            "[Page:'{0}'] Expected {1} object to be not "
-                            "visible but it was"
-                            .format(self.current_step, opt.name))
-            self.expectThat(opt.label, NotEquals(u''),
-                            "[Page:'{0}'] Expected {1} objects label value to "
-                            "contain text but it didn't"
-                            .format(self.current_step, opt.name))
-            self.expectIsInstance(opt.label, str,
-                                  "[Page:'{0}'] Expected {1} objects label "
-                                  "value to be unicode but it wasn't"
-                                  .format(self.current_step, opt.name))
 
     def _select_install_type(self, install_type):
         pass
