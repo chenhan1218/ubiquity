@@ -1,4 +1,4 @@
-ubiquity (2.17.1) UNRELEASED; urgency=low
+ubiquity (2.17.1) trusty; urgency=low
 
   [ Dmitrijs Ledkovs ]
   * Drop ntfsprogs alternative depends.
@@ -29,7 +29,7 @@ ubiquity (2.17.1) UNRELEASED; urgency=low
   * Replace "Ubuntu" with the correct flavour name in several templates
     (LP: #1197220).
 
- -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Tue, 12 Nov 2013 11:07:41 +0000
+ -- Dmitrijs Ledkovs <xnox@ubuntu.com>  Mon, 09 Dec 2013 16:05:50 +0000
 
 ubiquity (2.17.0) trusty; urgency=low
 
