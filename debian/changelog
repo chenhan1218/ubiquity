@@ -6,6 +6,11 @@ ubiquity (2.17.1) UNRELEASED; urgency=low
   * Tidy up autopilot tests warnings.
   * Move autopilot tests to lp:ubiquity and python3.
   * Bump to automake-1.14
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu44, grub-installer 1.78ubuntu9, netcfg 1.112ubuntu1,
+    partman-base 169ubuntu1, partman-basicfilesystems 86ubuntu2,
+    partman-efi 25ubuntu6, partman-ext3 80ubuntu1, yaboot-installer
+    1.1.29ubuntu1.
 
   [ Brian Murray ]
   * Use the apt cache with with so that we close the cache when we are
