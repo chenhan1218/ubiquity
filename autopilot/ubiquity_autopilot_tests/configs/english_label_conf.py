@@ -110,7 +110,7 @@ def generate_config():
     stepPartCrypto["crypto_extra_time"] = \
         'The installation may take much longer.'
     stepPartCrypto["crypto_description_2"] = \
-        'Any files outside of Ubuntu will not be encrypted.'
+        'Any files outside of {0} will not be encrypted.'.format(distro_flavor)
     stepPartCrypto["crypto_overwrite_space"] = 'Overwrite empty disk space'
 
     #CREATE STEP LOCATION CONFIG
