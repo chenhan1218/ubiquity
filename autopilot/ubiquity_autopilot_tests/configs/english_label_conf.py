@@ -75,7 +75,7 @@ def generate_config():
         '<span size="small"><span foreground="darkred">Warning:</span> ' \
         'This will delete any files on the disk.</span>'
     stepPartAsk['use_crypto'] = \
-        'Encrypt the new Ubuntu installation for security'
+        'Encrypt the new {0} installation for security'.format(distro_flavor)
     stepPartAsk['use_crypto_desc'] = \
         '<span size="small">You will choose a security key in the ' \
         'next step.</span>'
