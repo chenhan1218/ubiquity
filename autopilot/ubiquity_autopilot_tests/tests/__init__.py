@@ -44,6 +44,7 @@ from ubiquity_autopilot_tests.configs.partconfig import (
     Config5,
     Config6
 )
+from ubiquity_autopilot_tests.matchers.range import InRange
 
 custom_configs = [Config1, Config2, Config3, Config4, Config5, Config6]
 logger = logging.getLogger(__name__)
@@ -804,13 +805,15 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         if size_obj:
             self.expectThat(
-                size_obj, Equals(
-                    int(size_item.accessible_name.strip(' MB'))),
+                int(size_item.accessible_name.strip(' MB')),
+                InRange((size_obj - 3), (size_obj + 3)),
                 "[Page:'{0}'] Expected partition size to be "
-                "{1}MB but instead it's {2}.".format(
-                    self.current_step,
-                    str(size_obj),
-                    size_item.accessible_name))
+                "somwhere in the range of {1}-{2}MB but instead was {3}. "
+                "This means the created partition was significantly "
+                "different in size to the requested amount of {4}MB"
+                .format(self.current_step, str(size_obj - 3),
+                        str(size_obj + 3), size_item.accessible_name,
+                        str(size_obj)))
             self.expectThat(size_item.visible, Equals(True),
                             "[Page: '{0}'] Expected {0} to be visible but "
                             " it wasn't".format(size_item.accessible_name))
@@ -872,21 +875,24 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.expectThat(self.previous_page_title,
                         NotEquals(self.current_page_title),
                         message=message_one)
-        # This second one catches the known bug for the stepPartAdvanced page
-        # title switching back to the prev page title
-        message_two = "Expected %s page title '%s' to not equal the previous "\
-            "%s page title '%s' but it does" % (
-                self.current_step, current_page_title.label,
-                self.step_before, self.previous_page_title)
-        # This only runs if the current page title changes from its initial
-        # value when page loaded
-        if current_page_title.label != self.current_page_title:
-            self.expectThat(self.previous_page_title,
-                            NotEquals(current_page_title.label),
-                            message=message_two)
-            self.expectThat(current_page_title.visible, Equals(True),
-                            "[Page:'{0}'] Expect page title to be visible but "
-                            "it wasn't".format(self.current_step))
+        ## XXX Re-enable to catch bugs where page title changes after a page
+        ##     has loaded
+        #
+        ## This second one catches the known bug for the stepPartAdvanced page
+        ## title switching back to the prev page title
+        #message_two = "Expected %s page title '%s' to not equal the previous "\
+        #    "%s page title '%s' but it does" % (
+        #        self.current_step, current_page_title.label,
+        #        self.step_before, self.previous_page_title)
+        ## This only runs if the current page title changes from its initial
+        ## value when page loaded
+        #if current_page_title.label != self.current_page_title:
+        #    self.expectThat(self.previous_page_title,
+        #                    NotEquals(current_page_title.label),
+        #                    message=message_two)
+        #    self.expectThat(current_page_title.visible, Equals(True),
+        #                    "[Page:'{0}'] Expect page title to be visible but "
+        #                    "it wasn't".format(self.current_step))
 
     def _check_preparing_statebox(self, stateboxName, visible=True,
                                   imagestock='gtk-yes'):
@@ -926,9 +932,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             "[Page:'{0}'] Expected {1} statebox to not be "
                             "visible but it was"
                             .format(self.current_step, stateboxName))
-
-    def _select_install_type(self, install_type):
-        pass
 
     def get_distribution(self, ):
         """Returns the name of the running distribution."""
