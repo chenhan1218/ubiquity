@@ -880,8 +880,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         #
         ## This second one catches the known bug for the stepPartAdvanced page
         ## title switching back to the prev page title
-        #message_two = "Expected %s page title '%s' to not equal the previous "\
-        #    "%s page title '%s' but it does" % (
+        #message_two = "Expected %s page title '%s' to not equal the "\
+        #    "previous %s page title '%s' but it does" % (
         #        self.current_step, current_page_title.label,
         #        self.step_before, self.previous_page_title)
         ## This only runs if the current page title changes from its initial
@@ -891,8 +891,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         #                    NotEquals(current_page_title.label),
         #                    message=message_two)
         #    self.expectThat(current_page_title.visible, Equals(True),
-        #                    "[Page:'{0}'] Expect page title to be visible but "
-        #                    "it wasn't".format(self.current_step))
+        #                    "[Page:'{0}'] Expect page title to be visible "
+        #                    "but it wasn't".format(self.current_step))
 
     def _check_preparing_statebox(self, stateboxName, visible=True,
                                   imagestock='gtk-yes'):
