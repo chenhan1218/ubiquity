@@ -90,7 +90,7 @@ $JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</com
       </logRotator>
     </hudson.plugins.build__publisher.BuildPublisher>
     <hudson.plugins.emailext.ExtendedEmailPublisher>
-      <recipientList>jean-baptiste.lallement@canonical.com,ubuntu-testing-notifications@lists.ubuntu.com,launchpad@surgut.co.uk</recipientList>
+      <recipientList>jean-baptiste.lallement@canonical.com,ubuntu-testing-notifications@lists.ubuntu.com,ubuntu-installer@lists.ubuntu.com</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.StillFailingTrigger>
           <email>
