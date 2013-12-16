@@ -313,4 +313,11 @@ if which recordmydesktop >/dev/null 2>&1; then
 fi
 
 run_tests $SPOOLDIR
+
+if [ -n "$(ls /var/crash/)" ]; then
+    export CRASH_DB_IDENTIFIER=$(echo ubiquity_autopilot_$(lsb_release -sc)_$(arch)|sha512sum|cut -d' ' -f1)
+    [ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && /usr/share/apport/whoopsie-upload-all -t 300
+    chmod og+r /var/crash/* 2>/dev/null || true
+fi
+
 exit 0
