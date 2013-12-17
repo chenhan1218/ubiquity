@@ -6,6 +6,8 @@ ubiquity (2.17.2) trusty; urgency=low
 
   [ Jonathan Riddell ]
   * ubiquity-dm: call gsettings only if frontend is gtk
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu45, netcfg 1.114ubuntu1.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 17 Dec 2013 18:05:28 +0000
 

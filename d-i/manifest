@@ -5,11 +5,11 @@ choose-mirror 2.50ubuntu1
 clock-setup 0.117ubuntu1
 console-setup 1.70ubuntu7
 debian-installer-utils 1.100ubuntu1
-flash-kernel 3.0~rc.4ubuntu44
+flash-kernel 3.0~rc.4ubuntu45
 grub-installer 1.78ubuntu9
 hw-detect 1.95ubuntu1
 localechooser 2.49ubuntu4
-netcfg 1.112ubuntu1
+netcfg 1.114ubuntu1
 partconf 1.43
 partman-auto 107ubuntu3
 partman-auto-crypto 20ubuntu1
