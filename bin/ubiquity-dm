@@ -600,7 +600,7 @@ EndSection
                     reboot = False
 
         # Revert gnome-settings to default, for dropping to desktop
-        if gsettings._gsettings_exists():
+        if self.frontend == 'gtk_ui' and gsettings._gsettings_exists():
             for gs_schema, gs_key, gs_value in gsettings_keys:
                 subprocess.call(
                     ['gsettings', 'reset', gs_schema, gs_key],
