@@ -193,6 +193,8 @@ EOF
     cat $AP_INFO
     echo "==============="
     touch $flag
+
+    dpkg -l > $AP_LOGS/packages.list
 }
 
 shutdown_host() {
