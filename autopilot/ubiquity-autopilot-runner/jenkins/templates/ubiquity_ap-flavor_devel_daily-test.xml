@@ -65,10 +65,6 @@ $JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</com
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Fingerprinter>
-      <targets>results/var/local/autopilot/junit/*.xml</targets>
-      <recordBuildArtifacts>true</recordBuildArtifacts>
-    </hudson.tasks.Fingerprinter>
     <hudson.tasks.ArtifactArchiver>
       <artifacts>results/**</artifacts>
       <latestOnly>false</latestOnly>
@@ -92,7 +88,7 @@ $JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</com
     <hudson.plugins.emailext.ExtendedEmailPublisher>
       <recipientList>jean-baptiste.lallement@canonical.com,ubuntu-testing-notifications@lists.ubuntu.com,ubuntu-installer@lists.ubuntu.com</recipientList>
       <configuredTriggers>
-        <hudson.plugins.emailext.plugins.trigger.StillFailingTrigger>
+        <hudson.plugins.emailext.plugins.trigger.RegressionTrigger>
           <email>
             <recipientList></recipientList>
             <subject>$PROJECT_DEFAULT_SUBJECT</subject>
@@ -106,7 +102,7 @@ $JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</com
             <compressBuildLog>false</compressBuildLog>
             <replyTo></replyTo>
           </email>
-        </hudson.plugins.emailext.plugins.trigger.StillFailingTrigger>
+        </hudson.plugins.emailext.plugins.trigger.RegressionTrigger>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
           <email>
             <recipientList></recipientList>
@@ -146,6 +142,7 @@ $JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</com
       <attachBuildLog>false</attachBuildLog>
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_RECIPIENTS</replyTo>
+      <matrixTriggerMode>ONLY_CONFIGURATIONS</matrixTriggerMode>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>

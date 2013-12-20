@@ -84,6 +84,17 @@ on_exit() {
     # Exit handler
     echo "I: Archiving artifacts"
     archive=/tmp/artifacts
+
+    # Attempt to retrieve crash information
+    if [ -n "$(ls /var/crash/)" ]; then
+        export CRASH_DB_URL=https://daisy.ubuntu.com 
+        export CRASH_DB_IDENTIFIER=$(echo ubiquity_autopilot_$(lsb_release -sc)_$(arch)|sha512sum|cut -d' ' -f1)
+        sudo -E whoopsie||true
+        sleep 3
+        [ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && sudo -E /usr/share/apport/whoopsie-upload-all -t 300
+        chmod og+r /var/crash/* 2>/dev/null || true
+    fi
+
     for artifact in $ARTIFACTS; do
         [ -e "$artifact" ] && sudo tar rf ${archive}.tar $artifact || true
     done
@@ -189,9 +200,14 @@ Ubiquity:      $(dpkg-query -f '${Version}' -W ubiquity)
 Test branch:   ${TSBRANCH}
 Test revno:    $(bzr revno $TSBRANCH)
 EOF
-    echo "== Test Info =="
-    cat $AP_INFO
-    echo "==============="
+    
+    cat<<EOF
+
+============================== Test Info ============================== 
+$(cat $AP_INFO)
+======================================================================= 
+
+EOF
     touch $flag
 
     dpkg -l > $AP_LOGS/packages.list
@@ -250,17 +266,14 @@ run_tests() {
     tail_logs /var/log/installer/debug
     for testfile in $(ls -d $spooldir/* 2>/dev/null); do
         testname=$(basename $testfile)
-        # We don't want to fail if AP fail but we want the return code
-        set +e  
         echo "I: Running autopilot run $testname $AP_OPTS -o $AP_RESULTS/$testname.xml"
-        timeout -s 9 -k 30 $TIMEOUT ./autopilot run $testname $AP_OPTS -f xml -o $AP_RESULTS/${testname}.xml
-        AP_RC=$?
-        if [ $AP_RC -gt 0 ]; then
+        aprc=0
+        timeout -s 9 -k 30 $TIMEOUT ./autopilot run $testname $AP_OPTS -f xml -o $AP_RESULTS/${testname}.xml||aprc=$?
+        if [ $aprc -gt 0 ]; then
             echo "${testname}: FAIL" >> $AP_SUMMARY
         else
             echo "${testname}: DONE" >> $AP_SUMMARY
         fi
-        set -e
         sudo rm -f $testfile
     done
 }
@@ -315,12 +328,5 @@ if which recordmydesktop >/dev/null 2>&1; then
 fi
 
 run_tests $SPOOLDIR
-
-if [ -n "$(ls /var/crash/)" ]; then
-    sudo start whoopsie||true
-    export CRASH_DB_IDENTIFIER=$(echo ubiquity_autopilot_$(lsb_release -sc)_$(arch)|sha512sum|cut -d' ' -f1)
-    [ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && sudo /usr/share/apport/whoopsie-upload-all -t 300
-    chmod og+r /var/crash/* 2>/dev/null || true
-fi
 
 exit 0
