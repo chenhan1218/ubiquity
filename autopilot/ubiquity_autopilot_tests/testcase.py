@@ -52,6 +52,9 @@ class UbiquityTestCase(AutopilotTestCase):
         super(UbiquityTestCase, self).tearDown()
         unittest.TestCase.tearDown(self)
 
+    def _compare_system_with_app_snapshot(self):
+        pass  # Disable app snapshot support
+
     def assertNonFatalErrors(self, ):
         logger.debug('Checking for non fatal errors')
         error_list = self.non_fatal_errors
