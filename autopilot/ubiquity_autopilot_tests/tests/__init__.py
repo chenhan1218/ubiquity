@@ -74,7 +74,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def tearDown(self):
         self._check_no_visible_dialogs()
         super(UbiquityAutopilotTestCase, self).tearDown()
-        unittest.TestCase.tearDown()
+        unittest.TestCase.tearDown(self)
 
     def launch_application(self):
         '''
