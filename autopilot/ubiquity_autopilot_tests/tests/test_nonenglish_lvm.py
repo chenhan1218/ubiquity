@@ -56,7 +56,7 @@ class LVMInstallTestCase(UbiquityAutopilotTestCase):
         self.assertThat(lambda: self.app.select_single(
             'GtkDialog',
             name='finished_dialog').visible,
-            Eventually(Equals(True)))
+            Eventually(Equals(True), timeout=30))
         #XXX: Uncomment if you want to restart after install complete
         ## we need to sleep here to wait for dialog to fully load. It appears
         ## in dbus before its actually visible. As the test has already passed

@@ -17,6 +17,12 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 
+class FatalError(AssertionError):
+    """
+    Exception class for raising fatal errors
+    """
+
+
 class NonFatalErrors(AssertionError):
     """ Exception class for raising non fatal errors
     """
