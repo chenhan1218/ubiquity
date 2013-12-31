@@ -767,8 +767,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         message = ''
         for gtklabel in dialog_labels:
             #only add labels longer than 'Continue' so we avoid button labels
-                if len(gtklabel.label) > 8:
-                    message += (gtklabel.label + '. ')
+            if len(gtklabel.label) > 8:
+                message += (gtklabel.label + '. ')
+
         return message
 
     def _add_new_partition(self, ):
