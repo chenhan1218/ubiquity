@@ -31,7 +31,10 @@ from testtools.matchers import (
 from testtools.content import text_content
 
 from ubiquity_autopilot_tests.tools import compare
-from ubiquity_autopilot_tests.exception import NonFatalErrors
+from ubiquity_autopilot_tests.exception import (
+    NonFatalErrors,
+    FatalError
+    )
 
 
 logger = logging.getLogger(__name__)
@@ -42,6 +45,7 @@ class UbiquityTestCase(AutopilotTestCase):
     def setUp(self):
         super(UbiquityTestCase, self).setUp()
         self.non_fatal_errors = []
+        self.fatal_errors = []
 
     def tearDown(self):
         emulator_errors = compare.non_fatal_errors
@@ -49,11 +53,32 @@ class UbiquityTestCase(AutopilotTestCase):
             for error in emulator_errors:
                 self.non_fatal_errors.append(error)
         self.assertNonFatalErrors()
+        self.assertFatalErrors()
         super(UbiquityTestCase, self).tearDown()
         unittest.TestCase.tearDown(self)
 
     def _compare_system_with_app_snapshot(self):
         pass  # Disable app snapshot support
+
+    def assertFatalErrors(self, ):
+        logger.debug('Checking for fatal errors')
+        error_list = self.fatal_errors
+        if len(error_list) > 0:
+            num = 1
+            for error in error_list:
+                output = """
+=======================================================================
+!!! FATAL ERROR !!! found during install......
+_______________________________________________________________________
+%s
+_______________________________________________________________________
+""" % error
+                self.addDetail("FATAL ERROR {0}: ".format(num),
+                               text_content(output))
+                num += 1
+            raise FatalError("{0} fatal error found during install"
+                             .format(len(error_list)))
+        return
 
     def assertNonFatalErrors(self, ):
         logger.debug('Checking for non fatal errors')
@@ -124,6 +149,15 @@ _______________________________________________________________________
             logger.error("MisMatch found", exc_info=True)
             stck = traceback.format_exc(limit=5)
             self.non_fatal_errors.append(stck)
+
+    def expectNotVisible(self, matchee, message='', verbose=False):
+        matcher = Equals(False)
+        try:
+            self._expectThat(matchee, matcher, message, verbose)
+        except MismatchError:
+            logger.error("MisMatch found", exc_info=True)
+            stck = traceback.format_exc(limit=5)
+            self.fatal_errors.append(stck)
 
     def _expectThat(self, matchee, matcher, message='', verbose=False):
 

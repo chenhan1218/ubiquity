@@ -21,9 +21,11 @@ import logging
 import random
 import time
 import configparser
+import unittest
 
 from testtools.matchers import Equals, NotEquals
 
+from autopilot.introspection.dbus import StateNotFoundError
 from autopilot.matchers import Eventually
 from autopilot.introspection import get_proxy_object_for_existing_process
 from autopilot.input import (
@@ -68,6 +70,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.english_config.read('/tmp/english_config.ini')
         #delete config at end of test
         self.addCleanup(os.remove, '/tmp/english_config.ini')
+
+    def tearDown(self):
+        self._check_no_visible_dialogs()
+        super(UbiquityAutopilotTestCase, self).tearDown()
+        unittest.TestCase.tearDown(self)
 
     def launch_application(self):
         '''
@@ -601,14 +608,14 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         )
         self.expectThat(webkitwindow.visible, Equals(True))
 
-        progress_bar = self.main_window.select_single(
-            'GtkProgressBar', name='install_progress')
+        progress_bar = self.main_window.select_single('GtkProgressBar',
+                                                      name='install_progress')
 
         #Copying files progress bar
         self._track_install_progress()
 
         self.assertThat(progress_bar.fraction, Eventually(
-            Equals(0.0), timeout=120))
+            Equals(0.0), timeout=180))
         #And now the install progress bar
         self._track_install_progress()
 
@@ -689,13 +696,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         '''
         logger.debug("_track_install_progress_bar()")
-        progress_bar = self.main_window.select_single(
-            'GtkProgressBar', name='install_progress'
-        )
+        progress_bar = self.main_window.select_single('GtkProgressBar',
+                                                      name='install_progress')
         progress = 0.0
-        complete = 1.0
-        logger.debug('Percentage complete "{0:.0f}%"'.format(progress * 100))
-        while progress < complete:
+        # Since we need to sleep to avoid the dbus error
+        # we will catch the progress bar just before 1.0 and wait
+        while progress < 0.99:
             #keep updating fraction value
             progress = progress_bar.fraction
             # lets sleep for longer at early stages then
@@ -704,37 +710,67 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                 time.sleep(5)
             elif progress < 0.7:
                 time.sleep(3)
-            elif progress < 0.8:
+            elif progress < 0.85:
                 time.sleep(1)
             else:
-                pass
+                time.sleep(0.3)
 
             logger.debug('Percentage complete "{0:.0f}%"'
                          .format(progress * 100))
-            #check for install errors while waiting
-            self._check_no_visible_dialogs()
-            try:
-                grub_dialog = self.main_window.get_dialog('GtkMessageDialog')
-                if grub_dialog.visible:
-                    logger.error("The Grub installation failed dialog "
-                                 "appeared :-(")
-                    self.assertThat(grub_dialog.visible, Equals(True),
-                                    "The Grub installation failed")
-                    progress = 1.0
-            except Exception:
-                pass
 
-    def _check_no_visible_dialogs(self):
+    def _check_no_visible_dialogs(self, arg=None):
+        # lets try grab some dialogs we know of
         dialogs = ['warning_dialog', 'crash_dialog',
                    'bootloader_fail_dialog', 'ubi_question_dialog']
-        # check each dialog is not visible
-        for dialog in dialogs:
-            logger.debug("Checking {0} dialog hasn't "
-                         "appeared.......".format(dialog))
-            dlg = self.main_window.get_dialog(
-                'GtkDialog', BuilderName=dialog
-            )
-            self.assertThat(dlg.visible, Equals(False))
+        safe_dialogs = ['finished_dialog', 'partition_dialog']
+        for dialog_name in dialogs:
+            dialog = self.app.select_single(BuilderName=dialog_name)
+            if dialog.visible:
+                msg = self._get_dialog_message(dialog)
+                # each dialog will display a label explaining the error
+                self.expectNotVisible(dialog.visible,
+                                      "{0} was found to be visible. "
+                                      "With error message: \n"
+                                      "{1}"
+                                      .format(dialog.name, msg))
+        # Try grab dialogs created at runtime
+        unknown_dialogs = self.app.select_many('GtkDialog')
+        for dlg in unknown_dialogs:
+            if dlg.name in dialogs or safe_dialogs:
+                pass
+            else:
+                if dlg.visible:
+                    msg = self._get_dialog_message(dlg)
+                    # each dialog will display a label explaining the error
+                    self.expectNotVisible(dlg.visible,
+                                          "Error dialog found to be visible "
+                                          "With error message: \n"
+                                          "{0}"
+                                          .format(msg))
+        # Lets try and grab any spawned GtkMessageDialogs
+        try:
+            unknown_msg_dialogs = self.app.select_many('GtkMessageDialog')
+            for dlg in unknown_msg_dialogs:
+                msg = self._get_dialog_message(dlg)
+                # each dialog will display a label explaining the error
+                self.expectNotVisible(dlg.visible,
+                                      "A GtkMessageDialog was found to be "
+                                      "visible. With error message: \n"
+                                      "{0}"
+                                      .format(msg))
+        except StateNotFoundError:
+            # catch statenotfound so we can continue
+            pass
+
+    def _get_dialog_message(self, dlg_object):
+        dialog_labels = dlg_object.select_many('GtkLabel')
+        message = ''
+        for gtklabel in dialog_labels:
+            #only add labels longer than 'Continue' so we avoid button labels
+            if len(gtklabel.label) > 8:
+                message += (gtklabel.label + '. ')
+
+        return message
 
     def _add_new_partition(self, ):
         """ adds a new partition """

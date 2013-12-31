@@ -1,5 +1,9 @@
 ubiquity (2.17.2) trusty; urgency=low
 
+  [ Dan Chapman ]
+  * Only check for error dialogs on test teardown so we can be sure we
+    always catch them during autopilot tests. (lp: #1262575)
+
   [ Harald Sitter ]
   * KDE: Hardcode KDE_FULL_SESSION to ensure oxygen colors are picked up
          automatically.
