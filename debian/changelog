@@ -1,3 +1,11 @@
+ubiquity (2.17.3) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: apt-setup 1:0.80ubuntu5,
+    base-installer 1.122ubuntu19, grub-installer 1.78ubuntu10 (LP:
+    #1265483), partman-basicmethods 57, partman-jfs 42, partman-lvm 88.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 03 Jan 2014 11:05:55 +0000
+
 ubiquity (2.17.2) trusty; urgency=low
 
   [ Dan Chapman ]
