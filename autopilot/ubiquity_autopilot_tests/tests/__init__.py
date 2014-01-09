@@ -106,8 +106,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         """
         logger.debug('go_to_next_page(wait={0})'.format(wait))
-        # check no error dialogs before moving on
-        self._check_no_visible_dialogs()
         nxt_button = self.main_window.select_single('GtkButton', name='next')
         nxt_button.click()
 
@@ -601,21 +599,29 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         '''
         logger.debug("run_install_progress_page_tests()")
+        print("run_install_progress_page_tests()")
         #We cant assert page title here as its an external html page
         #Maybe try assert WebKitWebView is visible
+        print("Selecting WebKit")
         webkitwindow = self.main_window.select_single(
             'GtkScrolledWindow', name='webkit_scrolled_window'
         )
+        print("Test webkitwindow visible")
         self.expectThat(webkitwindow.visible, Equals(True))
-
+        print("Webkit window found and is visible")
+        print("Selecting Progress bar")
         progress_bar = self.main_window.select_single('GtkProgressBar',
                                                       name='install_progress')
 
         #Copying files progress bar
+        print("Entering first tracking loop all that will be called "
+              "from here is GtkWindow name = liveinstaller and the "
+              "progressbar")
         self._track_install_progress()
-
+        print("First loop complete waiting for pbar to go back to 0")
         self.assertThat(progress_bar.fraction, Eventually(
             Equals(0.0), timeout=180))
+        print("Now entering the second loop...........")
         #And now the install progress bar
         self._track_install_progress()
 
@@ -696,14 +702,19 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         '''
         logger.debug("_track_install_progress_bar()")
+        print("_track_install_progress()")
+        print("selecting progress bar")
         progress_bar = self.main_window.select_single('GtkProgressBar',
                                                       name='install_progress')
         progress = 0.0
         # Since we need to sleep to avoid the dbus error
         # we will catch the progress bar just before 1.0 and wait
         while progress < 0.99:
+            print("Progressbar = %d" % progress)
             #keep updating fraction value
+            print("Getting an updated pbar.fraction")
             progress = progress_bar.fraction
+            print("Got an updated pbar fraction")
             # lets sleep for longer at early stages then
             # reduce nearer to complete
             if progress < 0.5:
@@ -885,6 +896,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Updating current step to %s" % name)
         self.step_before = self.current_step
         self.current_step = name
+        # Lets print current step
+        print("Current step = {0}".format(self.current_step))
 
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title
