@@ -260,9 +260,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def edubuntu_addon_window_tests(self, unity=False,
                                     gnome=False, ltsp=False):
-        """
-        Run Page tests for edubuntu addon page
-        """
+        """Run Page tests for edubuntu addon page"""
         self._update_current_step('edubuntu-addon_window')
         self._check_navigation_buttons()
         self._update_page_titles()
@@ -295,9 +293,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons()
 
     def edubuntu_packages_window_tests(self, ):
-        """
-        Run Page tests for edubuntu packages page
-        """
+        """Run Page tests for edubuntu packages page"""
         self._update_current_step('edubuntu-packages_window')
         self._check_navigation_buttons()
         self._update_page_titles()
@@ -307,8 +303,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def installation_type_page_tests(self, default=False, lvm=False,
                                      lvmEncrypt=False, custom=False):
-        """
-        Runs the tests for the installation type page
+        """Runs the tests for the installation type page
 
         :param default: Boolean if True will use the default selected option
             for the installation
