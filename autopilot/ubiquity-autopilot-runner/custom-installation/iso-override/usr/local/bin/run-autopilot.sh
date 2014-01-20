@@ -34,7 +34,7 @@ echo $$>${LOCKFILE}
 TSBRANCH=lp:ubiquity
 EXTRAPACKAGES=""
 ARTIFACTS=""
-AP_OPTS=""
+AP_OPTS="-vv"
 SHUTDOWN=1
 TIMEOUT=1200  # 20min timeout
 DEBUG=0

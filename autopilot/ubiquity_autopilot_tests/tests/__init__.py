@@ -106,8 +106,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         """
         logger.debug('go_to_next_page(wait={0})'.format(wait))
-        # check no error dialogs before moving on
-        self._check_no_visible_dialogs()
         nxt_button = self.main_window.select_single('GtkButton', name='next')
         nxt_button.click()
 
@@ -262,9 +260,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def edubuntu_addon_window_tests(self, unity=False,
                                     gnome=False, ltsp=False):
-        """
-        Run Page tests for edubuntu addon page
-        """
+        """Run Page tests for edubuntu addon page"""
         self._update_current_step('edubuntu-addon_window')
         self._check_navigation_buttons()
         self._update_page_titles()
@@ -297,9 +293,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons()
 
     def edubuntu_packages_window_tests(self, ):
-        """
-        Run Page tests for edubuntu packages page
-        """
+        """Run Page tests for edubuntu packages page"""
         self._update_current_step('edubuntu-packages_window')
         self._check_navigation_buttons()
         self._update_page_titles()
@@ -309,8 +303,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     def installation_type_page_tests(self, default=False, lvm=False,
                                      lvmEncrypt=False, custom=False):
-        """
-        Runs the tests for the installation type page
+        """Runs the tests for the installation type page
 
         :param default: Boolean if True will use the default selected option
             for the installation
@@ -513,19 +506,29 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         # now lets test typing with the keyboard layout
         entry = keyboard_page.select_single('GtkEntry')
-        with self.keyboard.focused_type(entry) as kb:
-            kb.type(u'Testing keyboard layout')
-            # only test the entry value if we are using english install
-            if self.english_install:
-                self.expectThat(entry.text, Equals(u'Testing keyboard layout'))
-            self.expectThat(entry.text, NotEquals(u''),
-                            "[Page:'{0}'] Expected Entry to contain text "
-                            "after typing but it didn't"
-                            .format(self.current_step))
-            self.expectIsInstance(entry.text, str,
-                                  "[Page:'{0}'] Expected Entry text to be "
-                                  "unicode but it wasnt"
-                                  .format(self.current_step))
+        while True:
+            text = u'Testing keyboard layout'
+            with self.keyboard.focused_type(entry) as kb:
+                kb.type(text)
+                #check entry value is same length as text
+                if len(entry.text) == len(text):
+                    # only test the entry value if we are using english install
+                    if self.english_install:
+                        self.expectThat(entry.text, Equals(text))
+                    self.expectThat(
+                        entry.text, NotEquals(u''),
+                        "[Page:'{0}'] Expected Entry to contain text "
+                        "after typing but it didn't"
+                        .format(self.current_step))
+                    self.expectIsInstance(
+                        entry.text, str,
+                        "[Page:'{0}'] Expected Entry text to be "
+                        "unicode but it wasnt"
+                        .format(self.current_step))
+                    break
+                #delete the entered text before trying again
+                kb.press_and_release('Ctrl+a')
+                kb.press_and_release('Delete')
         # TODO: Test detecting keyboard layout
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
@@ -600,22 +603,31 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             to assertain the percentage complete.
 
         '''
+        #TODO: Remove all these prints once dbus bug is fixed
         logger.debug("run_install_progress_page_tests()")
+        print("run_install_progress_page_tests()")
         #We cant assert page title here as its an external html page
         #Maybe try assert WebKitWebView is visible
+        print("Selecting WebKit")
         webkitwindow = self.main_window.select_single(
             'GtkScrolledWindow', name='webkit_scrolled_window'
         )
+        print("Test webkitwindow visible")
         self.expectThat(webkitwindow.visible, Equals(True))
-
+        print("Webkit window found and is visible")
+        print("Selecting Progress bar")
         progress_bar = self.main_window.select_single('GtkProgressBar',
                                                       name='install_progress')
 
         #Copying files progress bar
+        print("Entering first tracking loop all that will be called "
+              "from here is GtkWindow name = liveinstaller and the "
+              "progressbar")
         self._track_install_progress()
-
+        print("First loop complete waiting for pbar to go back to 0")
         self.assertThat(progress_bar.fraction, Eventually(
             Equals(0.0), timeout=180))
+        print("Now entering the second loop...........")
         #And now the install progress bar
         self._track_install_progress()
 
@@ -696,14 +708,17 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         '''
         logger.debug("_track_install_progress_bar()")
+        print("_track_install_progress()")
+        print("selecting progress bar")
         progress_bar = self.main_window.select_single('GtkProgressBar',
                                                       name='install_progress')
         progress = 0.0
-        # Since we need to sleep to avoid the dbus error
-        # we will catch the progress bar just before 1.0 and wait
-        while progress < 0.99:
+        while progress < 1.0:
+            print("Progressbar = %d" % progress)
             #keep updating fraction value
+            print("Getting an updated pbar.fraction")
             progress = progress_bar.fraction
+            print("Got an updated pbar fraction")
             # lets sleep for longer at early stages then
             # reduce nearer to complete
             if progress < 0.5:
@@ -713,7 +728,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             elif progress < 0.85:
                 time.sleep(1)
             else:
-                time.sleep(0.3)
+                pass
 
             logger.debug('Percentage complete "{0:.0f}%"'
                          .format(progress * 100))
@@ -885,6 +900,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Updating current step to %s" % name)
         self.step_before = self.current_step
         self.current_step = name
+        # Lets print current step
+        print("Current step = {0}".format(self.current_step))
 
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title
