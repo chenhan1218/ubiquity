@@ -506,19 +506,29 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         # now lets test typing with the keyboard layout
         entry = keyboard_page.select_single('GtkEntry')
-        with self.keyboard.focused_type(entry) as kb:
-            kb.type(u'Testing keyboard layout')
-            # only test the entry value if we are using english install
-            if self.english_install:
-                self.expectThat(entry.text, Equals(u'Testing keyboard layout'))
-            self.expectThat(entry.text, NotEquals(u''),
-                            "[Page:'{0}'] Expected Entry to contain text "
-                            "after typing but it didn't"
-                            .format(self.current_step))
-            self.expectIsInstance(entry.text, str,
-                                  "[Page:'{0}'] Expected Entry text to be "
-                                  "unicode but it wasnt"
-                                  .format(self.current_step))
+        while True:
+            text = u'Testing keyboard layout'
+            with self.keyboard.focused_type(entry) as kb:
+                kb.type(text)
+                #check entry value is same length as text
+                if len(entry.text) == len(text):
+                    # only test the entry value if we are using english install
+                    if self.english_install:
+                        self.expectThat(entry.text, Equals(text))
+                    self.expectThat(
+                        entry.text, NotEquals(u''),
+                        "[Page:'{0}'] Expected Entry to contain text "
+                        "after typing but it didn't"
+                        .format(self.current_step))
+                    self.expectIsInstance(
+                        entry.text, str,
+                        "[Page:'{0}'] Expected Entry text to be "
+                        "unicode but it wasnt"
+                        .format(self.current_step))
+                    break
+                #delete the entered text before trying again
+                kb.press_and_release('Ctrl+a')
+                kb.press_and_release('Delete')
         # TODO: Test detecting keyboard layout
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
@@ -593,6 +603,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             to assertain the percentage complete.
 
         '''
+        #TODO: Remove all these prints once dbus bug is fixed
         logger.debug("run_install_progress_page_tests()")
         print("run_install_progress_page_tests()")
         #We cant assert page title here as its an external html page
@@ -702,9 +713,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         progress_bar = self.main_window.select_single('GtkProgressBar',
                                                       name='install_progress')
         progress = 0.0
-        # Since we need to sleep to avoid the dbus error
-        # we will catch the progress bar just before 1.0 and wait
-        while progress < 0.99:
+        while progress < 1.0:
             print("Progressbar = %d" % progress)
             #keep updating fraction value
             print("Getting an updated pbar.fraction")
@@ -719,7 +728,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             elif progress < 0.85:
                 time.sleep(1)
             else:
-                time.sleep(0.3)
+                pass
 
             logger.debug('Percentage complete "{0:.0f}%"'
                          .format(progress * 100))
