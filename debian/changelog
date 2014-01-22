@@ -9,6 +9,8 @@ ubiquity (2.17.4) UNRELEASED; urgency=medium
     thus results in no HPaned widgets getting rendered. (LP: #1260473)
   * Migrate ResizeWidget from HPaned to Paned, and use etched-in Frames
     instead of EventBoxes for better aesthetic appearance of the "handle".
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu46, partman-auto 118ubuntu1, partman-basicmethods 58.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 20 Jan 2014 17:36:22 +0000
 
