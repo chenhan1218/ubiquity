@@ -1,7 +1,8 @@
 ubiquity (2.17.4) UNRELEASED; urgency=medium
 
   [ Lars Uebernickel ]
-  * Limit width of some long labels in prepare and wireless steps.
+  * Limit width of some long labels in prepare and wireless steps. (LP:
+    #1260396)
 
   [ Dimitri John Ledkov ]
   * In the ResizeWidget's, do_draw method, call the Parent's HPaned
