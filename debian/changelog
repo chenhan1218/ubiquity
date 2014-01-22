@@ -1,4 +1,4 @@
-ubiquity (2.17.4) UNRELEASED; urgency=medium
+ubiquity (2.17.4) trusty; urgency=medium
 
   [ Lars Uebernickel ]
   * Limit width of some long labels in prepare and wireless steps. (LP:
@@ -13,7 +13,7 @@ ubiquity (2.17.4) UNRELEASED; urgency=medium
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu46, partman-auto 118ubuntu1, partman-basicmethods 58.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 20 Jan 2014 17:36:22 +0000
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 22 Jan 2014 17:39:57 +0000
 
 ubiquity (2.17.3) trusty; urgency=medium
 
