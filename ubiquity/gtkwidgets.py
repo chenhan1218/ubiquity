@@ -163,6 +163,7 @@ class ResizeWidget(Gtk.HPaned):
         self.new_part.set_size_request(pixels, -1)
 
     def do_draw(self, cr):
+        Gtk.Paned.do_draw(self, cr)
         s1 = self.existing_part.get_allocation().width
         s2 = self.new_part.get_allocation().width
         total = s1 + s2

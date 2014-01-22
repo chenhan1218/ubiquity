@@ -3,6 +3,11 @@ ubiquity (2.17.4) UNRELEASED; urgency=medium
   [ Lars Uebernickel ]
   * Limit width of some long labels in prepare and wireless steps.
 
+  [ Dimitri John Ledkov ]
+  * In the ResizeWidget's, do_draw method, call the Parent's HPaned
+    do_draw method, as it does not appear to be automatically called and
+    thus results in no HPaned widgets getting rendered. (LP: #1260473)
+
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 20 Jan 2014 17:36:22 +0000
 
 ubiquity (2.17.3) trusty; urgency=medium
