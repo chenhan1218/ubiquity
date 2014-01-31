@@ -538,32 +538,13 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
         elif self.frontend == 'kde_ui':
-            log('paint background')
-            # Don't show the background image in v1 accessibility profile.
-            os.setegid(self.gid)
-            os.seteuid(self.uid)
-            path = '/usr/share/wallpapers/kde-default.png'
-            if (os.access(path, os.R_OK) and not 'access=v1' in proc_cmdline):
-                # Draw a background image for the install progress window.
-                from PyQt4.QtCore import Qt
-                from PyQt4 import QtGui
-                a = QtGui.QApplication(sys.argv)
-                root_win = a.desktop()
-                wallpaper = QtGui.QPixmap(path)
-                wallpaper = wallpaper.scaled(
-                    root_win.width(), root_win.height(),
-                    Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
-                palette = QtGui.QPalette()
-                palette.setBrush(root_win.backgroundRole(),
-                                 QtGui.QBrush(wallpaper))
-                root_win.setPalette(palette)
-                root_win.setCursor(Qt.ArrowCursor)
-                a.processEvents()
-                # Force garbage collection so we don't end up with stray X
-                # resources when we kill the X server (LP: #556555).
-                del a
-            os.seteuid(0)
-            os.setegid(0)
+            if not 'access=v1' in proc_cmdline:
+                log('paint background')
+                path = '/usr/share/wallpapers/kde-default.png'
+                extras.append(subprocess.Popen(
+                    ['ubiquity-qtsetbg', path],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
 
             log("add_ubiquity_kdedir")
             add_ubiquity_kdedir()
