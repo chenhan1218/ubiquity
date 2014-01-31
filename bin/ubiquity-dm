@@ -85,6 +85,11 @@ def set_locale():
                     stdout=logfile, stderr=logfile)
 
 
+def add_ubiquity_kdedir():
+    os.environ['KDEDIRS'] = '/usr/share/ubiquity/qt:' + \
+        os.environ.get('KDEDIRS', '')
+
+
 class XStartupError(EnvironmentError):
     pass
 
@@ -560,6 +565,8 @@ EndSection
             os.seteuid(0)
             os.setegid(0)
 
+            log("add_ubiquity_kdedir")
+            add_ubiquity_kdedir()
             log('start kwin')
             wm = subprocess.Popen(
                 'kwin', stdin=null, stdout=logfile, stderr=logfile,
