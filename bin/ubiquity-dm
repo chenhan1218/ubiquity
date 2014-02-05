@@ -11,6 +11,7 @@ import pwd
 import signal
 import subprocess
 import sys
+import sysconfig
 import time
 
 import debconf
@@ -474,10 +475,25 @@ EndSection
                 if ("openbox-lubuntu" not in wm_cmd and
                         "openbox" not in wm_cmd and
                         "gnome-shell" not in wm_cmd):
+                    multiarchdir = os.path.split(
+                        sysconfig.get_config_var('multiarchsubdir'))[-1]
+                    indicators = [
+                        os.path.join('/usr/lib', multiarchdir, i) for i in (
+                            'indicator-application-service',
+                            'indicator-session/indicator-session-service',
+                            'indicator-sound/indicator-sound-service',
+                            'indicator-bluetooth/indicator-bluetooth-service',
+                            'indicator-keyboard-service',
+                            )]
                     extras.append(subprocess.Popen(
                         ['/usr/lib/ubiquity/panel'],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
+                    for indicator in indicators:
+                        extras.append(subprocess.Popen(
+                            [indicator],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges))
 
             if (osextras.find_on_path('nm-applet') and
                     "gnome-shell" not in wm_cmd):
