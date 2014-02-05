@@ -1,4 +1,4 @@
-ubiquity (2.17.5) UNRELEASED; urgency=medium
+ubiquity (2.17.5) trusty; urgency=medium
 
   * Fix loading indicators in ubiquity-dm.
   * Automatic update of included source packages: base-installer
@@ -7,7 +7,7 @@ ubiquity (2.17.5) UNRELEASED; urgency=medium
     172ubuntu1, partman-btrfs 14ubuntu2, partman-lvm 89, partman-
     partitioning 99ubuntu1.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 05 Feb 2014 13:02:15 +0000
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 05 Feb 2014 15:58:14 +0000
 
 ubiquity (2.17.4) trusty; urgency=medium
 
