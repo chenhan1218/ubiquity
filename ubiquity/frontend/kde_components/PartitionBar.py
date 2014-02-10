@@ -33,13 +33,13 @@ def name_from_path(path):
 
 class Partition:
     Colors = [
-        '#47C1CE',
-        '#92BE40',
-        '#F6A944',
-        '#D53A7D',
+        '#448eca',
+        '#a5cc42',
+        '#d87e30',
+        '#ffbdbd',
         ]
 
-    FreeColor = '#AAAAAA'
+    FreeColor = '#777777'
 
     def __init__(self, path, size, fs, name=None):
         self.size = size
@@ -99,14 +99,18 @@ class PartitionsBar(QtGui.QWidget):
             part_width = int(round(trunc_width))
             trunc_width -= part_width
 
-            grad = self._createGradient(idx, part, h)
+            grad, color = self._createGradient(idx, part, h)
 
-            painter.setClipRect(part_x, 0, part_width, h * 2)
-            self._drawPartitionFrame(painter, 0, 0, self.width(), h,
-                QtGui.QBrush(grad))
+            painter.setClipRect(part_x, 0, part_width + 1, self.height())
+            self._drawPartitionFrame(painter, 0, 0, self.width(), h, grad)
             painter.setClipping(False)
 
-            label_x += self._drawLabels(painter, part, label_x, h, grad)
+            if idx > 0:
+                # Draw vertical separator between partitions
+                painter.setRenderHint(QtGui.QPainter.Antialiasing, False)
+                painter.drawLine(part_x, 0, part_x, h - 1)
+
+            label_x += self._drawLabels(painter, part, label_x, h, color)
 
             # set the handle location for drawing later
             if self.resize_part and part == self.resize_part.next:
@@ -118,6 +122,8 @@ class PartitionsBar(QtGui.QWidget):
             self._drawResizeHandle(painter,
                 self.resize_part, resize_handle_x, h)
 
+        painter.setPen(QtCore.Qt.red)
+
     def _createGradient(self, idx, part, h):
         # use the right color for the filesystem
         if part.fs == "free":
@@ -126,18 +132,15 @@ class PartitionsBar(QtGui.QWidget):
             color = Partition.Colors[idx % len(Partition.Colors)]
         color = QtGui.QColor(color)
 
-        mid = color.darker(125)
-        midl = mid.lighter(125)
-
         grad = QtGui.QLinearGradient(QtCore.QPointF(0, 0), QtCore.QPointF(0, h))
 
         if part.fs == "free":
-            grad.setColorAt(.25, mid)
-            grad.setColorAt(1, midl)
+            grad.setColorAt(0, color.darker(150))
+            grad.setColorAt(0.25, color)
         else:
-            grad.setColorAt(0, midl)
-            grad.setColorAt(.75, mid)
-        return grad
+            grad.setColorAt(0, color)
+            grad.setColorAt(.75, color.darker(125))
+        return grad, color
 
     def _drawLabels(self, painter, part, x, h, partColor):
         painter.setPen(QtCore.Qt.black)
@@ -160,14 +163,14 @@ class PartitionsBar(QtGui.QWidget):
             textSize = painter.fontMetrics().size(
                 QtCore.Qt.TextSingleLine, text)
             painter.drawText(
-                x + 20,
+                x + 18,
                 labelY + v_off + textSize.height() / 2, text)
             v_off += textSize.height()
             painter.setFont(infoFont)
             painter.setPen(QtGui.QColor(PartitionsBar.InfoColor))
             width = max(width, textSize.width())
 
-        self._drawPartitionFrame(painter, x, labelY - 4, 15, 15, partColor)
+        self._drawPartitionFrame(painter, x, labelY - 3, 13, 13, partColor)
 
         return width + 40
 
@@ -198,18 +201,15 @@ class PartitionsBar(QtGui.QWidget):
 
         painter.setRenderHint(QtGui.QPainter.Antialiasing, False)
         painter.setPen(QtCore.Qt.black)
-        painter.drawLine(xloc, 0, xloc, h)
+        painter.drawLine(xloc, 0, xloc, h - 1)
 
     def _drawPartitionFrame(self, painter, x, y, w, h, brush):
-        opt = QtGui.QStyleOptionFrame()
-        opt.state = QtGui.QStyle.State_Sunken
-        opt.lineWidth = self.style().pixelMetric(
-            QtGui.QStyle.PM_DefaultFrameWidth, opt, self)
-        opt.rect = QtCore.QRect(x, y, w, h)
-        opt.palette = QtGui.QPalette(self.palette())
-        opt.palette.setBrush(QtGui.QPalette.Base, brush)
-        self.style().drawPrimitive(
-            QtGui.QStyle.PE_PanelLineEdit, opt, painter, self)
+        painter.fillRect(x + 1, y + 1, w - 2, h - 2, brush)
+        painter.setRenderHint(QtGui.QPainter.Antialiasing, True)
+        painter.setPen(self.palette().shadow().color())
+        painter.translate(0.5, 0.5)
+        painter.drawRoundedRect(x, y, w - 1, h - 1, 2, 2)
+        painter.translate(-0.5, -0.5)
 
     def addPartition(self, path, size, fs, name=None):
         partition = Partition(path, size, fs, name=name)
