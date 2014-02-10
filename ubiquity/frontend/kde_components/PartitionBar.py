@@ -85,17 +85,8 @@ class PartitionsBar(QtGui.QWidget):
 
     def paintEvent(self, qPaintEvent):
         painter = QtGui.QPainter(self)
-
-        # used for drawing sunken frame
-        sunkenFrameStyle = QtGui.QStyleOptionFrame()
-        sunkenFrameStyle.state = QtGui.QStyle.State_Sunken
-
         h = self.bar_height
         effective_width = self.width() - 1
-
-        path = QtGui.QPainterPath()
-        path.addRoundedRect(
-            1, 1, self.width() - 2, h - 2, self.radius, self.radius)
 
         part_offset = 0
         label_offset = 0
@@ -117,8 +108,6 @@ class PartitionsBar(QtGui.QWidget):
                 color = Partition.COLORS[idx % len(Partition.COLORS)]
             color = QtGui.QColor(color)
 
-            pal = QtGui.QPalette(color)
-            dark = pal.color(QtGui.QPalette.Dark)
             mid = color.darker(125)
             midl = mid.lighter(125)
 
@@ -132,15 +121,9 @@ class PartitionsBar(QtGui.QWidget):
                 grad.setColorAt(0, midl)
                 grad.setColorAt(.75, mid)
 
-            painter.setPen(QtCore.Qt.NoPen)
-            painter.setBrush(QtGui.QBrush(grad))
             painter.setClipRect(part_offset, 0, pix_size, h * 2)
-            painter.drawPath(path)
-
-            if part_offset > 0:
-                painter.setPen(dark)
-                painter.drawLine(part_offset, 3, part_offset, h - 3)
-
+            self._drawPartitionFrame(painter, 0, 0, self.width(), h,
+                QtGui.QBrush(grad))
             painter.setClipping(False)
 
             draw_labels = True
@@ -173,19 +156,8 @@ class PartitionsBar(QtGui.QWidget):
                     painter.setPen(QtGui.QColor(PartitionsBar.InfoColor))
                     width = max(width, textSize.width())
 
-                painter.setPen(QtCore.Qt.NoPen)
-                painter.setBrush(mid)
-                labelRect = QtGui.QPainterPath()
-                labelRect.addRoundedRect(
-                    label_offset + 1, labelY - 3, 13, 13, 4, 4)
-                painter.drawPath(labelRect)
-
-                sunkenFrameStyle.rect = QtCore.QRect(
-                    label_offset, labelY - 4, 15, 15)
-                self.style().drawPrimitive(
-                    QtGui.QStyle.PE_Frame, sunkenFrameStyle, painter, self)
-                self.style().drawPrimitive(
-                    QtGui.QStyle.PE_Frame, sunkenFrameStyle, painter, self)
+                self._drawPartitionFrame(
+                    painter, label_offset, labelY - 4, 15, 15, mid)
 
                 label_offset += width + 40
 
@@ -195,10 +167,6 @@ class PartitionsBar(QtGui.QWidget):
 
             # increment the partition offset
             part_offset += pix_size
-
-        sunkenFrameStyle.rect = QtCore.QRect(0, 0, self.width(), h)
-        self.style().drawPrimitive(
-            QtGui.QStyle.PE_Frame, sunkenFrameStyle, painter, self)
 
         if self.resize_part and resize_handle_x:
             # draw a resize handle
@@ -232,6 +200,17 @@ class PartitionsBar(QtGui.QWidget):
             painter.setRenderHint(QtGui.QPainter.Antialiasing, False)
             painter.setPen(QtCore.Qt.black)
             painter.drawLine(xloc, 0, xloc, h)
+
+    def _drawPartitionFrame(self, painter, x, y, w, h, brush):
+        opt = QtGui.QStyleOptionFrame()
+        opt.state = QtGui.QStyle.State_Sunken
+        opt.lineWidth = self.style().pixelMetric(
+            QtGui.QStyle.PM_DefaultFrameWidth, opt, self)
+        opt.rect = QtCore.QRect(x, y, w, h)
+        opt.palette = QtGui.QPalette(self.palette())
+        opt.palette.setBrush(QtGui.QPalette.Base, brush)
+        self.style().drawPrimitive(
+            QtGui.QStyle.PE_PanelLineEdit, opt, painter, self)
 
     def addPartition(self, path, size, fs, name=None):
         partition = Partition(path, size, fs, name=name)
