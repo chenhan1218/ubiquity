@@ -119,8 +119,8 @@ class PartitionsBar(QtGui.QWidget):
             part_x += part_width
 
         if self.resize_part and resize_handle_x:
-            self._drawResizeHandle(painter,
-                self.resize_part, resize_handle_x, h)
+            self._drawResizeHandle(
+                painter, self.resize_part, resize_handle_x, h)
 
         painter.setPen(QtCore.Qt.red)
 
@@ -132,7 +132,8 @@ class PartitionsBar(QtGui.QWidget):
             color = Partition.Colors[idx % len(Partition.Colors)]
         color = QtGui.QColor(color)
 
-        grad = QtGui.QLinearGradient(QtCore.QPointF(0, 0), QtCore.QPointF(0, h))
+        grad = QtGui.QLinearGradient(
+            QtCore.QPointF(0, 0), QtCore.QPointF(0, h))
 
         if part.fs == "free":
             grad.setColorAt(0, color.darker(150))
