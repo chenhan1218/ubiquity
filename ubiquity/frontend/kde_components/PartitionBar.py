@@ -32,14 +32,14 @@ def name_from_path(path):
 
 
 class Partition:
-    COLORS = [
+    Colors = [
         '#47C1CE',
         '#92BE40',
         '#F6A944',
         '#D53A7D',
         ]
 
-    FREE_COLOR = '#AAAAAA'
+    FreeColor = '#AAAAAA'
 
     def __init__(self, path, size, fs, name=None):
         self.size = size
@@ -121,9 +121,9 @@ class PartitionsBar(QtGui.QWidget):
     def _createGradient(self, idx, part, h):
         # use the right color for the filesystem
         if part.fs == "free":
-            color = Partition.FREE_COLOR
+            color = Partition.FreeColor
         else:
-            color = Partition.COLORS[idx % len(Partition.COLORS)]
+            color = Partition.Colors[idx % len(Partition.Colors)]
         color = QtGui.QColor(color)
 
         mid = color.darker(125)
