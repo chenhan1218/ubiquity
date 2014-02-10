@@ -88,118 +88,117 @@ class PartitionsBar(QtGui.QWidget):
         h = self.bar_height
         effective_width = self.width() - 1
 
-        part_offset = 0
-        label_offset = 0
-        trunc_pix = 0
+        part_x = 0
+        label_x = 0
+        trunc_width = 0
         resize_handle_x = None
-        for idx, p in enumerate(self.partitions):
-            painter.setRenderHint(QtGui.QPainter.Antialiasing, True)
+        for idx, part in enumerate(self.partitions):
+            # this is done so that even after resizing a partition, the
+            # partitions after it are still drawn draw in the same places
+            trunc_width += (effective_width * float(part.size) / self.diskSize)
+            part_width = int(round(trunc_width))
+            trunc_width -= part_width
 
-            # this is done so that even after resizing, other partitions
-            # draw in the same places
-            trunc_pix += (effective_width * float(p.size) / self.diskSize)
-            pix_size = int(round(trunc_pix))
-            trunc_pix -= pix_size
+            grad = self._createGradient(idx, part, h)
 
-            # use the right color for the filesystem
-            if p.fs == "free":
-                color = Partition.FREE_COLOR
-            else:
-                color = Partition.COLORS[idx % len(Partition.COLORS)]
-            color = QtGui.QColor(color)
-
-            mid = color.darker(125)
-            midl = mid.lighter(125)
-
-            grad = QtGui.QLinearGradient(
-                QtCore.QPointF(0, 0), QtCore.QPointF(0, h))
-
-            if p.fs == "free":
-                grad.setColorAt(.25, mid)
-                grad.setColorAt(1, midl)
-            else:
-                grad.setColorAt(0, midl)
-                grad.setColorAt(.75, mid)
-
-            painter.setClipRect(part_offset, 0, pix_size, h * 2)
+            painter.setClipRect(part_x, 0, part_width, h * 2)
             self._drawPartitionFrame(painter, 0, 0, self.width(), h,
                 QtGui.QBrush(grad))
             painter.setClipping(False)
 
-            draw_labels = True
-            if draw_labels:
-                # draw the labels
-                painter.setPen(QtCore.Qt.black)
-
-                # label vertical location
-                labelY = h + 8
-
-                texts = []
-                texts.append("%s (%s)" % (p.name, p.fs))
-                texts.append("%.01f%% (%s)" % (
-                    float(p.size) / self.diskSize * 100, format_size(p.size)))
-
-                nameFont = QtGui.QFont("arial", 10)
-                infoFont = QtGui.QFont("arial", 8)
-
-                painter.setFont(nameFont)
-                v_off = 0
-                width = 0
-                for text in texts:
-                    textSize = painter.fontMetrics().size(
-                        QtCore.Qt.TextSingleLine, text)
-                    painter.drawText(
-                        label_offset + 20,
-                        labelY + v_off + textSize.height() / 2, text)
-                    v_off += textSize.height()
-                    painter.setFont(infoFont)
-                    painter.setPen(QtGui.QColor(PartitionsBar.InfoColor))
-                    width = max(width, textSize.width())
-
-                self._drawPartitionFrame(
-                    painter, label_offset, labelY - 4, 15, 15, mid)
-
-                label_offset += width + 40
+            label_x += self._drawLabels(painter, part, label_x, h, grad)
 
             # set the handle location for drawing later
-            if self.resize_part and p == self.resize_part.next:
-                resize_handle_x = part_offset
+            if self.resize_part and part == self.resize_part.next:
+                resize_handle_x = part_x
 
-            # increment the partition offset
-            part_offset += pix_size
+            part_x += part_width
 
         if self.resize_part and resize_handle_x:
-            # draw a resize handle
-            part = self.resize_part
-            xloc = resize_handle_x
-            self.resize_loc = xloc
+            self._drawResizeHandle(painter,
+                self.resize_part, resize_handle_x, h)
 
-            painter.setPen(QtCore.Qt.NoPen)
-            painter.setBrush(QtCore.Qt.black)
+    def _createGradient(self, idx, part, h):
+        # use the right color for the filesystem
+        if part.fs == "free":
+            color = Partition.FREE_COLOR
+        else:
+            color = Partition.COLORS[idx % len(Partition.COLORS)]
+        color = QtGui.QColor(color)
 
-            painter.setRenderHint(QtGui.QPainter.Antialiasing, True)
-            # move out so not created every time
-            arrow_offsets = (
-                (0, h / 2 - 1), (4, h / 2 - 1), (4, h / 2 - 3), (8, h / 2),
-                (4, h / 2 + 3), (4, h / 2 + 1), (0, h / 2 + 1))
+        mid = color.darker(125)
+        midl = mid.lighter(125)
 
-            p1 = arrow_offsets[0]
-            if part.size > part.minsize:
-                arrow = QtGui.QPainterPath(
-                    QtCore.QPointF(xloc + -1 * p1[0], p1[1]))
-                for p in arrow_offsets:
-                    arrow.lineTo(xloc + -1 * p[0] + 1, p[1])
-                painter.drawPath(arrow)
+        grad = QtGui.QLinearGradient(QtCore.QPointF(0, 0), QtCore.QPointF(0, h))
 
-            if part.size < part.maxsize:
-                arrow = QtGui.QPainterPath(QtCore.QPointF(xloc + p1[0], p1[1]))
-                for p in arrow_offsets:
-                    arrow.lineTo(xloc + p[0], p[1])
-                painter.drawPath(arrow)
+        if part.fs == "free":
+            grad.setColorAt(.25, mid)
+            grad.setColorAt(1, midl)
+        else:
+            grad.setColorAt(0, midl)
+            grad.setColorAt(.75, mid)
+        return grad
 
-            painter.setRenderHint(QtGui.QPainter.Antialiasing, False)
-            painter.setPen(QtCore.Qt.black)
-            painter.drawLine(xloc, 0, xloc, h)
+    def _drawLabels(self, painter, part, x, h, partColor):
+        painter.setPen(QtCore.Qt.black)
+
+        # label vertical location
+        labelY = h + 8
+
+        texts = []
+        texts.append("%s (%s)" % (part.name, part.fs))
+        texts.append("%.01f%% (%s)" % (
+            float(part.size) / self.diskSize * 100, format_size(part.size)))
+
+        nameFont = QtGui.QFont("arial", 10)
+        infoFont = QtGui.QFont("arial", 8)
+
+        painter.setFont(nameFont)
+        v_off = 0
+        width = 0
+        for text in texts:
+            textSize = painter.fontMetrics().size(
+                QtCore.Qt.TextSingleLine, text)
+            painter.drawText(
+                x + 20,
+                labelY + v_off + textSize.height() / 2, text)
+            v_off += textSize.height()
+            painter.setFont(infoFont)
+            painter.setPen(QtGui.QColor(PartitionsBar.InfoColor))
+            width = max(width, textSize.width())
+
+        self._drawPartitionFrame(painter, x, labelY - 4, 15, 15, partColor)
+
+        return width + 40
+
+    def _drawResizeHandle(self, painter, part, xloc, h):
+        self.resize_loc = xloc
+
+        painter.setPen(QtCore.Qt.NoPen)
+        painter.setBrush(QtCore.Qt.black)
+
+        painter.setRenderHint(QtGui.QPainter.Antialiasing, True)
+        arrow_offsets = (
+            (0, h / 2 - 1), (4, h / 2 - 1), (4, h / 2 - 3), (8, h / 2),
+            (4, h / 2 + 3), (4, h / 2 + 1), (0, h / 2 + 1))
+
+        p1 = arrow_offsets[0]
+        if part.size > part.minsize:
+            arrow = QtGui.QPainterPath(
+                QtCore.QPointF(xloc + -1 * p1[0], p1[1]))
+            for p in arrow_offsets:
+                arrow.lineTo(xloc + -1 * p[0] + 1, p[1])
+            painter.drawPath(arrow)
+
+        if part.size < part.maxsize:
+            arrow = QtGui.QPainterPath(QtCore.QPointF(xloc + p1[0], p1[1]))
+            for p in arrow_offsets:
+                arrow.lineTo(xloc + p[0], p[1])
+            painter.drawPath(arrow)
+
+        painter.setRenderHint(QtGui.QPainter.Antialiasing, False)
+        painter.setPen(QtCore.Qt.black)
+        painter.drawLine(xloc, 0, xloc, h)
 
     def _drawPartitionFrame(self, painter, x, y, w, h, brush):
         opt = QtGui.QStyleOptionFrame()
