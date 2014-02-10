@@ -27,10 +27,6 @@ from PyQt4 import QtCore, QtGui
 from ubiquity.misc import find_in_os_prober, format_size
 
 
-def name_from_path(path):
-    return find_in_os_prober(path) or path.replace('/dev/', '')
-
-
 class Partition:
     Colors = [
         '#448eca',
@@ -48,15 +44,18 @@ class Partition:
         self.index = None
         self.path = path
 
-        if name is None:
-            if fs == 'free':
-                self.name = 'free space'
-            elif fs == 'swap':
-                self.name = 'swap'
-            else:
-                self.name = name_from_path(path)
-        else:
+        if name is not None:
             self.name = name
+            return
+
+        if self.fs != 'linux-swap':
+            # Do not go through find_in_os_prober() for swap: it returns
+            # 'swap', which is not helpful since we show the filesystem anyway.
+            # Better continue to the fallback of showing the partition name.
+            name = find_in_os_prober(path)
+        if not name:
+            name = path.replace('/dev/', '')
+        self.name = '%s (%s)' % (name, fs)
 
 
 class PartitionsBar(QtGui.QWidget):
@@ -65,9 +64,10 @@ class PartitionsBar(QtGui.QWidget):
     ## signals
     partitionResized = QtCore.pyqtSignal(['PyQt_PyObject', 'PyQt_PyObject'])
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, controller=None):
         """ a widget to graphically show disk partitions. """
         QtGui.QWidget.__init__(self, parent)
+        self.controller = controller
         self.partitions = []
         self.bar_height = 20  # should be a multiple of 2
         self.diskSize = 0
@@ -149,9 +149,8 @@ class PartitionsBar(QtGui.QWidget):
         labelY = h + 8
 
         texts = []
-        texts.append("%s (%s)" % (part.name, part.fs))
-        texts.append("%.01f%% (%s)" % (
-            float(part.size) / self.diskSize * 100, format_size(part.size)))
+        texts.append(part.name)
+        texts.append(format_size(part.size))
 
         nameFont = QtGui.QFont("arial", 10)
         infoFont = QtGui.QFont("arial", 8)
@@ -212,6 +211,8 @@ class PartitionsBar(QtGui.QWidget):
         painter.translate(-0.5, -0.5)
 
     def addPartition(self, path, size, fs, name=None):
+        if name is None and fs == 'free' and self.controller:
+            name = self.controller.get_string('partition_free_space')
         partition = Partition(path, size, fs, name=name)
         self.diskSize += size
 
