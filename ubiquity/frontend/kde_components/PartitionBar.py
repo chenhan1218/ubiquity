@@ -32,18 +32,14 @@ def name_from_path(path):
 
 
 class Partition:
-    # colors used to render partition types
-    # 'auto' is used to represent the results of automatic partitioning.
-    filesystemColours = {'auto':        '#509DE8',
-                         'ext2':        '#418DD4',
-                         'ext3':        '#418DD4',
-                         'ext4':        '#418DD4',
-                         'btrfs':       '#418DD4',
-                         'free':        '#FFFFFF',
-                         'linux-swap':  '#FF80E0',
-                         'fat32':       '#C0DAFF',
-                         'fat16':       '#C0DAFF',
-                         'ntfs':        '#888786'}
+    COLORS = [
+        '#47C1CE',
+        '#92BE40',
+        '#F6A944',
+        '#D53A7D',
+        ]
+
+    FREE_COLOR = '#AAAAAA'
 
     def __init__(self, path, size, fs, name=None):
         self.size = size
@@ -105,7 +101,7 @@ class PartitionsBar(QtGui.QWidget):
         label_offset = 0
         trunc_pix = 0
         resize_handle_x = None
-        for p in self.partitions:
+        for idx, p in enumerate(self.partitions):
             painter.setRenderHint(QtGui.QPainter.Antialiasing, True)
 
             # this is done so that even after resizing, other partitions
@@ -115,14 +111,15 @@ class PartitionsBar(QtGui.QWidget):
             trunc_pix -= pix_size
 
             # use the right color for the filesystem
-            if p.fs in Partition.filesystemColours:
-                pColor = QtGui.QColor(Partition.filesystemColours[p.fs])
+            if p.fs == "free":
+                color = Partition.FREE_COLOR
             else:
-                pColor = QtGui.QColor(Partition.filesystemColours['free'])
+                color = Partition.COLORS[idx % len(Partition.COLORS)]
+            color = QtGui.QColor(color)
 
-            pal = QtGui.QPalette(pColor)
+            pal = QtGui.QPalette(color)
             dark = pal.color(QtGui.QPalette.Dark)
-            mid = pColor.darker(125)
+            mid = color.darker(125)
             midl = mid.lighter(125)
 
             grad = QtGui.QLinearGradient(
@@ -155,7 +152,7 @@ class PartitionsBar(QtGui.QWidget):
                 labelY = h + 8
 
                 texts = []
-                texts.append(p.name)
+                texts.append("%s (%s)" % (p.name, p.fs))
                 texts.append("%.01f%% (%s)" % (
                     float(p.size) / self.diskSize * 100, format_size(p.size)))
 
