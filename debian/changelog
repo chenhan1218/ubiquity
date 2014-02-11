@@ -1,3 +1,10 @@
+ubiquity (2.17.6) trusty; urgency=medium
+
+  * Automatic update of included source packages: base-installer
+    1.122ubuntu21, debian-installer-utils 1.104ubuntu1.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 11 Feb 2014 17:41:37 +0000
+
 ubiquity (2.17.5) trusty; urgency=medium
 
   * Fix loading indicators in ubiquity-dm.
