@@ -180,8 +180,11 @@ class Wizard(BaseFrontend):
         self.ui.content_widget.setVisible(False)
 
         if 'UBIQUITY_GREETER' in os.environ:
-            self.ui.setWindowState(
-                self.ui.windowState() ^ QtCore.Qt.WindowFullScreen)
+            self.ui.setWindowFlags(
+                QtCore.Qt.Dialog
+                | QtCore.Qt.CustomizeWindowHint
+                | QtCore.Qt.WindowTitleHint
+                )
 
         self.ui.setWizard(self)
 
