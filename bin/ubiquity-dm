@@ -212,12 +212,6 @@ class DM:
 
         extras = []
         null = open('/dev/null', 'w')
-        try:
-            os.makedirs('/var/log/installer')
-        except OSError as e:
-            # be happy if someone already created the path
-            if e.errno != errno.EEXIST:
-                raise
         log('starting')
 
         signal.signal(signal.SIGUSR1, self.sigusr1_handler)
@@ -705,6 +699,12 @@ def main():
         return 1
     vt, display, username = sys.argv[1:4]
 
+    try:
+        os.makedirs('/var/log/installer')
+    except OSError as e:
+        # be happy if someone already created the path
+        if e.errno != errno.EEXIST:
+            raise
     logfile = open('/var/log/installer/dm', 'w')
     try:
         ret = run(vt, display, username)

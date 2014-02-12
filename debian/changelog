@@ -1,3 +1,9 @@
+ubiquity (2.17.7) trusty; urgency=medium
+
+  * Fix ubiquity-dm to create logfile directory before opening logfile
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 12 Feb 2014 12:39:14 +0000
+
 ubiquity (2.17.6) trusty; urgency=medium
 
   * Automatic update of included source packages: base-installer
