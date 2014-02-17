@@ -52,13 +52,11 @@ class LVMInstallTestCase(UbiquityAutopilotTestCase):
         else:
             self.go_to_progress_page()
 
-        #TODO Uncomment and return timout to 30 if made no difference
-        # this is an attempt at a work around to avoid bug 1267116
-        #self.progress_page_tests()
+        self.progress_page_tests()
         self.assertThat(lambda: self.app.select_single(
             'GtkDialog',
             name='finished_dialog').visible,
-            Eventually(Equals(True), timeout=900))
+            Eventually(Equals(True), timeout=180))
         #XXX: Uncomment if you want to restart after install complete
         ## we need to sleep here to wait for dialog to fully load. It appears
         ## in dbus before its actually visible. As the test has already passed
