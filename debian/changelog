@@ -3,7 +3,7 @@ ubiquity (2.17.8) UNRELEASED; urgency=medium
   * Fix deprecated warnings in nmwidgets.
   * Run test-suite under auto-allocated xvfb-run server.
   * g-i changed return values, thus convert list of integers into
-    bytestring to preserve old logic in item_str.
+    bytestring to preserve old logic in item_str. (LP: #1282640)
   * Launch unity-settings-daemon if available.
   * Automatic update of included source packages: apt-setup
     1:0.80ubuntu6, base-installer 1.143ubuntu1, choose-mirror
