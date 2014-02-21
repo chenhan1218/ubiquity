@@ -1,4 +1,4 @@
-ubiquity (2.17.8) UNRELEASED; urgency=medium
+ubiquity (2.17.8) trusty; urgency=medium
 
   * Fix deprecated warnings in nmwidgets.
   * Run test-suite under auto-allocated xvfb-run server.
@@ -10,7 +10,7 @@ ubiquity (2.17.8) UNRELEASED; urgency=medium
     2.55ubuntu1, debian-installer-utils 1.105ubuntu1, hw-detect
     1.95ubuntu2.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 21 Feb 2014 13:35:40 +0000
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 21 Feb 2014 20:00:50 +0000
 
 ubiquity (2.17.7) trusty; urgency=medium
 
