@@ -1,6 +1,7 @@
 ubiquity (2.17.8) UNRELEASED; urgency=medium
 
   * Fix deprecated warnings in nmwidgets.
+  * Run test-suite under auto-allocated xvfb-run server.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 21 Feb 2014 13:35:40 +0000
 
