@@ -420,8 +420,14 @@ EndSection
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
 
+                usd = '/usr/lib/unity-settings-daemon/unity-settings-daemon'
                 gsd = '/usr/lib/gnome-settings-daemon/gnome-settings-daemon'
-                if osextras.find_on_path(gsd):
+                if osextras.find_on_path(usd):
+                    extras.append(subprocess.Popen(
+                        [usd], stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
+
+                elif osextras.find_on_path(gsd):
                     extras.append(subprocess.Popen(
                         [gsd], stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
