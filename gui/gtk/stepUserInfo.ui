@@ -255,7 +255,6 @@
                 <property name="invisible_char">•</property>
                 <property name="activates_default">True</property>
                 <property name="width_chars">40</property>
-                <property name="placeholder_text">Your name</property>
                 <accessibility>
                   <relation type="labelled-by" target="fullname_label"/>
                 </accessibility>
