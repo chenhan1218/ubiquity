@@ -5,6 +5,10 @@ ubiquity (2.17.8) UNRELEASED; urgency=medium
   * g-i changed return values, thus convert list of integers into
     bytestring to preserve old logic in item_str.
   * Launch unity-settings-daemon if available.
+  * Automatic update of included source packages: apt-setup
+    1:0.80ubuntu6, base-installer 1.143ubuntu1, choose-mirror
+    2.55ubuntu1, debian-installer-utils 1.105ubuntu1, hw-detect
+    1.95ubuntu2.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 21 Feb 2014 13:35:40 +0000
 
