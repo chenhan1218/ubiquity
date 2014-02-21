@@ -52,7 +52,7 @@ class EnglishDefaultInstallTestCase(UbiquityAutopilotTestCase):
             self.ubuntu_one_page_tests()
         else:
             self.go_to_progress_page()
-        
+
         self.progress_page_tests()
         self.assertThat(lambda: self.app.select_single(
             'GtkDialog',
