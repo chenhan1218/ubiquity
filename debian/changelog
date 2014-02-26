@@ -1,4 +1,4 @@
-ubiquity (2.17.9ubuntu1) UNRELEASED; urgency=medium
+ubiquity (2.17.9) UNRELEASED; urgency=medium
 
   [ mpt ]
   * Remove redundant placeholder text from fields on user-entry page (LP:
