@@ -261,7 +261,7 @@ run_tests() {
 
     echo "I: Launching Ubiquity"
     cd $TSEXPORT/autopilot
-    ./run_ubiquity &
+    sudo dbus-launch ubiquity --autopilot &
     sleep 30
     tail_logs /var/log/installer/debug
     for testfile in $(ls -d $spooldir/* 2>/dev/null); do

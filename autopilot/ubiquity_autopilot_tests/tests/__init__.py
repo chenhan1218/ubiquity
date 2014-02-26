@@ -608,13 +608,16 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         print("run_install_progress_page_tests()")
         #We cant assert page title here as its an external html page
         #Maybe try assert WebKitWebView is visible
-        print("Selecting WebKit")
-        webkitwindow = self.main_window.select_single(
-            'GtkScrolledWindow', name='webkit_scrolled_window'
-        )
-        print("Test webkitwindow visible")
-        self.expectThat(webkitwindow.visible, Equals(True))
-        print("Webkit window found and is visible")
+        #
+        # NOTE: disable test to check if webkit view is visible. autopilot
+        #       randomly crashes with LP#1284671 and very often in the QA Lab
+        #print("Selecting WebKit")
+        #webkitwindow = self.main_window.select_single(
+        #    'GtkScrolledWindow', name='webkit_scrolled_window'
+        #)
+        #print("Test webkitwindow visible")
+        #self.expectThat(webkitwindow.visible, Equals(True))
+        #print("Webkit window found and is visible")
         print("Selecting Progress bar")
         progress_bar = self.main_window.select_single('GtkProgressBar',
                                                       name='install_progress')
