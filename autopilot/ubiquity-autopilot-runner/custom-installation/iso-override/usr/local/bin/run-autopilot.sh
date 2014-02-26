@@ -186,6 +186,8 @@ setup_tests() {
     echo "I: Installating additional packages"
     retry_cmd 3 30 sudo apt-get update
     retry_cmd 3 30 sudo apt-get install -yq $PACKAGES $EXTRAPACKAGES
+    echo "I: Purging ubiquity-slideshow"
+    sudo apt-get autoremove --purge -y $(dpkg -l "ubiquity-slideshow-*"|awk '/^ii/ {print $2}')||true
 
     echo "I: Branch $TSBRANCH"
     bzr export $TSEXPORT $TSBRANCH
