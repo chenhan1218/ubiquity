@@ -4,7 +4,10 @@ ubiquity (2.17.9) UNRELEASED; urgency=medium
   * Remove redundant placeholder text from fields on user-entry page (LP:
     #1283047)
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Sat, 22 Feb 2014 11:00:22 +0000
+  [ Tim Lunn ]
+  * Update ubiquity gnome-shell mode for 3.10 (LP: #1284983) 
+ 
+ -- Tim Lunn <tim@feathertop.org>  Wed, 26 Feb 2014 16:59:12 +1100
 
 ubiquity (2.17.8) trusty; urgency=medium
 
