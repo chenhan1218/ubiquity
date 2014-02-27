@@ -72,6 +72,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.addCleanup(os.remove, '/tmp/english_config.ini')
         # always starts with 1 row ('/dev/sda')
         self.part_table_rows = 1
+        self.total_number_partitions = 0
 
     def tearDown(self):
         self._check_no_visible_dialogs()
@@ -424,6 +425,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         else:
             logger.debug("Selecting a random partition config")
             config = random.choice(custom_configs)
+        self.total_number_partitions = len(config) + 1
         for elem in config:
             self._add_new_partition()
 
@@ -822,7 +824,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
         #assert a new row has been added to the partition table
-        total_rows = self._update_table_row_count()
+        total_rows = self._update_table_row_count(config)
         self.assertThat(total_rows, Equals(self.part_table_rows))
         items = tree_view.get_all_items()
         
@@ -913,7 +915,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         # Lets print current step
         print("Current step = {0}".format(self.current_step))
         
-    def _update_table_row_count(self, ):
+    def _update_table_row_count(self, config):
         " Returns number of rows in table"
         
         custom_page = self.main_window.select_single(
@@ -921,7 +923,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
         num = tree_view.get_number_of_rows()
-        if num == self.part_table_rows:
+        if num == self.part_table_rows and num is not self.total_number_partitions:
             timeout = 120
             while True:
                 if num is not self.part_table_rows + 1:
@@ -935,10 +937,13 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                         raise ValueError("No new rows in partition table")
                     else:
                         timeout -= 1
-        self.assertThat(num, Equals(self.part_table_rows + 1))
-            
-        self.part_table_rows = num
-        return num
+                        
+        if num is self.total_number_partitions:
+            return num
+        else:
+            self.assertThat(num, Equals(self.part_table_rows + 1))
+            self.part_table_rows = num
+            return num
     
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title

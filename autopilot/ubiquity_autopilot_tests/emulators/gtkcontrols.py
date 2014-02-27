@@ -320,7 +320,7 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         # return table_dict
         return table_dict
     
-    def get_number_of_rows(self, ):
+    def get_number_of_rows(self, current_number):
         items = self.get_partition_table_dict()
         return len(items)
 
