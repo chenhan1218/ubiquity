@@ -923,15 +923,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         num = tree_view.get_number_of_rows()
         if num == self.part_table_rows:
             timeout = 120
-            t = 0
             while True:
-                if num is not (self.part_table_rows + 1):
+                if num is not self.part_table_rows + 1:
                     time.sleep(1)
-                    t += 1
-                    if t == timeout:
-                        raise ValueError("After 120 seconds no new row was created")
+                    
                     num = tree_view.get_number_of_rows()
-                break
+                    if num is self.part_table_rows + 1:
+                        break
+                    elif not timeout:
+                
+                        raise ValueError("No new rows in partition table")
+                    else:
+                        timeout -= 1
         self.assertThat(num, Equals(self.part_table_rows + 1))
             
         self.part_table_rows = num
