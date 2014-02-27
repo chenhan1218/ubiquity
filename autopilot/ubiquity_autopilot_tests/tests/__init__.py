@@ -426,6 +426,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         else:
             logger.debug("Selecting a random partition config")
             config = random.choice(custom_configs)
+            logger.debug("LENGTH OF CONFIG IS: {0}".format(len(config)))
         
         logger.debug("TOTAL NUMBER OF PARTITIONS IN CONFIG: {0}".format(len(config))
                     )
