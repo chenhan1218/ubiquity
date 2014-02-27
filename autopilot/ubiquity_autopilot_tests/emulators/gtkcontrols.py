@@ -288,8 +288,10 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
             # seem to usually be used for spacing and contain no cells
             if column.accessible_name == '':
                 pass
-            else:    
-                column_names.append(column.accessible_name)
+            else:
+                name = column.accessible_name
+                #remove any spaces in label names
+                column_names.append(name.replace(" ", ""))
         # Create a named tuple using the column headers, which enables access
         # to the column by name
         Columns = namedtuple('Columns', column_names)
