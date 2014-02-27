@@ -70,6 +70,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.english_config.read('/tmp/english_config.ini')
         #delete config at end of test
         self.addCleanup(os.remove, '/tmp/english_config.ini')
+        # always starts with 1 row ('/dev/sda')
+        self.part_table_rows = 1
 
     def tearDown(self):
         self._check_no_visible_dialogs()
@@ -413,6 +415,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                      "load")
         time.sleep(5)  # need to give time for all UI elements to load
         custom_page.create_new_partition_table()
+        #update number of table rows
+        self.part_table_rows = treeview.get_number_of_rows()
         #lets create the partitions from here
         if part_config:
             logger.debug("Setting the given partition config")
@@ -812,18 +816,18 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def _check_partition_created(self, config):
         """ Checks that the partition was created properly
         """
-        #before checking lets just wait a little while to ensure everything
-        # has finished loading, this doesn't affect outcome
-        # the GtkSpinner is unreliable and difficult to track state
-        # lets increase the length of time
-        #TODO: find a better way
-        time.sleep(10)
         logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
+        #assert a new row has been added to the partition table
+        total_rows = self._update_table_row_count()
+        self.assertThat(total_rows, Equals(self.part_table_rows))
         items = tree_view.get_all_items()
+        
+        item_table = tree_view.get_partition_table_dict()
+        
         fsFormat = config['FileSystemType']
         mount_point = config['MountPoint']
         size_obj = config['PartitionSize']
@@ -908,12 +912,23 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.current_step = name
         # Lets print current step
         print("Current step = {0}".format(self.current_step))
-
-    def _update_page_titles(self, ):
-        self.previous_page_title = self.current_page_title
-        self.current_page_title = self.main_window.select_single(
-            'GtkLabel',
-            BuilderName='page_title').label
+        
+    def _update_table_row_count(self, ):
+        " Returns number of rows in table"
+        
+        custom_page = self.main_window.select_single(
+            'GtkAlignment',
+            BuilderName='stepPartAdvanced')
+        tree_view = custom_page.select_single('GtkTreeView')
+        num = tree_view.get_number_of_rows()
+        if num == self.part_table_rows:
+            self.assertThat(num, Eventually(
+                Equals(self.part_table_rows + 1), timeout=120))    
+        else:
+            self.assertThat(num, Equals(self.part_table_rows + 1))
+            
+        self.part_table_rows = num
+        return num
 
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single(
