@@ -426,8 +426,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         else:
             logger.debug("Selecting a random partition config")
             config = random.choice(custom_configs)
+        
+        logger.debug("TOTAL NUMBER OF PARTITIONS IN CONFIG: {0}".format(len(config))
+                    )
         self.total_number_partitions = len(config) + 1
-        logger.debug("TOTAL NUMBER OF PARTITIONS: {0}".format(self.part_table_rows))
+        logger.debug("TOTAL NUMBER OF PARTITIONS TO BE IN TABLE: {0}".format(self.total_number_partitions)
+                    )
         for elem in config:
             self._add_new_partition()
 
