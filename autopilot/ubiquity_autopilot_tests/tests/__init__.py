@@ -929,7 +929,13 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             
         self.part_table_rows = num
         return num
-
+    
+    def _update_page_titles(self, ):
+        self.previous_page_title = self.current_page_title
+        self.current_page_title = self.main_window.select_single(
+            'GtkLabel',
+            BuilderName='page_title').label
+    
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single(
             'GtkLabel',
