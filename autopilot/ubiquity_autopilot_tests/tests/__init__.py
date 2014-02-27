@@ -418,6 +418,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         custom_page.create_new_partition_table()
         #update number of table rows
         self.part_table_rows = treeview.get_number_of_rows()
+        logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
         #lets create the partitions from here
         if part_config:
             logger.debug("Setting the given partition config")
@@ -426,6 +427,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             logger.debug("Selecting a random partition config")
             config = random.choice(custom_configs)
         self.total_number_partitions = len(config) + 1
+        logger.debug("TOTAL NUMBER OF PARTITIONS: {0}".format(self.part_table_rows))
         for elem in config:
             self._add_new_partition()
 
@@ -825,6 +827,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         tree_view = custom_page.select_single('GtkTreeView')
         #assert a new row has been added to the partition table
         total_rows = self._update_table_row_count(config)
+        logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
         self.assertThat(total_rows, Equals(self.part_table_rows))
         items = tree_view.get_all_items()
         
