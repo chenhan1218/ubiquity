@@ -50,24 +50,24 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
             self.custom_partition_page_tests(edubuntuConfig)
         else:
             self.custom_partition_page_tests()
-        self.go_to_next_page(wait=True)
-        self.location_page_tests()
-        self.go_to_next_page()
-        self.keyboard_layout_page_tests()
-        self.go_to_next_page()
-        self.user_info_page_tests('Autopilot', 'password')
-
-        if flavor == 'Ubuntu':
-            self.go_to_next_page()
-            self.ubuntu_one_page_tests()
-        else:
-            self.go_to_progress_page()
-
-        self.progress_page_tests()
-        self.assertThat(lambda: self.app.select_single(
-            'GtkDialog',
-            name='finished_dialog').visible,
-            Eventually(Equals(True), timeout=180))
+        #self.go_to_next_page(wait=True)
+        #self.location_page_tests()
+        #self.go_to_next_page()
+        #self.keyboard_layout_page_tests()
+        #self.go_to_next_page()
+        #self.user_info_page_tests('Autopilot', 'password')
+        #
+        #if flavor == 'Ubuntu':
+        #    self.go_to_next_page()
+        #    self.ubuntu_one_page_tests()
+        #else:
+        #    self.go_to_progress_page()
+        #
+        #self.progress_page_tests()
+        #self.assertThat(lambda: self.app.select_single(
+        #    'GtkDialog',
+        #    name='finished_dialog').visible,
+        #    Eventually(Equals(True), timeout=180))
         #XXX: Uncomment if you want to restart after install complete
         ## we need to sleep here to wait for dialog to fully load. It appears
         ## in dbus before its actually visible. As the test has already passed

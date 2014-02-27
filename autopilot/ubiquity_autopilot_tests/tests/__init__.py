@@ -930,7 +930,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
         num = tree_view.get_number_of_rows()
-        if num == self.part_table_rows and num is not self.total_number_partitions:
+        if num is self.total_number_partitions:
+            return num
+        
+        if num == self.part_table_rows:
             timeout = 120
             while True:
                 if num is not self.part_table_rows + 1:
@@ -945,12 +948,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                     else:
                         timeout -= 1
                         
-        if num is self.total_number_partitions:
-            return num
-        else:
-            self.assertThat(num, Equals(self.part_table_rows + 1))
-            self.part_table_rows = num
-            return num
+        self.assertThat(num, Equals(self.part_table_rows + 1))
+        self.part_table_rows = num
+        return num
     
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title
