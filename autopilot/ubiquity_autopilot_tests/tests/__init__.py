@@ -427,12 +427,15 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             logger.debug("Selecting a random partition config")
             config = random.choice(custom_configs)
             logger.debug("LENGTH OF CONFIG IS: {0}".format(len(config)))
-        
-        logger.debug("TOTAL NUMBER OF PARTITIONS IN CONFIG: {0}".format(len(config))
-                    )
+
+        logger.debug(
+            "TOTAL NUMBER OF PARTITIONS IN CONFIG: {0}".format(len(config))
+        )
         self.total_number_partitions = len(config)
-        logger.debug("TOTAL NUMBER OF PARTITIONS TO BE IN TABLE: {0}".format(self.total_number_partitions)
-                    )
+        logger.debug(
+            "TOTAL NUMBER OF PARTITIONS TO BE IN TABLE: {0}".format(
+                self.total_number_partitions)
+        )
         for elem in config:
             self._add_new_partition()
 
@@ -835,7 +838,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
         self.assertThat(total_rows, Equals(self.part_table_rows))
         items = tree_view.get_all_items()
-        
+
         fsFormat = config['FileSystemType']
         mount_point = config['MountPoint']
         size_obj = config['PartitionSize']
@@ -920,10 +923,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.current_step = name
         # Lets print current step
         print("Current step = {0}".format(self.current_step))
-        
+
     def _update_table_row_count(self, config):
         " Returns number of rows in table"
-        
+
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
@@ -934,33 +937,33 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             # this will take some further work.
             time.sleep(15)
             return num
-        
+
         if num == self.part_table_rows:
-            
+
             timeout = 30
             while True:
                 if num is not self.part_table_rows + 1:
                     time.sleep(1)
-                    
+
                     num = tree_view.get_number_of_rows()
                     if num is self.part_table_rows + 1:
                         break
                     elif not timeout:
-                
+
                         raise ValueError("No new rows in partition table")
                     else:
                         timeout -= 1
-                        
+
         self.assertThat(num, Equals(self.part_table_rows + 1))
         self.part_table_rows = num
         return num
-    
+
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title
         self.current_page_title = self.main_window.select_single(
             'GtkLabel',
             BuilderName='page_title').label
-    
+
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single(
             'GtkLabel',
