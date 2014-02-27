@@ -935,7 +935,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             return num
         
         if num == self.part_table_rows:
-            timeout = 120
+            #TODO put back to 120
+            timeout = 10
             while True:
                 if num is not self.part_table_rows + 1:
                     time.sleep(1)
