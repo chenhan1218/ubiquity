@@ -430,7 +430,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         
         logger.debug("TOTAL NUMBER OF PARTITIONS IN CONFIG: {0}".format(len(config))
                     )
-        self.total_number_partitions = len(config) + 1
+        self.total_number_partitions = len(config)
         logger.debug("TOTAL NUMBER OF PARTITIONS TO BE IN TABLE: {0}".format(self.total_number_partitions)
                     )
         for elem in config:
@@ -936,7 +936,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         
         if num == self.part_table_rows:
             #TODO put back to 120
-            timeout = 10
+            timeout = 120
             while True:
                 if num is not self.part_table_rows + 1:
                     time.sleep(1)
