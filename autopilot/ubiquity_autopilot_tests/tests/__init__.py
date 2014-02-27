@@ -922,10 +922,17 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         tree_view = custom_page.select_single('GtkTreeView')
         num = tree_view.get_number_of_rows()
         if num == self.part_table_rows:
-            self.assertThat(num, Eventually(
-                Equals(self.part_table_rows + 1), timeout=120))    
-        else:
-            self.assertThat(num, Equals(self.part_table_rows + 1))
+            timeout = 120
+            t = 0
+            while True:
+                if num is not (self.part_table_rows + 1):
+                    time.sleep(1)
+                    t += 1
+                    if t == timeout:
+                        raise ValueError("After 120 seconds no new row was created")
+                    num = tree_view.get_number_of_rows()
+                break
+        self.assertThat(num, Equals(self.part_table_rows + 1))
             
         self.part_table_rows = num
         return num
