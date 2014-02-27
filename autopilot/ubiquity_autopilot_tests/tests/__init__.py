@@ -932,11 +932,13 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         tree_view = custom_page.select_single('GtkTreeView')
         num = tree_view.get_number_of_rows()
         if num is self.total_number_partitions:
+            #TODO: assert 'free space' changes to a partition
+            time.sleep(15)
             return num
         
         if num == self.part_table_rows:
             #TODO put back to 120
-            timeout = 120
+            timeout = 30
             while True:
                 if num is not self.part_table_rows + 1:
                     time.sleep(1)
