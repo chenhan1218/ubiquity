@@ -836,8 +836,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.assertThat(total_rows, Equals(self.part_table_rows))
         items = tree_view.get_all_items()
         
-        item_table = tree_view.get_partition_table_dict()
-        
         fsFormat = config['FileSystemType']
         mount_point = config['MountPoint']
         size_obj = config['PartitionSize']
@@ -931,13 +929,14 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
         num = tree_view.get_number_of_rows()
-        if num is self.total_number_partitions:
+        if num == self.total_number_partitions:
             #TODO: assert 'free space' changes to a partition
+            # this will take some further work.
             time.sleep(15)
             return num
         
         if num == self.part_table_rows:
-            #TODO put back to 120
+            
             timeout = 30
             while True:
                 if num is not self.part_table_rows + 1:
