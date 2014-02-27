@@ -814,7 +814,10 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         """
         #before checking lets just wait a little while to ensure everything
         # has finished loading, this doesn't affect outcome
-        time.sleep(7)
+        # the GtkSpinner is unreliable and difficult to track state
+        # lets increase the length of time
+        #TODO: find a better way
+        time.sleep(10)
         logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
             'GtkAlignment',
