@@ -70,6 +70,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.english_config.read('/tmp/english_config.ini')
         #delete config at end of test
         self.addCleanup(os.remove, '/tmp/english_config.ini')
+        # always starts with 1 row ('/dev/sda')
+        self.part_table_rows = 1
+        self.total_number_partitions = 0
 
     def tearDown(self):
         self._check_no_visible_dialogs()
@@ -413,6 +416,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                      "load")
         time.sleep(5)  # need to give time for all UI elements to load
         custom_page.create_new_partition_table()
+        #update number of table rows
+        self.part_table_rows = treeview.get_number_of_rows()
+        logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
         #lets create the partitions from here
         if part_config:
             logger.debug("Setting the given partition config")
@@ -420,6 +426,16 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         else:
             logger.debug("Selecting a random partition config")
             config = random.choice(custom_configs)
+            logger.debug("LENGTH OF CONFIG IS: {0}".format(len(config)))
+
+        logger.debug(
+            "TOTAL NUMBER OF PARTITIONS IN CONFIG: {0}".format(len(config))
+        )
+        self.total_number_partitions = len(config)
+        logger.debug(
+            "TOTAL NUMBER OF PARTITIONS TO BE IN TABLE: {0}".format(
+                self.total_number_partitions)
+        )
         for elem in config:
             self._add_new_partition()
 
@@ -812,15 +828,17 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def _check_partition_created(self, config):
         """ Checks that the partition was created properly
         """
-        #before checking lets just wait a little while to ensure everything
-        # has finished loading, this doesn't affect outcome
-        time.sleep(7)
         logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
         tree_view = custom_page.select_single('GtkTreeView')
+        #assert a new row has been added to the partition table
+        total_rows = self._update_table_row_count(config)
+        logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
+        self.assertThat(total_rows, Equals(self.part_table_rows))
         items = tree_view.get_all_items()
+
         fsFormat = config['FileSystemType']
         mount_point = config['MountPoint']
         size_obj = config['PartitionSize']
@@ -905,6 +923,40 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.current_step = name
         # Lets print current step
         print("Current step = {0}".format(self.current_step))
+
+    def _update_table_row_count(self, config):
+        " Returns number of rows in table"
+
+        custom_page = self.main_window.select_single(
+            'GtkAlignment',
+            BuilderName='stepPartAdvanced')
+        tree_view = custom_page.select_single('GtkTreeView')
+        num = tree_view.get_number_of_rows()
+        if num == self.total_number_partitions:
+            #TODO: assert 'free space' changes to a partition
+            # this will take some further work.
+            time.sleep(15)
+            return num
+
+        if num == self.part_table_rows:
+
+            timeout = 30
+            while True:
+                if num is not self.part_table_rows + 1:
+                    time.sleep(1)
+
+                    num = tree_view.get_number_of_rows()
+                    if num is self.part_table_rows + 1:
+                        break
+                    elif not timeout:
+
+                        raise ValueError("No new rows in partition table")
+                    else:
+                        timeout -= 1
+
+        self.assertThat(num, Equals(self.part_table_rows + 1))
+        self.part_table_rows = num
+        return num
 
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title
