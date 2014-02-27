@@ -20,6 +20,7 @@ from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.tools.compare import expectThat
 from ubiquity_autopilot_tests.emulators import gtkaccessible
 import logging
+import re
 from collections import namedtuple
 logger = logging.getLogger(__name__)
 
@@ -289,9 +290,9 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
             if column.accessible_name == '':
                 pass
             else:
-                name = column.accessible_name
-                #remove any spaces in label names
-                column_names.append(name.replace(" ", ""))
+                #strip all non alpaha chars
+                name = re.sub(r'\W+', '', column.accessible_name)
+                column_names.append(name)
         # Create a named tuple using the column headers, which enables access
         # to the column by name
         Columns = namedtuple('Columns', column_names)
