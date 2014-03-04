@@ -33,6 +33,7 @@ DISKSIZE=12G
 RAMSIZE=2048
 VCPU=2
 REQUIREDPKGS="bsdtar qemu-system-x86 bzr xz-utils cpio"
+SHAREDDIR=""
 OVERRIDEDIR=""
 WORKSPACE="${WORKSPACE:-/tmp/ubiquity.tests}"
 TESTNAME="${TESTNAME:-ubiquity_autopilot_tests.tests.test_english_default}"
@@ -223,7 +224,10 @@ prepare_initrd() {
         mkdir -p $workdir/custom-installation/iso-override/var/local/autopilot
         echo "$TESTNAME" > $workdir/custom-installation/iso-override/var/local/autopilot/testsuites
         [ -f "$TESTCONFIG" ] && cp $TESTCONFIG $workdir/custom-installation/iso-override/var/local/autopilot/config
-
+        if [ -n "$SHAREDDIR" ]; then
+            echo >> $workdir/custom-installation/iso-override/var/local/autopilot/config
+            echo "SHAREDVOL=ubiquity" >> $workdir/custom-installation/iso-override/var/local/autopilot/config
+        fi
         echo "I: Repacking initrd"
         [ -f "$initrd" ] && rm -f $initrd
         find .|cpio --quiet -o -H newc > $initrd
@@ -256,6 +260,7 @@ boot_image() {
     done
     echo "I: Booting image"
 
+    [ -n "$SHAREDDIR" ] && QEMUOPTS="$QEMUOPTS -virtfs local,id=ubiquity,path=${SHAREDDIR},security_model=none,mount_tag=ubiquity"
     $QEMUCMD $QEMUOPTS -drive file=$diskimg,if=virtio -cdrom $isofile -boot d \
         -initrd $initrd -kernel $kernel -append "$cmdline" \
         -serial file:$workdir/ubiquity.ttyS0 \
@@ -292,8 +297,8 @@ tail_logs() {
     done
 }
 
-SHORTOPTS="hdo:S:st:T:"
-LONGOPTS="help,debug,override:,disksize:,sdl,shm,test:,testconfig:"
+SHORTOPTS="hdDo:S:st:T:"
+LONGOPTS="help,debug,shareddir,override:,disksize:,sdl,shm,test:,testconfig:"
 
 TEMP=$(getopt -o $SHORTOPTS --long $LONGOPTS -- "$@")
 eval set -- "$TEMP"
@@ -306,6 +311,9 @@ while true ; do
             usage;;
         -d|--debug)
             set -x
+            shift;;
+        -D|--shareddir)
+            SHAREDDIR=$(readlink -f $BINDIR/../..)
             shift;;
         -o|--override)
             OVERRIDEDIR=$2

@@ -38,6 +38,7 @@ AP_OPTS="-vv"
 SHUTDOWN=1
 TIMEOUT=1200  # 20min timeout
 DEBUG=0
+SHAREDVOL=""
 
 # Custom configuration
 # Do not use the variable TESTBASE because we don't want it to be overridden
@@ -189,8 +190,15 @@ setup_tests() {
     echo "I: Purging ubiquity-slideshow"
     sudo apt-get autoremove --purge -y $(dpkg -l "ubiquity-slideshow-*"|awk '/^ii/ {print $2}')||true
 
-    echo "I: Branch $TSBRANCH"
-    bzr export $TSEXPORT $TSBRANCH
+    if [ -n "$SHAREDVOL" ]; then
+        echo "I: Mounting $SHAREDVOL on $TSEXPORT"
+        mkdir -p $TSEXPORT
+        sudo mount -t 9p -o trans=virtio,access=any $SHAREDVOL $TSEXPORT
+        sudo chmod 777 $TSEXPORT
+    else
+        echo "I: Branch $TSBRANCH"
+        bzr export $TSEXPORT $TSBRANCH
+    fi
 
     if [ -e "$AP_TESTSUITES" ]; then
         (cd $SPOOLDIR; touch $(cat $AP_TESTSUITES))
