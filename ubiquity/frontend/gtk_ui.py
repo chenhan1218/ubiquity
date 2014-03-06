@@ -240,8 +240,6 @@ class Wizard(BaseFrontend):
         self.set_busy_cursor(True)
         atexit.register(set_root_cursor)
 
-        self.laptop = misc.execute("laptop-detect")
-
         # Are we running alongside Orca?
         with open('/proc/cmdline') as fp:
             if 'access=v3' in fp.read():

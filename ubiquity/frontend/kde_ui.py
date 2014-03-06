@@ -265,8 +265,6 @@ class Wizard(BaseFrontend):
 
         self.set_busy_cursor(True)
 
-        self.laptop = misc.execute("laptop-detect")
-
         # set default language
         self.locale = i18n.reset_locale(self)
 
