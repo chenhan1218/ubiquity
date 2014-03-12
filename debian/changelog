@@ -1,15 +1,20 @@
 ubiquity (2.17.9) UNRELEASED; urgency=medium
 
-  [ mpt ]
+  [ Matthew Paul Thomas ]
   * Remove redundant placeholder text from fields on user-entry page (LP:
     #1283047)
 
   [ Tim Lunn ]
-  * Update ubiquity gnome-shell mode for 3.10 (LP: #1284983) 
+  * Update ubiquity gnome-shell mode for 3.10 (LP: #1284983)
 
   [ Colin Watson ]
   * Remove some unused calls to laptop-detect in frontends; it's still used
     in the usersetup plugin.
+
+  [ Aurélien Gâteau ]
+  * Merge lp:~agateau/ubiquity/kde-fix-cropped-greeter-buttons
+   - KDE: Fix cropped button in OEM mode
+   - KDE: improve the OEM panel spacing
 
  -- Tim Lunn <tim@feathertop.org>  Wed, 26 Feb 2014 16:59:12 +1100
 
