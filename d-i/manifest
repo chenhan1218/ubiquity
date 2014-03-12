@@ -19,7 +19,7 @@ partman-base 172ubuntu1
 partman-basicfilesystems 86ubuntu2
 partman-basicmethods 58
 partman-btrfs 14ubuntu2
-partman-crypto 63ubuntu1
+partman-crypto 63ubuntu2
 partman-efi 25ubuntu6
 partman-ext3 80ubuntu1
 partman-jfs 42
