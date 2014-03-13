@@ -1,3 +1,16 @@
+ubiquity (2.17.10) UNRELEASED; urgency=low
+
+  * Set up atk label association for grub boot loader location combo box in
+    advanced partition editor.
+  * Add Super + Alt + S as an activation keystroke for the screen reader
+    profile. This mirrors the same keystroke that can be used to activate the
+    screen reader when in a Unity or GNOME desktop. The Control + S keystroke
+    is still present for transitional purposes, so new users don't need to
+    hunt for new information when they attempt to install trusty. It will be
+    removed in trusty+1.
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Thu, 13 Mar 2014 09:21:43 +1100
+
 ubiquity (2.17.9) trusty; urgency=medium
 
   [ Matthew Paul Thomas ]
