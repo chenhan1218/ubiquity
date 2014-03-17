@@ -27,4 +27,13 @@ log_begin_msg "$DESCRIPTION"
 
 sed -i 's/^%admin.*/%admin ALL=(ALL) NOPASSWD: ALL/' /root/etc/sudoers
 
+# Workaround feature described in LP: #1283619
+SHELL=/bin/sh chroot /root 2>/dev/null <<EOF
+echo
+echo "INFO: Workaround 'tutorial' feature LP: #1283619"
+mkdir -p /home/ubuntu/.cache/unity/
+touch /home/ubuntu/.cache/unity/first_run.stamp
+chown -R 999:999 /home/ubuntu
+EOF
+
 log_end_msg
