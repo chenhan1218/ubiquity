@@ -58,7 +58,6 @@ class CustomInstallTestCase(UbiquityAutopilotTestCase):
         self.user_info_page_tests('Autopilot', 'password')
 
         if flavor == 'Ubuntu':
-            self.go_to_next_page()
             self.ubuntu_one_page_tests()
         else:
             self.go_to_progress_page()

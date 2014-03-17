@@ -22,6 +22,7 @@ import random
 import time
 import configparser
 import unittest
+import subprocess
 
 from testtools.matchers import Equals, NotEquals
 
@@ -591,6 +592,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                        quit_button=False, skip_button=False)
 
     def ubuntu_one_page_tests(self, ):
+        # Only run U1 tests on Ubuntu and is ubiqutiy plugin of U1 is installed
+        if not self.ubuntuone_is_installed():
+            self.go_to_progress_page()
+            return
+        self.go_to_next_page()
         self._update_current_step('stepUbuntuOne')
         self._check_navigation_buttons(continue_button=True, back_button=True,
                                        quit_button=False, skip_button=True)
@@ -733,11 +739,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                                                       name='install_progress')
         progress = 0.0
         while progress < 1.0:
-            print("Progressbar = %d" % progress)
+            #print("Progressbar = %d" % progress)
             #keep updating fraction value
-            print("Getting an updated pbar.fraction")
+            #print("Getting an updated pbar.fraction")
             progress = progress_bar.fraction
-            print("Got an updated pbar fraction")
+            #print("Got an updated pbar fraction")
             # lets sleep for longer at early stages then
             # reduce nearer to complete
             if progress < 0.5:
@@ -749,8 +755,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             else:
                 pass
 
-            logger.debug('Percentage complete "{0:.0f}%"'
-                         .format(progress * 100))
+            #logger.debug('Percentage complete "{0:.0f}%"'
+            #             .format(progress * 100))
 
     def _check_no_visible_dialogs(self, arg=None):
         # lets try grab some dialogs we know of
@@ -1052,3 +1058,21 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                     logger.debug("{0} flavor detected".format(distro))
                     return str(distro)
                 raise SystemError("Could not get distro name")
+
+    def ubuntuone_is_installed(self, ):
+        # Skip this step if the required package is not installed
+        pkg = 'ubiquity-plugin-ubuntuone'
+        cmd = ("dpkg-query -W -f ${Status} %s" % pkg).split()
+        try:
+            logger.debug("Verifying if '%s' is installed." % pkg)
+            out = subprocess.check_output(cmd, stderr=subprocess.DEVNULL)
+            if not out.decode('utf-8').endswith(' installed'):
+                logger.info("Package '%s' is not installed. Skipping step!"
+                            % pkg)
+                return False
+            logger.debug('Ok')
+        except subprocess.CalledProcessError:
+            logger.info("Package '%s' is not installed. Skipping step!" % pkg)
+            return False
+
+        return True
