@@ -395,6 +395,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         :param part_config:
         """
+        part_config = Config1
         self._update_current_step('stepPartAdvanced')
         self._check_navigation_buttons()
         self._update_page_titles()

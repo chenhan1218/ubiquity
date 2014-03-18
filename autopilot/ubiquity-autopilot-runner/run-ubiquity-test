@@ -259,6 +259,7 @@ boot_image() {
         fi
     done
     echo "I: Booting image"
+    echo "I: local ssh port: $SSHPORT"
 
     [ -n "$SHAREDDIR" ] && QEMUOPTS="$QEMUOPTS -virtfs local,id=ubiquity,path=${SHAREDDIR},security_model=none,mount_tag=ubiquity"
     $QEMUCMD $QEMUOPTS -drive file=$diskimg,if=virtio -cdrom $isofile -boot d \
