@@ -14,6 +14,10 @@ ubiquity (2.17.10) UNRELEASED; urgency=low
   * ubiquity-dm: 'indicator-application-service' =>
     'indicator-application/indicator-application-service' (LP: #1297312).
 
+  [ Colin Watson ]
+  * Resolve LABEL= and UUID= entries in /etc/crypttab into real devices
+    before trying to run swapoff and test -b on them (LP: #1296697).
+
  -- Luke Yelavich <themuso@ubuntu.com>  Thu, 13 Mar 2014 09:21:43 +1100
 
 ubiquity (2.17.9) trusty; urgency=medium
