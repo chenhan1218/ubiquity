@@ -499,7 +499,8 @@ EndSection
                         sysconfig.get_config_var('multiarchsubdir'))[-1]
                     indicators = [
                         os.path.join('/usr/lib', multiarchdir, i) for i in (
-                            'indicator-application/indicator-application-service',
+                            'indicator-application/'
+                            'indicator-application-service',
                             'indicator-session/indicator-session-service',
                             'indicator-sound/indicator-sound-service',
                             'indicator-bluetooth/indicator-bluetooth-service',
