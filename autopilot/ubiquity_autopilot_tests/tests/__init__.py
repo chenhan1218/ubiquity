@@ -584,7 +584,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         user_info_page.create_user(username, pwd)
         #TODO: get these working
         if encrypted:
-            user_info_page.encrypt_home_dir()
+            user_info_page.encrypt_home_dir(encrypt=True)
         if autologin:
             user_info_page.set_auto_login()
 

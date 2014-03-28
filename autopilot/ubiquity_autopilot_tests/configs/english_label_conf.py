@@ -134,6 +134,7 @@ def generate_config():
     stepUserInfo["verified_password_label"] = 'Confirm your password:'
     stepUserInfo["hostname_extra_label"] = \
         'The name it uses when it talks to other computers.'
+    stepUserInfo["login_encrypt"] = 'Require my password to log in'
 
     #CREATE STEP UBUNTU 1 CONFIG
     config['stepUbuntuOne'] = {}
