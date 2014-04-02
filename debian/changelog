@@ -3,6 +3,7 @@ ubiquity (2.17.11) UNRELEASED; urgency=medium
   * Drop U1 plugin package (LP: #1300916)
   * Automatic update of included source packages: grub-installer
     1.78ubuntu19.
+  * Fix new pyflakes warnings.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 01 Apr 2014 18:52:18 +0100
 
