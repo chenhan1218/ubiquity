@@ -1,4 +1,4 @@
-ubiquity (2.17.13) UNRELEASED; urgency=medium
+ubiquity (2.17.13) trusty; urgency=medium
 
   * Copy extended attributes to target system (LP: #1302192).
   * Automatic update of included source packages: grub-installer
@@ -7,7 +7,7 @@ ubiquity (2.17.13) UNRELEASED; urgency=medium
   * Remove lots of cruft relating to removed Ubuntu One, webcam, and
     migration-assistant steps.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 09 Apr 2014 14:12:51 +0100
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 09 Apr 2014 22:36:22 +0100
 
 ubiquity (2.17.12) trusty; urgency=medium
 
