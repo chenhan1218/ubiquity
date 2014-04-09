@@ -22,7 +22,6 @@ import random
 import time
 import configparser
 import unittest
-import subprocess
 
 from testtools.matchers import Equals, NotEquals
 
