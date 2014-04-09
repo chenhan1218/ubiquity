@@ -52,8 +52,6 @@ if test "x$UBIQUITY_NO_GTK" = x; then
 	src/mockresolver/Makefile
 	)
 else
-  AC_SUBST(WEBCAM_CFLAGS, [""])
-  AC_SUBST(WEBCAM_LIBS, [""])
   AC_SUBST(PANEL_CFLAGS, [""])
   AC_SUBST(PANEL_LIBS, [""])
   AC_SUBST(WALLPAPER_CFLAGS, [""])

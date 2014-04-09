@@ -82,13 +82,6 @@ src/wallpaper/.deps
 src/wallpaper/.libs
 src/wallpaper/wallpaper
 src/wallpaper/Makefile
-src/webcam/.deps
-src/webcam/.libs
-src/webcam/*.la
-src/webcam/*.lo
-src/webcam/Makefile
-src/webcam/UbiquityWebcam-1.0.gir
-src/webcam/UbiquityWebcam-1.0.typelib
 tests/config.dat*
 tests/debconf-stamp
 tests/debconfdb
@@ -106,6 +99,5 @@ src/Makefile.in
 src/mockresolver/Makefile.in
 src/panel/Makefile.in
 src/wallpaper/Makefile.in
-src/webcam/Makefile.in
 desktop/com.ubuntu.ubiquity.policy
 .idea
