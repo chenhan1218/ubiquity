@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -29,13 +29,13 @@ msgstr "កំពុង​តភ្ជាប់..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "បានបរាជ័យ​ក្នុងការ​តភ្ជាប់ ។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "បាន​តភ្ជាប់។"
 
 #. Type: text
 #. Description
@@ -211,37 +211,37 @@ msgstr "ថត​រូប"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "គណនី​មួយ​ដែល​ត្រូវ​ប្រើ​អ្វី​គ្រប់យ៉ាង​នៅ​លើ​អ៊ូប៊ុនទូ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "កំហុស​ក្នុង​ការ​ចុះឈ្មោះ​គណនី"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "កំហុស​ក្នុង​ការ​ចូល​ទៅ​កាន់​គណនី"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "អ្វី​មួយ​មាន​កំហុស"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">ស្វែងយល់​បន្ថែម</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "ខ្ញុំ​បាន​អាន ហើយ​ទទួល​យក <a href=\"\">លក្ខខណ្ឌ​ប្រើ​ប្រាស់​របស់​ Ubuntu One </a>"
 
 #. Type: text
 #. Description
@@ -250,6 +250,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">ចូល​ទៅ​កាន់​អាសយដ្ឋាន​អ៊ីមែល​ដែល​អ្នក​ប្រើ​ដើម្បី​ចូល​ទៅកាន់​គណនី Ubuntu One "
+"របស់​អ្នក។</span>"
 
 #. Type: text
 #. Description
@@ -258,12 +260,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">ប្រសិនបើ​អ្នក​មិន​ទាន់​មាន​គណនី​ទេ​នោះ, កុំ​បារម្ភ​​យើង​នឹង​បង្កើត​​គណនី​មួយ​សម្រាប់​"
+"អ្នក។</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "អ៊ីមែល Ubuntu One"
 
 #. Type: text
 #. Description
@@ -281,13 +285,13 @@ msgstr "ឈ្មោះ​របស់​អ្នក"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "ពាក្យ​សម្ងាត់​យ៉ាង​ហោច​​ណាស់​មាន​ ៨ តួអក្សរ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "បញ្ចូល​ពាក្យ​សម្ងាត់​ម្ដង​ទៀត"
 
 #. Type: text
 #. Description
@@ -335,13 +339,13 @@ msgstr "រំលង"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "ចូល​ពេល​ក្រោយ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "ចុះ​ឈ្មោះ​ពេលក្រោយ"
 
 #. Type: text
 #. Description
@@ -375,37 +379,37 @@ msgstr "បញ្ជាក់​ពាក្យ​សម្ងាត់"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "កម្មវិធី"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "រូបថត"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "តន្ត្រី"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "ពពក"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "សូម​បញ្ចូល​អ៊ីមែល​របស់​អ្នក៖"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "សូម​ប្រាប់​យើង​ឈ្មោះ​របស់​អ្នក ហើយ​ជ្រើស​ពាក្យ​សម្ងាត់៖"
 
 #. Type: text
 #. Description
@@ -414,6 +418,7 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One ​ជា​គណនី​តែ​មួយ​ដែល​អ្នក​ប្រើ​អាច​ចូល​ទៅ​សេវាកម្ម​ទាំងអស់ និង​តំបន់​បណ្ដាញ​ដែល​ទាក់ទង​នឹង​អ៊ូប៊ុនទូ។"
 
 #. Type: text
 #. Description
@@ -423,6 +428,8 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"ទទួល​បាន​កម្មវិធី​ថ្មី​ពី​មជ្ឈមណ្ឌល​កម្មវិធី, ទុក​ឯកសារ​ពពក​ផ្ទាល់​របស់​អ្នក, ទិញ​​បទ​ពី​ឃ្លាំង​តន្ត្រី, គ្រប់គ្រង​ការ​"
+"ជាវ និង​ការ​ចំណាយ​​របស់​អ្នក - អ្នក​សម្រេច​សេវាកម្ម​ណាមួយ​ដែល​អ្នក​ត្រូវ​ការ។"
 
 #. Type: text
 #. Description
@@ -430,7 +437,7 @@ msgstr ""
 msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
-msgstr ""
+msgstr "ប្រសិនបើ​អ្នក​មាន​អ៊ូប៊ុនទូ​សូម​ចាប់ផ្ដើម​គណនី, ដែល​បច្ចុប្បន្ន​នេះ​ត្រូវ​បាន​ហៅ​ថា​គណនី Ubuntu One ។"
 
 #. Type: text
 #. Description
@@ -439,18 +446,19 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"គ្មាន​ការ​តភ្ជាប់​អ៊ីនធឺណិត។ ដើម្បី​អាច​បង្កើត​គណនី ឬ​ចូល​ទៅ​កាន់ Ubuntu One, អ្នក​ត្រូវ​ភ្ជាប់​អ៊ីនធឺណិត។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "ខ្ញុំ​ជា​អ្នក​ប្រើ​​ Ubuntu One ថ្មី។"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "ខ្ញុំ​បាន​ត្រឡប់​ទៅ​ប្រើ​ Ubuntu One ហើយ​ពាក្យ​សម្ងាត់​របស់​ខ្ញុំ​គឺ៖"
 
 #. Type: text
 #. Description

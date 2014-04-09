@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-04-15 08:24+0000\n"
-"Last-Translator: Chetan Khona <chetan@sumconcepts.com>\n"
+"PO-Revision-Date: 2014-03-07 06:39+0000\n"
+"Last-Translator: Vaibhav S Dalvi <Unknown>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -467,7 +467,7 @@ msgstr "जेंव्हा हा अन्य संगणका सोब�
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "केवळ  १ ते ६३ अक्षरं लांब असायला हवं"
 
 #. Type: text
 #. Description
@@ -479,7 +479,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:69001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "(-) संयोगचिन्हानी सुरु अथवा संपवू नये"
 
 #. Type: text
 #. Description
@@ -553,7 +553,7 @@ msgstr "माझी मुख्य संचयीका कुटलिपी
 msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
-msgstr ""
+msgstr "हे चित्र तुमच्या वापरकर्ता नावाशी संबंधित राहील आणि ते त्याच्या शेजारी दिसेल"
 
 #. Type: text
 #. Description
@@ -562,6 +562,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"आयात करण्यासाठी तुमची कोणतीही खाती निवडा. ह्या खात्यांचे दस्तावेज आणि रचना स्थापना "
+"पूर्ण झाल्यावर उपलब्ध होईल."
 
 #. Type: text
 #. Description
@@ -570,6 +572,7 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"तुम्हाला कोणतेही खाते आयात करायचे नसल्यास कशाचीही निवड करू नका आणि पुढील पानावर जा."
 
 #. Type: text
 #. Description
@@ -588,7 +591,7 @@ msgstr "फाईल्स (${SIZE})"
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "तुम्हाला कुबंतु कुठे स्थापित करायला आवडेल?"
 
 #. Type: text
 #. Description
@@ -602,7 +605,7 @@ msgstr "विभाग तयार करा"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:87001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "_स्थापन करा"
 
 #. Type: title
 #. Description
@@ -628,13 +631,13 @@ msgstr "बूटलोडर प्रतिष्ठापना अपयश�
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
+msgstr "क्षमा करा,चूक झल्या मुळे  बूटलोडर निर्दिष्ट जागे वर स्थापित करता येऊ शकत नाही."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "बूटलोडर स्थापित करण्या साठी वेगळा उपकरण वापरा:"
 
 #. Type: text
 #. Description
@@ -660,13 +663,13 @@ msgstr "प्रतिष्ठापना रद्द करा."
 #. Description
 #: ../ubiquity.templates:96001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "हे तुमच्या संगणकला बूट करण्या साठी असमर्थ करू शकतो"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "तुम्हाला कसा पुढे जायला आवडेल?"
 
 #. Type: title
 #. Description
@@ -949,6 +952,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"प्रस्थापना पूर्ण झाली. तुम्हाला तुमची नवीन प्रस्थापना वापरण्यासाठी संगणक पुन्हा चालू करावा "
+"लागेल."
 
 #. Type: text
 #. Description
@@ -966,7 +971,7 @@ msgstr "प्रणाली प्रतिष्ठापन करत आह
 #. Description
 #: ../ubiquity.templates:144001
 msgid "Finding the distribution to copy..."
-msgstr ""
+msgstr "प्रत करण्यासाठी वितरण शोधत आहे"
 
 #. Type: text
 #. Description
@@ -1007,7 +1012,7 @@ msgstr "प्रतिष्ठापन अपयशी"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 #: ../ubiquity.templates:150001 ../ubiquity.templates:151001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "फाईल्सची हार्डडिस्कवर प्रत तयार करतांना प्रस्थापकामध्ये त्रुटी निर्माण झाली आहे:"
 
 #. Type: error
 #. Description
@@ -1063,7 +1068,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Copying installation logs..."
-msgstr ""
+msgstr "प्रस्थापना नोंदींची प्रत तयार करत आहे..."
 
 #. Type: text
 #. Description
@@ -1331,7 +1336,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "तुम्हाला विभाजकात परत जायचे आहे का?"
 
 #. Type: boolean
 #. Description

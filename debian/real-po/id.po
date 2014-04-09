@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "Mengkaitkan..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "Koneksi gagal."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "Tersambung."
 
 #. Type: text
 #. Description
@@ -212,37 +212,39 @@ msgstr "Ambil Foto"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Satu akun untuk log masuk ke segalanya di Ubuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "Galat saat mendaftarkan akun"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "Galat saat log masuk ke akun"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Ada yang salah"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Pelajari lebih lanjut</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Saya telah membaca dan menerima <a href=\"\">Syarat-syarat penggunaan Ubuntu "
+"One</a>"
 
 #. Type: text
 #. Description
@@ -251,6 +253,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Masukkan alamat surel yang Anda gunakan untuk log masuk "
+"ke akun Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -259,12 +263,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Jika Anda belum memiliki akun, jangan khawatir, kami "
+"akan buatkan untuk Anda.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Surel Ubuntu One"
 
 #. Type: text
 #. Description
@@ -282,13 +288,13 @@ msgstr "Nama Anda"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Kata sandi paling tidak 8 karakter"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "Ketik ulang sandi"
 
 #. Type: text
 #. Description
@@ -337,13 +343,13 @@ msgstr "Lewati"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Log masuk nanti"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Mendaftar nanti"
 
 #. Type: text
 #. Description
@@ -377,37 +383,37 @@ msgstr "Ketik ulang sandi Anda"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Aplikasi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "Foto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Awan"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Silakan ketik surel Anda:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Silakan beri tahu nama Anda dan pilih kata sandi:"
 
 #. Type: text
 #. Description
@@ -416,6 +422,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One adalah satu akun yang Anda dapat gunakan untuk log masuk ke semua "
+"layanan dan situs yang terkait dengan Ubuntu."
 
 #. Type: text
 #. Description
@@ -425,6 +433,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Dapatkan aplikasi baru dari Pusat Perangkat Lunak, simpan berkas di awan "
+"pribadi Anda, beli trek dari Toko Musik, atur pembayaran dan langganan Anda "
+"- Anda tentukan sendiri layanan mana yang Anda butuhkan."
 
 #. Type: text
 #. Description
@@ -433,6 +444,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Jika  Anda telah memiliki akun single sign on Ubuntu, itu yang sekarang "
+"disebut akun Ubuntu One."
 
 #. Type: text
 #. Description
@@ -441,18 +454,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Tidak ada koneksi internet. Agar dapat membuat akun atau log masuk ke Ubuntu "
+"One, Anda perlu tersambung ke internet."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Saya adalah pengguna baru Ubuntu One:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Saya telah memiliki akun Ubuntu One dan kata sandi saya adalah:"
 
 #. Type: text
 #. Description

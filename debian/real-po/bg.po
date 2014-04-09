@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-03-14 01:12+0000\n"
+"PO-Revision-Date: 2014-02-02 21:59+0000\n"
 "Last-Translator: Atanas Kovachki <Unknown>\n"
 "Language-Team: American English <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "Свързване…"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "Връзката се разпадна."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "Връзката е установена."
 
 #. Type: text
 #. Description
@@ -54,7 +54,7 @@ msgstr "Инсталиране"
 #. Description
 #: ../ubiquity.templates:8001
 msgid "Install (OEM mode, for manufacturers only)"
-msgstr "Инсталиране (OEM режим, само за поризводители)"
+msgstr "Инсталиране (OEM режим, само за производители)"
 
 #. Type: text
 #. Description
@@ -104,7 +104,7 @@ msgstr "Пробвайте ${RELEASE}"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "Инсталиране на ${RELEASE}"
+msgstr "Инсталирайте ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -163,7 +163,7 @@ msgstr "Засичане на клавиатурната подредба"
 #. Description
 #: ../ubiquity.templates:21001
 msgid "Detect Keyboard Layout..."
-msgstr "Засичане на клавиатурната подредба"
+msgstr "Засичане на клавиатурната подредба..."
 
 #. Type: text
 #. Description
@@ -181,7 +181,7 @@ msgstr "Следният клавиш има ли го на вашата кла�
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Who are you?"
-msgstr "Кой сте Вие?"
+msgstr "Ти кой си?"
 
 #. Type: text
 #. Description
@@ -211,37 +211,38 @@ msgstr "Заснемане"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Един профил за достъп до всички функции на Убунту"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "Грешка при регистриране на акаунта."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "Грешка при влизане в акаунта."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Нещо е въведено неправилно"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Подробности</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Аз прочетох и приемам <a href=\"\">условията за ползване</a> на Ubuntu One"
 
 #. Type: text
 #. Description
@@ -250,6 +251,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Въведете имейл адресът, който използвате при влизане в "
+"акаунта си за Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -258,12 +261,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Ако все още нямате акаунт, ще бъдете подканени да "
+"създадете нов.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One имейл адрес"
 
 #. Type: text
 #. Description
@@ -281,13 +286,13 @@ msgstr "Вашето име"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Парола, не по-малка от 8 символа"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "Въведете паролата отново"
 
 #. Type: text
 #. Description
@@ -335,13 +340,13 @@ msgstr "Пропусни"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Влез по-късно"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Регистрирай се по-късно"
 
 #. Type: text
 #. Description
@@ -375,37 +380,37 @@ msgstr "Потвърдете паролата"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Приложения"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "Изображения"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Облак"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Моля, въведете имейл адреса си:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Моля, кажете ни вашето име и изберете парола:"
 
 #. Type: text
 #. Description
@@ -414,6 +419,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One е единен акаунт за достъп до всички услуги и сайтове свързани с "
+"Убунту."
 
 #. Type: text
 #. Description
@@ -423,6 +430,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Вземайте нови приложения от Софтуерният център, съхранявайте файлове в "
+"личния си облак, купувайте музика от Музикалният магазин, контролирайте "
+"плащанията и абонаментите си. Вие сами решавате от кои услуги се нуждаете."
 
 #. Type: text
 #. Description
@@ -431,6 +441,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Ако вече имате съществуващ Убунту единен акаунт, този акаунт вече ще се "
+"нарича Ubuntu One акаунт."
 
 #. Type: text
 #. Description
@@ -439,24 +451,26 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Няма връзка с интернет. За да създадете профил или влезте в Ubuntu One, "
+"трябва да се свържете с интернет."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Аз съм нов потребител на Ubuntu One."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Аз вече имам Ubuntu One акаунт и паролата ми е:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Confirm your password:"
-msgstr "Повторете вашата парола:"
+msgstr "Повторете парола си:"
 
 #. Type: text
 #. Description
@@ -493,8 +507,7 @@ msgstr "Не може да започва или завършва с тире."
 #: ../ubiquity.templates:70001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
-"Не може да започва или завършва с точка или да съдържа последователността "
-"\"..\"."
+"Не може да започва или завършва с точка или да съдържа последователност «..»."
 
 #. Type: text
 #. Description
@@ -604,7 +617,7 @@ msgstr "Файлове (${SIZE})"
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Where would you like to install Kubuntu?"
-msgstr "Къде искате да инсталирате Kubuntu?"
+msgstr "Къде искате да инсталирате Кубунту?"
 
 #. Type: text
 #. Description
@@ -618,13 +631,13 @@ msgstr "Подготовка на дяловете"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:87001
 msgid "_Install Now[ action ]"
-msgstr "_Инсталиране сега"
+msgstr "_Инсталирай сега"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Quit the installation?"
-msgstr "Излизане от инсталацията?"
+msgstr "Да спрем ли инсталацията?"
 
 #. Type: text
 #. Description
@@ -636,7 +649,7 @@ msgstr "Наистина ли искате да излезете от инста
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Bootloader install failed"
-msgstr "Инсталирането на стартиращата програма е неуспешно"
+msgstr "Грешка при инсталиране на програмата за начално зареждане"
 
 #. Type: text
 #. Description
@@ -645,20 +658,21 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Възникна грешка и не беше възможно стартиращата програма да се инсталира в "
-"избраното местоположение."
+"Възникна грешка и не бе възможно програмата за начално зареждане да се "
+"инсталира в избраното местоположение."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Choose a different device to install the bootloader on:"
-msgstr "Изберете друг диск, на който да се инсталира стартиращата програма:"
+msgstr ""
+"Изберете друг диск, на който да се инсталира програмата за начално зареждане:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Continue without a bootloader."
-msgstr "Продължаване без програма за начално зареждане."
+msgstr "Продължи без програмата за начално зареждане."
 
 #. Type: text
 #. Description
@@ -667,14 +681,14 @@ msgstr "Продължаване без програма за начално з�
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Трябва ръчно да инсталирате стартираща програма, за да можете да стартирате "
-"${RELEASE}."
+"Трябва ръчно да инсталирате програмата за начално зареждане, за да можете да "
+"стартирате ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95001
 msgid "Cancel the installation."
-msgstr "Отказване на инсталацията."
+msgstr "Отмени инсталацията."
 
 #. Type: text
 #. Description
@@ -686,7 +700,7 @@ msgstr "Ако направите това, компютъра няма да м�
 #. Description
 #: ../ubiquity.templates:97001
 msgid "How would you like to proceed?"
-msgstr "Как искате да продължите?"
+msgstr "Какво искате да направите?"
 
 #. Type: title
 #. Description
@@ -698,19 +712,19 @@ msgstr "Инсталацията завърши"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Continue Testing"
-msgstr "Продължаване на пробването"
+msgstr "Продължи пробването"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:101001
 msgid "Restart Now"
-msgstr "Рестартиране"
+msgstr "Рестартирай"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:102001
 msgid "Shutdown Now"
-msgstr "Изключване сега"
+msgstr "Изключи сега"
 
 #. Type: text
 #. Description
@@ -756,7 +770,7 @@ msgstr "_Екранен разказвач"
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:109001
 msgid "_Keyboard Modifiers"
-msgstr "_Клавишни Модификатори"
+msgstr "_Клавишни модификатори"
 
 #. Type: text
 #. Description
@@ -777,21 +791,21 @@ msgstr "Нова таблица с дялове..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:112001
 msgid "Add..."
-msgstr "Добавяне..."
+msgstr "Добави..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:113001
 msgid "Change..."
-msgstr "Промяна..."
+msgstr "Промени..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:114001
 msgid "Delete"
-msgstr "Изтриване"
+msgstr "Изтрий"
 
 #. Type: text
 #. Description
@@ -800,7 +814,7 @@ msgstr "Изтриване"
 #. Description
 #: ../ubiquity.templates:115001 ../ubiquity.templates:304001
 msgid "Revert"
-msgstr "Връщане"
+msgstr "Върни"
 
 #. Type: text
 #. Description
@@ -877,7 +891,7 @@ msgstr "неизвестно"
 #. Description
 #: ../ubiquity.templates:126001
 msgid "Create partition"
-msgstr "Създаване на дял"
+msgstr "Създай дял"
 
 #. Type: text
 #. Description
@@ -955,7 +969,7 @@ msgstr "Назад"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:137001 ../ubiquity.templates:140001
 msgid "Continue"
-msgstr "Продължаване"
+msgstr "Продължи"
 
 #. Type: text
 #. Description
@@ -969,7 +983,7 @@ msgstr "Свързване"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:139001
 msgid "Stop"
-msgstr "Спиране"
+msgstr "Спри"
 
 #. Type: text
 #. Description
@@ -978,8 +992,8 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Инсталацията завърши. Трябва да рестартирате компютъра, за да използвате "
-"новата инсталация."
+"Инсталирането приключи. За да започнете да използвате новата система ще "
+"трябва да рестартирате компютъра си."
 
 #. Type: text
 #. Description
@@ -1122,13 +1136,13 @@ msgstr "Настройване на целевата система..."
 #. Description
 #: ../ubiquity.templates:155001
 msgid "Configuring system locales..."
-msgstr "Настройване системния locale..."
+msgstr "Настройване на системните локализации..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:156001
 msgid "Configuring apt..."
-msgstr "Конфигуриране на apt..."
+msgstr "Настройване на apt..."
 
 #. Type: text
 #. Description
@@ -1146,7 +1160,7 @@ msgstr "Настройване на клавиатурата..."
 #. Description
 #: ../ubiquity.templates:159001
 msgid "Creating user..."
-msgstr "Създаване на потребител..."
+msgstr "Създаване на потребителя..."
 
 #. Type: text
 #. Description
@@ -1315,7 +1329,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:179001
 msgid "Error copying bluetooth configuration"
-msgstr "Грешка при копирането на bluetooth конфигурацията"
+msgstr "Грешка при копирането на блутут конфигурацията"
 
 #. Type: error
 #. Description
@@ -1325,8 +1339,8 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Възникна грешка при копирането на bluetooth настройките. Инсталацията ще "
-"продължи, но bluetooth конфигурацията ще трябва да се настрои отново в "
+"Възникна грешка при копирането на блутут настройките. Инсталацията ще "
+"продължи, но блутут конфигурацията ще трябва да се настрои отново в "
 "инсталираната система."
 
 #. Type: error
@@ -1509,13 +1523,13 @@ msgstr "Проверка за актуализиран инсталатор"
 #. Description
 #: ../ubiquity.templates:218001
 msgid "Reading package information"
-msgstr "Четене на информация за пакет"
+msgstr "Четене на информацията за пакета"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:219001
 msgid "Updating package information"
-msgstr "Актуализиране на информацията за пакет"
+msgstr "Актуализиране на информацията за пакета"
 
 #. Type: text
 #. Description
@@ -1635,7 +1649,7 @@ msgstr "Парола:"
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Display password"
-msgstr "Показване на паролата"
+msgstr "Покажи паролата"
 
 #. Type: text
 #. Description
@@ -1739,7 +1753,7 @@ msgstr "е включен към електрическата мрежа"
 #. Description
 #: ../ubiquity.templates:253001
 msgid "is connected to the Internet"
-msgstr "е свързан към Интернет"
+msgstr "е свързан към интернет"
 
 #. Type: text
 #. Description
@@ -1777,7 +1791,7 @@ msgstr "Инсталирай този софтуер от трета стран�
 #. Description
 #: ../ubiquity.templates:257001
 msgid "Download updates while installing"
-msgstr "Изтегляне на обновленията докато тече инсталацията"
+msgstr "Изтегли актуализациите докато тече инсталацията"
 
 #. Type: text
 #. Description
@@ -1805,9 +1819,9 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
-"Изберете вашата държава, така че системата правилно да показва вашата "
-"държава, да избере най-близкият подходящ сървър с актуализации и да нагласи "
-"часовника правилно."
+"Изберете вашето местоположение, така че системата да може правилно да "
+"показва мерните единици за вашата държава, да избере най-близкият подходящ "
+"сървър за актуализиране и да нагласи правилно времето и часовият пояс."
 
 #. Type: text
 #. Description
@@ -1819,7 +1833,7 @@ msgstr "Часова зона:"
 #. Description
 #: ../ubiquity.templates:266001
 msgid "Region:"
-msgstr "Регион"
+msgstr "Регион:"
 
 #. Type: text
 #. Description
@@ -1833,7 +1847,7 @@ msgstr "[пишете тук за промяна]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:270001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "Замяна на ${OS} с ${DISTRO}"
+msgstr "Замени ${OS} с ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1843,8 +1857,9 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките ви "
-"${OS} програми, документи, снимки, музика и всички останали файлове."
+"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките ваши "
+"програми в ${OS}, а също така и документите, снимките, музиката и всички "
+"останали файлове."
 
 #. Type: text
 #. Description
@@ -1852,7 +1867,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:271001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr "Инсталиране на ${DISTRO} заедно с ${OS}"
+msgstr "Инсталирай ${DISTRO} заедно с ${OS}"
 
 #. Type: text
 #. Description
@@ -1878,13 +1893,13 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:272001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr "Инсталиране на ${DISTRO} вътре в ${OS}"
+msgstr "Инсталирай ${DISTRO} вътре в ${OS}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:273001
 msgid "Something else"
-msgstr "Нещо друго"
+msgstr "Друг вариант"
 
 #. Type: text
 #. Description
@@ -1902,7 +1917,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:274001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr "Изтриване на ${CURDISTRO} и преинсталиране"
+msgstr "Изтрий ${CURDISTRO} и преинсталирай"
 
 #. Type: text
 #. Description
@@ -1921,7 +1936,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:275001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr "Надграждане на ${CURDISTRO} до ${VER}"
+msgstr "Актуализирай ${CURDISTRO} до ${VER}"
 
 #. Type: text
 #. Description
@@ -1943,7 +1958,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:276001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr "Инсталиране на ${DISTRO} ${VER} заедно с ${CURDISTRO}"
+msgstr "Инсталирай ${DISTRO} ${VER} заедно с ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -1953,7 +1968,7 @@ msgstr "Инсталиране на ${DISTRO} ${VER} заедно с ${CURDISTRO
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:277001 ../ubiquity.templates:280001
 msgid "Erase disk and install ${DISTRO}"
-msgstr "Изчистване на диска и инсталиране на ${DISTRO}"
+msgstr "Изчисти диска и инсталирай ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1962,14 +1977,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Внимание:</span> Това ще изчисти всички файлове "
-"на диска."
+"<span foreground=\"darkred\">Внимание:</span> Това ще изтрие всичките "
+"файлове на диска."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Erase everything and reinstall"
-msgstr "Изчистване на всичко и преинсталиране"
+msgstr "Изчисти всичко и преинсталирай"
 
 #. Type: text
 #. Description
@@ -1989,7 +2004,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:279001
 msgid "Reinstall ${CURDISTRO}"
-msgstr "Преинсталиране на ${CURDISTRO}"
+msgstr "Преинсталирай ${CURDISTRO}"
 
 #. Type: text
 #. Description
@@ -2008,7 +2023,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:281001
 msgid "Install ${DISTRO} alongside them"
-msgstr "Инсталиране на ${DISTRO} заедно с тях"
+msgstr "Инсталирай ${DISTRO} заедно с тях"
 
 #. Type: text
 #. Description
@@ -2066,7 +2081,7 @@ msgstr "След:"
 #. Description
 #: ../ubiquity.templates:288001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr "Криптиране на новата инсталация на Ubuntu за сигурност"
+msgstr "Криптирай файловете на Убунту за повишаване на безопасността"
 
 #. Type: text
 #. Description
@@ -2078,7 +2093,7 @@ msgstr "Вие ще изберете ключът за защита при сл�
 #. Description
 #: ../ubiquity.templates:290001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Използване на LVM с новата инсталация на Ubuntu"
+msgstr "Използване на LVM с новата инсталация на Убунту"
 
 #. Type: text
 #. Description
@@ -2110,14 +2125,14 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
-"Шифроването раздели защитава файлове в случай, че загубите вашия компютър. "
-"При всяко включване ще трябва да въведете ключа за защита."
+"Криптирането на разделите защитава файлове в случай, че загубите компютъра "
+"си. При всяко включване ще трябва да се въвежда ключа за защита."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:295001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr "Файловете извън дяла на Ubuntu няма да бъдат шифровани."
+msgstr "Файловете извън дяла на Убунту няма да бъдат криптирани."
 
 #. Type: text
 #. Description
@@ -2177,7 +2192,7 @@ msgstr "Физически томове:"
 #. Description
 #: ../ubiquity.templates:305001
 msgid "Encrypt this partition (LUKS)"
-msgstr "Шифроване на този раздел (LUKS)"
+msgstr "Криптиране на този раздел (LUKS)"
 
 #. Type: text
 #. Description
@@ -2205,7 +2220,7 @@ msgstr "Управление на логически дялове"
 #. Description
 #: ../ubiquity.templates:309001
 msgid "Encryption options..."
-msgstr "Параметри за шифроване..."
+msgstr "Параметри за криптиране..."
 
 #. Type: title
 #. Description

@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2012-03-10 17:29+0000\n"
-"Last-Translator: Daniel Nylander <yeager@ubuntu.com>\n"
+"PO-Revision-Date: 2014-02-10 10:52+0000\n"
+"Last-Translator: Josef Andersson <Unknown>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "Ansluter..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "Anslutning misslyckades."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "Ansluten."
 
 #. Type: text
 #. Description
@@ -88,8 +88,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Eller om du är redo så kan du installera ${RELEASE} vid sidan om (eller "
-"istället för) ditt nuvarande operativsystem.  Detta bör inte ta så lång tid."
+"Eller, Om du är redo så kan du installera ${RELEASE} vid sidan om (eller "
+"istället för) ditt nuvarande operativsystem.  Det bör inte ta så lång tid."
 
 #. Type: text
 #. Description
@@ -211,37 +211,38 @@ msgstr "Ta ett foto"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Ett konto för att logga in till allt kring Ubuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "Fel vid kontoregistrering"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "Fel vid kontoinloggning"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Något gick fel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Lär dig mer</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Jag har läst och accepterar <a href=\"\">Ubuntu One:s användarvilkor</a>"
 
 #. Type: text
 #. Description
@@ -250,6 +251,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Skriv in e-postadressen du använder för inloggning på "
+"ditt Ubuntu One-konto.</span>"
 
 #. Type: text
 #. Description
@@ -258,12 +261,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Om du inte har ett konto än så är det inga problem, vi "
+"skapar ett åt dig.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One e-post"
 
 #. Type: text
 #. Description
@@ -281,13 +286,13 @@ msgstr "Ditt namn"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Ett lösenord på minst 8 tecken"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "Skriv in lösenord igen"
 
 #. Type: text
 #. Description
@@ -336,13 +341,13 @@ msgstr "Hoppa över"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Logga in senare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Registrera senare"
 
 #. Type: text
 #. Description
@@ -376,37 +381,37 @@ msgstr "Bekräfta lösenordet"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Program"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "Bilder"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Moln"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Ange din e-post:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Ange ditt namn och välj ett lösenord:"
 
 #. Type: text
 #. Description
@@ -415,6 +420,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One är kontot du använder för att logga in på alla Ubuntu-relaterade "
+"tjänster och webbplatser."
 
 #. Type: text
 #. Description
@@ -424,6 +431,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Hämta nya program från Programcentralen, lagra filer i ditt personliga moln, "
+"köp låtar från Musikaffären, lagra din betalningar och prenumerationer - du "
+"bestämmer vilka tjänster du behöver."
 
 #. Type: text
 #. Description
@@ -432,6 +442,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Om du redan har ett existerande Ubuntu-Single sign-on konto kallas det numer "
+"ditt Ubuntu One-konto."
 
 #. Type: text
 #. Description
@@ -440,18 +452,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Det finns ingen internet-anslutning. För att kunna skapa ett konto eller "
+"logga in till Ubuntu One måste du vara ansluten till internet."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Jag är en ny Ubuntu One-användare."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Jag är en återkommande Ubuntu One-användare och mitt lösenord är:"
 
 #. Type: text
 #. Description
@@ -463,13 +477,13 @@ msgstr "Bekräfta ditt lösenord:"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Your computer's name:"
-msgstr "Namnet för din dator:"
+msgstr "Din dators namn:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "The name it uses when it talks to other computers."
-msgstr "Namnet som används när den pratar med andra datorer."
+msgstr "Det namn som används när den pratar med andra datorer."
 
 #. Type: text
 #. Description
@@ -680,7 +694,7 @@ msgstr "Avbryt installationen."
 #. Description
 #: ../ubiquity.templates:96001
 msgid "This may leave your computer unable to boot."
-msgstr "Detta kan dock innebära att din dator inte kan att startas upp."
+msgstr "Detta kan innebära att din dator inte kan att startas upp."
 
 #. Type: text
 #. Description
@@ -698,7 +712,7 @@ msgstr "Installationen är färdig"
 #. Description
 #: ../ubiquity.templates:100001
 msgid "Continue Testing"
-msgstr "Fortsätt testa"
+msgstr "Fortsätt att testa"
 
 #. Type: text
 #. Description
@@ -733,9 +747,9 @@ msgstr ""
 "Vi beklagar; installationsprogrammet kraschade. Efter att du stängt detta "
 "fönster låter vi dig skicka en felrapport med det integrerade "
 "felrapporteringsverktyget. Detta kommer att samla in information om ditt "
-"system och installationsprocessen. Detaljerna kommer att skickas till får "
-"felspårare och en utvecklare kommer att ta itu med problemet så snart som "
-"möjligt."
+"system och installationsprocessen. Detaljerna kommer att skickas till vårt "
+"felrapporteringssystem och en utvecklare kommer att ta itu med problemet så "
+"snart som möjligt."
 
 #. Type: text
 #. Description
@@ -1062,9 +1076,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"Detta händer ofta på grund av en trasig cd/dvd-skiva eller enhet. Det kan "
+"Detta händer ofta på grund av en trasig CD/DVD-skiva eller enhet. Det kan "
 "hjälpa att göra rent skivan, bränna skivan med en lägre hastighet eller att "
-"göra rent linsen i cd/dvd-enheten (rengöringspaket finns ofta tillgängliga "
+"göra rent linsen i CD/DVD-enheten (rengöringspaket finns ofta tillgängliga "
 "hos elektronikleverantörer)."
 
 #. Type: error
@@ -1095,18 +1109,18 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Detta händer ofta på grund av en trasig cd/dvd-skiva eller enhet eller en "
+"Detta händer ofta på grund av en trasig CD/DVD-skiva eller enhet eller en "
 "trasig hårddisk. Det kan hjälpa att rengöra skivan, bränna skivan i lägre "
-"hastighet, rengöra linsen i cd/dvd-enheten (rengöringspaket finns ofta "
-"tilgängliga från elektronikleverantörer), kontrollera huruvida hårddisken är "
-"gammal och behöver ersättas eller att flytta systemet till en miljö med "
+"hastighet, rengöra linsen i CD/DVD-enheten (rengöringspaket finns ofta "
+"tillgängliga från elektronikleverantörer), kontrollera huruvida hårddisken "
+"är gammal och behöver ersättas eller att flytta systemet till en miljö med "
 "lägre temperatur."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:152001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr "Följande fil stämde inte överens med sin källkopia på cd/dvd-skivan:"
+msgstr "Följande fil stämde inte överens med sin källkopia på CD/DVD-skivan:"
 
 #. Type: text
 #. Description
@@ -1244,13 +1258,13 @@ msgstr "Fel vid borttagning av ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Error while installing packages"
-msgstr "Fel vid installation av paket"
+msgstr "Fel vid paketinstallation"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:176001
 msgid "An error occurred while installing packages:"
-msgstr "Ett fel inträffade vid installation av paket:"
+msgstr "Ett fel inträffade vid paketinstallation:"
 
 #. Type: error
 #. Description
@@ -1394,8 +1408,8 @@ msgstr "Stäng de program som använder dessa monteringspunkter."
 #: ../ubiquity.templates:195001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Vill du att installationsprogrammet ska försöka igen att avmontera dessa "
-"partitioner?"
+"Vill du att installationsprogrammet ska försöka att avmontera dessa "
+"partitioner igen?"
 
 #. Type: boolean
 #. Description
@@ -1410,7 +1424,7 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Några av partitionerna som du skapade är för små.  Gör följande partitioner "
+"Några av partitionerna du skapade är för små.  Gör följande partitioner "
 "åtminstone så här stora:"
 
 #. Type: boolean
@@ -1570,7 +1584,7 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Välj det språk som ska användas för installationsprocessen. Detta språk "
+"Välj det språk som ska användas under installationsprocessen. Detta språk "
 "kommer att bli standardspråk för denna dator."
 
 #. Type: text
@@ -1580,8 +1594,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Välj det språk som du vill använda för konfigurationsprocessen. Detta språk "
-"kommer att bli standardspråket för denna dator."
+"Välj det språk som du vill använda under konfigurationsprocessen. Detta "
+"språk kommer att bli standardspråket för denna dator."
 
 #. Type: text
 #. Description
@@ -1615,7 +1629,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Förbereder att installera ${RELEASE}"
+msgstr "Förbereder installation av ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1723,7 +1737,7 @@ msgstr "Dela upp största partitionen"
 #. Description
 #: ../ubiquity.templates:250001
 msgid "For best results, please ensure that this computer:"
-msgstr "För bästa resultat så försäkra dig om att denna dator:"
+msgstr "För bästa resultat, försäkra dig om att denna dator:"
 
 #. Type: text
 #. Description
@@ -1773,7 +1787,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Install this third-party software"
-msgstr "Installera detta tredjepartsprogram"
+msgstr "Installera dessa tredjepartsprogram"
 
 #. Type: text
 #. Description
@@ -2065,7 +2079,7 @@ msgstr "Efter:"
 #. Description
 #: ../ubiquity.templates:288001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr "Kryptera den nya Ubuntu-installationen för ökad trygghet"
+msgstr "För ökad säkerhet, kryptera den nya Ubuntu-installationen"
 
 #. Type: text
 #. Description
@@ -2108,7 +2122,7 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
-"Diskkryptering skyddar dina filer om du skulle bli av med din dator. Den "
+"Diskkryptering skyddar dina filer om du skulle bli av med din dator. Det "
 "kräver att du skriver in en säkerhetsnyckel varje gång datorn startar."
 
 #. Type: text
@@ -2127,7 +2141,7 @@ msgid ""
 msgstr ""
 "<span foreground=\"darkred\">Varning:</span> Om du glömmer bort "
 "säkerhetsnyckeln kommer all data gå förlorad. Om det behövs, skriv ner din "
-"nyckeln och förvara den på en säker plats."
+"nyckel och förvara den på en säker plats."
 
 #. Type: text
 #. Description
@@ -2190,8 +2204,8 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
-"Logisk volymhantering (LVM) låter Ubuntu behandla flera fysiska volymer som "
-"en enda volym."
+"Logisk volymhantering (LVM) tillåter Ubuntu att behandla flera fysiska "
+"volymer som en enda volym."
 
 #. Type: text
 #. Description
@@ -2247,8 +2261,8 @@ msgid ""
 msgstr ""
 "När du startar ditt nya system så kommer du kunna logga in som användaren "
 "\"oem\" med det lösenord du valde tidigare; denna användare har också "
-"administratörsrättigheter med \"sudo\". Du kommer då kunna göra de ändringar "
-"av systemet som du behöver."
+"administratörsrättigheter med \"sudo\". Du kommer då att kunna göra de "
+"ändringar av systemet som du behöver."
 
 #. Type: text
 #. Description

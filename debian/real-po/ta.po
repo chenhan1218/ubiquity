@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2012-03-14 12:53+0000\n"
-"Last-Translator: Barneedhar <barneedhar@gmail.com>\n"
+"PO-Revision-Date: 2014-03-22 10:55+0000\n"
+"Last-Translator: Arun Kumar - அருண் குமார் <thangam.arunx@gmail.com>\n"
 "Language-Team: Tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "இணைக்கப்படுகிறது..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "இணைப்பு தோல்வியுற்றது"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "இணைக்கப்பட்டது"
 
 #. Type: text
 #. Description
@@ -64,6 +64,9 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
+"நீங்க கணினி தயாரிப்பாளர் முறையில் நிறுவுகிறீர்கள். இந்த பருவக் கணினிகளுக்கு ஒரு தனித்த "
+"பெயரை உள்ளிடு. இந்த பெயரானது நிறுவுப்படும் கணினியில் சேமிக்கப்படும், மேலும் இது வழு "
+"அறிக்கை சமர்பிக்க பயன்படும்."
 
 #. Type: text
 #. Description
@@ -74,6 +77,8 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
+"இந்த ${MEDIUM} வட்டை பயன்படுத்தி, கணினியில் எந்த மாற்றத்தையும் செய்யாமல் நீங்கள் "
+"${RELEASE} ஐ பயன்படுத்த முடியும்"
 
 #. Type: text
 #. Description
@@ -83,6 +88,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
+"அல்லது நீங்கள் தறாராக இருந்தால் , ${RELEASE} இதே நேரத்தில் தற்போதுள்ள இயங்கு தளத்துடன் "
+"இதையும் நிறுவ முடியும். இது அதிக நேரம் எடுக்காது."
 
 #. Type: text
 #. Description
@@ -105,18 +112,21 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
+"நீங்கள் <a href=\"release-notes\">வெளியீட்டு குறிப்புகளை படிக்க</a> அல்லது <a href="
+"\"update\">இந்த நிறுவலை புதுப்பிக்க விரும்பலாம்</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
+"நீங்கள் <a href=\"release-notes\">வெளியீட்டு குறிப்புகளை படிக்க விரும்பலாம்</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "நீங்கள் <a href=\"update\"> இந்த நிறுவலை புதுப்பிக்க விரும்பலாம்</a> ."
 
 #. Type: text
 #. Description
@@ -158,13 +168,13 @@ msgstr "விசைப்பலகையின் அமைப்பைக் �
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Please press one of the following keys:"
-msgstr ""
+msgstr "பின்வரும் விசைகளில் ஒன்றை அழுத்துங்கள்:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Is the following key present on your keyboard?"
-msgstr ""
+msgstr "பின்வரும் விசை உங்களுடைய தட்டச்சு பலகையில் இருக்கிறதா?"
 
 #. Type: text
 #. Description
@@ -200,37 +210,38 @@ msgstr "புகைப்படத்தை எடுக்கவும்"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "ஒரே கணக்கின் மூலம் உபுண்டுவின் அனைத்து பயன்பாடுகளிலும் உள்நுழையலாம்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "கணக்கை பதிவதில் பிழை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "கணக்கில் உள்நுழைவதில் பிழை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "ஏதோ தவறாகிவிட்டது"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">மேலும் படிக்க</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"நான் <a href=\"\">உபுண்டு ஒன்றின் பயன்பாட்டு விதிமுறைகளை படித்து ஏற்றுக்கொண்டேன்</a>"
 
 #. Type: text
 #. Description
@@ -239,6 +250,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">உங்களுடைய உபுண்டுஒன் கணக்கின் உள்நுழைவுக்கான மின்னஞ்சல் முகவரியை "
+"உள்ளிடு.</span>"
 
 #. Type: text
 #. Description
@@ -247,12 +260,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">உங்களுக்கு இதுவரையில் கணக்கு இல்லையென்றால் பரவாயில்லை, நாங்கள் "
+"ஒரு கணக்கை உருவாக்குகிறோம்.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "உபுண்டு ஒன் மின்னஞ்சல்"
 
 #. Type: text
 #. Description
@@ -270,13 +285,13 @@ msgstr "உங்கள் பெயர்"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "குறைந்தது 8 எழுத்துக்களை கொண்ட கடவுச்சொல்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மீண்டும் தட்டவும்"
 
 #. Type: text
 #. Description
@@ -297,18 +312,20 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;இந்த கணினியை ஒன்றிற்கும் மேற்ப்பட்ட பயனர்கள் பயன்படுத்துவதாக இருந்தால், "
+"நிறுவிய பிறகு பல கணக்குகளை அமைத்துக்கொள்ள முடியும்.&lt;/small&gt;"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Must start with a lower-case letter."
-msgstr ""
+msgstr "கண்டிப்பாக சிறிய எழுத்துகளைக் கொண்டு தொடங்க வேண்டும்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr ""
+msgstr "சறிய எழுத்துக்கள், எண்கள், - , மற்றும் _ குறிகளை மட்டுமே கொண்டிருக்க வேண்டும்."
 
 #. Type: text
 #. Description
@@ -322,13 +339,13 @@ msgstr "தவிர்க"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "பின்னர் உள்நுழையவும்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "பிறகு பதியவும்"
 
 #. Type: text
 #. Description
@@ -343,6 +360,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt; உங்களுடைய கடவுச்சொல்லை இரண்டுமுறை தட்டவும், எனவேதான் தட்டும் போது "
+"ஏற்படும் பிழையை கண்டுபிடிக்க முடியும்.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -360,37 +379,37 @@ msgstr "கடவுச்சொல்லை உறுதி செய்"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "பயன்பாடுகள்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "புகைப்படங்கள்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "இசை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "மேகக்கணிமை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "தயவுச்செய்து உங்களுடைய  மின்னஞ்சலை தட்டு:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "தயவுச்செய்து உங்களுடைய பெயரை எங்களுக்கு சொல் ஒரு கடவுச்சொல்லை தேர்ந்தெடு:"
 
 #. Type: text
 #. Description
@@ -399,6 +418,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"உபுண்டு ஒன்றின் ஒரு கணக்கை வைத்து உபுண்டுவின் அனைத்து இணைய சேவைகளிலும் உளநுழைய "
+"முடியும்."
 
 #. Type: text
 #. Description
@@ -408,6 +429,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"மென்பொருள் மையத்திலிருந்து புதிய பயன்பாடுகளை பெற, கோப்புகளை தனிப்பட்ட மேக்கணினியில் "
+"சேமிக்க, இசைகளை வாங்க, உங்களுடைய பணம் செலுத்தல் முறைகளை நிர்வகிக்க மற்றும் சந்தாப்படுத்த "
+"- உங்களுக்கு எந்த சேவை வேண்டும் என்பதை முடிவு செய்யுங்கள்."
 
 #. Type: text
 #. Description
@@ -416,6 +440,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"உங்களிடம் ஒற்றை உள்நுழைவு கணக்கு இருந்தால் அதவே உங்களுடைய உபுண்டு ஒன்றின் பிரதான "
+"கணக்காகும்."
 
 #. Type: text
 #. Description
@@ -424,18 +450,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"இங்கே இணைய இணைப்பு இல்லை. இணையத்துடன் இணைந்திருந்தால் மட்டுமே ஒரு கணக்கை உருவாக்கவோ "
+"அல்லது உபுண்டு ஒன்றில் உள்நுழையவோ முடியும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "நான் உபுண்டு ஒன்றின் புதிய பயனர்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "நான் உபுண்டு ஒன்றிற்கு திரும்பும் பயனர் மேலும் என்னுடைய கடவுச்சொல்:"
 
 #. Type: text
 #. Description
@@ -453,37 +481,37 @@ msgstr "உங்கள் கணினி பெயர்"
 #. Description
 #: ../ubiquity.templates:66001
 msgid "The name it uses when it talks to other computers."
-msgstr ""
+msgstr "இது மற்ற கணினிகளி்டையே பேசும்போது இது பயன்படுதும் பெயர்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Must be between 1 and 63 characters long."
-msgstr ""
+msgstr "கண்டிப்பாக 1-63 எழுத்துகளாவது இருத்தல் வேண்டும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:68001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
+msgstr "எழுத்துக்கள், எண்கள், -, மற்றும் . மட்டுமே இருத்தல் வேண்டும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "May not start or end with a hyphen."
-msgstr ""
+msgstr "பெரும்பான்மையானவை தொடக்கத்தில் இல்லது இறுதியில் - உடன் இருக்காது."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
-msgstr ""
+msgstr "தொடக்கத்தில் அல்லது இறுதியில் . உடனே அல்லது \"..\" உடனே இருக்காது."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
+msgstr "வழுநீக்கல் முறையில் நீங்கள் இயக்குகிறீர்கள். பயனுள்ள கடவுச்சொல்லை பயன்படுத்தாதீர்கள்!"
 
 #. Type: text
 #. Description
@@ -531,13 +559,13 @@ msgstr "தானியங்கியாக உள்நுழையவும�
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Require my password to log in"
-msgstr ""
+msgstr "உள்நுழைய என்னுடைய கடவுச்சொல் தேவைப்படுகிறது"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:80001
 msgid "Encrypt my home folder"
-msgstr ""
+msgstr "என்னுடைய இல்ல அடைவை மறைகுறியாக்கவும்"
 
 #. Type: text
 #. Description
@@ -546,6 +574,8 @@ msgid ""
 "This picture will be associated with your user name and displayed alongside "
 "it at times."
 msgstr ""
+"இந்த புகைப்படம் உங்களுடைய பயனர் பெயருடன் இணைந்துள்ளது அது தேவைப்படும் நேரத்தில் பக்கத்தில் "
+"தோன்றும்."
 
 #. Type: text
 #. Description
@@ -554,6 +584,8 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
+"நீங்க விரும்பும் எந்த கணக்கையும் தேர்வு செய்து இறக்குமதி செய்யவும். இந்த கணக்குக்கான ஆவணங்கள் "
+"மற்றும் அமைப்புகள் நிறுவியப்பிறகு அப்படியே கிடைக்கும்."
 
 #. Type: text
 #. Description
@@ -562,6 +594,8 @@ msgid ""
 "If you do not wish to import any accounts, select nothing and go to the next "
 "page."
 msgstr ""
+"நீங்க எந்த கணக்கையும் இறக்கமதி செய்யவில்லை என்றால், எதையும் தேர்வு செய்யாமல் அடுத்த "
+"பக்கத்திற்கு செல்லவும்."
 
 #. Type: text
 #. Description
@@ -580,7 +614,7 @@ msgstr "ஆவணங்கள்"
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "கேபுண்டுவை எங்க நிறுவ விரும்புகிறீர்கள்?"
 
 #. Type: text
 #. Description
@@ -594,7 +628,7 @@ msgstr "பகிர்வுகளை தயாரி"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:87001
 msgid "_Install Now[ action ]"
-msgstr ""
+msgstr "இப்போது _நிறுவவா[ செயல்]"
 
 #. Type: title
 #. Description
@@ -612,7 +646,7 @@ msgstr "நீங்கள் கண்டிப்பாக தற்பொழ�
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Bootloader install failed"
-msgstr ""
+msgstr "துவக்க ஏற்றியை நிறுவுவதில் தோல்வியுற்றது"
 
 #. Type: text
 #. Description
@@ -621,18 +655,19 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
+"மன்னிக்கவும், பிழை நேர்ந்தது இந்த துவக்க ஏற்றிறை குறிப்பட்ட இடத்தில் நிறுவ இயலவில்லை."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:92001
 msgid "Choose a different device to install the bootloader on:"
-msgstr ""
+msgstr "இன்னொரு சாதனத்தை தெரிவுச்செய்து துவக்க ஏற்றியை நிறுவவும்:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Continue without a bootloader."
-msgstr ""
+msgstr "துவக்க ஏற்றி இல்லாமல் தொடரவும்."
 
 #. Type: text
 #. Description
@@ -640,7 +675,7 @@ msgstr ""
 #: ../ubiquity.templates:94001
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
-msgstr ""
+msgstr "${RELEASE} ஐ தொடங்க துவக்க ஏற்றியை கைமுறையாக நீங்கள் நிறுவ வேண்டும்."
 
 #. Type: text
 #. Description
@@ -652,13 +687,13 @@ msgstr "நிறுவலை ரத்து செய்யவும்."
 #. Description
 #: ../ubiquity.templates:96001
 msgid "This may leave your computer unable to boot."
-msgstr ""
+msgstr "இது உங்கள் கணினியை துவக்க இயலாததாக விட்டுவிடலாம்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "How would you like to proceed?"
-msgstr ""
+msgstr "நீங்கள் எப்படி தொடர வேண்டும் என விரும்புகிறீர்கள்?"
 
 #. Type: title
 #. Description
@@ -690,7 +725,7 @@ msgstr "முழுநிறுத்தம் செய்க"
 #. Description
 #: ../ubiquity.templates:104001 ../ubiquity.templates:105001
 msgid "Installer crashed"
-msgstr ""
+msgstr "நிறுவி நிலைகுலைந்தது"
 
 #. Type: text
 #. Description
@@ -702,41 +737,46 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"எங்களை மன்னிக்கவும்; நிறுவி செயலிழந்தது. நீங்கள் இந்த சாளரத்தை மூடிய பிறகு இதனுடன் "
+"உள்ளினைந்த வழுநீக்க கருவியை பயன்டுத்தி வழுநீக்க அறிக்கையை சமர்பிக்கவும். இது உங்களுடைய "
+"கணினி மற்றும் நிறுவல் செயற்பாட்டின் தகவல்களை சேகரிக்கும். வழூநீக்கியானது பிழை கண்காணிப்பு "
+"தளத்திற்கு தகவலை அனுப்பிய பிறகு  உருவாக்னர் இதை ஆராய்ந்து பிரச்சனையை உடனுக்குடன் தீர்க்க "
+"இயலும்."
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:107001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_உச்ச வெளிச்சம்"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:108001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_திரை வாசப்பான்கள்"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:109001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "_விசைப்பலகை மாற்றிகள்"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:110001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "_திரை தட்டச்சு பலகை"
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:111001
 msgid "New Partition Table..."
-msgstr ""
+msgstr "புதிய வன்தட்டு பிரிவு அட்டவணை..."
 
 #. Type: text
 #. Description
@@ -794,14 +834,14 @@ msgstr "வகை"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:119001
 msgid "Mount point"
-msgstr ""
+msgstr "ஏற்றப்புள்ளி"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:120001
 msgid "Format?"
-msgstr ""
+msgstr "மறுசீராக்கம்"
 
 #. Type: text
 #. Description
@@ -823,14 +863,14 @@ msgstr "பயன்படுத்தப்பட்ட அளவு"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:123001
 msgid "System"
-msgstr ""
+msgstr "கணினி"
 
 #. Type: text
 #. Description
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:124001
 msgid "free space"
-msgstr ""
+msgstr "வெற்றிடம்"
 
 #. Type: text
 #. Description
@@ -849,19 +889,19 @@ msgstr "பகிர்வை உருவாக்கு"
 #. Description
 #: ../ubiquity.templates:127001
 msgid "Size:"
-msgstr ""
+msgstr "அளவு:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "இந்த இடத்தின் தொடக்கத்திலிருந்து"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "End of this space"
-msgstr ""
+msgstr "இந்த இடத்தின் முடிவில்"
 
 #. Type: text
 #. Description
@@ -902,6 +942,8 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
+"நிறுவல் முடிவடைந்தது. நீங்கள் இப்போது ${RELEASE} ஐ தொடர்ந்து சோதிக்கலாம், கணினி "
+"மீள்துவக்கம் செய்யும்வரை, நீங்கள் செய்யும் மாற்றங்கள் உருவாக்கும் ஆவணங்கள் நிலைத்திருக்காது."
 
 #. Type: text
 #. Description
@@ -941,12 +983,14 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
+"நிறுவல் முடிவடைந்தது.  நிறுவிய கணினியை பயனபடுத்த நீங்கள் கணினியை மீள்துவக்கம் செய்ய "
+"வேண்டும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Verifying the installation configuration..."
-msgstr ""
+msgstr "நிறுவிய அமைப்புகளை சரிபார்க்கிறது..."
 
 #. Type: title
 #. Description
@@ -970,7 +1014,7 @@ msgstr "கோப்புகள் நகலெடுக்கப்படு�
 #. Description
 #: ../ubiquity.templates:147001
 msgid "Almost finished copying files..."
-msgstr ""
+msgstr "ஏறக்குறைய கோப்புகளின் நகலேடுப்பு முடிந்நதது..."
 
 #. Type: error
 #. Description
@@ -999,7 +1043,7 @@ msgstr "நிறுவுதல் தோல்வியுற்றது"
 #: ../ubiquity.templates:148001 ../ubiquity.templates:149001
 #: ../ubiquity.templates:150001 ../ubiquity.templates:151001
 msgid "The installer encountered an error copying files to the hard disk:"
-msgstr ""
+msgstr "நிறுவியானது கோப்புகளை வன்தட்டில் நகலெடுக்கும் பொருட்டு பிழைகளை சந்தித்துள்ளது:"
 
 #. Type: error
 #. Description
@@ -1009,6 +1053,9 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
+"இது ஏனென்றால் நிறுவிக்கு தேவையான காலியிடம் வன்தட்டின் பிரிக்கப்பட்ட பகுதியில் "
+"இருந்திருக்காது. தயவுச்செய்து நிறுவியை மீண்டும் இயக்கி ஒரு பெரிய பிரவினை பகுதியை "
+"தேர்ந்தெடுத்து அதில் நிறுவவும்."
 
 #. Type: error
 #. Description
@@ -1018,6 +1065,9 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
+"இது சில சமயங்களில் பலுதான CD/DVD தட்டுகள் இல்லது இயக்கிகளால் ஏற்படும். இது CD/DVD ஐ "
+"சுத்தம் செய்ய அல்லது மெதுவாக CD/DVD ஐ எழுத அல்லது CD/DVD யின் இயக்க கண்ணாடியை சுத்தம் "
+"செய்யவும் உதவலாம்(மின்னனுசாதனஙு்கள் வழங்குபவர்களிடம் இவைகள் கிடைக்கும்)."
 
 #. Type: error
 #. Description
@@ -1027,6 +1077,8 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
+"சில சமயங்களில் இது பழுதடைந்த வன்தட்டால் ஏற்படும். இது வன்தட்டு பழையதா என  சரிபார்க்க "
+"தேவைப்பட்டால் மாற்ற அல்லது கணினியை குழுமையான சூழலுக்கு மாற்றவும்."
 
 #. Type: error
 #. Description
@@ -1044,12 +1096,16 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
+"சில சமயங்களில் இது பழுதடைந்த CD/DVD வட்டு அல்லது இயக்கி அல்லது வன்தட்டால் ஏற்படும். இது "
+"CD/DVD வட்டை சுத்தம் செய்ய, குறைவான வேகத்தில் CD/DVDஐ எழுத, CD/DVD வட்டின் "
+"கண்ணாடிகளை(கடைகளில் கிடைக்கக்கூடியது தான்) சுத்தம் செய்ய அல்லது வன்தட்டு பழையதா என  "
+"சரிபார்க்க தேவைப்பட்டால் மாற்ற அல்லது கணினியை குழுமையான சூழலுக்கு மாற்ற உதவலாம்."
 
 #. Type: select
 #. Description
 #: ../ubiquity.templates:152001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
+msgstr "CD/DVD மூலத்தலிருந்து நகலெடுக்கப்பட்ட பின்வரும் கோப்பானது பொருந்தவில்லை:"
 
 #. Type: text
 #. Description
@@ -1061,7 +1117,7 @@ msgstr "நிறுவல் பதிவேடு நகலெடுக்க�
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Configuring target system..."
-msgstr ""
+msgstr "இலக்கு கணினியை கட்டமைக்கிறது..."
 
 #. Type: text
 #. Description
@@ -1103,7 +1159,7 @@ msgstr "வன் பொருள் வடிவமைக்கப்படு�
 #. Description
 #: ../ubiquity.templates:161001
 msgid "Installing third-party software..."
-msgstr ""
+msgstr "மூன்றாம் தரப்பினரின் மென்பொருள்"
 
 #. Type: text
 #. Description
@@ -1121,25 +1177,25 @@ msgstr "துவக்கி வடிவமைக்கப்படுகி�
 #. Description
 #: ../ubiquity.templates:164001
 msgid "Saving installed packages..."
-msgstr ""
+msgstr "நிறுவிய பொதிகளை சேமிக்கிறது..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Restoring previously installed packages..."
-msgstr ""
+msgstr "முன்பு நிறுவிய பொதிகளை மீட்டமைக்கிறது..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:166001
 msgid "Installing additional packages..."
-msgstr ""
+msgstr "கூடுதலான பொதிகளை நிறுவுகிறது..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:167001
 msgid "Checking for packages to install..."
-msgstr ""
+msgstr "பொதிகளை நிறுவ சரிபார்க்கிறது..."
 
 #. Type: text
 #. Description
@@ -1187,13 +1243,13 @@ msgstr "${PACKAGE} நீக்குவதில் பிழை"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "Error while installing packages"
-msgstr ""
+msgstr "பொதிகளை நிறுவும்போது பிழை"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:176001
 msgid "An error occurred while installing packages:"
-msgstr ""
+msgstr "பொதிகளை நிறுவும்பொது ஒரு பிழை நேர்ந்தது:"
 
 #. Type: error
 #. Description
@@ -1201,7 +1257,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:176001 ../ubiquity.templates:177001
 msgid "The following packages are in a broken state:"
-msgstr ""
+msgstr "பின்வரும் பொதிகள் உடைந்த நிலையிலுள்ளன:"
 
 #. Type: error
 #. Description
@@ -1217,6 +1273,12 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
+"இது பழைய நிறுவல் கோப்பை பயன்படுத்தியதால் அல்லது மேலேயுள்ள பொதிகளில் வழு "
+"இருந்திருக்கலாம். /var/log/syslog கோப்பில் கூடுதலான தகவல்கள் இருக்கும். நிறுவலானது "
+"தெடரும், அப்படியிருந்தாலும் பின்னர் இது ஒரு தருனத்தில் தோல்வியடையலாம் அப்பொது நிறுவி "
+"கணினியிலிருந்து மற்ற பொதிகளை நிறுவ அல்லது நீக்க முடியாது. நீங்கள் முதலில் புதிய "
+"நிறுவல் கோப்பை இருக்கானு பார்க்கனும் அல்லது தோல்விக்கான அறிக்கையை உங்கள் "
+"விநியோகிப்பாளருக்கு தெரியப்படுத்தவும்."
 
 #. Type: error
 #. Description
@@ -1234,7 +1296,7 @@ msgstr "தொகுப்புகளை நீக்குவதில் ப�
 #. Description
 #: ../ubiquity.templates:178001
 msgid "Error copying network configuration"
-msgstr ""
+msgstr "பிணைய அமைவுகளை நகலெடுப்பதில் பிழை நேர்ந்தது"
 
 #. Type: error
 #. Description
@@ -1244,12 +1306,14 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
+"பிணைய அமைவுகளை நகலெடுப்பதில் ஓர் பிழை ஏற்ப்பட்டது. நிறுவலானது தொடரும், ஆனால் பிணைய "
+"அமைவுகளை கணினி நிறுவிய பின்னர் மீண்டும் ஒருமுறை அமைக்க வேண்டும்."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:179001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "ப்ளூடூத் அமைவுகளை நகலெடுப்பதில் பிழை நேர்ந்தது"
 
 #. Type: error
 #. Description
@@ -1259,12 +1323,14 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"ப்ளூடூத் அமைவுகளை நகலெடுப்பதில் ஓர் பிழை ஏற்ப்பட்டது. நிறுவலானது தொடரும், ஆனால் "
+"ப்ளூடூத் அமைவுகளை கணினி நிறுவிய பின்னர் மீண்டும் ஒருமுறை அமைக்க வேண்டும்."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:180001
 msgid "Error restoring installed applications"
-msgstr ""
+msgstr "நிறுவிய பயன்பாடுகளை மீட்டெடுப்பதில் பிழை"
 
 #. Type: error
 #. Description
@@ -1274,12 +1340,15 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
+"ஏற்கனவே நிறுவப்பட்ட பயன்பாடுகளை மீட்டெடுப்பதில் பிழை ஏற்ப்பட்டுள்ளது. நிறுவலானது "
+"தொடரும், ஆனால் சில பயன்பாடுகளை நீங்கள் கணினியை மீள்துவக்கிய பிறகு கைமுறையாக நிறுவ "
+"வேண்டும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Calculating files to skip copying..."
-msgstr ""
+msgstr "கோப்புகளை நகலெடுப்பதை தவிர்ப்பதற்கு கணக்கிடுகிறது..."
 
 #. Type: title
 #. Description
@@ -1306,24 +1375,26 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
+"நிறுவியானது வட்டு பிரிவுகளின் அட்டவணை மாற்றத்தை சேமிக்க வேண்டும், ஆனால் பின்வரும் வட்டு "
+"பிரிவினைகளின் ஏற்று புள்ளிகளை நீக்க முடியவில்லை:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Please close any applications using these mount points."
-msgstr ""
+msgstr "இந்த ஏற்றுப்புள்ளிகளை பயன்படுத்தும் பயன்பாடுகள் அனைத்தையும் தயவுச்செய்து மூடவும்."
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:195001
 msgid "Would you like the installer to try to unmount these partitions again?"
-msgstr ""
+msgstr "நிறுவியானதுஇந்த வட்டு பிரிவுகளை மீண்டும் ஏற்ற புள்ளிகளை நீக்க முயற்சிக்கவா?"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:201001
 msgid "Do you want to return to the partitioner?"
-msgstr ""
+msgstr "நீங்கள் வட்டுபிரிப்பானுக்கு திரும்ப வேண்டுமா?"
 
 #. Type: boolean
 #. Description
@@ -1332,6 +1403,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
+"நீங்கள் உருவாக்கிய சில வட்டு பிரிவுகளின் அளவுகள் மிகவும் சிறியவை. தயவுச்செய்து பின்வரும் "
+"பிரிவுகளை சற்று பெரிய அளவுடையதாக உருவாக்கவும்:"
 
 #. Type: boolean
 #. Description
@@ -1340,6 +1413,8 @@ msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
 msgstr ""
+"நீஙு்கள் உங்களுடைய வட்டு பிரிவு பயன்பாடடுக்கு செல்லாமல் இந்த வட்டு பிரிவுகளின் அளவை "
+"மாற்றி, நிறுவலை தொடர்ந்தால் பிழை ஏற்படலாம்."
 
 #. Type: text
 #. Description
@@ -1403,7 +1478,7 @@ msgstr "விசைப்பலகை"
 #. Description
 #: ../ubiquity.templates:212001
 msgid "Disk Setup"
-msgstr ""
+msgstr "வட்டு அமைப்பு"
 
 #. Type: text
 #. Description
@@ -1421,7 +1496,7 @@ msgstr "நிறுவல் செயல்பாடு"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Checking for installer updates"
-msgstr ""
+msgstr "நிறுவலுக்கான புதுப்பித்தல்களை சரிபார்க்கிறது"
 
 #. Type: text
 #. Description
@@ -1439,13 +1514,13 @@ msgstr "தொகுப்பின் விவரம் மேம்படு�
 #. Description
 #: ../ubiquity.templates:220001
 msgid "File ${INDEX} of ${TOTAL} at ${SPEED}/s"
-msgstr ""
+msgstr "${TOTAL} இல் ${INDEX} கோப்புகளின் ${SPEED}/வினாடி வேகத்தில்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:221001
 msgid "File ${INDEX} of ${TOTAL}"
-msgstr ""
+msgstr "${TOTAL} இல் ${INDEX} கோப்புகள்"
 
 #. Type: text
 #. Description
@@ -1457,20 +1532,20 @@ msgstr "மேம்பாடு நிறுவப்படுகிறது"
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Error updating installer"
-msgstr ""
+msgstr "நிறுவலை புதுப்பதில் பிழை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "The installer encountered an error while trying to update itself:"
-msgstr ""
+msgstr "நிறுவல் தன்னைதானே புதுப்பிக்கும்போது பிழையை சந்தித்தது:"
 
 #. Type: text
 #. Description
 #. Translated acronym for Universal Serial Bus.
 #: ../ubiquity.templates:224001
 msgid "USB disk"
-msgstr ""
+msgstr "யூஎஸ்பி தட்டு"
 
 #. Type: text
 #. Description
@@ -1486,6 +1561,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
+"நிறுவல் செயல்முறைக்கான மொழியை தேர்ந்தெடுக்கவும். இந்த மொழியே கணினியின் இயல்பான "
+"மொழியாக விளங்கும்."
 
 #. Type: text
 #. Description
@@ -1494,6 +1571,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
+"அமைப்புகளுக்கான செயல்முறைக்கான மொழியை தேர்ந்தெடுக்கவும். இந்த மொழியே கணினியின் "
+"இயல்பான மொழியாக விளங்கும்."
 
 #. Type: text
 #. Description
@@ -1510,19 +1589,22 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
+"நிறுவியானது மிட்டெடுக்க முடியாத பிழையை சந்தித்துள்ளது. பணிமேடைக்கான அமர்வு இயங்க "
+"இருப்பதால் பிழையை கண்டுபிடித்து மீண்டும் நிறுவ முயற்சி செய்ய இது உதவலாம்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
+"நிறுவியானது மிட்டெடுக்க முடியாத பிழையை சந்தித்துள்ளது எனவே இப்போது மீள்துவக்குகிறது."
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:231001
 msgid "Preparing to install ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} ஐ நிறுவ தயாராகிறது"
 
 #. Type: text
 #. Description
@@ -1532,6 +1614,9 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
+"இந்த கணினியை வை-பை பிணையத்துடன் இனைப்பதால் மூன்றாம் தரப்பினரின் மென்பாெருட்கள் நிறுவ, "
+"புதுப்பித்தலை பதிவிறக்க, தானாக உங்களுடைய நேரமண்டலத்துக்கான புவியிடத்தை கண்டுபிடிக்க, "
+"மற்றும் உங்கள் தாய் மொ ழிக்கான முழு ஆதரவை நிறுவ பயனுள்ளதாக இருக்கும்."
 
 #. Type: text
 #. Description
@@ -1549,31 +1634,31 @@ msgstr "கடவுச்சொல்லைக் காண்பிக்க�
 #. Description
 #: ../ubiquity.templates:236001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr ""
+msgstr "நான் வை-பை பிணையத்தை இப்போது பயன்படுத்த விரும்பவில்லை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:237001
 msgid "Connect to this network"
-msgstr ""
+msgstr "இந்த பிணையத்துடன் இணை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:241001
 msgid "Select drive:"
-msgstr ""
+msgstr "தட்டை தேர்ந்தெடு:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
+msgstr "பிரிப்பு கோட்டை நகற்றி தட்டில் இடத்தை ஒதுக்கவும்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "The entire disk will be used:"
-msgstr ""
+msgstr "முழு தட்டும் பயன்படுத்தப்படும்:"
 
 #. Type: text
 #. Description
@@ -1583,6 +1668,8 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>சிறிய %d வட்டு பிரிவுகள் மறைந்துள்ளன,  அதிக கட்டுப்பாட்டை<a href="
+"\"\">நேர்த்தியான பிரிவினைக்கான</a> கருவியை பயன்படுதவும்</small>"
 
 #. Type: text
 #. Description
@@ -1591,6 +1678,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
+"<small>1 சிறிய வட்டு பிரிவு நீக்கப்படும், கூடுதல் கட்டுப்பாட்டுக்கு<a href=\"\"> "
+"முற்போக்குவட்டு பிரிவு கருவிகளை</a> பயன்படுத்தவும்</small>"
 
 #. Type: text
 #. Description
@@ -1600,6 +1689,8 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"%d வட்டு பிரிவுகள் நீக்கப்படும், கூடுதல் கட்டுப்பாட்டுக்கு<a href=\"\">முற்போக்குவட்டு "
+"பிரிவு கருவிகளை</a> பயன்படுத்தவும்"
 
 #. Type: text
 #. Description
@@ -1608,6 +1699,8 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
+"1 வட்டுபிரிவு நீக்கப்பட்டது, கூடுதல் கட்டுப்பாட்டுக்கு<a href=\"\">முற்போக்குவட்டு "
+"பிரிவு கருவிகளை</a> பயன்படுத்தவும்"
 
 #. Type: text
 #. Description
@@ -1619,26 +1712,26 @@ msgstr "பெரிய பகிர்வுவை பிரிக்க"
 #. Description
 #: ../ubiquity.templates:250001
 msgid "For best results, please ensure that this computer:"
-msgstr ""
+msgstr "நல்லவித முடிவுகளுக்கு, தயவுச்செய்து இந்த கணினியை  உறுதிசெய்:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:251001
 msgid "has at least ${SIZE} available drive space"
-msgstr ""
+msgstr "${SIZE} அளவு இடம் உங்கள் தட்டில் இருக்கிறது"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
 msgid "is plugged in to a power source"
-msgstr ""
+msgstr "ஒரு மின்சார மூலத்தில் சொருகப்பட்டது"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:253001
 msgid "is connected to the Internet"
-msgstr ""
+msgstr "இணையத்துடன் இணைக்கப்பட்டது"
 
 #. Type: text
 #. Description
@@ -1650,6 +1743,10 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
+"${RELEASE} ஆனது மூன்றாம் தரப்பினரின் மென்பொருள்களான பியாஷ் , MP3 மற்றும் பிற ஊடகங்களை "
+"இயக்க மேலும் சில வரைவியல் மற்றும் வை-பை வன்பொருட்களை செயல்பட உதவுகிறது. இதில் சில "
+"மென்பொருட்கள் தனியுரிம மென்பொருட்களாகும். மென்பொருளானது உரிம விதிகளுக்குட்பட்டு அதன் "
+"ஆவணங்களை கொண்டிருக்கும்."
 
 #. Type: text
 #. Description
@@ -1658,18 +1755,20 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
+"luendo MP3 செருகியானது MPEG Layer-3 ஓலி மறைக்குறி நீக்கல் நுட்பத்துக்கான உரிமங்களை "
+"Fraunhofer IIS and Technicolor SA இருந்து பெற்றுள்ளது."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:256001
 msgid "Install this third-party software"
-msgstr ""
+msgstr "மூன்றாம் தரப்பினரின் இந்த மென்பொருளை நிறுவு"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:257001
 msgid "Download updates while installing"
-msgstr ""
+msgstr "நிறுவும்பொருட்டு புதுப்பித்தல்களை பதிவிறக்கு"
 
 #. Type: text
 #. Description
@@ -1681,13 +1780,13 @@ msgstr "விளக்கப்படம்"
 #. Description
 #: ../ubiquity.templates:262001
 msgid "Variant:"
-msgstr ""
+msgstr "மாற்று:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Below is an image of your current layout:"
-msgstr ""
+msgstr "கீழ்கண்டவை மாதிரியமைப்பின் ஒரு படம்:"
 
 #. Type: text
 #. Description
@@ -1697,6 +1796,9 @@ msgid ""
 "conventions for your country, fetch updates from sites close to you, and set "
 "the clock to the correct local time."
 msgstr ""
+"உங்களுடைய இடத்தை தேர்ந்தெடு. எனவேதான் கணினி உங்களுடைய நாட்டுக்கு தகுந்த வலக்கங்களை "
+"திரையில் காட்ட வசதிப்படும், புதுப்பித்தல்களை உங்கள் அருகில் உள்ள தளங்களிலிருந்து பெற, "
+"மற்றும் சரியான உள்ளூர் நேரத்தை கடிகாரத்தில் அமைக்க பயன்படும்."
 
 #. Type: text
 #. Description
@@ -1714,7 +1816,7 @@ msgstr "வட்டாரம்"
 #. Description
 #: ../ubiquity.templates:267001
 msgid "[type here to change]"
-msgstr ""
+msgstr "[மாற்ற இங்க தட்டவும்]"
 
 #. Type: text
 #. Description
@@ -1722,7 +1824,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:270001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr ""
+msgstr "${OS} ஐ ${DISTRO} ஆல் மாற்று"
 
 #. Type: text
 #. Description
@@ -1732,6 +1834,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">எச்சரிக்கை:</span> இது உங்களுடைய ${OS} யின் "
+"பயன்பாடுகள், ஆவணங்கள், படங்கள், இசை, மேலும் பிற கோப்புகளை நீக்க விடும்."
 
 #. Type: text
 #. Description
@@ -1739,7 +1843,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:271001
 msgid "Install ${DISTRO} alongside ${OS}"
-msgstr ""
+msgstr "${DISTRO}ஐ ${OS} உடன் இணைந்து நிறுவு"
 
 #. Type: text
 #. Description
@@ -1754,7 +1858,7 @@ msgstr ""
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
-msgstr ""
+msgstr "ஆவணங்கள், இசை, மற்றும் மற்ற தனிப்பட்ட கேப்புகளை வை."
 
 #. Type: text
 #. Description
@@ -1762,7 +1866,7 @@ msgstr ""
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:272001
 msgid "Install ${DISTRO} inside ${OS}"
-msgstr ""
+msgstr "${DISTRO}ஐ ${OS} உள்ளே நிறுவு"
 
 #. Type: text
 #. Description
@@ -1778,13 +1882,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
+"நீங்க தாங்களாகவே வட்டு பிரிவுகளை உருவாக்க அளவு மாற்ற முடியும், அல்லது ${DISTRO} க்காக "
+"பல வட்டு பிரிவுகளை தேர்ந்தெடுக்க முடியும்."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:274001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr ""
+msgstr "${CURDISTRO} ஐ அழித்துவிட்டு மீண்டும் நிறுவு"
 
 #. Type: text
 #. Description
@@ -1794,6 +1900,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
+"<span foreground=\"darkred\">எச்சரிக்கை:</span> இது உங்களுடைய ${CURDISTRO} உள்ள "
+"பயன்பாடுகள், ஆவணங்கள், புகைப்படங்கள், இசை, மேலும் பல கோப்புகளை நீக்கிவிடும்."
 
 #. Type: text
 #. Description
@@ -1801,7 +1909,7 @@ msgstr ""
 #. VER is a variable substituted into this string, and may be '11.04'
 #: ../ubiquity.templates:275001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
-msgstr ""
+msgstr "${CURDISTRO} ஐ ${VER} க்கு புதிப்பி"
 
 #. Type: text
 #. Description
@@ -1812,6 +1920,8 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
+"ஆவணங்கள், இசை, மேலும் மற்ற தனிப்பட்ட கோப்புகளை வைத்திருக்கும். நிறுவி மெனபொருட்கள் "
+"யாவும் இருக்கும். கணினி முழுவதிலுமான அமைவுகள் நீக்கப்படும்."
 
 #. Type: text
 #. Description
@@ -1820,7 +1930,7 @@ msgstr ""
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:276001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
-msgstr ""
+msgstr "${CURDISTRO} க்கு இணையாக ${DISTRO} ${VER} ஐ நிறுவு"
 
 #. Type: text
 #. Description
@@ -1830,7 +1940,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:277001 ../ubiquity.templates:280001
 msgid "Erase disk and install ${DISTRO}"
-msgstr ""
+msgstr "தட்டை அழித்து ${DISTRO} ஐ நிறுவு"
 
 #. Type: text
 #. Description
@@ -1839,6 +1949,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
+"<span foreground=\"darkred\">எச்சரிக்கை:</span> தட்டில் உள்ள அனைத்து கோப்புகளையும் "
+"நீக்கிவிடும்."
 
 #. Type: text
 #. Description
@@ -1856,13 +1968,16 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
+"<span foreground=\"darkred\">எச்சரிக்கை:</span> இது உங்களுடைய  ${OS} மற்றும் "
+"${CURDISTRO} இரண்டிலும் உள்ள பயன்பாடுகள், ஆவணங்கள், புகைப்படங்கள், இசை, மேலும் பல "
+"கோப்புகளை நீக்கிவிடும்."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:279001
 msgid "Reinstall ${CURDISTRO}"
-msgstr ""
+msgstr "${CURDISTRO} ஐ மீண்டும் நிறுவு"
 
 #. Type: text
 #. Description
@@ -1872,20 +1987,23 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
+"<span foreground=\"darkred\">எச்சரிக்கை:</span> இது உங்களுடைய பயன்பாடுகள், "
+"ஆவணங்கள், புகைப்படங்கள், இசை, மற்றும் பிற கோப்புகளை உங்களுடைய இயங்கு தளத்திலிருந்து "
+"நீக்கி விடும்."
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:281001
 msgid "Install ${DISTRO} alongside them"
-msgstr ""
+msgstr "${DISTRO}வை மற்ற இயங்குதளங்களுடன் இணைந்தவாறே நிறுவு"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #: ../ubiquity.templates:282001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
-msgstr ""
+msgstr "இந்த கணினியில் ஏற்கனவே ${OS} உள்ளது. நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?"
 
 #. Type: text
 #. Description
@@ -1896,6 +2014,8 @@ msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
 msgstr ""
+"இந்த கணினி  ${OS1} மற்றும் ${OS2} இயங்குதளங்களை  வைத்திருக்கிறது. நீங்கள் என்ன செய்ய "
+"விரும்புகிறீர்கள்?"
 
 #. Type: text
 #. Description
@@ -1904,6 +2024,7 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
+"இந்த கணினியில் பல இயங்குதளங்கள் கண்டுபிடிக்கப்பட்டுள்ளன. நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?"
 
 #. Type: text
 #. Description
@@ -1912,36 +2033,37 @@ msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
 msgstr ""
+"இந்த கணினியில் எந்த இயங்குதளமும் கண்டுபிடிக்கப்படவில்லை. நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286001
 msgid "Before:"
-msgstr ""
+msgstr "இதற்கு முன்:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:287001
 msgid "After:"
-msgstr ""
+msgstr "பிறகு:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:288001
 msgid "Encrypt the new Ubuntu installation for security"
-msgstr ""
+msgstr "புதிய உபுண்டு நிறுவலை பாதுகாப்புக்காக மறைகுறியாக்கம் செய்ய வேண்டும்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:289001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "அடுத்த நிலையில் நீங்கள் ஒரு பாதுகாப்பு சாவியை தேர்ந்தெடுக்கனும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr ""
+msgstr "புதிய உபுண்டு நிறுவலில் LVM ஐ பயன்படுத்தவும்"
 
 #. Type: text
 #. Description
@@ -1950,18 +2072,20 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"இது தருக்க தொகுதி மேலாண்மையை அமைக்கும். இது மாதிரி வடிவத்தை எடுக்கவும் சுலபமாக "
+"வட்டு அளவை மாற்றத்தை அனுமதிக்கிறது."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:292001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "பாதுகாப்பு சாவியை உறுதிப்படுத்து:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:293001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "ஒரு பாதுகாப்பு சாவியை தேர்ந்தெடு:"
 
 #. Type: text
 #. Description
@@ -1970,12 +2094,15 @@ msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"உங்களுடைய கணினியை இழந்த நிலையில் மறைகுறியாக்கம் உங்களுடைய  தட்டிலுள்ள கோப்புகளை "
+"பாதுகாக்கிறது. ஒவ்வொரு முறை கணினியை தொடங்கும் பொதும் ஒரு பாதுகாப்பு சாவியை "
+"உள்ளிட வேண்டும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:295001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr ""
+msgstr "உபுண்டுவிற்கு அப்பாற்பட்ட கோப்புகளை மறைகுறியாக்கம் செய்யாது."
 
 #. Type: text
 #. Description
@@ -1985,60 +2112,63 @@ msgid ""
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
+"<span foreground=\"darkred\">எச்சரிக்கை:</span>இந்த பாதுகாப்பு சாவியை தவற "
+"விட்டீர்களானால், உங்களுடைய தரவுகளை இழந்துவிடுவீர்கள். உங்களுக்கு தேவைப்பட்டால்,  சாவியை "
+"எழுதி வைத்துக்கொள்ளவும் பாதுகாப்பான இடத்தில் வைத்துக்கொள்ளவும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:297001
 msgid "For more security:"
-msgstr ""
+msgstr "கூடுதலான பாதுகாப்புக்காக:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:298001
 msgid "Overwrite empty disk space"
-msgstr ""
+msgstr "காலியான தட்டுப்பகுதியை மேலெழுதவும்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:299001
 msgid "The installation may take much longer."
-msgstr ""
+msgstr "இந்த நிறுவலானது மிக அதிக நேரத்தை எடுக்கலாம்."
 
 #. Type: text
 #. description
 #: ../ubiquity.templates:300001
 msgid "LVM..."
-msgstr ""
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:301001
 msgid "Volume groups:"
-msgstr ""
+msgstr "தொகுதி குழுக்கள்:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:302001
 msgid "Encryption Options"
-msgstr ""
+msgstr "மறைகுறியாக்க விருப்பங்கள்"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:303001
 msgid "Physical volumes:"
-msgstr ""
+msgstr "பெளதிக தொகுதிகள்:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:305001
 msgid "Encrypt this partition (LUKS)"
-msgstr ""
+msgstr "இந்த வட்டு பிரிவை (LUKS) மறைகுறியாக்கு"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:306001
 msgid "MB"
-msgstr ""
+msgstr "எம்பி"
 
 #. Type: text
 #. Description
@@ -2047,25 +2177,27 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
+"தருக்க தொகுதி மேலாண்மையானது (LVM) உபுண்டுவின் பல பெளதிக தொகுதிகளை ஒரே ஒரு "
+"தொகுதியாக நடத்தும்."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:308001
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "தருக்க தொகுதி மேலாண்மை"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:309001
 msgid "Encryption options..."
-msgstr ""
+msgstr "மறைகுறியாக்க விருப்பங்கள்..."
 
 #. Type: title
 #. Description
 #. Info message displayed when running in OEM mode
 #: ../oem-config-check.templates:2001
 msgid "OEM mode (for manufacturers only)"
-msgstr ""
+msgstr "OEM முறைமை (உற்பத்தியாளர்களுக்கு மட்டுமே)"
 
 #. Type: text
 #. Description
@@ -2076,20 +2208,20 @@ msgstr ""
 #. worry too much about clarity.
 #: ../oem-config-udeb.templates:1001
 msgid "Prepare for OEM configuration"
-msgstr ""
+msgstr "OEM அமைப்புகளுக்காக தயாராகிறது"
 
 #. Type: text
 #. Description
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr ""
+msgstr "OEM அமைப்புகளுக்காக தயாராகிறது..."
 
 #. Type: text
 #. Description
 #: ../oem-config-udeb.templates:3001
 msgid "Ready for OEM configuration"
-msgstr ""
+msgstr "OEM அமைப்புகளுக்காக தயாராக இருக்கிறது"
 
 #. Type: text
 #. Description
@@ -2113,6 +2245,9 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
+"நீங்கள் ஏற்றுக்கொள்ளும்படி கணினி அமைக்கப்பட்ட பிறகு, 'oem-config-prepare' கட்டளைய "
+"இயக்கவும். இது கணினியிலுள்ள தற்காலிக 'oem' பயனரை நீக்கிவிட்டு அடுத்த முறை மீள்துவக்கும் "
+"போது பல்வேறு அமைவுகளுக்கான கேள்விகளை பயனாளரிடம் கேட்கும்."
 
 #. Type: text
 #. Description

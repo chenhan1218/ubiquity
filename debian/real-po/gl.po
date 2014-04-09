@@ -2,20 +2,21 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
+# Xosé <xosecalvo@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-10-11 23:39+0000\n"
+"PO-Revision-Date: 2014-01-31 20:35+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
-"Language-Team: Galician <proxecto@trasno.net>\n"
+"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +34,7 @@ msgstr "Fallou a conexión."
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr "Conectado"
+msgstr "Conectado."
 
 #. Type: text
 #. Description
@@ -89,7 +90,7 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Ou, se está listo, pode instalar ${RELEASE} ao carón (ou no lugar) do seu "
-"sistema operativo actual. Isto non tardará demasiado."
+"sistema operativo actual. Isto non ha tardar demasiado."
 
 #. Type: text
 #. Description
@@ -133,7 +134,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:16001
 msgid "Where are you?"
-msgstr "En que lugar se encontra?"
+msgstr "En que lugar se atopa vostede?"
 
 #. Type: text
 #. Description
@@ -169,13 +170,13 @@ msgstr "Detectar a disposición do teclado..."
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Please press one of the following keys:"
-msgstr "Prema algunha das seguintes teclas:"
+msgstr "Prema algunha das teclas seguintes:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Is the following key present on your keyboard?"
-msgstr "Existe a seguinte tecla no seu teclado?"
+msgstr "Existe a tecla seguinte no seu teclado?"
 
 #. Type: text
 #. Description
@@ -205,7 +206,7 @@ msgstr "Ou escolla unha imaxe existente:"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Take Photo"
-msgstr "Tomar foto"
+msgstr "Tomar unha foto"
 
 #. Type: text
 #. Description
@@ -217,19 +218,19 @@ msgstr "Unha única conta para acceder a todo Ubuntu"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr "Produciuse un erro rexistrando a conta"
+msgstr "Produciuse un erro ao rexistrar a conta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr "Produciuse un erro iniciando sesión na conta"
+msgstr "Produciuse un erro ao iniciar unha sesión coa conta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr "Algo saiu mal"
+msgstr "Algo saíu mal"
 
 #. Type: text
 #. Description
@@ -260,7 +261,7 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
-"<span size=\"small\">Se aínda non ten unha conta, non se preocupe crearemos "
+"<span size=\"small\">Se aínda non ten unha conta, non se preocupe: crearemos "
 "unha para vostede.</span>"
 
 #. Type: text
@@ -291,7 +292,7 @@ msgstr "O contrasinal ten que ter polo menos 8 caracteres"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr "Escriba de novo o contrasinal"
+msgstr "Escriba o contrasinal de novo"
 
 #. Type: text
 #. Description
@@ -313,7 +314,7 @@ msgid ""
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
 "&lt;small&gt;Se este computador vai ser usado por máis dunha persoa, pode "
-"configurar múltiples contas despois da instalación.&lt;/small&gt;"
+"configurar varias contas despois da instalación.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -339,7 +340,7 @@ msgstr "Omitir"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr "Iniciar sesión máis tarde"
+msgstr "Iniciar unha sesión máis tarde"
 
 #. Type: text
 #. Description
@@ -449,8 +450,8 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
-"Non hai conexión a internet. Para poder crear unha conta ou iniciar sesión "
-"en Ubuntu One, precisa conectarse a internet."
+"Non hai conexión á Internet. Para poder crear unha conta ou iniciar sesión "
+"en Ubuntu One, precisa conectarse á Internet."
 
 #. Type: text
 #. Description
@@ -486,7 +487,7 @@ msgstr "O nome que usará cando interactúe con outros equipos."
 #. Description
 #: ../ubiquity.templates:67001
 msgid "Must be between 1 and 63 characters long."
-msgstr "Ten que ter entre 1 e 63 carácteres."
+msgstr "Ten que ter entre 1 e 63 caracteres."
 
 #. Type: text
 #. Description
@@ -524,31 +525,31 @@ msgstr "Os contrasinais non coinciden"
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Short password"
-msgstr "Contrasinal moi curto"
+msgstr "O contrasinal é moi curto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Weak password"
-msgstr "Contrasinal feble"
+msgstr "O contrasinal é feble"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Fair password"
-msgstr "Contrasinal aceptábel"
+msgstr "O contrasinal é aceptábel"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Good password"
-msgstr "Contrasinal bo"
+msgstr "O contrasinal é bo"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Strong password"
-msgstr "Contrasinal forte"
+msgstr "O contrasinal é forte"
 
 #. Type: text
 #. Description
@@ -560,7 +561,7 @@ msgstr "Iniciar sesión automaticamente"
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Require my password to log in"
-msgstr "Requirir o meu contrasinal para iniciar sesión"
+msgstr "Requirir o meu contrasinal para iniciar sesións"
 
 #. Type: text
 #. Description
@@ -948,8 +949,8 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "A instalación rematou. Pode continuar probando ${RELEASE} agora, pero até "
-"que non reinicie o equipo non se conservará ningún cambio que faga e ningún "
-"documento que garde."
+"que non reinicie o equipo non se conservará ningún cambio que faga nin "
+"ningún documento que garde."
 
 #. Type: text
 #. Description
@@ -996,7 +997,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Verifying the installation configuration..."
-msgstr "Verificando a configuración da instalación..."
+msgstr "Comprobando a configuración da instalación..."
 
 #. Type: title
 #. Description
@@ -1051,7 +1052,7 @@ msgstr "A instalación fallou"
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
 "O programa de instalación encontrou un erro ao copiar ficheiros ao disco "
-"ríxido:"
+"duro:"
 
 #. Type: error
 #. Description
@@ -1062,7 +1063,7 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Isto débese a que non hai espazo abondo na partición seleccionada para que "
-"se complete a instalación. Inicia o instalador outra vez e selecciona unha "
+"se complete a instalación. Inicie o instalador outra vez e seleccione unha "
 "partición maior para realizar a instalación."
 
 #. Type: error
@@ -1086,9 +1087,9 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"Isto adoita deberse a un disco ríxido defectuoso. Podería axudar comprobar "
-"se o disco ríxido xa está vello e precisa ser substituído, ou trasladar o "
-"sistema a un ambiente máis temperado."
+"Isto adoita deberse a un disco duro defectuoso. Podería axudar comprobar se "
+"o disco duro xa está vello e precisa ser substituído, ou trasladar o sistema "
+"a un ambiente máis temperado."
 
 #. Type: error
 #. Description
@@ -1106,10 +1107,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Isto adoita deberse a un lector de CD/DVD, un CD/DVD ou un disco ríxido "
+"Isto adoita deberse a un lector de CD/DVD, un CD/DVD ou un disco duro "
 "defectuosos. Podería axudar limpar o CD/DVD, gravalo a unha velocidade "
 "menor, limpar a lente da unidade lectora (as tendas de electrónica ofrecen "
-"normalmente equipos de limpeza), comprobar se o disco ríxido xa vai vello e "
+"normalmente equipos de limpeza), comprobar se o disco duro xa vai vello e "
 "precisa ser substituído ou trasladar o sistema a un ambiente temperado."
 
 #. Type: select
@@ -1122,7 +1123,7 @@ msgstr "O seguinte ficheiro non coincide coa copia orixinal do CD/DVD:"
 #. Description
 #: ../ubiquity.templates:153001
 msgid "Copying installation logs..."
-msgstr "Copiando os rexistros da instalación..."
+msgstr "Copiando os rexistros de instalación..."
 
 #. Type: text
 #. Description
@@ -1287,7 +1288,7 @@ msgstr ""
 "Isto pode ser debido a unha imaxe de instalación antiga ou a un erro nalgún "
 "dos paquetes listados arriba. Pode atopar máis detalles en /var/log/syslog. "
 "O instalador tratará de continuar de todos modos, pero pode fallar máis "
-"tarde e non ser capaz de instalar ou eliminar outros paquetes (ata a si "
+"tarde e non ser capaz de instalar ou eliminar outros paquetes (até a si "
 "mesmo, posibelmente) do sistema instalado. Debería antes buscar unha versión "
 "máis nova da imaxe de instalación ou mandarlle o informe do problema ao seu "
 "distribuidor."
@@ -1337,8 +1338,8 @@ msgid ""
 "in the installed system."
 msgstr ""
 "Produciuse un erro ao copiar as preferencias de Bluetooth. A instalación "
-"continuará porén a configuración de Bluetooth terá que configurarse de novo "
-"no sistema instalado."
+"continuará, mais haberá que configurar Bluetooth de novo no sistema "
+"instalado."
 
 #. Type: error
 #. Description
@@ -1390,7 +1391,7 @@ msgid ""
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
 "O instalador precisa facer cambios na táboa de particións pero isto non é "
-"posíbel porque non se puideron desmontar as particións nos seguintes puntos "
+"posíbel porque non foi posíbel desmontar as particións nos seguintes puntos "
 "de montaxe:"
 
 #. Type: boolean
@@ -1444,7 +1445,7 @@ msgstr "Configuración do sistema"
 #. Description
 #: ../ubiquity.templates:204001 ../ubiquity.templates:268001
 msgid "Welcome"
-msgstr "Benvido(a)"
+msgstr "Benvido/a"
 
 #. Type: text
 #. Description
@@ -1456,7 +1457,7 @@ msgstr "Configuración da rede"
 #. Description
 #: ../ubiquity.templates:206001
 msgid "Software selection"
-msgstr "Selección do programas"
+msgstr "Selección de programas"
 
 #. Type: text
 #. Description
@@ -1577,8 +1578,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Escolla a lingua que desexe usar durante a instalación. Este idioma será o "
-"idioma predefinido para este computador."
+"Escolla o idioma que desexe usar durante a instalación. Este será o idioma "
+"predeterminado para este computador."
 
 #. Type: text
 #. Description
@@ -1588,7 +1589,7 @@ msgid ""
 "will be the default language for this computer."
 msgstr ""
 "Seleccione o idioma que quere empregar para o proceso de configuración. Este "
-"idioma será o idioma predefinido para este computador."
+"será o idioma predeterminado para este computador."
 
 #. Type: text
 #. Description
@@ -1631,7 +1632,7 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"Ao conectar este equipo a unha rede sen fios poderá instalar software de "
+"Ao conectar este equipo a unha rede sen fíos poderá instalar software de "
 "terceiros, descargar anovacións, detectar automaticamente o seu fuso horario "
 "e instalar asistencia completa para o seu idioma."
 
@@ -1669,13 +1670,13 @@ msgstr "Seleccione a unidade:"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr "Asigne o espazo no disco arrastrando o seguinte divisor:"
+msgstr "Asigne o espazo do disco arrastrando o divisor de embaixo:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:243001
 msgid "The entire disk will be used:"
-msgstr "Usarase o disco enteiro:"
+msgstr "Hase usar o disco enteiro:"
 
 #. Type: text
 #. Description
@@ -1685,8 +1686,9 @@ msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d particións máis pequeñas están ocultas, use a <a href="
-"\"\">ferramenta de particionado avanzada</a> para maior control</small>"
+"<small>%d particións máis pequenas están ocultas; use a <a href="
+"\"\">ferramenta de particionamento avanzada</a> para ter maior control</"
+"small>"
 
 #. Type: text
 #. Description
@@ -1695,8 +1697,8 @@ msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>1 partición máis pequena está oculta, use a <a href=\"\">ferramenta "
-"de particionado avanzada</a> para maior control</small>"
+"<small>1 partición máis pequena está oculta; use a <a href=\"\">ferramenta "
+"de particionamento avanzada</a> para ter maior control</small>"
 
 #. Type: text
 #. Description
@@ -1706,7 +1708,7 @@ msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Eliminaranse %d particións; use a <a href=\"\">ferramenta avanzada de "
+"Hanse eliminar %d particións; use a <a href=\"\">ferramenta avanzada de "
 "particionamento</a> para ter máis control"
 
 #. Type: text
@@ -1716,7 +1718,7 @@ msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Eliminarase 1 partición; use a <a href=\"\">ferramenta avanzada de "
+"Hase eliminar unha partición; use a <a href=\"\">ferramenta avanzada de "
 "particionamento</a> para ter máis control"
 
 #. Type: text
@@ -1748,7 +1750,7 @@ msgstr "está conectado a unha toma de corrente"
 #. Description
 #: ../ubiquity.templates:253001
 msgid "is connected to the Internet"
-msgstr "está conectado a Internet"
+msgstr "está conectado á Internet"
 
 #. Type: text
 #. Description
@@ -1841,7 +1843,7 @@ msgstr "[escriba aquí para cambiar]"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:270001
 msgid "Replace ${OS} with ${DISTRO}"
-msgstr "Substituír ${OS} con ${DISTRO}"
+msgstr "Substituír ${OS} por ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1851,8 +1853,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos o seus "
-"${OS}, programas, documentos, fotos, música e outros ficheiros."
+"<span foreground=\"darkred\">Aviso:</span> Isto ha eliminar todos o seus "
+"programas, documentos, fotos, música e outros ficheiros de ${OS}."
 
 #. Type: text
 #. Description
@@ -1876,9 +1878,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
 msgstr ""
-"Os documentos, música e outros ficheiros persoais conservaranse. Vostede "
-"poderá escoller que sistema operativo quere que inicie cada vez que arranque "
-"o equipo."
+"Hanse conservar os documentos, música e outros ficheiros persoais. Vostede "
+"poderá escoller que sistema operativo quere que se inicie cada vez que "
+"arranque o equipo."
 
 #. Type: text
 #. Description
@@ -1902,15 +1904,15 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"Pode crear ou redimensionar particións, ou escoller múltiples particións "
-"para ${DISTRO}."
+"Pode crear ou redimensionar particións ou escoller varias particións para "
+"${DISTRO}."
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #: ../ubiquity.templates:274001
 msgid "Erase ${CURDISTRO} and reinstall"
-msgstr "Borrar ${CURDISTRO} e reinstalar"
+msgstr "Limpar ${CURDISTRO} e reinstalar"
 
 #. Type: text
 #. Description
@@ -1920,7 +1922,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os seus "
+"<span foreground=\"darkred\">Aviso:</span> Isto ha eliminar todos os seus "
 "programas, documentos, fotos, música, e calquera outro ficheiro de "
 "${CURDISTRO}."
 
@@ -1941,9 +1943,9 @@ msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"Os documentos, música e outros ficheiros persoais conservaranse. O software "
-"instalado conservarase sempre que sexa posíbel. Limparase a configuración de "
-"todo o sistema."
+"Hanse conservar os documentos, música e outros ficheiros persoais. O "
+"software instalado conservarase sempre que sexa posíbel. Hase limpar as "
+"opcións de configuración que afecten a todo o sistema."
 
 #. Type: text
 #. Description
@@ -1962,7 +1964,7 @@ msgstr "Instalar ${DISTRO} ${VER} a carón de ${CURDISTRO}"
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:277001 ../ubiquity.templates:280001
 msgid "Erase disk and install ${DISTRO}"
-msgstr "Borrar o disco e instalar ${DISTRO}"
+msgstr "Limpar o disco e instalar ${DISTRO}"
 
 #. Type: text
 #. Description
@@ -1971,14 +1973,14 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os ficheiros "
-"do disco."
+"<span foreground=\"darkred\">Aviso:</span> Isto ha eliminar todos os "
+"ficheiros do disco."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:278001
 msgid "Erase everything and reinstall"
-msgstr "Borrar todo e reinstalar"
+msgstr "Limpar todo e reinstalar"
 
 #. Type: text
 #. Description
@@ -1990,7 +1992,7 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os seus "
+"<span foreground=\"darkred\">Aviso:</span> Isto ha eliminar todos os seus "
 "programas, documentos, fotos, música, e outros ficheiro de ${OS} e de  "
 "${CURDISTRO}."
 
@@ -2009,8 +2011,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Aviso:</span> Isto eliminará todos os "
-"programas, documentos, fotos, música e outros ficheiros en todos os sistemas "
+"<span foreground=\"darkred\">Aviso:</span> Isto ha eliminar todos os "
+"programas, documentos, fotos, música e outros ficheiros de todos os sistemas "
 "operativos."
 
 #. Type: text
@@ -2045,8 +2047,8 @@ msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
 msgstr ""
-"Este equipo ten instalados actualmente múltiples sistemas operativos. Que "
-"quere facer?"
+"Este equipo ten instalados actualmente varios sistemas operativos. Que quere "
+"facer?"
 
 #. Type: text
 #. Description
@@ -2080,13 +2082,13 @@ msgstr "Cifrar a nova instalación de Ubuntu por seguranza"
 #. Description
 #: ../ubiquity.templates:289001
 msgid "You will choose a security key in the next step."
-msgstr "Deberá elixir unha clave de seguranza no seguinte paso."
+msgstr "Deberá elixir unha clave de seguranza no paso seguinte."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:290001
 msgid "Use LVM with the new Ubuntu installation"
-msgstr "Usar XVL coa nova instalación de Ubuntu"
+msgstr "Usar o LVM (Xestor de volumes lóxicos) coa nova instalación de Ubuntu"
 
 #. Type: text
 #. Description
@@ -2095,8 +2097,8 @@ msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
-"Isto configurará a Xestión de Volume Lóxico. Permite tomar instantáneas e "
-"redimensionar particións de modo simple."
+"Isto ha configurar a Xestión de Volumes Lóxicos (LVM). Permite tomar "
+"instantáneas e redimensionar particións de modo máis sinxelo."
 
 #. Type: text
 #. Description
@@ -2135,7 +2137,7 @@ msgid ""
 "safe place elsewhere."
 msgstr ""
 "<span foreground=\"darkred\">Aviso:</span > Se perde esta clave de seguranza "
-"perderá todos os datos. Se é necesario, escriba a clave e gárdea nun lugar "
+"ha perder todos os datos. Se é necesario, escriba a clave e gárdea nun lugar "
 "seguro noutro sitio."
 
 #. Type: text
@@ -2199,8 +2201,8 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
-"A xestión de volumes lóxica (XVL) permítelle a Ubuntu tratar múltiples "
-"volumes físicos como un único volume."
+"A xestión de volumes lóxicos (LVM) permítelle a Ubuntu tratar varios volumes "
+"físicos como un único volume."
 
 #. Type: text
 #. Description

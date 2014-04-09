@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-10-12 15:17+0000\n"
-"Last-Translator: Balaam's Miracle <Unknown>\n"
+"PO-Revision-Date: 2014-03-27 09:05+0000\n"
+"Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -66,7 +66,7 @@ msgid ""
 msgstr ""
 "U installeert in modus voor systeemfabrikanten. Voer een unieke naam in voor "
 "deze partij systemen. Deze naam zal op het geïnstalleerde systeem worden "
-"opgeslagen en kan worden gebruikt om bij foutenrapportages te helpen."
+"opgeslagen en kan als hulp bij foutrapportages worden gebruikt."
 
 #. Type: text
 #. Description
@@ -77,7 +77,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"U kunt ${RELEASE} direct vanaf deze ${MEDIUM} proberen zonder dat er iets "
+"U kunt ${RELEASE} direct vanaf deze ${MEDIUM} uitproberen zonder dat er iets "
 "aan uw computer wordt veranderd."
 
 #. Type: text
@@ -88,9 +88,9 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"Klaar om te installeren? U kunt ${RELEASE} naast (of in plaats van) uw "
-"huidige besturingssysteem installeren. Doorgaans duurt dit niet langer dan "
-"een halfuur."
+"Of, indien u hier klaar voor bent, kunt u ${RELEASE} naast (of in plaats "
+"van) uw huidige besturingssysteem installeren. Dit neemt niet veel tijd in "
+"beslag."
 
 #. Type: text
 #. Description
@@ -113,14 +113,14 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen of <a href="
+"U kunt de <a href=\"release-notes\">versie-informatie</a> lezen of <a href="
 "\"update\">dit installatieprogramma bijwerken</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr "U kunt de <a href=\"release-notes\">uitgave-opmerkingen</a> lezen."
+msgstr "U kunt de <a href=\"release-notes\">versie-informatie</a> lezen."
 
 #. Type: text
 #. Description
@@ -150,7 +150,7 @@ msgstr "Kies uw toetsenbordindeling:"
 #. Description
 #: ../ubiquity.templates:19001
 msgid "Type here to test your keyboard"
-msgstr "Typ hier om uw toetsenbord te testen"
+msgstr "Tik hier iets om uw toetsenbord uit te proberen"
 
 #. Type: text
 #. Description
@@ -168,13 +168,13 @@ msgstr "Toetsenbordindeling vaststellen…"
 #. Description
 #: ../ubiquity.templates:22001
 msgid "Please press one of the following keys:"
-msgstr "Druk op een van de volgende toetsen:"
+msgstr "Druk a.u.b. op een van de volgende toetsen:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:23001
 msgid "Is the following key present on your keyboard?"
-msgstr "Is de volgende toets aanwezig op uw toetsenbord?"
+msgstr "Is de volgende toets op uw toetsenbord aanwezig?"
 
 #. Type: text
 #. Description
@@ -192,7 +192,7 @@ msgstr "Kies een afbeelding"
 #. Description
 #: ../ubiquity.templates:26001
 msgid "Take a photo:"
-msgstr "Maak een foto:"
+msgstr "Neem een foto:"
 
 #. Type: text
 #. Description
@@ -204,7 +204,7 @@ msgstr "Of kies een bestaande foto:"
 #. Description
 #: ../ubiquity.templates:28001
 msgid "Take Photo"
-msgstr "Maak foto"
+msgstr "Foto nemen"
 
 #. Type: text
 #. Description
@@ -222,7 +222,7 @@ msgstr "Fout bij registratie van account"
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr "Fout bij aanmelden van account"
+msgstr "Fout bij aanmelden op account"
 
 #. Type: text
 #. Description
@@ -241,7 +241,7 @@ msgstr "<a href=\"\">Meer informatie</a>"
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
-"Ik heb de <a href=\"\">Ubuntu One gebruiksvoorwaarden</a> gelezen en "
+"Ik heb de <a href=\"\">gebruiksvoorwaarden van Ubuntu One</a> gelezen en "
 "geaccepteerd."
 
 #. Type: text
@@ -252,7 +252,7 @@ msgid ""
 "One account.</span>"
 msgstr ""
 "<span size=\"small\">Voer het e-mailadres in dat u gebruikt om u bij uw "
-"Ubuntu One account aan te melden.</span>"
+"Ubuntu One-account aan te melden.</span>"
 
 #. Type: text
 #. Description
@@ -268,7 +268,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr "Ubuntu One e-mailadres"
+msgstr "E-mailadres voor Ubuntu One"
 
 #. Type: text
 #. Description
@@ -313,14 +313,14 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
-"&lt;small&gt;Indien meer dan één persoon deze computer zal gaan gebruiken, "
-"kunt u na de installatie meerdere gebruikersaccounts aanmaken.&lt;/small&gt;"
+"&lt;small&gt;Als meer dan één persoon deze computer zal gebruiken, kunt u na "
+"de installatie meerdere gebruikersaccounts aanmaken.&lt;/small&gt;"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "Must start with a lower-case letter."
-msgstr "Moet beginnen met een kleine letter."
+msgstr "Moet met een kleine letter beginnen."
 
 #. Type: text
 #. Description
@@ -363,8 +363,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
-"&lt;small&gt;Voer hetzelfde wachtwoord twee keer in, zodat het kan worden "
-"gecontroleerd op tikfouten.&lt;/small&gt;"
+"&lt;small&gt;Voer hetzelfde wachtwoord twee keer in, zodat het op typfouten "
+"kan worden gecontroleerd.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -406,7 +406,7 @@ msgstr "Cloud"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr "Voer uw e-mailades in:"
+msgstr "Voer uw e-mailadres in:"
 
 #. Type: text
 #. Description
@@ -478,15 +478,15 @@ msgstr "Wachtwoord bevestigen:"
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Your computer's name:"
-msgstr "Naam voor uw computer:"
+msgstr "Naam van uw computer:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "The name it uses when it talks to other computers."
 msgstr ""
-"De naam die uw computer gebruikt wanneer gecommuniceerd wordt met andere "
-"computers."
+"De naam die uw computer gebruikt wanneer hij met andere computers "
+"communiceert."
 
 #. Type: text
 #. Description
@@ -511,7 +511,7 @@ msgstr "Mag niet met een koppelteken beginnen of eindigen."
 #: ../ubiquity.templates:70001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
-"Mag niet beginnen of eindigen met een punt, of de reeks \"..\" bevatten."
+"Mag niet met een punt beginnen of eindigen, of de reeks \"..\" bevatten."
 
 #. Type: text
 #. Description
@@ -1278,7 +1278,7 @@ msgstr "Er is een fout opgetreden bij het installeren van pakketten:"
 #. Description
 #: ../ubiquity.templates:176001 ../ubiquity.templates:177001
 msgid "The following packages are in a broken state:"
-msgstr "De volgende pakketten zijn momenteel in een gebroken staat:"
+msgstr "De volgende pakketten verkeren momenteel in een gebroken staat:"
 
 #. Type: error
 #. Description
@@ -1294,15 +1294,15 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Dit kan komen door het gebruik van een verouderd installatievolume, of door "
+"Dit kan komen door het gebruik van een verouderd installatiebestand, of door "
 "een fout in enkele van de hierboven getoonde pakketten. Meer details vindt u "
 "in /var/log/syslog. Het installatieprogramma zal proberen door te gaan, maar "
 "de installatie kan op een later moment alsnog mislukken. In dat geval zal "
 "het programma niet in staat zijn om andere pakketten te installeren of om "
 "pakketten (waaronder mogelijk zichzelf) van het geïnstalleerde systeem te "
-"verwijderen. U wordt aangeraden een nieuwere versie van uw installatievolume "
-"te gebruiken.  Wanneer dit niet lukt, meld dan het probleem aan uw "
-"distributeur."
+"verwijderen. U wordt aangeraden om een nieuwere versie van het "
+"installatiebestand te gebruiken.  Wanneer dit niet lukt, meld dan het "
+"probleem aan uw distributeur."
 
 #. Type: error
 #. Description
@@ -1331,8 +1331,8 @@ msgid ""
 "installed system."
 msgstr ""
 "Er is een fout opgetreden bij het kopiëren van de netwerkinstellingen. De "
-"installatie zal verdergaan, maar u zult de netwerkconfiguratie zelf moeten "
-"opzetten in het geïnstalleerde systeem."
+"installatie zal verdergaan, maar u zult de netwerkconfiguratie weer zelf "
+"moeten instellen in het geïnstalleerde systeem."
 
 #. Type: error
 #. Description
@@ -1349,8 +1349,8 @@ msgid ""
 "in the installed system."
 msgstr ""
 "Er is een fout opgetreden bij het kopiëren van de bluetooth-instellingen. De "
-"installatie zal verder gaan, maar u zult de bluetooth-instellingen zelf "
-"opnieuw moeten aanmaken in het geïnstalleerde systeem."
+"installatie zal verder gaan, maar u zult de bluetooth-configuratie weer zelf "
+"moeten instellen in het geïnstalleerde systeem."
 
 #. Type: error
 #. Description
@@ -1432,8 +1432,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Sommige van de door u aangemaakte partities zijn te klein. Maak deze "
-"partities minstens zo groot als aangegeven:"
+"Sommige van de door u aangemaakte partities zijn te klein. Geef deze "
+"partities minstens de volgende omvang:"
 
 #. Type: boolean
 #. Description
@@ -1568,7 +1568,7 @@ msgstr "Fout bij bijwerken van installatieprogramma"
 #: ../ubiquity.templates:223001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Er is een fout opgetreden terwijl het installatieprogramma zichzelf "
+"Er is een fout opgetreden in het installatieprogramma toen het zichzelf "
 "probeerde bij te werken:"
 
 #. Type: text
@@ -1602,8 +1602,8 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Kies de taal die gebruikt zal worden bij het installeren. Deze taal zal de "
-"standaardtaal worden voor deze computer."
+"Kies de taal die gebruikt zal worden bij het instellen van de installatie. "
+"Deze taal zal de standaardtaal worden voor deze computer."
 
 #. Type: text
 #. Description
@@ -1647,8 +1647,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"Door deze computer met een wifi-netwerk te verbinden kunt u programma's van "
-"derden installeren, uw systeem bijwerken, automatisch uw tijdzone "
+"Door deze computer met een draadloos netwerk te verbinden kunt u programma's "
+"van derden installeren, uw systeem bijwerken, automatisch uw tijdzone "
 "vaststellen en volledige ondersteuning voor uw taal installeren."
 
 #. Type: text
@@ -1667,7 +1667,7 @@ msgstr "Wachtwoord tonen"
 #. Description
 #: ../ubiquity.templates:236001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "Ik wil momenteel geen verbinding maken met een wifi-netwerk"
+msgstr "Ik wil momenteel geen verbinding maken met een draadloos netwerk"
 
 #. Type: text
 #. Description
@@ -1780,9 +1780,10 @@ msgid ""
 "documentation."
 msgstr ""
 "${RELEASE} gebruikt programma's van derden voor het afspelen van Flash, MP3 "
-"en andere mediabestanden, en voor het werken met sommige grafische en wifi-"
-"apparatuur. Sommige van deze programma's zijn niet-vrij. De programmatuur "
-"valt onder licentievoorwaarden die in de documentatie ervan zijn opgenomen."
+"en andere mediabestanden, en voor het werken met sommige grafische en "
+"draadloze apparatuur. Sommige van deze programma's zijn niet-vrij. De "
+"programmatuur valt onder licentievoorwaarden die in de documentatie ervan "
+"zijn opgenomen."
 
 #. Type: text
 #. Description
@@ -1989,8 +1990,8 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
 msgstr ""
-"<span foreground=\"darkred\">Warning:</span> Dit zal alle bestanden op de "
-"schijf verwijderen."
+"<span foreground=\"darkred\">Waarschuwing:</span> dit zal alle bestanden op "
+"de schijf verwijderen."
 
 #. Type: text
 #. Description
@@ -2008,8 +2009,8 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Waarschuwing:</span> Dit zal al uw programma's "
-"en persoonlijke bestanden (documenten e.d.) op ${OS} en ${CURDISTRO} "
+"<span foreground=\"darkred\">Waarschuwing:</span> dit zal al uw programma's "
+"en persoonlijke bestanden (documenten e.d.) in ${OS} en ${CURDISTRO} "
 "verwijderen."
 
 #. Type: text
@@ -2027,8 +2028,8 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Waarschuwing:</span> Dit zal al uw programma's "
-"en persoonlijke bestanden (documenten e.d.) op alle besturingssystemen "
+"<span foreground=\"darkred\">Waarschuwing:</span> dit zal al uw programma's "
+"en persoonlijke bestanden (documenten e.d.) in alle besturingssystemen "
 "verwijderen."
 
 #. Type: text
@@ -2219,14 +2220,14 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
-"Logisch volumebeheer (LVM) laat Ubuntu meerdere fysieke volumes behandelen "
-"als een enkel volume."
+"Logisch volumebeheer (LVM) zorgt ervoor dat Ubuntu meerdere fysieke schijven "
+"behandelt als een enkele schijf."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:308001
 msgid "Logical Volume Management"
-msgstr "Logical Volume Management"
+msgstr "Logisch volumebeheer (LVM)"
 
 #. Type: text
 #. Description
@@ -2274,9 +2275,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Wanneer u uw nieuw besturingssysteem start, kunt u inloggen als de gebruiker "
-"‘oem’ met het eerder gekozen wachtwoord; deze gebruiker heeft "
-"beheerdersrechten via ‘sudo’. U kunt het systeem dan naar wens aanpassen."
+"Wanneer u uw nieuwe besturingssysteem start, kunt u zich aanmelden als de "
+"gebruiker ‘oem’ met het eerder gekozen wachtwoord; deze gebruiker heeft "
+"beheerdersrechten via ‘sudo’. U kunt het systeem dan verder naar wens "
+"aanpassen."
 
 #. Type: text
 #. Description
@@ -2288,7 +2290,7 @@ msgid ""
 msgstr ""
 "Zodra het systeem naar uw tevredenheid is ingesteld, start u 'oem-config-"
 "prepare'. Hierdoor zal het systeem de tijdelijke ‘oem’-gebruiker verwijderen "
-"en zal het de eindgebruiker diverse configuratievragen stellen zodra het "
+"en zal het de eindgebruiker diverse instellingsvragen stellen zodra het "
 "systeem de volgende keer opstart."
 
 #. Type: text

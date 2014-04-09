@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-03-14 16:09+0000\n"
+"PO-Revision-Date: 2014-03-21 02:42+0000\n"
 "Last-Translator: Akira Tanaka <Unknown>\n"
 "Language-Team: Debian L10n Japanese <debian-l10n-japanese@lists.debian.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "接続中..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "接続に失敗しました。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "接続しました。"
 
 #. Type: text
 #. Description
@@ -213,37 +213,37 @@ msgstr "写真を撮る"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "一つのアカウントでUbuntuのすべてにログイン"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "アカウント登録中にエラーが発生しました"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "アカウントのログイン中にエラーが発生"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "何か問題が発生しました"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">もっと知るには</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "<a href=\"\">Ubuntu Oneの利用規約</a>を読み、同意します。"
 
 #. Type: text
 #. Description
@@ -252,6 +252,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Ubuntu Oneアカウントにログインするためのメールアドレスを"
+"入力してください。</span>"
 
 #. Type: text
 #. Description
@@ -260,12 +262,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">まだアカウントを持っていなかったとしても心配しないでくだ"
+"さい。アカウントはすぐ作成できます。</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu Oneメールアドレス"
 
 #. Type: text
 #. Description
@@ -283,13 +287,13 @@ msgstr "あなたの名前"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "8文字以上のパスワード"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "パスワードを再入力してください"
 
 #. Type: text
 #. Description
@@ -337,13 +341,13 @@ msgstr "スキップ"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "後でログインする"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "後で登録する"
 
 #. Type: text
 #. Description
@@ -377,37 +381,37 @@ msgstr "パスワードの確認"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "アプリ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "写真"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "音楽"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "クラウド"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "メールアドレスを入力してください:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "あなたの名前とパスワードを入力してください:"
 
 #. Type: text
 #. Description
@@ -416,6 +420,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu Oneは、一つのアカウントでUbuntuに関連したすべてのサービスやサイトにロ"
+"グインできるサービスです。"
 
 #. Type: text
 #. Description
@@ -425,6 +431,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"ソフトウェアセンターから新しいアプリを入手したり、パーソナルクラウドにファイ"
+"ルを保存したり、Music Storeから音楽を購入したり、支払いならびにサブスクリプ"
+"ションを管理します - どのサービスが必要か決めてください。"
 
 #. Type: text
 #. Description
@@ -433,6 +442,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Ubuntuシングルサインオンアカウントを既にお持ちであれば、現在、それはUbuntu "
+"Oneアカウントと呼ばれています。"
 
 #. Type: text
 #. Description
@@ -441,18 +452,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"インターネットに接続されていません。アカウントを作成したりUbuntu Oneにログイ"
+"ンするには、インターネットに接続する必要があります。"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "私は新規Ubuntu Oneユーザーです"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "私は既にUbuntu Oneのユーザーです。パスワードは:"
 
 #. Type: text
 #. Description

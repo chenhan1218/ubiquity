@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-04-01 17:23+0000\n"
+"PO-Revision-Date: 2014-01-24 09:34+0000\n"
 "Last-Translator: Sahran <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -28,13 +28,13 @@ msgstr "باغلىنىۋاتىدۇ..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "باغلىنىش مەغلۇپ بولدى."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "باغلاندى."
 
 #. Type: text
 #. Description
@@ -210,37 +210,37 @@ msgstr "سۈرەت تارت"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "بىرلا ھېسابات بىلەن ئۇبۇنتۇنىڭ ھەممە يېرىگە كىرىش"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "ھېسابات خەتلىتىشتە خاتالىق كۆرۈلدى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "ھېساباتقا كىرىشتە خاتالىق كۆرۈلدى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "خاتالىق كۆرۈلدى"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">تېخىمۇ كۆپ</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "مەن <a href=\"\">ئۇبۇنتۇ بىر قائىدىلىرىنى</a> ئوقۇدۇم ۋە قوشۇلىمەن"
 
 #. Type: text
 #. Description
@@ -249,6 +249,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">سىز تورخەت ئادرېسى ئارقىلىق Ubuntu One ھېساباتىڭىزغا "
+"تىزىمغا كىرىڭ.</span>"
 
 #. Type: text
 #. Description
@@ -257,12 +259,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">ھېساباتىڭىز بولمىسا ئەنسىرىمەڭ، بىز سىزگە بىرنى ياساپ "
+"بېرىمىز.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "ئۇبۇنتۇ بىر ئېلخەت"
 
 #. Type: text
 #. Description
@@ -280,13 +284,13 @@ msgstr "ئاتىڭىز"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "ئىمنىڭ ئۇزۇنلۇقى ئەڭ ئاز دېگەندە 8 ھەرپ بولىدۇ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "ئىمنى قايتا كىرگۈزۈڭ"
 
 #. Type: text
 #. Description
@@ -334,13 +338,13 @@ msgstr "ئاتلا"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "كېيىن كىرەي"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "كېيىن خەتلىتەي"
 
 #. Type: text
 #. Description
@@ -374,37 +378,37 @@ msgstr "ئىمنى جەزملەڭ"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "ئەپلەر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "سۈرەتلەر"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "مۇزىكا"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "بۇلۇت"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "ئېلخەت ئادرېسىڭىزنى كىرگۈزۈڭ:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "ئاتىڭىزنى دەپ بېرىڭ ۋە ئىمنى تاللاڭ:"
 
 #. Type: text
 #. Description
@@ -413,6 +417,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"بىر Ubuntu One ھېساباتى سىزنى Ubuntu غا مۇناسىۋەتلىك مۇلازىمەت ۋە "
+"تورتۇرالارنىڭ ھەممىسىگە تىزىمغا كىرگۈزەلەيدۇ."
 
 #. Type: text
 #. Description
@@ -422,6 +428,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"يۇمشاق دېتال مەركىزىدىن ئەپلەرگە ئېرىشىش، ھۆججەتلەرنى شەخسىي بۇلۇت بوشلۇقىغا "
+"ساقلاش، نەغمە دۇكىنىدىن ناخشا سېتىۋېلىش، چىقىم ۋە زكازلىرىڭىزنى باشقۇرۇش، "
+"مۇلازىمەت ئېھتىياجىڭىزغا ئۆزىڭىز قارار قىلىسىز."
 
 #. Type: text
 #. Description
@@ -430,6 +439,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"ئەگەر سىزنىڭ نۆۋەتتە Ubuntu single ھېساباتىڭىز بولسا، ھازىر ئۇ Ubuntu One "
+"ھېساباتى دەپ ئاتىلىدۇ."
 
 #. Type: text
 #. Description
@@ -438,18 +449,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"ئىنتېرنېت باغلىنىشى يوق ئىكەن. ئۇبۇنتۇ بىرگە كىرىش ياكى بىر يېڭى ھېساب ياساش "
+"ئۈچۈن، ئىنتېرنېتقا باغلىنىش زۆرۈردۇر."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "مەن ئۇبۇنتۇ بىرنىڭ يېڭى ئىشلەتكۈچىسى."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "مەن ئاللىبۇرۇن Ubuntu One ئىشلەتكۈچىسى مەن ئىشلەتكەن ئىم:"
 
 #. Type: text
 #. Description
@@ -1271,9 +1284,10 @@ msgstr ""
 "بىرەرسىدىكى چاتاق بۇ خىل خاتالىقنى كەلتۈرۈپ چىقارغان بولۇشى مۇمكىن. /var/log/"
 "syslog دىن تېخىمۇ كۆپ خاتالىق تەپسىلاتىنى بايقىيالايسىز. قاچىلاش پروگراممىسى "
 "ئىجرا قىلىشنى داۋاملاشتۇرىدۇ، ئەمما قاچىلاش مەغلۇپ بولۇشى مۇمكىن، شۇنداقلا "
-"قاچىلانغان سىستېمىغا باشقا بوغچا (بۇ پروگراممىنىڭ ئۆزىنىمۇ ئۆز ئىچىگە ئالىدۇ)"
-"لارنى قاچىلاپ ئۆچۈرەلمەسلىكىڭىز مۇمكىن. سىز ئەڭ ياخشىسى يېڭى نەشرىدىكى "
-"تەسۋىردىن قاچىلاڭ، ياكى بۇ مەسىلىنى پروگرامما ئىجادىيەتچىلىرىگە مەلۇم قىلىڭ."
+"قاچىلانغان سىستېمىغا باشقا بوغچا (بۇ پروگراممىنىڭ ئۆزىنىمۇ ئۆز ئىچىگە "
+"ئالىدۇ)لارنى قاچىلاپ ئۆچۈرەلمەسلىكىڭىز مۇمكىن. سىز ئەڭ ياخشىسى يېڭى "
+"نەشرىدىكى تەسۋىردىن قاچىلاڭ، ياكى بۇ مەسىلىنى پروگرامما ئىجادىيەتچىلىرىگە "
+"مەلۇم قىلىڭ."
 
 #. Type: error
 #. Description

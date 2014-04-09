@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-10-16 07:02+0000\n"
-"Last-Translator: Jānis-Marks Gailis <jeanmarc.gailis@gmail.com>\n"
+"PO-Revision-Date: 2013-10-17 14:26+0000\n"
+"Last-Translator: Rūdolfs Mazurs <Unknown>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -218,31 +218,32 @@ msgstr "Viens konts, lai pieslēgtos visām Ubuntu iespējām"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "Kļūda, reģistrējot kontu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "Kļūda, izrakstoties no konta."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Kaut kas nogāja greizi"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Uzziniet vairāk</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Esmu izlasījis un pieņemu <a href=\"\">Ubuntu One lietošanas nosacījumus</a>"
 
 #. Type: text
 #. Description
@@ -251,6 +252,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Ievadiet e-pasta adresi, ko izmantosiet, lai "
+"ierakstītos Ubuntu One kontā.</span>"
 
 #. Type: text
 #. Description
@@ -259,12 +262,13 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Ja jums vēl nav konta, mēs jums to izveidosim.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One e-pasts"
 
 #. Type: text
 #. Description
@@ -282,7 +286,7 @@ msgstr "Jūsu vārds"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Parole ar vismaz 8 rakstzīmēm"
 
 #. Type: text
 #. Description
@@ -337,13 +341,13 @@ msgstr "Izlaist"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Ierakstīties vēlāk"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Reģistrēties vēlāk"
 
 #. Type: text
 #. Description
@@ -401,13 +405,13 @@ msgstr "Mākonis"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Lūdzu ievadiet epastu:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Lūdzu, norādiet savu vārdu un izvēlieties paroli:"
 
 #. Type: text
 #. Description
@@ -416,6 +420,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One ir viens konts, ko izmantot, lai ierakstītos visos pakalpojumus "
+"un vietnēs, kas ir saistītas ar Ubuntu."
 
 #. Type: text
 #. Description
@@ -425,6 +431,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Saņemiet jaunas lietotnes no Programmatūras centra, saglabājiet datnes savā "
+"personīgajā mākonī, pērciet mūziku no Mūzikas veikala, pārvaldiet savus "
+"maksājumus un abonementus — jūs paši nosakāt, kurus pakalpojumus jums vajag."
 
 #. Type: text
 #. Description
@@ -433,6 +442,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Ja jums jau ir Ubuntu kopējās ierakstīšanāš konts, jums jau ir Ubuntu One "
+"konts."
 
 #. Type: text
 #. Description
@@ -441,6 +452,8 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Nav interneta savienojuma. Lai varētu izveidot konu vai ierakstīties Ubuntu "
+"One, jābūt savienojumam ar internetu."
 
 #. Type: text
 #. Description
@@ -452,7 +465,7 @@ msgstr "Es esmu jauns Ubuntu One lietotājs"
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Jau esmu Ubuntu One  lietotājs un mana parole ir:"
 
 #. Type: text
 #. Description

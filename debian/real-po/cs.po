@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-03-08 19:56+0000\n"
-"Last-Translator: Vojtěch Trefný <vojtech.trefny@gmail.com>\n"
+"PO-Revision-Date: 2014-03-25 16:10+0000\n"
+"Last-Translator: Stanislav Horáček <stanislav.horacek@gmail.com>\n"
 "Language-Team: Czech <provoz@debian.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "Připojuje se…"
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "Spojení selhalo."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "Připojeno."
 
 #. Type: text
 #. Description
@@ -213,37 +213,38 @@ msgstr "Zachytit snímek"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "Jeden účet, se kterým se budete v Ubuntu přihlašovat ke všemu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "Chyba při registraci účtu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "Chyba při přihlášení k účtu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Něco je špatně"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Dozvědět se více</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Četl jsem a souhlasím s <a href=\"\">podmínkami užití služby Ubuntu One</a>"
 
 #. Type: text
 #. Description
@@ -252,6 +253,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Napište e-mailovou adresu, se kterou se budete "
+"přihlašovat na svůj účet Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -260,12 +263,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Nebojte se, pokud nemáte účet, my jej pro vás vytvoříme."
+"</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "Ubuntu One email"
 
 #. Type: text
 #. Description
@@ -283,13 +288,13 @@ msgstr "Vaše jméno"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Heslo musí obsahovat alespoň 8 znaků"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "Znovu zadejte heslo"
 
 #. Type: text
 #. Description
@@ -337,13 +342,13 @@ msgstr "Přeskočit"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Přihlásit se později"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Zaregistrovat se později"
 
 #. Type: text
 #. Description
@@ -377,37 +382,37 @@ msgstr "Potvrďte heslo"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Aplikace"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "Fotografie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Hudba"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Cloud"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Prosím zadejte email:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Řekněte nám, prosím, vaše jméno a zvolte si heslo:"
 
 #. Type: text
 #. Description
@@ -416,6 +421,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One je účet, který použijete při přihlašování ke všem službám a k "
+"webovým stránkám, které souvisí s Ubuntu."
 
 #. Type: text
 #. Description
@@ -425,6 +432,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Dostaňte se k novým aplikacím v centru softwaru, ukládejte vaše soubory v "
+"osobním cloudu, nakupujte alba v hudebním obchodě, spravujte vaše platby a "
+"předplatné - sami se rozhodnete, které služby potřebujete."
 
 #. Type: text
 #. Description
@@ -433,6 +443,7 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Jestliže již máte existující Ubuntu účet, tak se nyní nazývá Ubuntu One účet."
 
 #. Type: text
 #. Description
@@ -441,18 +452,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Nejste připojeni k internetu. Abyste mohli vytvořit účet Ubuntu One, nebo se "
+"do něj přihlásit, musíte být připojeni k internetu."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Jsem nový uživatel služby Ubuntu One."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Již mám účet pro službu Ubuntu One a moje heslo je:"
 
 #. Type: text
 #. Description
@@ -1606,7 +1619,7 @@ msgid ""
 "install full support for your language."
 msgstr ""
 "Připojení tohoto počítače k síti Wi-Fi umožňuje instalovat software třetích "
-"stran, stáhnout aktualizace, automaticky rozpoznat časové pásmo, a "
+"stran, stáhnout aktualizace, automaticky rozpoznat časové pásmo a "
 "nainstalovat plnou podporu pro váš jazyk."
 
 #. Type: text
@@ -1736,8 +1749,8 @@ msgid ""
 msgstr ""
 "${RELEASE} používá nástroje třetích stran k přehrávání Flashe, MP3 a "
 "některých dalších multimédií a také ke zprovoznění některých grafických "
-"karet nebo wi-fi hardware. Některý software je propriterární a je předmětem "
-"licenčních podmínek zahrnutých v dokumentaci."
+"karet nebo wi-fi hardware. Některý software je proprietární a je předmětem "
+"licenčních podmínek uvedených v dokumentaci."
 
 #. Type: text
 #. Description
@@ -1746,7 +1759,7 @@ msgid ""
 "Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
-"Zásuvný modul Fluendo MP3 obsahuje dekódovací technlogii MPEG Layer-3 "
+"Zásuvný modul Fluendo MP3 obsahuje dekódovací technologii MPEG Layer-3 "
 "licencovanou společnostmi Fraunhofer IIS a Technicolor SA."
 
 #. Type: text
@@ -1825,7 +1838,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny vaše "
+"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny své "
 "programy, dokumenty, fotografie, hudbu a další soubory z ${OS}."
 
 #. Type: text
@@ -1893,7 +1906,7 @@ msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny vaše "
+"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny své "
 "programy, dokumenty, fotografie, hudbu a další soubory z ${CURDISTRO}."
 
 #. Type: text
@@ -1962,7 +1975,7 @@ msgid ""
 "programs, documents, photos, music, and other files in both ${OS} and "
 "${CURDISTRO}."
 msgstr ""
-"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny vaše "
+"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny své "
 "programy, dokumenty, fotografie, hudbu a další soubory z ${OS} a "
 "${CURDISTRO}."
 
@@ -1981,7 +1994,7 @@ msgid ""
 "programs, documents, photos, music, and any other files in all operating "
 "systems."
 msgstr ""
-"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny vaše "
+"<span foreground=\"darkred\">Upozornění:</span> Tímto smažete všechny své "
 "programy, dokumenty, fotografie, hudbu a další soubory ze všech operačních "
 "systémů."
 
@@ -2228,7 +2241,7 @@ msgid ""
 msgstr ""
 "Když se spustí váš nový systém, budete se moci přihlásit jako uživatel \"oem"
 "\" s heslem, které jste si zvolili dříve; použitím \"sudo\" obdržíte také "
-"administrátorská práva a tudíž možnost provádět dodatečné změny systému dle "
+"administrátorská práva, a tudíž možnost provádět dodatečné změny systému dle "
 "vašich požadavků."
 
 #. Type: text

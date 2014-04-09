@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2012-03-10 07:36+0000\n"
-"Last-Translator: Marian Vasile <marianvasile1972@gmail.com>\n"
+"PO-Revision-Date: 2014-02-24 17:45+0000\n"
+"Last-Translator: Vlad Paul Paval <Unknown>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "Se conectează..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "Conexiunea a eșuat."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "Conectat."
 
 #. Type: text
 #. Description
@@ -212,36 +212,39 @@ msgstr "Faceți o fotografie"
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
 msgstr ""
+"Un singur cont, cu care te vei autentifica oriunde, folosind contul Ubuntu"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "Eroare înregistrare cont"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "Eroare la autentificare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Ceva nu a mers așa cum trebuie"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Aflați mai multe</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
 msgstr ""
+"Am citit și sunt de acord cu <a href=\"\">Termenii de utilizare Ubuntu One</"
+"a>"
 
 #. Type: text
 #. Description
@@ -250,6 +253,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Introduceți adresa de email utilizată pentru "
+"autentificarea pe contul Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -258,12 +263,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Dacă nu aveți deja un cont, nicio problemă, vom crea "
+"unul pentru dumneavoastră.</span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "email Ubuntu One"
 
 #. Type: text
 #. Description
@@ -281,13 +288,13 @@ msgstr "Numele dumneavoastră"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "Parola trebuie să conțină cel puțin 8 caractere"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "Reintroduceți parola"
 
 #. Type: text
 #. Description
@@ -336,13 +343,13 @@ msgstr "Omite"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Amânare autentificare"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Amânare înregistrare"
 
 #. Type: text
 #. Description
@@ -376,37 +383,37 @@ msgstr "Confirmați parola"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "Aplicații"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "Fotografii"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "Muzică"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "Cloud"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Introduceți adresa de email"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Introduceți-vă numele și alegeți o parolă"
 
 #. Type: text
 #. Description
@@ -415,6 +422,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"Ubuntu One este un cont unic, pe care-l veți folosi pentru a vă autentifica "
+"la toate serviciile și site-urile legate de Ubuntu."
 
 #. Type: text
 #. Description
@@ -424,6 +433,10 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"Obțineți aplicații noi din Centrul software, păstrați fișiere în spațiul "
+"cloud personal, cumpărați piese muzicale din magazinul online, administrați "
+"plățile și abonamentele - dumneavoastră decideți asupra serviciilor de care "
+"aveți nevoie."
 
 #. Type: text
 #. Description
@@ -432,6 +445,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"Dacă aveți deja un cont Ubuntu, prin care vă autentificați, acela devine "
+"deja contul unic Ubuntu One."
 
 #. Type: text
 #. Description
@@ -440,18 +455,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"Nu există conexiune la Internet. Pentru a putea crea un cont sau pentru a vă "
+"autentifica pe Ubuntu One, trebuie să fiți conectat la Internet."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "Sunt un utilizator nou Ubuntu One."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "Sunt deja utilizator Ubuntu One iar parola mea este:"
 
 #. Type: text
 #. Description
@@ -1755,9 +1772,9 @@ msgid ""
 "documentation."
 msgstr ""
 "${RELEASE} folosește software de la terțe părți pentru redare Flash, MP3 și "
-"alte fișiere media; și pentru a funcționa cu unele plăci grafice și "
-"wireless. O parte din acest software este proprietar. Acest software este "
-"subiectul licenței incluse în documentația sa."
+"alte fișiere media,  pentru a funcționa cu unele plăci grafice și wireless. "
+"O parte din acest software este proprietar. Acest software este supus "
+"termenilor din licența inclusă în documentația sa."
 
 #. Type: text
 #. Description

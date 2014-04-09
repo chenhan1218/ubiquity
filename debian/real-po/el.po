@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-10-12 22:26+0000\n"
+"PO-Revision-Date: 2013-12-13 20:19+0000\n"
 "Last-Translator: Simos Xenitellis <Unknown>\n"
 "Language-Team: <en@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -64,8 +64,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"Κάνετε εγκατάσταση σε λειτουργία OEM για κατασκευαστές. Παρακαλώ δώστε ένα "
-"μοναδικό όνομα για αυτό το σύνολο συστημάτων. Το όνομα θ' αποθηκευθεί στο "
+"Κάνετε εγκατάσταση σε λειτουργία OEM για κατασκευαστές. Παρακαλώ, δώστε ένα "
+"μοναδικό όνομα για αυτό το σύνολο συστημάτων. Το όνομα θα αποθηκευθεί στο "
 "εγκατεστημένο σύστημα και μπορεί να βοηθήσει σε αναφορές σφαλμάτων."
 
 #. Type: text
@@ -113,8 +113,9 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Ίσως θέλετε να διαβάσετε τις <a href=\"release-notes\">σημειώσεις έκδοσης</"
-"a> ή να <a href=\"update\">ενημερώσετε το πρόγραμμα εγκατάστασης</a>."
+"Ίσως θα θέλατε να διαβάσετε τις <a href=\"release-notes\">σημειώσεις "
+"έκδοσης</a> ή να <a href=\"update\">ενημερώσετε το πρόγραμμα εγκατάστασης</"
+"a>."
 
 #. Type: text
 #. Description
@@ -128,8 +129,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
-"Ίσως θέλετε να <a href=\"update\">ενημερώσετε το πρόγραμμα εγκατάστασης</a>."
+msgstr "Ίσως θέλετε να <a href=\"update\">ενημερώσετε τον εγκαταστάτη</a>."
 
 #. Type: text
 #. Description
@@ -183,7 +183,7 @@ msgstr "Υπάρχει στο πληκτρολόγιό σας το ακόλου�
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Who are you?"
-msgstr "Πώς σας λένε;"
+msgstr "Πώς λέγεστε;"
 
 #. Type: text
 #. Description
@@ -213,7 +213,7 @@ msgstr "Λήψη φωτογραφίας"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr "Ένας λογαριασμός για να συνδεθείτε στα πάντα στο Ubuntu"
+msgstr "Ένας λογαριασμός για να συνδεθείτε παντού με το Ubuntu"
 
 #. Type: text
 #. Description
@@ -253,7 +253,7 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
-"<span size=\"small\">Εισάγεται τη διεύθυνση email που χρησιμοποιείτε για να "
+"<span size=\"small\">Εισάγετε τη διεύθυνση email που χρησιμοποιείτε για να "
 "συνδεθείτε στο λογαριασμό σας στο Ubuntu One.</span>"
 
 #. Type: text
@@ -263,7 +263,7 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
-"<span size=\"small\"Αν δεν έχετε ήδη ένα λογαριασμό, μην ανησυχείτε θα "
+"<span size=\"small\"Αν δεν έχετε ήδη κάποιο λογαριασμό, μην ανησυχείτε. Θα "
 "δημιουργήσουμε έναν για εσάς.</span>"
 
 #. Type: text
@@ -276,13 +276,13 @@ msgstr "Ubuntu One email"
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Your name:"
-msgstr "Το όνομά σας:"
+msgstr "Το ονοματεπώνυμό σας:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:39001
 msgid "Your name"
-msgstr "Το όνομά σας"
+msgstr "Το ονοματεπώνυμό σας"
 
 #. Type: text
 #. Description
@@ -315,9 +315,9 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
-"&lt;small&gt;Αν περισσότερα από ένα άτομα χρησιμοποιούν τον υπολογιστή, τότε "
-"μπορείτε να δημιουργήσετε πολλαπλούς λογαριασμούς μετά την εγκατάταση.&lt;/"
-"small&gt;"
+"&lt;small&gt;Αν ο υπολογιστής χρησιμοποιείται από περισσότερα από ένα άτομα, "
+"τότε μπορείτε να δημιουργήσετε πολλαπλούς λογαριασμούς μετά την εγκατάταση."
+"&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -357,7 +357,7 @@ msgstr "Εγγραφή αργότερα"
 #. Description
 #: ../ubiquity.templates:50001
 msgid "Choose a password:"
-msgstr "Διαλέξτε ένα συνθηματικό (κωδικός πρόσβασης):"
+msgstr "Διαλέξτε έναν κωδικό πρόσβασης:"
 
 #. Type: text
 #. Description
@@ -373,13 +373,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:52001
 msgid "Password"
-msgstr "Συνθηματικό"
+msgstr "Κωδικός πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:53001
 msgid "Confirm password"
-msgstr "Επιβεβαίωση συνθηματικού"
+msgstr "Επιβεβαίωση κωδικού πρόσβασης"
 
 #. Type: text
 #. Description
@@ -409,13 +409,14 @@ msgstr "Σύννεφο"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr "Παρακαλώ πληκτρολογείστε το email σας:"
+msgstr "Παρακαλώ πληκτρολογήστε το email σας:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr "Παρακαλώ πείτε μας το όνομά σας και επιλέξτε έναν κωδικό πρόσβασης:"
+msgstr ""
+"Παρακαλώ πείτε μας το ονοματεπώνυμό σας και επιλέξτε έναν κωδικό πρόσβασης:"
 
 #. Type: text
 #. Description
@@ -424,9 +425,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
-"Το Ubuntu One είναι ένα απλός λογαριασμός που τον χρησιμοποιείτε για να "
-"συνδεθείτε σε όλες τις υπηρεσίες και τις σελίδες που σχετίζονται με το "
-"Ubuntu."
+"Το Ubuntu One είναι ο μόνος λογαριασμός που χρησιμοποιείτε για να συνδεθείτε "
+"σε όλες τις υπηρεσίες και τις ιστοσελίδες που σχετίζονται με το Ubuntu."
 
 #. Type: text
 #. Description
@@ -436,9 +436,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
-"Εγκαταστήστε νέα προγράμματα από το Κέντρο λογισμικού, αποθηκεύστε αρχεία "
-"στο προσωπικό σας σύννεφο, αγοράστε τραγούδια από το Κατάστημα μουσικής, "
-"διαχειριστείτε τις αγορές και τις συνδρομές σας - επιλέγετε εσείς ποιες "
+"Κατεβάστε νέες εφαρμογές από το Κέντρο λογισμικού, αποθηκεύστε αρχεία στο "
+"προσωπικό σας σύννεφο, αγοράστε τραγούδια από το Κατάστημα μουσικής, "
+"διαχειριστείτε τις αγορές και τις συνδρομές σας - εσείς επιλέγετε ποιες "
 "υπηρεσίες χρειάζεστε."
 
 #. Type: text
@@ -458,15 +458,15 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
-"Δεν υπάρχει σύνδεση στο διαδίκτυο. Για να είστε σε θέση να δημιουργήσετε "
-"έναν κωδικό ή να συνδεθείτε στο Ubuntu One, χρειάζεται να συνδεθείτε στο "
+"Δεν υπάρχει σύνδεση στο διαδίκτυο. Για να μπορέσετε να δημιουργήσετε "
+"λογαριασμό ή να συνδεθείτε στο Ubuntu One, πρέπει να συνδεθείτε στο "
 "διαδίκτυο."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr "Είμαι ένας νέος χρήστης του  Ubuntu One."
+msgstr "Είμαι νέος χρήστης του Ubuntu One."
 
 #. Type: text
 #. Description
@@ -478,19 +478,19 @@ msgstr "Είμαι ήδη χρήστης του Ubuntu One και ο κωδικ�
 #. Description
 #: ../ubiquity.templates:64001
 msgid "Confirm your password:"
-msgstr "Επιβεβαιώστε το συνθηματικό:"
+msgstr "Επιβεβαιώστε τον κωδικό πρόσβασής σας:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:65001
 msgid "Your computer's name:"
-msgstr "Το όνομα του υπολογιστή σας"
+msgstr "Το όνομα του υπολογιστή σας:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:66001
 msgid "The name it uses when it talks to other computers."
-msgstr "Το όνομα που χρησιμοποιείται κατά την σύνδεση με άλλους υπολογιστές"
+msgstr "Το όνομα που χρησιμοποιεί, όταν επικοινωνεί με άλλους υπολογιστές."
 
 #. Type: text
 #. Description
@@ -509,71 +509,71 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:69001
 msgid "May not start or end with a hyphen."
-msgstr "Δε μπορεί η αρχή ή η κατάληξη να είναι παύλα."
+msgstr "Δεν μπορεί να ξεκινάει και να καταλήγει σε παύλα."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:70001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
-"Δε μπορεί η αρχή ή η κατάληξη να είναι τελεία, ή να περιέχεται η ακολουθία "
-"«..»."
+"Δεν μπορεί να ξεκινάει και να καταλήγει σε τελεία, ή να περιέχεται η "
+"ακολουθία «..»."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:71001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Εκτελείται λειτουργία αποσφαλμάτωσης. Μην χρησιμοποιήσετε κάποιο σημαντικό "
-"συνθηματικό!"
+"Βρίσκεστε σε λειτουργία αποσφαλμάτωσης. Μην χρησιμοποιήσετε κάποιον "
+"σημαντικό κωδικό πρόσβασης!"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:72001
 msgid "Passwords do not match"
-msgstr "Τα συνθηματικά δεν ταιριάζουν"
+msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Short password"
-msgstr "Μικρό συνθηματικό"
+msgstr "Μικρός κωδικός πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Weak password"
-msgstr "Αδύναμο συνθηματικό"
+msgstr "Αδύναμος κωδικός πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Fair password"
-msgstr "Μέτριο συνθηματικό"
+msgstr "Μέτριος κωδικός πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:76001
 msgid "Good password"
-msgstr "Καλό συνθηματικό"
+msgstr "Καλός κωδικός πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:77001
 msgid "Strong password"
-msgstr "Δυνατό συνθηματικό"
+msgstr "Δυνατός κωδικός πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:78001
 msgid "Log in automatically"
-msgstr "Αυτόματη είσοδος χρήστη"
+msgstr "Αυτόματη είσοδος"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:79001
 msgid "Require my password to log in"
-msgstr "Απαίτηση του κωδικού μου για την είσοδο στο σύστημα"
+msgstr "Απαιτείται ο κωδικός πρόσβασής μου για την είσοδο"
 
 #. Type: text
 #. Description
@@ -598,7 +598,7 @@ msgid ""
 "Select any accounts you would like to import.  The documents and settings "
 "for these accounts will be available after the install completes."
 msgstr ""
-"Επιλέξτε τους λογαριασμούς που θέλετε να εισάγετε. Τα αρχεία και οι "
+"Επιλέξτε τους λογαριασμούς που θέλετε να εισάγετε. Τα έγγραφα και οι "
 "ρυθμίσεις για αυτούς τους λογαριασμούς θα είναι διαθέσιμα μετά την "
 "ολοκλήρωση της εγκατάστασης."
 
@@ -629,7 +629,7 @@ msgstr "Αρχεία (${SIZE})"
 #. Description
 #: ../ubiquity.templates:85001
 msgid "Where would you like to install Kubuntu?"
-msgstr "Που θέλετε να εγκαταστήσετε το Kubuntu;"
+msgstr "Πού θέλετε να εγκαταστήσετε το Kubuntu;"
 
 #. Type: text
 #. Description
@@ -649,19 +649,19 @@ msgstr "_Εγκατάσταση τώρα"
 #. Description
 #: ../ubiquity.templates:88001
 msgid "Quit the installation?"
-msgstr "Διακοπή της εγκατάστασης;"
+msgstr "Τερματισμός εγκατάστασης;"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Do you really want to quit the installation now?"
-msgstr "Θέλετε πράγματι να διακόψετε την εγκατάσταση;"
+msgstr "Θέλετε πράγματι να τερματίσετε τώρα την εγκατάσταση;"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:90001
 msgid "Bootloader install failed"
-msgstr "Αποτυχία εγκατάστασης του διαχειριστή εκκίνησης"
+msgstr "Αποτυχία εγκατάστασης του προγράμματος εκκίνησης"
 
 #. Type: text
 #. Description
@@ -670,7 +670,7 @@ msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
 msgstr ""
-"Συγγνώμη, συνέβη ένα σφάλμα και ήταν αδύνατη η εγκατάσταση του διαχειριστή "
+"Λυπούμαστε. Υπήρξε σφάλμα και ήταν αδύνατη η εγκατάσταση του προγράμματος "
 "εκκίνησης στην καθορισμένη τοποθεσία."
 
 #. Type: text
@@ -678,13 +678,13 @@ msgstr ""
 #: ../ubiquity.templates:92001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
-"Επιλέξτε μια διαφορετική συσκευή για εγκατάσταση του διαχειριστή εκκίνησης:"
+"Επιλέξτε διαφορετική συσκευή για εγκατάσταση του προγράμματος εκκίνησης:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:93001
 msgid "Continue without a bootloader."
-msgstr "Συνέχεια χωρίς διαχειριστή εκκίνησης."
+msgstr "Συνέχεια χωρίς πρόγραμμα εκκίνησης."
 
 #. Type: text
 #. Description
@@ -693,26 +693,26 @@ msgstr "Συνέχεια χωρίς διαχειριστή εκκίνησης."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Θα χρειαστεί να εγκαταστήσετε μόνοι σας έναν διαχειριστή εκκίνησης για να "
-"μπορείτε να εκκινήσετε το ${RELEASE}."
+"Θα πρέπει να εγκαταστήσετε μόνοι σας ένα πρόγραμμα εκκίνησης, ώστε να "
+"εκκινήσετε το ${RELEASE}."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:95001
 msgid "Cancel the installation."
-msgstr "Ακύρωση της εγκατάστασης."
+msgstr "Ακύρωση εγκατάστασης."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:96001
 msgid "This may leave your computer unable to boot."
-msgstr "Αυτό μπορεί να προκαλέσει αδυναμία εκκίνησης του υπολογιστή."
+msgstr "Αυτό μπορεί να προκαλέσει αδυναμία εκκίνησης του υπολογιστή σας."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "How would you like to proceed?"
-msgstr "Πώς θέλετε να προχωρήσετε;"
+msgstr "Πώς θα θέλατε να προχωρήσετε;"
 
 #. Type: title
 #. Description
@@ -757,11 +757,11 @@ msgid ""
 "problem as soon as possible."
 msgstr ""
 "Μας συγχωρείτε που το πρόγραμμα εγκατάστασης κατέρρευσε. Αφού κλείσετε αυτό "
-"το παράθυρο, θα σας καθοδηγήσουμε να υποβάλετε μια αναφορά σφάλματος "
+"το παράθυρο, θα σας καθοδηγήσουμε να υποβάλετε αναφορά σφάλματος "
 "χρησιμοποιώντας το ενσωματωμένο εργαλείο αναφοράς σφαλμάτων. Αυτό θα "
-"συγκεντρώσει πληροφορίες για το σύστημά σας και για τη διαδικασία "
-"εγκατάστασης. Οι λεπτομέρειες θα σταλούν στον δικό μας καταγραφέα σφαλμάτων "
-"και ένας προγραμματιστής θα ελέγξει το πρόβλημα το συντομότερο δυνατό."
+"συγκεντρώσει πληροφορίες για το σύστημά σας και τη διαδικασία εγκατάστασης. "
+"Οι λεπτομέρειες θα σταλούν στο δικό μας καταγραφέα σφαλμάτων και ένας "
+"προγραμματιστής θα ελέγξει το πρόβλημα το συντομότερο δυνατό."
 
 #. Type: text
 #. Description
@@ -847,7 +847,7 @@ msgstr "Συσκευή"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:118001
 msgid "Type"
-msgstr "Τύπος"
+msgstr "Είδος"
 
 #. Type: text
 #. Description
@@ -955,7 +955,7 @@ msgstr "Επεξεργασία μιας κατάτμησης"
 #. Description
 #: ../ubiquity.templates:134001
 msgid "Boot loader"
-msgstr "Διαχειριστής εκκίνησης"
+msgstr "Πρόγραμμα εκκίνησης"
 
 #. Type: text
 #. Description
@@ -966,7 +966,7 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"Η εγκατάσταση ολοκληρώθηκε. Μπορείτε να συνεχίσετε τώρα να δοκιμάζετε το "
+"Η εγκατάσταση ολοκληρώθηκε. Τώρα, μπορείτε να συνεχίσετε να δοκιμάζετε το "
 "${RELEASE}, αλλά μέχρι να επανεκκινήσετε τον υπολογιστή σας, οποιαδήποτε "
 "αλλαγή κάνετε ή οποιαδήποτε έγγραφα αποθηκεύσετε δε θα διατηρηθούν."
 
@@ -1008,7 +1008,7 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Η εγκατάσταση ολοκληρώθηκε. Θα χρειαστεί επανεκκίνηση του υπολογιστή για να "
+"Η εγκατάσταση ολοκληρώθηκε. Πρέπει να επανεκκινήσετε τον υπολογιστή για να "
 "την χρησιμοποιήσετε."
 
 #. Type: text
@@ -1069,7 +1069,7 @@ msgstr "Η εγκατάσταση απέτυχε"
 #: ../ubiquity.templates:150001 ../ubiquity.templates:151001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Η εγκατάσταση αντιμετώπισε πρόβλημα κατά την εγγραφή αρχείων στο σκληρό "
+"Ο εγκαταστάτης αντιμετώπισε πρόβλημα κατά την εγγραφή αρχείων στο σκληρό "
 "δίσκο:"
 
 #. Type: error
@@ -1081,8 +1081,8 @@ msgid ""
 "a larger partition to install into."
 msgstr ""
 "Αυτό οφείλεται στην έλλειψη ελεύθερου χώρου στο δίσκο για την ολοκλήρωση της "
-"εγκατάστασης στην κατάτμηση που υποδείχθηκε. Παρακαλώ να επανεκκινήσετε το "
-"πρόγραμμα εγκατάστασης και να διαλέξετε μια μεγαλύτερη κατάτμηση."
+"εγκατάστασης στην κατάτμηση που υποδείχθηκε. Παρακαλώ, εκτελέστε ξανά τον "
+"εγκαταστάτη και διαλέξτε μια μεγαλύτερη κατάτμηση για να γίνει η εγκατάσταση."
 
 #. Type: error
 #. Description
@@ -1202,7 +1202,7 @@ msgstr "Ρύθμιση δικτύου..."
 #. Description
 #: ../ubiquity.templates:163001
 msgid "Configuring boot loader..."
-msgstr "Ρύθμιση διαχειριστή εκκίνησης..."
+msgstr "Ρύθμιση προγράμματος εκκίνησης..."
 
 #. Type: text
 #. Description
@@ -1232,13 +1232,13 @@ msgstr "Έλεγχος για πακέτα προς εγκατάσταση.."
 #. Description
 #: ../ubiquity.templates:168001
 msgid "Removing extra packages..."
-msgstr "Απομάκρυνση επιπλέον πακέτων..."
+msgstr "Αφαίρεση επιπλέον πακέτων..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:169001
 msgid "Checking for packages to remove..."
-msgstr "Έλεγχος για πακέτα που θ' απομακρυνθούν..."
+msgstr "Έλεγχος πακέτων προς αφαίρεση..."
 
 #. Type: text
 #. Description
@@ -1268,7 +1268,7 @@ msgstr "Σφάλμα εγκατάστασης του ${PACKAGE}"
 #. Description
 #: ../ubiquity.templates:175001
 msgid "Error removing ${PACKAGE}"
-msgstr "Σφάλμα απομάκρυνσης του ${PACKAGE}"
+msgstr "Σφάλμα κατά την αφαίρεση του ${PACKAGE}"
 
 #. Type: error
 #. Description
@@ -1280,7 +1280,7 @@ msgstr "Σφάλμα κατά την εγκατάσταση πακέτων"
 #. Description
 #: ../ubiquity.templates:176001
 msgid "An error occurred while installing packages:"
-msgstr "Ένα σφάλμα εμφανίστηκε κατά την εγκατάσταση των πακέτων:"
+msgstr "Σφάλμα κατά την εγκατάσταση των πακέτων:"
 
 #. Type: error
 #. Description
@@ -1304,26 +1304,26 @@ msgid ""
 "versions of your installer image, or failing that report the problem to your "
 "distributor."
 msgstr ""
-"Αυτό ίσως να συμβαίνει λόγω χρήσης παλαιότερης εικόνας εγκατάστασης, ή λόγω "
-"σφάλματος σε κάποια από τα πακέτα που αναφέρονται παρακάτω. Περισσότερες "
-"λεπτομέρειες μπορούν ίσως να βρεθούν στο /var/log/syslog. Η εγκατάσταση θα "
-"προχωρήσει έτσι κι αλλιώς, αλλά ίσως αποτύχει μετά και δεν θα μπορούν να "
-"εγκατασταθούν (πιθανότατα και η ίδια η ρουτίνα εγκατάστασης) άλλα πακέτα από "
-"το εγκατεστημένο σύστημα. Πρέπει πρώτα να γίνει έρευνα για νεότερες εκδόσεις "
-"της εικόνας εγκατάστασης ή σε περίπτωση αποτυχίας αναφορά του σφάλματος στον "
-"προμηθευτή σας."
+"Αυτό ίσως να οφείλεται στη χρήση παλαιότερης εικόνας του εγκαταστάτη ή σε "
+"σφάλμα σε κάποιο από τα πακέτα που αναφέρονται παραπάνω. Ίσως να υπάρχουν "
+"περισσότερες λεπτομέρειες στο /var/log/syslog. Παρ' όλα αυτά, η εγκατάσταση "
+"θα προχωρήσει, αλλά μπορεί αργότερα να αποτύχει και να μην μπορεί να γίνει "
+"προσθαφαίρεση άλλων πακέτων (πιθανότατα και η ίδια η ρουτίνα εγκατάστασης) "
+"από το εγκατεστημένο σύστημα. Πρέπει πρώτα να γίνει έρευνα για νεότερες "
+"εκδόσεις της εικόνας του εγκαταστάτη ή, σε περίπτωση αποτυχίας, να αναφέρετε "
+"το σφάλμα στον προμηθευτή σας."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:177001
 msgid "Error while removing packages"
-msgstr "Σφάλμα κατα την απομάκρυνση πακέτων"
+msgstr "Σφάλμα κατά την αφαίρεση πακέτων"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:177001
 msgid "An error occurred while removing packages:"
-msgstr "Σφάλμα κατά την απομάκρυνση των πακέτων:"
+msgstr "Σφάλμα κατά την αφαίρεση των πακέτων:"
 
 #. Type: error
 #. Description
@@ -1339,9 +1339,9 @@ msgid ""
 "continue, but the network configuration will have to be set up again in the "
 "installed system."
 msgstr ""
-"Εμφανίστηκε ένα σφάλμα κατά την αντιγραφή των ρυθμίσεων του δικτύου. Η "
-"εγκατάσταση θα συνεχιστεί, αλλά το δίκτυο θα πρέπει να ρυθμιστεί ξανά στο "
-"εγκατεστημένο σύστημα."
+"Εμφανίστηκε σφάλμα κατά την αντιγραφή των ρυθμίσεων του δικτύου. Η "
+"εγκατάσταση θα συνεχιστεί, αλλά το δίκτυο θα πρέπει να ρυθμιστεί ξανά, στο "
+"εγκατεστημένο σας σύστημα."
 
 #. Type: error
 #. Description
@@ -1357,15 +1357,15 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
-"Συνέβει ένα σφάλμα κατά την αντιγραφή των ρυθμίσεων Bluetooth. Η εγκατάσταση "
-"θα συνεχιστεί, ωστόσο οι ρυθμίσεις Bluetooth πρέπει να γίνουν ξανά αργότερα, "
+"Σφάλμα κατά την αντιγραφή των ρυθμίσεων Bluetooth. Η εγκατάσταση θα "
+"συνεχιστεί, ωστόσο οι ρυθμίσεις Bluetooth πρέπει να γίνουν ξανά αργότερα, "
 "στο εγκατεστημένο σας σύστημα."
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:180001
 msgid "Error restoring installed applications"
-msgstr "Σφάλμα κατά την επαναφορά εγκατεστημένων πακέτων"
+msgstr "Σφάλμα κατά την επαναφορά εγκατεστημένων εφαρμογών"
 
 #. Type: error
 #. Description
@@ -1375,15 +1375,15 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"Συνέβη ένα σφάλμα κατά την επαναφορά των προηγούμενα εγκατεστημένων "
-"εφαρμογών. Η εγκατάσταση θα συνεχίσει, αλλά πιθανόν να χρειαστεί να κάνετε "
-"επανεγκατάσταση μερικών εφαρμογών μετά την επανεκκίνηση του υπολογιστή."
+"Σφάλμα κατά την επαναφορά των ήδη εγκατεστημένων εφαρμογών. Η εγκατάσταση θα "
+"συνεχιστεί, αλλά ίσως χρειαστεί να επανεγκαταστήσετε μόνοι σας μερικές "
+"εφαρμογές, μετά την επανεκκίνηση του υπολογιστή."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:184001
 msgid "Calculating files to skip copying..."
-msgstr "Υπολογισμός αρχείων για παράλειψη αντιγραφής..."
+msgstr "Υπολογισμός αρχείων για παράκαμψη αντιγραφής..."
 
 #. Type: title
 #. Description
@@ -1410,10 +1410,9 @@ msgid ""
 "The installer needs to commit changes to partition tables, but cannot do so "
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
-"Η εφαρμογή εγκατάστασης πρέπει ν' αποθηκεύσει τις αλλαγές στους πίνακες "
-"κατάτμησης του δίσκου. Η διαδικασία δεν μπορεί να ολοκληρωθεί επειδή δεν "
-"είναι δυνατό να αποπροσαρτηθούν τα διαμερίσματα στα ακόλουθα σημεία "
-"προσάρτησης ."
+"Ο εγκαταστάτης πρέπει να καταχωρίσει τις αλλαγές στους πίνακες κατάτμησης "
+"του δίσκου. Η διαδικασία δεν μπορεί να ολοκληρωθεί, γιατί είναι αδύνατον να "
+"αποπροσαρτηθούν οι κατατμήσεις στα ακόλουθα σημεία προσάρτησης."
 
 #. Type: boolean
 #. Description
@@ -1427,8 +1426,8 @@ msgstr ""
 #: ../ubiquity.templates:195001
 msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
-"Θέλετε η εφαρμογή εγκατάστασης, ν' αποπροσαρτήσει  τις συγκεκριμένες "
-"κατατμήσεις;"
+"Θα θέλατε ο εγκαταστάτης να προσπαθήσει ξανά να αποπροσαρτήσει τις "
+"συγκεκριμένες κατατμήσεις;"
 
 #. Type: boolean
 #. Description
@@ -1443,8 +1442,8 @@ msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
 msgstr ""
-"Μερικές από τα διαμερίσματα που δημιουργήσατε είναι πολύ μικρά. Παρακαλώ "
-"δώστε στις ακόλουθες κατατμήσεις, μέγεθος τουλάχιστον:"
+"Κάποιες κατατμήσεις που δημιουργήσατε είναι πολύ μικρές. Παρακαλώ, δώστε "
+"στις ακόλουθες κατατμήσεις μέγεθος τουλάχιστον:"
 
 #. Type: boolean
 #. Description
@@ -1468,7 +1467,7 @@ msgstr "Ρύθμιση συστήματος"
 #. Description
 #: ../ubiquity.templates:204001 ../ubiquity.templates:268001
 msgid "Welcome"
-msgstr "Καλώς ήλθατε"
+msgstr "Καλωσορίσατε"
 
 #. Type: text
 #. Description
@@ -1536,7 +1535,7 @@ msgstr "διαδικασία εγκατάστασης"
 #. Description
 #: ../ubiquity.templates:217001
 msgid "Checking for installer updates"
-msgstr "Έλεγχος για ενημερώσεις του προγράμματος εγκατάστασης"
+msgstr "Έλεγχος για ενημερώσεις του εγκαταστάτη"
 
 #. Type: text
 #. Description
@@ -1572,15 +1571,15 @@ msgstr "Εγκατάσταση ενημέρωσης"
 #. Description
 #: ../ubiquity.templates:223001
 msgid "Error updating installer"
-msgstr "Σφάλμα ενημέρωσης προγράμματος εγκατάστασης"
+msgstr "Σφάλμα κατά την ενημέρωση του εγκαταστάτη"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:223001
 msgid "The installer encountered an error while trying to update itself:"
 msgstr ""
-"Το πρόγραμμα εγκατάστασης αντιμετώπισε ένα πρόβλημα ενώ προσπαθούσε να "
-"ενημερώσει τον εαυτό του:"
+"Ο εγκαταστάτης αντιμετώπισε πρόβλημα ενώ προσπαθούσε να ενημερώσει τον εαυτό "
+"του:"
 
 #. Type: text
 #. Description
@@ -1603,8 +1602,8 @@ msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Παρακαλώ επιλέξτε την γλώσσα που θα χρησιμοποιηθεί κατά τη διαδικασία "
-"εγκατάστασης. Η γλώσσα αυτή θα είναι η προεπιλεγμένη γλώσσα γι' αυτόν τον "
+"Παρακαλώ, επιλέξτε την γλώσσα που θα χρησιμοποιηθεί κατά τη διαδικασία "
+"εγκατάστασης. Η γλώσσα αυτή θα είναι η προεπιλεγμένη γλώσσα για αυτόν τον "
 "υπολογιστή."
 
 #. Type: text
@@ -1614,8 +1613,9 @@ msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
 msgstr ""
-"Παρακαλώ επιλέξτε τη γλώσσα που θα χρησιμοποιηθεί κατά την διαδικασία "
-"ρύθμισης. Αυτή η γλώσσα θα είναι η προεπιλεγμένη για αυτόν τον υπολογιστή."
+"Παρακαλώ, επιλέξτε τη γλώσσα που θα χρησιμοποιηθεί κατά τη διαδικασία "
+"ρύθμισης. Η γλώσσα αυτή θα είναι η προεπιλεγμένη γλώσσα για αυτόν τον "
+"υπολογιστή."
 
 #. Type: text
 #. Description
@@ -1632,17 +1632,16 @@ msgid ""
 "The installer encountered an unrecoverable error.  A desktop session will "
 "now be run so that you may investigate the problem or try installing again."
 msgstr ""
-"Συνέβη ένα μη ανακτήσιμο σφάλμα. Θα εκτελεστεί μια συνεδρία σε γραφικό "
-"περιβάλλον ώστε να μπορέσετε να ερευνήσετε το σφάλμα ή να προσπαθήσετε να "
-"εκτελέσετε ξανά την εγκατάσταση."
+"Ο εγκαταστάτης αντιμετώπισε μη αναστρέψιμο σφάλμα. Θα γίνει εκτέλεση "
+"συνεδρίας σε γραφικό περιβάλλον, ώστε να ερευνήσετε το πρόβλημα ή να "
+"προσπαθήσετε να επανεκτελέσετε την εγκατάσταση."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "The installer encountered an unrecoverable error and will now reboot."
 msgstr ""
-"Ο οδηγός εγκατάστασης συνάντησε ένα ανεπανόρθωτο σφάλμα και θα γίνει "
-"επανεκκίνηση."
+"Ο εγκαταστάτης αντιμετώπισε μη αναστρέψιμο σφάλμα και θα γίνει επανεκκίνηση."
 
 #. Type: text
 #. Description
@@ -1659,28 +1658,28 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"Η σύνδεση αυτού του υπολογιστή μέσω ασυρμάτου (wi-fi) δικτύου θα σας "
-"επιτρέψει να εγκαταστήσετε λογισμικό τρίτων, να κατεβάσετε ενημερώσεις, να "
-"προσδιορίσετε αυτόματα την χρονική σας ζώνη και να εγκαταστήσετε πλήρη "
-"υποστήριξη της γλώσσας σας."
+"Η σύνδεση αυτού του υπολογιστή μέσω ασυρμάτου δικτύου (Wi-Fi) σας επιτρέπει "
+"να εγκαταστήσετε λογισμικό τρίτων, να κατεβάσετε ενημερώσεις, να εντοπίσετε "
+"αυτόματα τη χρονική σας ζώνη και να εγκαταστήσετε πλήρη υποστήριξη για τη "
+"γλώσσα σας."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:234001
 msgid "Password:"
-msgstr "Κωδικός:"
+msgstr "Κωδικός πρόσβασης:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:235001
 msgid "Display password"
-msgstr "Εμφάνιση κωδικού"
+msgstr "Εμφάνιση κωδικού πρόσβασης"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
 msgid "I don't want to connect to a wi-fi network right now"
-msgstr "Δεν θέλω να συνδεθώ σε ένα wi-fi ασύρματο δίκτυο αυτή τη στιγμή."
+msgstr "Δεν θέλω να συνδεθώ σε δίκτυο Wi-Fi αυτήν τη στιγμή."
 
 #. Type: text
 #. Description
@@ -1698,8 +1697,7 @@ msgstr "Επιλέξτε δίσκο:"
 #. Description
 #: ../ubiquity.templates:242001
 msgid "Allocate drive space by dragging the divider below:"
-msgstr ""
-"Κατανείμετε το χώρο στο δίσκο σέρνοντας το διαχωριστή που βρίσκεται πιο κάτω:"
+msgstr "Κατανείμετε το χώρο στο δίσκο σέρνοντας τον παρακάτω διαχωριστή:"
 
 #. Type: text
 #. Description
@@ -1737,7 +1735,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "%d κατατμήσεις θα διαγραφούν, χρησιμοποιήστε το <a href=\"\">ειδικό εργαλείο "
-"κατατμήσεων</a> για περαιτέρω έλεγχο"
+"κατατμήσεων</a> για περισσότερο έλεγχο"
 
 #. Type: text
 #. Description
@@ -1747,7 +1745,7 @@ msgid ""
 "tool</a> for more control"
 msgstr ""
 "1 κατάτμηση θα διαγραφεί, χρησιμοποιήστε το <a href=\"\">ειδικό εργαλείο "
-"κατατμήσεων</a> για περαιτέρω έλεγχο"
+"κατατμήσεων</a> για περισσότερο έλεγχο"
 
 #. Type: text
 #. Description
@@ -1759,20 +1757,20 @@ msgstr "Διχοτόμηση της μεγαλύτερης κατάτμησης"
 #. Description
 #: ../ubiquity.templates:250001
 msgid "For best results, please ensure that this computer:"
-msgstr "Για επιτυχημένο αποτέλεσμα, παρακαλούμε εξασφαλίστε ότι ο υπολογιστής:"
+msgstr "Για καλύτερο αποτέλεσμα, παρακαλώ, βεβαιωθείτε ότι ο υπολογιστής:"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:251001
 msgid "has at least ${SIZE} available drive space"
-msgstr "έχει τουλάχιστον ${SIZE} διαθέσιμου χώρου στον δίσκο"
+msgstr "έχει τουλάχιστον ${SIZE} διαθέσιμου χώρου στο δίσκο"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:252001
 msgid "is plugged in to a power source"
-msgstr "τροφοδοτείται από την μπρίζα"
+msgstr "είναι συνδεδεμένος σε πηγή ρεύματος"
 
 #. Type: text
 #. Description
@@ -1790,11 +1788,11 @@ msgid ""
 "proprietary. The software is subject to license terms included with its "
 "documentation."
 msgstr ""
-"Το ${RELEASE} χρησιμοποίει λογισμικό τρίτων για να αναπαράγει Flash, MP3 και "
-"διάφορα άλλα πολυμέσα, και για να δουλεύει με μερικές κάρτες γραφικών και Wi-"
-"fi. Μερικά από αυτά τα προγράμματα είναι ιδιόκτητα και κλειστά. Το λογισμικό "
-"συνοδεύεται με τους όρους χρήσης που συμπεριλαμβάνονται στην αντίστοιχη "
-"τεκμηρίωση."
+"Το ${RELEASE} χρησιμοποιεί λογισμικό τρίτων για να αναπαράγει Flash, MP3 και "
+"διάφορα άλλα πολυμέσα, και για να λειτουργεί με ορισμένες κάρτες γραφικών "
+"και υλικό Wi-Fi. Κάποια από αυτά τα λογισμικά είναι ιδιόκτητα και κλειστά. "
+"Το λογισμικό υπόκειται στους όρους χρήσης που συμπεριλαμβάνονται στην "
+"αντίστοιχη τεκμηρίωση."
 
 #. Type: text
 #. Description
@@ -1804,7 +1802,7 @@ msgid ""
 "from Fraunhofer IIS and Technicolor SA."
 msgstr ""
 "Το πρόσθετο Fluendo MP3 περιλαμβάνει τεχνολογία αποκωδικοποίησης ήχου MPEG "
-"Layer-3 αδειοδοτημένη από τις Fraunhofer IIS και Technicolor SA."
+"Layer-3, αδειοδοτημένη από τις Fraunhofer IIS και Technicolor SA."
 
 #. Type: text
 #. Description
@@ -1834,7 +1832,7 @@ msgstr "Παραλλαγή:"
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Below is an image of your current layout:"
-msgstr "Η πιο κάτω εικόνα απεικονίζει την τρέχουσα διάταξη:"
+msgstr "Η παρακάτω εικόνα απεικονίζει την τρέχουσα διάταξη:"
 
 #. Type: text
 #. Description
@@ -1846,7 +1844,7 @@ msgid ""
 msgstr ""
 "Επιλέξτε την τοποθεσία σας, ώστε το σύστημα να χρησιμοποιήσει τα κατάλληλα "
 "πρότυπα εμφάνισης για την χώρα σας, να κάνει λήψη των ενημερώσεων από "
-"κοντινές σε εσάς ιστοσελίδες και να ρυθμίσει το ρολόι στην σωστή τοπική ώρα."
+"κοντινές σε εσάς πηγές και να ρυθμίσει το ρολόι στη σωστή τοπική ώρα."
 
 #. Type: text
 #. Description
@@ -1934,7 +1932,7 @@ msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
 msgstr ""
-"Μπορείτε να δημιουργήσετε κατατμήσεις ή να αλλάξετε το μέγεθός τους, ή να "
+"Μπορείτε να δημιουργήσετε κατατμήσεις ή να αλλάξετε το μέγεθός τους ή να "
 "επιλέξετε πολλαπλές κατατμήσεις για το ${DISTRO}."
 
 #. Type: text
@@ -1974,8 +1972,8 @@ msgid ""
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
 "Τα έγγραφα, η μουσική και τα υπόλοιπα προσωπικά σας αρχεία θα διατηρηθούν. "
-"Το εγκατεστημένο λογισμικό θα διατηρηθεί αν είναι δυνατόν. Οι ρυθμίσεις του "
-"συστήματος θα διαγραφούν."
+"Το εγκατεστημένο λογισμικό θα διατηρηθεί, όπου είναι δυνατόν. Οι ρυθμίσεις "
+"του συστήματος θα διαγραφούν."
 
 #. Type: text
 #. Description
@@ -2160,7 +2158,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:295001
 msgid "Any files outside of Ubuntu will not be encrypted."
-msgstr "Οποιοδήποτε αρχείο έξω από το Ubuntu δε θα κρυπτογραφηθεί."
+msgstr "Οποιοδήποτε αρχείο έξω από το Ubuntu δεν θα κρυπτογραφηθεί."
 
 #. Type: text
 #. Description
@@ -2220,7 +2218,7 @@ msgstr "Φυσικοί τόμοι:"
 #. Description
 #: ../ubiquity.templates:305001
 msgid "Encrypt this partition (LUKS)"
-msgstr "Κρυπτογραφήστε αυτό το διαμέρισμα (μέσω LUKS)"
+msgstr "Κρυπτογραφήστε αυτή την κατάτμηση (μέσω LUKS)"
 
 #. Type: text
 #. Description
@@ -2235,8 +2233,8 @@ msgid ""
 "Logical Volume Management (LVM) lets Ubuntu treat multiple physical volumes "
 "as a single volume."
 msgstr ""
-"Η διαχείριση λογικών τόμων (Logical Volume Management) επιτρέπει στο Ubuntu "
-"να αντιμετωπίζει πολλαπλούς φυσικούς τόμους ως έναν ενιαίο τόμο."
+"Η Διαχείριση λογικών τόμων (LVM) επιτρέπει στο Ubuntu να αντιμετωπίζει "
+"πολλαπλούς φυσικούς τόμους ως έναν ενιαίο τόμο."
 
 #. Type: text
 #. Description
@@ -2290,10 +2288,10 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"Όταν μπείτε στο νέο σας σύστημα, θα μπορείτε να συνδεθείτε ως χρήστης «oem» "
-"με το κωδικό που επιλέξατε προηγουμένως. Αυτός ο χρήστης έχει και δικαιώματα "
-"διαχειριστή με τη χρήση της εντολής «sudo». Θα μπορείτε να κάνετε όποιες "
-"πρόσθετες ρυθμίσεις θέλετε στο σύστημα σας."
+"Κατά την εκκίνηση του νέου σας συστήματος, θα μπορείτε να συνδεθείτε ως "
+"χρήστης «oem» με τον κωδικό πρόσβασης που επιλέξατε νωρίτερα. Αυτός ο "
+"χρήστης έχει και δικαιώματα διαχειριστή με τη χρήση της εντολής «sudo». Θα "
+"μπορείτε να κάνετε όποιες πρόσθετες ρυθμίσεις θέλετε στο σύστημα σας."
 
 #. Type: text
 #. Description
@@ -2303,10 +2301,10 @@ msgid ""
 "prepare'. This will cause the system to delete the temporary 'oem' user and "
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
-"Μόλις το σύστημα ρυθμιστεί σύμφωνα με τις προτιμήσεις σας, εκτελέστε την "
+"Μόλις το σύστημα διαμορφωθεί σύμφωνα με τις προτιμήσεις σας, εκτελέστε την "
 "εντολή «oem-config-prepare».  Η εντολή αυτή θα αφαιρέσει τον προσωρινό "
 "χρήστη «oem» και θα αναγκάσει το σύστημα να εκκινήσει τη διαδικασία "
-"παραμετροποίησης χρήστη στην επόμενη επανεκκίνηση."
+"παραμετροποίησης του τελικού χρήστη στην επόμενη επανεκκίνηση."
 
 #. Type: text
 #. Description

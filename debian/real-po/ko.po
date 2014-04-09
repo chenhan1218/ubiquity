@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-03-27 09:19+0000\n"
+"PO-Revision-Date: 2013-10-17 15:05+0000\n"
 "Last-Translator: Kim Boram <boramism@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "연결 중..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "연결에 실패했습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "연결했습니다."
 
 #. Type: text
 #. Description
@@ -209,37 +209,37 @@ msgstr "사진 찍기"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "한번이면 우분투에 필요한 모든 기능에 로그인할 수 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "계정 등록 오류"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "계정 로그인 오류"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "문제가 있습니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">자세히 알아보기</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "<a href=\"\">우분투 원 사용자 약관</a>을 읽었으며 동의합니다."
 
 #. Type: text
 #. Description
@@ -248,6 +248,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">우분투 원 계정에 로그인할 전자 메일 주소를 입력해주십시"
+"오.</span>"
 
 #. Type: text
 #. Description
@@ -256,12 +258,14 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">계정이 아직 없는 경우에는 계정을 만들 수 있습니다.</"
+"span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "우분투 원 전자 메일"
 
 #. Type: text
 #. Description
@@ -279,13 +283,13 @@ msgstr "이름"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "암호는 최소 8문자 이상을 사용해야 합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "암호 다시 입력"
 
 #. Type: text
 #. Description
@@ -333,13 +337,13 @@ msgstr "건너뛰기"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "다음에 로그인"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "다음에 등록"
 
 #. Type: text
 #. Description
@@ -373,37 +377,37 @@ msgstr "암호 확인"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "프로그램"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "사진"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "음악"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "클라우드"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "전자 메일 주소를 입력해주십시오:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "사용자 이름을 입력한 후 암호를 선택해주십시오:"
 
 #. Type: text
 #. Description
@@ -412,6 +416,8 @@ msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
 msgstr ""
+"우분투 원은 모든 우분투 관련 서비스를 이용하고 사이트에 로그인할 수 있는 단"
+"일 계정입니다."
 
 #. Type: text
 #. Description
@@ -421,6 +427,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"소프트웨어 센터에서 새 프로그램을 구입하고 개인 클라우드에 파일을 보관하십시"
+"오. 또 음악 상점에서 음악을 구입하고 지불 수단과 구독 중인 항목을 관리하십시"
+"오. - 사용자가 사용할 서비스를 결정합니다."
 
 #. Type: text
 #. Description
@@ -429,6 +438,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"우분투 단일 로그인 계정을 이미 가지고 있으면 지금부터 우분투 원 계정을 불러"
+"올 수 있습니다."
 
 #. Type: text
 #. Description
@@ -437,18 +448,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"인터넷에 접속할 수 없습니다. 우분투 원 계정을 만들고 계정에 로그인하려면 인터"
+"넷에 접속할 수 있어야 합니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "새 우분투 원 사용자입니다."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "이미 우분투 원을 사용하고 있으며 암호는 다음과 같습니다:"
 
 #. Type: text
 #. Description

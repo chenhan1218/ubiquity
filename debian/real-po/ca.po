@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-10-11 23:04+0000\n"
-"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
+"PO-Revision-Date: 2014-03-25 06:36+0000\n"
+"Last-Translator: Josep Lligadas <josep.lligadas@gmail.com>\n"
 "Language-Team: Catalan\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -33,7 +33,7 @@ msgstr "Ha fallat la connexió."
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "Connectat."
 
 #. Type: text
 #. Description
@@ -216,31 +216,31 @@ msgstr "Un sol compte per a totes les funcions de l'Ubuntu"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "S'ha produït un error en registrar el compte"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "S'ha produït un error en entrar al compte"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "Ha fallat alguna cosa"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">Més informació</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "He llegit i accepto els <a href=\"\">termes d’ús de l’Ubuntu One</a>"
 
 #. Type: text
 #. Description
@@ -249,6 +249,8 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">Introduïu l'adreça electrònica que feu servir per "
+"entrar al compte de l'Ubuntu One.</span>"
 
 #. Type: text
 #. Description
@@ -257,6 +259,7 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">Si encara no teniu un compte, us crearem un.</span>"
 
 #. Type: text
 #. Description
@@ -280,7 +283,7 @@ msgstr "El vostre nom"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "La contrasenya ha de tenir com a mínim 8 caràcters"
 
 #. Type: text
 #. Description
@@ -336,13 +339,13 @@ msgstr "Omet"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "Entreu més endavant"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "Registreu-vos més endavant"
 
 #. Type: text
 #. Description
@@ -400,13 +403,13 @@ msgstr "Núvol"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "Escriviu la vostra adreça electrònica:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "Escriviu el vostre nom i trieu una contrasenya:"
 
 #. Type: text
 #. Description

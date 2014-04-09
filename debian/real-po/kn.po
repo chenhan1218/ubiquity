@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -66,8 +66,8 @@ msgid ""
 "and can be used to help with bug reports."
 msgstr ""
 "ತಾವು ಯಂತ್ರ ನಿರ್ಮಾತೃಗಳ ಮಾದರಿಯಲ್ಲಿ ಸಂಸ್ಥಾಪಿಸುತ್ತಿದ್ದೀರಿ. ಈ ಯಂತ್ರಗಳ ಗುಂಪಿಗೆ ಅನನ್ಯವಾದ "
-"ಹೆಸರೊಂದನ್ನು ನೀಡಿರಿ. ಈ ಹೆಸರು ಸಂಸ್ಥಾಪಿಸಲ್ಪಡುವ ಯಂತ್ರದಲ್ಲಿ ಉಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗು ತೊಂದರೆ"
-"(bugs)ಗಳನ್ನು ವಿವರಿಸುವಾಗ ಆಧಾರಕ್ಕಾಗಿ ಬಳಸಬಹುದಾಗಿದೆ."
+"ಹೆಸರೊಂದನ್ನು ನೀಡಿರಿ. ಈ ಹೆಸರು ಸಂಸ್ಥಾಪಿಸಲ್ಪಡುವ ಯಂತ್ರದಲ್ಲಿ ಉಳಿಸಲಾಗುತ್ತದೆ, ಹಾಗು "
+"ತೊಂದರೆ(bugs)ಗಳನ್ನು ವಿವರಿಸುವಾಗ ಆಧಾರಕ್ಕಾಗಿ ಬಳಸಬಹುದಾಗಿದೆ."
 
 #. Type: text
 #. Description

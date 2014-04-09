@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-10-14 07:25+0000\n"
-"Last-Translator: Marek Zywert <howilion@o2.pl>\n"
+"PO-Revision-Date: 2014-04-06 01:16+0000\n"
+"Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Łączenie..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr "Połączenie nie powiodło się."
+msgstr "Nie udało się nawiązać połączenia."
 
 #. Type: text
 #. Description
@@ -39,7 +39,7 @@ msgstr "Połączono"
 #. Description
 #: ../ubiquity.templates:6001
 msgid "Restart to Continue"
-msgstr "Aby kontynuować, uruchom ponownie"
+msgstr "Proszę uruchomić ponownie, aby kontynuować"
 
 #. Type: text
 #. Description
@@ -200,7 +200,7 @@ msgstr "Proszę zrobić zdjęcie:"
 #. Description
 #: ../ubiquity.templates:27001
 msgid "Or choose an existing picture:"
-msgstr "...lub wybrać istniejący obraz:"
+msgstr "... lub wybrać istniejący obraz:"
 
 #. Type: text
 #. Description
@@ -218,19 +218,19 @@ msgstr "Jedno konto logowania do wszystkich usług Ubuntu"
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr "Wystąpił błąd podczas rejestrowania konta"
+msgstr "Błąd rejestrowania konta"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr "Wystąpił błąd podczas zalogowania na konto"
+msgstr "Błąd logowania na konto"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr "Coś jest nie tak"
+msgstr "Coś poszło nie tak jak trzeba"
 
 #. Type: text
 #. Description
@@ -261,8 +261,8 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
-"<span size=\"small\">Jeśli nie masz jeszcze konta, nie martw się stworzymy "
-"dla Ciebie.</span>"
+"<span size=\"small\">Jeśli nie masz jeszcze konta, stworzymy je dla Ciebie.</"
+"span>"
 
 #. Type: text
 #. Description
@@ -341,13 +341,13 @@ msgstr "Pomiń"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr "Zaloguj mnie później"
+msgstr "Zaloguj później"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr "Zarejestruj mnie później"
+msgstr "Zarejestruj później"
 
 #. Type: text
 #. Description
@@ -361,7 +361,8 @@ msgstr "Hasło:"
 msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
-msgstr "&lt;small&gt;Wprowadź uważnie to samo hasło dwa razy.&lt;/small&gt;"
+msgstr ""
+"&lt;small&gt;Proszę wprowadzić uważnie to samo hasło dwa razy.&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -403,13 +404,13 @@ msgstr "Chmura"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr "Proszę wpisz swój email:"
+msgstr "Proszę wprowadzić adres email:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr "Prosimy o podanie imienia i wybrać hasło:"
+msgstr "Proszę podać imię i wybrać hasło:"
 
 #. Type: text
 #. Description
@@ -667,7 +668,7 @@ msgstr ""
 #: ../ubiquity.templates:92001
 msgid "Choose a different device to install the bootloader on:"
 msgstr ""
-"Proszę wybrać inny nośnik, na którym ma zostać zainstalowany program "
+"Proszę wybrać inne urządzenie, na którym zostanie zainstalowany program "
 "rozruchowy:"
 
 #. Type: text

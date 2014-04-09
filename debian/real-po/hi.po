@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2013-10-11 15:20+0100\n"
-"PO-Revision-Date: 2013-04-29 15:09+0000\n"
+"PO-Revision-Date: 2014-03-20 15:40+0000\n"
 "Last-Translator: Shubham Rao <cshubhamrao@gmail.com>\n"
 "Language-Team: Hindi <debian-in-workers@lists.alioth.debian.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-16 13:37+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "सम्बन्ध स्थापित हो रहा है.....
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "कनेक्शन असफल ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "संबद्ध"
 
 #. Type: text
 #. Description
@@ -208,37 +208,37 @@ msgstr "फोटो ले"
 #. Description
 #: ../ubiquity.templates:29001
 msgid "One account to log in to everything on Ubuntu"
-msgstr ""
+msgstr "उबुन्टु पर एक खाते से सब कुछ कर सकते हैं|"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:30001
 msgid "Error registering account"
-msgstr ""
+msgstr "खाता पंजीकृत करने में त्रुटि"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Error loging into the account"
-msgstr ""
+msgstr "खाते में प्रवेश करने में  त्रुटि"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Something went wrong"
-msgstr ""
+msgstr "कुछ गलत हो गया"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "<a href=\"\">Learn more</a>"
-msgstr ""
+msgstr "<a href=\"\">और जानें</a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:34001
 msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-msgstr ""
+msgstr "मैं  <a href=\"\">उबुन्टु वन उपयोग की शर्तों</a> को पढ़ उन्हें स्वीकार करता हूँ।"
 
 #. Type: text
 #. Description
@@ -247,6 +247,7 @@ msgid ""
 "<span size=\"small\">Enter the email address you use to log into your Ubuntu "
 "One account.</span>"
 msgstr ""
+"<span size=\"small\">उबुनटु वन में लॉग  इन करने के लिए  ईमेल पता दर्ज करें </span>"
 
 #. Type: text
 #. Description
@@ -255,18 +256,20 @@ msgid ""
 "<span size=\"small\">If you don't have an account yet, don't worry we'll "
 "create one for you.</span>"
 msgstr ""
+"<span size=\"small\">अगर आपके पास खता नहीं है तो चिंता न करें, हम आपके लिए एक खाता "
+"बना देंगे । </span>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:37001
 msgid "Ubuntu One email"
-msgstr ""
+msgstr "उबुन्टु वन ईमेल"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:38001
 msgid "Your name:"
-msgstr "आपका नामः"
+msgstr "आपका नाम :"
 
 #. Type: text
 #. Description
@@ -278,13 +281,13 @@ msgstr "आपका नाम"
 #. Description
 #: ../ubiquity.templates:40001
 msgid "At least 8 characters password"
-msgstr ""
+msgstr "कम से कम 8 अक्षरों का कूटशब्द"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:41001
 msgid "Retype password"
-msgstr ""
+msgstr "कूटशब्द पुनः लिखें"
 
 #. Type: text
 #. Description
@@ -332,13 +335,13 @@ msgstr "छोड़े"
 #. Description
 #: ../ubiquity.templates:48001
 msgid "Log in later"
-msgstr ""
+msgstr "बाद में प्रवेश करें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:49001
 msgid "Register later"
-msgstr ""
+msgstr "बाद में पंजीकरण करें"
 
 #. Type: text
 #. Description
@@ -371,37 +374,37 @@ msgstr "पासवर्ड (कूट शब्द) निश्चित क
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Apps"
-msgstr ""
+msgstr "ऐप्स"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Photos"
-msgstr ""
+msgstr "तस्वीरें"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:56001
 msgid "Music"
-msgstr ""
+msgstr "संगीत"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:57001
 msgid "Cloud"
-msgstr ""
+msgstr "बादल"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Please type your email:"
-msgstr ""
+msgstr "कृपया अपना ईमेल लिखें :"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Please tell us your name and choose a password:"
-msgstr ""
+msgstr "कृपया अपना नाम बताएं एवं  कूटशब्द चुनें :"
 
 #. Type: text
 #. Description
@@ -409,7 +412,7 @@ msgstr ""
 msgid ""
 "Ubuntu One is the single account you use to log in to all services and sites "
 "related to Ubuntu."
-msgstr ""
+msgstr "उबुन्टु वन एक अकेला खाता  है, उबुन्टु से जुडी सारी सेवाओं में लॉग इन करनें के लिए ।"
 
 #. Type: text
 #. Description
@@ -419,6 +422,9 @@ msgid ""
 "buy tracks from the Music Store, manage your payments and subscriptions - "
 "you decide which services you need."
 msgstr ""
+"सॉफ्टवेर सेण्टर से नए ऐप्स प्राप्त करें, अपने निजी बदल में फाइल संग्रह करें, म्यूजिक स्टोर से "
+"संगीत खरीदें, अपने भुगतान एवं सदस्यता प्रबंध करें -- आप चुनिए आपको कौन सी सेवाओं की "
+"आवश्यकता है।"
 
 #. Type: text
 #. Description
@@ -427,6 +433,8 @@ msgid ""
 "If you have an existing Ubuntu single sign on account, that is now called "
 "your Ubuntu One account."
 msgstr ""
+"अगर आपके पास मौजूदा उबुनटु सिंगल सिग्न ओन खाता है, तो अब वह आपका  उबुन्टु वन खाता "
+"कहलाएगा।"
 
 #. Type: text
 #. Description
@@ -435,18 +443,20 @@ msgid ""
 "There is no internet connection. To be able to create an account or to log "
 "in to Ubuntu One, you need to be connected to the internet."
 msgstr ""
+"अंतरजाल से कोई साम्पर्क नहीं है। अपना उबुन्टु वन खाता बनाने एवं उसमे लॉगिन करने हेतु, आपको "
+"अंतरजाल से सम्बद्ध होना होगा।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "I am a new Ubuntu One user."
-msgstr ""
+msgstr "मै नया उबुन्टु  वन उपभोक्ता हूँ ।"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:63001
 msgid "I am a returning Ubuntu One user and my password is:"
-msgstr ""
+msgstr "मैं उबुन्टु वन का पुराना उपयोगकर्ता हूँ और मेरा कूटशब्द है:"
 
 #. Type: text
 #. Description
