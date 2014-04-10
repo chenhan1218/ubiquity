@@ -1,3 +1,9 @@
+ubiquity (2.18.1) UNRELEASED; urgency=medium
+
+  * Fix overlay scrollbars to be used under live-session.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 10 Apr 2014 15:59:43 +0100
+
 ubiquity (2.18.0) trusty; urgency=medium
 
   * Update translations from Launchpad (LP: #1297859).
