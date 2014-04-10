@@ -5,7 +5,7 @@ choose-mirror 2.55ubuntu1
 clock-setup 0.117ubuntu1
 console-setup 1.70ubuntu8
 debian-installer-utils 1.105ubuntu1
-flash-kernel 3.0~rc.4ubuntu48
+flash-kernel 3.0~rc.4ubuntu49
 grub-installer 1.78ubuntu20
 hw-detect 1.95ubuntu2
 localechooser 2.49ubuntu4

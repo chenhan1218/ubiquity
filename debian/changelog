@@ -2,6 +2,8 @@ ubiquity (2.18.1) UNRELEASED; urgency=medium
 
   * Fix overlay scrollbars to be used under live-session.
   * Reduce installer width, by forcing a few more labels to wrap.
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu49.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 10 Apr 2014 15:59:43 +0100
 
