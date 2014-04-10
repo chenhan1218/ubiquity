@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1817,10 +1817,8 @@ msgstr "បន្ទាប់ ៖"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "ដាក់​លេខ​កូដ​​ការ​ដំឡើង​អ៊ូប៊ុនទូ​ថ្មី​ដើម្បី​សុវត្ថិភាព"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1831,10 +1829,8 @@ msgstr "អ្នក​នឹង​ជ្រើស​សោ​សុវត្ថ
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "ប្រើ LVM ជាមួយ​ការ​ដំឡើង​អ៊ូប៊ុនទូ​ថ្មី"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1869,10 +1865,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "ឯកសារ​មួយ​ចំនួន​នៅ​ខាងក្រៅ​អ៊ូប៊ុនទូ​នឹង​មិន​ត្រូវ​បាន​ដាក់​លេខ​កូដ​ឡើយ។"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1942,14 +1936,10 @@ msgstr "មេកាបៃ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
-msgstr "ការ​គ្រប់គ្រង​ភាគ​ឡូជីខល (LVM) អនុញ្ញាត​ឲ្យ​​អ៊ូប៊ុនទូ​ចាត់​ទុក​ភាគ​ហ្វីស៊ីខល​ច្រើន​ជា​ភាគ​តែ​មួយ។"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2024,123 +2014,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "លុប​កញ្ចប់​ចេញ"
-
-#~ msgid "Choose a picture"
-#~ msgstr "ជ្រើសរើស​រូបភាព"
-
-#~ msgid "Take a photo:"
-#~ msgstr "ថត​រូប ៖"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "ឬ​ជ្រើស​រូបថត​ដែល​មាន​ស្រាប់ ៖"
-
-#~ msgid "Take Photo"
-#~ msgstr "ថត​រូប"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "គណនី​មួយ​ដែល​ត្រូវ​ប្រើ​អ្វី​គ្រប់យ៉ាង​នៅ​លើ​អ៊ូប៊ុនទូ"
-
-#~ msgid "Error registering account"
-#~ msgstr "កំហុស​ក្នុង​ការ​ចុះឈ្មោះ​គណនី"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "កំហុស​ក្នុង​ការ​ចូល​ទៅ​កាន់​គណនី"
-
-#~ msgid "Something went wrong"
-#~ msgstr "អ្វី​មួយ​មាន​កំហុស"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">ស្វែងយល់​បន្ថែម</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "ខ្ញុំ​បាន​អាន ហើយ​ទទួល​យក <a href=\"\">លក្ខខណ្ឌ​ប្រើ​ប្រាស់​របស់​ Ubuntu One </a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">ចូល​ទៅ​កាន់​អាសយដ្ឋាន​អ៊ីមែល​ដែល​អ្នក​ប្រើ​ដើម្បី​ចូល​ទៅកាន់​គណនី Ubuntu "
-#~ "One របស់​អ្នក។</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">ប្រសិនបើ​អ្នក​មិន​ទាន់​មាន​គណនី​ទេ​នោះ, កុំ​បារម្ភ​​យើង​នឹង​បង្កើត​​គណនី​មួយ​សម្រាប់​"
-#~ "អ្នក។</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "អ៊ីមែល Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "ចូល​ពេល​ក្រោយ"
-
-#~ msgid "Register later"
-#~ msgstr "ចុះ​ឈ្មោះ​ពេលក្រោយ"
-
-#~ msgid "Apps"
-#~ msgstr "កម្មវិធី"
-
-#~ msgid "Photos"
-#~ msgstr "រូបថត"
-
-#~ msgid "Music"
-#~ msgstr "តន្ត្រី"
-
-#~ msgid "Cloud"
-#~ msgstr "ពពក"
-
-#~ msgid "Please type your email:"
-#~ msgstr "សូម​បញ្ចូល​អ៊ីមែល​របស់​អ្នក៖"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "សូម​ប្រាប់​យើង​ឈ្មោះ​របស់​អ្នក ហើយ​ជ្រើស​ពាក្យ​សម្ងាត់៖"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One ​ជា​គណនី​តែ​មួយ​ដែល​អ្នក​ប្រើ​អាច​ចូល​ទៅ​សេវាកម្ម​ទាំងអស់ និង​តំបន់​បណ្ដាញ​ដែល​ទាក់ទង​នឹង​អ៊ូប៊ុនទូ។"
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "ទទួល​បាន​កម្មវិធី​ថ្មី​ពី​មជ្ឈមណ្ឌល​កម្មវិធី, ទុក​ឯកសារ​ពពក​ផ្ទាល់​របស់​អ្នក, ទិញ​​បទ​ពី​ឃ្លាំង​តន្ត្រី, គ្រប់គ្រង​ការ​"
-#~ "ជាវ និង​ការ​ចំណាយ​​របស់​អ្នក - អ្នក​សម្រេច​សេវាកម្ម​ណាមួយ​ដែល​អ្នក​ត្រូវ​ការ។"
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "ប្រសិនបើ​អ្នក​មាន​អ៊ូប៊ុនទូ​សូម​ចាប់ផ្ដើម​គណនី, ដែល​បច្ចុប្បន្ន​នេះ​ត្រូវ​បាន​ហៅ​ថា​គណនី Ubuntu One ។"
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "គ្មាន​ការ​តភ្ជាប់​អ៊ីនធឺណិត។ ដើម្បី​អាច​បង្កើត​គណនី ឬ​ចូល​ទៅ​កាន់ Ubuntu One, អ្នក​ត្រូវ​ភ្ជាប់​អ៊ីនធឺណិត។"
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "ខ្ញុំ​ជា​អ្នក​ប្រើ​​ Ubuntu One ថ្មី។"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "ខ្ញុំ​បាន​ត្រឡប់​ទៅ​ប្រើ​ Ubuntu One ហើយ​ពាក្យ​សម្ងាត់​របស់​ខ្ញុំ​គឺ៖"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr "រូបភាព​នេះ​នឹង​ត្រូវ​បាន​ភ្ជាប់​ជា​មួយ​នឹង​​ឈ្មោះ​អ្នក​ប្រើ​​របស់​អ្នក ហើយ​បង្ហាញ​​​​ជា​មួយ​ឈ្មោះ​អ្នក​ប្រើ ។"
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "ជ្រើស​គណនី​ណា​មួយ​ដែល​អ្នក​ចង់​នាំ​ចូល ។  ឯកសារ​ និង​ការកំណត់​សម្រាប់​គណនី​ទាំង​នេះ​នឹង​អាច​ប្រើ​បាន ក្រោយ​ពី​"
-#~ "ការ​ដំឡើង​​បាន​បញ្ចប់​ ។"
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr "បើ​អ្នក​មិន​ចង់​នាំ​ចូល​គណនី​ណា​មួយ​ទេ ជ្រើស​ មិន​ធ្វើ​អ្វី​ទាំង​អស់ រួច​ទៅ​កាន់​ទំព័រ​បន្ទាប់ ។"

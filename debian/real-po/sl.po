@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2013-10-14 10:44+0000\n"
-"Last-Translator: Damir Jerovšek <Unknown>\n"
+"PO-Revision-Date: 2014-04-10 08:13+0000\n"
+"Last-Translator: Dražen Matešić <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1847,10 +1847,8 @@ msgstr "Potem:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Šifriraj novo namestitev Ubuntuja zaradi varnostnih razlogov."
+msgstr "Zaradi varnosti šifriraj namestitev ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1861,10 +1859,8 @@ msgstr "V naslednjem koraku boste izbrali varnostni ključ."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Uporabi LVM z novo namestitvijo Ubuntuja."
+msgstr "Uporabi LVM z novo namestitvijo ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1902,10 +1898,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Morebitne datoteke zunaj Ubuntuja ne bodo šifrirane."
+msgstr "Vse datoteke izven ${RELEASE} ne bodo šifrirane."
 
 #. Type: text
 #. Description
@@ -1976,16 +1970,12 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Upravljanje logičnih nosilcev (LVM) dovoljuje Ubuntuju obravnavanje več "
-"fizičnih nosilcev kot en sam nosilec."
+"Upravljanje logičnega nosilca (LVM) omogoča ${RELEASE} obravnavanje več "
+"fizičnih nosilcev kot enega samega nosilca."
 
 #. Type: text
 #. Description
@@ -2061,133 +2051,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Izberite sliko"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Zajemite fotografijo:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Ali izberite obstoječo sliko:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Zajemi fotografijo"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "En račun za prijavo povsod v Ubuntuju"
-
-#~ msgid "Error registering account"
-#~ msgstr "Napaka pri vpisovanju računa"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Napaka pri prijavi v račun"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Nekaj je šlo narobe"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Več o tem</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Prebral/-a sem in sprejemam <a href=\"\">pogoje uporabe Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Vnesite e-poštni naslov, ki ga uporabljate za "
-#~ "prijavo v račun Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Če še nimate računa, brez skrbi, ustvarili ga bomo "
-#~ "za vas.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "E-pošta Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "Prijavite se kasneje"
-
-#~ msgid "Register later"
-#~ msgstr "Vpišite se kasneje"
-
-#~ msgid "Apps"
-#~ msgstr "Programi"
-
-#~ msgid "Photos"
-#~ msgstr "Fotografije"
-
-#~ msgid "Music"
-#~ msgstr "Glasba"
-
-#~ msgid "Cloud"
-#~ msgstr "Oblak"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Vnesite svojo e-pošto:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Vnesite svoje ime in izberite geslo:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One je en račun, ki ga uporabljate za prijavo v vse storitve ter "
-#~ "vsa spletišča povezana z Ubuntujem."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Prejmite nove programe iz Programskega središča, hranite datoteke v "
-#~ "svojem osebnem oblaku, kupujte skladbe iz glasbene trgovine, upravljajte "
-#~ "s svojimi plačili ter naročninami - vi se odločite, katere storitve "
-#~ "potrebujete."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Če imate obstoječi račun Ubuntu z enkratnim vpisom, se ta sedaj imenuje "
-#~ "račun Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Ni povezave z internetom. Za ustvarjanje računa ali za prijavo v Ubuntu "
-#~ "One potrebujete povezavo z internetom."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Sem nov uporabnik Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Že imam račun Ubuntu One in moje geslo je:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Ta slika bo bila povezana z vašim uporabniškim imenom in občasno "
-#~ "prikazana poleg njega."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Izberite račune, ki jih želite uvoziti. Dokumenti in nastavitve izbranih "
-#~ "računov bodo na voljo po končani namestitvi."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Če ne želite uvoziti nobenega uporabniškega računa, ne izberite ničesar "
-#~ "in pojdite na naslednjo stran."

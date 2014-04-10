@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1834,10 +1834,8 @@ msgstr "Sau:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Mã hóa bản cài đặt mới của Unbutu nhằm tăng cường an toàn"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1848,10 +1846,8 @@ msgstr "Ở bước tiếp theo bạn sẽ phải chọn một khóa bảo mật
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Sử dụng LVM với bản cài đặt mới của Unbutu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1888,10 +1884,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Bất kì tập tin nào không liên quan đến Unbutu sẽ không được mã hóa."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1962,16 +1956,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Công nghệ Quản lí Phân vùng Luận lí (LVM) cho phép Unbutu xem nhiều phân "
-"vùng vật lí khác n"
 
 #. Type: text
 #. Description
@@ -2047,37 +2035,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Đang gỡ bỏ các gói"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Chọn một bức ảnh"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Chụp một tấm hình:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Hay chọn một tấm hình có sẵn:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Chụp hình"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Hình này sẽ được kết hợp với tên bạn dùng trên máy này và sẽ luôn hiện "
-#~ "cùng với tên đó."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Chọn tài khoản có dữ liệu bạn muốn nhập. Toàn bộ tài liệu cùng thiết đặt "
-#~ "của tài khoản bạn chọn sẽ có trong hệ thống sau khi quá trình cài đặt "
-#~ "hoàn tất."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Nếu bạn không muốn nhập dữ liệu từ bất cứ tài khoản nào thì đừng chọn gì "
-#~ "hết mà hãy chuyển sang trang kế tiếp."

@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1813,10 +1813,8 @@ msgstr "དེའི་རྗེས："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "གསར་དུ་སྒྲིག་འཇུག་བྱས་པའིUbuntu དེ་བདེ་སྲུང་གི་ཆེད་དུ་གསང་རྒྱ་བྱེད་པ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1827,10 +1825,8 @@ msgstr "འོག་ཏུ་རང་ཉིད་ཀྱིས་གསང་ག
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "གསར་དུ་སྒྲིག་འཇུག་བྱས་པའི་Ubuntu ལLVM སྤྱོད་པ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1866,10 +1862,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Ubuntu མ་ལག་ལ་མ་གཏོགས་པའི་ཡིག་ཆ་གང་ཡང་གསང་རྒྱ་བྱེད་མི་སྲིད"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1939,15 +1933,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"རྟོགས་བཟོས་ཁུལ་དོ་དམ་ཆས (LVM) སྤྱད་ནས་Ubuntu ཡིས་དངོས་ཡོད་ཀྱི་ཁུལ་མང་པོ་ཁུལ་གཅིག་བཞིན་བཟོ་ཆོག"
 
 #. Type: text
 #. Description
@@ -2022,33 +2011,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "ཐུམ་བུ་འདོར་བཞིན་པ"
-
-#~ msgid "Choose a picture"
-#~ msgstr "པར་ཞིག་འདེམས་པ"
-
-#~ msgid "Take a photo:"
-#~ msgstr "པར་ཞིག་རྒྱག་པ"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "ཡང་ན་དེར་ཡོད་པའི་པར་ཞིག་འདེམས་པ:"
-
-#~ msgid "Take Photo"
-#~ msgstr "པར་རྒྱག་པ"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr "པར་རིས་འདི་ཁྱོད་ཀྱི་སྤྱོད་མཁན་མིང་དང་མཉམ་དུ་སྦྲེལ་ཡོད་པ་དང་དེའི་འགྲམ་དུ་ཤར་སྲིད"
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "ཁྱོད་ཀྱིས་ནང་འདྲེན་དགོས་པའི་ཐོ་ཁོངས་གང་རུང་ཞིག་འདེམས་པ། སྒྲིག་འཇུག་བྱས་ཚར་རྗེས་ཐོ་ཁོངས་འདི་དག་གི་"
-#~ "ཡིག་ཆ་དང་སྒྲིག་འགོད་ཡོངས་སྤྱོད་ཐུབ"
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "ཁྱོད་ཀྱི་ཐོ་ཁོངས་གང་ནས་ཀྱང་ནང་འདྲེན་མ་དགོས་ན་ཅི་ཡང་མེད་གདམ་ནས་ཤོག་ལེབ་རྗེས་མའི་ཐོག་སྐྱོད་པ"

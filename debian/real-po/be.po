@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1855,10 +1855,8 @@ msgstr "Пасьля:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Шыфраванне усталёкі Ubuntu для бяспекі"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1869,10 +1867,8 @@ msgstr "Вы мусіце выбраць ключ бяспекі на насту
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Выкарыстоўваць LVM пры новай усталёўцы Ubuntu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1910,10 +1906,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Любыя файлы па-за Ubuntu не будуць зашыфраваны."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1984,16 +1978,10 @@ msgstr "МБ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Упраўленне лагічнымі тамамі (LVM) Ubuntu дазваляе лячыць некалькі фізычных "
-"тамоў ў адным томе."
 
 #. Type: text
 #. Description
@@ -2069,133 +2057,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Выдаленне пакетаў"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Абярыце малюнак"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Зрабіць фота:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Альбо выбраць існуючы малюнак:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Зрабіць фота:"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Адзіны уліковы запіс для доступу да ўсіх магчымасцяў Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Памылка рэгістрацыі рахунку"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Памылка ўваходу"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Нешта пайшло не так"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Больш падрабязна</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "Я прачытаў і прымаю <a href=\"\">ўмовы выкарыстання Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Калі ласка, увядзіце адрас электроннай пошты, які "
-#~ "выкарыстоўваецца для ўваходу ў ваш рахунак Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Калі вы яшчэ ня маеце рахунку, не хвалюйцеся, мы "
-#~ "створым яго для вас.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One пошта"
-
-#~ msgid "Log in later"
-#~ msgstr "Увайдзіце пазней"
-
-#~ msgid "Register later"
-#~ msgstr "Зарэгістравацца пазней"
-
-#~ msgid "Apps"
-#~ msgstr "Праграмы"
-
-#~ msgid "Photos"
-#~ msgstr "Фотаздымкі"
-
-#~ msgid "Music"
-#~ msgstr "Музыка"
-
-#~ msgid "Cloud"
-#~ msgstr "Воблака"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Калі ласка, увядзіце адрас электроннай пошты:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Распавядзіце, калі ласка, сваё імя і абярыце пароль:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One з'яўляецца адзіным рахункам да ўсіх паслугаў і сайтаў, "
-#~ "злучанных з Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Атрымліваць новыя прыкладанні з Цэнтра праграмнага забеспячэння, "
-#~ "захоўваць файлы ў сваім асабістым воблаке, набываць песні з музычнай "
-#~ "крамы, кіраваць плацяжамі і падпіскамі - вы вырашаеце, якія паслугі вам "
-#~ "неабходныя."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Калі ў вас ёсць рахунак Ubuntu, майце на ўвазе, што цяпер ён называецца "
-#~ "Ubuntu One рахунак."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Адсутнічае злучэнне з інтэрнэтам. Для таго, каб зарэгістравацца або "
-#~ "ўвайсці ва Ubuntu One, вы мусіце быць падлучаныя да інтэрнэту."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Я новы карыстальнік Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Я ўжо зарэгістраваны ў Ubuntu One і мой пароль:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Гэты малюнак будзе нададзены Вам і часам будзе адлюстроўвацца побач з "
-#~ "імем карыстальніка."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Абярыце ўліковыя запісы, якія вы хацелі б імпартаваць. Дакументы і "
-#~ "наладкі для гэтых уліковых запісаў будуць даступныя пасля заканчэння "
-#~ "ўсталёўкі."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Калі вы не хочаце імпартаваць якія-небудзь уліковыя запісы, не выбірайце "
-#~ "нічога і смела пераходзьце да наступнай старонкі."

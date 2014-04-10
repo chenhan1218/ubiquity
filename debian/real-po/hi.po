@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1822,10 +1822,8 @@ msgstr "पश्चातः"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "सुरक्षा के लिए नए उबुन्टू स्थापना काे एन्क्रिप्ट करें"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1836,10 +1834,8 @@ msgstr "अगले चरण में आप एक सुरक्षा क
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "नए उबुन्टू स्थापना के साथ LVM का प्रयोग करें"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1877,10 +1873,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "उबुन्टू के बाहर किसी भी फाइल काे एन्क्रिप्टेड नहीं किया जाएगा."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1951,16 +1945,10 @@ msgstr "मे.बा."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"लॉजिकल वॉल्यूम प्रबंधन उबुनटु को एकाधिक भोतिक खंडों को एकल वोल्युम की तरह व्यवहार करने "
-"देता है ।"
 
 #. Type: text
 #. Description
@@ -2035,128 +2023,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "पैकेज हटा रहा है"
-
-#~ msgid "Choose a picture"
-#~ msgstr "एक चित्र का चयन करें"
-
-#~ msgid "Take a photo:"
-#~ msgstr "तस्वीर खींचें"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "या एक मौजूदा तस्वीर का चयन करें:"
-
-#~ msgid "Take Photo"
-#~ msgstr "फोटो ले"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "उबुन्टु पर एक खाते से सब कुछ कर सकते हैं|"
-
-#~ msgid "Error registering account"
-#~ msgstr "खाता पंजीकृत करने में त्रुटि"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "खाते में प्रवेश करने में  त्रुटि"
-
-#~ msgid "Something went wrong"
-#~ msgstr "कुछ गलत हो गया"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">और जानें</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "मैं  <a href=\"\">उबुन्टु वन उपयोग की शर्तों</a> को पढ़ उन्हें स्वीकार करता हूँ।"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">उबुनटु वन में लॉग  इन करने के लिए  ईमेल पता दर्ज करें </span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">अगर आपके पास खता नहीं है तो चिंता न करें, हम आपके लिए एक "
-#~ "खाता बना देंगे । </span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "उबुन्टु वन ईमेल"
-
-#~ msgid "Log in later"
-#~ msgstr "बाद में प्रवेश करें"
-
-#~ msgid "Register later"
-#~ msgstr "बाद में पंजीकरण करें"
-
-#~ msgid "Apps"
-#~ msgstr "ऐप्स"
-
-#~ msgid "Photos"
-#~ msgstr "तस्वीरें"
-
-#~ msgid "Music"
-#~ msgstr "संगीत"
-
-#~ msgid "Cloud"
-#~ msgstr "बादल"
-
-#~ msgid "Please type your email:"
-#~ msgstr "कृपया अपना ईमेल लिखें :"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "कृपया अपना नाम बताएं एवं  कूटशब्द चुनें :"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr "उबुन्टु वन एक अकेला खाता  है, उबुन्टु से जुडी सारी सेवाओं में लॉग इन करनें के लिए ।"
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "सॉफ्टवेर सेण्टर से नए ऐप्स प्राप्त करें, अपने निजी बदल में फाइल संग्रह करें, म्यूजिक स्टोर से "
-#~ "संगीत खरीदें, अपने भुगतान एवं सदस्यता प्रबंध करें -- आप चुनिए आपको कौन सी सेवाओं की "
-#~ "आवश्यकता है।"
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "अगर आपके पास मौजूदा उबुनटु सिंगल सिग्न ओन खाता है, तो अब वह आपका  उबुन्टु वन खाता "
-#~ "कहलाएगा।"
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "अंतरजाल से कोई साम्पर्क नहीं है। अपना उबुन्टु वन खाता बनाने एवं उसमे लॉगिन करने हेतु, "
-#~ "आपको अंतरजाल से सम्बद्ध होना होगा।"
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "मै नया उबुन्टु  वन उपभोक्ता हूँ ।"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "मैं उबुन्टु वन का पुराना उपयोगकर्ता हूँ और मेरा कूटशब्द है:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "यह तस्वीर अपने उपयोगकर्ता नाम के साथ जुड़ जाएगा और समय पर इसके साथ प्रदर्शित किया "
-#~ "जाएगा."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "उन खातो को चुनें जिन्हे आप आयात करना चाहते हैं. इन खातो के दस्तावेज़ और व्यवस्था संस्थापन "
-#~ "के बाद उपलब्ध हो जायेंगे."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "अगर आप किसी भी खातो का आयात नही करना चाहते तो कुछ चुनाव न करते हुआ अगले पन्ने पर "
-#~ "जाए."

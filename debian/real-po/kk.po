@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1848,10 +1848,8 @@ msgstr "Кейін:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Қауіпсіздікті арттыру үшін Ubuntu файлдарын шифрлап тастау"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2045,36 +2043,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Пакеттер жойылуда"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Суретті таңдаңыз"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Фотосурет тусіру:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Немесе өзіндік суретті таңдаңыз:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Фотосуретке түсу"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Бұл сурет сізді тіркемеңізге бекітіліп, кейде пайдаланушы атыңыздың "
-#~ "қасында тұратын болады."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Импорттайтын тіркелгі таңдаңыз. Орнату аяқталған соң таңдалған тіркелінің "
-#~ "құжаттары мен баптауы осы жүйеге көшеді."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Ешбір тіркемелеріңізді импорттауыңыз келіп тұрған жоқ болса, ештеңе "
-#~ "таңдамай, келесі бетке өтіңіз."

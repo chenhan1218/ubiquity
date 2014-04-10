@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:20+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1848,10 +1848,8 @@ msgstr "داۋامى:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "بىخەتەرلىك ئۈچۈن يېڭىدىن ئورنىتىلغان ئۇبۇنتۇنى شىفىرلاڭ"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1862,10 +1860,8 @@ msgstr "كېيىنكى باسقۇچتا بىخەتەرلىك ئاچقۇچىنى 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "يېڭى ئورنىتىلغان ئۇبۇنتۇدا LVM نى ئىشلىتىش"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1903,10 +1899,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "ئۇبۇنتۇنىڭ سىرتىدىكى ھەر قانداق بىر ھۆججەت شىفىرلانمايدۇ."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1977,16 +1971,10 @@ msgstr "م ب"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"لوگىكىلىق دىسكا باشقۇرۇش، ئۇبۇنتۇغا نۇرغۇنلىغان فىزىكىلىق دىسكىلارنى بىرلا "
-"دىسكا سۈپىتىدە باشقۇرۇش ئىقتىدارىنى ئاتا قىلىدۇ."
 
 #. Type: text
 #. Description
@@ -2063,129 +2051,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "بوغچىلارنى ئۆچۈرۈۋاتىدۇ"
-
-#~ msgid "Choose a picture"
-#~ msgstr "بىر رەسىم تاللاڭ"
-
-#~ msgid "Take a photo:"
-#~ msgstr "بىر سۈرەت تارتىڭ:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "ياكى مەۋجۇت رەسىمنى تاللاڭ:"
-
-#~ msgid "Take Photo"
-#~ msgstr "سۈرەت تارت"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "بىرلا ھېسابات بىلەن ئۇبۇنتۇنىڭ ھەممە يېرىگە كىرىش"
-
-#~ msgid "Error registering account"
-#~ msgstr "ھېسابات خەتلىتىشتە خاتالىق كۆرۈلدى"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "ھېساباتقا كىرىشتە خاتالىق كۆرۈلدى"
-
-#~ msgid "Something went wrong"
-#~ msgstr "خاتالىق كۆرۈلدى"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">تېخىمۇ كۆپ</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "مەن <a href=\"\">ئۇبۇنتۇ بىر قائىدىلىرىنى</a> ئوقۇدۇم ۋە قوشۇلىمەن"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">سىز تورخەت ئادرېسى ئارقىلىق Ubuntu One ھېساباتىڭىزغا "
-#~ "تىزىمغا كىرىڭ.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">ھېساباتىڭىز بولمىسا ئەنسىرىمەڭ، بىز سىزگە بىرنى "
-#~ "ياساپ بېرىمىز.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "ئۇبۇنتۇ بىر ئېلخەت"
-
-#~ msgid "Log in later"
-#~ msgstr "كېيىن كىرەي"
-
-#~ msgid "Register later"
-#~ msgstr "كېيىن خەتلىتەي"
-
-#~ msgid "Apps"
-#~ msgstr "ئەپلەر"
-
-#~ msgid "Photos"
-#~ msgstr "سۈرەتلەر"
-
-#~ msgid "Music"
-#~ msgstr "مۇزىكا"
-
-#~ msgid "Cloud"
-#~ msgstr "بۇلۇت"
-
-#~ msgid "Please type your email:"
-#~ msgstr "ئېلخەت ئادرېسىڭىزنى كىرگۈزۈڭ:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "ئاتىڭىزنى دەپ بېرىڭ ۋە ئىمنى تاللاڭ:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "بىر Ubuntu One ھېساباتى سىزنى Ubuntu غا مۇناسىۋەتلىك مۇلازىمەت ۋە "
-#~ "تورتۇرالارنىڭ ھەممىسىگە تىزىمغا كىرگۈزەلەيدۇ."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "يۇمشاق دېتال مەركىزىدىن ئەپلەرگە ئېرىشىش، ھۆججەتلەرنى شەخسىي بۇلۇت "
-#~ "بوشلۇقىغا ساقلاش، نەغمە دۇكىنىدىن ناخشا سېتىۋېلىش، چىقىم ۋە زكازلىرىڭىزنى "
-#~ "باشقۇرۇش، مۇلازىمەت ئېھتىياجىڭىزغا ئۆزىڭىز قارار قىلىسىز."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "ئەگەر سىزنىڭ نۆۋەتتە Ubuntu single ھېساباتىڭىز بولسا، ھازىر ئۇ Ubuntu One "
-#~ "ھېساباتى دەپ ئاتىلىدۇ."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "ئىنتېرنېت باغلىنىشى يوق ئىكەن. ئۇبۇنتۇ بىرگە كىرىش ياكى بىر يېڭى ھېساب "
-#~ "ياساش ئۈچۈن، ئىنتېرنېتقا باغلىنىش زۆرۈردۇر."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "مەن ئۇبۇنتۇ بىرنىڭ يېڭى ئىشلەتكۈچىسى."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "مەن ئاللىبۇرۇن Ubuntu One ئىشلەتكۈچىسى مەن ئىشلەتكەن ئىم:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr "بۇ رەسىم ئىشلەتكۈچى نامىڭىز بىلەن باغلىنىدۇ ۋە بىللە كۆرسىتىلىدۇ."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "كىرگۈزمەكچى بولغان ھېساباتىڭىزنى تاللاڭ. قاچىلاش تاماملانغاندا بۇ "
-#~ "ھېساباتىڭىزدىكى پۈتۈك ۋە تەڭشەكلەرنى كۆرەلەيسىز."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "باشقا ھىساباتلارنى ئەكىرىشنى خالىمىسىڭىز، ھېچنىمە تاللىماي كېيىنكى بەتكە "
-#~ "ئۆتۈڭ."

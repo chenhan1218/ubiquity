@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1845,10 +1845,8 @@ msgstr "Etter:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Krypter den nye Ubuntu-installasjonen for økt sikkerhet"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1859,10 +1857,8 @@ msgstr "Du velger en sikkerhetsnøkkel i neste steg."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Bruk LVM på den nye Ubuntu-installasjonen"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1899,10 +1895,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Eventuelle filer utenfor Ubuntu blir ikke kryptert."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1973,16 +1967,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Med logisk dataområdebehandling (LVM) kan Ubuntu behandle flere fysiske "
-"lagringsenheter som ett dataområde."
 
 #. Type: text
 #. Description
@@ -2058,130 +2046,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjerner pakker"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Velg et bilde"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Ta et bilde:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Eller velg et eksisterende bilde:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Ta bilde"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Én konto for å logge på alle Ubuntu-tjenester"
-
-#~ msgid "Error registering account"
-#~ msgstr "Feil ved kontoregistrering"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Det oppstod en feil ved innlogging til denne kontoen"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Noe gikk galt"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Lær mer</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Jeg har lest og godtatt <a href=\"\">Vilkårene for bruk av Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Skriv inn e-postadressen som du bruker for å logge "
-#~ "deg på Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Vi lager gjerne en konto til deg hvis du ikke har en "
-#~ "allerede.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One e-post"
-
-#~ msgid "Log in later"
-#~ msgstr "Logg inn senere"
-
-#~ msgid "Register later"
-#~ msgstr "Registrer deg senere"
-
-#~ msgid "Apps"
-#~ msgstr "Programmer"
-
-#~ msgid "Photos"
-#~ msgstr "Bilder"
-
-#~ msgid "Music"
-#~ msgstr "Musikk"
-
-#~ msgid "Cloud"
-#~ msgstr "Skytjenester"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Skriv e-postadressen din:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Oppgi navnet ditt, og velg et passord:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One er den eneste kontoen du trenger for å få tilgang til alle "
-#~ "Ubuntu-relaterte tjenester og nettsider."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Hent nye programmer fra programvaresenteret, lagre filer i en personlig "
-#~ "nettsky, kjøp låter fra musikkbutikken, og håndter betalinger og "
-#~ "abonnementer. Du velger selv hvilke tjenester du vil bruke."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Du kan logge på Ubuntu One med det som tidligere var kjent som Ubuntu "
-#~ "«single sign-on (SSO)»-kontoen din."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Ingen internett-tilkobling er tilgjengelig. For å kunne opprette en konto "
-#~ "eller logge på Ubuntu One, må du være tilkoblet Internett."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Jeg er en ny Ubuntu One-bruker"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Jeg er allerede Ubuntu One-bruker, og passordet mitt er:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr "Dette bildet knyttes til brukernavnet ditt, og vises av og til."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Velg brukerkontoene som skal importeres. Dokumenter og instillinger for "
-#~ "disse blir tilgjengelig etter at installasjonen er fullført."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Hvis du ikke vil importere noen kontoer, lar du være å velge noen og går "
-#~ "videre til neste side"

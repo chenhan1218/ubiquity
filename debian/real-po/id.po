@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1853,10 +1853,8 @@ msgstr "Setelah:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Enkripsi untuk keamanan pemasangan Ubuntu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1867,10 +1865,8 @@ msgstr "Anda akan memilih sandi pada langkah selanjutnya."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Gunakan LVM bersama dengan pemasangan Ubuntu yang baru"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1907,10 +1903,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Semua berkas di luar Ubuntu tidak akan dienkripsi."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1981,16 +1975,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Pengaturan Volum Logis (LVM) membuat Ubuntu memperlakukan volum fisik "
-"sebagai volum tunggal."
 
 #. Type: text
 #. Description
@@ -2066,133 +2054,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Menghapus paket"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Pilih suatu gambar"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Ambil sebuah foto:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Atau pilih gambar lain yang tersedia:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Ambil Foto"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Satu akun untuk log masuk ke segalanya di Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Galat saat mendaftarkan akun"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Galat saat log masuk ke akun"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Ada yang salah"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Pelajari lebih lanjut</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Saya telah membaca dan menerima <a href=\"\">Syarat-syarat penggunaan "
-#~ "Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Masukkan alamat surel yang Anda gunakan untuk log "
-#~ "masuk ke akun Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Jika Anda belum memiliki akun, jangan khawatir, kami "
-#~ "akan buatkan untuk Anda.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Surel Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "Log masuk nanti"
-
-#~ msgid "Register later"
-#~ msgstr "Mendaftar nanti"
-
-#~ msgid "Apps"
-#~ msgstr "Aplikasi"
-
-#~ msgid "Photos"
-#~ msgstr "Foto"
-
-#~ msgid "Music"
-#~ msgstr "Musik"
-
-#~ msgid "Cloud"
-#~ msgstr "Awan"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Silakan ketik surel Anda:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Silakan beri tahu nama Anda dan pilih kata sandi:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One adalah satu akun yang Anda dapat gunakan untuk log masuk ke "
-#~ "semua layanan dan situs yang terkait dengan Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Dapatkan aplikasi baru dari Pusat Perangkat Lunak, simpan berkas di awan "
-#~ "pribadi Anda, beli trek dari Toko Musik, atur pembayaran dan langganan "
-#~ "Anda - Anda tentukan sendiri layanan mana yang Anda butuhkan."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Jika  Anda telah memiliki akun single sign on Ubuntu, itu yang sekarang "
-#~ "disebut akun Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Tidak ada koneksi internet. Agar dapat membuat akun atau log masuk ke "
-#~ "Ubuntu One, Anda perlu tersambung ke internet."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Saya adalah pengguna baru Ubuntu One:"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Saya telah memiliki akun Ubuntu One dan kata sandi saya adalah:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Gambar ini akan diasosiasikan dengan nama pengguna Anda dan ditampilkan "
-#~ "di sebelahnya setiap waktu."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Pilih akun yang ingin diimpor. Dokumen serta pengaturan untuk akun "
-#~ "tersebut akan tersedia setelah proses instalasi selesai."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Jika tidak ada akun yang ingin diimpor, Anda tidak perlu memilih apa pun. "
-#~ "Lanjut saja ke halaman berikutnya."

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2014-01-31 20:35+0000\n"
+"PO-Revision-Date: 2014-04-10 07:23+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1858,10 +1858,8 @@ msgstr "Despois:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Cifrar a nova instalación de Ubuntu por seguranza"
+msgstr "Cifrar a nova instalación de ${RELEASE} por seguranza"
 
 #. Type: text
 #. Description
@@ -1872,10 +1870,8 @@ msgstr "Deberá elixir unha clave de seguranza no paso seguinte."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Usar o LVM (Xestor de volumes lóxicos) coa nova instalación de Ubuntu"
+msgstr "Usar LVM coa nova instalación de ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1912,10 +1908,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Non se cifrará ningún ficheiro externo a Ubuntu."
+msgstr "Non se cifrará ningún ficheiro fóra de ${RELEASE}."
 
 #. Type: text
 #. Description
@@ -1986,16 +1980,12 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"A xestión de volumes lóxicos (LVM) permítelle a Ubuntu tratar varios volumes "
-"físicos como un único volume."
+"Logical Volume Management (LVM) permítelle a ${RELEASE} manexar múltiples "
+"volumes físicos como un só volume."
 
 #. Type: text
 #. Description
@@ -2072,131 +2062,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Escolla unha imaxe"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Tome unha foto:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Ou escolla unha imaxe existente:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Tomar unha foto"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Unha única conta para acceder a todo Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Produciuse un erro ao rexistrar a conta"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Produciuse un erro ao iniciar unha sesión coa conta"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Algo saíu mal"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Saber máis</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "Lin e acepto os <a href=\"\">termos de uso de Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Introduza o enderezo de correo electrónico para "
-#~ "iniciar sesión na conta de Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Se aínda non ten unha conta, non se preocupe: "
-#~ "crearemos unha para vostede.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Correo electrónico de Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "Iniciar unha sesión máis tarde"
-
-#~ msgid "Register later"
-#~ msgstr "Rexistrarme máis tarde"
-
-#~ msgid "Apps"
-#~ msgstr "Aplicativos"
-
-#~ msgid "Photos"
-#~ msgstr "Fotos"
-
-#~ msgid "Music"
-#~ msgstr "Música"
-
-#~ msgid "Cloud"
-#~ msgstr "Nube"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Escriba o seu correo electrónico:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Díganos o seu nome e escolla un contrasinal:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One é unha única conta para iniciar sesión en todos os servizos e "
-#~ "sitios de Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Consiga novos aplicativos no Centro de Software, garde os ficheiros na "
-#~ "nube persoal, merque na tenda de música, xestione os pagos e "
-#~ "subscricións, vostede decide que servizos precisa."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Se ten unha única conta en Ubuntu, agora será a súa conta de Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Non hai conexión á Internet. Para poder crear unha conta ou iniciar "
-#~ "sesión en Ubuntu One, precisa conectarse á Internet."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Son un novo usuario de Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Estou de volta en Ubuntu One e o meu contrasinal é:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Esta imaxe asociarase co seu nome de usuario e ás veces mostrarase ao seu "
-#~ "carón."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Escolla calquera conta que desexe importar. Os documentos e a "
-#~ "configuración desas contas estarán dispoñíbeis en canto remate a "
-#~ "instalación."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Se non ten intención de importar ningunha conta non seleccione nada e "
-#~ "vaia á páxina seguinte."

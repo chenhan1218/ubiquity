@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1838,10 +1838,8 @@ msgstr "Poste:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Ĉifri la novan instalon de Ubuntu pro sekureco"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1852,10 +1850,8 @@ msgstr "Vi elektos sekurecan ŝlosilon en la sekva paŝo"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Uzi ALD kun la nova instalo de Ubuntu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1888,10 +1884,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Ĉiuj dosieroj ekster Ubuntu ne estos ĉifritaj."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2038,35 +2032,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Foriganta pakaĵojn"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Elektu bildon"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Fotu:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Aŭ elektu jam ekzistantan foton:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Foti"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Ĉi tiu bildo estos asociita kun via uzantnomo kaj montrata flake al ĝi."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Elektu iun konton, kiun vi ŝatus importi. La dokumentoj kaj agordoj por "
-#~ "ĉi tiuj kontoj disponeblos post fino de la instalado."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Se vi ne deziras importi iujn ajn kontojn, elektu nenion kaj iru al sekva "
-#~ "paĝo."

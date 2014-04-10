@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:20+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1920,16 +1920,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "તમે આયાત કરવા માગતા હો તેવા કોઇ ખાતા પસંદ કરો. સ્થાપન સમાપ્ત થયા બાદ તે ખાતાના "
-#~ "ડોક્યુમેનટ અને સંયોજનો ઉપલબ્ધ થશે."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "જો તમે કંઇજ આયાત કરવા માગતા ન હો, તો કંઇ પણ પસંદ કર્યા વિના આગળના પાના પર જાઓ."

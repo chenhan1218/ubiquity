@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1789,10 +1789,8 @@ msgstr "之後："
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "為新的 Ubuntu 安裝使用加密以提昇安全性"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1803,10 +1801,8 @@ msgstr "下個步驟中您需要選擇一道安全金鑰"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "為新的 Ubuntu 安裝使用 LVM"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1841,10 +1837,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "任何 Ubuntu 之外的檔案皆不會被加密。"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1915,15 +1909,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"邏輯儲存區管理 (LVM) 讓 Ubuntu 可將多個實體儲存區視為單一個儲存區來管理。"
 
 #. Type: text
 #. Description
@@ -1997,120 +1986,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "移除套件中"
-
-#~ msgid "Choose a picture"
-#~ msgstr "選擇圖片"
-
-#~ msgid "Take a photo:"
-#~ msgstr "拍攝相片："
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "或選擇既有的圖片："
-
-#~ msgid "Take Photo"
-#~ msgstr "拍攝相片"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "在 Ubuntu 以一個帳戶登入全部"
-
-#~ msgid "Error registering account"
-#~ msgstr "註冊帳戶失敗"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "登入帳戶失敗"
-
-#~ msgid "Something went wrong"
-#~ msgstr "有東西出問題了"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">認識更多</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "我以閱讀並同意 <a href=\"\">Ubuntu One 的使用條款/a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr "<span size=\"small\">輸入您用來登入 Ubuntu One 的電郵地址。</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">如果您還沒有一個帳戶， 不用擔心，我們會幫您創造一個。"
-#~ "</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One 電郵"
-
-#~ msgid "Log in later"
-#~ msgstr "稍後再登入"
-
-#~ msgid "Register later"
-#~ msgstr "稍後再註冊"
-
-#~ msgid "Apps"
-#~ msgstr "應用"
-
-#~ msgid "Photos"
-#~ msgstr "相片"
-
-#~ msgid "Music"
-#~ msgstr "音樂"
-
-#~ msgid "Cloud"
-#~ msgstr "雲"
-
-#~ msgid "Please type your email:"
-#~ msgstr "請輸入您的電郵:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "請告訴我們您的名字並選擇一個密碼:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One 是一個您可以用來登入所有與 Ubuntu 有關的服務和網站的單一帳戶。"
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "從軟件中心取得新應用，在您的個人雲上儲存資料，從 Music Store 裏購買樂曲，"
-#~ "管理您的付款和訂閱 － 您決定你需要哪些服務。"
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "如果您現有一個 Ubuntu 的單次登錄帳戶，它現在已被稱為你的 Ubuntu One 帳戶。"
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "沒有互聯網連接。若要能夠創建一個帳戶或登錄到 Ubuntu One ，您需要連接到互聯"
-#~ "網。"
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "我是一個新的 Ubuntu One 用戶。"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "我是舊 Ubuntu One 用戶，我的密碼是："
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr "此圖將與你的用戶名連結，並有時在旁展示。"
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr "選擇您想要匯入的帳號。這些帳號的文件和設定在安裝完成後便可以使用。"
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr "如果您不希望匯入任何帳號，請不要選取，並前往下一頁。"

@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1848,10 +1848,8 @@ msgstr "後 :"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "安全のため新しいUbuntuのインストールを暗号化する"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1862,10 +1860,8 @@ msgstr "セキュリティキーは次のステップで選択します。"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "新しいUbuntuのインストールにLVMを利用する"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1902,10 +1898,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Ubuntu以外のファイルはどれも暗号化されません。"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1976,16 +1970,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"論理ボリュームマネージャー (LVM)は、Ubuntuに複数の物理ボリュームをひとつのボ"
-"リュームとして扱わせます。"
 
 #. Type: text
 #. Description
@@ -2061,130 +2049,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
-
-#~ msgid "Choose a picture"
-#~ msgstr "写真を選択"
-
-#~ msgid "Take a photo:"
-#~ msgstr "写真を撮る:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "既存の写真を選択:"
-
-#~ msgid "Take Photo"
-#~ msgstr "写真を撮る"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "一つのアカウントでUbuntuのすべてにログイン"
-
-#~ msgid "Error registering account"
-#~ msgstr "アカウント登録中にエラーが発生しました"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "アカウントのログイン中にエラーが発生"
-
-#~ msgid "Something went wrong"
-#~ msgstr "何か問題が発生しました"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">もっと知るには</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "<a href=\"\">Ubuntu Oneの利用規約</a>を読み、同意します。"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Ubuntu Oneアカウントにログインするためのメールアドレ"
-#~ "スを入力してください。</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">まだアカウントを持っていなかったとしても心配しないで"
-#~ "ください。アカウントはすぐ作成できます。</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu Oneメールアドレス"
-
-#~ msgid "Log in later"
-#~ msgstr "後でログインする"
-
-#~ msgid "Register later"
-#~ msgstr "後で登録する"
-
-#~ msgid "Apps"
-#~ msgstr "アプリ"
-
-#~ msgid "Photos"
-#~ msgstr "写真"
-
-#~ msgid "Music"
-#~ msgstr "音楽"
-
-#~ msgid "Cloud"
-#~ msgstr "クラウド"
-
-#~ msgid "Please type your email:"
-#~ msgstr "メールアドレスを入力してください:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "あなたの名前とパスワードを入力してください:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu Oneは、一つのアカウントでUbuntuに関連したすべてのサービスやサイトに"
-#~ "ログインできるサービスです。"
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "ソフトウェアセンターから新しいアプリを入手したり、パーソナルクラウドにファ"
-#~ "イルを保存したり、Music Storeから音楽を購入したり、支払いならびにサブスク"
-#~ "リプションを管理します - どのサービスが必要か決めてください。"
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Ubuntuシングルサインオンアカウントを既にお持ちであれば、現在、それは"
-#~ "Ubuntu Oneアカウントと呼ばれています。"
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "インターネットに接続されていません。アカウントを作成したりUbuntu Oneにログ"
-#~ "インするには、インターネットに接続する必要があります。"
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "私は新規Ubuntu Oneユーザーです"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "私は既にUbuntu Oneのユーザーです。パスワードは:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "この写真はユーザー名に関連付けられ、ユーザー名と一緒に表示されます。"
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "インポートしたいアカウントをすべて選択してください。これらのアカウントのド"
-#~ "キュメントと設定は、インストール完了後に利用できるようになります。"
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "どのアカウントもインポートしたくなければ、何も選択せずに次のページへ進んで"
-#~ "下さい。"

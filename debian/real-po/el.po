@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:20+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1882,10 +1882,8 @@ msgstr "Μετά:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Κρυπτογράφηση της νέας εγκατάστασης του Ubuntu για ασφάλεια"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1896,10 +1894,8 @@ msgstr "Θα επιλέξετε ένα κλειδί ασφαλείας στο ε
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Χρήση LVM στη νέα εγκατάσταση του Ubuntu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1938,10 +1934,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Οποιοδήποτε αρχείο έξω από το Ubuntu δεν θα κρυπτογραφηθεί."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2012,16 +2006,10 @@ msgstr "ΜΒ"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Η Διαχείριση λογικών τόμων (LVM) επιτρέπει στο Ubuntu να αντιμετωπίζει "
-"πολλαπλούς φυσικούς τόμους ως έναν ενιαίο τόμο."
 
 #. Type: text
 #. Description
@@ -2098,139 +2086,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Αφαίρεση πακέτων"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Επιλέξτε μια εικόνα"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Λήψη φωτογραφίας:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Ή επιλέξτε μια υπάρχουσα εικόνα:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Λήψη φωτογραφίας"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Ένας λογαριασμός για να συνδεθείτε παντού με το Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Σφάλμα εγγραφής λογαριασμού"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Σφάλμα σύνδεσης στο λογαριασμό"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Κάτι πήγε στραβά"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Μάθετε περισσότερα</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Έχω διαβάσει και αποδέχομαι τους <a href=\"\">όρους χρήσης του Ubuntu "
-#~ "One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Εισάγετε τη διεύθυνση email που χρησιμοποιείτε για "
-#~ "να συνδεθείτε στο λογαριασμό σας στο Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\"Αν δεν έχετε ήδη κάποιο λογαριασμό, μην ανησυχείτε. "
-#~ "Θα δημιουργήσουμε έναν για εσάς.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One email"
-
-#~ msgid "Log in later"
-#~ msgstr "Σύνδεση αργότερα"
-
-#~ msgid "Register later"
-#~ msgstr "Εγγραφή αργότερα"
-
-#~ msgid "Apps"
-#~ msgstr "Εφαρμογές"
-
-#~ msgid "Photos"
-#~ msgstr "Φωτογραφίες"
-
-#~ msgid "Music"
-#~ msgstr "Μουσική"
-
-#~ msgid "Cloud"
-#~ msgstr "Σύννεφο"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Παρακαλώ πληκτρολογήστε το email σας:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr ""
-#~ "Παρακαλώ πείτε μας το ονοματεπώνυμό σας και επιλέξτε έναν κωδικό "
-#~ "πρόσβασης:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Το Ubuntu One είναι ο μόνος λογαριασμός που χρησιμοποιείτε για να "
-#~ "συνδεθείτε σε όλες τις υπηρεσίες και τις ιστοσελίδες που σχετίζονται με "
-#~ "το Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Κατεβάστε νέες εφαρμογές από το Κέντρο λογισμικού, αποθηκεύστε αρχεία στο "
-#~ "προσωπικό σας σύννεφο, αγοράστε τραγούδια από το Κατάστημα μουσικής, "
-#~ "διαχειριστείτε τις αγορές και τις συνδρομές σας - εσείς επιλέγετε ποιες "
-#~ "υπηρεσίες χρειάζεστε."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Αν έχετε ήδη λογαριασμό Ubuntu για σύνδεση σε όλες τις υπηρεσίες, τώρα "
-#~ "αυτός ονομάζεται λογαριασμός Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Δεν υπάρχει σύνδεση στο διαδίκτυο. Για να μπορέσετε να δημιουργήσετε "
-#~ "λογαριασμό ή να συνδεθείτε στο Ubuntu One, πρέπει να συνδεθείτε στο "
-#~ "διαδίκτυο."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Είμαι νέος χρήστης του Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Είμαι ήδη χρήστης του Ubuntu One και ο κωδικός πρόσβασής μου είναι:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Αυτή η φωτογραφία θα συσχετιστεί με το όνομα χρήστη σας και θα "
-#~ "εμφανίζονται μαζί."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Επιλέξτε τους λογαριασμούς που θέλετε να εισάγετε. Τα έγγραφα και οι "
-#~ "ρυθμίσεις για αυτούς τους λογαριασμούς θα είναι διαθέσιμα μετά την "
-#~ "ολοκλήρωση της εγκατάστασης."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Εάν δεν επιθυμείτε να εισάγετε κάποιο λογαριασμό, μην επιλέξετε τίποτα "
-#~ "και πηγαίνετε στην επόμενη σελίδα."

@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1997,33 +1997,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "පැකේජ ඉවත්කරමින්"
-
-#~ msgid "Choose a picture"
-#~ msgstr "පින්තූරයක් තෝරන්න"
-
-#~ msgid "Take a photo:"
-#~ msgstr "පින්තුරයක් ගන්න:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "හෝ තිබෙන පින්තුරයක් තෝරාගන්න:"
-
-#~ msgid "Take Photo"
-#~ msgstr "පින්තුරයක් ගන්න"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "මෙම පින්තුරය ඔබේ පරිශීලක නාමය සමඟ හවුල් වනු ඇති අතර වේලාවකදී එය පැත්තකින් ප්‍රදර්ශනය වේ."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "ඔබ ආයත කිරීමට කැමති ගිණුම් තෝරන්න. මෙම ගිණුම් සඳහා වූ ලේඛන හා සැකසුම්, ස්ථාපනය සම්පූර්ණ වූ "
-#~ "පසු රැඳෙනු ඇත."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr "ඔබ කිසිවක් ආයත නොකරන්නේ නම්, කිසිවක් තෝරන්නේ නැතිව ඊළඟ පිටුවට යන්න."

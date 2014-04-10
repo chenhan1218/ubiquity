@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2014-03-22 10:55+0000\n"
+"PO-Revision-Date: 2014-04-10 07:54+0000\n"
 "Last-Translator: Arun Kumar - அருண் குமார் <thangam.arunx@gmail.com>\n"
 "Language-Team: Tamil <Ubuntu-l10n-tam@lists.ubuntu.com>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1831,10 +1831,8 @@ msgstr "பிறகு:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "புதிய உபுண்டு நிறுவலை பாதுகாப்புக்காக மறைகுறியாக்கம் செய்ய வேண்டும்"
+msgstr "புதிய ${RELEASE} நிறுவலுக்கான பாதுகாப்பை மறைகுறியாக்கம் செய்"
 
 #. Type: text
 #. Description
@@ -1845,10 +1843,8 @@ msgstr "அடுத்த நிலையில் நீங்கள் ஒர
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "புதிய உபுண்டு நிறுவலில் LVM ஐ பயன்படுத்தவும்"
+msgstr "புதிய ${RELEASE} நிறுவலுடன் LVM ஐ பயன்படுத்தவும்"
 
 #. Type: text
 #. Description
@@ -1886,10 +1882,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "உபுண்டுவிற்கு அப்பாற்பட்ட கோப்புகளை மறைகுறியாக்கம் செய்யாது."
+msgstr "${RELEASE} க்கு அப்பாற்ப்பட்ட கோப்புகளை மறைகுறியாக்கம் செய்யப்படாது."
 
 #. Type: text
 #. Description
@@ -1960,16 +1954,12 @@ msgstr "எம்பி"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"தருக்க தொகுதி மேலாண்மையானது (LVM) உபுண்டுவின் பல பெளதிக தொகுதிகளை ஒரே ஒரு "
-"தொகுதியாக நடத்தும்."
+"Logical Volume Management (LVM) ${RELEASE} ஐ பல பருநிலை தொகுதிகளை ஒரு "
+"தொகுதியாக நடத்தட்டும்."
 
 #. Type: text
 #. Description
@@ -2045,132 +2035,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "தொகுப்புகள் நீக்கப்படுகிறது"
-
-#~ msgid "Choose a picture"
-#~ msgstr "படம் ஒன்றைத் தேர்வுச் செய்யவும்"
-
-#~ msgid "Take a photo:"
-#~ msgstr "புகைப்படம் ஒன்றை எடுக்கவும்:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "அல்லது ஏற்கனவே இருக்கும் படத்தைத் தேர்வு செய்யவும்:"
-
-#~ msgid "Take Photo"
-#~ msgstr "புகைப்படத்தை எடுக்கவும்"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "ஒரே கணக்கின் மூலம் உபுண்டுவின் அனைத்து பயன்பாடுகளிலும் உள்நுழையலாம்"
-
-#~ msgid "Error registering account"
-#~ msgstr "கணக்கை பதிவதில் பிழை"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "கணக்கில் உள்நுழைவதில் பிழை"
-
-#~ msgid "Something went wrong"
-#~ msgstr "ஏதோ தவறாகிவிட்டது"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">மேலும் படிக்க</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "நான் <a href=\"\">உபுண்டு ஒன்றின் பயன்பாட்டு விதிமுறைகளை படித்து ஏற்றுக்கொண்டேன்</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">உங்களுடைய உபுண்டுஒன் கணக்கின் உள்நுழைவுக்கான மின்னஞ்சல் "
-#~ "முகவரியை உள்ளிடு.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">உங்களுக்கு இதுவரையில் கணக்கு இல்லையென்றால் பரவாயில்லை, நாங்கள் "
-#~ "ஒரு கணக்கை உருவாக்குகிறோம்.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "உபுண்டு ஒன் மின்னஞ்சல்"
-
-#~ msgid "Log in later"
-#~ msgstr "பின்னர் உள்நுழையவும்"
-
-#~ msgid "Register later"
-#~ msgstr "பிறகு பதியவும்"
-
-#~ msgid "Apps"
-#~ msgstr "பயன்பாடுகள்"
-
-#~ msgid "Photos"
-#~ msgstr "புகைப்படங்கள்"
-
-#~ msgid "Music"
-#~ msgstr "இசை"
-
-#~ msgid "Cloud"
-#~ msgstr "மேகக்கணிமை"
-
-#~ msgid "Please type your email:"
-#~ msgstr "தயவுச்செய்து உங்களுடைய  மின்னஞ்சலை தட்டு:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "தயவுச்செய்து உங்களுடைய பெயரை எங்களுக்கு சொல் ஒரு கடவுச்சொல்லை தேர்ந்தெடு:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "உபுண்டு ஒன்றின் ஒரு கணக்கை வைத்து உபுண்டுவின் அனைத்து இணைய சேவைகளிலும் உளநுழைய "
-#~ "முடியும்."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "மென்பொருள் மையத்திலிருந்து புதிய பயன்பாடுகளை பெற, கோப்புகளை தனிப்பட்ட "
-#~ "மேக்கணினியில் சேமிக்க, இசைகளை வாங்க, உங்களுடைய பணம் செலுத்தல் முறைகளை நிர்வகிக்க "
-#~ "மற்றும் சந்தாப்படுத்த - உங்களுக்கு எந்த சேவை வேண்டும் என்பதை முடிவு செய்யுங்கள்."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "உங்களிடம் ஒற்றை உள்நுழைவு கணக்கு இருந்தால் அதவே உங்களுடைய உபுண்டு ஒன்றின் பிரதான "
-#~ "கணக்காகும்."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "இங்கே இணைய இணைப்பு இல்லை. இணையத்துடன் இணைந்திருந்தால் மட்டுமே ஒரு கணக்கை உருவாக்கவோ "
-#~ "அல்லது உபுண்டு ஒன்றில் உள்நுழையவோ முடியும்."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "நான் உபுண்டு ஒன்றின் புதிய பயனர்."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "நான் உபுண்டு ஒன்றிற்கு திரும்பும் பயனர் மேலும் என்னுடைய கடவுச்சொல்:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "இந்த புகைப்படம் உங்களுடைய பயனர் பெயருடன் இணைந்துள்ளது அது தேவைப்படும் நேரத்தில் "
-#~ "பக்கத்தில் தோன்றும்."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "நீங்க விரும்பும் எந்த கணக்கையும் தேர்வு செய்து இறக்குமதி செய்யவும். இந்த கணக்குக்கான "
-#~ "ஆவணங்கள் மற்றும் அமைப்புகள் நிறுவியப்பிறகு அப்படியே கிடைக்கும்."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "நீங்க எந்த கணக்கையும் இறக்கமதி செய்யவில்லை என்றால், எதையும் தேர்வு செய்யாமல் அடுத்த "
-#~ "பக்கத்திற்கு செல்லவும்."

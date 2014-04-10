@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1976,27 +1976,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
-
-#~ msgid "Choose a picture"
-#~ msgstr "เลือกภาพ"
-
-#~ msgid "Take a photo:"
-#~ msgstr "ถ่ายสักรูป:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "หรือเลือกจากรูปที่มี:"
-
-#~ msgid "Take Photo"
-#~ msgstr "ถ่ายรูป"
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "โปรดเลือกบัญชีที่คุณต้องการนำเข้าข้อมูล เอกสารและการตั้งค่าของบัญชีนั้น "
-#~ "จะสามารถใช้ได้หลังการติดตั้งสมบูรณ์"
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr "หากคุณไม่ต้องการนำเข้าบัญชีใด ๆ เลือกไม่และไปยังหน้าถัดไป"

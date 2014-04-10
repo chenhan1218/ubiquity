@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2013-10-15 11:14+0000\n"
+"PO-Revision-Date: 2014-04-10 10:36+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <debian-hebrew-common@lists.alioth.debian.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1817,10 +1817,8 @@ msgstr "אחרי:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "הצפנת התקנת אובונטו החדשה להגברת האבטחה"
+msgstr "הצפנת ההתקנה החדשה של ${RELEASE} לשיפור האבטחה"
 
 #. Type: text
 #. Description
@@ -1831,10 +1829,8 @@ msgstr "יתאפשר לך לבחור במפתח אבטחה בשלב הבא."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "יש להשתמש ב־LVM (מנהל כרכים לוגיים) בהתקנת האובונטו החדשה"
+msgstr "שימוש ב־LVM בהתקנה החדשה של ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1871,10 +1867,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "כל הקבצים שמחוץ לאובונטו לא יוצפנו."
+msgstr "קבצים כלשהם מחוץ ל־${RELEASE} לא יוצפנו."
 
 #. Type: text
 #. Description
@@ -1944,16 +1938,11 @@ msgstr "מ״ב"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"ניהול כוננים לוגי (LVM) מאפשר לאובונטו להתנהג למספר כרכים פיזיים כאל כרך "
-"יחיד."
+"ניהול כרכים לוגי (LVM) מאפשר ל־${RELEASE} לנהוג במספר כרכים פיזיים ככרך אחד."
 
 #. Type: text
 #. Description
@@ -2028,129 +2017,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "החבילות מוסרות"
-
-#~ msgid "Choose a picture"
-#~ msgstr "נא לבחור תמונה"
-
-#~ msgid "Take a photo:"
-#~ msgstr "צילום תמונה:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "או שניתן לבחור בתמונה קיימת:"
-
-#~ msgid "Take Photo"
-#~ msgstr "צילום תמונה"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "חשבון אחד שמשמש אותך לכניסה לכל מה שקשור באובונטו"
-
-#~ msgid "Error registering account"
-#~ msgstr "רישום החשבון נכשל"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "הכניסה לחשבון נכשלה"
-
-#~ msgid "Something went wrong"
-#~ msgstr "משהו השתבש"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">מידע נוסף</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "קראתי והסכמתי ל<a href=\"\">תנאי השימוש ב־Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">נא להזין את כתובת הדוא״ל שלך כדי להיכנס לחשבונך ב־"
-#~ "Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">אם אין לך חשבון עדיין, אל חשש, אנו ניצור אחד עבורך.</"
-#~ "span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "דוא״ל Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "כניסה מאוחר יותר"
-
-#~ msgid "Register later"
-#~ msgstr "להירשם מאוחר יותר"
-
-#~ msgid "Apps"
-#~ msgstr "יישומים"
-
-#~ msgid "Photos"
-#~ msgstr "תמונות"
-
-#~ msgid "Music"
-#~ msgstr "מוזיקה"
-
-#~ msgid "Cloud"
-#~ msgstr "ענן"
-
-#~ msgid "Please type your email:"
-#~ msgstr "נא להזין את כתובת הדוא״ל שלך:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "נשמע לדעת איך קוראים לך ומה הססמה המועדפת עליך:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One הוא החשבון המאוחד בו ניתן להשתמש כדי להיכנס לכל השירותים "
-#~ "והאתרים הקשורים באובונטו."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "הורדת יישומים חדשים ממרכז התכנה, אחסון קבצים בענן הפרטי שלך, רכישת קטעי "
-#~ "מוזיקה מחנות המוזיקה, ניהול התשלומים והמינויים שלך - בחירת השירותים "
-#~ "הנחוצים לך היא בידיך."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "אם כבר יש לך חשבון מסוג Ubuntu single sign on (כניסה אחודה), מעתה שמו "
-#~ "יהיה חשבון Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "אין חיבור לאינטרנט. כדי ליצור חשבון או כדי להיכנס ל־Ubuntu One, יהיה עליך "
-#~ "להתחבר לאינטרנט."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "אני משתמש חדש ב־Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "אני משתמש חוזר ב־Ubuntu One והססמה שלי היא:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr "תמונה זו תשויך לשם המשתמש שלך ותוצג לצדו מדי פעם בפעם."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "נא לבחור את החשבונות אותם ברצונך לייבא. התיקיות שתחת documents and "
-#~ "settings של חשבונות אלו יהיו זמינים לאחר השלמת ההתקנה."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "אם אין ברצונך לייבא חשבונות, ניתן להשאיר את השדות לא מסומנים ולעבור לעמוד "
-#~ "הבא."

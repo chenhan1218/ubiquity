@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2013-10-12 07:54+0000\n"
+"PO-Revision-Date: 2014-04-10 11:13+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1857,10 +1857,8 @@ msgstr "Jälkeen:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Salaa uusi Ubuntu-asennus turvallisuuden vuoksi"
+msgstr "Salaa uusi ${RELEASE} -asennus paremman tietoturvan vuoksi"
 
 #. Type: text
 #. Description
@@ -1871,10 +1869,8 @@ msgstr "Salausavain valitaan seuraavassa vaiheessa."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Käytä LVM-taltionhallintaa uuden Ubuntu-asennuksen kanssa"
+msgstr "Käytä LVM:ää uudessa ${RELEASE} -asennuksessa"
 
 #. Type: text
 #. Description
@@ -1912,10 +1908,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Salaus ei vaikuta Ubuntun ulkopuolisiin tiedostoihin."
+msgstr "${RELEASE} -asennuksen ulkopuolisia tiedostoja ei salata."
 
 #. Type: text
 #. Description
@@ -1987,16 +1981,12 @@ msgstr "Mt"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Loogisten taltioiden hallinta (LVM) mahdollistaa Ubuntun käsittelevän useita "
-"eri fyysisia taltioita yhtenä taltiokokonaisuutena."
+"Looginen taltionhallinta (LVM) mahdollistaa ${RELEASE} -asennuksen "
+"käsittelevän useita eri fyysisiä taltioita yhtenä taltiona."
 
 #. Type: text
 #. Description
@@ -2072,130 +2062,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Poistetaan paketteja"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Valitse kuva"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Ota valokuva:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Tai valitse jo olemassa oleva kuva:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Ota valokuva"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Ubuntu-maailmaan kirjautuminen yhdellä käyttäjätilillä"
-
-#~ msgid "Error registering account"
-#~ msgstr "Virhe tiliä rekisteröitäessä"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Virhe kirjautuessa tilille"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Jotain meni pieleen"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Lue lisää</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "Olen lukenut ja hyväksynyt <a href=\"\">Ubuntu One -käyttöehdot</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Anna sähköpostiosoite, jolla kirjaudut Ubuntu One -"
-#~ "tilillesi.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Jos sinulla ei ole vielä tiliä, sinulle luodaan uusi "
-#~ "tili.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One -sähköposti"
-
-#~ msgid "Log in later"
-#~ msgstr "Kirjaudu myöhemmin"
-
-#~ msgid "Register later"
-#~ msgstr "Rekisteröidy myöhemmin"
-
-#~ msgid "Apps"
-#~ msgstr "Sovellukset"
-
-#~ msgid "Photos"
-#~ msgstr "Kuvat"
-
-#~ msgid "Music"
-#~ msgstr "Musiikki"
-
-#~ msgid "Cloud"
-#~ msgstr "Pilvi"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Kirjoita sähköpostiosoitteesi:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Kerro meille nimesi ja valitse salasana:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One -kertakirjautumistilillä kirjaudut kaikkiin Ubuntuun "
-#~ "liittyviin palveluihin ja sivustoihin."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Lataa uusia sovelluksia sovellusvalikoimasta, tallenna tiedostoja "
-#~ "pilveen, osta kappaleita musiikkikaupasta, hallitse maksuja sekä "
-#~ "tilauksia - sinä päätät, mitä palveluita tarvitset."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Jos sinulla on jo Ubuntu-kertakirjautumistili, sen nimi on nykyään Ubuntu "
-#~ "One -tili."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Internetyhteyttä ei havaittu. Internetyhteys tarvitaan, jotta Ubuntu One -"
-#~ "tilille on mahdollista kirjautua tai uusi tili luoda."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Olen uusi Ubuntu One -käyttäjä."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Olen jo Ubuntu One -käyttäjä, salasanani on:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Tämä kuva liitetään käyttäjätiliisi ja näytetään joskus sen yhteydessä."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Valitse tuotavat käyttäjätilit. Valittujen käyttäjätilien asiakirjat ja "
-#~ "asetukset ovat saatavilla asennuksen jälkeen."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Jos et halua tuoda yhtäkään tiliä, älä valitse mitään ja siirry "
-#~ "seuraavalle sivulle."

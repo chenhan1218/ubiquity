@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2013-10-17 14:26+0000\n"
+"PO-Revision-Date: 2014-04-10 09:25+0000\n"
 "Last-Translator: Rūdolfs Mazurs <Unknown>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1842,10 +1842,8 @@ msgstr "Pēc:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Drošības labad šifrēt jauno Ubuntu instalāciju"
+msgstr "Šifrēt jauno ${RELEASE} instalāciju drošības dēļ"
 
 #. Type: text
 #. Description
@@ -1856,10 +1854,8 @@ msgstr "Nākamajā solī jūs izvēlēsities drošības atslēgu."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Lietot LVM ar jauno Ubuntu instalāciju"
+msgstr "Izmantot LVM ar jauno ${RELEASE} instalāciju"
 
 #. Type: text
 #. Description
@@ -1896,10 +1892,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Visas datnes ārpus Ubuntu netiks šifrētas."
+msgstr "Visas datnes ārpus  ${RELEASE} netiks šifrētas."
 
 #. Type: text
 #. Description
@@ -1970,15 +1964,11 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Loģisko sējumu pārvaldība (LVM) ļauj Ubuntu izmantot vairākus fiziskus "
+"Loģisko sējumu pārvaldība (LVM) ļauj ${RELEASE} izmantot vairākus fiziskos "
 "sējumus kā vienu sējumu."
 
 #. Type: text
@@ -2056,134 +2046,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Noņem pakotnes"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Izvēlieties bildi"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Uzņemiet fotogrāfiju:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Vai izvēlieties jau esošu bildi:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Uzņemt fotogrāfiju"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Viens konts, lai pieslēgtos visām Ubuntu iespējām"
-
-#~ msgid "Error registering account"
-#~ msgstr "Kļūda, reģistrējot kontu."
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Kļūda, izrakstoties no konta."
-
-#~ msgid "Something went wrong"
-#~ msgstr "Kaut kas nogāja greizi"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Uzziniet vairāk</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Esmu izlasījis un pieņemu <a href=\"\">Ubuntu One lietošanas nosacījumus</"
-#~ "a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Ievadiet e-pasta adresi, ko izmantosiet, lai "
-#~ "ierakstītos Ubuntu One kontā.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Ja jums vēl nav konta, mēs jums to izveidosim.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One e-pasts"
-
-#~ msgid "Log in later"
-#~ msgstr "Ierakstīties vēlāk"
-
-#~ msgid "Register later"
-#~ msgstr "Reģistrēties vēlāk"
-
-#~ msgid "Apps"
-#~ msgstr "Lietotnes"
-
-#~ msgid "Photos"
-#~ msgstr "Attēli"
-
-#~ msgid "Music"
-#~ msgstr "Mūzika"
-
-#~ msgid "Cloud"
-#~ msgstr "Mākonis"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Lūdzu ievadiet epastu:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Lūdzu, norādiet savu vārdu un izvēlieties paroli:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One ir viens konts, ko izmantot, lai ierakstītos visos "
-#~ "pakalpojumus un vietnēs, kas ir saistītas ar Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Saņemiet jaunas lietotnes no Programmatūras centra, saglabājiet datnes "
-#~ "savā personīgajā mākonī, pērciet mūziku no Mūzikas veikala, pārvaldiet "
-#~ "savus maksājumus un abonementus — jūs paši nosakāt, kurus pakalpojumus "
-#~ "jums vajag."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Ja jums jau ir Ubuntu kopējās ierakstīšanāš konts, jums jau ir Ubuntu One "
-#~ "konts."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Nav interneta savienojuma. Lai varētu izveidot konu vai ierakstīties "
-#~ "Ubuntu One, jābūt savienojumam ar internetu."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Es esmu jauns Ubuntu One lietotājs"
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Jau esmu Ubuntu One  lietotājs un mana parole ir:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Šis attēls tiks saistīts ar jūsu lietotāja vārdu un dažkārt tiks "
-#~ "parādīts  tam līdzās."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Izvēlieties, kurus kontus jūs vēlētos importēt. Pēc instalēšanas "
-#~ "pabeigšanas šo kontu dokumenti un uzstādījumi būs pieejami jaunajā "
-#~ "sistēmā."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Ja nevēlaties pārcelt kontus, neizvēlieties neko un pārejiet uz nākamo "
-#~ "soli."

@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1846,10 +1846,8 @@ msgstr "Sonra:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Yeni Ubuntu kurulumunu güvenlik için şifrele"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1860,10 +1858,8 @@ msgstr "Bir sonraki adımda bir güvenlik anahtarı seçeceksiniz."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Yeni Ubuntu kurulumu ile LVM kullan"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1901,10 +1897,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Ubuntu dışındaki dosyalar şifrelenmeyecektir."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1975,16 +1969,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Mantıksal Birim Yönetimi, Ubuntu'nun birden çok fiziksel birime tek bir "
-"birimmiş gibi davranmasını sağlar."
 
 #. Type: text
 #. Description
@@ -2061,135 +2049,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Bir resim seçiniz"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Bir resim çek:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Ya da var olan bir resmi seç:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Resim Çek"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Tek bir hesap ile Ubuntudaki herşeye erişin"
-
-#~ msgid "Error registering account"
-#~ msgstr "Hesap kaydı yapılırken hata oluştu"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Giriş yaparken hata oluştu"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Bir şeyler yanlış gitti"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Daha fazla bilgi</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "<a href=\"\">Ubuntu One kullanım sözleşmesini</a> okudum ve kabul "
-#~ "ediyorum."
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Ubuntu One hesabınıza erişmek için kullandığınız "
-#~ "eposta adresinizi girin.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Eğer henüz bir hesabınız yoksa endişelenmeyin, sizin "
-#~ "için bir tane oluşturalım.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One eposta"
-
-#~ msgid "Log in later"
-#~ msgstr "Daha sonra giriş yap"
-
-#~ msgid "Register later"
-#~ msgstr "Daha sonra kaydol"
-
-#~ msgid "Apps"
-#~ msgstr "Uygulamalar"
-
-#~ msgid "Photos"
-#~ msgstr "Fotoğraflar"
-
-#~ msgid "Music"
-#~ msgstr "Müzik"
-
-#~ msgid "Cloud"
-#~ msgstr "Bulut"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Lütfen e-posta adresinizi giriniz:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Lütfen adınızı giriniz ve bir parola seçiniz:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One , Ubuntu ile ilgili bütün servis ve sitelere giriş yapmak için "
-#~ "tekil hesaptır."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Yazılım Merkezinden yeni uygulamalar alabilir, dosyalarınızı Bulut "
-#~ "sisteme yükleyebilir, Müzik Dükkanından parçalar satın alabilir, "
-#~ "ödemelerinizi ve aboneliklerinizi düzenleyebilirsiniz. - hangi servisleri "
-#~ "kullanacağınıza siz karar verirsiniz."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Eğer Ubuntu Tekil Giriş hesabınız varsa artık bu servis Ubuntu One hesabı "
-#~ "isminde adlandırılmaktadır."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "İnternet bağlantısı mevcut değil. Ubuntu One hesabı oluşturmak veya "
-#~ "sisteme giriş için geçerli bir internet bağlantısına ihtiyacınız var."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Yeni bir Ubuntu One kullanıcısıyım."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Daha önce Ubuntu One kullandım ve parolam:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Bu görüntü kullanıcı adınızla ilişkilendirilecek ve kullanıcı adınızla "
-#~ "birlikte görüntülenecektir."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "İçeri aktarmak istediğiniz herhangi bir hesabı seçin. Bu hesapların "
-#~ "belgeleri ve ayarları, kurulum tamamlandıktan sonra kullanıma hazır "
-#~ "olacaktır."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Herhangi bir hesap içe aktarmak istemiyorsanız, bir seçim yapmadan bir "
-#~ "sonraki sayfaya geçin."

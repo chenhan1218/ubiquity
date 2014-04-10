@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 "X-Language: bn_BD\n"
 
@@ -2017,36 +2017,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "প্যাকেজসমূহ অপসারণ করা হচ্ছে"
-
-#~ msgid "Choose a picture"
-#~ msgstr "একটি ছবি নির্বাচন করুন"
-
-#~ msgid "Take a photo:"
-#~ msgstr "ছবি তুলুন:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "অথবা আগের ছবি নির্বাচন করুন:"
-
-#~ msgid "Take Photo"
-#~ msgstr "ছবি তুলুন"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "এই ছবিটি আপনার ব্যবহারকারী নামের সাথে যুক্ত হবে এবং সবসময় তার পাশে প্রদর্শিত "
-#~ "হবে।"
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "কোনো অ্যাকাউন্ট আমদানী করতে চাইলে সেটি নির্বাচন করুন। ঐ অ্যাকাউন্টের ডকুমেন্টস্ "
-#~ "এবং সেটিংসগুলো ইনস্টল শেষে পাওয়া যাবে।"
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "আপনি যদি কোনো অ্যাকাউন্ট আমদানী করতে না চান, তবে কিছুই নির্বাচন করার প্রয়োজন "
-#~ "নেই; পরের পৃষ্ঠা দেখুন"

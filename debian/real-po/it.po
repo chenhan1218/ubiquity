@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2013-10-15 06:44+0000\n"
-"Last-Translator: Federico Pontelli <Unknown>\n"
+"PO-Revision-Date: 2014-04-10 06:52+0000\n"
+"Last-Translator: Milo Casagrande <milo.casagrande@gmail.com>\n"
 "Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1862,10 +1862,8 @@ msgstr "Dopo:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Cifra la nuova installazione Ubuntu per maggiore sicurezza"
+msgstr "Cifra l'installazione di ${RELEASE} per maggiore sicurezza"
 
 #. Type: text
 #. Description
@@ -1876,10 +1874,8 @@ msgstr "Nel passo successivo verrà scelta una chiave di sicurezza."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Usa LVM con la nuova installazione di Ubuntu"
+msgstr "Usa LVM con l'installazione di ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1917,10 +1913,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Tutti i file non salvati all'interno di Ubuntu non saranno cifrati."
+msgstr "I file esterni a ${RELEASE} non saranno cifrati."
 
 #. Type: text
 #. Description
@@ -1991,16 +1985,12 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Logical Volume Management (LVM), il gestore logico dei volumi, consente a "
-"Ubuntu di considerare molteplici volumi come un singolo volume."
+"LVM (Logical Volume Management) consente a ${RELEASE} di gestire molteplici "
+"volumi fisici come uno solo."
 
 #. Type: text
 #. Description
@@ -2077,130 +2067,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Rimozione dei pacchetti"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Scelta immagine"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Scatta una foto:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Oppure scegli una immagine:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Scatta foto"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Un unico account per l'accesso al mondo Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Errore nel registrare l'account"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Errore nell'eseguire l'accesso all'account"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Si è verificato un errore"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Maggiori informazioni</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr "Ho letto e accetto i <a href=\"\">termini d'uso di Ubuntu One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Inserire l'indirizzo email utilizzato per eseguire "
-#~ "l'accesso con Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Se non si possiede ancora un profilo, ne verrà "
-#~ "creato uno.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Email di Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "Accedi in seguito"
-
-#~ msgid "Register later"
-#~ msgstr "Registra in seguito"
-
-#~ msgid "Apps"
-#~ msgstr "App"
-
-#~ msgid "Photos"
-#~ msgstr "Foto"
-
-#~ msgid "Music"
-#~ msgstr "Musica"
-
-#~ msgid "Cloud"
-#~ msgstr "Cloud"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Digitare la propria email:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Inserire il proprio nome e scegliere una password:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One è l'unico profilo con cui accedere a tutti i servizi e ai siti "
-#~ "collegati a Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Ottieni nuove applicazioni dal Software Center, salva file nel cloud "
-#~ "personale, acquista musica dal «Music Store», gestisci pagamenti e "
-#~ "abbonamenti: decidi tu di quali servizi hai bisogno."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Se possiedi già un account Ubuntu Single Sign On, ora questo viene "
-#~ "identificato semplicemente come account Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "La connessione Internet non è presente. Per creare o accedere al profilo "
-#~ "Ubuntu One, è necessaria una connessione a Internet."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Sono un nuovo utente di Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Sono già utente di Ubuntu One, la password è:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Questa immagine verrà associata e visualizzata col proprio nome utente."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Selezionare gli account da importare. I documenti e le impostazioni per "
-#~ "questi account saranno disponibili al termine dell'installazione."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Per non importare alcun account, non selezionare nulla e passare alla "
-#~ "prossima pagina."

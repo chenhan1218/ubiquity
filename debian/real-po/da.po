@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 "X-Poedit-Language: Danish\n"
 
@@ -1858,10 +1858,8 @@ msgstr "Efter:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Kryptér den nye Ubuntu-installation af hensyn til sikkerheden"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1872,10 +1870,8 @@ msgstr "Du vil vælge en sikkerhedsnøgle i det næste trin."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Benyt LVM med den nye Ubuntu-installation"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1913,10 +1909,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Enhver fil som er uden for Ubuntu vil ikke blive krypteret."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1987,16 +1981,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Logisk diskenhedshåndtering (LVM) lader Ubuntu behandle flere fysiske "
-"delarkiver som ét enkelt delarkiv."
 
 #. Type: text
 #. Description
@@ -2072,133 +2060,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjerner pakker"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Vælg et billede"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Tag et billede:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Eller vælg et eksisterende billede:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Tag Billede"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Én konto til at logge ind på alt i Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Fejl under oprettelse af konto"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Fejl under login på kontoen"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Noget gik galt"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Lær mere</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Jeg har læst og accepterer <a href=\"\">betingelserne for brug af Ubuntu "
-#~ "One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Oplys e-mailadressen, som du anvender til at logge "
-#~ "ind på din Ubuntu One-konto.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Har du endnu ikke en konto, så er det intet problem "
-#~ "- vi opretter én til dig. </span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One e-post"
-
-#~ msgid "Log in later"
-#~ msgstr "Log ind senere"
-
-#~ msgid "Register later"
-#~ msgstr "Tilmeld senere"
-
-#~ msgid "Apps"
-#~ msgstr "Apps"
-
-#~ msgid "Photos"
-#~ msgstr "Billeder"
-
-#~ msgid "Music"
-#~ msgstr "Musik"
-
-#~ msgid "Cloud"
-#~ msgstr "Sky"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Indtast venligst din e-mail:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Oplys dit navn og vælg en adgangskode:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One er den eneste konto, som du anvender til at logge ind på alle "
-#~ "tjenester og steder, der er relateret til Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Hent nye apps fra Softwarecenteret, gem filer i din personlige sky, køb "
-#~ "numre fra Musikbutikken, administrér dine betalinger og abonnementer - du "
-#~ "afgør selv hvilke tjenester, du har brug for."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Hvis du i forvejen har en Ubuntu single sign on-konto, så kaldes denne nu "
-#~ "for din Ubuntu One-konto."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Der er ingen internetforbindelse. For at kunne oprette en konto, eller "
-#~ "logge ind på Ubuntu One, så skal du være forbundet til internettet."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Jeg er en ny Ubuntu One-bruger."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Jeg er i forvejen bruger af Ubuntu One, og min adgangskode er:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Dette billede vil blive tilknyttet dit brugernavn og vist sammen med det "
-#~ "somme tider."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Vælg de konti du ønsker at importere. Disse kontis dokumenter og "
-#~ "indstillinger vil være tilgængelige, efter at installationen er fuldført."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Hvis du ikke vil importere nogen konti, vælg da intet og gå til næste "
-#~ "side."

@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1862,10 +1862,8 @@ msgstr "După:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Criptează noua instalare Ubuntu pentru securitate"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1876,10 +1874,8 @@ msgstr "Vei alege o cheie de securitate la pasul următor."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Foloseste LVM cu noua instalare Ubuntu"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1917,10 +1913,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Orice fișiere din afara Ubuntu nu vor fi criptate."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1991,16 +1985,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Administrarea Volumelor Logice (LVM) permite Ubuntu să acceseze volume "
-"fizice multiple ca un singur volum."
 
 #. Type: text
 #. Description
@@ -2077,136 +2065,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Se elimină pachetele"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Alegeți o imagine"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Faceți o fotografie:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Sau alegeți o imagine existentă:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Faceți o fotografie"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr ""
-#~ "Un singur cont, cu care te vei autentifica oriunde, folosind contul Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Eroare înregistrare cont"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Eroare la autentificare"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Ceva nu a mers așa cum trebuie"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Aflați mai multe</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Am citit și sunt de acord cu <a href=\"\">Termenii de utilizare Ubuntu "
-#~ "One</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Introduceți adresa de email utilizată pentru "
-#~ "autentificarea pe contul Ubuntu One.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Dacă nu aveți deja un cont, nicio problemă, vom crea "
-#~ "unul pentru dumneavoastră.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "email Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "Amânare autentificare"
-
-#~ msgid "Register later"
-#~ msgstr "Amânare înregistrare"
-
-#~ msgid "Apps"
-#~ msgstr "Aplicații"
-
-#~ msgid "Photos"
-#~ msgstr "Fotografii"
-
-#~ msgid "Music"
-#~ msgstr "Muzică"
-
-#~ msgid "Cloud"
-#~ msgstr "Cloud"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Introduceți adresa de email"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Introduceți-vă numele și alegeți o parolă"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One este un cont unic, pe care-l veți folosi pentru a vă "
-#~ "autentifica la toate serviciile și site-urile legate de Ubuntu."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Obțineți aplicații noi din Centrul software, păstrați fișiere în spațiul "
-#~ "cloud personal, cumpărați piese muzicale din magazinul online, "
-#~ "administrați plățile și abonamentele - dumneavoastră decideți asupra "
-#~ "serviciilor de care aveți nevoie."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Dacă aveți deja un cont Ubuntu, prin care vă autentificați, acela devine "
-#~ "deja contul unic Ubuntu One."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Nu există conexiune la Internet. Pentru a putea crea un cont sau pentru a "
-#~ "vă autentifica pe Ubuntu One, trebuie să fiți conectat la Internet."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Sunt un utilizator nou Ubuntu One."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Sunt deja utilizator Ubuntu One iar parola mea este:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Această imagine va fi asociată cu numele dumneavoastră, fiind afișate "
-#~ "împreună."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Selectați conturile pe care doriți să le importați. Documentele și "
-#~ "configurările pentru aceste conturi vor fi disponibile după ce se "
-#~ "finalizează instalarea."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Dacă nu doriți să importați niciun cont, nu selectați nimic și mergeți la "
-#~ "pagina următoare."

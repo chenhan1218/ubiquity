@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1871,10 +1871,8 @@ msgstr "Na:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "De nieuwe Ubuntu-installatie versleutelen voor de veiligheid"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1885,10 +1883,8 @@ msgstr "In de volgende stap zult u een beveiligingssleutel kiezen."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "LVM gebruiken bij de nieuwe Ubuntu-installatie"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1927,10 +1923,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Bestanden buiten Ubuntu zullen niet worden versleuteld."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -2001,16 +1995,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Logisch volumebeheer (LVM) zorgt ervoor dat Ubuntu meerdere fysieke schijven "
-"behandelt als een enkele schijf."
 
 #. Type: text
 #. Description
@@ -2087,135 +2075,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Pakketten verwijderen"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Kies een afbeelding"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Neem een foto:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Of kies een bestaande foto:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Foto nemen"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Eén account om u overal op Ubuntu aan te melden"
-
-#~ msgid "Error registering account"
-#~ msgstr "Fout bij registratie van account"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Fout bij aanmelden op account"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Er is iets fout gegaan"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Meer informatie</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Ik heb de <a href=\"\">gebruiksvoorwaarden van Ubuntu One</a> gelezen en "
-#~ "geaccepteerd."
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Voer het e-mailadres in dat u gebruikt om u bij uw "
-#~ "Ubuntu One-account aan te melden.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Maakt u zich geen zorgen als u nog geen account "
-#~ "heeft. Wij maken er een voor u aan.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "E-mailadres voor Ubuntu One"
-
-#~ msgid "Log in later"
-#~ msgstr "Later aanmelden"
-
-#~ msgid "Register later"
-#~ msgstr "Later registreren"
-
-#~ msgid "Apps"
-#~ msgstr "Apps"
-
-#~ msgid "Photos"
-#~ msgstr "Foto's"
-
-#~ msgid "Music"
-#~ msgstr "Muziek"
-
-#~ msgid "Cloud"
-#~ msgstr "Cloud"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Voer uw e-mailadres in:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Vertel ons uw naam en kies een wachtwoord:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One is het enige account dat u nodig heeft om u bij alle Ubuntu-"
-#~ "gerelateerde diensten aan te melden."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Nieuwe toepassingen installeren vanuit het Softwarecentrum, bestanden "
-#~ "opslaan in uw persoonlijke cloud, muzieknummers kopen in de muziekwinkel, "
-#~ "uw betalingen en abonnementen beheren - u bepaalt welke diensten u nodig "
-#~ "heeft."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Als u een bestaand Ubuntu single sign on account heeft, dit heet nu uw "
-#~ "Ubuntu One account."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Er is geen internetverbinding. Om een Ubuntu One account aan te maken of "
-#~ "om u daar aan te melden, heeft u een internetverbinding nodig."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Ik ben een nieuwe Ubuntu One gebruiker."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Ik ben een bestaande Ubuntu One gebruiker en mijn wachtwoord is:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Deze foto zal gekoppeld zijn aan uw gebruikersnaam en soms ernaast "
-#~ "weergegeven worden."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Selecteer desgewenst accounts die u wilt importeren. De documenten en "
-#~ "instellingen van deze accounts zullen beschikbaar zijn zodra het "
-#~ "installatieproces is voltooid."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Als u geen accounts wilt importeren, selecteer dan niets en ga naar de "
-#~ "volgende pagina."

@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:52+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1858,10 +1858,8 @@ msgstr "Efter:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "För ökad säkerhet, kryptera den nya Ubuntu-installationen"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1872,10 +1870,8 @@ msgstr "Du väljer säkerhetsnyckel i nästa steg."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Använd LVM med den nya Ubuntu-installationen"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1912,10 +1908,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Filer utanför Ubuntu kommer inte krypteras."
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1986,16 +1980,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Logisk volymhantering (LVM) tillåter Ubuntu att behandla flera fysiska "
-"volymer som en enda volym."
 
 #. Type: text
 #. Description
@@ -2072,133 +2060,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Tar bort paket"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Välj en bild"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Ta ett foto:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Eller välj en befintlig bild:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Ta ett foto"
-
-#~ msgid "One account to log in to everything on Ubuntu"
-#~ msgstr "Ett konto för att logga in till allt kring Ubuntu"
-
-#~ msgid "Error registering account"
-#~ msgstr "Fel vid kontoregistrering"
-
-#~ msgid "Error loging into the account"
-#~ msgstr "Fel vid kontoinloggning"
-
-#~ msgid "Something went wrong"
-#~ msgstr "Något gick fel"
-
-#~ msgid "<a href=\"\">Learn more</a>"
-#~ msgstr "<a href=\"\">Lär dig mer</a>"
-
-#~ msgid "I have read and accept the <a href=\"\">Ubuntu One terms of use</a>"
-#~ msgstr ""
-#~ "Jag har läst och accepterar <a href=\"\">Ubuntu One:s användarvilkor</a>"
-
-#~ msgid ""
-#~ "<span size=\"small\">Enter the email address you use to log into your "
-#~ "Ubuntu One account.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Skriv in e-postadressen du använder för inloggning "
-#~ "på ditt Ubuntu One-konto.</span>"
-
-#~ msgid ""
-#~ "<span size=\"small\">If you don't have an account yet, don't worry we'll "
-#~ "create one for you.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Om du inte har ett konto än så är det inga problem, "
-#~ "vi skapar ett åt dig.</span>"
-
-#~ msgid "Ubuntu One email"
-#~ msgstr "Ubuntu One e-post"
-
-#~ msgid "Log in later"
-#~ msgstr "Logga in senare"
-
-#~ msgid "Register later"
-#~ msgstr "Registrera senare"
-
-#~ msgid "Apps"
-#~ msgstr "Program"
-
-#~ msgid "Photos"
-#~ msgstr "Bilder"
-
-#~ msgid "Music"
-#~ msgstr "Musik"
-
-#~ msgid "Cloud"
-#~ msgstr "Moln"
-
-#~ msgid "Please type your email:"
-#~ msgstr "Ange din e-post:"
-
-#~ msgid "Please tell us your name and choose a password:"
-#~ msgstr "Ange ditt namn och välj ett lösenord:"
-
-#~ msgid ""
-#~ "Ubuntu One is the single account you use to log in to all services and "
-#~ "sites related to Ubuntu."
-#~ msgstr ""
-#~ "Ubuntu One är kontot du använder för att logga in på alla Ubuntu-"
-#~ "relaterade tjänster och webbplatser."
-
-#~ msgid ""
-#~ "Get new apps from the Software Center, store files in your personal "
-#~ "cloud, buy tracks from the Music Store, manage your payments and "
-#~ "subscriptions - you decide which services you need."
-#~ msgstr ""
-#~ "Hämta nya program från Programcentralen, lagra filer i ditt personliga "
-#~ "moln, köp låtar från Musikaffären, lagra din betalningar och "
-#~ "prenumerationer - du bestämmer vilka tjänster du behöver."
-
-#~ msgid ""
-#~ "If you have an existing Ubuntu single sign on account, that is now called "
-#~ "your Ubuntu One account."
-#~ msgstr ""
-#~ "Om du redan har ett existerande Ubuntu-Single sign-on konto kallas det "
-#~ "numer ditt Ubuntu One-konto."
-
-#~ msgid ""
-#~ "There is no internet connection. To be able to create an account or to "
-#~ "log in to Ubuntu One, you need to be connected to the internet."
-#~ msgstr ""
-#~ "Det finns ingen internet-anslutning. För att kunna skapa ett konto eller "
-#~ "logga in till Ubuntu One måste du vara ansluten till internet."
-
-#~ msgid "I am a new Ubuntu One user."
-#~ msgstr "Jag är en ny Ubuntu One-användare."
-
-#~ msgid "I am a returning Ubuntu One user and my password is:"
-#~ msgstr "Jag är en återkommande Ubuntu One-användare och mitt lösenord är:"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Denna bild kommer att associeras med ditt användarnamn och visas ibland "
-#~ "bredvid det."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Välj de konton som du vill importera. Dokumenten och inställningarna för "
-#~ "dessa konton kommer att finnas tillgängliga efter att installationen är "
-#~ "färdig."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Om du inte önskar att importera några konton, välj ingenting och gå "
-#~ "vidare till nästa sida."

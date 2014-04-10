@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-09 20:53+0000\n"
+"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
 #. Type: text
@@ -1840,10 +1840,8 @@ msgstr "Eftir:"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:261001
-#, fuzzy
-#| msgid "Encrypt the new Ubuntu installation for security"
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr "Dulkóða nýju Ubuntu uppsetninguna til að auka öryggi"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1854,10 +1852,8 @@ msgstr "Þú munt velja öryggis lykil í næsta skrefi"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:263001
-#, fuzzy
-#| msgid "Use LVM with the new Ubuntu installation"
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr "Nota LVM með nýju Ubuntu uppsetningunni"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1894,10 +1890,8 @@ msgstr ""
 #. Type: text
 #. Description
 #: ../ubiquity.templates:268001
-#, fuzzy
-#| msgid "Any files outside of Ubuntu will not be encrypted."
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr "Allar skrár utan Ubuntu verða ekki dulkóðaðar"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1968,16 +1962,10 @@ msgstr "MB"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:280001
-#, fuzzy
-#| msgid ""
-#| "Logical Volume Management (LVM) lets Ubuntu treat multiple physical "
-#| "volumes as a single volume."
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
-"Röklegur Flæmi Stjóri (LVM) gerir Ubuntu kleift að stjórna mörgum "
-"veraldlegum flæmum sem einu flæmi"
 
 #. Type: text
 #. Description
@@ -2054,36 +2042,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Fjarlægi pakka"
-
-#~ msgid "Choose a picture"
-#~ msgstr "Veldu mynd"
-
-#~ msgid "Take a photo:"
-#~ msgstr "Taktu mynd:"
-
-#~ msgid "Or choose an existing picture:"
-#~ msgstr "Eða veldu mynd:"
-
-#~ msgid "Take Photo"
-#~ msgstr "Taktu mynd"
-
-#~ msgid ""
-#~ "This picture will be associated with your user name and displayed "
-#~ "alongside it at times."
-#~ msgstr ""
-#~ "Þessi mynd verður tengd við notendanafn þitt og stundum birt við hlið "
-#~ "þess."
-
-#~ msgid ""
-#~ "Select any accounts you would like to import.  The documents and settings "
-#~ "for these accounts will be available after the install completes."
-#~ msgstr ""
-#~ "Veldu þá reikninga sem þú villt flytja inn. Skjölin og stillingarnar "
-#~ "fyrir þessa reikninga verða tiltækar eftir að uppsetningu lýkur."
-
-#~ msgid ""
-#~ "If you do not wish to import any accounts, select nothing and go to the "
-#~ "next page."
-#~ msgstr ""
-#~ "Ef þú vilt ekki flytja neina reikninga inn, veldu ekkert og farðu á næstu "
-#~ "síðu."
