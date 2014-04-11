@@ -1,3 +1,10 @@
+ubiquity (2.18.4) UNRELEASED; urgency=medium
+
+  * Add power indicator to the list of indicators launched under install
+    ubiquity mode.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 11 Apr 2014 15:59:19 +0100
+
 ubiquity (2.18.3) trusty; urgency=medium
 
   * Add future location of indicator-keyboard-service, tolerating missing
