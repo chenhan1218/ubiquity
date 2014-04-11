@@ -11,7 +11,7 @@ hw-detect 1.95ubuntu2
 localechooser 2.49ubuntu4
 netcfg 1.116ubuntu1
 partconf 1.45
-partman-auto 118ubuntu2
+partman-auto 118ubuntu3
 partman-auto-crypto 20ubuntu1
 partman-auto-loop 0ubuntu21
 partman-auto-lvm 51ubuntu1
