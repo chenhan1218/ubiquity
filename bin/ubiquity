@@ -541,6 +541,7 @@ def main(oem_config):
         # pkexec doesn't set username, but it's used in a few places.
         # fake it from PKEXEC =)
         os.environ['SUDO_USER'] = pwd.getpwuid(int(uid)).pw_name
+        os.environ['HOME'] = pwd.getpwuid(int(uid)).pw_dir
 
     acquire_lock()
 
