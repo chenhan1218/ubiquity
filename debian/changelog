@@ -1,4 +1,4 @@
-ubiquity (2.18.4ubuntu2) trusty; urgency=medium
+ubiquity (2.18.5) trusty; urgency=medium
 
   * KDE frontend fixes:
    - LP: #1038522 Fix manual partitioning in installer crashes when handling many
