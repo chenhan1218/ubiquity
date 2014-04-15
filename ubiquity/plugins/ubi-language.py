@@ -497,12 +497,13 @@ class PageKde(PageBase):
     def openURL(self, url):
         from PyQt4.QtGui import QDesktopServices
         from PyQt4.QtCore import QUrl
-        from ubiquity.misc import drop_privileges_save, regain_privileges_save
 
         # this nonsense is needed because kde doesn't want to be root
-        drop_privileges_save()
+        misc.drop_privileges()
+        misc.drop_privileges_save()
         QDesktopServices.openUrl(QUrl(url))
-        regain_privileges_save()
+        misc.regain_privileges()
+        misc.regain_privileges_save()
 
     def set_language_choices(self, choices, choice_map):
         PageBase.set_language_choices(self, choices, choice_map)
