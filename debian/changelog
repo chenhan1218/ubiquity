@@ -1,3 +1,11 @@
+ubiquity (2.18.6) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: localechooser 2.49ubuntu5.
+  * Rebase localechooser patch to account for creation of skeleton
+    locale-langpack subdirectories (LP: #1307983).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 Apr 2014 19:48:29 +0100
+
 ubiquity (2.18.5) trusty; urgency=medium
 
   * KDE frontend fixes:
