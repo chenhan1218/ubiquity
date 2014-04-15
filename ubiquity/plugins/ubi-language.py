@@ -497,15 +497,16 @@ class PageKde(PageBase):
     def openURL(self, url):
         from PyQt4.QtGui import QDesktopServices
         from PyQt4.QtCore import QUrl
-        import shutil, os
+        import shutil
+        import os
 
         # this nonsense is needed because kde doesn't want to be root
         misc.drop_privileges()
         misc.drop_privileges_save()
         # copy over gtkrc-2.0 to get the themeing right
         if os.direxists("/usr/share/kubuntu-default-settings"):
-          shutil.copy("/usr/share/kubuntu-default-settings", os.getenv("HOME") +
-                                                             "./.gtkrc-2.0")
+            shutil.copy("/usr/share/kubuntu-default-settings",
+                        os.getenv("HOME") + "./.gtkrc-2.0")
         QDesktopServices.openUrl(QUrl(url))
         misc.regain_privileges()
         misc.regain_privileges_save()
