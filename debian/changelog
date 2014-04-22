@@ -4,6 +4,11 @@ ubiquity (2.18.8) UNRELEASED; urgency=medium
   * LP: #1309458 KDE: ubiquity installer crashes when clicking release
     notes
 
+  [ Dimitri John Ledkov ]
+  * Remove setting translated placeholder text in the usersetup
+    plugin. (LP: #1283047)
+  * Drop translation messages from ubiquity.templates.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 22 Apr 2014 12:25:19 +0100
 
 ubiquity (2.18.7) trusty; urgency=medium
