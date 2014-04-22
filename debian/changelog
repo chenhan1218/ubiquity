@@ -1,3 +1,11 @@
+ubiquity (2.18.8) UNRELEASED; urgency=medium
+
+  [ Rohan Garg ]
+  * LP: #1309458 KDE: ubiquity installer crashes when clicking release
+    notes
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 22 Apr 2014 12:25:19 +0100
+
 ubiquity (2.18.7) trusty; urgency=medium
 
   [ Aurélien Gâteau ]
