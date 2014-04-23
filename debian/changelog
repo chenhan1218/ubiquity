@@ -1,4 +1,4 @@
-ubiquity (2.18.8) UNRELEASED; urgency=medium
+ubiquity (2.18.8) trusty-proposed; urgency=medium
 
   [ Rohan Garg ]
   * LP: #1309458 KDE: ubiquity installer crashes when clicking release
