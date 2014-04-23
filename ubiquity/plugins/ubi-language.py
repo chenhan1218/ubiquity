@@ -505,7 +505,8 @@ class PageKde(PageBase):
         misc.drop_privileges_save()
         # copy over gtkrc-2.0 to get the themeing right
         if os.path.exists("/usr/share/kubuntu-default-settings"):
-            shutil.copy("/usr/share/kubuntu-default-settings/dot-gtkrc-2.0-kde4",
+            shutil.copy("/usr/share/kubuntu-default-settings/" +
+                        "dot-gtkrc-2.0-kde4",
                         os.getenv("HOME") + "/.gtkrc-2.0")
         QDesktopServices.openUrl(QUrl(url))
         misc.regain_privileges()
