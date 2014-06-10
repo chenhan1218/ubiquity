@@ -422,7 +422,15 @@ def acquire_lock():
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True,
             universal_newlines=True)
         try:
-            print('VERSION 2.0', file=test_debconf.stdin)
+            # It seems that in python3.4, the below print is not
+            # flushed by default, thus adding "flush=True" kargs and
+            # thus avoid a boot hang as seen in LP: #1326707 But flush
+            # karg was only introduced in python3.3, instead this is a
+            # big FIXME and should instead use
+            # test_debconf.communicate() I'll propose a merge proposal
+            # which does that, but not at 1 AM when it is still
+            # boiling hot in London and I can't fall asleep.
+            print('VERSION 2.0', file=test_debconf.stdin, flush=True)
             test_debconf.stdout.readline()
         except IOError:
             pass
