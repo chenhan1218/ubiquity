@@ -1,4 +1,4 @@
-ubiquity (2.18.9) UNRELEASED; urgency=medium
+ubiquity (2.18.9) utopic; urgency=medium
 
   * Flush print into debconf-communicate stdin PIPE, as print(...,file=)
     may not flush anymore. (LP: #1326707)
@@ -7,7 +7,7 @@ ubiquity (2.18.9) UNRELEASED; urgency=medium
     1.70ubuntu9, flash-kernel 3.0~rc.4ubuntu50, hw-detect 1.95ubuntu3,
     partman-basicfilesystems 95ubuntu1.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 10 Jun 2014 01:04:22 +0100
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 10 Jun 2014 01:07:43 +0100
 
 ubiquity (2.18.8) trusty-proposed; urgency=medium
 
