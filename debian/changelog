@@ -3,6 +3,9 @@ ubiquity (2.18.9) UNRELEASED; urgency=medium
   * Flush print into debconf-communicate stdin PIPE, as print(...,file=)
     may not flush anymore. (LP: #1326707)
   * Switch sources to utopic.
+  * Automatic update of included source packages: console-setup
+    1.70ubuntu9, flash-kernel 3.0~rc.4ubuntu50, hw-detect 1.95ubuntu3,
+    partman-basicfilesystems 95ubuntu1.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 10 Jun 2014 01:04:22 +0100
 
