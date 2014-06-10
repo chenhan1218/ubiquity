@@ -2,6 +2,7 @@ ubiquity (2.18.9) UNRELEASED; urgency=medium
 
   * Flush print into debconf-communicate stdin PIPE, as print(...,file=)
     may not flush anymore. (LP: #1326707)
+  * Switch sources to utopic.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 10 Jun 2014 01:04:22 +0100
 
