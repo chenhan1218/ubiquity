@@ -100,7 +100,7 @@ class PageGtk(plugin.PluginUI):
         self.query = KeyboardQuery(self.controller._wizard)
         self.query.connect('layout_result', self.calculate_result)
         self.query.connect('delete-event', self.calculate_closed)
-        #self.controller._wizard.overlay.set_property('greyed', True)
+        # self.controller._wizard.overlay.set_property('greyed', True)
         self.query.set_transient_for(self.page.get_toplevel())
         self.query.run()
 
@@ -288,13 +288,13 @@ class PageKde(plugin.PluginUI):
         layout = self.get_keyboard()
         l = self.controller.dbfilter.get_locale()
         if layout is not None:
-            #skip updating keyboard if not using display
+            # skip updating keyboard if not using display
             if self.keyboardDisplay:
                 ly = keyboard_names.layout_id(l, misc.utf8(layout))
                 self.keyboardDisplay.setLayout(ly)
 
-                #no variants, force update by setting none
-                #if not keyboard_names.has_variants(l, ly):
+                # no variants, force update by setting none
+                # if not keyboard_names.has_variants(l, ly):
                 #    self.keyboardDisplay.setVariant(None)
 
             self.current_layout = layout

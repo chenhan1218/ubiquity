@@ -110,15 +110,15 @@ class PartmanPageDirectoryTests(unittest.TestCase):
             mocked_method.side_effect = side_effect_factory(real_method)
             self.addCleanup(method.stop)
 
-    #def test_filesystem_description(self):
-    #    for fs in self.page.scripts('/lib/partman/valid_filesystems'):
-    #        print self.page.filesystem_description(fs)
+    # def test_filesystem_description(self):
+    #     for fs in self.page.scripts('/lib/partman/valid_filesystems'):
+    #         print self.page.filesystem_description(fs)
 
-    #def test_method_description(self):
-    #    for method in self.page.subdirectories('/lib/partman/choose_method'):
-    #        if method != 'dont_use':
-    #            self.assertNotEqual(method,
-    #                                self.page.method_description(method))
+    # def test_method_description(self):
+    #     for method in self.page.subdirectories('/lib/partman/choose_method'):
+    #         if method != 'dont_use':
+    #             self.assertNotEqual(method,
+    #                                 self.page.method_description(method))
 
 
 # A couple of mock helpers for some of the tests below.

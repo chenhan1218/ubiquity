@@ -499,8 +499,8 @@ class PageKde(PageBase):
         self.page.fullname.textChanged[str].connect(self.on_fullname_changed)
         self.page.username.textChanged[str].connect(self.on_username_changed)
         self.page.hostname.textChanged[str].connect(self.on_hostname_changed)
-        #self.page.password.textChanged[str].connect(self.on_password_changed)
-        #self.page.verified_password.textChanged[str].connect(
+        # self.page.password.textChanged[str].connect(self.on_password_changed)
+        # self.page.verified_password.textChanged[str].connect(
         #    self.on_verified_password_changed)
         self.page.login_pass.clicked[bool].connect(self.on_login_pass_clicked)
         self.page.login_auto.clicked[bool].connect(self.on_login_auto_clicked)

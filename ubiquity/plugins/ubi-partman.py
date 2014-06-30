@@ -193,7 +193,7 @@ class PageGtk(PageBase):
             self.partition_toolbar.child_set_property(wdg, 'homogeneous',
                                                       False)
 
-        # GtkBuilder signal mapping is broken (LP: #852054).
+        # GtkBuilder signal mapping is broken (LP: # 852054).
         self.part_auto_hidden_label.connect(
             'activate-link', self.part_auto_hidden_label_activate_link)
 
@@ -1702,7 +1702,7 @@ class Page(plugin.Plugin):
                 return (script, arg, option)
         else:
             raise PartmanOptionError("%s should have %s (%s) option" %
-                                    (question, want_script, want_arg))
+                                     (question, want_script, want_arg))
 
     def preseed_script(self, question, menu_options,
                        want_script, want_arg=None):
@@ -1803,7 +1803,7 @@ class Page(plugin.Plugin):
                 # $device/crypt_realdev file (this is what partman
                 # does). But we don't cache crypt_realdev at the
                 # moment.
-                if not 'crypt' in devpart:
+                if 'crypt' not in devpart:
                     yield (method, method, self.method_description(method))
             elif method == 'biosgrub':
                 # TODO cjwatson 2009-09-03: Quick kludge, since only GPT
@@ -2079,7 +2079,7 @@ class Page(plugin.Plugin):
             return self.extended_description(q)
 
     def calculate_operating_systems(self, layout):
-        # Get your #2 pencil ready, it's time to crunch some numbers.
+        # Get your # 2 pencil ready, it's time to crunch some numbers.
         operating_systems = []
         for disk in layout:
             for partition in layout[disk]:
