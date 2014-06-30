@@ -3,6 +3,10 @@ ubiquity (2.18.10) utopic; urgency=medium
   [ Aurélien Gâteau ]
   * [KDE] FIX layout of step labels in sidebar LP: #1308931
 
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: choose-mirror
+    2.57ubuntu1.
+
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 30 Jun 2014 13:09:40 +0200
 
 ubiquity (2.18.9) utopic; urgency=medium
