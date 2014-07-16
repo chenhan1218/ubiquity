@@ -3,6 +3,12 @@ ubiquity (2.18.11) UNRELEASED; urgency=medium
   [ Martin Wimpress ]
   * Added marco (MATE window manager) support to ubiquity-dm.
 
+  [ Dimitri John Ledkov ]
+  * Automatic update of included source packages: hw-detect 1.95ubuntu4,
+    partman-auto-lvm 53ubuntu1, partman-base 174ubuntu1, partman-
+    basicfilesystems 97ubuntu1, partman-partitioning 101ubuntu1, preseed
+    1.64ubuntu1.
+
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 16 Jul 2014 13:22:14 +0100
 
 ubiquity (2.18.10) utopic; urgency=medium
