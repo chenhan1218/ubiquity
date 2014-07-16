@@ -1,3 +1,10 @@
+ubiquity (2.18.11) UNRELEASED; urgency=medium
+
+  [ Martin Wimpress ]
+  * Added marco (MATE window manager) support to ubiquity-dm.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 16 Jul 2014 13:22:14 +0100
+
 ubiquity (2.18.10) utopic; urgency=medium
 
   [ Aurélien Gâteau ]

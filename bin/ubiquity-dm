@@ -414,6 +414,11 @@ EndSection
                         ('org.gnome.desktop.wm.preferences', 'num-workspaces',
                          '1'))
 
+                if osextras.find_on_path('marco'):
+                    gsettings_keys.append(
+                        ('org.mate.marco.general', 'compositing-manager',
+                         'true'))
+
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
                         ['gsettings', 'set', gs_schema, gs_key, gs_value],
@@ -451,6 +456,8 @@ EndSection
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
+            elif osextras.find_on_path('marco'):
+                wm_cmd = ['marco', '--sm-disable']
             elif osextras.find_on_path('metacity'):
                 wm_cmd = ['metacity', '--sm-disable']
             elif osextras.find_on_path('xfwm4'):
@@ -467,7 +474,7 @@ EndSection
             else:
                 raise MissingProgramError(
                     'No window manager found (tried '
-                    'metacity, xfwm4, matchbox-window-manager, '
+                    'marco, metacity, xfwm4, matchbox-window-manager, '
                     'openbox-lubuntu, openbox, compiz)')
 
             wm = subprocess.Popen(
