@@ -380,6 +380,7 @@ def unmount_target():
     paths.sort()
     paths.reverse()
     for path in paths:
+        misc.execute_root('fuser', '-cv', path)
         misc.execute_root('umount', path)
 
 
