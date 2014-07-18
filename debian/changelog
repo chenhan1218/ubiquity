@@ -1,4 +1,4 @@
-ubiquity (2.18.11) UNRELEASED; urgency=medium
+ubiquity (2.18.11) utopic; urgency=medium
 
   [ Martin Wimpress ]
   * Added marco (MATE window manager) support to ubiquity-dm.
@@ -11,7 +11,7 @@ ubiquity (2.18.11) UNRELEASED; urgency=medium
   * Add "fuser -cv" before unmounting /target to figure out why it's being
     held up open when preseeding installations from nfs via cobler.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 17 Jul 2014 15:07:00 +0100
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 17 Jul 2014 15:17:11 +0100
 
 ubiquity (2.18.10) utopic; urgency=medium
 
