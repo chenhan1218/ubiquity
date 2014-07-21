@@ -1,3 +1,9 @@
+ubiquity (2.18.12) UNRELEASED; urgency=medium
+
+  * Make sure ubiquity-dm works on Plasma 5 KWin.
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Fri, 18 Jul 2014 16:43:56 +0200
+
 ubiquity (2.18.11) utopic; urgency=medium
 
   [ Martin Wimpress ]
