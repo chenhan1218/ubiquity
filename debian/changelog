@@ -1,4 +1,4 @@
-ubiquity (2.18.12) UNRELEASED; urgency=medium
+ubiquity (2.19.0) UNRELEASED; urgency=medium
 
   * Make sure ubiquity-dm works on Plasma 5 KWin.
 
