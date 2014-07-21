@@ -576,9 +576,9 @@ EndSection
             add_ubiquity_kdedir()
             log('start kwin')
             if osextras.find_on_path('kwin'):
-                wm_cmd = [ 'kwin']
+                wm_cmd = ['kwin']
             elif osextras.find_on_path('kwin_x11'):
-                wm_cmd = [ 'kwin_x11' ]
+                wm_cmd = ['kwin_x11']
             wm = subprocess.Popen(
                 wm_cmd, stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges)
