@@ -1,9 +1,11 @@
-ubiquity (2.19.1) UNRELEASED; urgency=medium
+ubiquity (2.19.1) utopic; urgency=medium
 
   * Fix up python2-dbus dependency back to python3-dbus, from previous
     upload.
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu21, partconf 1.45build1, partman-base 174ubuntu2.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 22 Jul 2014 14:54:20 +0100
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 22 Jul 2014 14:55:39 +0100
 
 ubiquity (2.19.0) utopic; urgency=medium
 
