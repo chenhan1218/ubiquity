@@ -1,3 +1,10 @@
+ubiquity (2.19.1) UNRELEASED; urgency=medium
+
+  * Fix up python2-dbus dependency back to python3-dbus, from previous
+    upload.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 22 Jul 2014 14:54:20 +0100
+
 ubiquity (2.19.0) utopic; urgency=medium
 
   [ Rohan Garg ]

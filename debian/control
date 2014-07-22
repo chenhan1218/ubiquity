@@ -56,7 +56,7 @@ Description: GTK+ frontend for Ubiquity live installer
 
 Package: ubiquity-frontend-kde
 Architecture: all
-Depends: ${misc:Depends}, ${python3:Depends}, ubiquity (= ${binary:Version}), python3-pyqt4, kde-window-manager | kwin, xauth, python2-dbus, python3-dbus.mainloop.qt
+Depends: ${misc:Depends}, ${python3:Depends}, ubiquity (= ${binary:Version}), python3-pyqt4, kde-window-manager | kwin, xauth, python3-dbus, python3-dbus.mainloop.qt
 Provides: ubiquity-frontend-${mangled-version}
 Description: KDE frontend for Ubiquity live installer
  This package provides a KDE-based user interface frontend for the Ubiquity
