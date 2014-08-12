@@ -1,7 +1,13 @@
 ubiquity (2.19.2) UNRELEASED; urgency=medium
 
+  [ Dimitri John Ledkov ]
   * Remove redundant inactive labels in the user setup page. (LP:
     #1283047).
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: partman-auto-lvm
+    54ubuntu1, partman-base 175ubuntu1, partman-crypto 74ubuntu1,
+    partman-lvm 91.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 07 Aug 2014 10:57:01 +0100
 
