@@ -1,3 +1,14 @@
+ubiquity (2.19.3) utopic; urgency=medium
+
+  [ Rohan Garg ]
+  * Add support for sddm
+
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu51.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 27 Aug 2014 17:01:20 +0200
+
 ubiquity (2.19.2) utopic; urgency=medium
 
   [ Dimitri John Ledkov ]
