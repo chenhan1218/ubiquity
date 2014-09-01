@@ -311,7 +311,8 @@ class PageKde(plugin.PluginUI):
             ly = keyboard_names.layout_id(lang, layout)
             if variant:
                 try:
-                    var = keyboard_names.variant_id(lang, ly, misc.utf8(variant))
+                    var = keyboard_names.variant_id(lang, ly,
+                                                    misc.utf8(variant))
                 except KeyError:
                     var = None
 
