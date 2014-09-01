@@ -1,3 +1,9 @@
+ubiquity (2.19.4ubuntu1) UNRELEASED; urgency=medium
+
+  * Accomodate for SDDM
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 01 Sep 2014 13:51:49 +0200
+
 ubiquity (2.19.4) utopic; urgency=medium
 
   * Revert addition of sddm to upstart job head of Beta 1,
