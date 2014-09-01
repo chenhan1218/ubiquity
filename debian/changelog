@@ -1,3 +1,12 @@
+ubiquity (2.19.5) utopic; urgency=medium
+
+  * ubiquity/plugins/ubi-console-setup.py: use untranslated keyboard
+    names, the GTK side does not translate them and comments say they
+    do not work.  KDE frontend has crashes due to keyboard names being
+    translated so give up for now.  LP: #1182784
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 01 Sep 2014 18:38:34 +0200
+
 ubiquity (2.19.4) utopic; urgency=medium
 
   * Revert addition of sddm to upstart job head of Beta 1,
