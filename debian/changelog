@@ -1,3 +1,20 @@
+ubiquity (2.19.6) utopic; urgency=medium
+
+  * ubiquity/plugins/ubi-console-setup.py: use untranslated keyboard
+    names, the GTK side does not translate them and comments say they
+    do not work.  KDE frontend has crashes due to keyboard names being
+    translated so give up for now.  LP: #1182784
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 01 Sep 2014 19:07:50 +0200
+
+ubiquity (2.19.5) utopic; urgency=medium
+
+  * Re-add "console output" stanza to the oem-config upstart job to
+    re-instate stdin/stdout. (LP: #1361595)
+  * Automatic update of included source packages: netcfg 1.119ubuntu1.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Sun, 31 Aug 2014 23:52:22 +0100
+
 ubiquity (2.19.4ubuntu1) UNRELEASED; urgency=medium
 
   * Accomodate for SDDM
