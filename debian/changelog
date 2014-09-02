@@ -1,3 +1,9 @@
+ubiquity (2.19.7) utopic; urgency=medium
+
+  * Update ubiquity.ubiquity.upstart and bin/ubiquity to add support for SDDM
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 01 Sep 2014 13:51:49 +0200
+
 ubiquity (2.19.6) utopic; urgency=medium
 
   * ubiquity/plugins/ubi-console-setup.py: use untranslated keyboard
