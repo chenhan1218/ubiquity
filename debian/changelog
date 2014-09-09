@@ -1,3 +1,10 @@
+ubiquity (2.19.8) UNRELEASED; urgency=medium
+
+  * Avoid closing /dev/urandom persistent FD on oem-config startup (thanks,
+    Jamin W. Collins; LP: #1362920).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Sep 2014 10:33:43 +0100
+
 ubiquity (2.19.7) utopic; urgency=medium
 
   * Update ubiquity.ubiquity.upstart and bin/ubiquity to add support for SDDM
