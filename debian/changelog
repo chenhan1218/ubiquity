@@ -1,7 +1,11 @@
 ubiquity (2.19.8) UNRELEASED; urgency=medium
 
+  [ Colin Watson ]
   * Avoid closing /dev/urandom persistent FD on oem-config startup (thanks,
     Jamin W. Collins; LP: #1362920).
+
+  [ Chris Bainbridge ]
+  * Fix Windows UEFI detection. (LP: #1265192)
 
  -- Colin Watson <cjwatson@ubuntu.com>  Tue, 09 Sep 2014 10:33:43 +0100
 
