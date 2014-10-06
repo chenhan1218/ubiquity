@@ -1,3 +1,11 @@
+ubiquity (2.19.9) utopic; urgency=medium
+
+  * Revert Update ubiquity.ubiquity.upstart and bin/ubiquity to add
+    support for SDDM, ubiquity-dm to SDDM transition is buggy and I
+    can't work out how to debug it
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 06 Oct 2014 15:46:56 +0100
+
 ubiquity (2.19.8) utopic; urgency=medium
 
   [ Colin Watson ]
