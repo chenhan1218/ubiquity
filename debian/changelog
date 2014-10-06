@@ -3,6 +3,9 @@ ubiquity (2.19.9) utopic; urgency=medium
   * Revert Update ubiquity.ubiquity.upstart and bin/ubiquity to add
     support for SDDM, ubiquity-dm to SDDM transition is buggy and I
     can't work out how to debug it
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu53, grub-installer 1.78ubuntu22, user-setup
+    1.48ubuntu3.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 06 Oct 2014 15:46:56 +0100
 

@@ -5,8 +5,8 @@ choose-mirror 2.57ubuntu1
 clock-setup 0.117ubuntu1
 console-setup 1.70ubuntu9
 debian-installer-utils 1.105ubuntu1
-flash-kernel 3.0~rc.4ubuntu52
-grub-installer 1.78ubuntu21
+flash-kernel 3.0~rc.4ubuntu53
+grub-installer 1.78ubuntu22
 hw-detect 1.95ubuntu4
 localechooser 2.49ubuntu5
 netcfg 1.119ubuntu1
@@ -31,5 +31,5 @@ partman-uboot 5
 partman-xfs 53
 preseed 1.64ubuntu1
 tzsetup 1:0.26ubuntu12
-user-setup 1.48ubuntu2
+user-setup 1.48ubuntu3
 yaboot-installer 1.1.29ubuntu1
