@@ -1,3 +1,9 @@
+ubiquity (2.19.10) utopic; urgency=medium
+
+  * KDE: set widget and icon theme to breeze if using Plasma 5
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 13 Oct 2014 18:09:11 +0200
+
 ubiquity (2.19.9) utopic; urgency=medium
 
   * Revert Update ubiquity.ubiquity.upstart and bin/ubiquity to add

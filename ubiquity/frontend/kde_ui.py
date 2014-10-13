@@ -165,7 +165,8 @@ class Wizard(BaseFrontend):
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
         # DM. This causes some icons to be missing. Hardcode the theme name to
         # prevent that.
-        QtGui.QIcon.setThemeName('oxygen')
+        QtGui.QIcon.setThemeName(self.getIconTheme())
+        self.app.setStyle(self.getWidgetTheme())
         self._apply_stylesheet()
 
         self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity-kde"))
@@ -1381,3 +1382,17 @@ class Wizard(BaseFrontend):
     # returns the current wizard page
     def get_current_page(self):
         return self.stackLayout.indexOf(self.stackLayout.currentWidget())
+
+    # use breeze widgets if using Plasma 5
+    def getWidgetTheme(self):
+        if os.path.isfile("/usr/bin/plasmashell"):
+            return "breeze"
+        else:
+            return "Oxygen"
+
+    # use breeze icons if using Plasma 5
+    def getIconTheme(self):
+        if os.path.isfile("/usr/bin/plasmashell"):
+            return "breeze"
+        else:
+            return "oxygen"
