@@ -1,6 +1,8 @@
 ubiquity (2.19.10) utopic; urgency=medium
 
   * KDE: set widget and icon theme to breeze if using Plasma 5
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu23.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 13 Oct 2014 18:09:11 +0200
 
