@@ -403,6 +403,11 @@ class PageGtk(PageBase):
         disk_id = partman_id.rsplit('/', 1)[1]
         return disk_id
 
+    def count_partitions(self, disk_id):
+        return len([
+            partition for partition in self.disk_layout[disk_id]
+            if partition.device != "free"])
+
     def set_part_auto_hidden_label(self):
         '''Sets the number of partitions in the "X smaller partitions are
         hidden" label.  It subtracts one from the total count to account for
@@ -411,7 +416,7 @@ class PageGtk(PageBase):
         disk_id = self.get_current_disk_partman_id()
         if not disk_id:
             return
-        partition_count = len(self.disk_layout[disk_id]) - 1
+        partition_count = self.count_partitions(disk_id) - 1
         if partition_count == 0:
             self.part_auto_hidden_label.set_text('')
         elif partition_count == 1:
@@ -523,7 +528,7 @@ class PageGtk(PageBase):
         entire = self.controller.get_string('part_auto_allocate_entire_label')
         self.part_auto_allocate_label.set_text(entire)
         # Set the number of partitions that will be deleted.
-        partition_count = len(self.disk_layout[disk_id])
+        partition_count = self.count_partitions(disk_id)
         if partition_count == 0:
             self.part_auto_hidden_label.set_text('')
         elif partition_count == 1:
