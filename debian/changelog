@@ -10,6 +10,12 @@ ubiquity (2.19.11) UNRELEASED; urgency=medium
     separate "Erase Ubuntu <version> and reinstall" and "Erase disk and
     install Ubuntu" options even if we believe that the disk only contains
     Ubuntu (LP: #1265192).
+  * Always show a confirmation dialog before committing partitioning.  I've
+    read considerably more reports of users having their data destroyed by
+    some misunderstanding or other of the partitioner than I'm comfortable
+    with; if a slightly ugly confirmation even when we think things are
+    clear saves some people from that, then it's worth it, and it adds
+    another layer of defence against bugs.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Oct 2014 00:34:57 +0100
 
