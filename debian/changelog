@@ -1,4 +1,4 @@
-ubiquity (2.19.11) UNRELEASED; urgency=medium
+ubiquity (2.20.0) UNRELEASED; urgency=medium
 
   * Exclude free space from counts of deleted partitions.
   * There are far too many situations where we fail to accurately detect all
