@@ -16,6 +16,7 @@ ubiquity (2.19.11) UNRELEASED; urgency=medium
     with; if a slightly ugly confirmation even when we think things are
     clear saves some people from that, then it's worth it, and it adds
     another layer of defence against bugs.
+  * Update translations from Launchpad.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Oct 2014 00:34:57 +0100
 

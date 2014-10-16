@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2014-04-09 22:32+0100\n"
-"PO-Revision-Date: 2014-02-02 21:59+0000\n"
+"PO-Revision-Date: 2014-10-14 00:48+0000\n"
 "Last-Translator: Atanas Kovachki <Unknown>\n"
 "Language-Team: American English <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-10 12:21+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-10-16 00:13+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #. Type: text
 #. Description
@@ -77,7 +77,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Можете да пробвате ${RELEASE} без да правите промени по вашия компютър - "
+"Можете да изпробвате ${RELEASE}, без да правите промени по вашия компютър - "
 "директно от този ${MEDIUM}"
 
 #. Type: text
@@ -97,14 +97,14 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:11001
 msgid "Try ${RELEASE}"
-msgstr "Пробвайте ${RELEASE}"
+msgstr "Изпробвайте ${RELEASE}"
 
 #. Type: text
 #. Description
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "Инсталирайте ${RELEASE}"
+msgstr "Инсталиране ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -157,7 +157,7 @@ msgstr "Пишете тук, за да изпробвате вашата кла�
 #. Description
 #: ../ubiquity.templates:20001
 msgid "Detect Keyboard Layout"
-msgstr "Засичане на клавиатурната подредба"
+msgstr "Засичане клавиатурната подредба"
 
 #. Type: text
 #. Description
@@ -181,7 +181,7 @@ msgstr "Следният клавиш има ли го на вашата кла�
 #. Description
 #: ../ubiquity.templates:24001
 msgid "Who are you?"
-msgstr "Ти кой си?"
+msgstr "Кой сте Вие?"
 
 #. Type: text
 #. Description
@@ -233,13 +233,14 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:32001
 msgid "Must start with a lower-case letter."
-msgstr "Трябва да започва с малка буква."
+msgstr "Наложително е да започва с малка буква."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:33001
 msgid "May only contain lower-case letters, digits, hyphens, and underscores."
-msgstr "Може да съдържа само малки букви, цифри, тирета и долни черти."
+msgstr ""
+"Наложително е да съдържа само малки букви, цифри, тирета и долни черти."
 
 #. Type: text
 #. Description
@@ -247,7 +248,7 @@ msgstr "Може да съдържа само малки букви, цифри,
 #. Description
 #: ../ubiquity.templates:34001 ../ubiquity.templates:71001
 msgid "Skip"
-msgstr "Пропусни"
+msgstr "Пропускане"
 
 #. Type: text
 #. Description
@@ -293,39 +294,41 @@ msgstr "Името на вашия компютър:"
 #. Description
 #: ../ubiquity.templates:41001
 msgid "The name it uses when it talks to other computers."
-msgstr "Името, което се използва при разговор с други компютри."
+msgstr "Името, което се използва при комуникация с други компютри."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:42001
 msgid "Must be between 1 and 63 characters long."
-msgstr "Трябва да бъде с дължина между 1 и 63 знака."
+msgstr "Наложително е да бъде с дължина между 1 и 63 знака."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:43001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr "Може да съдържа само букви, цифри, тирета и точки."
+msgstr "Наложително е да съдържа само букви, цифри, тирета и точки."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:44001
 msgid "May not start or end with a hyphen."
-msgstr "Не може да започва или завършва с тире."
+msgstr "Не би могло да започва или завършва с тире."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:45001
 msgid "May not start or end with a dot, or contain the sequence \"..\"."
 msgstr ""
-"Не може да започва или завършва с точка или да съдържа последователност «..»."
+"Не би могло да започва или завършва с точка или да съдържа последователност "
+"«..»."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:46001
 msgid "You are running in debugging mode. Do not use a valuable password!"
 msgstr ""
-"Системата е в режим за откриване на грешки. Не използвайте ценни пароли!"
+"Системата е в режим за откриване на грешки. Не използвайте ценни за вас "
+"пароли!"
 
 #. Type: text
 #. Description
@@ -379,7 +382,7 @@ msgstr "Изискване на парола при влизане"
 #. Description
 #: ../ubiquity.templates:55001
 msgid "Encrypt my home folder"
-msgstr "Криптиране на домашната папка"
+msgstr "Криптиране на домашната директория"
 
 #. Type: text
 #. Description
@@ -398,13 +401,13 @@ msgstr "Файлове (${SIZE})"
 #. Description
 #: ../ubiquity.templates:58001
 msgid "Where would you like to install Kubuntu?"
-msgstr "Къде искате да инсталирате Кубунту?"
+msgstr "Къде искате да инсталирате Kubuntu?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:59001
 msgid "Prepare partitions"
-msgstr "Подготовка на дяловете"
+msgstr "Подготовка на дисковите дялове"
 
 #. Type: text
 #. Description
@@ -412,19 +415,19 @@ msgstr "Подготовка на дяловете"
 #. Omit the [ ... ] from the translation.
 #: ../ubiquity.templates:60001
 msgid "_Install Now[ action ]"
-msgstr "_Инсталирай сега"
+msgstr "_Инсталиране сега"
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:61001
 msgid "Quit the installation?"
-msgstr "Да спрем ли инсталацията?"
+msgstr "Излизане от инсталацията?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:62001
 msgid "Do you really want to quit the installation now?"
-msgstr "Наистина ли искате да излезете от инсталацията сега?"
+msgstr "Наистина ли искате да преустановите инсталацията сега?"
 
 #. Type: text
 #. Description
@@ -469,13 +472,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:68001
 msgid "Cancel the installation."
-msgstr "Отмени инсталацията."
+msgstr "Отменяне инсталацията."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:69001
 msgid "This may leave your computer unable to boot."
-msgstr "Ако направите това, компютъра няма да може да стартира."
+msgstr "Ако направите това действие, компютърът няма да може да стартира."
 
 #. Type: text
 #. Description
@@ -493,19 +496,19 @@ msgstr "Инсталацията завърши"
 #. Description
 #: ../ubiquity.templates:73001
 msgid "Continue Testing"
-msgstr "Продължи пробването"
+msgstr "Продължаване изпробването"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:74001
 msgid "Restart Now"
-msgstr "Рестартирай"
+msgstr "Рестартиране сега"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:75001
 msgid "Shutdown Now"
-msgstr "Изключи сега"
+msgstr "Изключване сега"
 
 #. Type: text
 #. Description
@@ -526,11 +529,12 @@ msgid ""
 "problem as soon as possible."
 msgstr ""
 "За съжаление, имаше срив на инсталационната програма. След като затворите "
-"този прозорец, можете да изпратите съобщение за този проблем с помощта на "
-"вграденото средство за съобщаване на нередности. Ще се събере информация за "
-"вашата система и процеса на инсталация. Информацията ще бъде изпратена до "
-"нашата система за отчитане на грешки, също и на разработчика, който възможно "
-"най-скоро ще вземе участие за коригиране на проблема."
+"прозореца, можете да изпратите доклад за този проблем с помощта на "
+"вграденото средство за докладване на нередности. Ще бъде събрана информация "
+"за вашата система и протеклия процес на инсталация. Информацията ще бъде "
+"изпратена до нашата система за отчитане на нередности, също и на "
+"разработчика, който възможно най-скоро ще вземе участие за коригиране на "
+"проблема."
 
 #. Type: text
 #. Description
@@ -572,21 +576,21 @@ msgstr "Нова таблица с дялове..."
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:85001
 msgid "Add..."
-msgstr "Добави..."
+msgstr "Добавяне..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:86001
 msgid "Change..."
-msgstr "Промени..."
+msgstr "Променяне..."
 
 #. Type: text
 #. Description
 #. An action, displayed on a button or as a menu item.
 #: ../ubiquity.templates:87001
 msgid "Delete"
-msgstr "Изтрий"
+msgstr "Изтриване"
 
 #. Type: text
 #. Description
@@ -595,13 +599,13 @@ msgstr "Изтрий"
 #. Description
 #: ../ubiquity.templates:88001 ../ubiquity.templates:277001
 msgid "Revert"
-msgstr "Върни"
+msgstr "Връщане назад"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:89001
 msgid "Recalculating partitions..."
-msgstr "Преизчисляване на дяловете..."
+msgstr "Преизчисляване на дисковите дялове..."
 
 #. Type: text
 #. Description
@@ -616,14 +620,14 @@ msgstr "Устройство"
 #. used (ext2, swap, etc.).
 #: ../ubiquity.templates:91001
 msgid "Type"
-msgstr "Тип"
+msgstr "Вид"
 
 #. Type: text
 #. Description
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:92001
 msgid "Mount point"
-msgstr "Точка на монтиране"
+msgstr "Място на монтиране"
 
 #. Type: text
 #. Description
@@ -637,7 +641,7 @@ msgstr "Форматиране?"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:94001
 msgid "Size"
-msgstr "Големина"
+msgstr "Размер"
 
 #. Type: text
 #. Description
@@ -659,7 +663,7 @@ msgstr "Системно"
 #. Indicates unpartitioned free space on a disk.
 #: ../ubiquity.templates:97001
 msgid "free space"
-msgstr "свободно място"
+msgstr "свободно пространство"
 
 #. Type: text
 #. Description
@@ -672,7 +676,7 @@ msgstr "неизвестно"
 #. Description
 #: ../ubiquity.templates:99001
 msgid "Create partition"
-msgstr "Създай дял"
+msgstr "Създаване дял"
 
 #. Type: text
 #. Description
@@ -708,19 +712,19 @@ msgstr "Логически"
 #. Description
 #: ../ubiquity.templates:105001
 msgid "Edit partition"
-msgstr "Редакция на дял"
+msgstr "Редактиране пространство"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:106001
 msgid "Edit a partition"
-msgstr "Редакция на дял"
+msgstr "Редактиране дял"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:107001
 msgid "Boot loader"
-msgstr "Зареждане на операционна система"
+msgstr "Зареждаща програма"
 
 #. Type: text
 #. Description
@@ -732,7 +736,7 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "Инсталацията приключи. Можете да продължите да изпробвате ${RELEASE}, но "
-"промените или документите, които запаметявате няма да бъдат запазени докато "
+"промените или документите, които запаметявате няма да бъдат запазени, докато "
 "не рестартирате компютъра си."
 
 #. Type: text
@@ -740,7 +744,7 @@ msgstr ""
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:109001
 msgid "Go Back"
-msgstr "Назад"
+msgstr "Връщане назад"
 
 #. Type: text
 #. Description
@@ -750,7 +754,7 @@ msgstr "Назад"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001 ../ubiquity.templates:113001
 msgid "Continue"
-msgstr "Продължи"
+msgstr "Продължаване"
 
 #. Type: text
 #. Description
@@ -764,7 +768,7 @@ msgstr "Свързване"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:112001
 msgid "Stop"
-msgstr "Спри"
+msgstr "Спиране"
 
 #. Type: text
 #. Description
@@ -773,20 +777,20 @@ msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
 msgstr ""
-"Инсталирането приключи. За да започнете да използвате новата система ще "
-"трябва да рестартирате компютъра си."
+"Инсталацията завърши. Необходимо е да рестартирате компютъра, за да "
+"използвате новата инсталация."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:115001
 msgid "Verifying the installation configuration..."
-msgstr "Проверка на конфигурацията на инсталацията..."
+msgstr "Проверка на инсталационната конфигурация..."
 
 #. Type: title
 #. Description
 #: ../ubiquity.templates:116001
 msgid "Installing system"
-msgstr "Инсталиране на системата"
+msgstr "Инсталиране на операционната система"
 
 #. Type: text
 #. Description
@@ -834,7 +838,7 @@ msgstr "Инсталацията е неуспешна"
 #: ../ubiquity.templates:123001 ../ubiquity.templates:124001
 msgid "The installer encountered an error copying files to the hard disk:"
 msgstr ""
-"Инсталаторът се натъкна на грешка докато копираше файловете на твърдия диск:"
+"Инсталаторът се натъкна на грешка при копиране на файловете на твърдия диск:"
 
 #. Type: error
 #. Description
@@ -844,8 +848,8 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"Това се случи, защото на пососчения дял няма достатъчно свободно място. "
-"Моля, стартирайте инсталатора отново и изберете по-голям дял за инсталиране."
+"Това се случи, защото на посочения дял няма достатъчно свободно място. Моля, "
+"стартирайте инсталатора отново и изберете по-голям дял на инсталация."
 
 #. Type: error
 #. Description
@@ -856,9 +860,10 @@ msgid ""
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
 "Това се случва често поради повреден CD/DVD диск или устройство. Може да "
-"помогне почистване на CD/DVD, записване на CD/DVD на по-ниска скорост или да "
-"почистване лещите на CD/DVD устройството (налични си комплекти за почистване "
-"в магазините за електроника)."
+"помогне: почистване на CD/DVD инсталационния диск; записване на CD/DVD "
+"инсталационния диск на по-ниска скорост или почистване лещите на CD/DVD "
+"устройството (налични си комплекти за почистване в магазините за "
+"електроника)."
 
 #. Type: error
 #. Description
@@ -869,8 +874,8 @@ msgid ""
 "cooler environment."
 msgstr ""
 "Това се случва често поради повреден твърд диск. Може да помогне проверка "
-"дали твърдият диск е стар и трябва да го замените или да преместите "
-"компютъра в по-студено помещение."
+"дали твърдият диск е стар и е необходимо да го замените или пък да "
+"преместите компютъра в по-студено помещение."
 
 #. Type: error
 #. Description
@@ -888,12 +893,12 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"Това се случва често поради повреден CD/DVD диск или повреден твърд диск. "
-"Може да помогне почистване на CD/DVD, записване на CD/DVD на по-ниска "
-"скорост или да почистване лещите на CD/DVD устройството (налични си "
-"комплекти за почистване в магазините за електроника), дали твърдият диск е "
-"стар и трябва да го замените или да преместите компютъра в по-студено "
-"помещение."
+"Това се случва често поради повреден CD/DVD диск или повреден твърд диск.  "
+"Може да помогне: почистване на CD/DVD инсталационния диск; записване на CD/"
+"DVD инсталационния диск на по-ниска скорост или почистване лещите на CD/DVD "
+"устройството (налични си комплекти за почистване в магазините за "
+"електроника), дали твърдият диск е стар и е необходимо да го замените или "
+"пък да преместите компютъра в по-студено помещение."
 
 #. Type: select
 #. Description
@@ -917,19 +922,19 @@ msgstr "Настройване на целевата система..."
 #. Description
 #: ../ubiquity.templates:128001
 msgid "Configuring system locales..."
-msgstr "Настройване на системните локализации..."
+msgstr "Конфигуриране на системните локализации..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:129001
 msgid "Configuring apt..."
-msgstr "Настройване на apt..."
+msgstr "Конфигуриране на apt..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:130001
 msgid "Configuring time zone..."
-msgstr "Настройване на часовата зона..."
+msgstr "Конфигуриране на часовата зона..."
 
 #. Type: text
 #. Description
@@ -959,13 +964,13 @@ msgstr "Инсталиране на приложения от трети стр�
 #. Description
 #: ../ubiquity.templates:135001
 msgid "Configuring network..."
-msgstr "Настройване на мрежа..."
+msgstr "Конфигуриране на мрежата..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:136001
 msgid "Configuring boot loader..."
-msgstr "Настройване на приложението за начално зареждане..."
+msgstr "Конфигуриране на стартиращата програма..."
 
 #. Type: text
 #. Description
@@ -1001,7 +1006,7 @@ msgstr "Премахване на допълнителните пакети..."
 #. Description
 #: ../ubiquity.templates:142001
 msgid "Checking for packages to remove..."
-msgstr "Проверка на пакетите за премахване..."
+msgstr "Проверка на пакети за премахване..."
 
 #. Type: text
 #. Description
@@ -1862,7 +1867,7 @@ msgstr "След:"
 #. Description
 #: ../ubiquity.templates:261001
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr ""
+msgstr "Криптирай новото инсталиране на $(RELEASE) с цел за безопасност"
 
 #. Type: text
 #. Description
@@ -1874,7 +1879,7 @@ msgstr "Вие ще изберете ключът за защита при сл�
 #. Description
 #: ../ubiquity.templates:263001
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr ""
+msgstr "Използвай LVM при новото инсталиране на ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1913,7 +1918,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:268001
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr ""
+msgstr "Всички файлове извън ${RELEASE} няма да бъдат криптирани."
 
 #. Type: text
 #. Description
@@ -1988,6 +1993,8 @@ msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
 msgstr ""
+"Управлението на логическите томове (LVM) позволява на ${RELEASE} да работи с "
+"няколко физически томове като с един."
 
 #. Type: text
 #. Description
