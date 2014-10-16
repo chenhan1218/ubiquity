@@ -2146,7 +2146,10 @@ class Page(plugin.Plugin):
 
         if os_count == 0:
             # "There are no operating systems present" case
-            q = 'ubiquity/partitioner/no_systems_format'
+            # Ideally we would know this for sure.  However, there may well
+            # be other things on the disk that we haven't correctly
+            # detected, so we must be conservative.
+            q = 'ubiquity/partitioner/multiple_os_format'
             self.db.subst(q, 'DISTRO', release.name)
             title = self.description(q)
             desc = self.extended_description(q)
@@ -2156,8 +2159,18 @@ class Page(plugin.Plugin):
             system = operating_systems[0]
             if len(ubuntu_systems) == 1:
                 # "An older version of Ubuntu is present" case
-                q = 'ubiquity/partitioner/ubuntu_format'
-                self.db.subst(q, 'CURDISTRO', system)
+                if 'replace' in self.extra_options:
+                    q = 'ubiquity/partitioner/ubuntu_format'
+                    self.db.subst(q, 'CURDISTRO', system)
+                    title = self.description(q)
+                    desc = self.extended_description(q)
+                    opt = PartitioningOption(title, desc)
+                    options['replace'] = opt
+
+                # There may well be other things on the disk that we haven't
+                # correctly detected, so we must be conservative.
+                q = 'ubiquity/partitioner/multiple_os_format'
+                self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
                 desc = self.extended_description(q)
                 opt = PartitioningOption(title, desc)
@@ -2182,8 +2195,10 @@ class Page(plugin.Plugin):
                     options['reuse'] = reuse
             else:
                 # "Just Windows (or Mac, ...) is present" case
-                q = 'ubiquity/partitioner/single_os_replace'
-                self.db.subst(q, 'OS', system)
+                # Ideally we would know this for sure.  However, there may
+                # well be other things on the disk that we haven't correctly
+                # detected, so we must be conservative.
+                q = 'ubiquity/partitioner/multiple_os_format'
                 self.db.subst(q, 'DISTRO', release.name)
                 title = self.description(q)
                 desc = self.extended_description(q)
@@ -2214,10 +2229,10 @@ class Page(plugin.Plugin):
                 opt = PartitioningOption(title, desc)
                 options['replace'] = opt
 
-            q = 'ubiquity/partitioner/ubuntu_and_os_format'
-            system = (set(operating_systems) - set(ubuntu_systems)).pop()
-            self.db.subst(q, 'OS', system)
-            self.db.subst(q, 'CURDISTRO', ubuntu)
+            # There may well be other things on the disk that we haven't
+            # correctly detected, so we must be conservative.
+            q = 'ubiquity/partitioner/multiple_os_format'
+            self.db.subst(q, 'DISTRO', release.name)
             title = self.description(q)
             desc = self.extended_description(q)
             opt = PartitioningOption(title, desc)

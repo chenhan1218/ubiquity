@@ -1,6 +1,15 @@
 ubiquity (2.19.11) UNRELEASED; urgency=medium
 
   * Exclude free space from counts of deleted partitions.
+  * There are far too many situations where we fail to accurately detect all
+    the operating systems installed on the disk, and we must defend in depth
+    against losing user data as a result of this.  This includes not
+    misleading users into believing that an option will erase less than it
+    in fact does.  Therefore, never describe the use_device autopartitioning
+    mode in any way other than "Erase disk and install Ubuntu", and offer
+    separate "Erase Ubuntu <version> and reinstall" and "Erase disk and
+    install Ubuntu" options even if we believe that the disk only contains
+    Ubuntu (LP: #1265192).
 
  -- Colin Watson <cjwatson@ubuntu.com>  Thu, 16 Oct 2014 00:34:57 +0100
 
