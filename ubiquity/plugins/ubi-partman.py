@@ -3114,7 +3114,7 @@ class Page(plugin.Plugin):
 
         elif question.startswith('partman-crypto/passphrase'):
             if not self.ui.get_crypto_keys():
-                return False
+                return self.db.fget(question, 'seen') == 'true'
             self.preseed(question, self.ui.get_crypto_keys())
             return True
 
