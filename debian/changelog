@@ -1,8 +1,12 @@
 ubiquity (2.21.0) UNRELEASED; urgency=medium
 
+  [ Colin Watson ]
   * Go forward rather than back in response to partman-crypto/passphrase and
     partman-crypto/passphrase-again questions if the UI is not available but
     they have been preseeded (LP: #1386113).
+
+  [ Iain Lane ]
+  * Port the Vte widget to use the 2.91 API.
 
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 29 Oct 2014 12:32:44 +0000
 
