@@ -901,15 +901,18 @@ class Wizard(BaseFrontend):
             style.add_class('menubar')
 
         # TODO lazy load
-        from gi.repository import Vte
+        import gi
+        gi.require_version("Vte", "2.91")
+        from gi.repository import Vte, Pango
         self.vte = Vte.Terminal()
         self.install_details_sw.add(self.vte)
         tail_cmd = [
             '/bin/busybox', 'tail', '-f', '/var/log/installer/debug',
             '-f', '/var/log/syslog', '-q',
         ]
-        self.vte.fork_command_full(0, None, tail_cmd, None, 0, None, None)
-        self.vte.set_font_from_string("Ubuntu Mono 8")
+        self.vte.spawn_sync(0, None, tail_cmd, None, 0, None, None, None)
+        fontdesc = Pango.font_description_from_string("Ubuntu Mono 8")
+        self.vte.set_font(fontdesc)
         self.vte.show()
         # FIXME shrink the window horizontally instead of locking the window
         # size.
