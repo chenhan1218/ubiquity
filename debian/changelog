@@ -1,3 +1,13 @@
+ubiquity (2.21.1) UNRELEASED; urgency=medium
+
+  * Add --quiet option to dmidecode calls, in the future release that will
+    prevent dmidecode from printing error banner if a newer than dmidecode
+    smbios version has happened to be in use. LP: #1353580.
+  * Add "support" for Gauja laptops and self-builts - that is do not use
+    "To be filled by O.E.M." as a valid model name.
+
+ -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Wed, 26 Nov 2014 00:08:30 +0000
+
 ubiquity (2.21.0) vivid; urgency=medium
 
   [ Colin Watson ]
