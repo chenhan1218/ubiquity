@@ -1,3 +1,9 @@
+ubiquity (2.21.1) UNRELEASED; urgency=medium
+
+  * Enable the ubiquity panel in xfwm4 now since it is functional.
+
+ -- Unit 193 <unit193@ubuntu.com>  Thu, 11 Dec 2014 09:12:36 -0500
+
 ubiquity (2.21.0) vivid; urgency=medium
 
   [ Colin Watson ]
