@@ -167,7 +167,9 @@ class DM:
     def drop_privileges(self):
         os.setgroups(self.groups)
         os.setgid(self.gid)
+        os.setegid(self.gid)
         os.setuid(self.uid)
+        os.seteuid(self.uid)
 
     def server_preexec(self):
         signal.signal(signal.SIGUSR1, signal.SIG_IGN)
