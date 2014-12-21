@@ -1,12 +1,16 @@
 ubiquity (2.21.2) UNRELEASED; urgency=medium
 
+  [ Dimitri John Ledkov ]
   * Add --quiet option to dmidecode calls, in the future release that will
     prevent dmidecode from printing error banner if a newer than dmidecode
     smbios version has happened to be in use. LP: #1353580.
   * Add "support" for Gauja laptops and self-builts - that is do not use
     "To be filled by O.E.M." as a valid model name.
+  
+  [ Unit 193 ]
+  * Enable the ubiquity panel in xfwm4 now since it is functional.
 
- -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Sun, 21 Dec 2014 05:42:32 +0000
+ -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Sun, 21 Dec 2014 05:45:58 +0000
 
 ubiquity (2.21.1) vivid; urgency=medium
 
