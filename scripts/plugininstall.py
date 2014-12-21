@@ -1617,13 +1617,8 @@ class Install(install_misc.InstallBase):
         target_user_wallpaper_cache_dir = os.path.join(target_user_cache_dir,
                                                        'wallpaper')
         if (not os.path.isdir(target_user_wallpaper_cache_dir) and
-            os.path.isfile('/usr/lib/gnome-settings-daemon/'
-                           'gnome-update-wallpaper-cache')):
-            # installer mode (else, g-s-d created it)
-            if not os.path.isdir(casper_user_wallpaper_cache_dir):
-                subprocess.call(['sudo', '-u', casper_user, '-i', 'DISPLAY=:0',
-                                 '/usr/lib/gnome-settings-daemon/'
-                                 'gnome-update-wallpaper-cache'])
+                os.path.isdir(casper_user_wallpaper_cache_dir)):
+
             # copy to targeted user
             uid = subprocess.Popen(
                 ['chroot', self.target, 'sudo', '-u', target_user, '--',
