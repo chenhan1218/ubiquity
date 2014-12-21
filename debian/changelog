@@ -6,6 +6,9 @@ ubiquity (2.21.2) UNRELEASED; urgency=medium
     smbios version has happened to be in use. LP: #1353580.
   * Add "support" for Gauja laptops and self-builts - that is do not use
     "To be filled by O.E.M." as a valid model name.
+  * Remove setting translated placeholder text in the usersetup
+    plugin. (LP: #1283047)
+  * Drop translation messages from ubiquity.templates.
   
   [ Unit 193 ]
   * Enable the ubiquity panel in xfwm4 now since it is functional.
