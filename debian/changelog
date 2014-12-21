@@ -15,7 +15,10 @@ ubiquity (2.21.2) UNRELEASED; urgency=medium
     cache, unity-settings-daemon/gnome-settings-daemon now run in install
     mode (LP: #1318621) 
 
- -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Sun, 21 Dec 2014 05:45:58 +0000
+  [ Martin Wimpress ]
+  * Improve support for Mate desktop.
+
+ -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Sun, 21 Dec 2014 06:00:47 +0000
 
 ubiquity (2.21.1) vivid; urgency=medium
 
