@@ -419,19 +419,19 @@ EndSection
                 if osextras.find_on_path('marco'):
                     gsettings_keys.append(
                         ('org.mate.desktop.lockdown', 'disable-lock-screen',
-                        'true'),
+                         'true'),
                         ('org.mate.desktop.lockdown', 'disable-user-switching',
-                        'true'),
-                        ('org.mate.SettingsDaemon.plugins.background', 'active',
-                        'true'),
+                         'true'),
+                        ('org.mate.SettingsDaemon.plugins.background',
+                         'active', 'true'),
                         ('org.mate.desktop.background', 'draw-background',
-                        'true'),
+                         'true'),
                         ('org.mate.desktop.background', 'show-desktop-icons',
-                        'false'),
+                         'false'),
                         ('org.mate.Marco.general', 'compositing-manager',
                          'true')
                         ('org.mate.Marco.general', 'num-workspaces',
-                        '1'))
+                         '1'))
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(

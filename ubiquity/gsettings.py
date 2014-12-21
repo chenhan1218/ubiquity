@@ -103,8 +103,8 @@ def set(schema, key, value, user=None):
         value = "true" if value else "false"
 
     subprocess.call(
-        ['sudo', '-H', '-u', user, 'gsettings', 'set', schema, key, str(value)],
-        preexec_fn=misc.drop_all_privileges)
+        ['sudo', '-H', '-u', user, 'gsettings', 'set', schema, key,
+         str(value)], preexec_fn=misc.drop_all_privileges)
 
 
 def set_list(schema, key, values, user=None):
