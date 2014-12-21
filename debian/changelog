@@ -1,4 +1,4 @@
-ubiquity (2.21.2) UNRELEASED; urgency=medium
+ubiquity (2.21.2) vivid; urgency=medium
 
   [ Dimitri John Ledkov ]
   * Add --quiet option to dmidecode calls, in the future release that will
@@ -30,7 +30,7 @@ ubiquity (2.21.2) UNRELEASED; urgency=medium
     108ubuntu1, partman-crypto 78ubuntu1, partman-jfs 45, partman-lvm
     102, partman-xfs 55.
 
- -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Sun, 21 Dec 2014 06:00:47 +0000
+ -- Dimitri John Ledkov <dimitri.j.ledkov@linux.intel.com>  Sun, 21 Dec 2014 06:46:46 +0000
 
 ubiquity (2.21.1) vivid; urgency=medium
 
