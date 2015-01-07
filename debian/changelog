@@ -3,6 +3,10 @@ ubiquity (2.21.3) UNRELEASED; urgency=medium
   [ Martin Wimpress ]
   * Fix TypeError in ubiquity-dm for MATE desktop (LP: #1408219).
 
+  [ Colin Watson ]
+  * Automatic update of included source packages: partman-basicfilesystems
+    109ubuntu1, partman-lvm 103.
+
  -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Jan 2015 09:39:07 +0000
 
 ubiquity (2.21.2) vivid; urgency=medium
