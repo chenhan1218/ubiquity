@@ -429,7 +429,7 @@ EndSection
                         ('org.mate.desktop.background', 'show-desktop-icons',
                          'false'),
                         ('org.mate.Marco.general', 'compositing-manager',
-                         'true')
+                         'true'),
                         ('org.mate.Marco.general', 'num-workspaces',
                          '1'))
 
