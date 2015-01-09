@@ -1,3 +1,11 @@
+ubiquity (2.21.4) UNRELEASED; urgency=medium
+
+  * kde: explicitly set the KDE_SESSION_VERSION env variable to 4
+    to make sure that for example QIcon uses 4.x compatibility features
+    rather than 3.x ones.
+
+ -- Harald Sitter <sitter@kde.org>  Fri, 09 Jan 2015 10:14:30 +0100
+
 ubiquity (2.21.3) vivid; urgency=medium
 
   [ Martin Wimpress ]
