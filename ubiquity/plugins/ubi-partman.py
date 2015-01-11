@@ -1144,6 +1144,13 @@ class PageGtk(PageBase):
             a11y = widget.get_accessible()
             a11y.set_name(text)
             widget.set_label('')
+	widget_name_edit = 'partition_button_edit'
+        widget_edit = getattr(self, widget_name_edit)
+        text = self.controller.get_string(widget_name_edit,lang)
+        if len(text) != 0:
+            a11y = widget_edit.get_accessible()
+            a11y.set_name(text)
+            widget_edit.set_label(text)
 
     @plugin.only_this_page
     def on_partition_use_combo_changed(self, combobox):
