@@ -1144,7 +1144,7 @@ class PageGtk(PageBase):
             a11y = widget.get_accessible()
             a11y.set_name(text)
             widget.set_label('')
-	widget_name_edit = 'partition_button_edit'
+        widget_name_edit = 'partition_button_edit'
         widget_edit = getattr(self, widget_name_edit)
         text = self.controller.get_string(widget_name_edit,lang)
         if len(text) != 0:
