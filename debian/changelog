@@ -4,6 +4,8 @@ ubiquity (2.21.4) UNRELEASED; urgency=medium
     debian/ubiquity.ubiquity.upstart into scripts/start-ubiquity-dm; don't
     call initctl emit when running under systemd.
   * Add systemd unit for ubiquity-dm.
+  * start-ubiquity-dm: Make setterm failures non-fatal; under systemd
+    services don't run under a PTY.
 
  -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 14 Jan 2015 13:44:28 +0100
 
