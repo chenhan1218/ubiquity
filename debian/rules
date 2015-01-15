@@ -235,6 +235,7 @@ binary-indep: install-stamp
 	dh_installdocs
 	dh_installdebconf
 	# oem-config
+	dh_systemd_enable --name=oem-config
 	dh_installinit -n --name=oem-config
 	dh_installinit -n --name=oem-config-debconf
 	dh_installman
