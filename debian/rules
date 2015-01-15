@@ -278,6 +278,7 @@ binary-arch: tests install-stamp
 	grep-dctrl -v -FTemplate base-installer/ d-i/templates \
 		>> debian/ubiquity/DEBIAN/templates
 	# ubiquity
+	dh_systemd_enable --name=ubiquity
 	dh_installinit --no-start --name=ubiquity
 	dh_installman
 	dh_lintian

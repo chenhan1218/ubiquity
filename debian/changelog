@@ -3,6 +3,7 @@ ubiquity (2.21.4) UNRELEASED; urgency=medium
   * Factorize ubiquity-dm startup logic out of
     debian/ubiquity.ubiquity.upstart into scripts/start-ubiquity-dm; don't
     call initctl emit when running under systemd.
+  * Add systemd unit for ubiquity-dm.
 
  -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 14 Jan 2015 13:44:28 +0100
 

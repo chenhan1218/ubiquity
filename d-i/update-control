@@ -36,6 +36,7 @@ my @basebd = (
     'debhelper (>= 9)',
     'dh-autoreconf',
     'dh-di (>= 3)',
+    'dh-systemd',
     'dpkg-dev (>= 1.14.4)',
     'gir1.2-soup-2.4',
     'gir1.2-timezonemap-1.0',
