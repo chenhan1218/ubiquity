@@ -1,8 +1,19 @@
+ubiquity (2.21.5) UNRELEASED; urgency=medium
+
+  * kde: explicitly set the KDE_SESSION_VERSION env variable to 4
+    to make sure that for example QIcon uses 4.x compatibility features
+    rather than 3.x ones.
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Mon, 19 Jan 2015 18:08:04 +0100
+
 ubiquity (2.21.4) vivid; urgency=medium
 
   * Factorize ubiquity-dm startup logic out of
     debian/ubiquity.ubiquity.upstart into scripts/start-ubiquity-dm; don't
     call initctl emit when running under systemd.
+  * kde: explicitly set the KDE_SESSION_VERSION env variable to 4
+    to make sure that for example QIcon uses 4.x compatibility features
+    rather than 3.x ones.
   * Add systemd unit for ubiquity-dm.
   * start-ubiquity-dm: Make setterm failures non-fatal; under systemd
     services don't run under a PTY.
