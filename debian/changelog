@@ -1,3 +1,10 @@
+ubiquity (2.21.6) vivid; urgency=medium
+
+  * Start all Xfce components with --sm-client-disable.
+  * Explicitly run `xfdesktop` to paint the background. (LP: #1375893)
+
+ -- Unit 193 <unit193@ubuntu.com>  Tue, 20 Jan 2015 18:13:58 -0500
+
 ubiquity (2.21.5) vivid; urgency=medium
 
   * kde: explicitly set the KDE_SESSION_VERSION env variable to 4
