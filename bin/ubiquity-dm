@@ -482,7 +482,7 @@ EndSection
             elif osextras.find_on_path('metacity'):
                 wm_cmd = ['metacity', '--sm-disable']
             elif osextras.find_on_path('xfwm4'):
-                wm_cmd = ['xfwm4', '--compositor=off']
+                wm_cmd = ['xfwm4', '--compositor=off', '--sm-client-disable']
             elif osextras.find_on_path('matchbox-window-manager'):
                 wm_cmd = ['matchbox-window-manager']
             elif osextras.find_on_path('openbox-lubuntu'):
@@ -508,7 +508,16 @@ EndSection
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
                 extras.append(subprocess.Popen(
-                    ['xfsettingsd'],
+                    ['xprop', '-root', '-format', '_NET_NUMBER_OF_DESKTOPS',
+                     '32c', '-set', '_NET_NUMBER_OF_DESKTOPS', '1'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
+                extras.append(subprocess.Popen(
+                    ['xfsettingsd', '--sm-client-disable'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
+                extras.append(subprocess.Popen(
+                    ['xfdesktop', '--sm-client-disable'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
 
