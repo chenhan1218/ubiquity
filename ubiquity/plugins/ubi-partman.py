@@ -1135,15 +1135,24 @@ class PageGtk(PageBase):
                 self.controller.dbfilter.edit_partition(devpart, **edits)
 
     def plugin_translate(self, lang):
-        symbolic_widgets = ['partition_button_new', 'partition_button_delete']
-        for widget_name in symbolic_widgets:
+        widgets = (
+            ('partition_button_new', "empty"),
+            ('partition_button_delete', "empty"),
+            ('partition_button_edit', "i18n"),
+        )
+        for widget_name, action in widgets:
             widget = getattr(self, widget_name)
-            text = widget.get_label()
+            text = self.controller.get_string(widget_name, lang)
             if len(text) == 0:
                 continue
             a11y = widget.get_accessible()
             a11y.set_name(text)
-            widget.set_label('')
+            if action == "empty":
+                widget.set_label('')
+            elif action == "i18n":
+                widget.set_label(text)
+            else:
+                raise ValueError("unknown action '%s'" % action)
 
     @plugin.only_this_page
     def on_partition_use_combo_changed(self, combobox):

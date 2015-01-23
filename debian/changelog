@@ -1,7 +1,12 @@
 ubiquity (2.21.6) UNRELEASED; urgency=medium
 
+  [ Unit 193 ]
   * Start all Xfce components with --sm-client-disable.
   * Explicitly run `xfdesktop` to paint the background. (LP: #1375893)
+
+  [ Ma Jun ]
+  * lp:~maclin.jun/ubiquity/fix_1304410:
+    - fix missing translation for "Change..." in the partition page
 
  -- Unit 193 <unit193@ubuntu.com>  Tue, 20 Jan 2015 18:13:58 -0500
 
