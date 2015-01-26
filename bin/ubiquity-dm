@@ -383,6 +383,32 @@ EndSection
                     self.username)
 
                 # Set gsettings keys
+                gsettings_keys = [
+                        ('org.gnome.desktop.lockdown', 'disable-lock-screen',
+                         'true'),
+                        ('org.gnome.desktop.lockdown', 'disable-user-switching',
+                         'true'),
+                        ('org.gnome.settings-daemon.plugins.background', 'active',
+                         'true'),
+                        ('org.gnome.desktop.background', 'draw-background',
+                         'true'),
+                        ('org.gnome.desktop.background', 'show-desktop-icons',
+                         'false'),
+                        ('org.gnome.metacity', 'compositing-manager',
+                         'true'),
+                        ('org.gnome.desktop.wm.preferences', 'num-workspaces',
+                         '1'),
+                    ]
+
+                # Setting a wallpaper image, or solid color.
+                if visual_a11y:
+                    gsettings_keys.append(
+                        ('org.gnome.desktop.background', 'picture-options',
+                         'none'))
+                    gsettings_keys.append(
+                        ('org.gnome.desktop.background', 'picture-uri',
+                        "''"))
+
                 if osextras.find_on_path('marco'):
                     gsettings_keys = [
                         ('org.mate.lockdown', 'disable-lock-screen',
@@ -408,33 +434,6 @@ EndSection
                              'none'))
                         gsettings_keys.append(
                             ('org.mate.background', 'picture-filename',
-                            "''"))
-
-                else:
-                    gsettings_keys = [
-                        ('org.gnome.desktop.lockdown', 'disable-lock-screen',
-                         'true'),
-                        ('org.gnome.desktop.lockdown', 'disable-user-switching',
-                         'true'),
-                        ('org.gnome.settings-daemon.plugins.background', 'active',
-                         'true'),
-                        ('org.gnome.desktop.background', 'draw-background',
-                         'true'),
-                        ('org.gnome.desktop.background', 'show-desktop-icons',
-                         'false'),
-                        ('org.gnome.metacity', 'compositing-manager',
-                         'true'),
-                        ('org.gnome.desktop.wm.preferences', 'num-workspaces',
-                         '1'),
-                    ]
-
-                    # Setting a wallpaper image, or solid color.
-                    if visual_a11y:
-                        gsettings_keys.append(
-                            ('org.gnome.desktop.background', 'picture-options',
-                             'none'))
-                        gsettings_keys.append(
-                            ('org.gnome.desktop.background', 'picture-uri',
                             "''"))
 
                 if osextras.find_on_path('gnome-shell'):
