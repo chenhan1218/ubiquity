@@ -384,28 +384,56 @@ EndSection
 
                 # Set gsettings keys
                 gsettings_keys = [
-                    ('org.gnome.desktop.lockdown', 'disable-lock-screen',
-                     'true'),
-                    ('org.gnome.desktop.lockdown', 'disable-user-switching',
-                     'true'),
-                    ('org.gnome.settings-daemon.plugins.background', 'active',
-                     'true'),
-                    ('org.gnome.desktop.background', 'draw-background',
-                     'true'),
-                    ('org.gnome.desktop.background', 'show-desktop-icons',
-                     'false'),
-                    ('org.gnome.metacity', 'compositing-manager',
-                     'true'),
-                    ('org.gnome.desktop.wm.preferences', 'num-workspaces',
-                     '1'),
-                ]
+                        ('org.gnome.desktop.lockdown', 'disable-lock-screen',
+                         'true'),
+                        ('org.gnome.desktop.lockdown', 'disable-user-switching',
+                         'true'),
+                        ('org.gnome.settings-daemon.plugins.background', 'active',
+                         'true'),
+                        ('org.gnome.desktop.background', 'draw-background',
+                         'true'),
+                        ('org.gnome.desktop.background', 'show-desktop-icons',
+                         'false'),
+                        ('org.gnome.metacity', 'compositing-manager',
+                         'true'),
+                        ('org.gnome.desktop.wm.preferences', 'num-workspaces',
+                         '1'),
+                    ]
+
                 # Setting a wallpaper image, or solid color.
                 if visual_a11y:
                     gsettings_keys.append(
                         ('org.gnome.desktop.background', 'picture-options',
-                            'none'))
+                         'none'))
                     gsettings_keys.append(
                         ('org.gnome.desktop.background', 'picture-uri',
+                        "''"))
+
+                if osextras.find_on_path('marco'):
+                    gsettings_keys = [
+                        ('org.mate.lockdown', 'disable-lock-screen',
+                         'true'),
+                        ('org.mate.lockdown', 'disable-user-switching',
+                         'true'),
+                        ('org.mate.SettingsDaemon.plugins.background',
+                         'active', 'true'),
+                        ('org.mate.background', 'draw-background',
+                         'true'),
+                        ('org.mate.background', 'show-desktop-icons',
+                         'false'),
+                        ('org.mate.Marco.general', 'compositing-manager',
+                         'true'),
+                        ('org.mate.Marco.general', 'num-workspaces',
+                         '1'),
+                    ]
+
+                    # Setting a wallpaper image, or solid color.
+                    if visual_a11y:
+                        gsettings_keys.append(
+                            ('org.mate.background', 'picture-options',
+                             'none'))
+                        gsettings_keys.append(
+                            ('org.mate.background', 'picture-filename',
                             "''"))
 
                 if osextras.find_on_path('gnome-shell'):
@@ -414,23 +442,6 @@ EndSection
                          'active', 'false'))
                     gsettings_keys.remove(
                         ('org.gnome.desktop.wm.preferences', 'num-workspaces',
-                         '1'))
-
-                if osextras.find_on_path('marco'):
-                    gsettings_keys.append(
-                        ('org.mate.desktop.lockdown', 'disable-lock-screen',
-                         'true'),
-                        ('org.mate.desktop.lockdown', 'disable-user-switching',
-                         'true'),
-                        ('org.mate.SettingsDaemon.plugins.background',
-                         'active', 'true'),
-                        ('org.mate.desktop.background', 'draw-background',
-                         'true'),
-                        ('org.mate.desktop.background', 'show-desktop-icons',
-                         'false'),
-                        ('org.mate.Marco.general', 'compositing-manager',
-                         'true'),
-                        ('org.mate.Marco.general', 'num-workspaces',
                          '1'))
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
