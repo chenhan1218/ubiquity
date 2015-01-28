@@ -2,8 +2,9 @@ ubiquity (2.21.7) UNRELEASED; urgency=medium
 
   * bin/ubiquity-dm: update to use the proper gsettings keys for the MATE
     installer.
+  * Automatic update of included source packages: partman-lvm 105.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 28 Jan 2015 13:45:58 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 28 Jan 2015 14:08:41 -0500
 
 ubiquity (2.21.6) vivid; urgency=medium
 

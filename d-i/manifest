@@ -23,7 +23,7 @@ partman-crypto 78ubuntu1
 partman-efi 25ubuntu7
 partman-ext3 84ubuntu1
 partman-jfs 45
-partman-lvm 103
+partman-lvm 105
 partman-newworld 32
 partman-partitioning 106ubuntu1
 partman-target 92ubuntu1
