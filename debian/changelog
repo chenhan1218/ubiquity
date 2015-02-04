@@ -1,3 +1,13 @@
+ubiquity (2.21.8) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu24, partman-auto 118ubuntu5, partman-efi 62ubuntu1.
+  * ubiquity/plugins/ubi-partman.py: allow prompting for a missing passphrase
+    on preseeded installs, if they are requesting to setup crypto.
+    (LP: #1386131)
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 04 Feb 2015 10:45:32 -0500
+
 ubiquity (2.21.7) vivid; urgency=medium
 
   * bin/ubiquity-dm: update to use the proper gsettings keys for the MATE
