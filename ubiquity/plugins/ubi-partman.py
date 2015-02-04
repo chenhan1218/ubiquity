@@ -65,6 +65,9 @@ class PageBase(plugin.PluginUI):
     def __init__(self, *args, **kwargs):
         plugin.PluginUI.__init__(self)
 
+    def update_branded_strings(self):
+        pass
+
     def show_page_advanced(self):
         pass
 
@@ -199,6 +202,21 @@ class PageGtk(PageBase):
 
         # Define a list to save grub imformation
         self.grub_options = []
+
+    def update_branded_strings(self):
+        release = misc.get_release()
+
+        crypto_desc_obj = getattr(self, 'crypto_description_2')
+        text = self.controller.get_string(
+            'ubiquity/text/crypto_description_2')
+        text = text.replace('${RELEASE}', release.name)
+        crypto_desc_obj.set_label(text)
+
+        lvm_explanation_obj = getattr(self, 'partition_lvm_explanation')
+        text = self.controller.get_string(
+            'ubiquity/text/partition_lvm_explanation')
+        text = text.replace('${RELEASE}', release.name)
+        lvm_explanation_obj.set_label(text)
 
     def plugin_get_current_page(self):
         if self.current_page == self.page_ask:
@@ -633,18 +651,6 @@ class PageGtk(PageBase):
             title = title.replace('${RELEASE}', release.name)
             desc = self.controller.get_string('ubiquity/text/use_lvm_desc')
             options['some_device_lvm'] = PartitioningOption(title, desc)
-
-        crypto_desc_obj = getattr(self, 'crypto_description_2')
-        text = self.controller.get_string(
-            'ubiquity/text/crypto_description_2')
-        text = text.replace('${RELEASE}', release.name)
-        crypto_desc_obj.set_label(text)
-
-        lvm_explanation_obj = getattr(self, 'partition_lvm_explanation')
-        text = self.controller.get_string(
-            'ubiquity/text/partition_lvm_explanation')
-        text = text.replace('${RELEASE}', release.name)
-        lvm_explanation_obj.set_label(text)
 
         ticked = False
         for option, name in option_to_widget:
@@ -1620,6 +1626,8 @@ class Page(plugin.Plugin):
         self.description_cache = {}
         self.local_progress = False
         self.swap_size = 0
+
+        self.ui.update_branded_strings()
 
         self.install_bootloader = False
         if (self.db.get('ubiquity/install_bootloader') == 'true' and
