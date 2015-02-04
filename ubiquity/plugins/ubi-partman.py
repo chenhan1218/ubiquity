@@ -103,6 +103,9 @@ class PageBase(plugin.PluginUI):
     def get_grub_choice(self):
         return misc.grub_default()
 
+    def show_crypto_page(self):
+        pass
+
     def get_crypto_keys(self):
         pass
 
@@ -318,15 +321,8 @@ class PageGtk(PageBase):
         # TODO dmitrij.ledkov 2012-07-25 no way to go back and return
         # to here? This needs to be addressed in the design document.
         if crypto and use_device and self.current_page == self.page_ask:
-            self.set_page_title(
-                self.controller.get_string('ubiquity/text/crypto_label'))
-            self.current_page = self.page_crypto
-            self.move_crypto_widgets()
-            self.show_encryption_passphrase(crypto)
-            self.controller.go_to_page(self.current_page)
-            self.controller.toggle_next_button('install_button')
+            self.show_crypto_page()
             self.plugin_is_install = one_disk
-            self.info_loop(None)
             return True
 
         if (self.current_page == self.page_crypto and
@@ -1471,6 +1467,16 @@ class PageGtk(PageBase):
         self.controller.allow_go_forward(complete)
         self.partition_dialog_okbutton.set_sensitive(complete)
         return complete
+
+    def show_crypto_page(self):
+        self.set_page_title(
+            self.controller.get_string('ubiquity/text/crypto_label'))
+        self.current_page = self.page_crypto
+        self.move_crypto_widgets()
+        self.show_encryption_passphrase(True)
+        self.controller.go_to_page(self.current_page)
+        self.controller.toggle_next_button('install_button')
+        self.info_loop(None)
 
     def get_crypto_keys(self):
         if self.info_loop(None):
@@ -3130,10 +3136,21 @@ class Page(plugin.Plugin):
             return True
 
         elif question.startswith('partman-crypto/passphrase'):
-            if not self.ui.get_crypto_keys():
+            # Go forward rather than back in response to passphrase and
+            # passphrase-again questions if the UI is not available but they
+            # have been preseeded
+            if not hasattr(self.ui, 'get_crypto_keys'):
                 return self.db.fget(question, 'seen') == 'true'
-            self.preseed(question, self.ui.get_crypto_keys())
-            return True
+
+            do_preseed = True
+            if not self.ui.get_crypto_keys():
+                if hasattr(self.ui, 'show_crypto_page'):
+                    do_preseed = False
+                    self.ui.show_crypto_page()
+
+            if do_preseed:
+                self.preseed(question, self.ui.get_crypto_keys())
+                return True
 
         elif question == 'partman-crypto/mainmenu':
             if self.activating_crypto:
