@@ -5,6 +5,8 @@ ubiquity (2.21.8) UNRELEASED; urgency=medium
   * ubiquity/plugins/ubi-partman.py: allow prompting for a missing passphrase
     on preseeded installs, if they are requesting to setup crypto.
     (LP: #1386131)
+  * Add a fallback for a Greybird-themed background for the panel, for Xubuntu.
+    Thanks to Simon Steinbeiß for the patch.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 04 Feb 2015 10:45:32 -0500
 
