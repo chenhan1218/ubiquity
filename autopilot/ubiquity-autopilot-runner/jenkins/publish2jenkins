@@ -27,7 +27,7 @@ CONFIG_DIR=$BASEDIR/config
 TEMPLATE_DIR=$BASEDIR/templates
 UPDATE_CMD=$BASEDIR/update-jenkins-job
 UPDATE_OPTS="-U"
-SERVER=drude
+SERVER=${SERVER:-drude}
 
 on_exit() {
     # Do some cleanup
