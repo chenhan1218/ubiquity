@@ -40,7 +40,7 @@
     <hudson.matrix.LabelAxis>
       <name>label</name>
       <values>
-        <string>rabisu</string>
+        <string>master</string>
       </values>
     </hudson.matrix.LabelAxis>
   </axes>
@@ -51,7 +51,7 @@
 
 RELEASE=$(distro-info -d||distro-info -s)
 VARIANT={{ variant }}
-ISO=$JENKINS_HOME/iso/{{ flavor }}/${RELEASE}-${VARIANT}-${ARCH}.iso
+ISO=$JENKINS_HOME/isos/{{ flavor }}/${RELEASE}-${VARIANT}-${ARCH}.iso
 TESTNAME={{ testcase }}
 
 if [ ! -f &quot;$ISO&quot; ]; then
