@@ -138,7 +138,7 @@ Execute the tasks below on the slave:
 
  * Create the same symlinks than symlinks in `/home/ubiquity/bin/`
 
-        $ find /home/ubiquity/bin/ ! -type d -exec ln -s {} $HOME/bin/
+        $ find /home/ubiquity/bin/ ! -type d -exec ln -s {} $HOME/bin/ \;
 
  * **Logout** from user jenkins
 
