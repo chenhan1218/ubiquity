@@ -1,3 +1,10 @@
+ubiquity (2.21.9) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: apt-setup
+    1:0.80ubuntu7, partman-auto 125ubuntu1.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Tue, 17 Feb 2015 16:07:38 -0700
+
 ubiquity (2.21.8) vivid; urgency=medium
 
   * Automatic update of included source packages: grub-installer
