@@ -59,7 +59,13 @@ for kernel in $preferred_kernels; do
 	case $kernel in
 	    linux-signed-*)
 		if [ "$(apt-cache search -n "^$kernel\$")" ]; then
-			install_new="${install_new:+$install_new }$kernel"
+		    for candidate in $kernels; do
+			case $candidate in
+			    $kernel)
+				install_new="${install_new:+$install_new }$kernel"
+				;;
+			esac
+		    done
 		fi
 		;;
 	esac

@@ -2,6 +2,8 @@ ubiquity (2.21.9) UNRELEASED; urgency=medium
 
   * Automatic update of included source packages: apt-setup
     1:0.80ubuntu7, partman-auto 125ubuntu1.
+  * Limit the signed kernel candidates to ones that are already on the
+    media to avoid pulling in ALL of the signed kernels (LP: #1422864)
 
  -- Adam Conrad <adconrad@ubuntu.com>  Tue, 17 Feb 2015 16:07:38 -0700
 
