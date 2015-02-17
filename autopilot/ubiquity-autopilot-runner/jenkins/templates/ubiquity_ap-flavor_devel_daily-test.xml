@@ -51,7 +51,7 @@
 
 RELEASE=$(distro-info -d||distro-info -s)
 VARIANT={{ variant }}
-ISO=$JENKINS_HOME/iso/{{ flavor }}/${RELEASE}-${VARIANT}-${ARCH}.iso
+ISO=/var/lib/jenkins/isos/{{ flavor }}/${RELEASE}-${VARIANT}-${ARCH}.iso
 TESTNAME={{ testcase }}
 
 if [ ! -f &quot;$ISO&quot; ]; then
@@ -61,7 +61,7 @@ fi
 
 echo &quot;I: Starting test $TESTNAME with image $ISO&quot;
 FULLNAME=&quot;ubiquity_autopilot_tests.tests.${TESTNAME}&quot;
-$JENKINS_HOME/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</command>
+/home/ubiquity/ubiquity/autopilot/ubiquity-autopilot-runner/run-ubiquity-test -t $FULLNAME $ISO</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
