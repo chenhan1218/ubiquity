@@ -1,4 +1,4 @@
-ubiquity (2.21.9) UNRELEASED; urgency=medium
+ubiquity (2.21.9) vivid; urgency=medium
 
   * Automatic update of included source packages: apt-setup
     1:0.80ubuntu7, partman-auto 125ubuntu1.
