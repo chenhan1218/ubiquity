@@ -116,6 +116,7 @@ Execute the tasks below on the slave:
    handling to run multiple time in parallel.
 
         $ bzr cat lp:ubuntu-server-iso-testing/download-latest-test-iso.py > ~/bin/download-latest-test-iso.py
+        $ chmod 755 ~/bin/download-latest-test-iso.py
 
  * Create the following links in ~/bin/
 
