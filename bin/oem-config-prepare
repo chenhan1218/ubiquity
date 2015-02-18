@@ -23,6 +23,8 @@ if [ "$(id -u)" = 0 ]; then
 	rm -f /etc/udev/rules.d/70-persistent-cd.rules \
 	      /etc/udev/rules.d/70-persistent-net.rules
 
+	rm -f /etc/NetworkManager/system-connections/*
+
 	# Potentially sensitive.
 	rm -f /home/oem/.ssh/known_hosts
 

@@ -1,3 +1,12 @@
+ubiquity (2.21.12) UNRELEASED; urgency=medium
+
+  * Clean up after NetworkManager's system-connections files in prepare job
+    for oem-config: we shouldn't keep wireless connections (or any, really)
+    on the system that may have been setup by OEM, unless done *after* running
+    oem-prepare. (LP: #1418105)
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 18 Feb 2015 15:49:51 -0500
+
 ubiquity (2.21.11) vivid; urgency=medium
 
   * Be sure to include the top level linux-signed-* metapackage in our
