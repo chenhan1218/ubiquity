@@ -1,3 +1,10 @@
+ubiquity (2.21.11) vivid; urgency=medium
+
+  * Be sure to include the top level linux-signed-* metapackage in our
+    list of candidates to keep so we don't accidentally remove it.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Wed, 18 Feb 2015 10:26:33 -0700
+
 ubiquity (2.21.10) vivid; urgency=medium
 
   * debian/ubiquity.install-any: Adjust for dropped 94extras in apt-setup
