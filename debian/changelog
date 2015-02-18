@@ -1,3 +1,9 @@
+ubiquity (2.21.10) vivid; urgency=medium
+
+  * debian/ubiquity.install-any: Adjust for dropped 94extras in apt-setup
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Tue, 17 Feb 2015 18:42:54 -0700
+
 ubiquity (2.21.9) vivid; urgency=medium
 
   * Automatic update of included source packages: apt-setup
