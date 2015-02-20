@@ -1,4 +1,4 @@
-ubiquity (2.21.12) UNRELEASED; urgency=medium
+ubiquity (2.21.12) vivid; urgency=medium
 
   * Clean up after NetworkManager's system-connections files in prepare job
     for oem-config: we shouldn't keep wireless connections (or any, really)
@@ -11,7 +11,7 @@ ubiquity (2.21.12) UNRELEASED; urgency=medium
   * Automatic update of included source packages: grub-installer
     1.78ubuntu25.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Fri, 20 Feb 2015 17:09:50 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Fri, 20 Feb 2015 17:15:16 -0500
 
 ubiquity (2.21.11) vivid; urgency=medium
 
