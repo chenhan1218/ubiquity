@@ -4,6 +4,10 @@ ubiquity (2.21.12) UNRELEASED; urgency=medium
     for oem-config: we shouldn't keep wireless connections (or any, really)
     on the system that may have been setup by OEM, unless done *after* running
     oem-prepare. (LP: #1418105)
+  * Force the GTK-based installer to be visible when starting, this should fix
+    it being running but hidden on some Xubuntu only-ubiquity installs, which
+    meant users had to Alt-Tab to it and switch language for it to appear.
+    (LP: #1423161)
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 18 Feb 2015 15:49:51 -0500
 

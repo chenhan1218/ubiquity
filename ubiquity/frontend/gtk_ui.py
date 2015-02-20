@@ -743,6 +743,7 @@ class Wizard(BaseFrontend):
             self.refresh()
 
         self.set_current_page(0)
+        self.live_installer.show()
 
         while(self.pagesindex < len(self.pages)):
             if self.current_page is None:
