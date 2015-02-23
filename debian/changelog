@@ -1,3 +1,11 @@
+ubiquity (2.21.13) vivid; urgency=medium
+
+  * ubiquity/plugins/ubi-console-setup.py: revert change to use
+    untranslated keyboard names, it's causing crashes when installing in
+    !english LP: #1182784
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 23 Feb 2015 18:00:42 +0100
+
 ubiquity (2.21.12) vivid; urgency=medium
 
   * Clean up after NetworkManager's system-connections files in prepare job
