@@ -1,3 +1,10 @@
+ubiquity (2.21.14) UNRELEASED; urgency=medium
+
+  [ Paul Larson, Parameswaran Sivatharman ]
+  * Get the autopilot tests up and running again.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 26 Feb 2015 10:29:00 +0000
+
 ubiquity (2.21.13) vivid; urgency=medium
 
   * ubiquity/plugins/ubi-console-setup.py: revert change to use
