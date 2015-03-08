@@ -651,7 +651,7 @@ class Wizard(BaseFrontend):
             if not_current and p == current_page:
                 continue
             prefix = p.ui.get('plugin_prefix')
-            for w in p.widgets:
+            for w in p.widgets + p.optional_widgets:
                 for c in self.all_children(w):
                     widgets.append((c, prefix))
 
