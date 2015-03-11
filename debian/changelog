@@ -6,7 +6,11 @@ ubiquity (2.21.14) UNRELEASED; urgency=medium
   [ Scott Sanbar ]
   * Stop using legacy gtk-dialog-* icon names (LP: #1422113).
 
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 26 Feb 2015 10:29:00 +0000
+  [ Parth Panchal ]
+  * KDE: Fix Manual Partitioner Does not Translate when Selecting a new
+    Language LP: #1350855
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 11 Mar 2015 18:59:18 +0100
 
 ubiquity (2.21.13) vivid; urgency=medium
 
