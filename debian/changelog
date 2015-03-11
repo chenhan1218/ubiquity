@@ -1,4 +1,4 @@
-ubiquity (2.21.14) UNRELEASED; urgency=medium
+ubiquity (2.21.14) vivid; urgency=medium
 
   [ Paul Larson, Parameswaran Sivatharman ]
   * Get the autopilot tests up and running again.
@@ -9,6 +9,11 @@ ubiquity (2.21.14) UNRELEASED; urgency=medium
   [ Parth Panchal ]
   * KDE: Fix Manual Partitioner Does not Translate when Selecting a new
     Language LP: #1350855
+
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu4, flash-kernel 3.0~rc.4ubuntu54, grub-installer
+    1.78ubuntu26, netcfg 1.127ubuntu1, partman-base 181ubuntu1.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 11 Mar 2015 18:59:18 +0100
 
