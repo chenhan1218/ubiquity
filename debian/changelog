@@ -1,3 +1,17 @@
+ubiquity (2.21.16) vivid; urgency=medium
+
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu27, partman-base 181ubuntu2.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 18 Mar 2015 12:58:23 +0100
+
+ubiquity (2.21.15) vivid; urgency=medium
+
+  * debian/rules, debian/clean: fixup rules and clean due to the rename of
+    console-setup's MyKeyboardNames.pl script to KeyboardNames.pl.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 11 Mar 2015 16:08:14 -0400
+
 ubiquity (2.21.14) vivid; urgency=medium
 
   [ Paul Larson, Parameswaran Sivatharman ]

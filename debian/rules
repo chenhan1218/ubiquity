@@ -70,11 +70,11 @@ clean: check
 
 	$(MAKE) -C d-i check
 
-d-i/source/console-setup/Keyboard/MyKeyboardNames.pl:
-	$(MAKE) -C d-i/source/console-setup/Keyboard MyKeyboardNames.pl \
+d-i/source/console-setup/Keyboard/KeyboardNames.pl:
+	$(MAKE) -C d-i/source/console-setup/Keyboard KeyboardNames.pl \
 		xkbdir=/usr/share/X11/xkb
 
-debian/kbdnames.gz: d-i/source/console-setup/Keyboard/MyKeyboardNames.pl
+debian/kbdnames.gz: d-i/source/console-setup/Keyboard/KeyboardNames.pl
 	d-i/source/console-setup/Keyboard/kbdnames-maker $< | gzip -9c > $@
 
 install: install-stamp
