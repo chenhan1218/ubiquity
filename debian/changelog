@@ -2,6 +2,7 @@ ubiquity (2.21.16) vivid; urgency=medium
 
   * Automatic update of included source packages: grub-installer
     1.78ubuntu27, partman-base 181ubuntu2.
+  * KDE: update ubiquity-dm for new Plasma wallpaper path
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 18 Mar 2015 12:58:23 +0100
 
