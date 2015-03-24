@@ -1,3 +1,10 @@
+ubiquity (2.21.17) UNRELEASED; urgency=medium
+
+  * Update the sed for the path to keyboard-configuration.config from
+    console-setup to account for changes from 1.108.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 24 Mar 2015 15:12:42 -0400
+
 ubiquity (2.21.16) vivid; urgency=medium
 
   * Automatic update of included source packages: grub-installer
