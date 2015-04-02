@@ -7,8 +7,6 @@ ubiquity (2.21.18) UNRELEASED; urgency=medium
     - after removing the oem user, set the default target back to graphical.
     - call for systemd to start the graphical target, so as to complete booting
       to graphical or to TTYs after oem-config-firstboot has run.
-    - wait 5 seconds and kill oem user processes harder, to make sure we can
-      successfully remove the user.
   * debian/oem-config.target: create a new target for oem-config so that it can
     start without conflicting with a display-manager that may also want to
     start and use the oem user in auto-login.
