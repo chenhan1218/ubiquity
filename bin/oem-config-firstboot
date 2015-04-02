@@ -75,8 +75,13 @@ for try in $(seq 1 $TRY); do
 		RET="$(echo GET oem-config/remove | debconf-communicate)"
 		if [ "${RET#* }" = true ] && getent passwd oem >/dev/null; then
 			pkill -u oem || true
+			# sleep for 5 seconds to give processes the time to terminate.
+			sleep 5
+			pkill -9 -u oem || true
 			userdel --force --remove oem || true
 		fi
+		/bin/systemctl set-default graphical.target || true
+		/bin/systemctl --no-block isolate graphical.target || true
 		exit 0
 	elif [ "$CODE" -eq 10 ]; then
 		cat <<EOF

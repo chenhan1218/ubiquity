@@ -1,3 +1,25 @@
+ubiquity (2.21.18) UNRELEASED; urgency=medium
+
+  * Overhaul for proper systemd support (LP: #1436937)
+  * bin/oem-config-prepare: set the systemd default target to oem-config.target
+    instead of using /var/lib/oem-config/run as a flag.
+  * bin/oem-config-firstboot:
+    - after removing the oem user, set the default target back to graphical.
+    - call for systemd to start the graphical target, so as to complete booting
+      to graphical or to TTYs after oem-config-firstboot has run.
+    - wait 5 seconds and kill oem user processes harder, to make sure we can
+      successfully remove the user.
+  * debian/oem-config.target: create a new target for oem-config so that it can
+    start without conflicting with a display-manager that may also want to
+    start and use the oem user in auto-login.
+  * debian/oem-config.oem-config.service: simplify the service's start
+    conditions; we don't really need to worry about Before/After since we'll
+    run in our own isolated target.
+  * debian/oem-config.install: force the installation of the new target in the
+    right location for systemd.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 02 Apr 2015 11:03:51 -0400
+
 ubiquity (2.21.17) vivid; urgency=medium
 
   * Update the sed for the path to keyboard-configuration.config from
