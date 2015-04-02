@@ -1,10 +1,6 @@
 [Unit]
 Description=End-user configuration after initial OEM installation
-Before=display-manager.service
-After=plymouth-quit.service
-Conflicts=getty@tty1.service
 ConditionFileIsExecutable=/usr/sbin/oem-config-firstboot
-ConditionPathExists=/var/lib/oem-config/run
 ConditionPathExists=/dev/tty1
 
 # We never want to run the oem-config job in the live environment (as is the
@@ -33,4 +29,4 @@ ExecStart=/bin/sh -ec '\
     exec oem-config-firstboot $debug $automatic'
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=oem-config.target
