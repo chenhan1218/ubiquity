@@ -1,4 +1,4 @@
-ubiquity (2.21.18) UNRELEASED; urgency=medium
+ubiquity (2.21.18) vivid; urgency=medium
 
   * Overhaul for proper systemd support (LP: #1436937)
   * bin/oem-config-prepare: set the systemd default target to oem-config.target
@@ -16,7 +16,7 @@ ubiquity (2.21.18) UNRELEASED; urgency=medium
   * debian/oem-config.install: force the installation of the new target in the
     right location for systemd.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 02 Apr 2015 11:03:51 -0400
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 02 Apr 2015 13:58:02 -0400
 
 ubiquity (2.21.17) vivid; urgency=medium
 
