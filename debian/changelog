@@ -1,3 +1,11 @@
+ubiquity (2.21.20) UNRELEASED; urgency=medium
+
+  * debian/ubiquity.templates: add a string for "Continue in UEFI mode".
+  * ubiquity/plugins/ubi-partman.py: Fix up the buttons for the non_efi_system
+    question to use the new string for UEFI mode.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 14 Apr 2015 14:31:03 -0500
+
 ubiquity (2.21.19) vivid; urgency=medium
 
   * user-setup-encrypted-swap: Don't zero out the first 4K of the swap

@@ -3211,6 +3211,9 @@ class Page(plugin.Plugin):
             if question == 'partman/unmount_active':
                 yes = 'ubiquity/imported/yes'
                 no = 'ubiquity/imported/no'
+            elif question = 'partman-efi/non_efi_system':
+                yes = 'ubiquity/text/in_uefi_mode'
+                no = 'ubiquity/text/go_back'
             else:
                 yes = 'ubiquity/text/continue'
                 no = 'ubiquity/text/go_back'
