@@ -1,3 +1,12 @@
+ubiquity (2.21.19) UNRELEASED; urgency=medium
+
+  * user-setup-encrypted-swap: Don't zero out the first 4K of the swap
+    partition so that the UUID gets retained. /etc/crypttab refers to the
+    cipher device via UUID. See corresponding fix in ecryptfs-utils.
+    (LP: #953875)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 14 Apr 2015 10:14:41 -0500
+
 ubiquity (2.21.18) vivid; urgency=medium
 
   * Overhaul for proper systemd support (LP: #1436937)
