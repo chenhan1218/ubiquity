@@ -3222,7 +3222,9 @@ class Page(plugin.Plugin):
                 self.extended_description(question), (no, yes))
 
             answer_reversed = False
-            if question in ('partman-jfs/jfs_boot', 'partman-jfs/jfs_root',
+            if question in ('partman-jfs/jfs_boot',
+                            'partman-jfs/jfs_root',
+                            'partman-efi/non_efi_system',
                             'partman/unmount_active'):
                 answer_reversed = True
             if response == yes:

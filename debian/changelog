@@ -3,6 +3,11 @@ ubiquity (2.21.20) UNRELEASED; urgency=medium
   * debian/ubiquity.templates: add a string for "Continue in UEFI mode".
   * ubiquity/plugins/ubi-partman.py: Fix up the buttons for the non_efi_system
     question to use the new string for UEFI mode.
+  * ubiquity/plugins/ubi-partman.py: try to reverse the meaning of the debconf
+    partman-efi/non_efi_system question so that "Continue in UEFI mode" will
+    actually really mean continuing with setting up an EFI System Partition
+    and "Go Back" will properly return to the partitioning scheme selection
+    page and allow to try again without an ESP. (LP: #1444104)
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 14 Apr 2015 14:31:03 -0500
 
