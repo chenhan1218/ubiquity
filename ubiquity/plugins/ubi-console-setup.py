@@ -287,18 +287,31 @@ class PageKde(plugin.PluginUI):
     def on_keyboard_layout_selected(self, *args):
         layout = self.get_keyboard()
         lang = self.controller.dbfilter.get_locale()
-        if layout is not None:
-            # skip updating keyboard if not using display
-            if self.keyboardDisplay:
-                ly = keyboard_names.layout_id(lang, misc.utf8(layout))
-                self.keyboardDisplay.setLayout(ly)
+        try:
+            if layout is not None:
+                # skip updating keyboard if not using display
+                if self.keyboardDisplay:
+                    ly = keyboard_names.layout_id(lang, misc.utf8(layout))
+                    self.keyboardDisplay.setLayout(ly)
 
-                # no variants, force update by setting none
-                # if not keyboard_names.has_variants(l, ly):
-                #    self.keyboardDisplay.setVariant(None)
+                    # no variants, force update by setting none
+                    # if not keyboard_names.has_variants(l, ly):
+                    #    self.keyboardDisplay.setVariant(None)
 
-            self.current_layout = layout
-            self.controller.dbfilter.change_layout(layout)
+                self.current_layout = layout
+                self.controller.dbfilter.change_layout(layout)
+        except KeyError:
+            from PyQt4.QtGui import QMessageBox
+            QMessageBox.warning(self.page, 'Installer bug',
+                                'Could not find text for ' + str(layout) +
+                                ' see <a href="https://bugs.launchpad.net/' +
+                                'ubuntu/+source/ubiquity/+bug/1182784">bug ' +
+                                '1182784</a>.<br /><br /> ' +
+                                'Please select another and reconfigure ' +
+                                'after install.')
+            self.debug('Could not find text for ' + str(layout) +
+                       ' see https://bugs.launchpad.net/' +
+                       'ubuntu/+source/ubiquity/+bug/1182784')
 
     @plugin.only_this_page
     def on_keyboard_variant_selected(self, *args):
