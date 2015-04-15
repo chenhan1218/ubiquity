@@ -1,3 +1,18 @@
+ubiquity (2.21.21) vivid; urgency=medium
+
+  * KDE: ubiquity/plugins/ubi-console-setup.py workaround for LP: #1182784
+  * Automatic update of included source packages: partman-auto
+    125ubuntu2.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 15 Apr 2015 19:28:00 +0200
+
+ubiquity (2.21.20) vivid; urgency=medium
+
+  * Automatic update of included source packages: partman-auto
+    125ubuntu2.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 14 Apr 2015 23:05:13 -0500
+
 ubiquity (2.21.19) vivid; urgency=medium
 
   * user-setup-encrypted-swap: Don't zero out the first 4K of the swap
