@@ -1,8 +1,6 @@
 ubiquity (2.21.21) vivid; urgency=medium
 
   * KDE: ubiquity/plugins/ubi-console-setup.py workaround for LP: #1182784
-  * Automatic update of included source packages: partman-auto
-    125ubuntu2.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 15 Apr 2015 19:28:00 +0200
 
