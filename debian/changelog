@@ -1,4 +1,4 @@
-ubiquity (2.21.22) UNRELEASED; urgency=medium
+ubiquity (2.21.22) vivid; urgency=medium
 
   * Automatic update of included source packages: partman-efi 62ubuntu2,
     user-setup 1.48ubuntu5.
@@ -11,7 +11,7 @@ ubiquity (2.21.22) UNRELEASED; urgency=medium
     and "Go Back" will properly return to the partitioning scheme selection
     page and allow to try again without an ESP. (LP: #1444104)
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 15 Apr 2015 16:18:29 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 16 Apr 2015 14:27:08 -0500
 
 ubiquity (2.21.21) vivid; urgency=medium
 
