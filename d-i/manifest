@@ -20,7 +20,7 @@ partman-basicfilesystems 109ubuntu1
 partman-basicmethods 58
 partman-btrfs 14ubuntu2
 partman-crypto 78ubuntu1
-partman-efi 62ubuntu1
+partman-efi 62ubuntu2
 partman-ext3 84ubuntu1
 partman-jfs 45
 partman-lvm 105
@@ -31,5 +31,5 @@ partman-uboot 5
 partman-xfs 55
 preseed 1.64ubuntu2
 tzsetup 1:0.26ubuntu12
-user-setup 1.48ubuntu3
+user-setup 1.48ubuntu5
 yaboot-installer 1.1.33ubuntu1

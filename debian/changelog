@@ -1,5 +1,7 @@
 ubiquity (2.21.22) UNRELEASED; urgency=medium
 
+  * Automatic update of included source packages: partman-efi 62ubuntu2,
+    user-setup 1.48ubuntu5.
   * debian/ubiquity.templates: add a string for "Continue in UEFI mode".
   * ubiquity/plugins/ubi-partman.py: Fix up the buttons for the non_efi_system
     question to use the new string for UEFI mode.
@@ -9,7 +11,7 @@ ubiquity (2.21.22) UNRELEASED; urgency=medium
     and "Go Back" will properly return to the partitioning scheme selection
     page and allow to try again without an ESP. (LP: #1444104)
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 14 Apr 2015 14:31:03 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 15 Apr 2015 16:18:29 -0500
 
 ubiquity (2.21.21) vivid; urgency=medium
 
