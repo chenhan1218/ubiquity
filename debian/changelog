@@ -3,6 +3,11 @@ ubiquity (2.21.23) UNRELEASED; urgency=medium
   * Stop running ubiquity.service as an oneshot service, as this blocks the
     initial boot transaction (including ureadahead etc.). Instead, manually
     start lightdm in the cases where we don't want ubiquity-dm.
+  * GTK/KDE UI: GTK/KDE UI: Fix race between calling reboot/poweroff and the
+    later stopping of the spawned X server by ubiquity-dm. We need to first
+    shut down X orderly and then reboot/poweroff to get a proper transition to
+    Plymouth.  This is a rather nasty hack; fixing this properly requires some
+    more intrusive reeingeering. (LP: #1445587)
 
  -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 20 Apr 2015 16:31:31 +0100
 

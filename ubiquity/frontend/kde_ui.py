@@ -964,7 +964,9 @@ class Wizard(BaseFrontend):
             # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
             ksmserver.logout(0, 1, 2)
         else:
-            misc.execute_root('reboot')
+            # don't let reboot race with the shutdown of X; reboot might be too
+            # fast and X will stay around forever instead of moving to plymouth
+            misc.execute_root('sh', '-c', 'killall Xorg; while pidof X; do sleep 0.5; done; reboot')
 
     def do_shutdown(self):
         """Callback for main program to actually shutdown the machine."""
@@ -979,7 +981,9 @@ class Wizard(BaseFrontend):
             # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
             ksmserver.logout(0, 2, 2)
         else:
-            misc.execute_root('poweroff')
+            # don't let poweroff race with the shutdown of X; poweroff might be too
+            # fast and X will stay around forever instead of moving to plymouth
+            misc.execute_root('sh', '-c', 'killall Xorg; while pidof X; do sleep 0.5; done; poweroff')
 
     def quit(self):
         """Quit installer cleanly."""
