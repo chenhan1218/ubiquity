@@ -1,3 +1,11 @@
+ubiquity (2.21.23) UNRELEASED; urgency=medium
+
+  * Stop running ubiquity.service as an oneshot service, as this blocks the
+    initial boot transaction (including ureadahead etc.). Instead, manually
+    start lightdm in the cases where we don't want ubiquity-dm.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 20 Apr 2015 16:31:31 +0100
+
 ubiquity (2.21.22) vivid; urgency=medium
 
   * Automatic update of included source packages: partman-efi 62ubuntu2,
