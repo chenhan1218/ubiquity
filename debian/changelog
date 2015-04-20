@@ -1,4 +1,4 @@
-ubiquity (2.21.23) UNRELEASED; urgency=medium
+ubiquity (2.21.23) vivid; urgency=medium
 
   * Stop running ubiquity.service as an oneshot service, as this blocks the
     initial boot transaction (including ureadahead etc.). Instead, manually
@@ -9,7 +9,7 @@ ubiquity (2.21.23) UNRELEASED; urgency=medium
     Plymouth.  This is a rather nasty hack; fixing this properly requires some
     more intrusive reeingeering. (LP: #1445587)
 
- -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 20 Apr 2015 16:31:31 +0100
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 20 Apr 2015 18:41:11 +0100
 
 ubiquity (2.21.22) vivid; urgency=medium
 
