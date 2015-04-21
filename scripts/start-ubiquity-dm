@@ -41,13 +41,7 @@ for x in $(cat /proc/cmdline); do
 	    ;;
     esac
 done
-
-if [ -z "$ubiquity" ]; then
-    if [ -e /run/systemd/system ]; then
-        systemctl start --no-block display-manager.service
-    fi
-    exit 0
-fi
+[ "$ubiquity" ] || exit 0
 
 if [ -r /etc/default/locale ]; then
     . /etc/default/locale

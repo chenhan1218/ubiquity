@@ -3,7 +3,7 @@ Description=Ubuntu live CD installer
 Before=display-manager.service
 
 [Service]
-ExecStartPre=/bin/systemctl stop --no-block display-manager.service
+Type=oneshot
 ExecStart=/usr/share/ubiquity/start-ubiquity-dm
 
 [Install]

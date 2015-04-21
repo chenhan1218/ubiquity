@@ -1,3 +1,11 @@
+ubiquity (2.21.24) UNRELEASED; urgency=medium
+
+  * Revert ubiquity.service changes (r6294) from previous upload. It's not
+    necessary to fix proper shutdown, and broke the "Try Ubuntu" button in
+    ubiquity-dm.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 21 Apr 2015 09:47:56 +0100
+
 ubiquity (2.21.23) vivid; urgency=medium
 
   * Stop running ubiquity.service as an oneshot service, as this blocks the
