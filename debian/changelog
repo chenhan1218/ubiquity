@@ -1,3 +1,13 @@
+ubiquity (2.21.25) UNRELEASED; urgency=medium
+
+  * GTK/KDE UI: Don't apply the reboot/poweroff race hack when running under
+    an actual display-manager, i. e. go back to what we always did there. This
+    fixes restarting the greeter after clicking "restart" at the end of
+    installation. lightdm and friends do a proper shutdown already, it's just
+    ubiquity-dm which is racy here.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 21 Apr 2015 18:06:57 +0100
+
 ubiquity (2.21.24) vivid; urgency=medium
 
   * Revert ubiquity.service changes (r6294) from previous upload. It's not

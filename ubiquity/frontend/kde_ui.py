@@ -964,11 +964,13 @@ class Wizard(BaseFrontend):
             # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
             ksmserver.logout(0, 1, 2)
         else:
-            # don't let reboot race with the shutdown of X; reboot might be too
-            # fast and X will stay around forever instead of moving to plymouth
+            # don't let reboot race with the shutdown of X in ubiquity-dm;
+            # reboot might be too fast and X will stay around forever instead
+            # of moving to plymouth
             misc.execute_root(
                 'sh', '-c',
-                'killall Xorg; while pidof X; do sleep 0.5; done; reboot')
+                "if ! service display-manager status; then killall Xorg; "
+                "while pidof X; do sleep 0.5; done; fi; reboot")
 
     def do_shutdown(self):
         """Callback for main program to actually shutdown the machine."""
@@ -983,12 +985,13 @@ class Wizard(BaseFrontend):
             # ShutdownConfirmNo, ShutdownTypeReboot, ShutdownModeForceNow
             ksmserver.logout(0, 2, 2)
         else:
-            # don't let poweroff race with the shutdown of X; poweroff might be
-            # too fast and X will stay around forever instead of moving to
-            # plymouth
+            # don't let poweroff race with the shutdown of X in ubiquity-dm;
+            # poweroff might be too fast and X will stay around forever instead
+            # of moving to plymouth
             misc.execute_root(
                 'sh', '-c',
-                'killall Xorg; while pidof X; do sleep 0.5; done; poweroff')
+                "if ! service display-manager status; then killall Xorg; "
+                "while pidof X; do sleep 0.5; done; fi; poweroff")
 
     def quit(self):
         """Quit installer cleanly."""
