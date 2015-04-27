@@ -2,6 +2,8 @@ ubiquity (2.21.26) vivid; urgency=medium
 
   * ubiquity/plugins/ubi-console-setup.py: use untranslated keyboard
     names if translated ones do not exist LP: #1182784
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu5.
 
  -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 27 Apr 2015 13:32:25 +0200
 
