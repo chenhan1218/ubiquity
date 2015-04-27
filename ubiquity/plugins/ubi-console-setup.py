@@ -373,7 +373,7 @@ class PageKde(plugin.PluginUI):
             lang = self.controller.dbfilter.get_locale()
             try:
                 layout = keyboard_names.layout_id(lang, self.get_keyboard())
-            except KeyError:    
+            except KeyError:
                 layout = keyboard_names.layout_id('C', self.get_keyboard())
             if variant:
                 try:
