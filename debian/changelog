@@ -1,4 +1,4 @@
-ubiquity (2.21.25) UNRELEASED; urgency=medium
+ubiquity (2.21.25) vivid; urgency=medium
 
   * GTK/KDE UI: Don't apply the reboot/poweroff race hack when running under
     an actual display-manager, i. e. go back to what we always did there. This
@@ -6,7 +6,7 @@ ubiquity (2.21.25) UNRELEASED; urgency=medium
     installation. lightdm and friends do a proper shutdown already, it's just
     ubiquity-dm which is racy here.
 
- -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 21 Apr 2015 18:06:57 +0100
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 21 Apr 2015 18:09:57 +0100
 
 ubiquity (2.21.24) vivid; urgency=medium
 
