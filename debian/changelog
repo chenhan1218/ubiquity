@@ -1,3 +1,10 @@
+ubiquity (2.21.26) vivid; urgency=medium
+
+  * ubiquity/plugins/ubi-console-setup.py: use untranslated keyboard
+    names if translated ones do not exist LP: #1182784
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 27 Apr 2015 13:32:25 +0200
+
 ubiquity (2.21.25) vivid; urgency=medium
 
   * GTK/KDE UI: Don't apply the reboot/poweroff race hack when running under
