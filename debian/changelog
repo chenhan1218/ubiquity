@@ -1,4 +1,4 @@
-ubiquity (2.21.27) UNRELEASED; urgency=medium
+ubiquity (2.21.27) wily; urgency=medium
 
   * Automatic update of included source packages: choose-mirror
     2.57ubuntu3, partconf 1.47, partman-lvm 109, preseed 1.64ubuntu3,
@@ -8,7 +8,7 @@ ubiquity (2.21.27) UNRELEASED; urgency=medium
     timezones' accents.
   * d-i/sources.list: switch to wily release.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 01 Jun 2015 14:44:04 -0400
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 04 Jun 2015 10:34:59 -0400
 
 ubiquity (2.21.26) vivid; urgency=medium
 
