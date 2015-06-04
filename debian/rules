@@ -211,7 +211,7 @@ endif
 
 tests: install-stamp
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	CODE=0; env -u LD_PRELOAD ./tests/run --xvfb-log debian/xvfb.log || CODE=$$?; \
+	CODE=0; env -i LANG=C.UTF-8 ./tests/run --xvfb-log debian/xvfb.log || CODE=$$?; \
 	echo "xauth/Xrdb output:"; \
 	cat debian/xvfb.log; \
 	rm -f debian/xvfb.log; \
