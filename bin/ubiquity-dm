@@ -515,20 +515,12 @@ EndSection
 
             if osextras.find_on_path('xfsettingsd'):
                 extras.append(subprocess.Popen(
-                    ['xsetroot', '-solid', 'black'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
-                extras.append(subprocess.Popen(
                     ['xprop', '-root', '-format', '_NET_NUMBER_OF_DESKTOPS',
                      '32c', '-set', '_NET_NUMBER_OF_DESKTOPS', '1'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
                 extras.append(subprocess.Popen(
                     ['xfsettingsd', '--sm-client-disable'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
-                extras.append(subprocess.Popen(
-                    ['xfdesktop', '--sm-client-disable'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
 
