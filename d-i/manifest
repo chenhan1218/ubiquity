@@ -17,7 +17,7 @@ partman-auto-loop 0ubuntu21
 partman-auto-lvm 56ubuntu1
 partman-base 181ubuntu3
 partman-basicfilesystems 109ubuntu1
-partman-basicmethods 58
+partman-basicmethods 59
 partman-btrfs 14ubuntu2
 partman-crypto 78ubuntu1
 partman-efi 62ubuntu2
