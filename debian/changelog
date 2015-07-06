@@ -8,6 +8,12 @@ ubiquity (2.21.28) UNRELEASED; urgency=medium
   * Automatic update of included source packages: partman-basicmethods
     59.
 
+  [ Luke Yelavich ]
+  * ubiquity/frontend/gtk_ui.py: We do not want to be able to focus labels
+    with Orca at all. It negatively affects the install experience and
+    tab/shift tab flow through the installer pages, and prevents Orca
+    presenting label relationships with other widgets
+
  -- Sean Davis <smd.seandavis@gmail.com>  Wed, 17 Jun 2015 00:11:15 -0400
 
 ubiquity (2.21.27) wily; urgency=medium
