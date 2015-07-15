@@ -196,6 +196,10 @@ class Wizard(BaseFrontend):
             elif isinstance(widget, gtkwidgets.StateBox):
                 label = widget.label
 
+            if label:
+                label.set_selectable(True)
+                label.set_property('can-focus', False)
+
         BaseFrontend.__init__(self, distro)
         self.previous_excepthook = sys.excepthook
         sys.excepthook = self.excepthook
