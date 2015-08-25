@@ -76,7 +76,7 @@ case $SESSION in
         SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
 esac
 
-PACKAGES="bzr ssh python-autopilot libautopilot-gtk python3-xlib \
+PACKAGES="bzr ssh python3-autopilot libautopilot-gtk python3-xlib \
     recordmydesktop"
 
 export DEBIAN_FRONTEND=noninteractive
