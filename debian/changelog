@@ -5,8 +5,11 @@ ubiquity (2.21.28) UNRELEASED; urgency=medium
     Xfce environments (LP: #1437180)
 
   [ Mathieu Trudel-Lapierre ]
-  * Automatic update of included source packages: partman-basicmethods
-    59.
+  * Automatic update of included source packages: apt-setup
+    1:0.80ubuntu8, base-installer 1.144ubuntu2, flash-kernel
+    3.0~rc.4ubuntu55, hw-detect 1.95ubuntu7, partconf 1.48, partman-base
+    187ubuntu1, partman-basicmethods 60, partman-jfs 46, partman-lvm
+    110, partman-newworld 33, partman-xfs 56, user-setup 1.48ubuntu6.
   * Update timezone map to add North Korea (Pyongyang time). (LP: #1462688)
 
   [ Luke Yelavich ]
@@ -15,7 +18,7 @@ ubiquity (2.21.28) UNRELEASED; urgency=medium
     tab/shift tab flow through the installer pages, and prevents Orca
     presenting label relationships with other widgets
 
- -- Sean Davis <smd.seandavis@gmail.com>  Wed, 17 Jun 2015 00:11:15 -0400
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Fri, 28 Aug 2015 17:05:15 -0400
 
 ubiquity (2.21.27) wily; urgency=medium
 
