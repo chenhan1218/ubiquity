@@ -189,7 +189,7 @@ class Wizard(BaseFrontend):
                 QtCore.Qt.Dialog |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint
-                )
+            )
 
         self.ui.setWizard(self)
 
