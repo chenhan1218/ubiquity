@@ -186,9 +186,9 @@ class Wizard(BaseFrontend):
 
         if 'UBIQUITY_GREETER' in os.environ:
             self.ui.setWindowFlags(
-                QtCore.Qt.Dialog
-                | QtCore.Qt.CustomizeWindowHint
-                | QtCore.Qt.WindowTitleHint
+                QtCore.Qt.Dialog |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint
                 )
 
         self.ui.setWizard(self)

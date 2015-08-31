@@ -290,8 +290,8 @@ EndSection
                     if type(status) is int and status != 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
-                        raise XStartupError('X server exited with return code '
-                                            + str(status))
+                        raise XStartupError('X server exited with return '
+                                            'code ' + str(status))
                     if timeout == 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])

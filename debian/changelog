@@ -11,6 +11,7 @@ ubiquity (2.21.28) UNRELEASED; urgency=medium
     187ubuntu1, partman-basicmethods 60, partman-jfs 46, partman-lvm
     110, partman-newworld 33, partman-xfs 56, user-setup 1.48ubuntu6.
   * Update timezone map to add North Korea (Pyongyang time). (LP: #1462688)
+  * Fix instances of PEP8 warning: W503 line break before binary operator.
 
   [ Luke Yelavich ]
   * ubiquity/frontend/gtk_ui.py: We do not want to be able to focus labels
