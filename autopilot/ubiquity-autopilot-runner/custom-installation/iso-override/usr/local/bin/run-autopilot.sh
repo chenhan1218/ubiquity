@@ -61,20 +61,40 @@ ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /va
 
 
 # Specific configurations for various DE
-case $SESSION in
-    ubuntu)    # Covers Ubuntu and Edubuntu
+if [ -n "${SESSION+1}" ]; then
+    case $SESSION in
+        ubuntu)    # Covers Ubuntu and Edubuntu
+            SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
+            ;;
+        xubuntu)
+            SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
+            ;;
+        Lubuntu)
+            SESSION_LOG=$HOME/.cache/lxsession/Lubuntu/run.log
+            ARTIFACTS="$ARTIFACTS $HOME/.cache/lxsession"
+            ;;
+    esac
+elif [ -n "${DESKTOP_SESSION+1}" ]; then
+    # These 2 don't seem to log apt stuff to syslog
+    # And there doesn't seem to be a user session log???
+    # So let's tail it and also include in the artifacts
+    case $DESKTOP_SESSION in
+        mate)    # Covers Ubuntu-mate
+            SESSION_LOG=/var/log/apt/term.log
+            ARTIFACTS="$ARTIFACTS /var/log/apt"
+            ;;
+        gnome) #ubuntu-gnome
+            SESSION_LOG=/var/log/apt/term.log
+            ARTIFACTS="$ARTIFACTS /var/log/apt"
+    esac
+else
+    echo "I: Unknown SESSION"
+    exit 1
+fi
+
+case $DESKTOP_SESSION in
+    mate)
         SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
-        ;;
-    xubuntu)
-        SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
-        ;;
-    Lubuntu)
-        SESSION_LOG=$HOME/.cache/lxsession/Lubuntu/run.log
-        ARTIFACTS="$ARTIFACTS $HOME/.cache/lxsession"
-        ;;
-    gnome)     # ubuntu-gnome
-        SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
-esac
 
 PACKAGES="bzr ssh python3-autopilot libautopilot-gtk python3-xlib \
     recordmydesktop"
