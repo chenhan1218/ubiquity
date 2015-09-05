@@ -124,9 +124,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             # that's created on the fly so we can't even add those properties.
             # The best we can do here is a bit of damage limitation and use a
             # lengthy sleep and keyboard right to the continue button.
-            print("go_to_next_page() Entering workaround " \
+            print("go_to_next_page() Entering workaround "
                   "for ubi_question_dialog")
-            print("If the test has failed here it is most likely a timing issue")
+            print("If the test failed here it is most likely a timing issue")
             # This maybe overkill but better to be safe
             time.sleep(20)
             self.kbd.press_and_release('Right')
