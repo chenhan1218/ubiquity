@@ -179,7 +179,7 @@ class Wizard(BaseFrontend):
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
         self.ui = UbiquityUI()
-        
+
         self.icon_widget = SquareSvgWidget(self.ui)
         self.icon_widget.load("/usr/share/ubiquity/qt/images/branding.svgz")
         self.ui.sidebar_widget.layout().addWidget(self.icon_widget)

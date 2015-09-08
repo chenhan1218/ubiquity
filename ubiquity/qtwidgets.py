@@ -6,15 +6,17 @@ import os.path
 from PyQt4.QtGui import QWidget, QHBoxLayout, QLabel, QSizePolicy
 from PyQt4.QtSvg import QSvgWidget
 
+
 class SquareSvgWidget(QSvgWidget):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         QSvgWidget.__init__(self, parent)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy.setHeightForWidth(True)
         self.setSizePolicy(sizePolicy)
-  
+
     def heightForWidth(self, width):
         return width
+
 
 class StateBox(QWidget):
     def __init__(self, parent, text=''):

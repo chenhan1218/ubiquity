@@ -609,10 +609,14 @@ EndSection
             add_ubiquity_kdedir()
             log('start kde4breeze')
             if osextras.find_on_path('kf5-config'):
-                output = subprocess.check_output(['kf5-config', '--path', 'lib']).decode()
-                output = output.replace('\n','')
+                output = subprocess.check_output(
+                    ['kf5-config', '--path', 'lib'])
+                output = output.decode()
+                output = output.replace('\n', '')
                 output = output.split(':')[1]
-                breeze = subprocess.Popen([output + '/kconf_update_bin/kde4breeze'], stdin=null, stdout=logfile, stderr=logfile)
+                breeze = subprocess.Popen(
+                    [output + '/kconf_update_bin/kde4breeze'],
+                    stdin=null, stdout=logfile, stderr=logfile)
                 ret = breeze.wait()
                 log('kde4breeze exited with code {}'.format(ret))
                 if ret != 0:
