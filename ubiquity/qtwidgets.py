@@ -1,8 +1,9 @@
 from __future__ import print_function
 
 import sys
+import os.path
 
-from PyQt4.QtGui import QWidget, QHBoxLayout, QLabel, QPixmap, QSizePolicy
+from PyQt4.QtGui import QWidget, QHBoxLayout, QLabel, QSizePolicy
 from PyQt4.QtSvg import QSvgWidget
 
 class SquareSvgWidget(QSvgWidget):
@@ -39,6 +40,8 @@ class StateBox(QWidget):
             # A cross
             name = "edit-delete.svg"
         name = "/usr/share/icons/breeze/actions/22/" + name
+        if not os.path.isfile(name):
+            name = "/usr/share/icons/breeze/actions/toolbar/" + name
         self.image.load(name)
 
     def get_state(self):
