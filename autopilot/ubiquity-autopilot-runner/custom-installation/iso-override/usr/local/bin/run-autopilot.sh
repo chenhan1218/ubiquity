@@ -86,6 +86,7 @@ elif [ -n "${DESKTOP_SESSION+1}" ]; then
         gnome) #ubuntu-gnome
             SESSION_LOG=/var/log/apt/term.log
             ARTIFACTS="$ARTIFACTS /var/log/apt"
+            ;;
     esac
 else
     echo "I: Unknown SESSION"
