@@ -165,6 +165,8 @@ class Wizard(BaseFrontend):
         # might kick in such as in QIconLoader.cpp:QString fallbackTheme.
         # http://goo.gl/6LkM7X
         os.environ["KDE_SESSION_VERSION"] = "4"
+        # Pretty much all of the above but for Qt5
+        os.environ["QT_QPA_PLATFORMTHEME"] = "kde"
 
         self.app = QtGui.QApplication([])
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
