@@ -93,10 +93,6 @@ else
     exit 1
 fi
 
-case $DESKTOP_SESSION in
-    mate)
-        SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
-
 PACKAGES="bzr ssh python3-autopilot libautopilot-gtk python3-xlib \
     recordmydesktop"
 
