@@ -1,4 +1,4 @@
-ubiquity (2.21.28) UNRELEASED; urgency=medium
+ubiquity (2.21.28) wily; urgency=medium
 
   [ Sean Davis ]
   * bin/ubiquity-dm: Draw the ubiquity desktop with feh under
@@ -27,7 +27,7 @@ ubiquity (2.21.28) UNRELEASED; urgency=medium
   * Update the automated autopilot installation in the vm: get the updated
     sources.list picked up by hooks by being in the right location.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 31 Aug 2015 14:15:11 -0400
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 08 Sep 2015 10:58:17 -0400
 
 ubiquity (2.21.27) wily; urgency=medium
 
