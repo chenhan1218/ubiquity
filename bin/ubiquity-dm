@@ -610,13 +610,15 @@ EndSection
             log('start kde4breeze')
             if osextras.find_on_path('kf5-config'):
                 output = subprocess.check_output(
-                    ['kf5-config', '--path', 'lib'])
+                    ['kf5-config', '--path', 'lib'],
+                    preexec_fn=self.drop_privileges)
                 output = output.decode()
                 output = output.replace('\n', '')
                 output = output.split(':')[1]
                 breeze = subprocess.Popen(
                     [output + '/kconf_update_bin/kde4breeze'],
-                    stdin=null, stdout=logfile, stderr=logfile)
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges)
                 ret = breeze.wait()
                 log('kde4breeze exited with code {}'.format(ret))
                 if ret != 0:
