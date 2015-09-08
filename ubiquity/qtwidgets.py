@@ -2,15 +2,25 @@ from __future__ import print_function
 
 import sys
 
-from PyQt4.QtGui import QWidget, QHBoxLayout, QLabel, QPixmap
+from PyQt4.QtGui import QWidget, QHBoxLayout, QLabel, QPixmap, QSizePolicy
+from PyQt4.QtSvg import QSvgWidget
 
+class SquareSvgWidget(QSvgWidget):
+    def __init__(self, parent = None):
+        QSvgWidget.__init__(self, parent)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHeightForWidth(True)
+        self.setSizePolicy(sizePolicy)
+  
+    def heightForWidth(self, width):
+        return width
 
 class StateBox(QWidget):
     def __init__(self, parent, text=''):
         QWidget.__init__(self, parent)
 
         self.label = QLabel(text, self)
-        self.image = QLabel(self)
+        self.image = SquareSvgWidget(self)
 
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -24,12 +34,12 @@ class StateBox(QWidget):
         self.status = state
         if state:
             # A tickmark
-            name = "dialog-ok-apply.png"
+            name = "dialog-ok-apply.svg"
         else:
             # A cross
-            name = "edit-delete.png"
-        name = "/usr/share/icons/oxygen/22x22/actions/" + name
-        self.image.setPixmap(QPixmap(name))
+            name = "edit-delete.svg"
+        name = "/usr/share/icons/breeze/actions/22/" + name
+        self.image.load(name)
 
     def get_state(self):
         return self.status
