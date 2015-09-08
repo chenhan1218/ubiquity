@@ -41,10 +41,10 @@ class StateBox(QWidget):
         else:
             # A cross
             name = "edit-delete.svg"
-        name = "/usr/share/icons/breeze/actions/22/" + name
-        if not os.path.isfile(name):
-            name = "/usr/share/icons/breeze/actions/toolbar/" + name
-        self.image.load(name)
+        icon = "/usr/share/icons/breeze/actions/22/" + name
+        if not os.path.isfile(icon):
+            icon = "/usr/share/icons/breeze/actions/toolbar/" + name
+        self.image.load(icon)
 
     def get_state(self):
         return self.status
