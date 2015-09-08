@@ -164,7 +164,7 @@ class Wizard(BaseFrontend):
         # We also need to indicate version as otherwise KDElibs3 compatibility
         # might kick in such as in QIconLoader.cpp:QString fallbackTheme.
         # http://goo.gl/6LkM7X
-        os.environ["KDE_SESSION_VERSION"] = "5"
+        os.environ["KDE_SESSION_VERSION"] = "4"
 
         self.app = QtGui.QApplication([])
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
