@@ -315,7 +315,7 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
             row = Columns(*temp_list[start:end])
             # create a new tuple adding the current row number
             # which we will use as dict key
-            row_list.append(('Row{0}'.format(i+1), row))
+            row_list.append(('Row{0}'.format(i + 1), row))
             # update our table dict
             table_dict.update(row_list)
             # remove the items we just added from the temp list
