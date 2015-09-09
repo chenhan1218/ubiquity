@@ -1,3 +1,15 @@
+ubiquity (2.21.29) wily; urgency=medium
+
+  [ Harald Sitter ]
+  * Refine KDE ui with slight changes to artwork and layout to improve visual
+    integration with the overall desing of Breeze styled applications
+
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu6.
+
+ -- Harald Sitter <sitter@kde.org>  Wed, 09 Sep 2015 11:00:10 +0200
+
 ubiquity (2.21.28) wily; urgency=medium
 
   [ Sean Davis ]

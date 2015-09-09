@@ -49,6 +49,7 @@ from ubiquity.frontend.kde_components import ProgressDialog
 from ubiquity.frontend.kde_components.Breadcrumb import Breadcrumb
 from ubiquity.frontend.kde_components import qssutils
 from ubiquity.plugin import Plugin
+from ubiquity.qtwidgets import SquareSvgWidget
 import ubiquity.progressposition
 
 
@@ -164,6 +165,8 @@ class Wizard(BaseFrontend):
         # might kick in such as in QIconLoader.cpp:QString fallbackTheme.
         # http://goo.gl/6LkM7X
         os.environ["KDE_SESSION_VERSION"] = "4"
+        # Pretty much all of the above but for Qt5
+        os.environ["QT_QPA_PLATFORMTHEME"] = "kde"
 
         self.app = QtGui.QApplication([])
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
@@ -178,6 +181,10 @@ class Wizard(BaseFrontend):
         dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 
         self.ui = UbiquityUI()
+
+        self.icon_widget = SquareSvgWidget(self.ui)
+        self.icon_widget.load("/usr/share/ubiquity/qt/images/branding.svgz")
+        self.ui.sidebar_widget.layout().addWidget(self.icon_widget)
 
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
