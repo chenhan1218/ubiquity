@@ -1,8 +1,19 @@
 ubiquity (2.21.30) UNRELEASED; urgency=medium
 
+  [ Mathieu Trudel-Lapierre ]
   * Fix access denied crashes in calling GetDevices() for NM integration: this
     happened because we didn't specify a DBus interface for the call.
     (LP: #1495017)
+
+  [ Dan Chapman ]
+  * Multiple autopilot fixes:
+    - Add workaround for 'Write changes to disk' dialog. (LP: #1480430)
+    - Update the use_device_desc string in generated config file use for
+      english install tests.
+    - Fix handling of globalRect mismatches. (LP: #1479064)
+    - Fixup string comparisons to properly match Ubuntu-MATE for the english
+      install tests.
+    - Fix the autopilot test runner for Ubuntu-GNOME and Ubuntu-MATE.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Sep 2015 13:14:23 -0400
 
