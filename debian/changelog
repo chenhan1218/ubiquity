@@ -4,6 +4,8 @@ ubiquity (2.21.30) UNRELEASED; urgency=medium
   * Fix access denied crashes in calling GetDevices() for NM integration: this
     happened because we didn't specify a DBus interface for the call.
     (LP: #1495017)
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu29.
 
   [ Dan Chapman ]
   * Multiple autopilot fixes:

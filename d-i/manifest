@@ -6,7 +6,7 @@ clock-setup 0.121ubuntu1
 console-setup 1.108ubuntu6
 debian-installer-utils 1.109ubuntu1
 flash-kernel 3.0~rc.4ubuntu55
-grub-installer 1.78ubuntu28
+grub-installer 1.78ubuntu29
 hw-detect 1.95ubuntu7
 localechooser 2.65ubuntu1
 netcfg 1.127ubuntu1
