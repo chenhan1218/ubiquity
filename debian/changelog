@@ -1,4 +1,4 @@
-ubiquity (2.21.30) UNRELEASED; urgency=medium
+ubiquity (2.21.30) wily; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Fix access denied crashes in calling GetDevices() for NM integration: this
@@ -17,7 +17,7 @@ ubiquity (2.21.30) UNRELEASED; urgency=medium
       install tests.
     - Fix the autopilot test runner for Ubuntu-GNOME and Ubuntu-MATE.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Sep 2015 13:14:23 -0400
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Sep 2015 17:04:57 -0400
 
 ubiquity (2.21.29) wily; urgency=medium
 
