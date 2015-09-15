@@ -1,3 +1,11 @@
+ubiquity (2.21.30) UNRELEASED; urgency=medium
+
+  * Fix access denied crashes in calling GetDevices() for NM integration: this
+    happened because we didn't specify a DBus interface for the call.
+    (LP: #1495017)
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Sep 2015 13:14:23 -0400
+
 ubiquity (2.21.29) wily; urgency=medium
 
   [ Harald Sitter ]
