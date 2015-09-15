@@ -126,7 +126,8 @@ class NetworkManager:
         self.bus = dbus.SystemBus()
         self.nm = self.bus.get_object(
             NM, '/org/freedesktop/NetworkManager')
-        self.manager = dbus.Interface(self.nm, 'org.freedesktop.NetworkManager')
+        self.manager = dbus.Interface(
+            self.nm, 'org.freedesktop.NetworkManager')
         add = self.bus.add_signal_receiver
         add(self.queue_build_cache, 'AccessPointAdded', NM_DEVICE_WIFI, NM)
         add(self.queue_build_cache, 'AccessPointRemoved', NM_DEVICE_WIFI, NM)
