@@ -47,7 +47,8 @@ VNCOPTS="-vnc localhost:$VNCPORT"
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
     -net nic,model=virtio -net user -redir tcp:$SSHPORT::22 \
-    -daemonize
+    -daemonize \
+    -cpu pentium3
     "
 
 STARTAT=$(date)
