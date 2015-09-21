@@ -48,7 +48,7 @@ QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
     -net nic,model=virtio -net user -redir tcp:$SSHPORT::22 \
     -daemonize \
-    -cpu pentium3
+    -cpu core2duo
     "
 
 STARTAT=$(date)
