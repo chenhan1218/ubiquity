@@ -4,6 +4,10 @@ ubiquity (2.21.31) UNRELEASED; urgency=medium
   * Build-Depend on the new adwaita-icon-theme instead of the old
     gnome-icon-theme.
 
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: user-setup
+    1.48ubuntu7.
+
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 16 Sep 2015 11:16:34 -0400
 
 ubiquity (2.21.30) wily; urgency=medium
