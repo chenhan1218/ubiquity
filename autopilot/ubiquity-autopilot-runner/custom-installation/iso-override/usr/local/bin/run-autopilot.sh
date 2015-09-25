@@ -107,9 +107,11 @@ on_exit() {
     if [ -n "$(ls /var/crash/)" ]; then
         export CRASH_DB_URL=https://daisy.ubuntu.com 
         export CRASH_DB_IDENTIFIER=$(echo ubiquity_autopilot_$(lsb_release -sc)_$(arch)|sha512sum|cut -d' ' -f1)
-        sudo -E whoopsie||true
-        sleep 3
-        [ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && sudo -E /usr/share/apport/whoopsie-upload-all -t 300
+        #sudo -E whoopsie||true
+        #sleep 3
+        #[ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && sudo -E /usr/share/apport/whoopsie-upload-all -t 300
+        echo "I: The following crash were found:"
+        ls -l /var/crash/ || true
         chmod og+r /var/crash/* 2>/dev/null || true
     fi
 
