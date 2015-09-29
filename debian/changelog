@@ -1,3 +1,34 @@
+ubiquity (2.21.32) wily; urgency=medium
+
+  * Resolve a spacing issue in the KDE ui.
+    - Move vertial spacer for branding logo from designer file to code
+    - Adjust spacing policies of the lefthand pane to do what we need:
+      + the header layout doesn't expand anymore
+      + the steps layout expands horizontally and verticall and additionally
+        enforces its sizeHint as minimum.
+      + the unused footer layout no longer expands horizontally but sticks to
+        its minimum
+    - Push branding logo to smaller size
+      + The logo is now packed into a layout where it is spaced from left and
+        right to cause an undefined shrinking as per Qt's choice. This
+        effectively reduces the sizes of the logo both in width and height (as
+        height is bound to width). This in turn brings the overall size down
+        enough to not cause size expansion beyond "resonable" measures.
+        (Reasonable being just big enough to be good looking but small enough
+         to not push down on the labels in the steps widget. Latter has an
+         unknown cause, but when the logo is too big it starts pushing on the
+         labels, disregarding the entire sizepolicy of all involved widgets.
+         If the logo is small enough this doesn't happen which either may be
+         because there is a hardcoded height somewhere or the joint minimal
+         size of all steps' pages is heigh enough to allow for this to happen.
+         This overall layout problem has been there for years and only became
+         visible now because we have a somewhat heigh widget below the steps
+         layout. Ultimately this issue is going to get resolved if/when
+         ubiquity gets ported to QML which is substantially more suited to
+         building UIs like this with right scaling.)
+
+ -- Harald Sitter <sitter@kde.org>  Tue, 29 Sep 2015 14:37:29 +0200
+
 ubiquity (2.21.31) wily; urgency=medium
 
   [ Iain Lane ]

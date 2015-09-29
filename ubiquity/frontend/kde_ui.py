@@ -182,9 +182,27 @@ class Wizard(BaseFrontend):
 
         self.ui = UbiquityUI()
 
+        # Branding logo is spaced from left and right to cause it to shrink
+        # an undefined amount. This reduces the risk of having the branding
+        # shrink the steps_widget and thus cause text to be cut off or.
+        # Above the branding there is also a spacer pushing down on the logo
+        # and up on the steps to make sure spacing between steps is not
+        # awkwardly huge.
         self.icon_widget = SquareSvgWidget(self.ui)
         self.icon_widget.load("/usr/share/ubiquity/qt/images/branding.svgz")
-        self.ui.sidebar_widget.layout().addWidget(self.icon_widget)
+        branding_layout = QtGui.QHBoxLayout()
+        branding_layout.addItem(QtGui.QSpacerItem(1, 1,
+                                                  QtGui.QSizePolicy.Expanding,
+                                                  QtGui.QSizePolicy.Minimum))
+        branding_layout.addWidget(self.icon_widget)
+        branding_layout.addItem(QtGui.QSpacerItem(1, 1,
+                                                  QtGui.QSizePolicy.Expanding,
+                                                  QtGui.QSizePolicy.Minimum))
+        branding_spacer = QtGui.QSpacerItem(1, 1,
+                                            QtGui.QSizePolicy.Minimum,
+                                            QtGui.QSizePolicy.Expanding)
+        self.ui.sidebar_widget.layout().addItem(branding_spacer)
+        self.ui.sidebar_widget.layout().addItem(branding_layout)
 
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
