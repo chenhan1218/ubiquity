@@ -1,9 +1,9 @@
-ubiquity (2.21.33) UNRELEASED; urgency=medium
+ubiquity (2.21.33) wily; urgency=medium
 
   * Automatic update of included source packages: tzsetup 1:0.66ubuntu2.
     (LP: #1462688)
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 01 Oct 2015 15:29:55 -0400
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 01 Oct 2015 15:50:33 -0400
 
 ubiquity (2.21.32) wily; urgency=medium
 
