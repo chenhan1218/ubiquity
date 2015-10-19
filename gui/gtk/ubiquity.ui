@@ -1029,6 +1029,7 @@
                             <property name="label_fill">True</property>
                             <child>
                               <object class="GtkScrolledWindow" id="install_details_sw">
+                                <property name="height_request">100</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <child>

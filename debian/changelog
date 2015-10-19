@@ -3,6 +3,8 @@ ubiquity (2.21.34) UNRELEASED; urgency=medium
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: console-setup
     1.108ubuntu8, localechooser 2.65ubuntu2.
+  * Set a height_request property for the details extender (the thing you can
+    click to get syslog from the ubiquity slideshow window). (LP: #1507330)
 
   [ Aron Xu ]
   * d-i/patches/localechooser-post-base-installer.patch: update patch for
