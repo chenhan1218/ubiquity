@@ -1,4 +1,4 @@
-ubiquity (2.21.34) UNRELEASED; urgency=medium
+ubiquity (2.21.34) wily; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: console-setup
@@ -10,7 +10,7 @@ ubiquity (2.21.34) UNRELEASED; urgency=medium
   * d-i/patches/localechooser-post-base-installer.patch: update patch for
     new languagelist format.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Oct 2015 15:11:49 +0100
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Oct 2015 17:02:29 +0100
 
 ubiquity (2.21.33) wily; urgency=medium
 
