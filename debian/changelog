@@ -1,7 +1,12 @@
 ubiquity (2.21.34) UNRELEASED; urgency=medium
 
+  [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: console-setup
     1.108ubuntu8, localechooser 2.65ubuntu2.
+
+  [ Aron Xu ]
+  * d-i/patches/localechooser-post-base-installer.patch: update patch for
+    new languagelist format.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Oct 2015 15:11:49 +0100
 
