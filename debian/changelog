@@ -1,3 +1,10 @@
+ubiquity (2.21.37) UNRELEASED; urgency=medium
+
+  * Fix the :arch ignoring bits harder, by doing the same change as 2.21.35
+    but in scripts/install.py this time.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 20 Oct 2015 18:22:19 +0100
+
 ubiquity (2.21.36) wily; urgency=medium
 
   * Automatic update of included source packages: console-setup 1.108ubuntu9,
