@@ -1,10 +1,10 @@
-ubiquity (2.21.36) UNRELEASED; urgency=medium
+ubiquity (2.21.36) wily; urgency=medium
 
   * Automatic update of included source packages: console-setup 1.108ubuntu9,
     grub-installer 1.78ubuntu30, localechooser 2.65ubuntu3. I just did that
     yesterday, too.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 20 Oct 2015 16:16:16 +0100
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 20 Oct 2015 16:17:28 +0100
 
 ubiquity (2.21.35) wily; urgency=medium
 
