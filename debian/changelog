@@ -1,4 +1,4 @@
-ubiquity (2.21.38) UNRELEASED; urgency=medium
+ubiquity (2.21.38) xenial; urgency=medium
 
   * d-i/sources.list: switch to xenial.
   * scripts/plugininstall.py: Ensure /etc/mtab is a symlink to
@@ -7,7 +7,7 @@ ubiquity (2.21.38) UNRELEASED; urgency=medium
   * Automatic update of included source packages: choose-mirror
     2.65ubuntu1, partman-lvm 111.
 
- -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 29 Oct 2015 22:41:51 +0100
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sun, 01 Nov 2015 21:21:28 -0600
 
 ubiquity (2.21.37) wily; urgency=medium
 
