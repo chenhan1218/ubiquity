@@ -918,6 +918,10 @@ class Install(install_misc.InstallBase):
         osextras.unlink_force(
             self.target_file('etc/ssl/private/ssl-cert-snakeoil.key'))
 
+        # ensure /etc/mtab is a symlink
+        osextras.unlink_force(self.target_file('etc/mtab'))
+        os.symlink('../proc/self/mounts', self.target_file('etc/mtab'))
+
         install_misc.chroot_setup(self.target, x11=True)
         install_misc.chrex(
             self.target, 'dpkg-divert', '--package', 'ubiquity', '--rename',

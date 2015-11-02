@@ -1,6 +1,9 @@
 ubiquity (2.21.38) UNRELEASED; urgency=medium
 
   * d-i/sources.list: switch to xenial.
+  * scripts/plugininstall.py: Ensure /etc/mtab is a symlink to
+    /proc/self/mounts. Same fix as in finish-install 2.58.
+    (Closes: #802184, #802187; LP: #1511376)
 
  -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 29 Oct 2015 22:41:51 +0100
 
