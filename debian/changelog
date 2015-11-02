@@ -4,6 +4,8 @@ ubiquity (2.21.38) UNRELEASED; urgency=medium
   * scripts/plugininstall.py: Ensure /etc/mtab is a symlink to
     /proc/self/mounts. Same fix as in finish-install 2.58.
     (Closes: #802184, #802187; LP: #1511376)
+  * Automatic update of included source packages: choose-mirror
+    2.65ubuntu1, partman-lvm 111.
 
  -- Martin Pitt <martin.pitt@ubuntu.com>  Thu, 29 Oct 2015 22:41:51 +0100
 

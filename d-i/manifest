@@ -1,7 +1,7 @@
 apt-setup 1:0.80ubuntu8
 base-installer 1.144ubuntu2
 bterm-unifont 1.3
-choose-mirror 2.57ubuntu3
+choose-mirror 2.65ubuntu1
 clock-setup 0.121ubuntu1
 console-setup 1.108ubuntu9
 debian-installer-utils 1.109ubuntu1
@@ -23,7 +23,7 @@ partman-crypto 78ubuntu1
 partman-efi 62ubuntu2
 partman-ext3 84ubuntu1
 partman-jfs 46
-partman-lvm 110
+partman-lvm 111
 partman-newworld 33
 partman-partitioning 106ubuntu1
 partman-target 92ubuntu1
