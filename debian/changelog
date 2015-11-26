@@ -1,3 +1,12 @@
+ubiquity (2.21.39) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: partman-efi 62ubuntu3,
+    partman-ext3 84ubuntu2, partman-xfs 57, preseed 1.64ubuntu4, flash-kernel
+    3.0~rc.4ubuntu56.
+  * Add support for disabling Secure Boot in prepare screen.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 24 Nov 2015 15:43:16 -0500
+
 ubiquity (2.21.38) xenial; urgency=medium
 
   * d-i/sources.list: switch to xenial.
