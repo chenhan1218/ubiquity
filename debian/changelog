@@ -1,8 +1,10 @@
 ubiquity (2.21.39) UNRELEASED; urgency=medium
 
   * Automatic update of included source packages: partman-efi 62ubuntu3,
-    partman-ext3 84ubuntu2, partman-xfs 57, preseed 1.64ubuntu4, flash-kernel
-    3.0~rc.4ubuntu56.
+    partman-ext3 84ubuntu2, partman-xfs 57, preseed 1.64ubuntu4, apt-setup
+    1:0.104ubuntu1, flash-kernel 3.0~rc.4ubuntu57, hw-detect 1.114ubuntu1,
+    netcfg 1.135ubuntu1, partman-btrfs 18ubuntu1, preseed 1.68ubuntu1,
+    user-setup 1.63ubuntu1.
   * Add support for disabling Secure Boot in prepare screen.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 24 Nov 2015 15:43:16 -0500
