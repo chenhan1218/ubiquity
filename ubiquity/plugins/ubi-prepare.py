@@ -202,8 +202,9 @@ class PageGtk(PreparePageBase):
         from gi.repository import Gtk
         dialog = Gtk.MessageDialog(
             self.page.get_toplevel(), Gtk.DialogFlags.MODAL,
-            Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, self.secureboot_msg)
+            Gtk.MessageType.INFO, Gtk.ButtonsType.CLOSE, None)
         dialog.set_title(self.secureboot_title)
+        dialog.set_markup(self.secureboot_msg)
         dialog.run()
         dialog.destroy()
 
