@@ -1,4 +1,4 @@
-ubiquity (2.21.40) UNRELEASED; urgency=medium
+ubiquity (2.21.40) xenial; urgency=medium
 
   * Automatic update of included source packages: partman-auto
     131ubuntu1, partman-basicfilesystems 120ubuntu1, partman-crypto
@@ -7,7 +7,7 @@ ubiquity (2.21.40) UNRELEASED; urgency=medium
     we might actually want to use it on, while being extremely generous:
     this leads to building on x86, arm*, and ppc*, but not on s390x.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 23 Dec 2015 11:37:21 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 23 Dec 2015 11:42:48 -0500
 
 ubiquity (2.21.39) xenial; urgency=medium
 
