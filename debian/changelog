@@ -1,3 +1,11 @@
+ubiquity (2.21.40) UNRELEASED; urgency=medium
+
+  * debian/control: build ubiquity-frontend-gtk only for the architectures
+    we might actually want to use it on, while being extremely generous:
+    this leads to building on x86, arm*, and ppc*, but not on s390x.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 23 Dec 2015 11:27:45 -0500
+
 ubiquity (2.21.39) xenial; urgency=medium
 
   * Automatic update of included source packages: partman-efi 62ubuntu3,
