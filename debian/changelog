@@ -1,3 +1,10 @@
+ubiquity (2.21.41) UNRELEASED; urgency=medium
+
+  * Pass "-term linux" when running setterm from start-ubiquity-dm, as
+    without TERM set it otherwise refuses to do anything.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 31 Dec 2015 00:03:17 +0000
+
 ubiquity (2.21.40) xenial; urgency=medium
 
   * Automatic update of included source packages: partman-auto
