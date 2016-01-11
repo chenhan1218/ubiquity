@@ -875,7 +875,7 @@ class Wizard(BaseFrontend):
         from gi.repository import WebKit2
         # We have no significant browsing interface, so there isn't much point
         # in WebKit creating a memory-hungry cache.
-        context = WebKit2.WebContext.get_default() 
+        context = WebKit2.WebContext.get_default()
         context.set_cache_model(WebKit2.CacheModel.DOCUMENT_VIEWER)
         webview = WebKit2.WebView()
         # WebKit puts file URLs in their own domain by default.
