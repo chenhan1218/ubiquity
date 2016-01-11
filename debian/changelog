@@ -1,3 +1,9 @@
+ubiquity (2.21.43) UNRELEASED; urgency=medium
+
+  * Port the slideshow screen to WebKit 2 (LP: #1469221)
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 11 Jan 2016 13:17:22 +0000
+
 ubiquity (2.21.42) xenial; urgency=medium
 
   * Automatic update of included source packages: grub-installer

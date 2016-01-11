@@ -831,13 +831,21 @@ class Wizard(BaseFrontend):
 
         return self.returncode
 
-    def on_slideshow_link_clicked(self, unused_view, unused_frame, req,
-                                  unused_action, decision):
-        uri = req.get_uri()
-        decision.ignore()
-        subprocess.Popen(['sensible-browser', uri],
-                         close_fds=True, preexec_fn=misc.drop_all_privileges)
+    def on_context_menu(self, unused_web_view, unused_context_menu,
+                        unused_event, unused_hit_test_result):
+        # True will not sure the menu
         return True
+
+    def on_slideshow_link_clicked(self, web_view, decision, decision_type):
+        from gi.repository import WebKit2
+        if decision_type == WebKit2.PolicyDecisionType.NEW_WINDOW_ACTION:
+            request = decision.get_request()
+            uri = request.get_uri()
+            decision.ignore()
+            subprocess.Popen(['sensible-browser', uri],
+                             close_fds=True, preexec_fn=misc.drop_all_privileges)
+            return True
+        return False
 
     def start_slideshow(self):
         self.progress_mode.set_current_page(
@@ -863,31 +871,32 @@ class Wizard(BaseFrontend):
 
         slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
-        from gi.repository import WebKit
+        from gi.repository import WebKit2
         # We have no significant browsing interface, so there isn't much point
         # in WebKit creating a memory-hungry cache.
-        WebKit.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
-        webview = WebKit.WebView()
+        context = WebKit2.WebContext.get_default() 
+        context.set_cache_model(WebKit2.CacheModel.DOCUMENT_VIEWER)
+        webview = WebKit2.WebView()
         # WebKit puts file URLs in their own domain by default.
         # This means that anything which checks for the same origin,
         # such as creating a XMLHttpRequest, will fail unless this
         # is disabled.
         # http://www.gitorious.org/webkit/webkit/commit/624b946
         s = webview.get_settings()
-        s.set_property('enable-file-access-from-file-uris', True)
-        s.set_property('enable-default-context-menu', False)
+        s.set_property('allow-file-access-from-file-urls', True)
+        webview.connect('context-menu', self.on_context_menu)
         if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
             s.set_property('enable-caret-browsing', True)
 
-        webview.connect('new-window-policy-decision-requested',
+        webview.connect('decide-policy',
                         self.on_slideshow_link_clicked)
 
-        self.webkit_scrolled_window.add(webview)
-        webview.open(slides)
+        webview.show()
+        self.page_mode.insert_page(webview, None, 1)
+        webview.load_uri(slides)
         # TODO do these in a page loaded callback
         self.page_mode.show()
         self.page_mode.set_current_page(1)
-        webview.show()
         webview.grab_focus()
 
     def customize_installer(self):
