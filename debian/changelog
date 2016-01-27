@@ -1,4 +1,4 @@
-ubiquity (2.21.43) UNRELEASED; urgency=medium
+ubiquity (2.21.43) xenial; urgency=medium
 
   * ubiquity/install_misc.py: be extra careful retrieving the state of the
     SecureBoot variable the system if booted in EFI, to avoid invalid data.
@@ -6,7 +6,7 @@ ubiquity (2.21.43) UNRELEASED; urgency=medium
   * Automatic update of included source packages: base-installer
     1.158ubuntu2, console-setup 1.108ubuntu10.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 26 Jan 2016 19:20:56 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 26 Jan 2016 19:23:41 -0500
 
 ubiquity (2.21.42) xenial; urgency=medium
 
