@@ -834,7 +834,7 @@ class Wizard(BaseFrontend):
 
     def on_context_menu(self, unused_web_view, unused_context_menu,
                         unused_event, unused_hit_test_result):
-        # True will not sure the menu
+        # True will not show the menu
         return True
 
     def on_slideshow_link_clicked(self, web_view, decision, decision_type):
