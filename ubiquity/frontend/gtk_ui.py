@@ -37,6 +37,7 @@ import atexit
 import configparser
 from functools import reduce
 import gettext
+import gi
 import os
 import subprocess
 import sys
@@ -837,6 +838,7 @@ class Wizard(BaseFrontend):
         return True
 
     def on_slideshow_link_clicked(self, web_view, decision, decision_type):
+        gi.require_version('WebKit2', '4.0')
         from gi.repository import WebKit2
         if decision_type == WebKit2.PolicyDecisionType.NEW_WINDOW_ACTION:
             request = decision.get_request()
@@ -874,6 +876,7 @@ class Wizard(BaseFrontend):
 
         slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
+        gi.require_version('WebKit2', '4.0')
         from gi.repository import WebKit2
         # We have no significant browsing interface, so there isn't much point
         # in WebKit creating a memory-hungry cache.
