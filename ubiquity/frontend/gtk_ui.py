@@ -850,7 +850,7 @@ class Wizard(BaseFrontend):
 
     def start_slideshow(self):
         # WebKit2 spawns a process which we don't want to run as root
-        misc.drop_privileges()
+        misc.drop_privileges_save()
         self.progress_mode.set_current_page(
             self.progress_pages['progress_bar'])
 
@@ -901,7 +901,7 @@ class Wizard(BaseFrontend):
         self.page_mode.show()
         self.page_mode.set_current_page(1)
         webview.grab_focus()
-        misc.regain_privileges()
+        misc.regain_privileges_save()
 
     def customize_installer(self):
         """Initial UI setup."""
