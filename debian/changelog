@@ -1,3 +1,13 @@
+ubiquity (2.21.44) UNRELEASED; urgency=medium
+
+  * Port the slideshow screen to WebKit 2 (LP: #1469221)
+  * Automatic update of included source packages: apt-setup
+    1:0.104ubuntu3, bterm-unifont 1.4, choose-mirror 2.65ubuntu4, flash-
+    kernel 3.0~rc.4ubuntu58, partconf 1.49, partman-basicmethods 61,
+    partman-lvm 112, partman-newworld 34, partman-xfs 58.
+
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 09 Feb 2016 12:18:57 +0000
+
 ubiquity (2.21.43) xenial; urgency=medium
 
   * ubiquity/install_misc.py: be extra careful retrieving the state of the
