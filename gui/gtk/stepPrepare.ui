@@ -12,12 +12,14 @@
       <object class="GtkBox" id="step_prepare_vbox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="no_show_all">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkAlignment" id="alignment7">
-            <property name="visible">True</property>
+          <object class="GtkAlignment" id="states">
+            <property name="sensitive">False</property>
             <property name="can_focus">False</property>
-            <property name="bottom_padding">10</property>
+            <property name="no_show_all">True</property>
+            <property name="double_buffered">False</property>
             <child>
               <object class="GtkBox" id="vbox1">
                 <property name="visible">True</property>
@@ -41,7 +43,7 @@
                     <property name="label">that you are plugged in to a power source</property>
                   </object>
                   <packing>
-                   <property name="expand">True</property>
+                    <property name="expand">True</property>
                     <property name="fill">True</property>
                     <property name="position">1</property>
                   </packing>
@@ -62,12 +64,55 @@
           </object>
           <packing>
             <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="insufficient_space">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="no_show_all">True</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="label_required_space">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_free_space">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">start</property>
+                <property name="margin_top">6</property>
+                <property name="margin_bottom">6</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="vbox2">
+          <object class="GtkBox" id="updates_vbox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
@@ -254,13 +299,14 @@
                                     <property name="can_focus">False</property>
                                     <property name="orientation">vertical</property>
                                     <child>
-                                      <object class="GtkCheckButton" id="secureboot_disable">
+                                      <object class="GtkCheckButton" id="disable_secureboot">
                                         <property name="label" translatable="yes">Turn off Secure Boot</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
                                         <property name="xalign">0</property>
                                         <property name="draw_indicator">True</property>
+                                        <signal name="toggled" handler="on_secureboot_toggled" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -279,16 +325,14 @@
                                             <property name="can_focus">False</property>
                                             <property name="row_spacing">6</property>
                                             <property name="column_spacing">6</property>
-                                            <property name="column_homogeneous">True</property>
                                             <child>
                                               <object class="GtkEntry" id="password">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
-                                                <property name="hexpand">True</property>
                                                 <property name="visibility">False</property>
                                                 <property name="invisible_char">●</property>
                                                 <property name="activates_default">True</property>
-                                                <property name="width_chars">20</property>
+                                                <property name="width_chars">35</property>
                                                 <signal name="changed" handler="info_loop" swapped="no"/>
                                               </object>
                                               <packing>
@@ -300,11 +344,10 @@
                                               <object class="GtkEntry" id="verified_password">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
-                                                <property name="hexpand">True</property>
                                                 <property name="visibility">False</property>
                                                 <property name="invisible_char">●</property>
                                                 <property name="activates_default">True</property>
-                                                <property name="width_chars">20</property>
+                                                <property name="width_chars">35</property>
                                                 <signal name="changed" handler="info_loop" swapped="no"/>
                                               </object>
                                               <packing>

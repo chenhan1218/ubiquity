@@ -1128,10 +1128,16 @@ Template: ubiquity/text/prepare_best_results
 Type: text
 _Description: For best results, please ensure that this computer:
 
-Template: ubiquity/text/prepare_sufficient_space
+Template: ubiquity/text/required_space
 Type: text
 # SIZE is a variable substituted into this string, and may be '3.7 GB'
-_Description: has at least ${SIZE} available drive space
+# RELEASE is a variable substituted into this string, the Ubuntu flavor'
+_Description: You need at least ${SIZE} disk space to install ${RELEASE}.
+
+Template: ubiquity/text/free_space
+Type: text
+# SIZE is a variable substituted into this string, and may be '3.7 GB'
+_Description: This computer has only ${SIZE}.
 
 Template: ubiquity/text/prepare_power_source
 Type: text

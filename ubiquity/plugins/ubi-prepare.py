@@ -56,25 +56,20 @@ class PreparePageBase(plugin.PluginUI):
             self.controller.allow_go_forward(False)
         self.prepare_sufficient_space.set_state(state)
 
-    def set_sufficient_space_text(self, space):
-        self.prepare_sufficient_space.set_property('label', space)
-
     def plugin_translate(self, lang):
-        power = self.controller.get_string('prepare_power_source', lang)
-        ether = self.controller.get_string('prepare_network_connection', lang)
-        self.prepare_power_source.set_property('label', power)
-        self.prepare_network_connection.set_property('label', ether)
+        return
 
 
 class PageGtk(PreparePageBase):
     restricted_package_name = 'ubuntu-restricted-addons'
+
 
     def __init__(self, controller, *args, **kwargs):
         if self.is_automatic:
             self.page = None
             return
         self.controller = controller
-        from ubiquity.gtkwidgets import Builder
+        from ubiquity.gtkwidgets import Builder, StateBox
         builder = Builder()
         self.controller.add_builder(builder)
         builder.add_from_file(os.path.join(
@@ -114,6 +109,17 @@ class PageGtk(PreparePageBase):
         self.secureboot_title = 'UEFI Secure Boot'
         self.secureboot_msg = 'Secure Boot'
 
+        self.secureboot_box.set_sensitive(False)
+        self.password_grid.set_sensitive(False)
+
+        enough_space = self.prepare_sufficient_space.get_state()
+        if enough_space:
+            self.insufficient_space.hide()
+        else:
+            self.updates_vbox.set_visible(False)
+            self.insufficient_space.show()
+
+
     def set_using_secureboot(self, secureboot):
         self.using_secureboot = secureboot
         self.on_nonfree_toggled(None)
@@ -131,7 +137,6 @@ class PageGtk(PreparePageBase):
         if not allow:
             self.prepare_nonfree_software.set_active(False)
             self.prepare_nonfree_software.set_property('visible', False)
-            self.prepare_foss_disclaimer.set_property('visible', False)
             self.prepare_foss_disclaimer_extra.set_property('visible', False)
 
     def set_use_nonfree(self, val):
@@ -144,11 +149,22 @@ class PageGtk(PreparePageBase):
     def get_use_nonfree(self):
         return self.prepare_nonfree_software.get_active()
 
+    def get_disable_secureboot(self):
+        return self.disable_secureboot.get_active()
+
     def plugin_translate(self, lang):
         PreparePageBase.plugin_translate(self, lang)
         release = misc.get_release()
+
+        required = 'ubiquity/text/required_space'
+        free = 'ubiquity/text/free_space'
+        self.label_required_space = self.controller.get_string(required)
+        self.label_free_space = self.controller.get_string(free)
+
         from gi.repository import Gtk
-        for widget in [self.prepare_foss_disclaimer]:
+        for widget in [self.prepare_download_updates,
+                       self.label_required_space,
+                       self.label_free_space]:
             text = i18n.get_string(Gtk.Buildable.get_name(widget), lang)
             text = text.replace('${RELEASE}', release.name)
             widget.set_label(text)
@@ -158,14 +174,15 @@ class PageGtk(PreparePageBase):
         self.secureboot_title = self.controller.get_string(sb_title_template)
         self.secureboot_msg = self.controller.get_string(sb_info_template)
 
+
     def on_nonfree_toggled(self, widget):
-        if self.using_secureboot:
-            enabled = self.get_use_nonfree()
-            if enabled:
-                self.secureboot_box.show()
-            else:
-                self.secureboot_box.hide()
-            self.info_loop(None)
+        enabled = self.get_use_nonfree()
+        self.secureboot_box.set_sensitive(enabled)
+
+    def on_secureboot_toggled(self, widget):
+        enabled = self.get_disable_secureboot()
+        self.password_grid.set_sensitive(enabled)
+        self.info_loop(None)
 
     def info_loop(self, unused_widget):
         complete = True
@@ -307,6 +324,7 @@ class Page(plugin.Plugin):
         if 'efi' in subarch:
             if is_secure_boot():
                 self.ui.set_using_secureboot(True)
+        self.ui.set_using_secureboot(True)
 
         download_updates = self.db.get('ubiquity/download_updates') == 'true'
         self.ui.set_download_updates(download_updates)
@@ -319,13 +337,16 @@ class Page(plugin.Plugin):
         # TODO move into prepare.
         size = misc.install_size()
         self.db.subst(
-            'ubiquity/text/prepare_sufficient_space', 'SIZE',
+            'ubiquity/text/required_space', 'SIZE',
             misc.format_size(size))
-        space = self.description('ubiquity/text/prepare_sufficient_space')
-        self.ui.set_sufficient_space(self.big_enough(size))
-        self.ui.set_sufficient_space_text(space)
+        free = free_space()
+        self.db.subst(
+            'ubiquity/text/free_space', 'SIZE',
+            misc.format_size(free))
+        self.ui.set_sufficient_space(size < free)
 
-    def big_enough(self, size):
+    def free_space(self):
+        biggest = 0
         with misc.raised_privileges():
             proc = subprocess.Popen(
                 ['parted_devices'],
@@ -333,10 +354,9 @@ class Page(plugin.Plugin):
             devices = proc.communicate()[0].rstrip('\n').split('\n')
             ret = False
             for device in devices:
-                if device and int(device.split('\t')[1]) > size:
-                    ret = True
-                    break
-        return ret
+                if device and int(device.split('\t')[1]) > biggest:
+                    biggest = int(device.split('\t')[1])
+        return biggest
 
     def ok_handler(self):
         download_updates = self.ui.get_download_updates()
