@@ -249,14 +249,12 @@ class PageKde(PreparePageBase):
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
             self.prepare_foss_disclaimer = self.page.prepare_foss_disclaimer
             self.prepare_sufficient_space = StateBox(self.page)
-            self.page.vbox1.addWidget(self.prepare_sufficient_space)
             # TODO we should set these up and tear them down while on this
             # page.
             try:
                 self.prepare_power_source = StateBox(self.page)
                 if upower.has_battery():
                     upower.setup_power_watch(self.prepare_power_source)
-                    self.page.vbox1.addWidget(self.prepare_power_source)
                 else:
                     self.prepare_power_source.hide()
             except Exception as e:
@@ -264,14 +262,22 @@ class PageKde(PreparePageBase):
                 print('unable to set up power source watch:', e)
             try:
                 self.prepare_network_connection = StateBox(self.page)
-                self.page.vbox1.addWidget(self.prepare_network_connection)
             except Exception as e:
                 print('unable to set up network connection watch:', e)
         except Exception as e:
             print("Could not create prepare page:", str(e), file=sys.stderr)
             self.debug('Could not create prepare page: %s', e)
             self.page = None
+        self.using_secureboot = False
         self.plugin_widgets = self.page
+
+    def show_insufficient_space_page(self, required, free):
+        return
+
+    def get_secureboot_key(self):
+        # TODO: This needs the controls to set a Secure Boot key.
+        # return str(self.password.text())
+        return ""
 
     def enable_download_updates(self, val):
         self.prepare_download_updates.setEnabled(val)
@@ -307,8 +313,7 @@ class PageKde(PreparePageBase):
         release = misc.get_release()
         widgets = (
             self.page.prepare_heading_label,
-            self.page.prepare_best_results,
-            self.page.prepare_foss_disclaimer,
+            self.page.prepare_download_updates,
         )
         for widget in widgets:
             text = widget.text()
