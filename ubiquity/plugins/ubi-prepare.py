@@ -128,6 +128,7 @@ class PageGtk(PreparePageBase):
 
     def set_using_secureboot(self, secureboot):
         self.using_secureboot = secureboot
+        self.secureboot_box.set_visible(secureboot)
         self.on_nonfree_toggled(None)
 
     def enable_download_updates(self, val):
