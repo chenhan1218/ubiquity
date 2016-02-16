@@ -1,4 +1,4 @@
-ubiquity (2.21.44) UNRELEASED; urgency=medium
+ubiquity (2.21.44) xenial; urgency=medium
 
   [ Iain Lane ]
   * Port the slideshow screen to WebKit 2 (LP: #1469221)
@@ -14,7 +14,7 @@ ubiquity (2.21.44) UNRELEASED; urgency=medium
   * Redesign the prepare screen for less clutter.
   * Unbreak the Kubuntu installer with respect to Secure Boot.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 16 Feb 2016 06:03:21 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 16 Feb 2016 06:10:51 -0500
 
 ubiquity (2.21.43) xenial; urgency=medium
 
