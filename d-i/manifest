@@ -5,7 +5,7 @@ choose-mirror 2.65ubuntu5
 clock-setup 0.126ubuntu1
 console-setup 1.108ubuntu10
 debian-installer-utils 1.113ubuntu1
-flash-kernel 3.0~rc.4ubuntu60
+flash-kernel 3.0~rc.4ubuntu62
 grub-installer 1.128ubuntu2
 hw-detect 1.114ubuntu1
 localechooser 2.65ubuntu3
@@ -22,7 +22,7 @@ partman-btrfs 18ubuntu1
 partman-crypto 86ubuntu1
 partman-efi 71ubuntu1
 partman-ext3 84ubuntu2
-partman-jfs 46
+partman-jfs 47
 partman-lvm 112
 partman-newworld 34
 partman-partitioning 110ubuntu3
