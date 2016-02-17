@@ -654,7 +654,8 @@ class Wizard(BaseFrontend):
             hc_profile_found = False
             sr_profile_found = False
 
-            profile_list_subp = subprocess.Popen(['a11y-profile-manager', '-l'],
+            profile_list_subp = subprocess.Popen(['a11y-profile-manager',
+                                                  '-l'],
                                                   stdout=subprocess.PIPE,
                                                   preexec_fn=misc.drop_all_privileges,
                                                   universal_newlines=True)
