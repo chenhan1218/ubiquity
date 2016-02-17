@@ -1,3 +1,10 @@
+ubiquity (2.21.45) UNRELEASED; urgency=medium
+
+  * Rework the accessibility profile code to use the accessibility profile
+    manager if available
+
+ -- Luke Yelavich <themuso@ubuntu.com>  Wed, 17 Feb 2016 17:59:29 +1100
+
 ubiquity (2.21.44) xenial; urgency=medium
 
   [ Iain Lane ]
