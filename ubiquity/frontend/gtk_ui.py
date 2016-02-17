@@ -654,23 +654,25 @@ class Wizard(BaseFrontend):
             hc_profile_found = False
             sr_profile_found = False
 
-            profile_list_subp = subprocess.Popen(['a11y-profile-manager',
-                                                  '-l'],
-                                                  stdout=subprocess.PIPE,
-                                                  preexec_fn=misc.drop_all_privileges,
-                                                  universal_newlines=True)
+            subp = subprocess.Popen(['a11y-profile-manager',
+                                    '-l'],
+                                    stdout=subprocess.PIPE,
+                                    preexec_fn=misc.drop_all_privileges,
+                                    universal_newlines=True)
 
-            for line in profile_list_subp.stdout:
+            for line in subp.stdout:
                 value = line.rstrip('\n')
                 if value == 'high-contrast':
                     hc_profile_found = True
                 if value == 'blindness':
                     sr_profile_found = True
 
-            if (hc_profile_found == True and event.state & Gdk.ModifierType.CONTROL_MASK and
+            if (hc_profile_found is True and event.state &
+                Gdk.ModifierType.CONTROL_MASK and
                     event.keyval == Gdk.keyval_from_name('h')):
                 self.a11y_profile_high_contrast_activate()
-            elif (sr_profile_found == True and event.state & Gdk.ModifierType.SUPER_MASK and
+            elif (sr_profile_found is True and event.state &
+                  Gdk.ModifierType.SUPER_MASK and
                     event.state & Gdk.ModifierType.MOD1_MASK and
                     event.keyval == Gdk.keyval_from_name('s')):
                 self.a11y_profile_screen_reader_activate()
