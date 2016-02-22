@@ -1,4 +1,4 @@
-ubiquity (2.21.45) UNRELEASED; urgency=medium
+ubiquity (2.21.45) xenial; urgency=medium
 
   [ Luke Yelavich ]
   * Rework the accessibility profile code to use the accessibility profile
@@ -9,7 +9,7 @@ ubiquity (2.21.45) UNRELEASED; urgency=medium
   * Automatic update of included source packages: hw-detect
     1.114ubuntu2.
 
- -- Luke Yelavich <themuso@ubuntu.com>  Wed, 17 Feb 2016 17:59:29 +1100
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 22 Feb 2016 17:37:59 -0500
 
 ubiquity (2.21.44) xenial; urgency=medium
 
