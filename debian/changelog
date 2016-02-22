@@ -1,7 +1,11 @@
 ubiquity (2.21.45) UNRELEASED; urgency=medium
 
+  [ Luke Yelavich ]
   * Rework the accessibility profile code to use the accessibility profile
     manager if available
+
+  [ Mathieu Trudel-Lapierre ]
+  * Don't crash if we can't reach the DBus interface for UPower.
 
  -- Luke Yelavich <themuso@ubuntu.com>  Wed, 17 Feb 2016 17:59:29 +1100
 
