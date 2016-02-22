@@ -6,6 +6,8 @@ ubiquity (2.21.45) UNRELEASED; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Don't crash if we can't reach the DBus interface for UPower.
+  * Automatic update of included source packages: hw-detect
+    1.114ubuntu2.
 
  -- Luke Yelavich <themuso@ubuntu.com>  Wed, 17 Feb 2016 17:59:29 +1100
 
