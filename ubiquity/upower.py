@@ -10,18 +10,15 @@ UPOWER_PATH = '/org/freedesktop/UPower'
 
 
 def setup_power_watch(prepare_power_source):
-    try:
-        bus = dbus.SystemBus()
-        upower = bus.get_object(UPOWER, UPOWER_PATH)
+    bus = dbus.SystemBus()
+    upower = bus.get_object(UPOWER, UPOWER_PATH)
 
-        def power_state_changed():
-            prepare_power_source.set_state(
-                not misc.get_prop(upower, UPOWER_PATH, 'OnBattery'))
+    def power_state_changed():
+        prepare_power_source.set_state(
+            not misc.get_prop(upower, UPOWER, 'OnBattery'))
 
-        bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
-        power_state_changed()
-    except:
-        return
+    bus.add_signal_receiver(power_state_changed, 'Changed', UPOWER, UPOWER)
+    power_state_changed()
 
 
 def has_battery():

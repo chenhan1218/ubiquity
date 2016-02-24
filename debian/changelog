@@ -1,3 +1,12 @@
+ubiquity (2.21.46) UNRELEASED; urgency=medium
+
+  * ubiquity/upower.py: Revert commit 6376, blank "except:" is wrong.
+  * ubiquity/upower.py: Actually specify the correct D-Bus interface name
+    instead of the object path name when querying the OnBattery property.
+    (LP: #1547956)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 24 Feb 2016 10:15:12 +0100
+
 ubiquity (2.21.45) xenial; urgency=medium
 
   [ Luke Yelavich ]
