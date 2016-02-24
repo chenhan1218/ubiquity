@@ -4,6 +4,8 @@ ubiquity (2.21.46) UNRELEASED; urgency=medium
   * ubiquity/upower.py: Actually specify the correct D-Bus interface name
     instead of the object path name when querying the OnBattery property.
     (LP: #1547956)
+  * debian/rules: Build under C.UTF-8 locale. grep 2.23 causes broken debconf
+    templates to be built under the C locale.
 
  -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 24 Feb 2016 10:15:12 +0100
 
