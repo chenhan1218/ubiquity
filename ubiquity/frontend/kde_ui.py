@@ -91,7 +91,8 @@ class UbiquityUI(QtGui.QMainWindow):
                         distro_name = name
                 elif "DISTRIB_RELEASE=" in line:
                     distro_release = str.strip(line.split("=")[1], '\n')
-                    if distro_release.startswith('"') and distro_release.endswith('"'):
+                    if distro_release.startswith('"') and \
+                            distro_release.endswith('"'):
                         distro_release = distro_release[1:-1]
 
         self.distro_name_label.setText(distro_name)
