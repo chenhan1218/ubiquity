@@ -8,6 +8,12 @@ ubiquity (2.21.47) UNRELEASED; urgency=medium
   * kde_ui.py: strip any quotes from the lsb-release values
   * Allow for alternate logos
 
+  [ Mathieu Trudel-Lapierre ]
+  * ubi-prepare: when non-free is disabled, drop the foss_disclaimer_extra
+    widget, and make the whole nonfree_vbox invisible (third-party drivers and
+    such are non-free, and disabling Secure Boot is unnecessary if you don't
+    install any non-free drivers).
+
  -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 09 Dec 2015 08:17:25 -0500
 
 ubiquity (2.21.46) xenial; urgency=medium
