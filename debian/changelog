@@ -1,4 +1,4 @@
-ubiquity (2.21.47) UNRELEASED; urgency=medium
+ubiquity (2.21.47) xenial; urgency=medium
 
   [ Marc Deslauriers ]
   * scripts/plugininstall.py: Write initial random seed to systemd
@@ -12,9 +12,9 @@ ubiquity (2.21.47) UNRELEASED; urgency=medium
   * ubi-prepare: when non-free is disabled, drop the foss_disclaimer_extra
     widget, and make the whole nonfree_vbox invisible (third-party drivers and
     such are non-free, and disabling Secure Boot is unnecessary if you don't
-    install any non-free drivers).
+    install any non-free drivers). (LP: #1549816)
 
- -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 09 Dec 2015 08:17:25 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 25 Feb 2016 14:41:41 -0500
 
 ubiquity (2.21.46) xenial; urgency=medium
 
