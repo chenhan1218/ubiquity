@@ -193,7 +193,12 @@ class Wizard(BaseFrontend):
         # and up on the steps to make sure spacing between steps is not
         # awkwardly huge.
         self.icon_widget = SquareSvgWidget(self.ui)
-        self.icon_widget.load("/usr/share/ubiquity/qt/images/branding.svgz")
+        distro = self.ui.distro_name_label.text()
+        logoDirectory = "/usr/share/ubiquity/qt/images/"
+        if os.path.isfile(logoDirectory + distro + ".svgz"):
+            self.icon_widget.load(logoDirectory + distro + ".svgz")
+        else:
+            self.icon_widget.load(logoDirectory + "branding.svgz")
         branding_layout = QtGui.QHBoxLayout()
         branding_layout.addItem(QtGui.QSpacerItem(1, 1,
                                                   QtGui.QSizePolicy.Expanding,
