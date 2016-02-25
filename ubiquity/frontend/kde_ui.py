@@ -85,10 +85,14 @@ class UbiquityUI(QtGui.QMainWindow):
             for line in fp:
                 if "DISTRIB_ID=" in line:
                     name = str.strip(line.split("=")[1], '\n')
+                    if name.startswith('"') and name.endswith('"'):
+                        name = name[1:-1]
                     if name != "Ubuntu":
                         distro_name = name
                 elif "DISTRIB_RELEASE=" in line:
                     distro_release = str.strip(line.split("=")[1], '\n')
+                    if distro_release.startswith('"') and distro_release.endswith('"'):
+                        distro_release = distro_release[1:-1]
 
         self.distro_name_label.setText(distro_name)
         self.distro_release_label.setText(distro_release)
