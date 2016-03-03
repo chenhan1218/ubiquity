@@ -31,3 +31,4 @@ class BootToInstaller(UbiquityAutopilotTestCase):
         # first check we have an emulator instance
         self.assertIsInstance(self.main_window, gtktoplevel.GtkWindow)
         self.assertThat(self.main_window.visible, Eventually(Equals(True)))
+        self.welcome_page_tests(lang='English')
