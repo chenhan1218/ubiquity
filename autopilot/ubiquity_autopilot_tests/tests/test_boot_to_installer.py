@@ -1,6 +1,6 @@
-# Testing Default Install for the Ubiquity Installer
-# Author: Dan Chapman <daniel@chapman-mail.com>
-# Copyright (C) 2013
+# Testing Desktop Live Session Boot
+# Authors: Dan Chapman <daniel@chapman-mail.com>, Nichola Skaggs <nicholas.skaggs@canonical.com>
+# Copyright (C) 2013-2016 
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 3 as
