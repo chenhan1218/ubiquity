@@ -1,6 +1,7 @@
 # Testing Desktop Live Session Boot
-# Authors: Dan Chapman <daniel@chapman-mail.com>, Nichola Skaggs <nicholas.skaggs@canonical.com>
-# Copyright (C) 2013-2016 
+# Authors: Dan Chapman <daniel@chapman-mail.com>,
+#          Nicholas Skaggs <nicholas.skaggs@canonical.com>
+# Copyright (C) 2013-2016
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License version 3 as
@@ -18,8 +19,6 @@ from ubiquity_autopilot_tests.tests import UbiquityAutopilotTestCase
 from testtools.matchers import Equals
 from autopilot.matchers import Eventually
 from ubiquity_autopilot_tests.emulators import gtktoplevel
-
-from time import sleep
 
 
 class BootToInstaller(UbiquityAutopilotTestCase):
