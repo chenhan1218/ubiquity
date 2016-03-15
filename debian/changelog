@@ -2,6 +2,8 @@ ubiquity (2.21.48) UNRELEASED; urgency=medium
 
   * Make sure we keep mokutil files installed when we remove extra stuff from
     the installed system that was pulled in because of the live filesystem.
+  * debian/control, d-i/update-control: replace pyflakes from Build-Depends
+    with pyflakes3, since the binary for pyflakes3 was moved.
 
  -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Fri, 26 Feb 2016 11:05:00 -0500
 
