@@ -1,4 +1,4 @@
-ubiquity (2.21.48) UNRELEASED; urgency=medium
+ubiquity (2.21.48) xenial; urgency=medium
 
   * Make sure we keep mokutil files installed when we remove extra stuff from
     the installed system that was pulled in because of the live filesystem.
@@ -10,7 +10,7 @@ ubiquity (2.21.48) UNRELEASED; urgency=medium
     partitioning 110ubuntu4, preseed 1.71ubuntu1, user-setup
     1.63ubuntu2.
 
- -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Fri, 26 Feb 2016 11:05:00 -0500
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Mar 2016 14:38:58 -0400
 
 ubiquity (2.21.47) xenial; urgency=medium
 
