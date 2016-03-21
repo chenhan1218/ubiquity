@@ -1,6 +1,8 @@
 ubiquity (2.21.50) UNRELEASED; urgency=medium
 
   * Adjust code for change of fwupdate-%arch-signed renaming to fwupdate-signed
+  * Automatic update of included source packages: hw-detect
+    1.114ubuntu4.
 
  -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 21 Mar 2016 19:23:36 +0000
 
