@@ -1,3 +1,9 @@
+ubiquity (2.21.50) UNRELEASED; urgency=medium
+
+  * Adjust code for change of fwupdate-%arch-signed renaming to fwupdate-signed
+
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 21 Mar 2016 19:23:36 +0000
+
 ubiquity (2.21.49) xenial; urgency=medium
 
   * Make sure to keep fwupdate-$ARCH-signed packages installed when removing
