@@ -1,4 +1,4 @@
-ubiquity (2.21.50) UNRELEASED; urgency=medium
+ubiquity (2.21.50) xenial; urgency=medium
 
   * Adjust code for change of fwupdate-%arch-signed renaming to fwupdate-signed
   * Automatic update of included source packages: hw-detect
