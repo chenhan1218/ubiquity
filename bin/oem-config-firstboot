@@ -79,6 +79,7 @@ for try in $(seq 1 $TRY); do
 		fi
 		/bin/systemctl set-default graphical.target || true
 		/bin/systemctl --no-block isolate graphical.target || true
+		rm -f /lib/systemd/system/oem-config.*
 		exit 0
 	elif [ "$CODE" -eq 10 ]; then
 		cat <<EOF

@@ -1,3 +1,14 @@
+ubiquity (2.21.53) UNRELEASED; urgency=medium
+
+  * debian/oem-config.install: install systemd units to /usr/lib/oem-config
+    instead of the systemd paths. (LP: #1552621)
+  * bin/oem-config-prepare: install systemd job from our copy in
+    /usr/lib/oem-config.
+  * bin/oem-config-wrapper: remove our special systemd units after oem config
+    is completed.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 28 Mar 2016 15:27:25 -0400
+
 ubiquity (2.21.52) xenial; urgency=medium
 
   * Automatic update of included source packages: console-setup
