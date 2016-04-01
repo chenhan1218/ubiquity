@@ -638,7 +638,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._track_install_progress()
         print("First loop complete waiting for pbar to go back to 0")
         self.assertThat(progress_bar.fraction, Eventually(
-            Equals(0.0), timeout=180))
+            Equals(0.0), timeout=260))
         print("Now entering the second loop...........")
         # And now the install progress bar
         self._track_install_progress()
