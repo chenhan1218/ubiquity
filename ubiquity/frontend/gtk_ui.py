@@ -662,10 +662,12 @@ class Wizard(BaseFrontend):
 
             for line in subp.stdout:
                 value = line.rstrip('\n')
-                if value == 'high-contrast':
+                if value.endswith('high-contrast'):
                     hc_profile_found = True
-                if value == 'blindness':
+                    self.hc_profile_name = value
+                if value.endswith('blindness'):
                     sr_profile_found = True
+                    self.sr_profile_name = value
 
             if (hc_profile_found is True and event.state &
                 Gdk.ModifierType.CONTROL_MASK and
@@ -682,10 +684,10 @@ class Wizard(BaseFrontend):
                       "active-profile", value)
 
     def a11y_profile_high_contrast_activate(self):
-        self.a11y_profile_set("high-contrast")
+        self.a11y_profile_set(self.hc_profile_name)
 
     def a11y_profile_screen_reader_activate(self, widget=None):
-        self.a11y_profile_set("blindness")
+        self.a11y_profile_set(self.sr_profile_name)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
 
     def a11y_profile_onscreen_keyboard_activate(self, widget=None):
