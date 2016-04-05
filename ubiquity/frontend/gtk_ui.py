@@ -690,9 +690,6 @@ class Wizard(BaseFrontend):
         self.a11y_profile_set(self.sr_profile_name)
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
 
-    def a11y_profile_onscreen_keyboard_activate(self, widget=None):
-        self.a11y_profile_set("onscreen-keyboard")
-
     def run(self):
         """run the interface."""
 
