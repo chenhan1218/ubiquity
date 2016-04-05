@@ -3,6 +3,8 @@ ubiquity (2.21.54) UNRELEASED; urgency=medium
   * ubiquity/frontends/gtk_ui.py: Extend keyboard shortcut code for
     accessibility profiles to work with flavours other than Ubuntu/Unity
     (LP: #1546317)
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu13, hw-detect 1.117ubuntu1, netcfg 1.135ubuntu2.
 
  -- Luke Yelavich <themuso@ubuntu.com>  Tue, 05 Apr 2016 12:43:50 +1000
 
