@@ -530,6 +530,31 @@ class Wizard(BaseFrontend):
 
         gsettings.set(gs_schema, gs_key, gs_value)
 
+    def disable_screen_reader(self):
+        gs_key = 'screenreader'
+        for gs_schema in 'org.gnome.settings-daemon.plugins.media-keys', \
+                         'org.mate.SettingsDaemon.plugins.media-keys':
+            gs_previous = '%s/%s' % (gs_schema, gs_key)
+            if gs_previous in self.gsettings_previous:
+                return
+
+            gs_value = gsettings.get(gs_schema, gs_key)
+            self.gsettings_previous[gs_previous] = gs_value
+
+            if gs_value:
+                gsettings.set(gs_schema, gs_key, '')
+
+        atexit.register(self.enable_screen_reader)
+
+    def enable_screen_reader(self):
+        gs_key = 'screenreader'
+        for gs_schema in 'org.gnome.settings-daemon.plugins.media-keys', \
+                         'org.mate.SettingsDaemon.plugins.media-keys':
+            gs_previous = '%s/%s' % (gs_schema, gs_key)
+            gs_value = self.gsettings_previous[gs_previous]
+
+            gsettings.set(gs_schema, gs_key, gs_value)
+
     def disable_screensaver(self):
         gs_schema = 'org.gnome.desktop.screensaver'
         gs_key = 'idle-activation-enabled'
@@ -705,6 +730,7 @@ class Wizard(BaseFrontend):
         self.disable_volume_manager()
         self.disable_screensaver()
         self.disable_powermgr()
+        self.disable_screen_reader()
 
         if 'UBIQUITY_ONLY' in os.environ:
             self.disable_logout_indicator()
