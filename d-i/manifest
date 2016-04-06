@@ -1,7 +1,7 @@
 apt-setup 1:0.104ubuntu4
 base-installer 1.158ubuntu2
 bterm-unifont 1.4
-choose-mirror 2.65ubuntu5
+choose-mirror 2.65ubuntu6
 clock-setup 0.126ubuntu1
 console-setup 1.108ubuntu13
 debian-installer-utils 1.113ubuntu1

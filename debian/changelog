@@ -9,7 +9,8 @@ ubiquity (2.21.54) UNRELEASED; urgency=medium
       profile from being properly activated
   * Drop unused profile set method that was missed previously
   * Automatic update of included source packages: console-setup
-    1.108ubuntu13, hw-detect 1.117ubuntu1, netcfg 1.135ubuntu2.
+    1.108ubuntu13, hw-detect 1.117ubuntu1, netcfg 1.135ubuntu2,
+    choose-mirror 2.65ubuntu6.
 
  -- Luke Yelavich <themuso@ubuntu.com>  Tue, 05 Apr 2016 12:43:50 +1000
 
