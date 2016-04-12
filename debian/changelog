@@ -1,4 +1,4 @@
-ubiquity (2.21.55) UNRELEASED; urgency=medium
+ubiquity (2.21.55) xenial; urgency=medium
 
   [ Jean-Baptiste Lallement ]
   * autopilot: Merged autopilot tests fixes from Chris Lee. Thanks
@@ -12,7 +12,7 @@ ubiquity (2.21.55) UNRELEASED; urgency=medium
   * Automatic update of included source packages: console-setup
     1.108ubuntu14.
 
- -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Tue, 12 Apr 2016 09:16:37 +0300
+ -- Luke Yelavich <themuso@ubuntu.com>  Wed, 13 Apr 2016 09:38:21 +1000
 
 ubiquity (2.21.54) xenial; urgency=medium
 
