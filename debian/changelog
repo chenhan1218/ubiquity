@@ -3,6 +3,8 @@ ubiquity (2.21.55) UNRELEASED; urgency=medium
   * Update translations from Launchpad. (LP: #1569232)
   * debian/ubiquity.ubiquity.service: Start console ttys for debugging during
     an installation. (LP: #1567194)
+  * data/oem-config.target: also enable console TTYs for the OEM configuration
+    target/service.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 12 Apr 2016 15:49:21 -0400
 
