@@ -6,6 +6,7 @@ ubiquity (2.21.55) UNRELEASED; urgency=medium
   [ Timo Jyrinki ]
   * Fix Kubuntu slideshow not translated, thanks to Lasse Liehu for the 
     patch (LP: #1512834)
+  * Automatic update of included source packages: netcfg 1.135ubuntu3.
 
  -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Tue, 12 Apr 2016 09:16:37 +0300
 
