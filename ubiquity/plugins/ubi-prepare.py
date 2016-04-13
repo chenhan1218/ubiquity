@@ -199,7 +199,7 @@ class PageGtk(PreparePageBase):
             self.password_match.set_current_page(
                 self.password_match_pages['empty'])
             if len(passw) >= 8 and (not passw.startswith(vpassw) or
-                          len(vpassw) / len(passw) > 0.6):
+                                    len(vpassw) / len(passw) > 0.6):
                 self.password_match.set_current_page(
                     self.password_match_pages['mismatch'])
         else:
