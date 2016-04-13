@@ -1,7 +1,12 @@
 ubiquity (2.21.56ubuntu1) UNRELEASED; urgency=medium
 
+  [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: localechooser
     2.65ubuntu4. (LP: #1551285)
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Really make oem-config-prepare quiet when started by a non-priviledged
+    user.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 13 Apr 2016 12:41:35 -0400
 
