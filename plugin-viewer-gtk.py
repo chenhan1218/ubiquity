@@ -11,7 +11,7 @@ DBusGMainLoop(set_as_default=True)
 #   from ubiquity.frontend.base import Controller
 
 # for testing online status
-from ubiquity.misc import add_connection_watch
+#from ubiquity.misc import add_connection_watch
 
 
 class MockController(object):
