@@ -1,3 +1,10 @@
+ubiquity (2.21.56ubuntu1) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: localechooser
+    2.65ubuntu4. (LP: #1551285)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 13 Apr 2016 12:41:35 -0400
+
 ubiquity (2.21.56) xenial; urgency=medium
 
   * Update translations from Launchpad. (LP: #1569232)
