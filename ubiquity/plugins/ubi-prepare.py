@@ -23,7 +23,7 @@ import os
 import subprocess
 import sys
 
-from ubiquity import i18n, misc, osextras, plugin, upower, validation
+from ubiquity import i18n, misc, osextras, plugin, upower
 from ubiquity.install_misc import archdetect, is_secure_boot
 
 NAME = 'prepare'
