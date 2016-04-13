@@ -1,4 +1,4 @@
-ubiquity (2.21.56ubuntu1) UNRELEASED; urgency=medium
+ubiquity (2.21.57) xenial; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: localechooser
@@ -18,7 +18,7 @@ ubiquity (2.21.56ubuntu1) UNRELEASED; urgency=medium
   * Really make oem-config-prepare quiet when started by a non-priviledged
     user.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 13 Apr 2016 12:41:35 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 13 Apr 2016 14:36:37 -0400
 
 ubiquity (2.21.56) xenial; urgency=medium
 
