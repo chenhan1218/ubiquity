@@ -6,6 +6,13 @@ ubiquity (2.21.56ubuntu1) UNRELEASED; urgency=medium
   * scripts/simple-plugins: better handle passing the MokPW key to mokutil
     and the result from the command -- we explicitly can ignore errors here.
     (LP: #1567445)
+  * plugin-viewer-gtk.py: fix plugin-viewer-gtk to allow showing most plugins
+    correctly; useful for debugging.
+  * ubiquity/plugins/ubi-prepare.py: rework password validation behavior for
+    MokPW without changing user-visible strings: we only need to show feedback
+    for a "good" password (of the allowable lengths), and correct the behavior
+    for mismatched passwords. Also make it obvious if the chosen password is
+    too short. (LP: #1560940)
 
   [ Shih-Yuan Lee (FourDollars) ]
   * Really make oem-config-prepare quiet when started by a non-priviledged
