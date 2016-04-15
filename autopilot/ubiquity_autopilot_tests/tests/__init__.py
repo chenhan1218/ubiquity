@@ -147,7 +147,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             'GtkLabel', name='page_title')
         self.assertThat(page_title.label,
                         Eventually(NotEquals(self.current_page_title),
-                                   timeout=120))
+                                   timeout=240))
 
     def go_to_progress_page(self, ):
         """ This simply clicks next and goes to the progress page
