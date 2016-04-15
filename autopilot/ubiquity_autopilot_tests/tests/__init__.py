@@ -637,8 +637,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
               "progressbar")
         self._track_install_progress()
         print("First loop complete waiting for pbar to go back to 0")
+        # CI VM infrastructure can be a bit slow, hence long timeout.
         self.assertThat(progress_bar.fraction, Eventually(
-            Equals(0.0), timeout=260))
+            Equals(0.0), timeout=530))
         print("Now entering the second loop...........")
         # And now the install progress bar
         self._track_install_progress()
