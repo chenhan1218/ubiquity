@@ -1,3 +1,11 @@
+ubiquity (2.21.58) UNRELEASED; urgency=medium
+
+  * ubiquity.service: Revert commit 6411.2.2 as this does not/can't fix
+    LP #1567194 but introduces a dependency cycle between getty, plymouth, and
+    ubiquity. (LP: #1570901)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 18 Apr 2016 13:10:59 +0200
+
 ubiquity (2.21.57) xenial; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
