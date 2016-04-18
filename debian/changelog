@@ -1,8 +1,8 @@
-ubiquity (2.21.59) UNRELEASED; urgency=medium
+ubiquity (2.21.59) xenial; urgency=medium
 
   * New wallpaper path for Ubuntu Studio
 
- -- Kaj Ailomaa <zequence@mousike.me>  Tue, 12 Apr 2016 19:00:27 +0200
+ -- Kaj Ailomaa <zequence@mousike.me>  Mon, 18 Apr 2016 11:20:13 -0400
 
 ubiquity (2.21.58) xenial; urgency=medium
 
