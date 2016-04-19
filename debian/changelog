@@ -2,8 +2,12 @@ ubiquity (2.21.60) UNRELEASED; urgency=medium
 
   * Automatic update of included source packages: user-setup
     1.63ubuntu3.
+  * Don't crash in the Kubuntu prepare page if we're booting in EFI. Try to
+    do the right thing in showing password boxes and all the trimmings for
+    setting a Mok password, using the already-translated strings we have.
+    (LP: #1529450)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 19 Apr 2016 10:46:54 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 19 Apr 2016 12:19:23 -0400
 
 ubiquity (2.21.59) xenial; urgency=medium
 
