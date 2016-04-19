@@ -1,4 +1,4 @@
-ubiquity (2.21.60) UNRELEASED; urgency=medium
+ubiquity (2.21.60) xenial; urgency=medium
 
   * Automatic update of included source packages: user-setup
     1.63ubuntu3.
@@ -7,7 +7,7 @@ ubiquity (2.21.60) UNRELEASED; urgency=medium
     setting a Mok password, using the already-translated strings we have.
     (LP: #1529450)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 19 Apr 2016 12:19:23 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 19 Apr 2016 13:11:19 -0400
 
 ubiquity (2.21.59) xenial; urgency=medium
 
