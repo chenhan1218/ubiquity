@@ -1,9 +1,9 @@
-ubiquity (2.21.63) UNRELEASED; urgency=medium
+ubiquity (2.21.63) xenial; urgency=medium
 
   * Automatic update of included source packages: user-setup
     1.63ubuntu4.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 20 Apr 2016 11:09:57 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 20 Apr 2016 12:11:00 -0400
 
 ubiquity (2.21.62) xenial; urgency=medium
 
