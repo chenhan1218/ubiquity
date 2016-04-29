@@ -1,2 +1,2 @@
-deb-src http://archive.ubuntu.com/ubuntu xenial main
-deb-src http://archive.ubuntu.com/ubuntu xenial-proposed main
+deb-src http://archive.ubuntu.com/ubuntu yakkety main
+deb-src http://archive.ubuntu.com/ubuntu yakkety-proposed main
