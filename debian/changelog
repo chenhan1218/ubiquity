@@ -6,8 +6,10 @@ ubiquity (2.21.64) UNRELEASED; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Move sources to yakkety.
+  * Automatic update of included source packages: choose-mirror
+    2.65ubuntu7, console-setup 1.142ubuntu1, preseed 1.71ubuntu2.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 13:49:56 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 13:53:11 -0400
 
 ubiquity (2.21.63) xenial; urgency=medium
 
