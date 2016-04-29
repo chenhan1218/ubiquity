@@ -1,4 +1,4 @@
-ubiquity (16.10.1) UNRELEASED; urgency=medium
+ubiquity (16.10.1) yakkety; urgency=medium
 
   [ Iain Lane ]
   * misc.py: Ask for the 'State' property instead of 'state'. Fixes display
@@ -10,7 +10,7 @@ ubiquity (16.10.1) UNRELEASED; urgency=medium
   * Automatic update of included source packages: choose-mirror
     2.65ubuntu7, console-setup 1.142ubuntu1, preseed 1.71ubuntu2.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 14:02:26 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 16:28:50 -0400
 
 ubiquity (2.21.63) xenial; urgency=medium
 
