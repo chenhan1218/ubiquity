@@ -2,6 +2,7 @@ ubiquity (16.10.2) UNRELEASED; urgency=medium
 
   * scripts/clock-setup-apply: guard against missing rcS file on the rootfs.
     (LP: #1587555)
+  * autopilot/ubiquity_autopilot_tests/*: remove unused imports for pyflakes.
   * Automatic update of included source packages: apt-setup
     1:0.104ubuntu5, base-installer 1.158ubuntu3, clock-setup
     0.126ubuntu2, console-setup 1.142ubuntu4, netcfg 1.135ubuntu6,
