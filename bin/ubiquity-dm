@@ -451,11 +451,16 @@ EndSection
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
 
+                msd = '/usr/bin/mate-settings-daemon'
                 usd = '/usr/lib/unity-settings-daemon/unity-settings-daemon'
                 gsd = '/usr/lib/gnome-settings-daemon/gnome-settings-daemon'
-                msd = '/usr/bin/mate-settings-daemon'
 
-                if osextras.find_on_path(usd):
+                if osextras.find_on_path(msd):
+                    extras.append(subprocess.Popen(
+                        [msd], stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
+
+                elif osextras.find_on_path(usd):
                     extras.append(subprocess.Popen(
                         [usd], stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
@@ -463,11 +468,6 @@ EndSection
                 elif osextras.find_on_path(gsd):
                     extras.append(subprocess.Popen(
                         [gsd], stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
-
-                elif osextras.find_on_path(msd):
-                    extras.append(subprocess.Popen(
-                        [msd], stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
 
                 elif background_image and osextras.find_on_path('feh'):
