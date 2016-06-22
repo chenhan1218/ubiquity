@@ -1,9 +1,9 @@
-ubiquity (16.10.3) UNRELEASED; urgency=medium
+ubiquity (16.10.3) yakkety; urgency=medium
 
   * If mate-settings-daemon is available, use it in preference to
     unity-settings-daemon.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 22 Jun 2016 17:14:44 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 22 Jun 2016 17:23:30 -0400
 
 ubiquity (16.10.2) yakkety; urgency=medium
 
