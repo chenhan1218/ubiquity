@@ -1,3 +1,10 @@
+ubiquity (16.10.4) UNRELEASED; urgency=medium
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Some places doesn't have the location information. (LP: #1584417)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 27 Jun 2016 12:11:54 -0400
+
 ubiquity (16.10.3) yakkety; urgency=medium
 
   * If mate-settings-daemon is available, use it in preference to
