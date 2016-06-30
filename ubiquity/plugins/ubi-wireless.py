@@ -62,6 +62,7 @@ class PageGtk(WirelessPageBase):
         # as importing it as the side effect of registering
         # NetworkManagerWidget which we DO use in the Wireless step UI.
         from ubiquity.frontend.gtk_components import nmwidgets
+        assert nmwidgets  # silence, pyflakes
 
         if self.is_automatic:
             self.page = None
