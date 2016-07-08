@@ -374,8 +374,8 @@ def grub_default(boot=None):
             else:
                 # Try the next disk along (which can't also be the CD source).
                 target = os.path.realpath(devices[1].split('\t')[1])
-            target = re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|/dev/[a-z]+).*',
-                            r'\1', target)
+            target = re.sub(r'(/dev/(cciss|ida)/c[0-9]d[0-9]|\
+                            /dev/(?!nvme)[a-z]+).*', r'\1', target)
         except (IndexError, OSError):
             pass
 
