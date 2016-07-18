@@ -2,7 +2,7 @@ apt-setup 1:0.104ubuntu5
 base-installer 1.158ubuntu3
 bterm-unifont 1.4
 choose-mirror 2.65ubuntu7
-clock-setup 0.126ubuntu2
+clock-setup 0.128ubuntu1
 console-setup 1.142ubuntu4
 debian-installer-utils 1.113ubuntu1
 flash-kernel 3.0~rc.4ubuntu62
@@ -15,10 +15,10 @@ partman-auto 134ubuntu1
 partman-auto-crypto 22ubuntu1
 partman-auto-loop 0ubuntu21
 partman-auto-lvm 59ubuntu1
-partman-base 187ubuntu2
+partman-base 187ubuntu3
 partman-basicfilesystems 120ubuntu1
 partman-basicmethods 61
-partman-btrfs 18ubuntu1
+partman-btrfs 21ubuntu1
 partman-crypto 86ubuntu1
 partman-efi 71ubuntu1
 partman-ext3 86ubuntu1

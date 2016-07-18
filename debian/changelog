@@ -6,6 +6,8 @@ ubiquity (16.10.4) UNRELEASED; urgency=high
   [ Dimitri John Ledkov ]
   * Fix substitution variables syntax from $() -> ${} in
     translations. (LP: #1603926)
+  * Automatic update of included source packages: clock-setup
+    0.128ubuntu1, partman-base 187ubuntu3, partman-btrfs 21ubuntu1.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 27 Jun 2016 12:11:54 -0400
 
