@@ -1516,7 +1516,7 @@ msgstr "Jammer"
 #: ../ubiquity.templates:222001
 msgid "You need at least ${SIZE} disk space to install ${RELEASE}."
 msgstr ""
-"Jy benodig ten minste ${SIZE) disketspasie om $(RELEASE} te installeer."
+"Jy benodig ten minste ${SIZE} disketspasie om ${RELEASE} te installeer."
 
 #. Type: text
 #. Description
