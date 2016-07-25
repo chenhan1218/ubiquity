@@ -461,9 +461,28 @@ EndSection
                         preexec_fn=self.drop_privileges))
 
                 elif osextras.find_on_path(usd):
+                    # Wait until xsettings plugin is activated
+                    import re
+                    regexp = re.compile(
+                        r'signal.*SettingsDaemon.*PluginActivated')
+
+                    dbus_monitor = subprocess.Popen(
+                       '/usr/bin/dbus-monitor', stdin=null,
+                       stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                       universal_newlines=True,
+                       preexec_fn=self.drop_privileges)
+
                     extras.append(subprocess.Popen(
                         [usd], stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
+
+                    while True:
+                        line = dbus_monitor.stdout.readline()
+                        if regexp.match(line) is not None:
+                            nextline = dbus_monitor.stdout.readline()
+                            if 'xsettings' in nextline:
+                                dbus_monitor.terminate()
+                                break
 
                 elif osextras.find_on_path(gsd):
                     extras.append(subprocess.Popen(
