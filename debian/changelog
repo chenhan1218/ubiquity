@@ -1,4 +1,4 @@
-ubiquity (16.10.5) UNRELEASED; urgency=medium
+ubiquity (16.10.5) yakkety; urgency=medium
 
   [ Kai-Heng Feng ]
   * ubiquity-dm: Wait until u-s-d xsettings plugin is activated. (LP: #1560162)
@@ -11,7 +11,7 @@ ubiquity (16.10.5) UNRELEASED; urgency=medium
   * ubi-prepare.py: default to Secure Boot disabled if we install third-party
     drivers.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 25 Jul 2016 12:36:18 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 25 Jul 2016 15:37:04 -0400
 
 ubiquity (16.10.4) yakkety; urgency=high
 
