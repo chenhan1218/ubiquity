@@ -3,7 +3,11 @@ ubiquity (16.10.5) UNRELEASED; urgency=medium
   [ Kai-Heng Feng ]
   * ubiquity-dm: Wait until u-s-d xsettings plugin is activated. (LP: #1560162)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 25 Jul 2016 11:47:03 -0400
+  [ David Jordan ]
+  * ubiquity/misc.py: set correct target device name for nvme drives.
+    (LP: #1600308)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 25 Jul 2016 12:36:18 -0400
 
 ubiquity (16.10.4) yakkety; urgency=high
 
