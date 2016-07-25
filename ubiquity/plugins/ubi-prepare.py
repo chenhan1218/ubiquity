@@ -124,7 +124,9 @@ class PageGtk(PreparePageBase):
     def set_using_secureboot(self, secureboot):
         self.using_secureboot = secureboot
         self.secureboot_box.set_visible(secureboot)
+        self.disable_secureboot.set_active(True)
         self.on_nonfree_toggled(None)
+        self.info_loop(None)
 
     def enable_download_updates(self, val):
         if (val):
@@ -181,6 +183,10 @@ class PageGtk(PreparePageBase):
         self.info_loop(None)
 
     def info_loop(self, unused_widget):
+        if not self.password_grid.get_sensitive():
+            self.controller.allow_go_forward(True)
+            return True
+
         complete = False
         passw = self.password.get_text()
         vpassw = self.verified_password.get_text()
@@ -195,7 +201,10 @@ class PageGtk(PreparePageBase):
             self.password_strength.set_current_page(
                 self.password_strength_pages['too_short'])
 
-        if passw != vpassw or (passw and len(passw) < 8):
+        if len(passw) == 0 or len(vpassw) == 0:
+            self.password_match.set_current_page(
+                self.password_match_pages['empty'])
+        elif passw != vpassw or (passw and len(passw) < 8):
             self.password_match.set_current_page(
                 self.password_match_pages['empty'])
             if len(passw) >= 8 and (not passw.startswith(vpassw) or
