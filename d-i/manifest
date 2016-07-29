@@ -18,7 +18,7 @@ partman-auto-lvm 59ubuntu1
 partman-base 187ubuntu3
 partman-basicfilesystems 120ubuntu1
 partman-basicmethods 61
-partman-btrfs 21ubuntu1
+partman-btrfs 21ubuntu2
 partman-crypto 86ubuntu1
 partman-efi 71ubuntu1
 partman-ext3 86ubuntu1

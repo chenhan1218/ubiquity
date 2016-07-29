@@ -1,3 +1,10 @@
+ubiquity (16.10.6) UNRELEASED; urgency=medium
+
+  * Automatic update of included source packages: partman-btrfs
+    21ubuntu2. (LP: #1606295)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Jul 2016 11:45:58 -0400
+
 ubiquity (16.10.5) yakkety; urgency=medium
 
   [ Kai-Heng Feng ]
