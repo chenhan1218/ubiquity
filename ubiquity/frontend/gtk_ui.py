@@ -256,18 +256,24 @@ class Wizard(BaseFrontend):
         # Make a thin Progress bar
         provider = Gtk.CssProvider()
         provider.load_from_data(b'''\
-            .inline-toolbar.toolbar {
+            toolbar {
                 background: @theme_bg_color;
                 border-color: transparent;
                 border-width: 0px;
                 padding: 0px;
             }
-            GtkProgressBar {
-              -GtkProgressBar-min-horizontal-bar-height : 10;
-              -GtkProgressBar-min-horizontal-bar-width : 10;
+            progressbar trough {
+              min-height: 10px;
+              min-width: 11px;
+              border: none;
             }
-            GtkPaned {
-                -GtkPaned-handle-size: 10;
+            progressbar progress {
+              min-height: 10px;
+              border-radius: 4px;
+              border: none;
+            }
+            paned separator {
+                min-width: 10px;
             }
             ''')
         Gtk.StyleContext.add_provider_for_screen(

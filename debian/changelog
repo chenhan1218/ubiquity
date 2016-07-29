@@ -1,7 +1,13 @@
 ubiquity (16.10.6) UNRELEASED; urgency=medium
 
+  [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: partman-btrfs
     21ubuntu2. (LP: #1606295)
+
+  [ Iain Lane ]
+  * debian/control: Depend on gir1.2-gtk-3.0 (>= 3.20).
+  * ubiquity/frontend/gtk_ui.py: Port style to Gtk 3.20.
+  * Silence some pyflakes warnings.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Jul 2016 11:45:58 -0400
 
