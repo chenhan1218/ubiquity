@@ -1,4 +1,4 @@
-ubiquity (16.10.6) UNRELEASED; urgency=medium
+ubiquity (16.10.6) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: partman-btrfs
@@ -9,7 +9,7 @@ ubiquity (16.10.6) UNRELEASED; urgency=medium
   * ubiquity/frontend/gtk_ui.py: Port style to Gtk 3.20.
   * Silence some pyflakes warnings.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Jul 2016 11:45:58 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Jul 2016 11:57:46 -0400
 
 ubiquity (16.10.5) yakkety; urgency=medium
 
