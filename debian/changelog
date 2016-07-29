@@ -1,3 +1,11 @@
+ubiquity (16.10.7) UNRELEASED; urgency=medium
+
+  * debian/control: Build-Depends on the right version of gtk too.
+  * ubiquity/misc.py: fix regex to match nvme first, otherwise it gets mangled
+    by the rest of the matching. 
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Jul 2016 13:21:59 -0400
+
 ubiquity (16.10.6) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
