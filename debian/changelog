@@ -1,4 +1,4 @@
-ubiquity (16.10.7) UNRELEASED; urgency=medium
+ubiquity (16.10.7) yakkety; urgency=medium
 
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu63.
@@ -6,7 +6,7 @@ ubiquity (16.10.7) UNRELEASED; urgency=medium
   * ubiquity/misc.py: fix regex to match nvme first, otherwise it gets mangled
     by the rest of the matching. 
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 01 Aug 2016 15:00:30 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 01 Aug 2016 15:17:03 -0400
 
 ubiquity (16.10.6) yakkety; urgency=medium
 
