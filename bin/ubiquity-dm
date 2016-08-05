@@ -99,6 +99,62 @@ class MissingProgramError(EnvironmentError):
     pass
 
 
+class SignalWatcher:
+    def __init__(self, owner, program,
+                 interface, object_path,
+                 signal, expected):
+        self.owner = owner
+        self.program = program
+        self.connection = None
+        self.interface = interface
+        self.object_path = object_path
+        self.signal = signal
+        self.expected = expected
+        self.processes = []
+
+        log('MATT: set up loop')
+        from gi.repository import GLib, Gio
+        self.loop = GLib.MainLoop()
+        Gio.bus_get (Gio.BusType.SESSION, None,
+                                       self.on_got_bus, None)
+        log('MATT: object ready')
+
+    def signal_timeout(self):
+        log("signal timed out")
+        self.loop.quit()
+
+    def on_got_bus(self, source, result, user_data):
+        try:
+            from gi.repository import GLib, Gio
+            self.connection = Gio.bus_get_finish (result) 
+            self.connection.signal_subscribe (None, self.interface,
+                                              self.signal,
+                                              self.object_path, None,
+                                              Gio.DBusSignalFlags.NONE,
+                                              self.on_signal, None)
+            log("start " + self.program)
+            self.processes.append(subprocess.Popen(
+                                  [self.program],
+                                  stdin=null, stdout=logfile, stderr=logfile,
+                                  preexec_fn=owner.drop_privileges))
+            GLib.timeout_add_seconds(15, self.signal_timeout, None)
+        except Exception:
+            log("failed to ensure xsettings plugin was started:")
+            log(traceback.format_exc())
+            self.loop.quit()
+
+    def on_signal(self, sender, path, interface, signal, params, args):
+        # check the signal parameter
+        log('MATT: ' + params)
+        self.loop.quit()
+
+    def run(self):
+        log('MATT: start loop')
+        self.loop.run()
+        log('MATT: loop finished')
+        return self.processes
+
+
 class DM:
     def __init__(self, vt, display, default_username):
         self.auth = PAM.pam()
@@ -462,27 +518,15 @@ EndSection
 
                 elif osextras.find_on_path(usd):
                     # Wait until xsettings plugin is activated
-                    import re
-                    regexp = re.compile(
-                        r'signal.*SettingsDaemon.*PluginActivated')
-
-                    dbus_monitor = subprocess.Popen(
-                        '/usr/bin/dbus-monitor', stdin=null,
-                        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                        universal_newlines=True,
-                        preexec_fn=self.drop_privileges)
-
-                    extras.append(subprocess.Popen(
-                        [usd], stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
-
-                    while True:
-                        line = dbus_monitor.stdout.readline()
-                        if regexp.match(line) is not None:
-                            nextline = dbus_monitor.stdout.readline()
-                            if 'xsettings' in nextline:
-                                dbus_monitor.terminate()
-                                break
+                    xsettings = SignalWatcher(self, usd,
+                                              "org.gnome.SettingsDaemon",
+                                              "/org/gnome/SettingsDaemon",
+                                              "PluginActivated",
+                                              "xsettings")
+                    # the SignalWatcher will run until the signal is seen...
+                    extras.extend(xsettings.run())
+                    # At this point we're sure the usd xsettings plugin is
+                    # available, we can continue setting up the session.
 
                 elif osextras.find_on_path(gsd):
                     extras.append(subprocess.Popen(
