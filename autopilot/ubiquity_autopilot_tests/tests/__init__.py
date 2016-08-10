@@ -33,7 +33,10 @@ from autopilot.input import (
     Keyboard,
     Pointer
 )
-from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
+from ubiquity_autopilot_tests.emulators import (
+    AutopilotGtkEmulatorBase,
+    gtkcontrols,
+)
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
 from ubiquity_autopilot_tests.configs import english_label_conf
 from ubiquity_autopilot_tests.configs.partconfig import (
@@ -181,6 +184,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.warning(type(welcome_page))
         logger.warning(help(welcome_page.select_single))
         treeview = welcome_page.select_single('GtkTreeView')
+        self.assertIsInstance(treeview, gtkcontrols.GtkTreeView)
         # lets get all items
         treeview_items = treeview.get_all_items()
         # first lets check all the items are non-empty unicode strings
