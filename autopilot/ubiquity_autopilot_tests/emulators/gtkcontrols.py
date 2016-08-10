@@ -185,6 +185,7 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
     def __init__(self, *args):
         super(GtkTreeView, self).__init__(*args)
         logger.warning('MAX - created a treeview')
+        raise Exception('MAX BLOW UP NOW PLZ')
         self.pointing_device = Pointer(Mouse.create())
 
     def click(self, ):

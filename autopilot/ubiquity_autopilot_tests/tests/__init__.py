@@ -912,7 +912,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         skp_button = self.main_window.select_single('GtkButton', name='skip')
         logger.warning(skp_button)
         logger.warning(skp_button.visible)
-        #self.assertThat(skp_button.visible, Equals(skip_button))
+        logger.warning(skip_button)
+        self.assertThat(skp_button.visible, Equals(skip_button))
 
     def _update_current_step(self, name):
         logger.debug("Updating current step to %s" % name)
