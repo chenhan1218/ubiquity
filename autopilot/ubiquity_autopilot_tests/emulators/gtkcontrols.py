@@ -184,6 +184,7 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
     """ Emulator for a GtkTreeView instance """
     def __init__(self, *args):
         super(GtkTreeView, self).__init__(*args)
+        logger.warning('MAX - created a treeview')
         self.pointing_device = Pointer(Mouse.create())
 
     def click(self, ):
