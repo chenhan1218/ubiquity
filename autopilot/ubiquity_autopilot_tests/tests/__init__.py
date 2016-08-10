@@ -180,9 +180,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Selecting stepLanguage page object")
         welcome_page = self.main_window.select_single(
             'GtkBox', name='stepLanguage')
-        logger.warning(welcome_page)
-        logger.warning(type(welcome_page))
-        logger.warning(help(welcome_page.select_single))
         treeview = welcome_page.select_single(gtkcontrols.GtkTreeView)
         self.assertIsInstance(treeview, gtkcontrols.GtkTreeView)
         # lets get all items
@@ -420,7 +417,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("Selecting the stepPartAdvanced page object")
         custom_page = self.main_window.select_single(
             'GtkAlignment', BuilderName='stepPartAdvanced')
-        treeview = custom_page.select_single('GtkTreeView')
+        treeview = custom_page.select_single(gtkcontrols.GtkTreeView)
         self.expectThat(treeview.visible, Equals(True),
                         "[Page:'{0}'] Partition tree view was not visible")
         obj_list = ['partition_button_new', 'partition_button_delete',
@@ -522,7 +519,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         keyboard_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepKeyboardConf')
-        treeviews = keyboard_page.select_many('GtkTreeView')
+        treeviews = keyboard_page.select_many(gtkcontrols.GtkTreeView)
         # lets check all the keyboard tree items for the selected language
         # TODO: we should probably test at some point try changing the keyboard
         #       layout to a different language/locale/layout and see if
@@ -811,7 +808,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
-        tree_view = custom_page.select_single('GtkTreeView')
+        tree_view = custom_page.select_single(gtkcontrols.GtkTreeView)
         item = tree_view.select_item(u'  free space')
         self.pointing_device.click_object(item)
         self.assertThat(item.selected, Equals(True),
@@ -831,7 +828,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
-        tree_view = custom_page.select_single('GtkTreeView')
+        tree_view = custom_page.select_single(gtkcontrols.GtkTreeView)
         # assert a new row has been added to the partition table
         total_rows = self._update_table_row_count(config)
         logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
@@ -929,7 +926,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         custom_page = self.main_window.select_single(
             'GtkAlignment',
             BuilderName='stepPartAdvanced')
-        tree_view = custom_page.select_single('GtkTreeView')
+        tree_view = custom_page.select_single(gtkcontrols.GtkTreeView)
         num = tree_view.get_number_of_rows()
         if num == self.total_number_partitions:
             # TODO: assert 'free space' changes to a partition
