@@ -183,7 +183,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.warning(welcome_page)
         logger.warning(type(welcome_page))
         logger.warning(help(welcome_page.select_single))
-        treeview = welcome_page.select_single('GtkTreeView')
+        treeview = welcome_page.select_single(gtkcontrols.GtkTreeView)
         self.assertIsInstance(treeview, gtkcontrols.GtkTreeView)
         # lets get all items
         treeview_items = treeview.get_all_items()
