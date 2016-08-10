@@ -192,7 +192,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         welcome_page = self.main_window.select_single(
             GtkBox, name='stepLanguage')
         treeview = welcome_page.select_single(GtkTreeView)
-        self.assertIsInstance(treeview, GtkTreeView)
         # lets get all items
         treeview_items = treeview.get_all_items()
         # first lets check all the items are non-empty unicode strings
