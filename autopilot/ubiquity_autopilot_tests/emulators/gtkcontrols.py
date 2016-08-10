@@ -180,13 +180,10 @@ class GtkImage(AutopilotGtkEmulatorBase):
                     "it is {2}".format(self.name, imageStock, self.stock))
 
 
-raise Exception('Blowety up now')
 class GtkTreeView(AutopilotGtkEmulatorBase):
     """ Emulator for a GtkTreeView instance """
     def __init__(self, *args):
         super(GtkTreeView, self).__init__(*args)
-        logger.warning('MAX - created a treeview')
-        raise Exception('MAX BLOW UP NOW PLZ')
         self.pointing_device = Pointer(Mouse.create())
 
     def click(self, ):
