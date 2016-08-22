@@ -8,6 +8,10 @@ ubiquity (16.10.8) UNRELEASED; urgency=medium
   [ Martin Pitt ]
   * scripts/plugininstall.py: Remove fallback creation of /etc/iftab. This
     hasn't existed for a long time (pre-udev).
+  * scripts/plugininstall.py: Remove fallback creation of
+    /etc/network/interfaces. The ifupdown package already creates one, it
+    is not necessary to have a (quasi-)empty file, and desktop systems use
+    NetworkManager instead of ifupdown.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 15 Aug 2016 16:23:25 -0400
 

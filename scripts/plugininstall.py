@@ -44,15 +44,6 @@ from ubiquity import install_misc, misc, osextras, plugin_manager
 from ubiquity.components import apt_setup, check_kernels, hw_detect
 
 
-INTERFACES_TEXT = """\
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback"""
-
-
 HOSTS_TEXT = """\
 
 # The following lines are desirable for IPv6 capable hosts
@@ -440,12 +431,6 @@ class Install(install_misc.InstallBase):
                         os.symlink(linkto, targetpath)
                     else:
                         shutil.copy2(path, targetpath)
-        else:
-            if not os.path.exists('/etc/network/interfaces'):
-                # Make sure there's at least something here so that ifupdown
-                # doesn't get upset at boot.
-                with open('/etc/network/interfaces', 'w') as interfaces:
-                    print(INTERFACES_TEXT, file=interfaces)
 
         try:
             hostname = self.db.get('netcfg/get_hostname')
