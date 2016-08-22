@@ -4,6 +4,8 @@ ubiquity (16.10.8) UNRELEASED; urgency=medium
   * Automatic update of included source packages: choose-mirror
     2.69ubuntu1, grub-installer 1.128ubuntu6, netcfg 1.138ubuntu1,
     partman-partitioning 112ubuntu1.
+  * bin/ubiquity: Work around apt printing pmstatus messages progress percent
+    values following LC_NUMERIC. (LP: #1611010)
 
   [ Martin Pitt ]
   * scripts/plugininstall.py: Remove fallback creation of /etc/iftab. This
