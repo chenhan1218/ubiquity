@@ -11,6 +11,9 @@ ubiquity (16.10.9) UNRELEASED; urgency=medium
   * ubiquity-dm: Drop privileges before performing operations on D-Bus
   * ubiquity-dm: Fix signal handler's parameters and add timeout.
 
+  [ Max Brustkern ]
+  * tests: Pass custom proxy classes directly instead of locating them by name.
+
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 25 Aug 2016 10:55:47 -0400
 
 ubiquity (16.10.8) yakkety; urgency=medium
