@@ -1,3 +1,10 @@
+ubiquity (16.10.9) UNRELEASED; urgency=medium
+
+  * bin/ubiquity: Remove duplicate setting of LC_ALL introduced in previous
+    upload.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 25 Aug 2016 10:55:47 -0400
+
 ubiquity (16.10.8) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
