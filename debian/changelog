@@ -1,4 +1,4 @@
-ubiquity (16.10.8) UNRELEASED; urgency=medium
+ubiquity (16.10.8) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: choose-mirror
@@ -15,7 +15,7 @@ ubiquity (16.10.8) UNRELEASED; urgency=medium
     is not necessary to have a (quasi-)empty file, and desktop systems use
     NetworkManager instead of ifupdown.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 15 Aug 2016 16:23:25 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 23 Aug 2016 17:11:45 -0400
 
 ubiquity (16.10.7) yakkety; urgency=medium
 
