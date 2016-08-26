@@ -1,4 +1,4 @@
-ubiquity (16.10.9) UNRELEASED; urgency=medium
+ubiquity (16.10.9) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * bin/ubiquity: Remove duplicate setting of LC_ALL introduced in previous
@@ -14,7 +14,7 @@ ubiquity (16.10.9) UNRELEASED; urgency=medium
   [ Max Brustkern ]
   * tests: Pass custom proxy classes directly instead of locating them by name.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 25 Aug 2016 10:55:47 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 25 Aug 2016 11:01:29 -0400
 
 ubiquity (16.10.8) yakkety; urgency=medium
 
