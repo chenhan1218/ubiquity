@@ -394,8 +394,9 @@ class PageKde(PageBase):
             self.only = False
 
         try:
-            from PyQt4 import uic
-            from PyQt4.QtGui import QWidget, QPixmap, QIcon
+            from PyQt5 import uic
+            from PyQt5.QtGui import QPixmap, QIcon
+            from PyQt5.QtWidgets import QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             # Tell layout that all items are of uniform sizes
@@ -495,8 +496,8 @@ class PageKde(PageBase):
             self.updating_installer = False
 
     def openURL(self, url):
-        from PyQt4.QtGui import QDesktopServices
-        from PyQt4.QtCore import QUrl
+        from PyQt5.QtGui import QDesktopServices
+        from PyQt5.QtCore import QUrl
         import shutil
         import os
 
@@ -565,7 +566,7 @@ class PageKde(PageBase):
         self.widgetHidden = []
 
     def plugin_set_online_state(self, state):
-        from PyQt4.QtCore import QTimer, SIGNAL
+        from PyQt5.QtCore import QTimer, SIGNAL
         if self.page.release_notes_label:
             if state:
                 self.page.release_notes_label.show()
@@ -579,7 +580,7 @@ class PageKde(PageBase):
 
     def check_returncode(self, *args):
         import subprocess
-        from PyQt4.QtCore import SIGNAL
+        from PyQt5.QtCore import SIGNAL
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
                 ['wget', '-q', _wget_url, '--timeout=15', '--tries=1',

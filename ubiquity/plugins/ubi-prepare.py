@@ -250,8 +250,8 @@ class PageKde(PreparePageBase):
             return
         self.controller = controller
         try:
-            from PyQt4 import uic
-            from PyQt4 import QtGui
+            from PyQt5 import uic
+            from PyQt5 import QtGui
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
@@ -327,7 +327,7 @@ class PageKde(PreparePageBase):
         self.prepare_download_updates.setChecked(val)
 
     def get_download_updates(self):
-        from PyQt4.QtCore import Qt
+        from PyQt5.QtCore import Qt
         return self.prepare_download_updates.checkState() == Qt.Checked
 
     def set_allow_nonfree(self, allow):
@@ -344,7 +344,7 @@ class PageKde(PreparePageBase):
             self.set_allow_nonfree(False)
 
     def get_use_nonfree(self):
-        from PyQt4.QtCore import Qt
+        from PyQt5.QtCore import Qt
         return self.prepare_nonfree_software.checkState() == Qt.Checked
 
     def plugin_translate(self, lang):
