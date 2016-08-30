@@ -201,16 +201,19 @@ class Wizard(BaseFrontend):
         else:
             self.icon_widget.load(logoDirectory + "branding.svgz")
         branding_layout = QtWidgets.QHBoxLayout()
-        branding_layout.addItem(QtWidgets.QSpacerItem(1, 1,
-                                                QtWidgets.QSizePolicy.Expanding,
-                                                QtWidgets.QSizePolicy.Minimum))
+        branding_layout.addItem(
+            QtWidgets.QSpacerItem(1, 1,
+                                  QtWidgets.QSizePolicy.Expanding,
+                                  QtWidgets.QSizePolicy.Minimum))
         branding_layout.addWidget(self.icon_widget)
-        branding_layout.addItem(QtWidgets.QSpacerItem(1, 1,
-                                                QtWidgets.QSizePolicy.Expanding,
-                                                QtWidgets.QSizePolicy.Minimum))
+        branding_layout.addItem(
+            QtWidgets.QSpacerItem(1, 1,
+                                  QtWidgets.QSizePolicy.Expanding,
+                                  QtWidgets.QSizePolicy.Minimum))
         branding_spacer = QtWidgets.QSpacerItem(1, 1,
                                                 QtWidgets.QSizePolicy.Minimum,
-                                                QtWidgets.QSizePolicy.Expanding)
+                                                QtWidgets.QSizePolicy.Expanding
+                                                )
         self.ui.sidebar_widget.layout().addItem(branding_spacer)
         self.ui.sidebar_widget.layout().addItem(branding_layout)
 
@@ -1375,7 +1378,8 @@ class Wizard(BaseFrontend):
         saved_busy_cursor = self.busy_cursor
         self.set_busy_cursor(False)
         # TODO: cancel button as well if capb backup
-        QtWidgets.QMessageBox.warning(self.ui, title, msg, QtWidgets.QMessageBox.Ok)
+        QtWidgets.QMessageBox.warning(
+            self.ui, title, msg, QtWidgets.QMessageBox.Ok)
         self.set_busy_cursor(saved_busy_cursor)
         if fatal:
             self.return_to_partitioning()
@@ -1388,8 +1392,9 @@ class Wizard(BaseFrontend):
         saved_busy_cursor = self.busy_cursor
         self.set_busy_cursor(False)
         buttons = {}
-        messageBox = QtWidgets.QMessageBox(QtWidgets.QMessageBox.Question, title, msg,
-                                       QtWidgets.QMessageBox.NoButton, self.ui)
+        messageBox = QtWidgets.QMessageBox(
+            QtWidgets.QMessageBox.Question, title, msg,
+            QtWidgets.QMessageBox.NoButton, self.ui)
         for option in options:
             if use_templates:
                 text = self.get_string(option)
