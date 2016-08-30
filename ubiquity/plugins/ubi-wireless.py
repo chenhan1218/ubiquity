@@ -223,7 +223,7 @@ class PageKde(WirelessPageBase):
         self.plugin_widgets = self.page
 
     def _setup_page(self):
-        from PyQt5 import uic, QtGui, QtWidgets
+        from PyQt5 import uic, QtWidgets
         from ubiquity.frontend.kde_components import nmwidgets
         self.nmwidget = nmwidgets.NetworkManagerWidget()
         self.nmwidget.state_changed.connect(self._update_ui)

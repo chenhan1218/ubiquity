@@ -2,7 +2,7 @@
 
 import sys
 
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
 

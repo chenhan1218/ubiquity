@@ -2,7 +2,7 @@
 
 import sys
 
-from PyQt5 import QtGui, QtWidgets, uic
+from PyQt5 import QtWidgets, uic
 from ubiquity.frontend.kde_components.Timezone import TimezoneMap
 
 

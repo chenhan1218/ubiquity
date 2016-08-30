@@ -3,7 +3,7 @@
 import os
 
 from PyQt5 import uic
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 from ubiquity.frontend.kde_components.PartitionBar import PartitionsBar
 from ubiquity.frontend.kde_components.PartitionModel import PartitionModel

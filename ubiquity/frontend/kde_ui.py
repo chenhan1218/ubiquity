@@ -202,15 +202,15 @@ class Wizard(BaseFrontend):
             self.icon_widget.load(logoDirectory + "branding.svgz")
         branding_layout = QtWidgets.QHBoxLayout()
         branding_layout.addItem(QtWidgets.QSpacerItem(1, 1,
-                                                  QtWidgets.QSizePolicy.Expanding,
-                                                  QtWidgets.QSizePolicy.Minimum))
+                                                QtWidgets.QSizePolicy.Expanding,
+                                                QtWidgets.QSizePolicy.Minimum))
         branding_layout.addWidget(self.icon_widget)
         branding_layout.addItem(QtWidgets.QSpacerItem(1, 1,
-                                                  QtWidgets.QSizePolicy.Expanding,
-                                                  QtWidgets.QSizePolicy.Minimum))
+                                                QtWidgets.QSizePolicy.Expanding,
+                                                QtWidgets.QSizePolicy.Minimum))
         branding_spacer = QtWidgets.QSpacerItem(1, 1,
-                                            QtWidgets.QSizePolicy.Minimum,
-                                            QtWidgets.QSizePolicy.Expanding)
+                                                QtWidgets.QSizePolicy.Minimum,
+                                                QtWidgets.QSizePolicy.Expanding)
         self.ui.sidebar_widget.layout().addItem(branding_spacer)
         self.ui.sidebar_widget.layout().addItem(branding_layout)
 

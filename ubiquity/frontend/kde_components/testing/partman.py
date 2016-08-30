@@ -3,7 +3,7 @@
 import os
 import sys
 
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 from ubiquity.frontend.kde_components.PartMan import PartMan
 

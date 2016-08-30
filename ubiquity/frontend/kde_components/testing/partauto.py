@@ -5,7 +5,7 @@ from __future__ import print_function
 import os
 import sys
 
-from PyQt5 import QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
 from ubiquity.frontend.kde_components.PartAuto import PartAuto
 
