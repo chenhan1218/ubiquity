@@ -1,3 +1,9 @@
+ubiquity (16.10.10) UNRELEASED; urgency=medium
+
+  * gtk/ubiquity.ui: Right align Skip button (LP: #1612455)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sun, 04 Sep 2016 14:45:15 -0400
+
 ubiquity (16.10.9) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
