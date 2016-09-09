@@ -1,5 +1,6 @@
 ubiquity (16.10.10) UNRELEASED; urgency=medium
 
+  [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: flash-kernel
     3.0~rc.4ubuntu64, netcfg 1.138ubuntu2, partman-auto 134ubuntu3.
   * ubi-prepare.py: default to disabling Secure Boot when third party drivers
@@ -7,6 +8,9 @@ ubiquity (16.10.10) UNRELEASED; urgency=medium
     will also avoid people skipping through this important part of the
     installer without noticing, only to find their systems not all working
     correctly. (LP: #1606393)
+
+  [ Jeremy Bicha ]
+  * gtk/ubiquity.ui: Right align Skip button (LP: #1612455)
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 08 Sep 2016 16:54:28 -0400
 
