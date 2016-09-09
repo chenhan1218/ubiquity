@@ -1,12 +1,14 @@
 ubiquity (16.10.10) UNRELEASED; urgency=medium
 
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu64, netcfg 1.138ubuntu2, partman-auto 134ubuntu3.
   * ubi-prepare.py: default to disabling Secure Boot when third party drivers
     are being installed, since it's most likely what people will want. This
     will also avoid people skipping through this important part of the
     installer without noticing, only to find their systems not all working
     correctly. (LP: #1606393)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 08 Sep 2016 16:49:55 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 08 Sep 2016 16:54:28 -0400
 
 ubiquity (16.10.9) yakkety; urgency=medium
 
