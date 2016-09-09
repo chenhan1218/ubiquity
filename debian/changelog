@@ -1,4 +1,4 @@
-ubiquity (16.10.10) UNRELEASED; urgency=medium
+ubiquity (16.10.10) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: flash-kernel
@@ -12,7 +12,7 @@ ubiquity (16.10.10) UNRELEASED; urgency=medium
   [ Jeremy Bicha ]
   * gtk/ubiquity.ui: Right align Skip button (LP: #1612455)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 08 Sep 2016 16:54:28 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 09 Sep 2016 10:14:36 -0400
 
 ubiquity (16.10.9) yakkety; urgency=medium
 
