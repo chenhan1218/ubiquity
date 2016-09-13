@@ -1,3 +1,11 @@
+ubiquity (16.10.11) UNRELEASED; urgency=medium
+
+  [ Simon Steinbeiß ]
+  * Account for larger harddrives in the partition size spinbutton.
+    (LP: #1622258)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 13 Sep 2016 09:58:11 -0400
+
 ubiquity (16.10.10) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
