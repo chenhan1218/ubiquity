@@ -176,6 +176,7 @@ class PageGtk(PreparePageBase):
     def on_nonfree_toggled(self, widget):
         enabled = self.get_use_nonfree()
         self.secureboot_box.set_sensitive(enabled)
+        self.info_loop(None)
 
     def on_secureboot_toggled(self, widget):
         enabled = self.get_disable_secureboot()
@@ -183,7 +184,8 @@ class PageGtk(PreparePageBase):
         self.info_loop(None)
 
     def info_loop(self, unused_widget):
-        if not self.password_grid.get_sensitive():
+        if not self.get_use_nonfree() \
+                or not self.password_grid.get_sensitive():
             self.controller.allow_go_forward(True)
             return True
 

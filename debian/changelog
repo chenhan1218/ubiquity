@@ -1,3 +1,27 @@
+ubiquity (16.10.11) yakkety; urgency=medium
+
+  [ Simon Steinbeiß ]
+  * Account for larger harddrives in the partition size spinbutton.
+    (LP: #1622258)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 13 Sep 2016 10:07:18 -0400
+
+ubiquity (16.10.10) yakkety; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu64, netcfg 1.138ubuntu2, partman-auto 134ubuntu3.
+  * ubi-prepare.py: default to disabling Secure Boot when third party drivers
+    are being installed, since it's most likely what people will want. This
+    will also avoid people skipping through this important part of the
+    installer without noticing, only to find their systems not all working
+    correctly. (LP: #1606393)
+
+  [ Jeremy Bicha ]
+  * gtk/ubiquity.ui: Right align Skip button (LP: #1612455)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 09 Sep 2016 10:14:36 -0400
+
 ubiquity (16.10.9) yakkety; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]

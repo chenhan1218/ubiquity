@@ -193,7 +193,8 @@
                     <property name="can_focus">True</property>
                     <property name="invisible_char">●</property>
                     <property name="activates_default">True</property>
-                    <property name="width_chars">6</property>
+                    <property name="hexpand">True</property>
+                    <property name="width_chars">10</property>
                     <property name="xalign">1</property>
                     <property name="invisible_char_set">True</property>
                     <property name="primary_icon_activatable">False</property>
