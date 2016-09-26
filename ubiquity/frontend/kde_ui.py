@@ -182,8 +182,8 @@ class Wizard(BaseFrontend):
         self._apply_stylesheet()
 
         self.app.setWindowIcon(QtGui.QIcon.fromTheme("ubiquity-kde"))
-        import dbus.mainloop.qt
-        dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+        import dbus.mainloop.pyqt5
+        dbus.mainloop.pyqt5.DBusQtMainLoop(set_as_default=True)
 
         self.ui = UbiquityUI()
 
