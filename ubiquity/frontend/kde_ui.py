@@ -394,21 +394,18 @@ class Wizard(BaseFrontend):
             sys.exit(1)
 
     def network_change(self, online=False):
-        from PyQt5.QtCore import QTimer, SIGNAL
+        from PyQt5.QtCore import QTimer
         if not online:
             self.set_online_state(False)
             return
         QTimer.singleShot(300, self.check_returncode)
         self.timer = QTimer(self.ui)
-        self.timer.connect(
-            self.timer, SIGNAL("timeout()"), self.check_returncode)
+        self.timer.timeout.connect(self.check_returncode)
         self.timer.start(300)
 
     def check_returncode(self, *args):
-        from PyQt5.QtCore import SIGNAL
         if not BaseFrontend.check_returncode(self, args):
-            self.timer.disconnect(
-                self.timer, SIGNAL("timeout()"), self.check_returncode)
+            self.timer.timeout.disconnect(self.check_returncode)
 
     def set_online_state(self, state):
         for p in self.pages:

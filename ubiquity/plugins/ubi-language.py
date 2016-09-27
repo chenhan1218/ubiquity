@@ -566,21 +566,19 @@ class PageKde(PageBase):
         self.widgetHidden = []
 
     def plugin_set_online_state(self, state):
-        from PyQt5.QtCore import QTimer, SIGNAL
+        from PyQt5.QtCore import QTimer
         if self.page.release_notes_label:
             if state:
                 self.page.release_notes_label.show()
                 QTimer.singleShot(300, self.check_returncode)
                 self.timer = QTimer(self.page)
-                self.timer.connect(
-                    self.timer, SIGNAL("timeout()"), self.check_returncode)
+                self.timer.timeout.connect(self.check_returncode)
                 self.timer.start(300)
             else:
                 self.page.release_notes_label.hide()
 
     def check_returncode(self, *args):
         import subprocess
-        from PyQt5.QtCore import SIGNAL
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
                 ['wget', '-q', _wget_url, '--timeout=15', '--tries=1',
@@ -594,8 +592,7 @@ class PageKde(PageBase):
             else:
                 self.update_installer = False
             self.update_release_notes_label()
-            self.timer.disconnect(
-                self.timer, SIGNAL("timeout()"), self.check_returncode)
+            self.timer.timeout.disconnect(self.check_returncode)
 
     def update_release_notes_label(self):
         lang = self.selected_language()

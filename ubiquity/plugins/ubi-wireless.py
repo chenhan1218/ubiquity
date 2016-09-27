@@ -230,7 +230,7 @@ class PageKde(WirelessPageBase):
 
         self.page = uic.loadUi('/usr/share/ubiquity/qt/stepWireless.ui')
         layout = QtWidgets.QHBoxLayout(self.page.nmwidget_container)
-        layout.setMargin(0)
+        #layout.setMargin(0)
         layout.addWidget(self.nmwidget)
 
         self.page.use_wireless.toggled.connect(self._update_ui)

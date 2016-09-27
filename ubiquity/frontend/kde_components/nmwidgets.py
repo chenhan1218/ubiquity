@@ -299,7 +299,7 @@ class ProgressIndicator(QtWidgets.QWidget):
         self.spinner = Spinner()
 
         layout = QtWidgets.QHBoxLayout(self)
-        layout.setMargin(0)
+        #layout.setMargin(0)
         layout.addStretch()
         layout.addWidget(self.spinner)
         layout.addWidget(self.iconLabel)
@@ -366,7 +366,7 @@ class NetworkManagerWidget(QtWidgets.QWidget):
             self._on_current_changed)
 
         layout = QtWidgets.QVBoxLayout(self)
-        layout.setMargin(0)
+        #layout.setMargin(0)
         layout.addWidget(self.view)
         layout.addWidget(self.progress_indicator)
         layout.addLayout(hlayout)
