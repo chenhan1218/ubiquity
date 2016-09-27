@@ -93,9 +93,13 @@ def draw_level_pix(wanted_level):
     painter.setCompositionMode(QtGui.QPainter.CompositionMode_Clear)
     painter.setBrush(QtCore.Qt.black)
     painter.drawPolygon(QtGui.QPolygon(
-        [center.x(), bottom, 0, middle, 0, bottom]))
+        [QtCore.QPoint(int(center.x()), bottom),
+         QtCore.QPoint(0, int(middle)),
+         QtCore.QPoint(0, bottom)]))
     painter.drawPolygon(QtGui.QPolygon(
-        [center.x(), bottom, right, middle, right, bottom]))
+        [QtCore.QPoint(int(center.x()), bottom),
+         QtCore.QPoint(right, int(middle)),
+         QtCore.QPoint(right, bottom)]))
     painter.translate(0, 2)
     painter.drawRect(0, pix.height() - 2, pix.width(), 2)
     painter.end()
