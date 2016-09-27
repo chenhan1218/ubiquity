@@ -1,3 +1,10 @@
+ubiquity (16.10.12) UNRELEASED; urgency=medium
+
+  * data/ubiquity.desktop.in: run ubiquity in sudo rather than depending on
+    pkexec to do the right thing. (LP: #1189875)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 26 Sep 2016 22:08:53 -0400
+
 ubiquity (16.10.11) yakkety; urgency=medium
 
   [ Simon Steinbeiß ]
