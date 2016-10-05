@@ -1,9 +1,11 @@
 ubiquity (16.10.12) UNRELEASED; urgency=medium
 
+  * Automatic update of included source packages: base-installer
+    1.158ubuntu4, console-setup 1.142ubuntu5, hw-detect 1.117ubuntu3.
   * data/ubiquity.desktop.in: run ubiquity in sudo rather than depending on
     pkexec to do the right thing. (LP: #1189875)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 26 Sep 2016 22:08:53 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 05 Oct 2016 15:03:52 -0400
 
 ubiquity (16.10.11) yakkety; urgency=medium
 
