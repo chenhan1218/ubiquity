@@ -292,7 +292,7 @@ class PageKde(plugin.PluginUI):
         self.page.timezone_city_combo.clear()
 
         code = str(
-            self.page.timezone_zone_combo.itemData(regionIndex).toPyObject())
+            self.page.timezone_zone_combo.itemData(regionIndex))
         countries = self.controller.dbfilter.get_countries_for_region(code)
         if not countries:  # must have been a country code itself
             countries = [code]
@@ -333,7 +333,7 @@ class PageKde(plugin.PluginUI):
     # called when the city combo changes
     def cityChanged(self, cityindex):
         zone = str(
-            self.page.timezone_city_combo.itemData(cityindex).toPyObject())
+            self.page.timezone_city_combo.itemData(cityindex))
         self.tzmap.zoneChanged.disconnect(self.mapZoneChanged)
         self.tzmap.set_timezone(zone)
         self.tzmap.zoneChanged.connect(self.mapZoneChanged)
@@ -344,7 +344,7 @@ class PageKde(plugin.PluginUI):
         self.page.timezone_city_combo.blockSignals(True)
 
         for i in range(self.page.timezone_zone_combo.count()):
-            code = str(self.page.timezone_zone_combo.itemData(i).toPyObject())
+            code = str(self.page.timezone_zone_combo.itemData(i))
             countries = self.controller.dbfilter.get_countries_for_region(code)
             if not countries:  # must have been a country code itself
                 countries = [code]
@@ -354,7 +354,7 @@ class PageKde(plugin.PluginUI):
                 break
 
         for i in range(self.page.timezone_city_combo.count()):
-            code = str(self.page.timezone_city_combo.itemData(i).toPyObject())
+            code = str(self.page.timezone_city_combo.itemData(i))
             if zone == code:
                 self.page.timezone_city_combo.setCurrentIndex(i)
                 self.cityChanged(i)

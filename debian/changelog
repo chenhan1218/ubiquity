@@ -5,6 +5,7 @@ ubiquity (16.10.13) UNRELEASED; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: preseed 1.71ubuntu3.
+  * Finish porting to PyQt5.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 05 Oct 2016 21:47:47 -0400
 

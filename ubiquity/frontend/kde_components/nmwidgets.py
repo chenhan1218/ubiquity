@@ -189,8 +189,8 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
         return None
 
     def _update_item_icon(self, item):
-        secure = item.data(QtNetworkStore.IsSecureRole).toBool()
-        strength, ok = item.data(QtNetworkStore.StrengthRole).toInt()
+        secure = item.data(QtNetworkStore.IsSecureRole)
+        strength, ok = item.data(QtNetworkStore.StrengthRole)
         if strength < 30:
             icon = 0
         elif strength < 50:
@@ -265,7 +265,7 @@ class NetworkManagerTreeView(QtWidgets.QTreeView):
             return devid, None
 
         # AP row
-        ssid = index.data(QtNetworkStore.SsidRole).toString()
+        ssid = index.data(QtNetworkStore.SsidRole)
         devid = self.model().itemFromIndex(parent_index).id
 
         return devid, ssid
@@ -276,17 +276,17 @@ class NetworkManagerTreeView(QtWidgets.QTreeView):
 
     def get_cached_passphrase(self):
         index = self.currentIndex()
-        secure = index.data(QtNetworkStore.IsSecureRole).toBool()
+        secure = index.data(QtNetworkStore.IsSecureRole)
         if not secure:
             return ''
-        ssid = index.data(QtNetworkStore.SsidRole).toString()
+        ssid = index.data(QtNetworkStore.SsidRole)
         return self.wifi_model.passphrases_cache.get(ssid, '')
 
     def is_row_a_secure_ap(self):
         current = self.currentIndex()
         if not current.parent().isValid():
             return False
-        return current.data(QtNetworkStore.IsSecureRole).toBool()
+        return current.data(QtNetworkStore.IsSecureRole)
 
     def get_state(self):
         return self.wifi_model.get_state()

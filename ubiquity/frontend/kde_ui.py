@@ -173,6 +173,10 @@ class Wizard(BaseFrontend):
         # Pretty much all of the above but for Qt5
         os.environ["QT_QPA_PLATFORMTHEME"] = "kde"
 
+        # Qt5 now sigabrts by default if it finds itself running as setuid.
+        # Let's not do that here, we kind of really do need more privileges...
+        QtCore.QCoreApplication.setSetuidAllowed(True)
+
         self.app = QtWidgets.QApplication([])
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
         # DM. This causes some icons to be missing. Hardcode the theme name to
@@ -591,27 +595,11 @@ class Wizard(BaseFrontend):
         # the slideshow does not start (but it starts if one runs
         # UBIQUITY_TEST_SLIDESHOW=1 ubiquity !). Creating it from the code
         # works. I have no idea why.
-        from PyQt5.QtWebKit import QWebView
-        from PyQt5.QtWebKit import QWebPage
+        from PyQt5.QtWebKitWidgets import QWebView
 
         webView = QWebView()
         webView.setMinimumSize(700, 420)
         webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
-
-# Make it transparent, see
-# http://ariya.blogspot.com/2009/04/transparent-qwebview-and-qwebpage.html
-
-        palette = webView.palette()
-        palette.setBrush(QtWidgets.QPalette.Base, QtCore.Qt.transparent)
-        page = webView.page()
-        page.setPalette(palette)
-        webView.setAttribute(QtCore.Qt.WA_OpaquePaintEvent, False)
-
-        page.setLinkDelegationPolicy(QWebPage.DelegateExternalLinks)
-        page.mainFrame().setScrollBarPolicy(
-            QtCore.Qt.Horizontal, QtCore.Qt.ScrollBarAlwaysOff)
-        page.mainFrame().setScrollBarPolicy(
-            QtCore.Qt.Vertical, QtCore.Qt.ScrollBarAlwaysOff)
         return webView
 
     def start_slideshow(self):
