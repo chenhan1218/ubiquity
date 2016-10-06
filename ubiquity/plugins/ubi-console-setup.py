@@ -262,8 +262,8 @@ class PageKde(plugin.PluginUI):
         self.default_keyboard_variant = None
 
         try:
-            from PyQt4 import uic
-            from PyQt4.QtGui import QVBoxLayout
+            from PyQt5 import uic
+            from PyQt5.QtWidgets import QVBoxLayout
             from ubiquity.frontend.kde_components.Keyboard import Keyboard
 
             self.page = uic.loadUi(

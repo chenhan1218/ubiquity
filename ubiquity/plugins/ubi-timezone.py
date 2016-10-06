@@ -251,7 +251,7 @@ class PageKde(plugin.PluginUI):
     def __init__(self, controller, *args, **kwargs):
         self.controller = controller
         try:
-            from PyQt4 import uic
+            from PyQt5 import uic
             from ubiquity.frontend.kde_components.Timezone import TimezoneMap
 
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLocation.ui')
