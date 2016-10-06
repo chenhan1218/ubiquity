@@ -190,7 +190,7 @@ class QtNetworkStore(QtGui.QStandardItemModel, NetworkStore):
 
     def _update_item_icon(self, item):
         secure = item.data(QtNetworkStore.IsSecureRole)
-        strength, ok = item.data(QtNetworkStore.StrengthRole)
+        strength = item.data(QtNetworkStore.StrengthRole)
         if strength < 30:
             icon = 0
         elif strength < 50:
