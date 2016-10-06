@@ -128,10 +128,13 @@ class ResizeWidget(Gtk.Paned):
         test_window = Gtk.Window()
         test_label = Gtk.Label()
         test_window.add(test_label)
-        style = test_label.get_style_context()
-        self.highlight_color = style.get_background_color(
-            Gtk.StateFlags.SELECTED)
+        context = test_label.get_style_context()
+        context.save()
+        context.set_state(Gtk.StateFlags.SELECTED)
+
+        self.highlight_color = context.get_color(context.get_state())
         self.highlight_color.alpha = 0.5
+        context.restore()
 
         self.existing_part = existing_part or PartitionBox()
         frame = Gtk.Frame.new()

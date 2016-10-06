@@ -6,8 +6,9 @@ ubiquity (16.10.13) UNRELEASED; urgency=medium
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: preseed 1.71ubuntu3.
   * Finish porting to PyQt5.
+  * Various small UI tweaks to support GTK 3.20. (LP: #1614848, #1617711)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 05 Oct 2016 21:47:47 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 06 Oct 2016 12:12:46 -0400
 
 ubiquity (16.10.12) yakkety; urgency=medium
 
