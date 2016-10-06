@@ -3,6 +3,9 @@ ubiquity (16.10.13) UNRELEASED; urgency=medium
   [ Blaze ]
   * Port to PyQT5.
 
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: preseed 1.71ubuntu3.
+
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 05 Oct 2016 21:47:47 -0400
 
 ubiquity (16.10.12) yakkety; urgency=medium

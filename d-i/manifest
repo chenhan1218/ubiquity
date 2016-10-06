@@ -29,7 +29,7 @@ partman-partitioning 112ubuntu1
 partman-target 98ubuntu1
 partman-uboot 5
 partman-xfs 58
-preseed 1.71ubuntu2
+preseed 1.71ubuntu3
 tzsetup 1:0.81ubuntu1
 user-setup 1.63ubuntu4
 yaboot-installer 1.1.36ubuntu1
