@@ -76,9 +76,10 @@ class GtkBox(GtkContainers):
             treeview = self.select_single('GtkTreeView')
             treeview.click()
             # for sanity lets ensure we always start at the top of the list
-            logger.debug("Selecting top item of treeview list")
-            self.kbd.press_and_release('Home')
             tree_items = treeview.get_all_items()
+            logger.debug("Selecting top item of treeview list")
+            for _ in tree_items:
+                self.kbd.press_and_release('Up')
             top_item = tree_items[0]
             # If we are at the top
             if top_item.selected:
