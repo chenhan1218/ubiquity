@@ -149,7 +149,7 @@ def grub_options():
         @return empty list or a list of ['/dev/sda1','Ubuntu Hardy 8.04'] """
     from ubiquity.parted_server import PartedServer
 
-    l = []
+    ret = []
     try:
         oslist = {}
         subp = subprocess.Popen(
@@ -172,9 +172,9 @@ def grub_options():
             if dev and mod:
                 if size.isdigit():
                     size = format_size(int(size))
-                    l.append([dev, '%s (%s)' % (mod, size)])
+                    ret.append([dev, '%s (%s)' % (mod, size)])
                 else:
-                    l.append([dev, mod])
+                    ret.append([dev, mod])
             for part in p.partitions():
                 ostype = ''
                 if part[4] == 'linux-swap':
@@ -186,12 +186,12 @@ def grub_options():
                     pass
                 elif part[5] in oslist.keys():
                     ostype = oslist[part[5]]
-                l.append([part[5], ostype])
+                ret.append([part[5], ostype])
     except:
         import traceback
         for line in traceback.format_exc().split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
-    return l
+    return ret
 
 
 @raise_privileges
