@@ -1779,9 +1779,9 @@ class Wizard(BaseFrontend):
             self.grub_new_device_entry.set_sensitive(True)
 
     def bootloader_dialog(self, current_device):
-        l = self.skip_label.get_label()
-        l = l.replace('${RELEASE}', misc.get_release().name)
-        self.skip_label.set_label(l)
+        ret = self.skip_label.get_label()
+        ret = ret.replace('${RELEASE}', misc.get_release().name)
+        self.skip_label.set_label(ret)
         self.grub_new_device_entry.get_child().set_text(current_device)
         self.grub_new_device_entry.get_child().grab_focus()
         response = self.bootloader_fail_dialog.run()

@@ -251,6 +251,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
         if parent:
             self.wifi_model.connect_to_ap(model[parent][0], ssid, passphrase)
 
+
 GObject.type_register(NetworkManagerTreeView)
 
 
@@ -357,6 +358,7 @@ class NetworkManagerWidget(Gtk.Box):
             self.password_entry.set_text('')
             self.emit('pw_validated', True)
         self.emit('selection_changed')
+
 
 GObject.type_register(NetworkManagerWidget)
 

@@ -262,6 +262,7 @@ def ascii_transliterate(exc):
     else:
         return '', exc.start + 1
 
+
 codecs.register_error('ascii_transliterate', ascii_transliterate)
 
 

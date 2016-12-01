@@ -745,6 +745,7 @@ class Install(install_misc.InstallBase):
                     install_misc.record_installed(['ecryptfs-utils'])
                     break
 
+
 if __name__ == '__main__':
     os.environ['DPKG_UNTRANSLATED_MESSAGES'] = '1'
     if not os.path.exists('/var/lib/ubiquity'):

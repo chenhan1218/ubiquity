@@ -8,10 +8,10 @@ class Keyrow(Gtk.Box):
         GObject.GObject.__init__(self, spacing=24)
 
     def add_character(self, key):
-        l = Gtk.Label(label='<big>%s</big>' % key)
-        l.set_use_markup(True)
-        self.pack_start(l, True, True, 0)
-        l.show()
+        ret = Gtk.Label(label='<big>%s</big>' % key)
+        ret.set_use_markup(True)
+        self.pack_start(ret, True, True, 0)
+        ret.show()
 
     def clear(self):
         for ch in self.get_children():
@@ -126,5 +126,6 @@ class KeyboardQuery(Gtk.Window):
                 self.process(r)
             except:
                 self.hide()
+
 
 GObject.type_register(KeyboardQuery)

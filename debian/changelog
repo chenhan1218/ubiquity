@@ -6,6 +6,7 @@ ubiquity (17.04.1) UNRELEASED; urgency=medium
     2.73ubuntu1, flash-kernel 3.0~rc.4ubuntu65, partman-auto 134ubuntu6,
     partman-auto-lvm 59ubuntu2, partman-basicfilesystems 127ubuntu2,
     partman-btrfs 23ubuntu1, preseed 1.71ubuntu4.
+  * Pacify pycodestyle 2.0.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 01 Dec 2016 13:29:35 +0000
 

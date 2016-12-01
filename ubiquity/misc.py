@@ -497,6 +497,7 @@ def get_release():
             get_release.release_info = ReleaseInfo(name='Ubuntu', version='')
     return get_release.release_info
 
+
 get_release.release_info = None
 
 
@@ -525,6 +526,7 @@ def get_release_name():
             get_release_name.release_name = 'Ubuntu'
     return get_release_name.release_name
 
+
 get_release_name.release_name = ''
 
 
@@ -541,6 +543,7 @@ def get_install_medium():
                 syslog.LOG_ERR, "Unable to determine install medium.")
             get_install_medium.medium = 'CD'
     return get_install_medium.medium
+
 
 get_install_medium.medium = ''
 
@@ -875,6 +878,7 @@ def install_size():
         min_disk_size = max_size
 
     return min_disk_size
+
 
 min_install_size = None
 

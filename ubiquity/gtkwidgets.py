@@ -85,6 +85,7 @@ class StylizedFrame(Gtk.Alignment):
             c.translate(left, top)
             self.get_child().draw(c)
 
+
 GObject.type_register(StylizedFrame)
 
 
@@ -202,6 +203,7 @@ class ResizeWidget(Gtk.Paned):
         else:
             return size
 
+
 GObject.type_register(ResizeWidget)
 
 
@@ -214,6 +216,7 @@ class DiskBox(Gtk.Box):
 
     def clear(self):
         self.forall(lambda x: self.remove(x))
+
 
 GObject.type_register(DiskBox)
 
@@ -301,6 +304,7 @@ class PartitionBox(Gtk.Alignment):
         size = misc.format_size(size)
         self.size.set_markup('<span size="x-large">%s</span>' % size)
 
+
 GObject.type_register(PartitionBox)
 
 
@@ -353,6 +357,7 @@ class StateBox(StylizedFrame):
 
     def get_state(self):
         return self.status
+
 
 GObject.type_register(StateBox)
 
