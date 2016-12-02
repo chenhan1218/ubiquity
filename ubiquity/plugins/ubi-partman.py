@@ -1670,6 +1670,7 @@ class Page(plugin.Plugin):
             '^partman-target/choose_method$',
             ('^partman-basicfilesystems/'
              '(fat_mountpoint|mountpoint|mountpoint_manual)$'),
+            '^partman-basicfilesystems/no_swap$',
             '^partman-uboot/mountpoint$',
             '^partman/exception_handler$',
             '^partman/exception_handler_note$',
@@ -3133,6 +3134,10 @@ class Page(plugin.Plugin):
 
         elif question == 'partman-crypto/weak_passphrase':
             self.preseed_bool(question, True, seen=False)
+            return True
+
+        elif question == 'partman-basicfilesystems/no_swap':
+            self.preseed_bool(question, False, seen=False)
             return True
 
         elif question.startswith('partman-crypto/passphrase'):

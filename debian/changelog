@@ -2,6 +2,7 @@ ubiquity (17.04.1) UNRELEASED; urgency=medium
 
   * Update sources to zesty.
   * Add partman-swapfile d-i component.
+  * Confirm no_swap question.
   * Automatic update of included source packages: choose-mirror
     2.73ubuntu1, flash-kernel 3.0~rc.4ubuntu65, partman-auto 134ubuntu6,
     partman-auto-lvm 59ubuntu2, partman-basicfilesystems 127ubuntu2,
