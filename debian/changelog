@@ -8,6 +8,7 @@ ubiquity (17.04.1) UNRELEASED; urgency=medium
     partman-auto-lvm 59ubuntu2, partman-basicfilesystems 127ubuntu2,
     partman-btrfs 23ubuntu1, preseed 1.71ubuntu4.
   * Pacify pycodestyle 2.0.
+  * Rip out GTK_MODULES overlay-scrollbar, no longer a gtk module.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 01 Dec 2016 13:29:35 +0000
 
