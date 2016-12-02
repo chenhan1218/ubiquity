@@ -159,6 +159,8 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
 	patch debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer \
 		< d-i/patches/localechooser-post-base-installer.patch
+	patch debian/ubiquity/lib/partman/finish.d/25create_swapfile \
+		< d-i/patches/partman-swapfile-background.patch
 	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
 	sed 's/\\\$${!TAB}/ /g' \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser \
