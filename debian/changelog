@@ -1,4 +1,4 @@
-ubiquity (17.04.1) UNRELEASED; urgency=medium
+ubiquity (17.04.1) zesty; urgency=medium
 
   * Update sources to zesty.
   * Add partman-swapfile d-i component.
@@ -11,7 +11,7 @@ ubiquity (17.04.1) UNRELEASED; urgency=medium
   * Pacify pycodestyle 2.0.
   * Rip out GTK_MODULES overlay-scrollbar, no longer a gtk module.
 
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 01 Dec 2016 13:29:35 +0000
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 05 Dec 2016 12:39:41 +0000
 
 ubiquity (16.10.13) yakkety; urgency=medium
 
