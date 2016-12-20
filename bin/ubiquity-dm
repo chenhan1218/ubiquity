@@ -410,6 +410,7 @@ EndSection
                 stdin=null, stdout=logfile, stderr=logfile,
                 preexec_fn=self.drop_privileges))
 
+↓
         # Accessibility infrastructure
         proc_cmdline = []
         with open('/proc/cmdline', 'r') as fp:
@@ -547,7 +548,10 @@ EndSection
                         [launcher, '--launch-immediately'],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
-                    os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                    if 'GTK_MODULES' in os.environ:
+                        os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                    else:
+                        os.environ['GTK_MODULES'] = 'gail'
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
