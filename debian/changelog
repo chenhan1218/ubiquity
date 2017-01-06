@@ -1,6 +1,6 @@
 ubiquity (17.04.2) zesty; urgency=medium
 
-  * Update ubiquity-dm to support Ubuntu Budgie (LP: #1654630)
+  * Update ubiquity-dm to support Ubuntu Budgie (LP: #1654368)
 
  -- David Mohammed <fossfreedom@ubuntu.com>  Fri, 06 Jan 2017 23:23:30 +0000
 
