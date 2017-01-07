@@ -18,14 +18,14 @@ partman-auto-lvm 59ubuntu2
 partman-base 187ubuntu3
 partman-basicfilesystems 127ubuntu2
 partman-basicmethods 61
-partman-btrfs 23ubuntu1
+partman-btrfs 26ubuntu1
 partman-crypto 86ubuntu1
 partman-efi 71ubuntu1
 partman-ext3 86ubuntu1
 partman-jfs 47
 partman-lvm 113
 partman-newworld 34
-partman-partitioning 112ubuntu1
+partman-partitioning 114ubuntu1
 partman-swapfile 1
 partman-target 98ubuntu1
 partman-uboot 5
