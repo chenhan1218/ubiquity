@@ -492,7 +492,8 @@ EndSection
                             ('org.mate.background', 'picture-filename',
                              "''"))
 
-                if osextras.find_on_path('gnome-shell'):
+                if (osextras.find_on_path('gnome-shell') or
+                        osextras.find_on_path('budgie-wm')):
                     gsettings_keys.append(
                         ('org.gnome.settings-daemon.plugins.background',
                          'active', 'false'))
@@ -551,6 +552,8 @@ EndSection
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
+            elif osextras.find_on_path('budgie-wm'):
+                wm_cmd = ['budgie-wm', '--sm-disable']
             elif osextras.find_on_path('marco'):
                 wm_cmd = ['marco', '--sm-disable']
             elif osextras.find_on_path('metacity'):
@@ -569,8 +572,9 @@ EndSection
             else:
                 raise MissingProgramError(
                     'No window manager found (tried '
-                    'marco, metacity, xfwm4, matchbox-window-manager, '
-                    'openbox-lubuntu, openbox, compiz)')
+                    'gnome-shell, budgie-wm, marco, metacity, xfwm4, '
+                    'matchbox-window-manager, openbox-lubuntu, '
+                    'openbox, compiz)')
 
             wm = subprocess.Popen(
                 wm_cmd, stdin=null, stdout=logfile, stderr=logfile,
@@ -596,7 +600,8 @@ EndSection
             if os.path.exists('/usr/lib/ubiquity/panel'):
                 if ("openbox-lubuntu" not in wm_cmd and
                         "openbox" not in wm_cmd and
-                        "gnome-shell" not in wm_cmd):
+                        "gnome-shell" not in wm_cmd and
+                        "budgie-wm" not in wm_cmd):
                     multiarchdir = os.path.split(
                         sysconfig.get_config_var('multiarchsubdir'))[-1]
                     indicators = list(filter(os.path.isfile, [
