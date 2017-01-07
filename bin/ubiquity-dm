@@ -492,15 +492,8 @@ EndSection
                             ('org.mate.background', 'picture-filename',
                              "''"))
 
-                if osextras.find_on_path('gnome-shell'):
-                    gsettings_keys.append(
-                        ('org.gnome.settings-daemon.plugins.background',
-                         'active', 'false'))
-                    gsettings_keys.remove(
-                        ('org.gnome.desktop.wm.preferences', 'num-workspaces',
-                         '1'))
-
-                if osextras.find_on_path('budgie-wm'):
+                if (osextras.find_on_path('gnome-shell') or
+                        osextras.find_on_path('budgie-wm')):
                     gsettings_keys.append(
                         ('org.gnome.settings-daemon.plugins.background',
                          'active', 'false'))
@@ -579,8 +572,9 @@ EndSection
             else:
                 raise MissingProgramError(
                     'No window manager found (tried '
-                    'marco, metacity, xfwm4, matchbox-window-manager, '
-                    'openbox-lubuntu, openbox, compiz, budgie-wm)')
+                    'gnome-shell, budgie-wm, marco, metacity, xfwm4, '
+                    'matchbox-window-manager, openbox-lubuntu, '
+                    'openbox, compiz)')
 
             wm = subprocess.Popen(
                 wm_cmd, stdin=null, stdout=logfile, stderr=logfile,
