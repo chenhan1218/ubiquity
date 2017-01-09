@@ -1,3 +1,11 @@
+ubiquity (17.04.3) UNRELEASED; urgency=medium
+
+  * kde_ui.py: Fix QMessageBox warning call to use "StandardButtons" ORed list
+    of Retry/Ignore/Cancel buttons rather than each as new arguments, as the
+    latter form is obsolete and breaks the Kubuntu installer. (LP: #1650767)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 09 Jan 2017 14:39:09 -0500
+
 ubiquity (17.04.2) zesty; urgency=medium
 
   [ David Mohammed ]

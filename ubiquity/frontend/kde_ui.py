@@ -852,8 +852,8 @@ class Wizard(BaseFrontend):
         # meaningful stock labels
         answer = QtWidgets.QMessageBox.warning(
             self.ui, '%s crashed' % self.dbfilter_status[0], text,
-            QtWidgets.QMessageBox.Retry,
-            QtWidgets.QMessageBox.Ignore,
+            QtWidgets.QMessageBox.Retry |
+            QtWidgets.QMessageBox.Ignore |
             QtWidgets.QMessageBox.Close)
         self.dbfilter_status = None
         syslog.syslog('dbfilter_handle_status: answer %d' % answer)
