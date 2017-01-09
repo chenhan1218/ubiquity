@@ -1,5 +1,6 @@
 ubiquity (17.04.3) UNRELEASED; urgency=medium
 
+  * Automatic update of included source packages: netcfg 1.138ubuntu3.
   * kde_ui.py: Fix QMessageBox warning call to use "StandardButtons" ORed list
     of Retry/Ignore/Cancel buttons rather than each as new arguments, as the
     latter form is obsolete and breaks the Kubuntu installer. (LP: #1650767)
@@ -7,7 +8,7 @@ ubiquity (17.04.3) UNRELEASED; urgency=medium
     kbdnames.gz; otherwise it looks as though kbdnames-maker won't find our
     list of keyboard models, layouts and variants. (LP: #1650767)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 09 Jan 2017 14:39:09 -0500
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 09 Jan 2017 15:24:31 -0500
 
 ubiquity (17.04.2) zesty; urgency=medium
 
