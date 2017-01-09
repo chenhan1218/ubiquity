@@ -76,7 +76,7 @@ d-i/source/console-setup/Keyboard/KeyboardNames.pl:
 		xkbdir=/usr/share/X11/xkb
 
 debian/kbdnames.gz: d-i/source/console-setup/Keyboard/KeyboardNames.pl
-	d-i/source/console-setup/Keyboard/kbdnames-maker $< | gzip -9c > $@
+	d-i/source/console-setup/Keyboard/kbdnames-maker ./$< | gzip -9c > $@
 
 install: install-stamp
 
