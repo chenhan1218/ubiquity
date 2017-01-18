@@ -1,3 +1,10 @@
+ubiquity (17.04.3) zesty; urgency=medium
+
+  * Update ubiquity-dm to ensure Ubuntu Budgie displays its panel
+    to allow users to use the network-manager applet (LP: #1657447)
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Wed, 18 Jan 2017 19:58:03 +0000
+
 ubiquity (17.04.2) zesty; urgency=medium
 
   [ David Mohammed ]
