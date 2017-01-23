@@ -5,6 +5,9 @@ ubiquity (17.04.4) UNRELEASED; urgency=medium
     so HiDPI will look slightly better with a nicer edge to the bottom of the
     panel, in the right color, rather than possibly repeating the gradient.
     (LP: #1622686)
+  * Automatic update of included source packages: grub-installer
+    1.128ubuntu7, netcfg 1.138ubuntu4, partman-btrfs 29ubuntu1, partman-
+    partitioning 114ubuntu2.
 
   [ Max Brustkern ]
   * Set gail or autopilot to GTK_MODULES if GTK_MODULES is empty, rather
