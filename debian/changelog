@@ -1,3 +1,11 @@
+ubiquity (17.04.3) UNRELEASED; urgency=medium
+
+  [ Max Brustkern ]
+  * Set gail or autopilot to GTK_MODULES if GTK_MODULES is empty, rather
+    than always trying to append. (LP: #1654630)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 23 Jan 2017 10:57:32 -0500
+
 ubiquity (17.04.2) zesty; urgency=medium
 
   [ David Mohammed ]
