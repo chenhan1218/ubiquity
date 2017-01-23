@@ -1,9 +1,14 @@
 ubiquity (17.04.4) UNRELEASED; urgency=medium
 
+  [ Mathieu Trudel-Lapierre ]
   * Set extend property for the panel to CAIRO_EXTEND_PAD rather than REPEAT,
     so HiDPI will look slightly better with a nicer edge to the bottom of the
     panel, in the right color, rather than possibly repeating the gradient.
     (LP: #1622686)
+
+  [ Max Brustkern ]
+  * Set gail or autopilot to GTK_MODULES if GTK_MODULES is empty, rather
+    than always trying to append. (LP: #1654630)
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 13 Jan 2017 15:05:57 -0500
 

@@ -23,7 +23,10 @@ def main():
         if not sys.argv[i].startswith('-'):
             frontend = sys.argv[i]
         elif sys.argv[i] == '--autopilot':
-            os.environ['GTK_MODULES'] += os.pathsep + 'autopilot'
+            try:
+                os.environ['GTK_MODULES'] += os.pathsep + 'autopilot'
+            except KeyError:
+                os.environ['GTK_MODULES'] = 'autopilot'
         newargv.append(sys.argv[i])
         i += 1
 

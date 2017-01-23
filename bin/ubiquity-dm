@@ -548,7 +548,10 @@ EndSection
                         [launcher, '--launch-immediately'],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
-                    os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                    try:
+                        os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                    except KeyError:
+                        os.environ['GTK_MODULES'] = 'gail'
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
