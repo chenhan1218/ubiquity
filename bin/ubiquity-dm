@@ -628,12 +628,24 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
 
-            if (osextras.find_on_path('nm-applet') and
-                    "gnome-shell" not in wm_cmd):
+            if ("budgie-wm" in wm_cmd):
                 extras.append(subprocess.Popen(
-                    ['nm-applet'],
+                    ['budgie-panel', '--replace'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
+
+            if (osextras.find_on_path('nm-applet') and
+                    "gnome-shell" not in wm_cmd):
+                if ("budgie-wm" not in wm_cmd):
+                    extras.append(subprocess.Popen(
+                        ['nm-applet'],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
+                else:
+                    extras.append(subprocess.Popen(
+                        ['nm-applet', '--no-indicator'],
+                        stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
 
             if osextras.find_on_path('ibus-daemon'):
                 extras.append(subprocess.Popen(
