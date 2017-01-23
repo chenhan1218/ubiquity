@@ -1,3 +1,12 @@
+ubiquity (17.04.4) UNRELEASED; urgency=medium
+
+  * Set extend property for the panel to CAIRO_EXTEND_PAD rather than REPEAT,
+    so HiDPI will look slightly better with a nicer edge to the bottom of the
+    panel, in the right color, rather than possibly repeating the gradient.
+    (LP: #1622686)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 13 Jan 2017 15:05:57 -0500
+
 ubiquity (17.04.3) zesty; urgency=medium
 
   * Automatic update of included source packages: netcfg 1.138ubuntu3.
