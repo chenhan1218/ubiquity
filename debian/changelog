@@ -1,4 +1,4 @@
-ubiquity (17.04.4) UNRELEASED; urgency=medium
+ubiquity (17.04.4) zesty; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Set extend property for the panel to CAIRO_EXTEND_PAD rather than REPEAT,
@@ -17,7 +17,7 @@ ubiquity (17.04.4) UNRELEASED; urgency=medium
   * Update ubiquity-dm to ensure Ubuntu Budgie displays its panel
     to allow users to use the network-manager applet (LP: #1657447)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 13 Jan 2017 15:05:57 -0500
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 23 Jan 2017 13:02:20 -0500
 
 ubiquity (17.04.3) zesty; urgency=medium
 
