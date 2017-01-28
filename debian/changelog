@@ -1,3 +1,12 @@
+ubiquity (17.04.5) zesty; urgency=medium
+
+  * Update ubiquity-dm to ensure windows decorations and background is
+    displayed for Ubuntu Budgie (LP: #1659280)
+    Switch to the ubiquity-panel with a panel color defined by
+    Ubuntu Budgie
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sat, 28 Jan 2017 19:21:06 +0000
+
 ubiquity (17.04.4) zesty; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]

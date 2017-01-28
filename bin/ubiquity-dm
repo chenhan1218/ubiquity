@@ -501,6 +501,12 @@ EndSection
                         ('org.gnome.desktop.wm.preferences', 'num-workspaces',
                          '1'))
 
+                if (osextras.find_on_path('budgie-wm')):
+                    gsettings_keys.append(
+                        ('org.gnome.desktop.interface', 'icon-theme',
+                         "'ubuntu-mono-dark'"))
+                    os.environ['XDG_SESSION_TYPE'] = 'x11'
+
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
                         ['gsettings', 'set', gs_schema, gs_key, gs_value],
@@ -516,7 +522,8 @@ EndSection
                         [msd], stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
 
-                elif osextras.find_on_path(usd):
+                elif (osextras.find_on_path(usd) and
+                        not osextras.find_on_path('budgie-wm')):
                     # Wait until xsettings plugin is activated
                     xsettings = SignalWatcher(self, usd,
                                               "org.gnome.SettingsDaemon",
@@ -556,7 +563,7 @@ EndSection
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
             elif osextras.find_on_path('budgie-wm'):
-                wm_cmd = ['budgie-wm', '--sm-disable']
+                wm_cmd = ['budgie-wm', '--replace', '--sm-disable']
             elif osextras.find_on_path('marco'):
                 wm_cmd = ['marco', '--sm-disable']
             elif osextras.find_on_path('metacity'):
@@ -603,8 +610,7 @@ EndSection
             if os.path.exists('/usr/lib/ubiquity/panel'):
                 if ("openbox-lubuntu" not in wm_cmd and
                         "openbox" not in wm_cmd and
-                        "gnome-shell" not in wm_cmd and
-                        "budgie-wm" not in wm_cmd):
+                        "gnome-shell" not in wm_cmd):
                     multiarchdir = os.path.split(
                         sysconfig.get_config_var('multiarchsubdir'))[-1]
                     indicators = list(filter(os.path.isfile, [
@@ -628,24 +634,12 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
 
-            if ("budgie-wm" in wm_cmd):
-                extras.append(subprocess.Popen(
-                    ['budgie-panel', '--replace'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
-
             if (osextras.find_on_path('nm-applet') and
                     "gnome-shell" not in wm_cmd):
-                if ("budgie-wm" not in wm_cmd):
-                    extras.append(subprocess.Popen(
-                        ['nm-applet'],
-                        stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
-                else:
-                    extras.append(subprocess.Popen(
-                        ['nm-applet', '--no-indicator'],
-                        stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
+                extras.append(subprocess.Popen(
+                    ['nm-applet'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges))
 
             if osextras.find_on_path('ibus-daemon'):
                 extras.append(subprocess.Popen(
