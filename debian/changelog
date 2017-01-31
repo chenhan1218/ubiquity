@@ -1,9 +1,9 @@
-ubiquity (17.04.5) UNRELEASED; urgency=medium
+ubiquity (17.04.5) zesty; urgency=medium
 
   * Automatic update of included source packages: clock-setup
     0.131ubuntu1, partman-auto-lvm 59ubuntu3. (LP: #1659448)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 30 Jan 2017 22:44:29 -0500
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 30 Jan 2017 22:45:07 -0500
 
 ubiquity (17.04.4) zesty; urgency=medium
 
