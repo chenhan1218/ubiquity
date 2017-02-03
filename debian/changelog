@@ -4,6 +4,11 @@ ubiquity (17.04.6) UNRELEASED; urgency=medium
   * Provide an error when insufficient disk space is detected in the Prepare
     stage of Ubiquity when installing Kubuntu.
 
+  [ David Mohammed ]
+  * Update ubiquity-dm to ensure windows decorations and background is
+    displayed for Ubuntu Budgie (LP: #1659280)
+  * Switch to the ubiquity-panel with a panel color defined by Ubuntu Budgie.
+
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 03 Feb 2017 14:03:28 -0500
 
 ubiquity (17.04.5) zesty; urgency=medium
