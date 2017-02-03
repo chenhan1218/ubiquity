@@ -1,3 +1,11 @@
+ubiquity (17.04.6) UNRELEASED; urgency=medium
+
+  [ Walter Lapchynski ]
+  * Provide an error when insufficient disk space is detected in the Prepare
+    stage of Ubiquity when installing Kubuntu.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 03 Feb 2017 14:03:28 -0500
+
 ubiquity (17.04.5) zesty; urgency=medium
 
   * Automatic update of included source packages: clock-setup
