@@ -1,4 +1,4 @@
-ubiquity (17.04.6) UNRELEASED; urgency=medium
+ubiquity (17.04.6) zesty; urgency=medium
 
   [ Walter Lapchynski ]
   * Provide an error when insufficient disk space is detected in the Prepare
@@ -13,7 +13,7 @@ ubiquity (17.04.6) UNRELEASED; urgency=medium
   * Automatic update of included source packages: choose-mirror
     2.74ubuntu1.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 03 Feb 2017 14:03:28 -0500
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 06 Feb 2017 10:54:06 -0500
 
 ubiquity (17.04.5) zesty; urgency=medium
 
