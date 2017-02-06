@@ -567,7 +567,7 @@ EndSection
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
             elif osextras.find_on_path('budgie-wm'):
-                wm_cmd = ['budgie-wm', '--replace', '--sm-disable']
+                wm_cmd = ['budgie-wm', '--sm-disable']
             elif osextras.find_on_path('marco'):
                 wm_cmd = ['marco', '--sm-disable']
             elif osextras.find_on_path('metacity'):
