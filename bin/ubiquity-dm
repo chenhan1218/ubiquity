@@ -526,7 +526,7 @@ EndSection
                     # Ubuntu Budgie does not need a settings daemon for
                     # ubiquity-dm
                     pass
-                
+
                 elif (osextras.find_on_path(usd)):
                     # Wait until xsettings plugin is activated
                     xsettings = SignalWatcher(self, usd,
