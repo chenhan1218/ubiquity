@@ -523,9 +523,11 @@ EndSection
                         preexec_fn=self.drop_privileges))
 
                 elif osextras.find_on_path('budgie-wm'):
-                    # Ubuntu Budgie does not need a settings daemon for
-                    # ubiquity-dm
-                    pass
+                    # Ubuntu Budgie uses gsd but also has usd installed
+                    # therefore force gsd to be loaded
+                    extras.append(subprocess.Popen(
+                        [gsd], stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
 
                 elif (osextras.find_on_path(usd)):
                     # Wait until xsettings plugin is activated
