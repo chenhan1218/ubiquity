@@ -2,7 +2,7 @@ from dbus.mainloop.glib import DBusGMainLoop
 DBusGMainLoop(set_as_default=True)
 
 from gi.repository import Gtk, GObject, GLib
-from gi.repository import NetworkManager as NM, NMClient, NMGtk
+from gi.repository import NM, NMA
 
 from ubiquity.nm import decode_ssid, QueuedCaller, NetworkStore, NetworkManager
 
@@ -168,7 +168,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
     def disconnect_from_ap(self):
         if self.nm_connection:
             if not self.nm_client:
-                self.nm_client = NMClient.Client()
+                self.nm_client = NM.Client.new()
 
             self.nm_client.deactivate_connection(self.nm_connection)
             self.nm_connection = None
@@ -257,7 +257,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
             connection, device, ap = dialog.get_connection()
 
             if not self.nm_client:
-                self.nm_client = NMClient.Client()
+                self.nm_client = NM.Client.new()
 
             self.nm_client.add_and_activate_connection(
                 connection, device, None, self.connect_cb, None
@@ -275,20 +275,21 @@ class NetworkManagerTreeView(Gtk.TreeView):
                 ssid = model[iterator][0]
                 if model[iterator][1]:
                     if not self.nm_client:
-                        self.nm_client = NMClient.Client()
+                        self.nm_client = NM.Client.new()
 
                     device = self.nm_client.get_device_by_path(devid)
                     ap = self.find_ap(device, ssid)
 
-                    connection = NM.Connection()
+                    connection = NM.RemoteConnection()
                     connection.add_setting(NM.SettingConnection(
                         uuid=NM.utils_uuid_generate()
                     ))
-                    connection.add_setting(NM.SettingWireless())
+                    connection.add_setting(NM.SettingWireless(
+                        ssid=ap.get_property("ssid")
+                    ))
 
-                    dialog = NMGtk.WifiDialog.new(
+                    dialog = NMA.WifiDialog.new(
                         self.nm_client,
-                        NMClient.RemoteSettings(),
                         connection,
                         device,
                         ap,
