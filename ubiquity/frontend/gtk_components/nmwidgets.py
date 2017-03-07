@@ -281,7 +281,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
                     device = self.nm_client.get_device_by_path(devid)
                     ap = self.find_ap(device, ssid)
 
-                    connection = NM.RemoteConnection()
+                    connection = NM.SimpleConnection()
                     connection.add_setting(NM.SettingConnection(
                         uuid=NM.utils_uuid_generate()
                     ))
