@@ -245,12 +245,13 @@ class NetworkManagerTreeView(Gtk.TreeView):
 
     def find_ap(self, device, ssid):
         for ap in device.get_access_points():
-            if decode_ssid(ap.get_ssid()) == ssid:
+            ap_ssid = ap.get_ssid()
+            if ap_ssid and decode_ssid(ap_ssid.get_data()) == ssid:
                 return ap
         return None
 
-    def connect_cb(self, client, connection, path, error, user_data):
-        self.nm_connection = connection
+    def connect_cb(self, client, result, user_data):
+        self.nm_connection = client.add_and_activate_connection_finish(result)
 
     def connect_dialog_cb(self, dialog, response):
         if response == Gtk.ResponseType.OK:
@@ -259,8 +260,8 @@ class NetworkManagerTreeView(Gtk.TreeView):
             if not self.nm_client:
                 self.nm_client = NM.Client.new()
 
-            self.nm_client.add_and_activate_connection(
-                connection, device, None, self.connect_cb, None
+            self.nm_client.add_and_activate_connection_async(
+                connection, device, None, None, self.connect_cb, None
             )
         dialog.hide()
 
@@ -308,6 +309,7 @@ class NetworkManagerTreeView(Gtk.TreeView):
                 dialog.format_secondary_text("{}".format(e))
                 dialog.run()
                 dialog.hide()
+
 
 GObject.type_register(NetworkManagerTreeView)
 
@@ -362,6 +364,7 @@ class NetworkManagerWidget(Gtk.Box):
         if not iterator:
             return
         self.emit('selection_changed')
+
 
 GObject.type_register(NetworkManagerWidget)
 
