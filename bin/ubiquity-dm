@@ -500,6 +500,7 @@ EndSection
                     gsettings_keys.remove(
                         ('org.gnome.desktop.wm.preferences', 'num-workspaces',
                          '1'))
+                    os.environ['XDG_SESSION_TYPE'] = 'x11'
 
                 if (osextras.find_on_path('budgie-wm')):
                     gsettings_keys.append(
