@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2013-10-16 09:44+0000\n"
+"PO-Revision-Date: 2016-09-02 01:10+0000\n"
 "Last-Translator: Ibrahim Saed <ibraheem5000@gmail.com>\n"
 "Language-Team: Arabic <support@arabeyes.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: ar\n"
 
 #. Type: text
@@ -2070,34 +2070,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "يحذف الحزم"
-
-#~ msgid "Your name"
-#~ msgstr "اسمك"
-
-#~ msgid "Username"
-#~ msgstr "اسم المستخدم"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "ثبت هذه البرامج الخارجية"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "به على الأقل ${SIZE} مساحة خالية"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "نزّل التحديثات أثناء التثبيت"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "تستخدم ${RELEASE} برمجيات خارجية لتشغيل الفلاش، و MP3 وبعض الوسائط الأخرى، "
-#~ "ولتعمل مع بعض بطاقات الرسوميات وبطاقات الشبكة اللاسلكية. بعض هذه البرمجيات "
-#~ "غير حرة، وتخضع للرخص الموضحة في وثائقها."
-
-#~ msgid "Retype password"
-#~ msgstr "أعِد كتابة كلمة السر"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "كلمة سر تتكون من 8 أحرف على الأقل"

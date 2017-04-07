@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-02-21 21:45+0000\n"
-"Last-Translator: helix84 <Unknown>\n"
+"PO-Revision-Date: 2016-09-02 01:12+0000\n"
+"Last-Translator: Fpfilko <Unknown>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: sk\n"
 
 #. Type: text
@@ -2124,35 +2124,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstraňujú sa balíky"
-
-#~ msgid "Username"
-#~ msgstr "Meno používateľa"
-
-#~ msgid "Your name"
-#~ msgstr "Vaše meno"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Stiahnuť aktualizácie počas inštalácie"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "má apoň ${SIZE} voľného miesta na disku"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} používa softvér tretích strán na prehrávanie obsahu Flash, MP3 a "
-#~ "iných multimédií, na prácu s grafikou a hardvérom Wi-Fi. Na niektoré časti "
-#~ "tohto softvéru sa uplatňujú autorské práva. Softvér podlieha licenčným "
-#~ "podmienkam, ktoré nájdete v jeho dokumentácii."
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Nainštalovať softvér od tretích strán"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Heslo obsahujúce minimálne 8 znakov"
-
-#~ msgid "Retype password"
-#~ msgstr "Znovu zadajte heslo"

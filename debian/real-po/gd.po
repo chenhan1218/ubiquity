@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-02-19 01:45+0000\n"
+"PO-Revision-Date: 2017-03-07 12:46+0000\n"
 "Last-Translator: GunChleoc <Unknown>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: gd\n"
 
 #. Type: text
@@ -585,7 +585,7 @@ msgstr "Sguab às"
 #. Description
 #: ../ubiquity.templates:84001 ../ubiquity.templates:279001
 msgid "Revert"
-msgstr "Aisig"
+msgstr "Till"
 
 #. Type: text
 #. Description
@@ -1573,7 +1573,7 @@ msgid ""
 "Some is proprietary."
 msgstr ""
 "Tha am bathar-bog seo fo theirmichean a' cheadachais a fhuair thu am broinn "
-"a dhocamaideadh. Tha cuid dheth fo shealbh."
+"a dhocamaideadh. Tha cuid dheth fo sheilbh."
 
 #. Type: text
 #. Description
@@ -2176,35 +2176,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "A' toirt air falbh nam pacaidean"
-
-#~ msgid "Your name"
-#~ msgstr "D' ainm"
-
-#~ msgid "Username"
-#~ msgstr "Ainm-cleachdaiche"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "co-dhiù ${SIZE} a dh'àite saor air an draibh"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Stàlaich am bathar-bog seo a tha le treas-phàrtaidh"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Luchdaich a-nuas ùrachaidhean fhad 's a nithear stàladh"
-
-#~ msgid "Retype password"
-#~ msgstr "Cuir am facal-faire a-steach a-rithist"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Facal-faire a tha co-dhiù 8 caractaran a dh'fhaid"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "Tha ${RELEASE} a' cleachdadh bathar-bog treas-phàrtaidh gus Flash, MP3 agus "
-#~ "meadhanan eile a chluich agus airson obrachadh le cuid a bhathar-bog "
-#~ "grafaigeachd agus WiFi. Tha cuid a bhathar-bhog seo fo sheilbh. Tha am "
-#~ "bathar-bog seo fo bhuaidh teirmichean a' cheadachais a thàinig 'na lùib."

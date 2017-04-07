@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-02-18 03:16+0000\n"
+"PO-Revision-Date: 2016-12-17 20:54+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: gl\n"
 
 #. Type: text
@@ -709,8 +709,8 @@ msgid ""
 "will not be preserved."
 msgstr ""
 "A instalación rematou. Pode continuar probando ${RELEASE} agora, pero até "
-"que non reinicie o equipo non se conservará ningún cambio que faga nin "
-"ningún documento que garde."
+"que non reinicie\r\n"
+"o equipo non se conservarán os cambios que faga nin os documentos que garde."
 
 #. Type: text
 #. Description
@@ -1390,7 +1390,7 @@ msgstr ""
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:201001
 msgid "Preparing to install ${RELEASE}"
-msgstr "Preparando para instalar ${RELEASE}"
+msgstr "Preparando a instalación de ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -1699,7 +1699,7 @@ msgstr "Instalar ${DISTRO} dentro de {OS}"
 #. Description
 #: ../ubiquity.templates:248001
 msgid "Something else"
-msgstr "Algo máis"
+msgstr "Algo máis complexo"
 
 #. Type: text
 #. Description
@@ -2098,7 +2098,7 @@ msgstr "Preparar para a configuración OEM"
 #. finish-install progress bar item
 #: ../oem-config-udeb.templates:2001
 msgid "Preparing for OEM configuration..."
-msgstr "Preparando para a configuración OEM..."
+msgstr "Preparando a configuración OEM..."
 
 #. Type: text
 #. Description
@@ -2138,35 +2138,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Eliminando paquetes"
-
-#~ msgid "Your name"
-#~ msgstr "O seu nome"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Instalar este software de terceiros"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Descargar as actualizacións mentres se realiza a instalación"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} usa software de terceiros para reproducir Flash, MP3 e outros "
-#~ "ficheiros multimedia e para traballar con algúns gráficos e dispositivos sen "
-#~ "fíos. Parte de este software é privativo. O software está ligado aos termos "
-#~ "da licenza que se inclúen na súa documentación."
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ten cando menos ${SIZE} de espazo dispoñíbel no disco"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "O contrasinal ten que ter polo menos 8 caracteres"
-
-#~ msgid "Retype password"
-#~ msgstr "Escriba o contrasinal de novo"
-
-#~ msgid "Username"
-#~ msgstr "Nome do usuario"

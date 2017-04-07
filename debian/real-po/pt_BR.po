@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-03-22 19:57+0000\n"
-"Last-Translator: Julio Alexander Sieg <julio.sieg@gmail.com>\n"
+"PO-Revision-Date: 2016-09-02 01:10+0000\n"
+"Last-Translator: Tiago Hillebrandt <tiagohillebrandt@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-"
 "portuguese@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: pt_BR\n"
 
 #. Type: text
@@ -2146,35 +2146,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Removendo pacotes"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Baixar atualizações enquanto instala"
-
-#~ msgid "Your name"
-#~ msgstr "Seu nome"
-
-#~ msgid "Username"
-#~ msgstr "Nome de usuário"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Instalar esse programa de terceiros"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "tem pelo menos ${SIZE} de espaço disponível em disco"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "O ${RELEASE} usa programas de terceiros para reproduzir Flash, MP3 e outras "
-#~ "mídias, e para trabalhar com placas gráficas e de rede. Alguns destes "
-#~ "programas são proprietários e estão sujeitos aos termos da licença incluídos "
-#~ "na documentação."
-
-#~ msgid "Retype password"
-#~ msgstr "Redigite a senha"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Uma senha com pelo menos 8 caracteres"

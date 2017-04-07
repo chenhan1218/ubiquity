@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2015-08-20 12:49+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2016-09-02 01:10+0000\n"
+"Last-Translator: Emiliano Malerba <emiliano.m@inwind.it>\n"
 "Language-Team: Venetian <vec@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 
 #. Type: text
 #. Description
@@ -2109,35 +2109,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Cavando i pacheti"
-
-#~ msgid "Username"
-#~ msgstr "Nome  utente"
-
-#~ msgid "Retype password"
-#~ msgstr "Scrivi password da novo"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "La password la gha da exar almanco de 8 carateri"
-
-#~ msgid "Your name"
-#~ msgstr "come se ciamela la to fameja?"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "gabia almanco ${SIZE} de spaxio libaro"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} utilixa software de terse parti par riprodur contenui Flash, MP3 "
-#~ "e altri formai, cosita come par rendere operative alcune schede video e "
-#~ "periferiche Wi-Fi. Parte de sto software è proprietario e i relativi termini "
-#~ "de licenxa sono inclusi nela rispetia documentazion."
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Istalar software de terse parti"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Descargar i ajiornamenti durante l'istalaxion"

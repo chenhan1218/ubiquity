@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-02-20 18:03+0000\n"
-"Last-Translator: Peter Klofutar <peter_klofutar@telemach.net>\n"
+"PO-Revision-Date: 2016-09-02 01:11+0000\n"
+"Last-Translator: Dražen Matešić <Unknown>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: sl\n"
 
 #. Type: text
@@ -2126,35 +2126,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Odstranjevanje paketov"
-
-#~ msgid "Username"
-#~ msgstr "Uporabniško ime"
-
-#~ msgid "Your name"
-#~ msgstr "Vaše ime"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Prejmi posodobitve med nameščanjem"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ima vsaj ${SIZE} razpoložljivega prostora na disku"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Namesti programe tretjih oseb"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} za predvajanje Flash, MP3 in drugih medijev in za delo z nekatero "
-#~ "grafično in brezžično strojno opremo uporablja programsko opremo tretjih "
-#~ "oseb. Nekatera programska oprema je lastniško zaščitena in predmet licenčnih "
-#~ "pogojev vključenih v njeno dokumentacijo."
-
-#~ msgid "Retype password"
-#~ msgstr "Ponovno vnesite geslo"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Geslo z najmanj osmimi znaki"

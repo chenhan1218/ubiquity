@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-03-07 14:25+0000\n"
+"PO-Revision-Date: 2016-09-02 01:10+0000\n"
 "Last-Translator: Kim Boram <boramism@gmail.com>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: ko\n"
 
 #. Type: text
@@ -2038,33 +2038,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "패키지 제거 중"
-
-#~ msgid "Your name"
-#~ msgstr "이름"
-
-#~ msgid "Username"
-#~ msgstr "사용자 이름"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "드라이브에 최소 ${SIZE}의 빈 공간이 있음"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "서드 파티 소프트웨어 설치"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "설치 중 업데이트 다운로드"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE}은(는) 플래시와 MP3 등을 재생하고 일부 그래픽 하드웨어와 와이파이 하드웨어를 작동하도록 하기 위해 타 회사가 만든 "
-#~ "프로그램을 사용합니다. 이 프로그램 중 일부는 공개 소프트웨어가 아니며 프로그램 문서 내에 포함된 라이선스를 적용 받습니다."
-
-#~ msgid "Retype password"
-#~ msgstr "암호 다시 입력"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "암호는 최소 8문자 이상을 사용해야 합니다."

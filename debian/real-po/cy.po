@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-03-27 13:33+0000\n"
-"Last-Translator: Rockworld <sumoisrock@gmail.com>\n"
+"PO-Revision-Date: 2016-09-02 01:13+0000\n"
+"Last-Translator: Ciarán <cia.spooner@gmail.com>\n"
 "Language-Team: Welsh <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: cy\n"
 
 #. Type: text
@@ -2112,35 +2112,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Dileu pecynnau"
-
-#~ msgid "Your name"
-#~ msgstr "Eich enw"
-
-#~ msgid "Username"
-#~ msgstr "Enw Cyfrif"
-
-#~ msgid "Retype password"
-#~ msgstr "Aildeipiwch y cyfrinair"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Cyfrinair o leiaf 8 nod"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ag o leiaf ${SIZE} o le ar gael"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "Mae ${RELEASE} yn defnyddio meddalwedd allanol i chwarae Flash, MP3 a "
-#~ "chyfryngau eraill, ac i weithio gyda chaledwedd graffeg a di-wifr. Gall peth "
-#~ "o'r meddalwedd fod yn briodoldeb. Mae'r meddalwedd yn amodol ar y telerau "
-#~ "trwydded a gynhwysir yn ei ddogfennaeth."
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Gosod y meddalwedd allanol hwn"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Lawrlwytho diweddariadau wrth osod"

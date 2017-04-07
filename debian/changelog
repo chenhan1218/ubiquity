@@ -5,6 +5,7 @@ ubiquity (17.04.8) UNRELEASED; urgency=medium
     2.77ubuntu1, hw-detect 1.117ubuntu4.
   * d-i/lists/powerpc: Don't get powerpc anymore. That means debian/control
     also drops powerpc packages: partman-newworld and yaboot-installer.
+  * Update translations from Launchpad.
 
   [ Jeremy Bicha ]
   * ubiquity-dm: Fix Ubuntu GNOME missing window decorations (LP: #1675210)
