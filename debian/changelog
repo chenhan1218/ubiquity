@@ -1,4 +1,4 @@
-ubiquity (17.04.8) UNRELEASED; urgency=medium
+ubiquity (17.04.8) zesty; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: choose-mirror
@@ -12,7 +12,7 @@ ubiquity (17.04.8) UNRELEASED; urgency=medium
   [ Jeremy Bicha ]
   * ubiquity-dm: Fix Ubuntu GNOME missing window decorations (LP: #1675210)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 29 Mar 2017 13:55:42 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 07 Apr 2017 13:11:27 -0400
 
 ubiquity (17.04.7) zesty; urgency=medium
 
