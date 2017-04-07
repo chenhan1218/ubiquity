@@ -6,6 +6,8 @@ ubiquity (17.04.8) UNRELEASED; urgency=medium
   * d-i/lists/powerpc: Don't get powerpc anymore. That means debian/control
     also drops powerpc packages: partman-newworld and yaboot-installer.
   * Update translations from Launchpad.
+  * tests/test_misc.py: Update lang/xkb keymap selection tests; ta now returns
+    the "lk" code by default (Sri Lanka), apparently.
 
   [ Jeremy Bicha ]
   * ubiquity-dm: Fix Ubuntu GNOME missing window decorations (LP: #1675210)

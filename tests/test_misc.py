@@ -197,7 +197,7 @@ class MiscTests(unittest.TestCase):
         self.assertEqual(
             mock_set_list.call_args[0][0], 'org.gnome.libgnomekbd.keyboard')
         self.assertEqual(mock_set_list.call_args[0][1], 'layouts')
-        self.assertEqual('in\ttam', mock_set_list.call_args[0][2][0])
+        self.assertEqual('lk\ttam_TAB', mock_set_list.call_args[0][2][0])
         self.assertEqual(len(mock_set_list.call_args[0][2]), 4)
 
     @mock.patch('ubiquity.gsettings.set_list')
