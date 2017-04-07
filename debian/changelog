@@ -2,7 +2,7 @@ ubiquity (17.04.8) UNRELEASED; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
   * Automatic update of included source packages: choose-mirror
-    2.77ubuntu1, hw-detect 1.117ubuntu4.
+    2.78ubuntu1, hw-detect 1.117ubuntu4, netcfg 1.138ubuntu5.
   * d-i/lists/powerpc: Don't get powerpc anymore. That means debian/control
     also drops powerpc packages: partman-newworld and yaboot-installer.
   * Update translations from Launchpad.
