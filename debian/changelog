@@ -1,3 +1,11 @@
+ubiquity (17.04.9) UNRELEASED; urgency=medium
+
+  * tests/test_misc.py: Really fix test for the 'ta' keymap: check for
+    lk/tam_TAB in the list rather than asserting that it needs to be the first
+    element; and allow for the different list size now.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Sun, 09 Apr 2017 21:24:02 -0400
+
 ubiquity (17.04.8) zesty; urgency=medium
 
   [ Mathieu Trudel-Lapierre ]
