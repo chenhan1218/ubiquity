@@ -140,7 +140,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                   "for ubi_question_dialog")
             print("If the test failed here it is most likely a timing issue")
             # This maybe overkill but better to be safe
-            time.sleep(20)
+            time.sleep(40)
             self.kbd.press_and_release('Right')
             self.kbd.press_and_release('Enter')
             print("Workaround ended continuing with wait for next step")
