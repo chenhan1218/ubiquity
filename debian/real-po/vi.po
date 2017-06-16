@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2013-03-30 00:33+0000\n"
-"Last-Translator: dalmate <Unknown>\n"
+"PO-Revision-Date: 2016-09-02 01:12+0000\n"
+"Last-Translator: Huynh Trong Nghia <Nghia.HT@hotmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: vi\n"
 
 #. Type: text
@@ -2093,28 +2093,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Đang gỡ bỏ các gói"
-
-#~ msgid "Your name"
-#~ msgstr "Tên của bạn"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "có ít nhất ${SIZE} không gian đĩa trống"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Cài đặt phần mềm hãng thứ ba này"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Tải các cập nhật trong khi cài đặt"
-
-#~ msgid "Username"
-#~ msgstr "Tên đăng nhập"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} sử dụng các phần mềm của bên thứ ba để chạy Flash, MP3 và các dữ "
-#~ "liệu đa phương tiện khác, đồng thời khi làm việc liên quan đến đồ họa và "
-#~ "thiết bị wi-fi."

@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2014-04-15 05:31+0000\n"
-"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
+"PO-Revision-Date: 2016-09-02 01:11+0000\n"
+"Last-Translator: Josep Lligadas <josep.lligadas@gmail.com>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: ca-XV\n"
 
 #. Type: text
@@ -2118,36 +2118,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "S'estan suprimint els paquets"
-
-#~ msgid "Your name"
-#~ msgstr "El vostre nom"
-
-#~ msgid "Username"
-#~ msgstr "﻿Nom d'usuari"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "Tinga com a mínim ${SIZE} d'espai de disc disponible"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Instal·la el programari de terceres parts"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Baixa actualitzacions durant la instaŀlació"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "El sistema operatiu ${RELEASE} utilitza programari de tercers per permetre "
-#~ "la reproducció dels formats Flash, MP3 i d'altres, així com per permetre el "
-#~ "funcionament de cert maquinari de xarxa sense fil. Algunes d'estes "
-#~ "aplicacions no són programari lliure, i estan sotmeses a les condicions de "
-#~ "llicència incloses en la seua documentació."
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "La contrasenya ha de tindre com a mínim 8 caràcters"
-
-#~ msgid "Retype password"
-#~ msgstr "Torneu a escriure la contrasenya"

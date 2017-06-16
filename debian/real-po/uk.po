@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-02-17 18:29+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@gmail.com>\n"
+"PO-Revision-Date: 2016-09-02 01:09+0000\n"
+"Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: uk\n"
 
 #. Type: text
@@ -2141,36 +2141,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Вилучення пакунків"
-
-#~ msgid "Username"
-#~ msgstr "Ім'я користувача"
-
-#~ msgid "Your name"
-#~ msgstr "Ваше ім’я"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Завантажити оновлення під час встановлення"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "Є, що найменше, ${SIZE} вільного простору на жорсткому диску"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Встановити це стороннє програмне забезпечення"
-
-#~ msgid "Retype password"
-#~ msgstr "Повторіть пароль"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Пароль (принаймні 8 символів)"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "У ${RELEASE} для відтворення Flash, MP3 та інших даних і роботи з деяким "
-#~ "обладнанням для обробки графічної інформації та роботи у мережах wi-fi "
-#~ "використовується стороннє програмне забезпечення. Частина з цього "
-#~ "програмного забезпечення має закриті коди. Умови ліцензування такого "
-#~ "програмного забезпечення викладено у документації до нього."

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2014-09-22 05:27+0000\n"
+"PO-Revision-Date: 2016-09-28 11:49+0000\n"
 "Last-Translator: Gheyret T.Kenji <Unknown>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: \n"
 
 #. Type: text
@@ -746,7 +746,7 @@ msgstr "توختا"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001
 msgid "Continue in UEFI mode"
-msgstr ""
+msgstr "UEFI ھالەتتە داۋاملاشتۇر"
 
 #. Type: text
 #. Description
@@ -1500,7 +1500,7 @@ msgstr "نورمال ئورنىتىش ئۈچۈن، بۇ كومپيۇتېرنى �
 #. Description
 #: ../ubiquity.templates:221001
 msgid "Sorry"
-msgstr ""
+msgstr "كەچۈرۈڭ"
 
 #. Type: text
 #. Description
@@ -1509,13 +1509,14 @@ msgstr ""
 #: ../ubiquity.templates:222001
 msgid "You need at least ${SIZE} disk space to install ${RELEASE}."
 msgstr ""
+"بۇ ${RELEASE} نەشرىنى ئورنىتىشقا ئاز دېگەندە ${SIZE} دىسكا بوشلۇقى كېرەك."
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #: ../ubiquity.templates:223001
 msgid "This computer has only ${SIZE}."
-msgstr ""
+msgstr "مەزكۇر كومپيۇتېردا ئاران ${SIZE} دىسكا بوشلۇقى باركەن."
 
 #. Type: text
 #. Description
@@ -1554,24 +1555,26 @@ msgid ""
 "Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
 "other media"
 msgstr ""
+"گرافىك، Wi-Fi(سىمسىز تور) ئۈسكۈنىلىرى، Flash، MP3  دېگەندەكلەرگە زۆرۈر "
+"بولغان ئۈچىنچى تەرەپ يۇمشاق دېتاللىرىنى ئورنىتىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Download updates while installing ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} نى ئورناتقاچ يېڭىلانمىلارنى چۈشۈرسۇن"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "This saves time after installation."
-msgstr ""
+msgstr "بۇنىڭ بىلەن ئورنىتىش تاماملانغاندا ۋاقىت تېجىلىدۇ."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Not available because there is no Internet connection."
-msgstr ""
+msgstr "ئىنتېرنېت باغلىنىشى يوق بولغاچقا بۇنى ئىشلەتكىلى بولمايدۇ."
 
 #. Type: text
 #. Description
@@ -2010,7 +2013,7 @@ msgstr "شىفىرلاش تاللانمىلىرى..."
 #. Description
 #: ../ubiquity.templates:285001
 msgid "UEFI Secure Boot"
-msgstr ""
+msgstr "UEFI بىخەتەر قوزغىلىش"
 
 #. Type: text
 #. Description
@@ -2111,36 +2114,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "بوغچىلارنى ئۆچۈرۈۋاتىدۇ"
-
-#~ msgid "Username"
-#~ msgstr "ئىشلەتكۈچى ئاتى"
-
-#~ msgid "Your name"
-#~ msgstr "ئاتىڭىز"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "ئورنىتىۋاتقاندا يېڭىلانمىلارنى چۈشۈرسۇن"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "بۇ ئۈچىنچى تەرەپ(Ubuntu نىڭ ئەمەس) يۇمشاق دېتالىنى ئورنىتىدۇ"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ئەڭ ئاز دېگەندە ${SIZE}  دىسكا بىكار بوشلۇقى بار"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "بۇ ${RELEASE}  ئۈچىنچى تەرەپ يۇمشاق دېتالىنى ئىشلىتىپ Flash، MP3 ۋە باشقا "
-#~ "ۋاستىلارنى چالىدۇ ھەمدە بەزى گىرافىكلار ۋە سىسمسىز تور قاتتىق دېتاللىرىنى "
-#~ "قوزغىتىدۇ. ئۇنىڭ ئىچىدىكى بەزى يۇمشاق دېتاللار يېپىق كودلۇق. ئۇ يۇمشاق "
-#~ "دېتاللار ئۆزىدىكى قوللانمىسىدا تەمىنلەنگەن كېلىشىم ماددىلىرىنىڭ چەكلىمىسىگە "
-#~ "ئۇچرايدۇ."
-
-#~ msgid "Retype password"
-#~ msgstr "ئىمنى قايتا كىرگۈزۈڭ"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "ئىمنىڭ ئۇزۇنلۇقى ئەڭ ئاز دېگەندە 8 ھەرپ بولىدۇ"

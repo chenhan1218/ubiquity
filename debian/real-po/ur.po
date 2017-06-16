@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2010-05-03 04:44+0000\n"
-"Last-Translator: Shoaib Mirza <Unknown>\n"
+"PO-Revision-Date: 2016-09-02 01:16+0000\n"
+"Last-Translator: Shehzad Ashiq Ali <Unknown>\n"
 "Language-Team: Urdu <urd@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 
 #. Type: text
 #. Description
@@ -1976,9 +1976,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr ""
-
-#~ msgid "Username"
-#~ msgstr "صارف کا نام"
-
-#~ msgid "Your name"
-#~ msgstr "آپ کا نام:"

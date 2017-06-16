@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: ubiquity\n"
 "Report-Msgid-Bugs-To: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2014-04-18 20:35+0000\n"
+"PO-Revision-Date: 2016-09-02 01:16+0000\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik <tg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: tg\n"
 
 #. Type: text
@@ -2129,35 +2129,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Тозакунии бастаҳо"
-
-#~ msgid "Your name"
-#~ msgstr "Номи шумо"
-
-#~ msgid "Username"
-#~ msgstr "Номи корбар"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Насб кардани ин нармафзори беруна"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ақаллан дорои ${SIZE} фазои холии диск мебошад"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "Барои пахш кардани файлҳои Flash, MP3 ва файлҳои мултимедиаи дигар, "
-#~ "${RELEASE} нармафзори берунаро истифода мебарад, ва ин нармафзор ҳам барои "
-#~ "кор бо баъзе файлҳои графикӣ ва сахтафзори wi-fi истифода мешавад. "
-#~ "Нармафзори беруна дорои шартҳои иҷозатномаи иловашуда мебошад."
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Бор кардани навсозиҳо ҳангоми насбкунӣ"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Ақаллан 8 аломат барои парол лозим аст"
-
-#~ msgid "Retype password"
-#~ msgstr "Паролро дубора ворид кунед"

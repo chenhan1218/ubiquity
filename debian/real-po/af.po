@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-03-18 21:42+0000\n"
-"Last-Translator: Meester <martinmeyer007@gmail.com>\n"
+"PO-Revision-Date: 2016-12-21 18:19+0000\n"
+"Last-Translator: Riaan de Beer <riaandb7@gmail.com>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: af\n"
 
 #. Type: text
@@ -437,7 +437,7 @@ msgstr "Gaan voort sonder die selflaaier."
 msgid ""
 "You will need to manually install a bootloader in order to start ${RELEASE}."
 msgstr ""
-"Jy sal 'n selflaaier handmatig moet installeer om ${RELEASE) gevolglik te "
+"Jy sal 'n selflaaier handmatig moet installeer om ${RELEASE} gevolglik te "
 "laat laai."
 
 #. Type: text
@@ -1562,24 +1562,26 @@ msgid ""
 "Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
 "other media"
 msgstr ""
+"Installeer derde party sagteware vir grafieke en Wi-Fi hardeware, Flash, MP3 "
+"en ander media."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Download updates while installing ${RELEASE}"
-msgstr ""
+msgstr "Laai opdaterings af gedurende installasie ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "This saves time after installation."
-msgstr ""
+msgstr "Hierdie bespaar tyd na installasie."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Not available because there is no Internet connection."
-msgstr ""
+msgstr "Nie beskikbaar aangesien daar geen internetverbinding is nie."
 
 #. Type: text
 #. Description
@@ -2118,35 +2120,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Verwyder pakkette"
-
-#~ msgid "Username"
-#~ msgstr "Gebruikernaam"
-
-#~ msgid "Your name"
-#~ msgstr "Jou naam"
-
-#~ msgid "Retype password"
-#~ msgstr "Hertik wagwoord"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Wagwoord van ten minste 8 karakters"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} maak gebruik van derdepartyprogramme om Flash, MP3 en ander media "
-#~ "te speel en om met sommige grafika- en wi-fi-hardeware te werk. Sekere van "
-#~ "die sagteware is nie gratis nie. Die sagteware is onderworpe aan "
-#~ "lisensiewoorwaardes wat by hul dokumentasie ingesluit is."
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Installeer hierdie derdepartysagteware"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ten minste ${SIZE} beskikbare skyfspasie het"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Laai bywerkings af tydens installasie"

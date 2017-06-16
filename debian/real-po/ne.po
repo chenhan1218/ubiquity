@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-04-11 13:41+0000\n"
-"Last-Translator: Yogesh Ojha <yogesh.ojha11@gmail.com>\n"
+"PO-Revision-Date: 2017-03-17 10:43+0000\n"
+"Last-Translator: Sanjog Sigdel <sigdelsanjog@gmail.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
+"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
+"X-Generator: Launchpad (build 18343)\n"
 "Language: ne\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr "जडान स्थापना गरिदैछ"
+msgstr "जडान गरिदैँछ..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr "जडान स्थापना असफल रह्यो"
+msgstr "जडान असफल भयो"
 
 #. Type: text
 #. Description
@@ -2024,6 +2024,10 @@ msgid ""
 "hardware. Your system also has UEFI Secure Boot enabled. UEFI Secure Boot is "
 "not compatible with the use of these third-party drivers."
 msgstr ""
+"तपाईले इन्स्टल गर्नका लागी तेस्रो-पक्ष सफ्टवेर  सक्षम छनोट गर्नुभएको छ, "
+"जस्कालागी सिस्टमले ग्राफिक्स र/अथवा वाई-फाई हार्डवेरका लागी हार्डवेरहरु "
+"समाबेश गर्दछ। तपाइको सिस्टममा युईएफ्आई  सेकुयर बूट सक्षम गरिएको छ। युईएफ्आई  "
+"सेकुयर बूट यी तेस्रो-पक्ष  ड्राईभर्सहरु संग उपयुक्त छैनन्।"
 
 #. Type: text
 #. Description
@@ -2034,6 +2038,10 @@ msgid ""
 "authorized user, and not by an attacker, you must choose a password now and "
 "then use the same password after reboot to confirm the change."
 msgstr ""
+"स्थापना सफल भएपछि , उबुन्टुले तपईलाई युईएफआई सेक्युर बूट असक्षम गर्न सहयोग "
+"गर्नेछ। गरिएको परिवर्तन पक्कै पनि तपाई एक आधिकृत प्रयोगकर्ता हो र आक्रमणकारी "
+"हैन भनी पक्का गर्नलाई , तपाईले अहिले एउटा पासवार्ड प्रयोग गर्नु पर्नेछ र "
+"सोही पासवार्ड  रिबूट गरी पुष्टी गर्नुपर्नेछ।"
 
 #. Type: text
 #. Description
@@ -2114,35 +2122,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "प्याकेजहरू हटाउँदै"
-
-#~ msgid "Your name"
-#~ msgstr "तपाईँको नाम"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE} ले फ्ल्यास्, एम्पिथ्री र अन्य  श्रव्य-दृष्य देखाउनको लागि र कुनै "
-#~ "ग्राफिक्स् वा वाइ-फाइ हार्डवेयरसँग काम गर्नको लागि तेश्रोपक्षको सफ्टवेयर "
-#~ "प्रयोग गर्छ । तीमध्ये केही स्वामित्व निहित भएका (बन्द र स्रोत नखुलाइएका) "
-#~ "हुन् । ती सफ्टवेयरमा तीसँग उपलब्ध दस्तावेजमा उल्लेखित शर्तहरू लागु हुनेछन् ।"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "कम्तिमा पनि ${SIZE} खालि ठाउँ उपलब्ध छ"
-
-#~ msgid "Username"
-#~ msgstr "प्रयोगकर्ताको नाम"
-
-#~ msgid "Retype password"
-#~ msgstr "पासवर्ड फेरि टाईप गर्नुहोस्"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "पासवर्ड कम्तिमा ८ अक्षरको हुनुपर्दछ"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "यो  तेश्रोपक्षको सफ्टवेएर स्थापना गर्नुहोस्"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "स्थापना गर्दा अपडेटहरू डाउनलोड गर्नुहोस्"
