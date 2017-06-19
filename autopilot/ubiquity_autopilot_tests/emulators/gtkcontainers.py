@@ -89,7 +89,7 @@ class GtkBox(GtkContainers):
                 logger.debug("top item {0} selected"
                              .format(top_item.accessible_name))
                 # Now select required Language
-                self.kbd.type(item.accessible_name[0:2])
+                self.kbd.type(item.accessible_name[0:3])
                 item.click()
                 # check selected
                 if item.selected:
