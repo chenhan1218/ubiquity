@@ -1,4 +1,4 @@
-ubiquity (17.04.9~system76) zesty; urgency=medium
+ubiquity (17.04.10~system76~1) zesty; urgency=medium
 
   * Fix for crashes when selecting a WPA 2 enterprise network
 
