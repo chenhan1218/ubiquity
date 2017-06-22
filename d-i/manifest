@@ -1,15 +1,15 @@
 apt-setup 1:0.104ubuntu5
 base-installer 1.158ubuntu4
 bterm-unifont 1.4
-choose-mirror 2.78ubuntu1
+choose-mirror 2.75ubuntu1
 clock-setup 0.131ubuntu1
 console-setup 1.142ubuntu5
 debian-installer-utils 1.113ubuntu1
 flash-kernel 3.0~rc.4ubuntu65
 grub-installer 1.128ubuntu7
-hw-detect 1.117ubuntu4
+hw-detect 1.117ubuntu3
 localechooser 2.65ubuntu4
-netcfg 1.138ubuntu5
+netcfg 1.138ubuntu4
 partconf 1.50
 partman-auto 134ubuntu6
 partman-auto-crypto 22ubuntu1
@@ -24,6 +24,7 @@ partman-efi 71ubuntu1
 partman-ext3 86ubuntu1
 partman-jfs 47
 partman-lvm 113
+partman-newworld 34
 partman-partitioning 114ubuntu2
 partman-swapfile 1
 partman-target 98ubuntu1
@@ -32,3 +33,4 @@ partman-xfs 58
 preseed 1.71ubuntu4
 tzsetup 1:0.81ubuntu1
 user-setup 1.63ubuntu4
+yaboot-installer 1.1.36ubuntu1
