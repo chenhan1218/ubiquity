@@ -1,3 +1,12 @@
+ubiquity (17.04.10) artful; urgency=medium
+
+  * Add 'budgie-core' as an alternate for the package ubiquity-frontend-gtk
+    Ubuntu Budgie ISO includes GNOME Shell due to the default metacity
+    having a dependency on gnome-session in turn pulls in gnome-shell
+    bin/ubiquity-dm correctly using budgie-wm which is provided by budgie-core
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Wed, 12 Jul 2017 19:46:56 +0100
+
 ubiquity (17.04.9) zesty; urgency=medium
 
   * tests/test_misc.py: Really fix test for the 'ta' keymap: check for
