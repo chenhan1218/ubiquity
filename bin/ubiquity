@@ -72,7 +72,7 @@ def disable_autologin():
     import traceback
 
     # Reverse actions of user-setup-apply.
-    for name in ('/etc/gdm/custom.conf', '/etc/kde4/kdm/kdmrc',
+    for name in ('/etc/gdm3/custom.conf', '/etc/kde4/kdm/kdmrc',
                  '/etc/lxdm/lxdm.conf', '/etc/xdg/lubuntu/lxdm/lxdm.conf',
                  '/etc/lightdm/lightdm.conf'):
         if os.path.exists('%s.oem' % name):

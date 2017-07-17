@@ -1,3 +1,10 @@
+ubiquity (17.10.1) UNRELEASED; urgency=medium
+
+  [ Chen-Han Hsiao (Stanley) ]
+  * Fix path to GDM3 custom config.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 17 Jul 2017 16:29:00 -0400
+
 ubiquity (17.04.9) zesty; urgency=medium
 
   * tests/test_misc.py: Really fix test for the 'ta' keymap: check for
