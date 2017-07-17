@@ -3,6 +3,12 @@ ubiquity (17.10.1) UNRELEASED; urgency=medium
   [ Chen-Han Hsiao (Stanley) ]
   * Fix path to GDM3 custom config.
 
+  [ David Mohammed ]
+  * Add 'budgie-core' as an alternate for the package ubiquity-frontend-gtk
+    Ubuntu Budgie ISO includes GNOME Shell due to the default metacity
+    having a dependency on gnome-session in turn pulls in gnome-shell
+    bin/ubiquity-dm correctly using budgie-wm which is provided by budgie-core
+
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 17 Jul 2017 16:29:00 -0400
 
 ubiquity (17.04.9) zesty; urgency=medium
