@@ -16,6 +16,9 @@ ubiquity (17.10.1) UNRELEASED; urgency=medium
     partman-basicmethods 62, partman-lvm 114, preseed 1.71ubuntu5, tzsetup
     1:0.94ubuntu1.
 
+  [ Jeremy Soller ]
+  * Add support for WPA2 Enterprise.
+
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 17 Jul 2017 16:29:00 -0400
 
 ubiquity (17.04.9) zesty; urgency=medium
