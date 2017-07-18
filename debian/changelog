@@ -15,6 +15,9 @@ ubiquity (17.10.1) UNRELEASED; urgency=medium
     2.78ubuntu2, grub-installer 1.128ubuntu8, netcfg 1.142ubuntu2,
     partman-basicmethods 62, partman-lvm 114, preseed 1.71ubuntu5, tzsetup
     1:0.94ubuntu1.
+    
+  [ Sebastien Bacher ]
+  * Update ubiquity-dm for the new gnome-settings-daemon (lp: #1702892)
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 17 Jul 2017 16:29:00 -0400
 
