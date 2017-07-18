@@ -626,7 +626,7 @@ class Install(install_misc.InstallBase):
                         devbase = sysloop
                     dev = '/dev/%s' % devbase
                     break
-            except:
+            except Exception:
                 continue
 
         if dev == '':

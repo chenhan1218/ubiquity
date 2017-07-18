@@ -64,7 +64,7 @@ def cleanup_after(func):
                 self.db.progress('STOP')
             except (KeyboardInterrupt, SystemExit):
                 raise
-            except:
+            except Exception:
                 pass
     return wrapper
 
@@ -240,7 +240,7 @@ class Install(install_misc.InstallBase):
         self.db.progress('INFO', 'ubiquity/install/apt_clone_restore')
         try:
             self.apt_clone_restore()
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_WARNING,
                 'Could not restore packages from the previous install:')
@@ -250,7 +250,7 @@ class Install(install_misc.InstallBase):
             self.db.go()
         try:
             self.copy_network_config()
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_WARNING,
                 'Could not copy the network configuration:')
@@ -260,7 +260,7 @@ class Install(install_misc.InstallBase):
             self.db.go()
         try:
             self.copy_bluetooth_config()
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_WARNING,
                 'Could not copy the bluetooth configuration:')
@@ -270,14 +270,14 @@ class Install(install_misc.InstallBase):
             self.db.go()
         try:
             self.recache_apparmor()
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_WARNING, 'Could not create an Apparmor cache:')
             for line in traceback.format_exc().split('\n'):
                 syslog.syslog(syslog.LOG_WARNING, line)
         try:
             self.copy_wallpaper_cache()
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_WARNING, 'Could not copy wallpaper cache:')
             for line in traceback.format_exc().split('\n'):
@@ -748,7 +748,7 @@ class Install(install_misc.InstallBase):
         try:
             if remove_kernels:
                 install_misc.record_removed(remove_kernels, recursive=True)
-        except:
+        except Exception:
             self.db.progress('STOP')
             raise
         self.db.progress('SET', 5)

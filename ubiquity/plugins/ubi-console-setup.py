@@ -166,7 +166,7 @@ class PageGtk(plugin.PluginUI):
                     # Try a default, usually working locale
                     locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
                 choices.sort(key=lambda c: locale.strxfrm(c.encode('utf-8')))
-            except:
+            except Exception:
                 # Let's avoid crashing when we get a bad locale
                 choices.sort()
 
