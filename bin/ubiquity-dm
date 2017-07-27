@@ -541,7 +541,7 @@ EndSection
                     # At this point we're sure the usd xsettings plugin is
                     # available, we can continue setting up the session.
 
-                elif osextras.find_on_path(gsd[0]):
+                elif os.path.isdir("/usr/lib/gnome-settings-daemon"):
                     for gsdbinary in gsd:
                         if osextras.find_on_path(gsdbinary):
                             extras.append(subprocess.Popen(
