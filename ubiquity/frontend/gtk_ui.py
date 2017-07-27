@@ -362,7 +362,7 @@ class Wizard(BaseFrontend):
                     subprocess.Popen(
                         ['canberra-gtk-play', '--id=system-ready'],
                         preexec_fn=misc.drop_all_privileges)
-            except:
+            except Exception:
                 print("Unable to set up accessibility profile support",
                       file=sys.stderr)
             self.live_installer.connect(
@@ -509,7 +509,7 @@ class Wizard(BaseFrontend):
                 os.rename('%s.new' % thunar_volmanrc, thunar_volmanrc)
             except (KeyboardInterrupt, SystemExit):
                 raise
-            except:
+            except Exception:
                 pass
         return previous
 
@@ -1008,7 +1008,7 @@ class Wizard(BaseFrontend):
                 cfg.read(os.path.join(self.slideshow, 'slideshow.conf'))
                 config_width = int(cfg.get('Slideshow', 'width'))
                 config_height = int(cfg.get('Slideshow', 'height'))
-            except:
+            except Exception:
                 config_width = 752
                 config_height = 442
             self.webkit_scrolled_window.set_size_request(

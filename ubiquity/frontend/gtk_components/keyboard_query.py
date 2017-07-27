@@ -97,7 +97,7 @@ class KeyboardQuery(Gtk.Window):
         try:
             r = self.keyboard_detect.read_step(self.keyboard_detect.present)
             self.process(r)
-        except:
+        except Exception:
             self.hide()
 
     def no_have_key(self, *args):
@@ -105,7 +105,7 @@ class KeyboardQuery(Gtk.Window):
             r = self.keyboard_detect.read_step(
                 self.keyboard_detect.not_present)
             self.process(r)
-        except:
+        except Exception:
             self.hide()
 
     def key_press_event(self, widget, event):
@@ -124,7 +124,7 @@ class KeyboardQuery(Gtk.Window):
             try:
                 r = self.keyboard_detect.read_step(c)
                 self.process(r)
-            except:
+            except Exception:
                 self.hide()
 
 

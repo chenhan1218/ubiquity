@@ -35,7 +35,7 @@ WEIGHT = 10
 try:
     import lsb_release
     _ver = lsb_release.get_distro_information()['RELEASE']
-except:
+except Exception:
     _ver = '12.04'
 _wget_url = 'http://changelogs.ubuntu.com/ubiquity/%s-update-available' % _ver
 
@@ -106,7 +106,7 @@ class PageGtk(PageBase):
                 self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise
-            except:
+            except Exception:
                 pass
         self.install_ubuntu = builder.get_object('install_ubuntu')
         self.try_ubuntu = builder.get_object('try_ubuntu')
@@ -436,7 +436,7 @@ class PageKde(PageBase):
                 self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise
-            except:
+            except Exception:
                 pass
 
             if self.release_notes_url:

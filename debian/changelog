@@ -1,4 +1,18 @@
-ubiquity (17.10.1) UNRELEASED; urgency=medium
+ubiquity (17.10.3) UNRELEASED; urgency=medium
+
+  * Update ubiquity-dm for the new gnome-settings-daemon (lp: #1702892)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 27 Jul 2017 09:50:30 +0200
+
+ubiquity (17.10.2) artful; urgency=medium
+
+  * Depend/build-depend on python3-debconf rather than debconf for the
+    Python module (see https://bugs.debian.org/709198).
+  * Automatic update of included source packages: netcfg 1.142ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Jul 2017 22:25:38 +0100
+
+ubiquity (17.10.1) artful; urgency=medium
 
   [ Chen-Han Hsiao (Stanley) ]
   * Fix path to GDM3 custom config.
@@ -15,11 +29,12 @@ ubiquity (17.10.1) UNRELEASED; urgency=medium
     2.78ubuntu2, grub-installer 1.128ubuntu8, netcfg 1.142ubuntu2,
     partman-basicmethods 62, partman-lvm 114, preseed 1.71ubuntu5, tzsetup
     1:0.94ubuntu1.
-    
-  [ Sebastien Bacher ]
-  * Update ubiquity-dm for the new gnome-settings-daemon (lp: #1702892)
+  * Style cleanup to remove bare except: cases, as pointed out by pep8.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 17 Jul 2017 16:29:00 -0400
+  [ Jeremy Soller ]
+  * Add support for WPA2 Enterprise.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 18 Jul 2017 11:27:07 -0400
 
 ubiquity (17.04.9) zesty; urgency=medium
 

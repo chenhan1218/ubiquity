@@ -431,7 +431,7 @@ class Page(plugin.Plugin):
             # Strip .UTF-8 from locale, icu doesn't parse it
             locale = os.environ['LANG'].rsplit('.', 1)[0]
             self.collator = icu.Collator.createInstance(icu.Locale(locale))
-        except:
+        except Exception:
             self.collator = None
         if self.is_automatic or self.automatic_page:
             if self.db.fget('time/zone', 'seen') == 'true':
@@ -494,7 +494,7 @@ class Page(plugin.Plugin):
         if self.collator:
             try:
                 return self.collator.getCollationKey(s[0]).getByteArray()
-            except:
+            except Exception:
                 pass
         return s[0]
 
@@ -663,7 +663,7 @@ class Page(plugin.Plugin):
         rv = []
         try:
             locs = self.tzdb.cc_to_locs[country_code]  # BV failed?
-        except:
+        except Exception:
             # Some countries in tzsetup don't exist in zone.tab...
             # Specifically BV (Bouvet Island) and
             # HM (Heard and McDonald Islands).  Both are uninhabited.

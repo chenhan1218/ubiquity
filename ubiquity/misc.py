@@ -187,7 +187,7 @@ def grub_options():
                 elif part[5] in oslist.keys():
                     ostype = oslist[part[5]]
                 ret.append([part[5], ostype])
-    except:
+    except Exception:
         import traceback
         for line in traceback.format_exc().split('\n'):
             syslog.syslog(syslog.LOG_ERR, line)
@@ -414,7 +414,7 @@ def find_in_os_prober(device, with_version=False):
             return ret
     except (KeyboardInterrupt, SystemExit):
         pass
-    except:
+    except Exception:
         import traceback
         syslog.syslog(syslog.LOG_ERR, "Error in find_in_os_prober:")
         for line in traceback.format_exc().split('\n'):
@@ -490,7 +490,7 @@ def get_release():
                     line[0] = line[0].replace('-', ' ')
                     get_release.release_info = ReleaseInfo(
                         name=line[0], version=line[1])
-        except:
+        except Exception:
             syslog.syslog(syslog.LOG_ERR, 'Unable to determine the release.')
 
         if not get_release.release_info:
@@ -517,7 +517,7 @@ def get_release_name():
                         get_release_name.release_name = ' '.join(line[:3])
                     else:
                         get_release_name.release_name = ' '.join(line[:2])
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_ERR,
                 "Unable to determine the distribution name from "
@@ -538,7 +538,7 @@ def get_install_medium():
                 get_install_medium.medium = 'USB'
             else:
                 get_install_medium.medium = 'CD'
-        except:
+        except Exception:
             syslog.syslog(
                 syslog.LOG_ERR, "Unable to determine install medium.")
             get_install_medium.medium = 'CD'

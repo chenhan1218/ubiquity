@@ -272,7 +272,13 @@ class NetworkManagerTreeView(QtWidgets.QTreeView):
 
     def connect_to_selection(self, passphrase):
         devid, ssid = self._get_selected_row_ids()
-        self.wifi_model.connect_to_ap(devid, ssid, passphrase)
+        try:
+            self.wifi_model.connect_to_ap(devid, ssid, passphrase)
+        except Exception as e:
+            dialog = QtWidgets.QMessageBox()
+            dialog.setWindowTitle("Failed to connect to wireless network")
+            dialog.setText("{}".format(e))
+            dialog.exec_()
 
     def get_cached_passphrase(self):
         index = self.currentIndex()
