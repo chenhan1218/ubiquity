@@ -65,6 +65,7 @@ if [ -n "${SESSION+1}" ]; then
     case $SESSION in
         ubuntu)    # Covers Ubuntu and Edubuntu
             SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
+            gsettings set org.gnome.desktop.session idle-delay 0
             ;;
         xubuntu)
             SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
