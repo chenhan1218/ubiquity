@@ -31,7 +31,7 @@ fi
 echo $$>${LOCKFILE}
 
 # The following variables can be overridden with a configuration file
-TSBRANCH=lp:ubiquity
+TSBRANCH=lp:~heber013/ubiquity/disable-screen-blanking-autopilot
 EXTRAPACKAGES=""
 ARTIFACTS=""
 AP_OPTS="-v"
@@ -65,7 +65,6 @@ if [ -n "${SESSION+1}" ]; then
     case $SESSION in
         ubuntu)    # Covers Ubuntu and Edubuntu
             SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
-            gsettings set org.gnome.desktop.session idle-delay 0
             ;;
         xubuntu)
             SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
@@ -87,6 +86,9 @@ elif [ -n "${DESKTOP_SESSION+1}" ]; then
         gnome) #ubuntu-gnome
             SESSION_LOG=/var/log/apt/term.log
             ARTIFACTS="$ARTIFACTS /var/log/apt"
+            gsettings set org.gnome.desktop.session idle-delay 0
+            ;;
+        ubuntu)
             gsettings set org.gnome.desktop.session idle-delay 0
             ;;
     esac
