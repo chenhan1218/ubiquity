@@ -88,6 +88,9 @@ elif [ -n "${DESKTOP_SESSION+1}" ]; then
             ARTIFACTS="$ARTIFACTS /var/log/apt"
             gsettings set org.gnome.desktop.session idle-delay 0
             ;;
+        ubuntu)
+            gsettings set org.gnome.desktop.session idle-delay 0
+            ;;
     esac
 else
     echo "I: Unknown SESSION"
