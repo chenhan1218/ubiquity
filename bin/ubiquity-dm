@@ -545,7 +545,8 @@ EndSection
                     for gsdbinary in gsd:
                         if osextras.find_on_path(gsdbinary):
                             extras.append(subprocess.Popen(
-                                [gsdbinary], stdin=null, stdout=logfile, stderr=logfile,
+                                [gsdbinary],
+                                stdin=null, stdout=logfile, stderr=logfile,
                                 preexec_fn=self.drop_privileges))
 
                 elif background_image and osextras.find_on_path('feh'):

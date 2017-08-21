@@ -1,3 +1,9 @@
+ubiquity (17.10.4) UNRELEASED; urgency=medium
+
+  * bin/ubiquity-dm: Rewrap a line to fix pep8 failure
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 21 Aug 2017 10:02:12 +0100
+
 ubiquity (17.10.3) artful; urgency=medium
 
   * Update ubiquity-dm for the new gnome-settings-daemon (lp: #1702892)
