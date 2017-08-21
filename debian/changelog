@@ -2,6 +2,8 @@ ubiquity (17.10.4) UNRELEASED; urgency=medium
 
   [ Iain Lane ]
   * bin/ubiquity-dm: Rewrap a line to fix pep8 failure
+  * Automatic update of included source packages: console-setup
+    1.142ubuntu7.
 
   [ Jean-Baptiste Lallement ]
   * Disable screen blanking for the Ubuntu session. Thanks Heber
