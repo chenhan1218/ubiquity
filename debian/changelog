@@ -1,4 +1,4 @@
-ubiquity (17.10.4) UNRELEASED; urgency=medium
+ubiquity (17.10.4) artful; urgency=medium
 
   [ Iain Lane ]
   * bin/ubiquity-dm: Rewrap a line to fix pep8 failure
@@ -8,7 +8,7 @@ ubiquity (17.10.4) UNRELEASED; urgency=medium
   [ Jean-Baptiste Lallement ]
   * Disable screen blanking for the Ubuntu session. Thanks Heber
 
- -- Iain Lane <iain.lane@canonical.com>  Mon, 21 Aug 2017 10:02:12 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 21 Aug 2017 14:26:21 +0100
 
 ubiquity (17.10.3) artful; urgency=medium
 
