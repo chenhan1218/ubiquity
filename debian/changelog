@@ -1,3 +1,10 @@
+ubiquity (17.10.5) UNRELEASED; urgency=medium
+
+  * bin/ubiquity-dm: Don't try to start binaries removed in
+    gnome-settings-daemon 3.25. Thanks fossfreedom for the report.
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 30 Aug 2017 07:08:53 -0400
+
 ubiquity (17.10.4) artful; urgency=medium
 
   [ Iain Lane ]
