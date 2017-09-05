@@ -571,6 +571,7 @@ EndSection
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
+                os.environ['XDG_CURRENT_DESKTOP'] = 'ubuntu:GNOME'
             elif osextras.find_on_path('budgie-wm'):
                 wm_cmd = ['budgie-wm', '--sm-disable']
             elif osextras.find_on_path('marco'):
