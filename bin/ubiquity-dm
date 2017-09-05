@@ -531,9 +531,7 @@ EndSection
                 gsd = ['/usr/lib/gnome-settings-daemon/gsd-a11y-keyboard',
                        '/usr/lib/gnome-settings-daemon/gsd-a11y-settings',
                        '/usr/lib/gnome-settings-daemon/gsd-clipboard',
-                       '/usr/lib/gnome-settings-daemon/gsd-orientation',
                        '/usr/lib/gnome-settings-daemon/gsd-power',
-                       '/usr/lib/gnome-settings-daemon/gsd-xrandr',
                        '/usr/lib/gnome-settings-daemon/gsd-xsettings']
 
                 if osextras.find_on_path(msd):

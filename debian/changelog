@@ -1,8 +1,13 @@
 ubiquity (17.10.5) UNRELEASED; urgency=medium
 
+  [ Iain Lane ]
   * bin/ubiquity-dm: Set XDG_CURRENT_DESKTOP when using gnome-shell, so that
     we get the proper per-session gsettings overrides used. (LP: #1712289)
   * data/ubiquity.json: Set the ubuntu gnome-shell theme.
+
+  [ Jeremy Bicha ]
+  * bin/ubiquity-dm: Don't try to start binaries removed in
+    gnome-settings-daemon 3.25. Thanks fossfreedom for the report.
 
  -- Iain Lane <iain.lane@canonical.com>  Tue, 05 Sep 2017 15:43:51 +0100
 
