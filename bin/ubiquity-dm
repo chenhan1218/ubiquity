@@ -507,11 +507,12 @@ EndSection
                     # session-specific GSettings overrides for Ubuntu/Shell,
                     # like the theme.
                     os.environ['XDG_CURRENT_DESKTOP'] = 'ubuntu:GNOME'
-                    if (osextras.find_on_path('dbus-update-activation-environment')):
+                    if (osextras.find_on_path(
+                            'dbus-update-activation-environment')):
                         subprocess.Popen(
-                            ['dbus-update-activation-environment', '--verbose',
-                                '--systemd', 'XDG_CURRENT_DESKTOP'], stdin=null,
-                            stdout=logfile, stderr=logfile,
+                            ['dbus-update-activation-environment',
+                             '--verbose', '--systemd', 'XDG_CURRENT_DESKTOP'],
+                            stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges)
 
                 if (osextras.find_on_path('budgie-wm')):
