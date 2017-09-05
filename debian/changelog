@@ -6,6 +6,7 @@ ubiquity (17.10.5) UNRELEASED; urgency=medium
   * data/ubiquity.json: Set the ubuntu gnome-shell theme.
   * Automatic update of included source packages: console-setup
     1.166ubuntu2, flash-kernel 3.0~rc.4ubuntu66.
+  * debian/rules: Make KeyboardNames.pl relative.
 
   [ Jeremy Bicha ]
   * bin/ubiquity-dm: Don't try to start binaries removed in
