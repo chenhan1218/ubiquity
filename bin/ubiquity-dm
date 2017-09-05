@@ -502,6 +502,18 @@ EndSection
                          '1'))
                     os.environ['XDG_SESSION_TYPE'] = 'x11'
 
+                if (osextras.find_on_path('gnome-shell')):
+                    # set this environment variable since we have
+                    # session-specific GSettings overrides for Ubuntu/Shell,
+                    # like the theme.
+                    os.environ['XDG_CURRENT_DESKTOP'] = 'ubuntu:GNOME'
+                    if (osextras.find_on_path('dbus-update-activation-environment')):
+                        subprocess.Popen(
+                            ['dbus-update-activation-environment', '--verbose',
+                                '--systemd', 'XDG_CURRENT_DESKTOP'], stdin=null,
+                            stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges)
+
                 if (osextras.find_on_path('budgie-wm')):
                     gsettings_keys.append(
                         ('org.gnome.desktop.interface', 'icon-theme',
@@ -571,7 +583,6 @@ EndSection
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
-                os.environ['XDG_CURRENT_DESKTOP'] = 'ubuntu:GNOME'
             elif osextras.find_on_path('budgie-wm'):
                 wm_cmd = ['budgie-wm', '--sm-disable']
             elif osextras.find_on_path('marco'):
