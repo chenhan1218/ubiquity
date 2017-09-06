@@ -6,6 +6,8 @@ ubiquity (17.10.6) UNRELEASED; urgency=medium
   [ Iain Lane ]
   * debian/rules: Use an absolute path to KeyboardNames.pl so that the rule
     in console-setup fires.
+  * Automatic update of included source packages: console-setup
+    1.166ubuntu4.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 06 Sep 2017 09:48:23 -0400
 
