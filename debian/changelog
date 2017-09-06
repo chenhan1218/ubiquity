@@ -1,4 +1,4 @@
-ubiquity (17.10.6) UNRELEASED; urgency=medium
+ubiquity (17.10.6) artful; urgency=medium
 
   [ David Mohammed ]
   * Set XDG_CURRENT_DESKTOP for Budgie, so the wallpaper shows. (LP: #1713662)
@@ -9,7 +9,7 @@ ubiquity (17.10.6) UNRELEASED; urgency=medium
   * Automatic update of included source packages: console-setup
     1.166ubuntu4.
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 06 Sep 2017 09:48:23 -0400
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 06 Sep 2017 15:30:47 +0100
 
 ubiquity (17.10.5) artful; urgency=medium
 
