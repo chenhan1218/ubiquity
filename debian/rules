@@ -72,7 +72,7 @@ clean: check
 	$(MAKE) -C d-i check
 
 d-i/source/console-setup/Keyboard/KeyboardNames.pl:
-	$(MAKE) -C d-i/source/console-setup/Keyboard ./KeyboardNames.pl \
+	$(MAKE) -C d-i/source/console-setup/Keyboard $(CURDIR)/d-i/source/console-setup/Keyboard/KeyboardNames.pl
 		xkbdir=/usr/share/X11/xkb
 
 debian/kbdnames.gz: d-i/source/console-setup/Keyboard/KeyboardNames.pl
