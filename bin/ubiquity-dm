@@ -519,7 +519,7 @@ EndSection
                     gsettings_keys.append(
                         ('org.gnome.desktop.interface', 'icon-theme',
                          "'ubuntu-mono-dark'"))
-                    os.environ['XDG_SESSION_TYPE'] = 'x11'
+                    os.environ['XDG_CURRENT_DESKTOP'] = 'Budgie'
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
