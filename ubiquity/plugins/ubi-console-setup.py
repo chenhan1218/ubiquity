@@ -477,6 +477,8 @@ class Page(plugin.Plugin):
             'OVERRIDE_USE_DEBCONF_LOCALE': '1',
             'LC_ALL': di_locale,
             'PATH': '/usr/lib/ubiquity/console-setup:' + os.environ['PATH'],
+            'DPKG_MAINTSCRIPT_NAME': 'postinst',
+            'DPKG_MAINTSCRIPT_PACKAGE': 'keyboard-configuration',
         }
         return command, questions, environ
 
