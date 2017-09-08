@@ -1526,10 +1526,10 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
+"Install third-party software for graphics and Wi-Fi hardware, MP3 and "
 "other media"
 msgstr ""
-"ניתן להתקין תכנה מספקי צד־שלישי לטובת גרפיקה, חומרת תקשורת אלחוטית, Flash, "
+"ניתן להתקין תכנה מספקי צד־שלישי לטובת גרפיקה, חומרת תקשורת אלחוטית, "
 "MP3 וסוגי מדיה נוספים"
 
 #. Type: text

@@ -1553,10 +1553,10 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
+"Install third-party software for graphics and Wi-Fi hardware, MP3 and "
 "other media"
 msgstr ""
-"Installer tredjepartsprogramvare for skjermkort, trådløst nett, flash, mp3 "
+"Installer tredjepartsprogramvare for skjermkort, trådløst nett, mp3 "
 "og andre medier"
 
 #. Type: text
