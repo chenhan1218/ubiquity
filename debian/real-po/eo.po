@@ -1545,11 +1545,11 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
+"Install third-party software for graphics and Wi-Fi hardware, MP3 and "
 "other media"
 msgstr ""
 "Instali programon de ekstera liveranto por la grafika aparataro, aparataro "
-"de la sendrata reto, Flash, MP3 kaj aliaj."
+"de la sendrata reto, MP3 kaj aliaj."
 
 #. Type: text
 #. Description

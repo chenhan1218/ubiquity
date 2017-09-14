@@ -1555,11 +1555,11 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
+"Install third-party software for graphics and Wi-Fi hardware, MP3 and "
 "other media"
 msgstr ""
 "Asenna kolmannen osapuolen ohjelmistot näytönohjainta ja wifi-laitteistoa "
-"varten, sekä Flashia, MP3-tiedostoja ja muuta mediaa varten"
+"varten, MP3-tiedostoja ja muuta mediaa varten"
 
 #. Type: text
 #. Description

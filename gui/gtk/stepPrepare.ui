@@ -125,7 +125,7 @@
             <property name="spacing">6</property>
             <child>
               <object class="GtkCheckButton" id="prepare_nonfree_software">
-                <property name="label" translatable="yes">Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and other media</property>
+                <property name="label" translatable="yes">Install third-party software for graphics and Wi-Fi hardware, MP3 and other media</property>
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
