@@ -1,20 +1,24 @@
 ubiquity (17.10.7) UNRELEASED; urgency=medium
 
+  [ Bryan Quigley ]
+  * Flash will no longer be installed via the "restricted" checkbox so remove
+    it. (LP: #1709166)
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 07 Sep 2017 13:15:32 +0100
+
+ubiquity (17.10.7) artful; urgency=medium
+
+  [ Jean-Baptiste Lallement ]
+  * Mark the files for oem-config as trusted so they are properly handled by
+    nautilus. (LP: #1712581)
+
   [ Iain Lane ]
   * ubi-console-setup.py: Set DPKG_MAINTSCRIPT_{NAME,PACKAGE} variables for
     our manual running of keyboard-configuration.postinst. This script now
     runs dpkg-maintscript-helper to remove an old conffile. That code won't
     fire in ubiquity, but we still need to not error out. (LP: #1715605)
 
-  [ Bryan Quigley ]
-  * Flash will no longer be installed via the "restricted" checkbox so remove
-    it. (LP: #1709166)
-
-  [ Jean-Baptiste Lallement ]
-  * Marks oem-config-prepare-gtk.desktop and oem-config-prepare-kde.desktop as
-    trusted so it's handled as expected by nautilus (LP: #1712581)
-
- -- Iain Lane <iain.lane@canonical.com>  Thu, 07 Sep 2017 13:15:32 +0100
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 07 Sep 2017 11:02:30 -0400
 
 ubiquity (17.10.6) artful; urgency=medium
 
