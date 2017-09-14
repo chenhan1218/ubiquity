@@ -1212,6 +1212,13 @@ class Install(install_misc.InstallBase):
                                 '-o', 'oem', '-g', 'oem',
                                 '/%s' % desktop_file,
                                 '/home/oem/Desktop/%s' % desktop_base)
+                            install_misc.chrex(
+                                self.target,
+                                'sudo', '-i', '-u', 'oem',
+                                'dbus-run-session', '--',
+                                'gio', 'set',
+                                '/home/oem/Desktop/%s' % desktop_base,
+                                'metadata::trusted', 'true')
                             break
 
                 # Carry the locale setting over to the installed system.
