@@ -4,6 +4,10 @@ ubiquity (17.10.7) UNRELEASED; urgency=medium
   * Flash will no longer be installed via the "restricted" checkbox so remove
     it. (LP: #1709166)
 
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: partman-auto
+    134ubuntu7.
+
  -- Iain Lane <iain.lane@canonical.com>  Thu, 07 Sep 2017 13:15:32 +0100
 
 ubiquity (17.10.7) artful; urgency=medium
