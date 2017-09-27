@@ -1,4 +1,4 @@
-ubiquity (17.10.8) UNRELEASED; urgency=medium
+ubiquity (17.10.8) artful; urgency=medium
 
   [ Bryan Quigley ]
   * Flash will no longer be installed via the "restricted" checkbox so remove
@@ -12,7 +12,7 @@ ubiquity (17.10.8) UNRELEASED; urgency=medium
   * bin/oem-config-prepare: Drop privileges to the oem user to display the
     success dialog under wayland (LP: #1719734)
 
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 27 Sep 2017 11:31:30 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 27 Sep 2017 11:43:09 -0400
 
 ubiquity (17.10.7) artful; urgency=medium
 
