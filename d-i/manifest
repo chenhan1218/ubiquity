@@ -3,13 +3,13 @@ base-installer 1.158ubuntu4
 bterm-unifont 1.4
 choose-mirror 2.78ubuntu2
 clock-setup 0.131ubuntu1
-console-setup 1.166ubuntu4
+console-setup 1.166ubuntu5
 debian-installer-utils 1.113ubuntu1
 flash-kernel 3.0~rc.4ubuntu66
 grub-installer 1.128ubuntu8
 hw-detect 1.117ubuntu4
 localechooser 2.65ubuntu4
-netcfg 1.142ubuntu3
+netcfg 1.142ubuntu4
 partconf 1.50
 partman-auto 134ubuntu7
 partman-auto-crypto 22ubuntu1
