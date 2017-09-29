@@ -532,6 +532,7 @@ EndSection
                 gsd = ['/usr/lib/gnome-settings-daemon/gsd-a11y-keyboard',
                        '/usr/lib/gnome-settings-daemon/gsd-a11y-settings',
                        '/usr/lib/gnome-settings-daemon/gsd-clipboard',
+                       '/usr/lib/gnome-settings-daemon/gsd-media-keys',
                        '/usr/lib/gnome-settings-daemon/gsd-power',
                        '/usr/lib/gnome-settings-daemon/gsd-xsettings']
 
