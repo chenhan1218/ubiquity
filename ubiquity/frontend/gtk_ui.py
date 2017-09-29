@@ -358,15 +358,16 @@ class Wizard(BaseFrontend):
             try:
                 subprocess.Popen(['a11y-profile-manager-indicator',
                                   '-i'], preexec_fn=misc.drop_all_privileges)
-                if osextras.find_on_path('canberra-gtk-play'):
-                    subprocess.Popen(
-                        ['canberra-gtk-play', '--id=system-ready'],
-                        preexec_fn=misc.drop_all_privileges)
             except Exception:
                 print("Unable to set up accessibility profile support",
                       file=sys.stderr)
             self.live_installer.connect(
                 'key-press-event', self.a11y_profile_keys)
+
+        if osextras.find_on_path('canberra-gtk-play'):
+            subprocess.Popen(
+                ['canberra-gtk-play', '--id=system-ready'],
+                preexec_fn=misc.drop_all_privileges)
 
     def all_children(self, parent):
         if isinstance(parent, Gtk.Container):
