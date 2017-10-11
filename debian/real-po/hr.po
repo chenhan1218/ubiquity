@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-09-02 01:10+0000\n"
+"PO-Revision-Date: 2017-09-29 16:27+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
-"X-Generator: Launchpad (build 18343)\n"
+"X-Launchpad-Export-Date: 2017-10-11 15:08+0000\n"
+"X-Generator: Launchpad (build 18474)\n"
 "Language: hr\n"
 
 #. Type: text
@@ -113,7 +113,7 @@ msgid ""
 "href=\"update\">update this installer</a>."
 msgstr ""
 "Možda biste htjeli pročitati <a href=\"release-notes\">bilješke izdanja</a> "
-"ili <a href=\"update\">ažurirajte ovaj instalacijski program</a>."
+"ili <a href=\"update\">nadopunite ovaj instalacijski program</a>."
 
 #. Type: text
 #. Description
@@ -127,7 +127,7 @@ msgstr ""
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"Možda biste htjeli <a href=\"update\">ažurirati ovaj instalacijski "
+"Možda biste htjeli <a href=\"update\">nadopuniti ovaj instalacijski "
 "program</a>."
 
 #. Type: text
@@ -1559,10 +1559,10 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, MP3 and "
+"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
 "other media"
 msgstr ""
-"Instaliraj softver treće strane za grafiku i Wi-Fi hardver, MP3 i "
+"Instaliraj softver treće strane za grafiku i Wi-Fi hardver, Flash, MP3 i "
 "ostale medije"
 
 #. Type: text

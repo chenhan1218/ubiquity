@@ -11,6 +11,11 @@ ubiquity (17.10.9) UNRELEASED; urgency=medium
   [ Shih-Yuan Lee ]
   * Ensure the IO encoding for Debconf always to be utf-8. (LP: #1713002)
 
+  [ Mathieu Trudel-Lapierre ]
+  * Update translations from Launchpad.
+  * Really fix debian/real-po/templates.pot to get the mention of Flash
+    out, in time.
+
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 28 Sep 2017 17:23:02 -0400
 
 ubiquity (17.10.8) artful; urgency=medium

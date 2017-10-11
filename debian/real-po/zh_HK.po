@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
 "POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-09-02 01:13+0000\n"
+"PO-Revision-Date: 2017-09-29 16:19+0000\n"
 "Last-Translator: tomoe_musashi <hkg.musashi@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-07 14:04+0000\n"
-"X-Generator: Launchpad (build 18343)\n"
+"X-Launchpad-Export-Date: 2017-10-11 15:08+0000\n"
+"X-Generator: Launchpad (build 18474)\n"
 "Language: zh_HK\n"
 
 #. Type: text
@@ -1473,9 +1473,9 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, MP3 and "
+"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
 "other media"
-msgstr "為圖像及 Wi-Fi 硬體、MP3 與其他媒體安裝第三方軟體"
+msgstr "為圖像及 Wi-Fi 硬體、Flash、MP3 與其他媒體安裝第三方軟體"
 
 #. Type: text
 #. Description
