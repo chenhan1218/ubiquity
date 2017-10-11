@@ -1,11 +1,15 @@
 ubiquity (17.10.9) UNRELEASED; urgency=medium
 
+  [ Sebastien Bacher ]
   * bin/ubiquity-dm:
     - start gsd-media-keys so the screenreader can be enabled using
       the standard keybinding (lp: #1719994)
   * ubiquity/frontend/gtk_ui.py:
     - don't require the a11y indicator to be available to play the
       installer-is-ready sound (lp: #1719992)
+
+  [ Shih-Yuan Lee ]
+  * Ensure the IO encoding for Debconf always to be utf-8. (LP: #1713002)
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 28 Sep 2017 17:23:02 -0400
 

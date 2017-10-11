@@ -22,6 +22,7 @@
 from __future__ import print_function
 
 import gzip
+import io
 import os
 import platform
 import pwd
@@ -87,7 +88,10 @@ class Install(install_misc.InstallBase):
     def __init__(self):
         install_misc.InstallBase.__init__(self)
 
-        self.db = debconf.Debconf()
+        self.db = debconf.Debconf(
+            read=io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8'),
+            write=io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8'))
+
         self.kernel_version = platform.release()
 
         # Get langpacks from install
