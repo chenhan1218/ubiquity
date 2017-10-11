@@ -15,6 +15,8 @@ ubiquity (17.10.9) UNRELEASED; urgency=medium
   * Update translations from Launchpad.
   * Really fix debian/real-po/templates.pot to get the mention of Flash
     out, in time.
+  * Automatic update of included source packages: console-setup
+    1.166ubuntu7.
 
  -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 28 Sep 2017 17:23:02 -0400
 
