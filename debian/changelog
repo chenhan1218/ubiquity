@@ -1,4 +1,4 @@
-ubiquity (17.10.9) UNRELEASED; urgency=medium
+ubiquity (17.10.9) artful; urgency=medium
 
   [ Sebastien Bacher ]
   * bin/ubiquity-dm:
@@ -20,7 +20,7 @@ ubiquity (17.10.9) UNRELEASED; urgency=medium
   * tests/test_misc.py: Fix 'ta' keymap test again: tam_TAB no longer exists,
     replace it with checking for tam_unicode.
 
- -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 28 Sep 2017 17:23:02 -0400
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 11 Oct 2017 12:06:55 -0400
 
 ubiquity (17.10.8) artful; urgency=medium
 
